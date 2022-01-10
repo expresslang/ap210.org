@@ -5,4 +5,6 @@ This site provides educational materials for ISO 10303-210 that originated with 
 
 Some of the material is provided as a result of several NIST grants. That material is also released into the public domain.
 
+## Added SPICE Deliverables from NIST 2011 project
+
 The standard may be purchased at https://www.iso.org/search.html?q=10303-210.
