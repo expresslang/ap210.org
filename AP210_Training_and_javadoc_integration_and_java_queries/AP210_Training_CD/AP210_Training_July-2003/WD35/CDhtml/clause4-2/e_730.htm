@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Printed_part_template</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.730 Printed_part_template</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Printed_part_template is a type of <A
+CLASS="INTERNALREF"
+HREF="e_624.htm"
+>Part_template</A
+>. Each 
+Printed_part_template may be either one of or both of a <A
+CLASS="INTERNALREF"
+HREF="e_726.htm"
+>Printed_connector_template</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_728.htm"
+>Printed_part_cross_section_template</A
+>. A Printed_part_template is a Part_template that has a specified function.  Material may be discontiguous in a Printed_part_template.<DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>An occurrence of this object is a <A
+CLASS="INTERNALREF"
+HREF="e_721.htm"
+>Printed_component</A
+>
+that is realized during the manufacturing process for the printed circuit board.</LI
+><LI
+CLASS="NOTEINGROUP"
+>The functionality realized in an occurrence of a Printed part is determined by the shape of the occurrence 
+and the material constituting the occurrence.</LI
+></OL
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>ppt</SPAN
+> illustrates shape data associated with single layer Printed_part.  This part of ISO 10303 supports complex, specific purpose, multi-layer Printed_part exchange using the design reuse concept with the <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+> being a design view that contains the full multi-layer definition of the part design.  Individual elements of the part design on a layer basis would be related to individual elements in the design being created using the <A
+CLASS="INTERNALREF"
+HREF="e_126.htm"
+>Component_make_from_relationship</A
+>.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>access_mechanisms</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>characterized_material</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>cross_section</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>implemented_function</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.730.1 access_mechanisms</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The access_mechanisms is an inverse relationship that specifies that the existence of the Printed_part_template is dependent on the 
+existence 
+of the <A
+CLASS="INTERNALREF"
+HREF="e_737.htm"
+>Printed_part_template_terminal</A
+> that 
+specifies the Printed_part_template as its associated_definition. There shall be two or more 
+Printed_part_template_terminal for a Printed_part_template.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.730.2 characterized_material</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The characterized_material specifies the sequence of <A
+CLASS="INTERNALREF"
+HREF="e_735.htm"
+>Printed_part_template_material</A
+> required to realize an implementation of a 
+Printed_part_template, including conductive and dielectric materials. 
+There shall be one or more Printed_part_template_material for a Printed_part_template, and the same characterized_material may occur more than once in the sequence.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The members of the sequence characterized_material need not be unique because the 
+Printed_part_template is an incomplete set of information that is used as a reference in the construction of 
+the complete product data for a design. The complete material shapes are not defined. </DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.730.3 cross_section</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The cross_section specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_728.htm"
+>Printed_part_cross_section_template</A
+> for the Printed_part_template. The cross_section need 
+not be specified for a particular Printed_part_template.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.730.4 implemented_function</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The implemented_function specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_410.htm"
+>Functional_unit_usage_view</A
+> for the Printed_part_template.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The function this member of Printed_part_template implements shall be the associated function for the functional terminals mapped to the terminals of this member of Printed_part_template.</DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The Printed_part_template will have two product categories populated: one for the Part_template and one for the Printed_part_template.  There is  no conflict between these two categories.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY printed_part_template
+  SUPERTYPE OF (ONEOF(layout_macro_floor_plan_template,printed_connector_template))
+  SUBTYPE OF (part_template);
+--tt tc1wd2 correct list error, make vertical link set
+--tt tc1wd2 change attribute name for clarity.
+    of_stratum_technology : OPTIONAL stratum_technology;
+    material_stack : OPTIONAL SET [1:?] OF stratum_technology_link;
+    printed_part_template_stack : OPTIONAL SET [1:?] OF printed_part_template_link;
+    implemented_function   : functional_unit_usage_view;
+DERIVE
+    access_mechanisms : SET [1:?] OF printed_part_template_terminal :=
+    raw_access_mechanisms + 
+    printed_part_template_access_mechanisms(printed_part_template_stack);
+INVERSE
+--tt tc1 wd9 modify for stacked printed_part_template
+    raw_access_mechanisms : SET [0:?] OF printed_part_template_terminal FOR 
+                        associated_definition;
+WHERE
+ WR1: ((EXISTS (of_stratum_technology) XOR 
+       EXISTS (material_stack)) AND 
+      (EXISTS (of_stratum_technology) XOR 
+       EXISTS (printed_part_template_stack)) AND 
+      (EXISTS (material_stack) XOR 
+       EXISTS (printed_part_template_stack))) OR 
+       ('AP210_ARM.LAYOUT_MACRO_FLOOR_PLAN_TEMPLATE' IN TYPEOF(SELF));
+ WR2: (NOT (EXISTS(material_stack)) 
+      OR (SIZEOF(QUERY ( temp &#60;* material_stack |
+        EXISTS (temp.precedent_stratum_technology_link))) = 
+        SIZEOF(material_stack) -1)) OR
+       ('AP210_ARM.LAYOUT_MACRO_FLOOR_PLAN_TEMPLATE' IN TYPEOF(SELF));
+--tt tc1 wd9 added following
+ WR3: (SIZEOF (QUERY( prpc &#60;* 
+  USEDIN(associated_definition\ee_product_definition.version.versioned_item,
+       'AP210_ARM.EE_PRODUCT_RELATED_PRODUCT_CATEGORY.OF_PRODUCT') | 
+              (prpc.name = 'printed part')
+             )) &#62;= 0) OR
+       ('AP210_ARM.LAYOUT_MACRO_FLOOR_PLAN_TEMPLATE' IN TYPEOF(SELF));
+ WR4: (EXISTS(printed_part_template_stack) XOR EXISTS(raw_access_mechanisms))
+       OR
+       ('AP210_ARM.LAYOUT_MACRO_FLOOR_PLAN_TEMPLATE' IN TYPEOF(SELF));
+END_ENTITY; -- printed_part_template
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

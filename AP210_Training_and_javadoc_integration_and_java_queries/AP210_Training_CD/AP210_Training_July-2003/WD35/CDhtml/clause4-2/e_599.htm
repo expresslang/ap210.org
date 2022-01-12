@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Padstack_occurrence</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.599 Padstack_occurrence</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+>A Padstack_occurrence is a type of <A
+CLASS="INTERNALREF"
+HREF="e_40.htm"
+>Assembly_group_component</A
+>.  A Padstack_occurrence organizes the various Land and Inter_stratum_features so that one placement may suffice for all Application Objects that are derived from the placement of one padstack.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>usage_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.599.1 usage_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The usage_definition inherited from the Assembly_component specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_595.htm"
+>Padstack_definition</A
+> for the Padstack_occurrence.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY padstack_occurrence
+  SUBTYPE OF (assembly_group_component);
+    SELF\assembly_component.usage_definition : padstack_definition;
+WHERE
+ WR1: SIZEOF(TYPEOF(SELF) * [
+         'AP210_ARM.PRINTED_COMPONENT',
+         'AP210_ARM.LAMINATE_COMPONENT',
+         'AP210_ARM.PHYSICAL_COMPONENT']) = 0;
+END_ENTITY; -- padstack_occurrence
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

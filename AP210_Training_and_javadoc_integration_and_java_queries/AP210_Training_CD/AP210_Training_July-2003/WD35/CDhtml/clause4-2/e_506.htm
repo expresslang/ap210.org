@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Layout_macro_definition_terminal_to_usage_terminal_assignment</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.506 Layout_macro_definition_terminal_to_usage_terminal_assignment</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Layout_macro_definition_terminal_to_usage_terminal_assignment is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A 
+Layout_macro_definition_terminal_to_usage_terminal_assignment
+is the association between the <A
+CLASS="INTERNALREF"
+HREF="e_737.htm"
+>Printed_part_template_terminal</A
+> and one of several fabricated features. 
+The purpose for this assignment 
+is to link the product data in the macro definition to the floor planning usage view to support a recursive definition.
+The Layout_macro_definition_terminal_to_usage_terminal_assignment shall be referenced by one Layout_macro_floor_plan_template.<DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>In a recursive definition, both a macro definition and the macro interface declaration that is the Layout_macro_floor_plan_template are archived together, with this relationship 
+populated as necessary to provide linkages between the fabricated features in the macro definition and the features in the 
+planning view. Without this linkage populated, there is no way to traverse the recursive definition so as to 
+successfully resolve the terminals at each level of recursion.</LI
+><LI
+CLASS="NOTEINGROUP"
+>This facility is used to support transport of CAD data where geometric subroutines that include layer data and terminal
+data are defined.</LI
+></OL
+></DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>assigned_design_object</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>defined_template_feature</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.506.1 assigned_design_object</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The assigned_design_object specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_149.htm"
+>Component_termination_passage_join_terminal</A
+>
+or of the <A
+CLASS="INTERNALREF"
+HREF="e_954.htm"
+>Via_terminal</A
+>
+or of the <A
+CLASS="INTERNALREF"
+HREF="e_722.htm"
+>Printed_component_join_terminal</A
+>
+or of the <A
+CLASS="INTERNALREF"
+HREF="e_172.htm"
+>Conductive_interconnect_element_terminal</A
+>
+or of the <A
+CLASS="INTERNALREF"
+HREF="e_492.htm"
+>Land_join_terminal</A
+>
+or of the <A
+CLASS="INTERNALREF"
+HREF="e_565.htm"
+>Non_functional_land_join_terminal</A
+>
+ for the Layout_macro_definition_terminal_to_usage_terminal_assignment.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.506.2 defined_template_feature</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The defined_template_feature specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_737.htm"
+>Printed_part_template_terminal</A
+> for the 
+Layout_macro_definition_terminal_to_usage_terminal_assignment.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY layout_macro_definition_terminal_to_usage_terminal_assignment
+  SUBTYPE OF (managed_design_object);
+    defined_template_feature   : printed_part_template_terminal;
+    assigned_design_object     : fabricated_feature_select;
+WHERE
+  WR1: SIZEOF(USEDIN(SELF,
+       'AP210_ARM.LAYOUT_MACRO_FLOOR_PLAN_TEMPLATE.ACCESS_MAPS')) = 1;
+END_ENTITY; -- layout_macro_definition_terminal_to_usage_terminal_assignment
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Documentation_layer_stratum</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.306 Documentation_layer_stratum</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Documentation_layer_stratum is a type of <A
+CLASS="INTERNALREF"
+HREF="e_845.htm"
+>Stratum</A
+> used to 
+describe patterns and other artwork information needed to manufacture a Stratum from 
+materials which are not independently implementing a <A
+CLASS="INTERNALREF"
+HREF="e_660.htm"
+>Physical_network</A
+> in the printed circuit board.<DIV
+CLASS="EXAMPLEGROUP"
+><P
+>EXAMPLES:</P
+><OL
+><LI
+CLASS="EXAMPLEINGROUP"
+>A Documentation_layer_stratum generally refers to those layers in domain terms for which there is a specifically designed shape other than, or in addition to, that of the printed circuit board edge, and for which the CAD systems traditionally output a separate master artwork pattern or file, but for which the resulting pattern is not for an independent conductive layer. For a "six layer pcb", in domain terms, there are six independently conductive design layers. This part of ISO 10303 allows the "outer layers" to be described by several Stratum to accommodate the different metallurgies that are found on electroless copper plated, electrolytic copper plated, and solder plated or solder coated Stratum on the primary and secondary sides of the <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+>. 
+The usual design view of the shape of these "outer layers" is that the shapes are identical for all practical purposes and the required shape is the cumulative shape that will appear after all the manufacturing processes are completed. A Stratum of conductive material, such as solder paste, is not an independently conductive layer in this context, since its shape is usually dependent upon the independently conductive layer over which it is applied through openings in solder mask or another Documentation_layer_stratum.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The general case of dielectric layers such as the adhesive Stratum, or the Stratum consisting of the 
+dielectric substrate between two copper foil Stratum in a printed circuit board, is that they are neither a 
+Documentation_layer_stratum nor a Design_layer_stratum.  Their shapes are totally dependent upon the 
+overall shape of the printed circuit board and its various passages.</DIV
+></LI
+><LI
+CLASS="EXAMPLEINGROUP"
+>If the stratum purpose is that of a coverlay, the insulating sheet on the outer surface of a flexible printed harness and the die-cut passages in the dielectric material of the coverlay are defined as Inter_stratum_features. 
+A Stratum is used to describe the presence of the material. This Stratum in this context is neither a <A
+CLASS="INTERNALREF"
+HREF="e_275.htm"
+>Design_layer_stratum</A
+> nor a Documentation_layer_stratum.</LI
+><LI
+CLASS="EXAMPLEINGROUP"
+>A Documentation_layer_stratum differs from a Design_layer_stratum in that its Ee_materials include such materials as solder maskant, epoxy ink, or dielectric materials; or materials such as solder paste that are described as conductive by the <A
+CLASS="INTERNALREF"
+HREF="e_318.htm"
+>Ee_material</A
+> of the Stratum but whose shape is dependent upon that of an independently described Stratum.</LI
+><LI
+CLASS="EXAMPLEINGROUP"
+>An example of the shape of an independently described Stratum of conductive materials is that of the copper to be found in the traces and lands on the printed circuit board.  The shape of a Stratum of solder paste is often dependent upon the shape of the Stratum of solder mask that in turn is dependent upon the shape of the circuitry on the primary and secondary sides of the Interconnect_module over which the solder mask and solder paste are applied.</LI
+></OL
+></DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>of_technology</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.306.1 of_technology</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The of_technology specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_307.htm"
+>Documentation_layer_technology</A
+> for the Documentation_layer_stratum.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY documentation_layer_stratum
+  SUBTYPE OF (stratum);
+    SELF\stratum.of_technology : documentation_layer_technology;
+END_ENTITY; -- documentation_layer_stratum
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

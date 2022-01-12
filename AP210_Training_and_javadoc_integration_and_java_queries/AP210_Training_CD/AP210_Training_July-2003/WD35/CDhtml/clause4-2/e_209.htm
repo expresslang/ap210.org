@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Cutout_edge_segment</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.209 Cutout_edge_segment</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Cutout_edge_segment is a type of <A
+CLASS="INTERNALREF"
+HREF="e_471.htm"
+>Inter_stratum_feature</A
+> that defines an edge segment of a <A
+CLASS="INTERNALREF"
+HREF="e_208.htm"
+>Cutout</A
+>.  When the Cutout_edge_segment participates in a Cutout that is fully described by a collection of Cutout_edge_segment, the end_vertex of the final segment shall be the start_vertex of the first segment.  Adjacent Cutout_edge_segment reference the same member of <A
+CLASS="INTERNALREF"
+HREF="e_312.htm"
+>Edge_segment_vertex</A
+> but in different roles to ensure continuity.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>ces</SPAN
+> illustrates a Cutout_edge_segment.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Some Cutouts have edges that differ in cross-section shape. This object is to describe one segment of the 
+edge of one member of that type.</DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>composed_cutout</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>end_vertex</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>precedent_segment</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>start_vertex</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.209.1 composed_cutout</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The composed_cutout specifies the <A
+CLASS="INTERNALREF"
+HREF="e_208.htm"
+>Cutout</A
+> that contains the 
+Cutout_edge_segment.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.209.2 end_vertex</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The end_vertex specifies one role of an Edge_segment_vertex for the Cutout_edge_segment.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.209.3 start_vertex</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The start_vertex specifies one role of an Edge_segment_vertex for the Cutout_edge_segment.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The Cutout_edge_segment shall help to compose only inner features of the 
+Interconnect_module</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The start_vertex shall not be the end_vertex.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY cutout_edge_segment
+  SUPERTYPE OF (plated_cutout_edge_segment)
+  SUBTYPE OF (inter_stratum_feature);
+    composed_cutout                             : cutout;
+    start_vertex                                : edge_segment_vertex;
+    end_vertex                                  : edge_segment_vertex;
+    SELF\inter_stratum_feature.usage_definition : 
+	inter_stratum_feature_edge_segment_template;
+WHERE
+ wr1: start_vertex :&#60;&#62;: end_vertex;
+END_ENTITY; -- cutout_edge_segment
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

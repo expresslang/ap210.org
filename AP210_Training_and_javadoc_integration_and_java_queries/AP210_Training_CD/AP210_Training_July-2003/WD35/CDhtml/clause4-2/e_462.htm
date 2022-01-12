@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Interface_component</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.468 Interface_component</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Interface_component is a type of <A
+CLASS="INTERNALREF"
+HREF="e_34.htm"
+>Assembly_component</A
+> used to provide an identified interface in the assembly.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>icomp</SPAN
+> illustrates an Interface_component and its role in the assembly, and that there may be multiple Interface_component in sequence.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The interface provided by the Interface_component is usually included in the design to provide an interface between the component providing the primary interconnect functionality and other components or to the next level of assembly.</DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: A bond wire that attaches a die terminal to a substrate terminal is an Interface_component. The logic behind this is the the bond wire is an electrical interface between the die instance and the substrate instance, and that it is separate from the die and from the substrate.
+If the routing is unique, the bond wire may also be a Routed_interconnect_component.
+In the case of a bond wire, only one terminal would be a Component_interface_terminal.
+The second terminal would be an Interconnect_component_join_terminal.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>access_mechanism</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.468.1 access_mechanism</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The access_mechanism is an inverse relationship that specifies that the existence of the Interface_component is dependent on the 
+existence of 
+the <A
+CLASS="INTERNALREF"
+HREF="e_125.htm"
+>Component_interface_terminal</A
+> that 
+specifies the Interface_component as its associated_component. There shall be one or more Component_interface_terminal for an Interface_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY interface_component
+  SUPERTYPE OF (packaged_connector_component)
+  SUBTYPE OF (physical_component);
+  INVERSE
+    access_mechanism : SET [1:?] OF 
+                       component_interface_terminal FOR associated_component;
+END_ENTITY; -- interface_component
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

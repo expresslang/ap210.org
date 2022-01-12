@@ -1,0 +1,59 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Modified_swept_solid_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Modified_swept_solid_arm</h2><code><br><br><a name="modified_swept_solid_arm">SCHEMA <b>Modified_swept_solid_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/basic_geometric_topology/sys/e_exp_arm.htm#basic_geometric_topology_arm">Basic_geometric_topology_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1323<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/swept_solid/sys/e_exp_arm.htm#swept_solid_arm">Swept_solid_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1321<br><br></code><code><br><A NAME="modified_swept_solid_arm.trim_intent">TYPE </A><b>trim_intent</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (blind,<br>&nbsp;&nbsp;&nbsp;&nbsp;through_all,<br>&nbsp;&nbsp;&nbsp;&nbsp;up_to_next,<br>&nbsp;&nbsp;&nbsp;&nbsp;unspecified);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="modified_swept_solid_arm.trim_select">TYPE </A><b>trim_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/topologically_bounded_surface/sys/e_exp_arm.htm#topologically_bounded_surface_arm.advanced_face">Advanced_face</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.length_measure">length_measure</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.plane_angle_measure">plane_angle_measure</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="modified_swept_solid_arm.extruded_solid_with_draft_angle">ENTITY <b>Extruded_solid_with_draft_angle</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#modified_swept_solid_arm.extruded_solid_with_trim_conditions">Extruded_solid_with_trim_conditions</A>);<br>
+         &nbsp;&nbsp;<A NAME="modified_swept_solid_arm.extruded_solid_with_draft_angle.draft_angle">draft_angle : </A><A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.plane_angle_measure">plane_angle_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="modified_swept_solid_arm.extruded_solid_with_multiple_draft_angles">ENTITY <b>Extruded_solid_with_multiple_draft_angles</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#modified_swept_solid_arm.extruded_solid_with_trim_conditions">Extruded_solid_with_trim_conditions</A>);<br>
+         &nbsp;&nbsp;<A NAME="modified_swept_solid_arm.extruded_solid_with_multiple_draft_angles.draft_edges">draft_edges : </A>LIST[2:?] OF SET[1:?] OF <A HREF="../../../data/modules/basic_geometric_topology/sys/e_exp_arm.htm#basic_geometric_topology_arm.edge_curve">Edge_curve</A>;<br>
+         &nbsp;&nbsp;<A NAME="modified_swept_solid_arm.extruded_solid_with_multiple_draft_angles.draft_angles">draft_angles : </A>LIST[2:?] OF <A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.plane_angle_measure">plane_angle_measure</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="modified_swept_solid_arm.extruded_solid_with_multiple_draft_angles.wr:wr1">WR1: SIZEOF(draft_edges) = SIZEOF(draft_angles);</A><br>
+         &nbsp;&nbsp;<A NAME="modified_swept_solid_arm.extruded_solid_with_multiple_draft_angles.wr:wr2">WR2: SIZEOF(QUERY(q &lt;* draft_angles | q = 0)) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="modified_swept_solid_arm.extruded_solid_with_trim_conditions">ENTITY <b>Extruded_solid_with_trim_conditions</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#modified_swept_solid_arm.extruded_solid_with_draft_angle">Extruded_solid_with_draft_angle</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#modified_swept_solid_arm.extruded_solid_with_multiple_draft_angles">Extruded_solid_with_multiple_draft_angles</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/swept_solid/sys/e_exp_arm.htm#swept_solid_arm.extruded_solid">Extruded_solid</A>);<br>
+         &nbsp;&nbsp;<A NAME="modified_swept_solid_arm.extruded_solid_with_trim_conditions.start_condition">start_condition : </A><A HREF="#modified_swept_solid_arm.trim_select">trim_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="modified_swept_solid_arm.extruded_solid_with_trim_conditions.end_condition">end_condition : </A><A HREF="#modified_swept_solid_arm.trim_select">trim_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="modified_swept_solid_arm.extruded_solid_with_trim_conditions.start_condition_intent">start_condition_intent : </A><A HREF="#modified_swept_solid_arm.trim_intent">trim_intent</A>;<br>
+         &nbsp;&nbsp;<A NAME="modified_swept_solid_arm.extruded_solid_with_trim_conditions.end_condition_intent">end_condition_intent : </A><A HREF="#modified_swept_solid_arm.trim_intent">trim_intent</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="modified_swept_solid_arm.solid_of_revolution_with_trim_conditions">ENTITY <b>Solid_of_revolution_with_trim_conditions</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/swept_solid/sys/e_exp_arm.htm#swept_solid_arm.solid_of_revolution">Solid_of_revolution</A>);<br>
+         &nbsp;&nbsp;<A NAME="modified_swept_solid_arm.solid_of_revolution_with_trim_conditions.start_condition">start_condition : </A><A HREF="#modified_swept_solid_arm.trim_select">trim_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="modified_swept_solid_arm.solid_of_revolution_with_trim_conditions.end_condition">end_condition : </A><A HREF="#modified_swept_solid_arm.trim_select">trim_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Modified_swept_solid_arm<br></code></body>
+</HTML>

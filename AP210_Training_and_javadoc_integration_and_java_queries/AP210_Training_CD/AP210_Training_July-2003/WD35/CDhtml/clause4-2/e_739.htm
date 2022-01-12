@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Probe_access_area</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.739 Probe_access_area</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Probe_access_area is a type of <A
+CLASS="INTERNALREF"
+HREF="e_483.htm"
+>Laminate_component</A
+>. A Probe_access_area may be an <A
+CLASS="INTERNALREF"
+HREF="e_468.htm"
+>Internal_probe_access_area</A
+>. A 
+Probe_access_area is a feature incorporated into 
+the design of an <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+> for the purpose of measuring electrical 
+characteristics of the design. It is realized by an exposed surface of conducting material that is in physical 
+contact with the <A
+CLASS="INTERNALREF"
+HREF="e_176.htm"
+>Conductor</A
+> or <A
+CLASS="INTERNALREF"
+HREF="e_170.htm"
+>Conductive_filled_area</A
+> upon which the measurement is 
+to be made.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>paa</SPAN
+> illustrates a detail of a layout drawing that shows a probe area in the layout.  Sufficient detail may be included in the design to evaluate accurately probe placement and volume restrictions.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>probe_contact_zone</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>probed_layout_item</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.739.1 probe_contact_zone</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The probe_contact_zone specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_185.htm"
+>Connection_zone</A
+>
+for the Probe_access_area.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.739.2 probed_layout_item</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The probed_layout_item specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_851.htm"
+>Stratum_feature</A
+> for 
+the Probe_access_area.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY probe_access_area
+  SUPERTYPE OF (internal_probe_access_area)
+  SUBTYPE OF (laminate_component);
+    probed_layout_item : stratum_feature;
+    probe_contact_zone : connection_zone;
+END_ENTITY; -- probe_access_area
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

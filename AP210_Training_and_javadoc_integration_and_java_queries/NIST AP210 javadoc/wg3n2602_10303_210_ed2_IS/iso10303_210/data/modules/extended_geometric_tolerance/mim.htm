@@ -1,0 +1,144 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Extended_geometric_tolerance_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Extended_geometric_tolerance_mim</h2><code><br><br><a name="extended_geometric_tolerance_mim">SCHEMA <b>Extended_geometric_tolerance_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/requirement_decomposition/sys/e_exp_mim.htm#requirement_decomposition_mim">Requirement_decomposition_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1740<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/default_tolerance/sys/e_exp_mim.htm#default_tolerance_mim">Default_tolerance_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1052<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_mim.htm#geometric_tolerance_mim">Geometric_tolerance_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1051<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/non_feature_shape_element/sys/e_exp_mim.htm#non_feature_shape_element_mim">Non_feature_shape_element_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1706<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/application_context_schema/application_context_schema.htm#application_context_schema">application_context_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/application_context_schema/application_context_schema.htm#application_context_schema.application_context_element">application_context_element</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema">material_property_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-45<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.property_definition_relationship">property_definition_relationship</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/shape_tolerance_schema/shape_tolerance_schema.htm#shape_tolerance_schema">shape_tolerance_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-47<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/shape_tolerance_schema/shape_tolerance_schema.htm#shape_tolerance_schema.runout_zone_orientation">runout_zone_orientation</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/shape_tolerance_schema/shape_tolerance_schema.htm#shape_tolerance_schema.tolerance_zone_form">tolerance_zone_form</A>);
+         <br><br></code><code><br><A NAME="extended_geometric_tolerance_mim.egt_document_reference_item">TYPE </A><b>egt_document_reference_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/document_assignment/sys/e_exp_mim.htm#document_assignment_mim.document_reference_item">document_reference_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_mim.egt_external_identification_item">TYPE </A><b>egt_external_identification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_mim.htm#external_item_identification_assignment_mim.external_identification_item">external_identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/shape_dimension_schema/shape_dimension_schema.htm#shape_dimension_schema.shape_dimension_representation">shape_dimension_representation</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_mim.egt_requirement_assigned_item">TYPE </A><b>egt_requirement_assigned_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/requirement_assignment/sys/e_exp_mim.htm#requirement_assignment_mim.requirement_assigned_item">requirement_assigned_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_mim.statistical_dimensional_location">statistical_dimensional_location</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_mim.statistical_dimensional_size">statistical_dimensional_size</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_mim.statistical_geometric_tolerance">statistical_geometric_tolerance</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_mim.auxiliary_characteristic_dimension_representation">ENTITY <b>auxiliary_characteristic_dimension_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/shape_dimension_schema/shape_dimension_schema.htm#shape_dimension_schema.dimensional_characteristic_representation">dimensional_characteristic_representation</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.datum_difference">ENTITY <b>datum_difference</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>, <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.<A NAME="extended_geometric_tolerance_mim.datum_difference.relating_shape_aspect">relating_shape_aspect : </A><A HREF="../../../data/resources/shape_aspect_definition_schema/shape_aspect_definition_schema.htm#shape_aspect_definition_schema.datum">datum</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.<A NAME="extended_geometric_tolerance_mim.datum_difference.related_shape_aspect">related_shape_aspect : </A><A HREF="../../../data/resources/shape_aspect_definition_schema/shape_aspect_definition_schema.htm#shape_aspect_definition_schema.datum">datum</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_mim.datum_difference.wr:wr1">WR1: SELF\shape_aspect_relationship.relating_shape_aspect :&lt;&gt;:
+            SELF\shape_aspect_relationship.related_shape_aspect;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.datum_difference_based_characteristic">ENTITY <b>datum_difference_based_characteristic</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.dimensional_size_property">ENTITY <b>dimensional_size_property</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/shape_dimension_schema/shape_dimension_schema.htm#shape_dimension_schema.dimensional_size">dimensional_size</A>, <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.edge_segment_vertex">ENTITY <b>edge_segment_vertex</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/shape_aspect_definition_schema/shape_aspect_definition_schema.htm#shape_aspect_definition_schema.datum">datum</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.geometric_tolerance_group">ENTITY <b>geometric_tolerance_group</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.linear_profile_tolerance">ENTITY <b>linear_profile_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_mim.physical_unit_geometric_tolerance">physical_unit_geometric_tolerance</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.opposing_boundary_dimensional_size">ENTITY <b>opposing_boundary_dimensional_size</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/shape_dimension_schema/shape_dimension_schema.htm#shape_dimension_schema.dimensional_size">dimensional_size</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.physical_unit_datum_feature">ENTITY <b>physical_unit_datum_feature</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.physical_unit_geometric_tolerance">ENTITY <b>physical_unit_geometric_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/shape_tolerance_schema/shape_tolerance_schema.htm#shape_tolerance_schema.geometric_tolerance">geometric_tolerance</A>, <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.positional_boundary">ENTITY <b>positional_boundary</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_mim.positional_boundary.wr:wr2">WR2: SELF\shape_aspect.product_definitional = False;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.positional_boundary_member">ENTITY <b>positional_boundary_member</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_mim.positional_boundary_member.wr:wr1">WR1: SELF\shape_aspect.product_definitional = False;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.statistical_dimensional_location">ENTITY <b>statistical_dimensional_location</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/shape_dimension_schema/shape_dimension_schema.htm#shape_dimension_schema.dimensional_location">dimensional_location</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.statistical_dimensional_size">ENTITY <b>statistical_dimensional_size</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_mim.dimensional_size_property">dimensional_size_property</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.statistical_geometric_tolerance">ENTITY <b>statistical_geometric_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_mim.physical_unit_geometric_tolerance">physical_unit_geometric_tolerance</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.tolerance_zone_boundary">ENTITY <b>tolerance_zone_boundary</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_mim.tolerance_zone_boundary.wr:wr1">WR1: SELF\shape_aspect.product_definitional = False;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.tolerance_zone_explicit_opposing_boundary_set">ENTITY <b>tolerance_zone_explicit_opposing_boundary_set</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_mim.tolerance_zone_boundary">tolerance_zone_boundary</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.tolerance_zone_implicit_opposing_boundary_set">ENTITY <b>tolerance_zone_implicit_opposing_boundary_set</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_mim.tolerance_zone_boundary">tolerance_zone_boundary</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.viewing_plane">ENTITY <b>viewing_plane</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_mim.egt_non_feature_shape_element_subtypes">SUBTYPE_CONSTRAINT <b>egt_non_feature_shape_element_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="../../../data/resources/shape_aspect_definition_schema/shape_aspect_definition_schema.htm#shape_aspect_definition_schema.derived_shape_aspect">derived_shape_aspect</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_mim.positional_boundary">positional_boundary</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_mim.positional_boundary_member">positional_boundary_member</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_mim.tolerance_zone_boundary">tolerance_zone_boundary</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_mim.viewing_plane">viewing_plane</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/non_feature_shape_element/sys/e_exp_mim.htm#non_feature_shape_element_mim.seating_plane">seating_plane</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/non_feature_shape_element/sys/e_exp_mim.htm#non_feature_shape_element_mim.reference_graphic_registration_mark">reference_graphic_registration_mark</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Extended_geometric_tolerance_mim<br></code></body>
+</HTML>

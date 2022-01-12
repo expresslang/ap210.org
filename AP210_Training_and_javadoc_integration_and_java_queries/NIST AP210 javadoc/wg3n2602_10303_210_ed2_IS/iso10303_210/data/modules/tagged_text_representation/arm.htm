@@ -1,0 +1,62 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Tagged_text_representation_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Tagged_text_representation_arm</h2><code><br><br><a name="tagged_text_representation_arm">SCHEMA <b>Tagged_text_representation_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm">Foundation_representation_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1006<br><br></code><code><br><A NAME="tagged_text_representation_arm.string_representation_item_list">TYPE </A><b>string_representation_item_list</b> =
+         LIST[1:?] OF <A HREF="#tagged_text_representation_arm.string_representation_item_select">string_representation_item_select</A>;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="tagged_text_representation_arm.string_representation_item_list_or_set">TYPE </A><b>string_representation_item_list_or_set</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#tagged_text_representation_arm.string_representation_item_list">string_representation_item_list</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#tagged_text_representation_arm.string_representation_item_set">string_representation_item_set</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="tagged_text_representation_arm.string_representation_item_select">TYPE </A><b>string_representation_item_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#tagged_text_representation_arm.included_text_block">Included_text_block</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.string_representation_item">String_representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#tagged_text_representation_arm.structured_text_composition">Structured_text_composition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="tagged_text_representation_arm.string_representation_item_set">TYPE </A><b>string_representation_item_set</b> =
+         SET[1:?] OF <A HREF="#tagged_text_representation_arm.string_representation_item_select">string_representation_item_select</A>;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="tagged_text_representation_arm.included_text_block">ENTITY <b>Included_text_block</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_item">Representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="tagged_text_representation_arm.included_text_block.source">source : </A><A HREF="#tagged_text_representation_arm.structured_text_representation">Structured_text_representation</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="tagged_text_representation_arm.structured_text_composition">ENTITY <b>Structured_text_composition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_item">Representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="tagged_text_representation_arm.structured_text_composition.content">content : </A><A HREF="#tagged_text_representation_arm.string_representation_item_list_or_set">string_representation_item_list_or_set</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="tagged_text_representation_arm.structured_text_representation">ENTITY <b>Structured_text_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>.<A NAME="tagged_text_representation_arm.structured_text_representation.items">items : </A>SET[1:1] OF <A HREF="#tagged_text_representation_arm.string_representation_item_select">string_representation_item_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="tagged_text_representation_arm.tagged_text_format">ENTITY <b>Tagged_text_format</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_context">Representation_context</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="tagged_text_representation_arm.tagged_text_item">ENTITY <b>Tagged_text_item</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.string_representation_item">String_representation_item</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="tagged_text_representation_arm.tagged_text_item.wr:wr1">WR1: SIZEOF (QUERY (using_rep &lt;* USEDIN(SELF,
+            'FOUNDATION_REPRESENTATION_ARM.REPRESENTATION.ITEMS') |
+            NOT ('TAGGED_TEXT_REPRESENTATION_ARM.TAGGED_TEXT_FORMAT' IN
+            TYPEOF (using_rep.context_of_items))
+            )) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="tagged_text_representation_arm.uniform_resource_identifier">ENTITY <b>Uniform_resource_identifier</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.string_representation_item">String_representation_item</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="tagged_text_representation_arm.ttr_string_representation_item_subtypes">SUBTYPE_CONSTRAINT <b>ttr_string_representation_item_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.string_representation_item">String_representation_item</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#tagged_text_representation_arm.tagged_text_item">Tagged_text_item</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#tagged_text_representation_arm.uniform_resource_identifier">Uniform_resource_identifier</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Tagged_text_representation_arm<br></code></body>
+</HTML>

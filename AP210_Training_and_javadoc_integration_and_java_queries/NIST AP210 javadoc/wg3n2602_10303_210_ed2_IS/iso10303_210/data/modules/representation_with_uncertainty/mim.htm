@@ -1,0 +1,40 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Representation_with_uncertainty_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Representation_with_uncertainty_mim</h2><code><br><br><a name="representation_with_uncertainty_mim">SCHEMA <b>Representation_with_uncertainty_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/foundation_representation/sys/e_exp_mim.htm#foundation_representation_mim">Foundation_representation_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1006<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema">qualified_measure_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-45<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.qualified_representation_item">qualified_representation_item</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.standard_uncertainty">standard_uncertainty</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.uncertainty_qualifier">uncertainty_qualifier</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.uncertainty_assigned_representation">uncertainty_assigned_representation</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/value_with_unit/sys/e_exp_mim.htm#value_with_unit_mim">Value_with_unit_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1054<br><br></code><code><br><A NAME="representation_with_uncertainty_mim.consistent_uncertainty">RULE&nbsp;<b>consistent_uncertainty</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.global_uncertainty_assigned_context">global_uncertainty_assigned_context</A>, <A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.qualified_representation_item">qualified_representation_item</A>, <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.uncertainty_assigned_representation">uncertainty_assigned_representation</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="representation_with_uncertainty_mim.consistent_uncertainty.wr:wr1">WR1: SIZEOF ( QUERY ( guac &lt;* global_uncertainty_assigned_context |     SIZEOF ( QUERY ( u1 &lt;* guac.uncertainty |  SIZEOF
+            ( QUERY ( u2 &lt;* guac.uncertainty | u2.name =  u1.name ) ) &gt;1 ) ) &gt;0 ) ) =  0 ;</A><br>
+         &nbsp;&nbsp;<A NAME="representation_with_uncertainty_mim.consistent_uncertainty.wr:wr2">WR2: SIZEOF ( QUERY ( uar &lt;* uncertainty_assigned_representation |  SIZEOF ( QUERY ( u1&lt;* uar.uncertainty |  SIZEOF ( QUERY
+            ( u2 &lt;* uar.uncertainty | u2.name =  u1.name ) ) &gt;1 ) ) &gt;0 ) ) =  0;</A><br>
+         &nbsp;&nbsp;<A NAME="representation_with_uncertainty_mim.consistent_uncertainty.wr:wr3">WR3: SIZEOF ( QUERY ( qri &lt;* qualified_representation_item |     SIZEOF ( QUERY ( u1 &lt;* qri.qualifiers |     ('REPRESENTATION_WITH_UNCERTAINTY_MIM'
+            + '.UNCERTAINTY_QUALIFIER' IN TYPEOF ( u1 ) ) AND  ( SIZEOF ( QUERY ( u2 &lt;* qri.qualifiers |     ( 'REPRESENTATION_WITH_UNCERTAINTY_MIM'
+            + '.UNCERTAINTY_QUALIFIER' IN TYPEOF ( u2 ) ) AND  ( u2\uncertainty_qualifier.measure_name =  u1\uncertainty_qualifier.measure_name
+            ) )     ) &gt;1 ) ) ) &gt;0 ) ) =  0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Representation_with_uncertainty_mim<br></code></body>
+</HTML>

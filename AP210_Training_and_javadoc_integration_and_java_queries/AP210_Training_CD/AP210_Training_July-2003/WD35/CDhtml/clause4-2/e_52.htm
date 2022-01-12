@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Assembly_module_usage_view_connector_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.52 Assembly_module_usage_view_connector_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+An Assembly_module_usage_view_connector_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_942.htm"
+>Usage_concept_usage_relationship</A
+> that associates the placement and orientation of a  <A
+CLASS="INTERNALREF"
+HREF="e_576.htm"
+>Packaged_connector</A
+> with an <A
+CLASS="INTERNALREF"
+HREF="e_51.htm"
+>Assembly_module_usage_view</A
+>.  An  Assembly_module_usage_view_connector_relationship supports the identification of connector placement data, when the design details are not available.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>externally_visible_partial_reference_designation</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.52.1 externally_visible_partial_reference_designation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>An externally_visible_partial_reference_designation specifies an Ee_name for an <A
+CLASS="INTERNALREF"
+HREF="e_52.htm"
+>Assembly_module_usage_view_connector_relationship</A
+>.  An  externally_visible_partial_reference_designation supports the identification of a connector as a partial reference designation independent of the internal reference designation assigned by the designer of the product.  This independence is required when the connector is actually designed as part of a complete lower level assembly.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of externally_visible_partial_reference_designation and associating_usage inherited from Usage_concept_usage_relationship shall be unique in a population of Assembly_module_usage_view_connector_relationship.</DIV
+></DIV
+><DIV
+CLASS="INFORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Informal constraints:</P
+><DIV
+CLASS="INFORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>IP1: </SPAN
+>The associating_usage inherited from Usage_concept_usage_relationship shall be an Assembly_module_usage_view.</DIV
+><DIV
+CLASS="INFORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>IP2: </SPAN
+>The associated_usage inherited from Usage_concept_usage_relationship shall be a Packaged_connector.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY assembly_module_usage_view_connector_relationship
+  SUBTYPE OF (usage_concept_usage_relationship);
+    associating_usage : assembly_module_usage_view;
+    SELF\usage_concept_usage_relationship.associated_usage  : packaged_connector;
+    externally_visible_partial_reference_designation        : ee_name;
+UNIQUE
+  ur1 : externally_visible_partial_reference_designation, 
+	associating_usage;
+END_ENTITY; -- assembly_module_usage_view_connector_relationship
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

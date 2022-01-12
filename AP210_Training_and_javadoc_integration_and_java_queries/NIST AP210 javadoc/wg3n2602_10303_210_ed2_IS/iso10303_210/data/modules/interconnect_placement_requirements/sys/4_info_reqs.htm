@@ -1,0 +1,1840 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Interconnect placement requirements">
+      <META name="DC.Dates" content="2009-05-04 09:16:36">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Interconnect placement requirements">
+      <META name="DC.Subject" content="module, electrical, electronic, isolation, requirement, interconnect substrate, design, placement, constraint region">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6410">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5679">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-04 09:16:36">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.83">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.61">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.52">
+      <TITLE>ISO/TS 10303-1690:2009 Interconnect placement requirements</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Interconnect placement requirements</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1690:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARM</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.4 ARM subtype constraint definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.5 ARM function definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#subtype_constraints">5.2.3 MIM subtype constraint definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Interconnect placement requirements</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Interconnect_placement_requirements_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="interconnect_placement_requirements_arm">
+            SCHEMA Interconnect_placement_requirements_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARM</A></h2>
+      <p>
+         The following EXPRESS interface statement specifies the elements
+         imported from the ARM of another application module.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/layered_interconnect_module_with_printed_component_design/sys/4_info_reqs.htm#layered_interconnect_module_with_printed_component_design_arm">Layered_interconnect_module_with_printed_component_design_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1700<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Layered_interconnect_module_with_printed_component_design_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1700</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>, <a href="../armexpg2.htm">C.2</a>and <a href="../armexpg3.htm">C.3</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="interconnect_placement_requirements_arm.assembly_or_interconnect_design_object_select">4.2.1 assembly_or_interconnect_design_object_select</a>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>assembly_or_interconnect_design_object_select</b> type is an
+         extensible list of alternate data types
+         that allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/physical_unit_design_view/sys/4_info_reqs.htm#physical_unit_design_view_arm.assembly_component">Assembly_component</A></b>, <b><A HREF="../../../../data/modules/component_feature/sys/4_info_reqs.htm#component_feature_arm.component_feature">Component_feature</A></b>
+         
+         and
+         
+         <b><A HREF="#interconnect_placement_requirements_arm.interconnect_module_design_object_select">interconnect_module_design_object_select</A></b>.
+         
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;
+            The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.                 
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            assembly_or_interconnect_design_object_select =
+            
+            EXTENSIBLE
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/physical_unit_design_view/sys/4_info_reqs.htm#physical_unit_design_view_arm.assembly_component">Assembly_component</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/component_feature/sys/4_info_reqs.htm#component_feature_arm.component_feature">Component_feature</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#interconnect_placement_requirements_arm.interconnect_module_design_object_select">interconnect_module_design_object_select</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="interconnect_placement_requirements_arm.interconnect_module_design_object_category">4.2.2 interconnect_module_design_object_category</a>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      An <b>interconnect_module_design_object_category </b> lists the types of the categories of the interconnect module design.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            interconnect_module_design_object_category =
+            
+            EXTENSIBLE
+            
+            ENUMERATION
+            
+            OF
+            <br>
+            &nbsp;&nbsp; 
+            (assembly_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;embedded_physical_component_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;interconnect_module_via,<br>&nbsp;&nbsp;&nbsp;&nbsp;interconnect_module_inter_stratum_feature,<br>&nbsp;&nbsp;&nbsp;&nbsp;interconnect_module_cutout,<br>&nbsp;&nbsp;&nbsp;&nbsp;interconnect_module_fill_area,<br>&nbsp;&nbsp;&nbsp;&nbsp;interconnect_module_stratum_feature);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <p><u>Enumerated item definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_design_object_category.assembly_component_category">assembly_component_category:
+               </a></b>
+         specifies that category is assembly component category;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_design_object_category.embedded_physical_component_terminal_category">embedded_physical_component_terminal_category:
+               </a></b>
+         specifies that category is embedded physical component terminal category;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_design_object_category.interconnect_module_via">interconnect_module_via:
+               </a></b>
+         specifies that category is interconnect module via;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_design_object_category.interconnect_module_inter_stratum_feature">interconnect_module_inter_stratum_feature:
+               </a></b>
+         specifies that category is interconnect module inter stratum feature; 
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_design_object_category.interconnect_module_cutout">interconnect_module_cutout:
+               </a></b>
+         specifies that category is interconnect module cutout; 
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_design_object_category.interconnect_module_fill_area">interconnect_module_fill_area:
+               </a></b>
+         specifies that category is interconnect module fill area; 
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_design_object_category.interconnect_module_stratum_feature">interconnect_module_stratum_feature:
+               </a></b>
+         specifies that category is interconnect module stratum feature; 
+         
+      </p>
+      <h2><a name="interconnect_placement_requirements_arm.interconnect_module_design_object_category_or_group">4.2.3 interconnect_module_design_object_category_or_group</a>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>interconnect_module_design_object_category_or_group</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/group/sys/4_info_reqs.htm#group_arm.group">Group</A></b>
+         and
+         <b><A HREF="#interconnect_placement_requirements_arm.interconnect_module_design_object_category">interconnect_module_design_object_category</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            interconnect_module_design_object_category_or_group =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/group/sys/4_info_reqs.htm#group_arm.group">Group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#interconnect_placement_requirements_arm.interconnect_module_design_object_category">interconnect_module_design_object_category</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="interconnect_placement_requirements_arm.interconnect_module_design_object_select">4.2.4 interconnect_module_design_object_select</a>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>interconnect_module_design_object_select</b> type is an
+         extensible list of alternate data types
+         that allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.component_termination_passage">Component_termination_passage</A></b>, <b><A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.conductive_filled_area">Conductive_filled_area</A></b>, <b><A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.conductor">Conductor</A></b>, <b><A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.cutout">Cutout</A></b>, <b><A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_feature">Inter_stratum_feature</A></b>, <b><A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.laminate_component">Laminate_component</A></b>, <b><A HREF="../../../../data/modules/land/sys/4_info_reqs.htm#land_arm.land">Land</A></b>, <b><A HREF="../../../../data/modules/layered_interconnect_module_with_printed_component_design/sys/4_info_reqs.htm#layered_interconnect_module_with_printed_component_design_arm.printed_component">Printed_component</A></b>, <b><A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum">Stratum</A></b>, <b><A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature">Stratum_feature</A></b>
+         
+         and
+         
+         <b><A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.via">Via</A></b>.
+         
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;
+            The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.                 
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            interconnect_module_design_object_select =
+            
+            EXTENSIBLE
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.component_termination_passage">Component_termination_passage</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.conductive_filled_area">Conductive_filled_area</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.conductor">Conductor</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.cutout">Cutout</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_feature">Inter_stratum_feature</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.laminate_component">Laminate_component</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/land/sys/4_info_reqs.htm#land_arm.land">Land</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_module_with_printed_component_design/sys/4_info_reqs.htm#layered_interconnect_module_with_printed_component_design_arm.printed_component">Printed_component</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum">Stratum</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature">Stratum_feature</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.via">Via</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="interconnect_placement_requirements_arm.ipr_requirement_assignment_item">4.2.5 ipr_requirement_assignment_item</a>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>ipr_requirement_assignment_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment_item">requirement_assignment_item</A></b> type. 
+         
+         It adds the data 
+         
+         types
+         <b><A HREF="#interconnect_placement_requirements_arm.interconnect_module_constraint_region">Interconnect_module_constraint_region</A></b>
+         and
+         <b><A HREF="#interconnect_placement_requirements_arm.stratum_constraint_region">Stratum_constraint_region</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            ipr_requirement_assignment_item =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment_item">requirement_assignment_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#interconnect_placement_requirements_arm.interconnect_module_constraint_region">Interconnect_module_constraint_region</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#interconnect_placement_requirements_arm.stratum_constraint_region">Stratum_constraint_region</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="interconnect_placement_requirements_arm.lam_product_design_object_category">4.2.6 lam_product_design_object_category</a>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      A <b>lam_product_design_object_category</b> lists the categories of the PCA product design object.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            lam_product_design_object_category =
+            
+            ENUMERATION
+            
+            OF
+            <br>
+            &nbsp;&nbsp; 
+            (assembly_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;assembly_module_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;assembly_module_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;assembly_module_component_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;assembly_module_macro_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;assembly_module_macro_component_join_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;bare_die_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;bare_die_component_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;buried_via_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;cable_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;component_feature_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;component_mounting_feature_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;component_termination_passage_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;component_termination_passage_and_contact_size_dependent_land_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;component_termination_passage_interface_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;component_termination_passage_join_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;conductive_interconnect_element_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;conductive_interconnect_element_with_pre_defined_transitions_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;conductive_interconnect_element_with_user_defined_single_transition_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;connected_area_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;contact_size_dependent_land_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;cutout_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;cutout_edge_segment_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;dielectric_material_passage_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;electrical_isolation_laminate_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;embedded_physical_component_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;fiducial_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;fill_area_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;inter_stratum_feature_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;interconnect_component_interface_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;interconnect_component_join_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;interconnect_module_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;interconnect_module_component_stratum_based_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;interconnect_module_component_surface_feature_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;interconnect_module_component_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;interconnect_module_edge_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;interconnect_module_edge_segment_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;interconnect_module_macro_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;interconnect_module_macro_component_join_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;interface_access_material_removal_laminate_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;interface_access_stratum_feature_template_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;interface_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;interfacial_connection_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;internal_probe_access_area_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;laminate_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;generic_laminate_text_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;laminate_text_string_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;land_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;land_interface_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;land_join_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;material_removal_laminate_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;minimally_defined_component_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;movable_packaged_component_join_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;multi_layer_material_removal_laminate_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;multi_stratum_special_symbol_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;non_conductive_base_blind_via_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;packaged_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;packaged_component_join_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;packaged_connector_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;packaged_connector_component_interface_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;partially_plated_cutout_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;partially_plated_interconnect_module_edge_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;physical_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;physical_connectivity_interrupting_cutout_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;physical_laminate_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;physical_network_supporting_inter_stratum_feature_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;plated_conductive_base_blind_via_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;plated_cutout_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;plated_cutout_edge_segment_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;plated_interconnect_module_edge_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;plated_interconnect_module_edge_segment_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;plated_passage_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;plated_passage_or_unsupported_passage_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;primary_stratum_indicator_symbol_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;printed_component_join_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;printed_connector_component_interface_terminal_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;probe_access_area_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;routed_interconnect_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;routed_physical_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;single_stratum_special_symbol_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;stratum_feature_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;stratum_feature_template_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;thermal_isolation_laminate_component_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;unrouted_conductive_interconnect_element_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;unsupported_passage_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;unsupported_passage_dependent_land_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;via_category,<br>&nbsp;&nbsp;&nbsp;&nbsp;via_terminal_category);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <p><u>Enumerated item definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.assembly_component_category">assembly_component_category:
+               </a></b>
+         specifies that an instance that in this category is an implementation of the assembly component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.assembly_module_category">assembly_module_category:
+               </a></b>
+         specifies that an instance that in this category is an implementation of the assembly module;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.assembly_module_component_category">assembly_module_component_category:
+               </a></b>
+         specifies that an instance that in this category is an implementation of the assembly module component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.assembly_module_component_terminal_category">assembly_module_component_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the assembly module component terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.assembly_module_macro_component_category">assembly_module_macro_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the assembly module macro component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.assembly_module_macro_component_join_terminal_category">assembly_module_macro_component_join_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the assembly module macro component join terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.bare_die_component_category">bare_die_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the bare die component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.bare_die_component_terminal_category">bare_die_component_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the bare die component terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.buried_via_category">buried_via_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the buried via;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.cable_component_category">cable_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the cable component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.component_feature_category">component_feature_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the component feature;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.component_mounting_feature_category">component_mounting_feature_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the component mounting feature;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.component_termination_passage_category">component_termination_passage_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the component termination passage;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.component_termination_passage_and_contact_size_dependent_land_category">component_termination_passage_and_contact_size_dependent_land_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the component termination passage and contact
+         size dependent land;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.component_termination_passage_interface_terminal_category">component_termination_passage_interface_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the component termination passage interface terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.component_termination_passage_join_terminal_category">component_termination_passage_join_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the component termination passage join terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.conductive_interconnect_element_terminal_category">conductive_interconnect_element_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the conductive interconnect element terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.conductive_interconnect_element_with_pre_defined_transitions_category">conductive_interconnect_element_with_pre_defined_transitions_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the conductive interconnect element with pre defined
+         transitions;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.conductive_interconnect_element_with_user_defined_single_transition_category">conductive_interconnect_element_with_user_defined_single_transition_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the conductive interconnect element with user
+         defined single transition;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.connected_area_component_category">connected_area_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the connected area component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.contact_size_dependent_land_category">contact_size_dependent_land_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the contact size dependent land;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.cutout_category">cutout_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the cutout;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.cutout_edge_segment_category">cutout_edge_segment_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the cutout edge segment;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.dielectric_material_passage_category">dielectric_material_passage_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the dielectric material passage;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.electrical_isolation_laminate_component_category">electrical_isolation_laminate_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the electrical isolation laminate component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.embedded_physical_component_terminal_category">embedded_physical_component_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the embedded physical component terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.fiducial_category">fiducial_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the fiducial;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.fill_area_category">fill_area_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the fill area;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.inter_stratum_feature_category">inter_stratum_feature_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the inter stratum feature;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.interconnect_component_interface_terminal_category">interconnect_component_interface_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the interconnect component interface terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.interconnect_component_join_terminal_category">interconnect_component_join_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the interconnect component join terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.interconnect_module_component_category">interconnect_module_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the interconnect module component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.interconnect_module_component_stratum_based_terminal_category">interconnect_module_component_stratum_based_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the interconnect module component stratum based
+         terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.interconnect_module_component_surface_feature_category">interconnect_module_component_surface_feature_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the interconnect module component surface feature;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.interconnect_module_component_terminal_category">interconnect_module_component_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the interconnect module component terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.interconnect_module_edge_category">interconnect_module_edge_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the interconnect module edge;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.interconnect_module_edge_segment_category">interconnect_module_edge_segment_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the interconnect module edge segment;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.interconnect_module_macro_component_category">interconnect_module_macro_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the interconnect module macro component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.interconnect_module_macro_component_join_terminal_category">interconnect_module_macro_component_join_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the interconnect module macro component join terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.interface_access_material_removal_laminate_component_category">interface_access_material_removal_laminate_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the interface access material removal feature;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.interface_access_stratum_feature_template_component_category">interface_access_stratum_feature_template_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the interface access stratum feature template
+         component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.interface_component_category">interface_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the interface component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.interfacial_connection_category">interfacial_connection_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the interfacial connection;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.internal_probe_access_area_category">internal_probe_access_area_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the internal probe access area;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.laminate_component_category">laminate_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the laminate component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.generic_laminate_text_component_category">generic_laminate_text_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the generic laminate text component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.laminate_text_string_component_category">laminate_text_string_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the laminate text string component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.land_category">land_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the land;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.land_interface_terminal_category">land_interface_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the land interface terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.land_join_terminal_category">land_join_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the land join terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.material_removal_laminate_component_category">material_removal_laminate_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the material removal laminate component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.minimally_defined_component_terminal_category">minimally_defined_component_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the minimally defined component terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.movable_packaged_component_join_terminal_category">movable_packaged_component_join_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the movable packaged component join terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.multi_layer_material_removal_laminate_component_category">multi_layer_material_removal_laminate_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the multi layer material removal laminate component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.multi_stratum_special_symbol_component_category">multi_stratum_special_symbol_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the multi layer stratum special symbol component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.non_conductive_base_blind_via_category">non_conductive_base_blind_via_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the non conductive base blind via;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.packaged_component_category">packaged_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the packaged component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.packaged_component_join_terminal_category">packaged_component_join_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the packaged component join terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.packaged_connector_component_category">packaged_connector_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the packaged connector component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.packaged_connector_component_interface_terminal_category">packaged_connector_component_interface_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the packaged connector component interface terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.partially_plated_cutout_category">partially_plated_cutout_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the partially plated cutout;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.partially_plated_interconnect_module_edge_category">partially_plated_interconnect_module_edge_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the partially plated interconnect module edge;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.physical_component_category">physical_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the physical component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.physical_connectivity_interrupting_cutout_category">physical_connectivity_interrupting_cutout_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the physical connectivity interrupting cutout;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.physical_laminate_component_category">physical_laminate_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the physical laminate component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.physical_network_supporting_inter_stratum_feature_category">physical_network_supporting_inter_stratum_feature_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the physical network supporting inter stratum
+         feature;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.plated_conductive_base_blind_via_category">plated_conductive_base_blind_via_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the plated conductive base blind via;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.plated_cutout_category">plated_cutout_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the plated cutout;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.plated_cutout_edge_segment_category">plated_cutout_edge_segment_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the plated cutout edge segment;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.plated_interconnect_module_edge_category">plated_interconnect_module_edge_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the plated interconnect module edge;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.plated_interconnect_module_edge_segment_category">plated_interconnect_module_edge_segment_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the plated interconnect module edge segment;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.plated_passage_category">plated_passage_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the plated passage;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.plated_passage_or_unsupported_passage_category">plated_passage_or_unsupported_passage_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the plated passage or unsupported passage;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.primary_stratum_indicator_symbol_category">primary_stratum_indicator_symbol_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the primary stratum indicator symbol;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.printed_component_join_terminal_category">printed_component_join_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the printed component join terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.printed_connector_component_interface_terminal_category">printed_connector_component_interface_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the printed connector component interface terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.probe_access_area_category">probe_access_area_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the probe access area;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.routed_interconnect_component_category">routed_interconnect_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the routed interconnect component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.routed_physical_component_category">routed_physical_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the routed physical component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.single_stratum_special_symbol_component_category">single_stratum_special_symbol_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the single stratum special symbol component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.stratum_feature_category">stratum_feature_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the stratum feature;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.stratum_feature_template_component_category">stratum_feature_template_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the stratum feature template component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.thermal_isolation_laminate_component_category">thermal_isolation_laminate_component_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the thermal isolation laminate component;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.unrouted_conductive_interconnect_element_category">unrouted_conductive_interconnect_element_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the unrouted conductive interconnect element;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.unsupported_passage_category">unsupported_passage_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the unsupported passage;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.unsupported_passage_dependent_land_category">unsupported_passage_dependent_land_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the unsupported dependent land;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.via_category">via_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the via;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.lam_product_design_object_category.via_terminal_category">via_terminal_category:
+               </a></b>
+         specifies that an instance that is in this category is an implementation of the via terminal.
+         
+      </p>
+      <h2><a name="interconnect_placement_requirements_arm.lam_product_design_object_category_or_group">4.2.7 lam_product_design_object_category_or_group</a>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>lam_product_design_object_category_or_group</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/group/sys/4_info_reqs.htm#group_arm.group">Group</A></b>, <b><A HREF="#interconnect_placement_requirements_arm.lam_product_design_object_category">lam_product_design_object_category</A></b>
+         
+         and
+         
+         <b><A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum">Stratum</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            lam_product_design_object_category_or_group =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/group/sys/4_info_reqs.htm#group_arm.group">Group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#interconnect_placement_requirements_arm.lam_product_design_object_category">lam_product_design_object_category</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum">Stratum</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="interconnect_placement_requirements_arm.spacing_type">4.2.8 spacing_type</a>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      A <b>spacing_type</b> lists the types of the spacing.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            spacing_type =
+            
+            ENUMERATION
+            
+            OF
+            <br>
+            &nbsp;&nbsp; 
+            (nearest_boundary,<br>&nbsp;&nbsp;&nbsp;&nbsp;centroid,<br>&nbsp;&nbsp;&nbsp;&nbsp;furthest_boundary);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <p><u>Enumerated item definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.spacing_type.nearest_boundary">nearest_boundary:
+               </a></b>
+         specifies that spacing is measured between nearest boundaries of the design items indicated;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.spacing_type.centroid">centroid:
+               </a></b>
+         specifies that spacing is measured between centroids of the design items indicated;
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.spacing_type.furthest_boundary">furthest_boundary:
+               </a></b>
+         specifies that spacing is measured between furthest boundaries of the design items indicated.
+         
+      </p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="interconnect_placement_requirements_arm.area_qualified_layout_spacing_requirement">4.3.1 Area_qualified_layout_spacing_requirement</a>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityarea_qualified_layout_spacing_requirement"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Area_qualified_layout_spacing_requirement</b> is a type of 
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_requirement"><b>Layout_spacing_requirement</b></a> 
+         	that describes the physical spacing between one of an 
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_cutout</b></a>, 
+         	an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_fill_area</b></a>, 
+         	an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_inter_stratum_feature</b></a>, 
+         	an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_stratum_feature</b></a>, 
+         	or an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_via</b></a>, 
+         	and another of these categories of design objects.  This Application object qualifies the spacing requirement to apply within
+         a given context as defined by a set of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a>.
+         	The category names correspond to the category of equivalent application object names as described in  
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_requirement"><b>Layout_spacing_requirement</b></a>.  
+         	This requirement shall be interpreted as applying to the categories of those objects. 
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		A pair of categories is used for this requirement occurrence.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		In domain terms, when a Via to Via spacing is to be greater than 5 mm, the encoding will be that the spacing between the
+            
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_requirement.design_object_category_1"><b>design_object_category_1</b></a> 
+            		whose value is 
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_via</b></a> 
+            		and the 
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_requirement.design_object_category_2"><b>design_object_category_2</b></a> 
+            		whose value is 
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_via</b></a> 
+            		shall be greater than 5 mm.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		In domain terms, when the distance from a cutout to a trace must be greater than 5 mm, the encoding will 
+            		be that the spacing between the 
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_requirement.design_object_category_1"><b>design_object_category_1</b></a> 
+            		whose value is 
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_cutout</b></a> 
+            		and the 
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_requirement.design_object_category_2"><b>design_object_category_2</b></a> 
+            		whose value is 
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_stratum_feature</b></a> 
+            		shall be greater than 5 mm.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Area_qualified_layout_spacing_requirement<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#interconnect_placement_requirements_arm.layout_spacing_requirement">Layout_spacing_requirement</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;area_context : SET[1:?] OF <A HREF="#interconnect_placement_requirements_arm.layout_spacing_contextual_area">Layout_spacing_contextual_area</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.area_qualified_layout_spacing_requirement.area_context">area_context:
+               </a></b>
+         	specifies an 
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_contextual_area"><b>Layout_spacing_contextual_area</b></a>
+         	for the <b>Area_qualified_layout_spacing_requirement</b>.  
+         	The <b>area_context</b> establishes a context within which the spacing requirement is to be met.  There shall be one or more  
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_contextual_area"><b>Layout_spacing_contextual_area</b></a> 
+         	for a <b>Area_qualified_layout_spacing_requirement</b>.  The  
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_contextual_area"><b>Layout_spacing_contextual_area</b></a> 
+         	may overlap.  All  
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_contextual_area"><b>Layout_spacing_contextual_area</b></a> 
+         	specified shall be in the same design. 
+         
+      </p>
+      <h2><a name="interconnect_placement_requirements_arm.interconnect_module_constraint_region">4.3.2 Interconnect_module_constraint_region</a>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityinterconnect_module_constraint_region"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	An <b>Interconnect_module_constraint_region</b> is a type of 
+      	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element"><b>Non_feature_shape_element</b></a>. 
+      	An <b>Interconnect_module_constraint_region</b> is a region within an 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layered_interconnect_module_design_view"><b>Layered_interconnect_module_design_view</b></a> in which a placement 
+      	constraint on some category of design object is to be met by the design. An <b>Interconnect_module_constraint_region</b> may overlap other 
+      	<b>Interconnect_module_constraint_region</b>s.  
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Interconnect_module_constraint_region<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;keepout : BOOLEAN;<br>
+            
+            
+            
+            &nbsp;&nbsp;non_conformant_interconnect_module_design_object : 
+            OPTIONAL 
+            SET[1:?] OF <A HREF="#interconnect_placement_requirements_arm.interconnect_module_design_object_select">interconnect_module_design_object_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A>.scope : <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layered_interconnect_module_design_view">Layered_interconnect_module_design_view</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;design_specific_purpose : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_stratum_extent : SET[1:?] OF <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_extent">Inter_stratum_extent</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;constrained_design_object_category : <A HREF="#interconnect_placement_requirements_arm.interconnect_module_design_object_category_or_group">interconnect_module_design_object_category_or_group</A>;<br>INVERSE<br>
+            &nbsp;&nbsp;precedent_version_constraint_region : SET[0:1] OF <A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element_relationship">Non_feature_shape_element_relationship</A> FOR related;<br>
+            &nbsp;&nbsp;requirement : SET[1:1] OF <A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</A> FOR assigned_to;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: NOT (SIZEOF(precedent_version_constraint_region) = 1) OR ('INTERCONNECT_PLACEMENT_REQUIREMENTS_ARM.INTERCONNECT_MODULE_CONSTRAINT_REGION'
+            IN TYPEOF(precedent_version_constraint_region[1]\Non_feature_shape_element_relationship.relating));<br> 
+            &nbsp;&nbsp;WR2: NOT EXISTS(SELF\Shape_element.description);<br> 
+            &nbsp;&nbsp;WR3: valid_non_conformant_design_object_context(non_conformant_interconnect_module_design_object, scope);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_constraint_region.keepout">keepout:
+               </a></b>
+         	specifies if the meaning of the <b>Interconnect_module_constraint_region</b> is to describe that items 
+         	shall be in the interior of the 
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element.element_shape"><b>element_shape</b></a> 
+         	or shall be on the exterior of the 
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element.element_shape"><b>element_shape</b></a>. 
+         	The value of TRUE states 
+         	that objects in the <b>constrained_design_object_category</b> are not to be within the 
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element.element_shape"><b>element_shape</b></a>. 
+         	The value of FALSE states that objects in the <b>constrained_design_object_category</b> are to be only within the 
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element.element_shape"><b>element_shape</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_constraint_region.non_conformant_interconnect_module_design_object">non_conformant_interconnect_module_design_object:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_select"><b>interconnect_module_design_object_select</b></a> 
+         	for the <b>Interconnect_module_constraint_region</b>. There shall be one or more  
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_select"><b>interconnect_module_design_object_select</b></a> 
+         	for each <b>Interconnect_module_constraint_region</b>.
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_constraint_region.scope">scope:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layered_interconnect_module_design_view"><b>Layered_interconnect_module_design_view</b></a> 
+         	for the <b>Interconnect_module_constraint_region</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_constraint_region.design_specific_purpose">design_specific_purpose:
+               </a></b>
+         	specifies the string for the <b>Interconnect_module_constraint_region</b>.
+         	The <b>design_specific_purpose</b> identifies the purpose the enterprise defined for the <b>Interconnect_module_constraint_region</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_constraint_region.associated_stratum_extent">associated_stratum_extent:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_extent"><b>Inter_stratum_extent</b></a> 
+         	as the extent 
+         	of <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a> 
+         	for the <b>Interconnect_module_constraint_region</b>. There shall be one or more  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_extent"><b>Inter_stratum_extent</b></a> 
+         	for an <b>Interconnect_module_constraint_region</b>.  The  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_extent"><b>Inter_stratum_extent</b></a> 
+         	shall all be for the same <b>scope</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_constraint_region.constrained_design_object_category">constrained_design_object_category:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_design_object_category</b></a> 
+         	for the
+         	<b>Interconnect_module_constraint_region</b>.
+         	There may be more than one 
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_design_object_category</b></a> 
+         	for an <b>Interconnect_module_constraint_region</b>.  The names shall 	be interpreted as the identification of A
+         	pplication Object categories to be constrained.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_constraint_region.precedent_version_constraint_region">precedent_version_constraint_region:
+               </a></b>
+         	an attribute is an inverse relationship that specifies that the existence of the 
+         	<b>Interconnect_module_constraint_region</b> is dependent on the existence of 
+         	the  
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element_relationship"><b>Non_feature_shape_element_relationship</b></a> 
+         	that specifies the <b>Interconnect_module_constraint_region</b> as its 
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element_relationship.related"><b>related</b></a>  
+         	shape element. There shall be zero or one  
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element_relationship"><b>Non_feature_shape_element_relationship</b></a> 
+         	for an <b>Interconnect_module_constraint_region</b>.
+         	The usage of this relationship is to enable traceability to original <b>Interconnect_module_constraint_region</b> during design iterations.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		Since the <b>Interconnect_module_constraint_region</b> is dependent on a specific  
+            		<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layered_interconnect_module_design_view"><b>Layered_interconnect_module_design_view</b></a>, 
+            		it is not possible to use the mechanism of associating one <b>Interconnect_module_constraint_region</b> with several  
+            		<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layered_interconnect_module_design_view"><b>Layered_interconnect_module_design_view</b></a>, 
+            		each of which is for a different design version.  In addition, the <b>non_conformant_interconnect_module_design_object</b> 
+            		is for objects within the <b>scope</b>, which also precludes direct re-use of the same <b>Interconnect_module_constraint_region</b>.  
+            		It is expected that only the first <b>Interconnect_module_constraint_region</b> populated would have an associated shape to eliminate 
+            		the need for carrying redundant shape data.
+            	</small></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_constraint_region.requirement">requirement:
+               </a></b>
+         	an inverse relationship that specifies that the existence of the 
+         	<b>Interconnect_module_constraint_region</b> is dependent on the existence of 
+         	the  
+         	<a href="../../../modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment"><b>Requirement_assignment</b></a> 
+         	that specifies the <b>Interconnect_module_constraint_region</b> as its 
+         	<a href="../../../modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment.assigned_to"><b>assigned_to</b></a>.
+         	There shall be exactly one
+         	<a href="../../../modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment"><b>Requirement_assignment</b></a>
+         	for an <b>Interconnect_module_constraint_region</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_constraint_region.wr:wr1">WR1:
+               </a></b>
+         	If <b>precedent_version_constraint_region</b> exists, it will refer <b>Interconnect_module_constraint_region</b>
+         	as <a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element_relationship.relating"><b>relating</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_constraint_region.wr:wr2">WR2:
+               </a></b>
+         	The
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element.description"><b>description</b></a>
+         	shall not be populated.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.interconnect_module_constraint_region.wr:wr3">WR3:
+               </a></b>
+         	Each non conforming design object that is a 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.laminate_component"><b>Laminate_component</b></a> 
+         	shall be in the scope of the <b>Interconnect_module_constraint_region</b>.	
+         
+      </p>
+      <h2><a name="interconnect_placement_requirements_arm.layer_qualified_layout_spacing_requirement">4.3.3 Layer_qualified_layout_spacing_requirement</a>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitylayer_qualified_layout_spacing_requirement"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Layer_qualified_layout_spacing_requirement</b> is a type of 
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_requirement"><b>Layout_spacing_requirement</b></a> 
+         	that describes the physical spacing between one of an 
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_cutout</b></a>, 
+         	an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_fill_area</b></a>, 
+         	an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_inter_stratum_feature</b></a>, 
+         	an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_stratum_feature</b></a>, 
+         	or an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_via</b></a>, 
+         	and another of these categories of design objects.  This Application object qualifies the spacing requirement to apply within
+         a given context as defined by a set of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a>.
+         	The category names correspond to the category of equivalent application object names as described in  
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_requirement"><b>Layout_spacing_requirement</b></a>.  
+         	This requirement shall be interpreted as applying to the categories of those objects. 
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		A pair of categories is used for this requirement occurrence.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		In domain terms, when a Via to Via spacing is to be greater than 5 mm, the encoding will be that the spacing between the
+            
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_requirement.design_object_category_1"><b>design_object_category_1</b></a> 
+            		whose value is 
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_via</b></a> 
+            		and the 
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_requirement.design_object_category_2"><b>design_object_category_2</b></a> 
+            		whose value is 
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_via</b></a> 
+            		shall be greater than 5 mm.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		In domain terms, when the distance from a cutout to a trace must be greater than 5 mm, the encoding will 
+            		be that the spacing between the 
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_requirement.design_object_category_1"><b>design_object_category_1</b></a> 
+            		whose value is 
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_cutout</b></a> 
+            		and the 
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_requirement.design_object_category_2"><b>design_object_category_2</b></a> 
+            		whose value is 
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_category"><b>interconnect_module_stratum_feature</b></a> 
+            		shall be greater than 5 mm.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Layer_qualified_layout_spacing_requirement<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#interconnect_placement_requirements_arm.layout_spacing_requirement">Layout_spacing_requirement</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;layer_context : SET[1:?] OF <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_extent">Inter_stratum_extent</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.layer_qualified_layout_spacing_requirement.layer_context">layer_context:
+               </a></b>
+         	specifies an 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_extent"><b>Inter_stratum_extent</b></a>
+         	for the <b>Layer_qualified_layout_spacing_requirement</b>.  
+         	The <b>layer_context</b> establishes a context within which the spacing requirement is to be met.  There shall be one or more  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_extent"><b>Inter_stratum_extent</b></a> 
+         	for a <b>Layer_qualified_layout_spacing_requirement</b>.  The  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_extent"><b>Inter_stratum_extent</b></a> 
+         	may overlap.  All  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_extent"><b>Inter_stratum_extent</b></a> 
+         	specified shall be in the same design. 
+         
+      </p>
+      <h2><a name="interconnect_placement_requirements_arm.layout_spacing_contextual_area">4.3.4 Layout_spacing_contextual_area</a>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitylayout_spacing_contextual_area"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      A <b>Layout_spacing_contextual_area</b> is a type of 
+      <a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element"><b>Non_feature_shape_element</b></a>. 
+      A <b>Layout_spacing_contextual_area</b> is the region on an 
+      <a href="../../../modules/assembly_module_with_interconnect_component/sys/4_info_reqs.htm#assembly_module_with_interconnect_component_arm.interconnect_module_component"><b>Interconnect_module_component</b></a> 
+      where mounting restrictions for components exist.
+      The shape representing the mounting restriction region shall have an origin that is congruent with the origin of the shape
+      representing the  
+      <a href="../../../modules/assembly_module_with_interconnect_component/sys/4_info_reqs.htm#assembly_module_with_interconnect_component_arm.interconnect_module_component"><b>Interconnect_module_component</b></a>.
+      This congruency shall be accomplished using concepts equivalent to the Application objects 
+      <a href="../../../modules/physical_unit_2d_design_view/sys/4_info_reqs.htm#physical_unit_2d_design_view_arm.component_2d_location"><b>Component_2d_location</b></a> 
+      or 
+      <a href="../../../modules/physical_unit_3d_design_view/sys/4_info_reqs.htm#physical_unit_3d_design_view_arm.component_3d_location"><b>Component_3d_location</b></a>.
+      The shape representing the <b>Layout_spacing_contextual_area</b> is itself in the shape of the assembly, as is the shape of the  
+      <a href="../../../modules/assembly_module_with_interconnect_component/sys/4_info_reqs.htm#assembly_module_with_interconnect_component_arm.interconnect_module_component"><b>Interconnect_module_component</b></a>.
+      The congruency requirement is established so that an application interface can unambiguously import the <b>Layout_spacing_contextual_area</b> into a CAD layout tool.
+      <b>Layout_spacing_contextual_area</b> is part of a design requirement for an interconnect that is established in the assembly or assemblies in which the interconnect
+      is used.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Layout_spacing_contextual_area<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;reference_surface : <A HREF="../../../../data/modules/assembly_module_with_interconnect_component/sys/4_info_reqs.htm#assembly_module_with_interconnect_component_arm.interconnect_module_component_surface_feature">Interconnect_module_component_surface_feature</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A>.scope : <A HREF="../../../../data/modules/assembly_module_design/sys/4_info_reqs.htm#assembly_module_design_arm.assembly_module_design_view">Assembly_module_design_view</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: (SIZEOF(SELF\Non_feature_shape_element.element_shape) = 0) OR 
+            (SIZEOF(QUERY(es &lt;* SELF\Non_feature_shape_element.element_shape | NOT ('CONSTRUCTION_GEOMETRY_ARM.CONSTRUCTIVE_GEOMETRY'
+            IN TYPEOF(es)) )) = 0);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.layout_spacing_contextual_area.reference_surface">reference_surface:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/assembly_module_with_interconnect_component/sys/4_info_reqs.htm#assembly_module_with_interconnect_component_arm.interconnect_module_component_surface_feature"><b>Interconnect_module_component_surface_feature</b></a> 
+         	for the <b>Layout_spacing_contextual_area</b>.  
+         	The type of surface is determined by the definition of the  
+         	<a href="../../../modules/assembly_module_with_interconnect_component/sys/4_info_reqs.htm#assembly_module_with_interconnect_component_arm.interconnect_module_component_surface_feature"><b>Interconnect_module_component_surface_feature</b></a> 
+         	specified by <b>reference_surface</b>.  
+         	The <b>reference_surface</b> conveys design intent to identify the component that implements the connectivity prescribed by the relevant member of 
+         	<a href="../../../modules/physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.physical_connectivity_definition"><b>Physical_connectivity_definition</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.layout_spacing_contextual_area.scope">scope:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/assembly_module_design/sys/4_info_reqs.htm#assembly_module_design_arm.assembly_module_design_view"><b>Assembly_module_design_view</b></a> 
+         	for the <b>Layout_spacing_contextual_area</b>.  
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.layout_spacing_contextual_area.wr:wr1">WR1:
+               </a></b>
+         	The <a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element.element_shape"><b>element_shape</b></a> 
+         	inherited from the
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element"><b>Non_feature_shape_element</b></a> 
+         	shall be a 
+         	<a href="../../../modules/construction_geometry/sys/4_info_reqs.htm#construction_geometry_arm.constructive_geometry"><b>Constructive_geometry</b></a>.
+         
+      </p>
+      <h2><a name="interconnect_placement_requirements_arm.layout_spacing_requirement">4.3.5 Layout_spacing_requirement</a>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitylayout_spacing_requirement"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         
+         A <b>Layout_spacing_requirement</b> is a type of 
+         	<a href="../../../modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.predefined_requirement_view_definition"><b>Predefined_requirement_view_definition</b></a> 
+         	that describes the physical spacing requirement between one of 
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>assembly_module_assembly_component</b></a>,
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>assembly_module_component_feature</b></a>,
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_cutout</b></a>,
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_fill_area</b></a>,
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_design_intent_modification</b></a>,
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_inter_stratum_feature</b></a>,
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_cutout_edge_segment</b></a>,
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_interconnect_module_edge</b></a>,
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_interconnect_module_edge_segment</b></a>,
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_plated_cutout</b></a>,
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_plated_cutout_edge_segment</b></a>,
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_plated_interconnect_module_edge</b></a>,
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_plated_interconnect_module_edge_segment</b></a>,
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_plated_passage</b></a>,
+         a category consisting of the union of an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_plated_passage</b></a> 
+         category and 
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_plated_unsupported_passage</b></a> category,
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_unsupported_passage</b></a>,
+         an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_stratum_feature</b></a>,
+         or an <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_via</b></a>, and another of these categories of design objects.  
+         The requirement shall be imposed between the boundaries of members of the the relevant categories or between centroids.
+          
+         The category names correspond to the category of equivalent application object names. 
+         
+      </p>
+      
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            Support for requirements between boundaries and centroids is not supported by this part of ISO 10303.
+            </small></p>
+      
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>Assembly_module_assembly_component</b></a> corresponds to <a href="../../../modules/physical_unit_design_view/sys/4_info_reqs.htm#physical_unit_design_view_arm.assembly_component"><b>Assembly_component</b></a> category. 
+            <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>Assembly_module_component_feature</b></a> corresponds to <a href="../../../modules/component_feature/sys/4_info_reqs.htm#component_feature_arm.component_feature"><b>Component_feature</b></a> category.
+            <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>Interconnect_module_cutout</b></a> corresponds to <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.cutout"><b>Cutout</b></a> category.
+            <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>Interconnect_module_inter_stratum_feature</b></a> corresponds to <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_feature"><b>Inter_stratum_feature</b></a> category.  
+            <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>Interconnect_module_stratum_feature</b></a> corresponds to <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature"><b>Stratum_feature</b></a> category. 
+            <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>Interconnect_module_via</b></a> corresponds to <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.via"><b>Via</b></a> category.
+            </small></p>
+      Any subtype of an item in a category shall qualify as part of that category.
+      
+      
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            This part of ISO 10303 supports several spacing requirements in this Application Object.
+            </small></p>
+      
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            A pair of categories is used for this requirement occurrence.
+            </small></p>
+      
+      
+      
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+            In domain terms, when a Via to Via spacing is to be greater than 5 mm, the encoding will be that the spacing between the <b>design_object_category_1</b> whose value is <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_via</b></a> and the <b>design_object_category_2</b> whose value is <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_via</b></a> shall be greater than 5 mm.
+            </small></p>
+      
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            
+            In domain terms, when the distance from a cutout to a trace must be greater than 5 mm, the encoding will 
+            be that the spacing between the <b>design_object_category_1</b> whose value is <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_cutout</b></a> and the <b>design_object_category_2</b> whose value is <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category"><b>interconnect_module_stratum_feature</b></a> shall be greater than 5 mm.
+            </small></p>
+      
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Layout_spacing_requirement<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.predefined_requirement_view_definition">Predefined_requirement_view_definition</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;design_object_category_1 : <A HREF="#interconnect_placement_requirements_arm.lam_product_design_object_category_or_group">lam_product_design_object_category_or_group</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;design_object_category_2 : <A HREF="#interconnect_placement_requirements_arm.lam_product_design_object_category_or_group">lam_product_design_object_category_or_group</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.predefined_requirement_view_definition">Predefined_requirement_view_definition</A>.required_characteristic RENAMED spacing : <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;of_spacing_type : <A HREF="#interconnect_placement_requirements_arm.spacing_type">spacing_type</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.layout_spacing_requirement.design_object_category_1">design_object_category_1:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category_or_group"><b>lam_product_design_object_category_or_group</b></a> 
+         	for the <b>Layout_spacing_requirement</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.layout_spacing_requirement.design_object_category_2">design_object_category_2:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.lam_product_design_object_category_or_group"><b>lam_product_design_object_category_or_group</b></a> 
+         	for the <b>Layout_spacing_requirement</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.layout_spacing_requirement.spacing">spacing:
+               </a></b>
+         	an attribute inherited from the 
+         	<a href="../../../modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.predefined_requirement_view_definition"><b>Predefined_requirement_view_definition</b></a> 
+         	supertype specifies a role of 
+         	the <a href="../../../modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic"><b>Length_tolerance_characteristic</b></a> 
+         	for the <b>Layout_spacing_requirement</b>.  
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.layout_spacing_requirement.of_spacing_type">of_spacing_type:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.spacing_type"><b>spacing_type</b></a> 
+         	for the <b>Layout_spacing_requirement</b>.
+         
+      </p>
+      <h2><a name="interconnect_placement_requirements_arm.layout_spacing_requirement_non_conforming_design_object">4.3.6 Layout_spacing_requirement_non_conforming_design_object</a>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitylayout_spacing_requirement_non_conforming_design_object"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Layout_spacing_requirement_non_conforming_design_object</b> is a means to specify one or more design object that does not 
+      meet object to object spacing requirements for the printed circuit board layout. There is no priority or sequential encoding
+      intended by ending
+      	the attribute names with "1" or "2".
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Layout_spacing_requirement_non_conforming_design_object;<br>
+            
+            
+            
+            &nbsp;&nbsp;non_conformant_design_object : SET[1:?] OF <A HREF="#interconnect_placement_requirements_arm.assembly_or_interconnect_design_object_select">assembly_or_interconnect_design_object_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;design_object_1 : <A HREF="#interconnect_placement_requirements_arm.assembly_or_interconnect_design_object_select">assembly_or_interconnect_design_object_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;design_object_2 : <A HREF="#interconnect_placement_requirements_arm.assembly_or_interconnect_design_object_select">assembly_or_interconnect_design_object_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;design_requirement : <A HREF="#interconnect_placement_requirements_arm.layout_spacing_requirement">Layout_spacing_requirement</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;violation_value : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;violation_shape : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;intersection_violation : LOGICAL;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: EXISTS(violation_value) OR EXISTS(violation_shape);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.layout_spacing_requirement_non_conforming_design_object.non_conformant_design_object">non_conformant_design_object:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.assembly_or_interconnect_design_object_select"><b>assembly_or_interconnect_design_object_select</b></a> 
+         	for the <b>Layout_spacing_requirement_non_conforming_design_object</b>.
+         	There shall be one or more  
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.assembly_or_interconnect_design_object_select"><b>assembly_or_interconnect_design_object_select</b></a>
+         	for each <b>Layout_spacing_requirement_non_conforming_design_object</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.layout_spacing_requirement_non_conforming_design_object.design_object_1">design_object_1:
+               </a></b>
+         	specifies one role of the 
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.assembly_or_interconnect_design_object_select"><b>assembly_or_interconnect_design_object_select</b></a> 
+         	for the <b>Layout_spacing_requirement_non_conforming_design_object</b>.  
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.layout_spacing_requirement_non_conforming_design_object.design_object_2">design_object_2:
+               </a></b>
+         	specifies one role of the 
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.assembly_or_interconnect_design_object_select"><b>assembly_or_interconnect_design_object_select</b></a> 
+         	for the <b>Layout_spacing_requirement_non_conforming_design_object</b>.  
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.layout_spacing_requirement_non_conforming_design_object.design_requirement">design_requirement:
+               </a></b>
+         specifies a role of the 
+         <a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_requirement"><b>Layout_spacing_requirement</b></a> 
+         for the <b>Layout_spacing_requirement_non_conforming_design_object</b>
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.layout_spacing_requirement_non_conforming_design_object.violation_value">violation_value:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element"><b>Length_data_element</b></a> 
+         	for the <b>Layout_spacing_requirement_non_conforming_design_object</b>.
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.layout_spacing_requirement_non_conforming_design_object.violation_shape">violation_shape:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a> 
+         	for the <b>Layout_spacing_requirement_non_conforming_design_object</b>.
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.layout_spacing_requirement_non_conforming_design_object.intersection_violation">intersection_violation:
+               </a></b>
+         	specifies a logical value.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.layout_spacing_requirement_non_conforming_design_object.wr:wr1">WR1:
+               </a></b>
+         	There shall exist <b>violation_value</b> or <b>violation_shape</b>, but not both.
+         
+      </p>
+      <h2><a name="interconnect_placement_requirements_arm.stratum_constraint_region">4.3.7 Stratum_constraint_region</a>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitystratum_constraint_region"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Stratum_constraint_region</b> is a type of
+      	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element"><b>Non_feature_shape_element</b></a>
+      	included to constrain one or more 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a> 
+      	to specific regions in the interconnect design.
+      	The <b>Stratum_constraint_region</b> is an area based concept.
+      	The <b>Stratum_constraint_region</b> may constrain the relevant 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a> 
+      	to be contained within the region.
+      	The <b>Stratum_constraint_region</b> may constrain the relevant
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a> 
+      	to be excluded from the region.	
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Stratum_constraint_region<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;constrained_stratum : SET[1:?] OF <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum">Stratum</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;design_specific_purpose : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;keepout : BOOLEAN;<br>
+            
+            
+            
+            &nbsp;&nbsp;non_conformant_stratum : 
+            OPTIONAL 
+            SET[1:?] OF <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum">Stratum</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A>.scope : <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layered_interconnect_module_design_view">Layered_interconnect_module_design_view</A>;<br>INVERSE<br>
+            &nbsp;&nbsp;precedent_version_constraint_region : SET[0:1] OF <A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element_relationship">Non_feature_shape_element_relationship</A> FOR related;<br>
+            &nbsp;&nbsp;requirement : SET[1:1] OF <A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</A> FOR assigned_to;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: NOT (SIZEOF(precedent_version_constraint_region) = 1) OR ('INTERCONNECT_PLACEMENT_REQUIREMENTS_ARM.STRATUM_CONSTRAINT_REGION'
+            IN TYPEOF(precedent_version_constraint_region[1]\Non_feature_shape_element_relationship.relating));<br> 
+            &nbsp;&nbsp;WR2: NOT EXISTS(SELF\Shape_element.description);<br> 
+            &nbsp;&nbsp;WR3: valid_non_conformant_stratum_context(non_conformant_stratum, scope);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.stratum_constraint_region.constrained_stratum">constrained_stratum:
+               </a></b>
+         	specifies one role of the
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a>
+         	for the <b>Stratum_constraint_region</b>.
+         	Realized material shall not violate the constraint.
+         	There shall exist one or more
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratums</b></a>
+         	for the <b>Stratum_constraint_region</b>.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		In a CAD system is it usual industrial practice for some small geometric overlap of design vs constraints 
+            		due to construction geometry and side effects associated therein.  
+            		This Application Object constrains finished material.		
+            	</small></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.stratum_constraint_region.design_specific_purpose">design_specific_purpose:
+               </a></b>
+         	specifies a STRING defined by the user organization to convey the purpose of the constraint.  
+         	When unused, the value of the STRING shall be ''.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		Information exchange agreements between industrial partners may use this attribute as necessary.		
+            	</small></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.stratum_constraint_region.keepout">keepout:
+               </a></b>
+         	specifies a BOOLEAN value. 
+         	A value of TRUE indicates that realized material shall be excluded from the region.  
+         	A value of FALSE indicates that realized material shall be contained only within the region.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.stratum_constraint_region.non_conformant_stratum">non_conformant_stratum:
+               </a></b>
+         	specifies one role of the
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a>
+         	for the <b>Stratum_constraint_region</b>.
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a> 
+         	specified as <b>non_conformant_stratum</b> violate the constraint.
+         	There may be one or more
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratums</b></a>
+         	for the <b>Stratum_constraint_region</b>.
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The number of <b>non_conformant_stratum</b> will likely vary during typical design flow. 
+            		A design organization may choose to establish metrics based on the
+            		design flow for the interconnect products being designed. 
+            		The context of the 
+            		<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layered_interconnect_module_design_view"><b>Layered_interconnect_module_design_view</b></a> 
+            		specified by scope may be used as a mechanism to retrieve the relevant context and metric.  
+            		More detailed metrics than conformance are outside the scope of this part of ISO 10303.
+            	</small></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.stratum_constraint_region.scope">scope:
+               </a></b>
+         	an attribute, inherited from the
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element"><b>Non_feature_shape_element</b></a>
+         	should be redeclared as the
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layered_interconnect_module_design_view"><b>Layered_interconnect_module_design_view</b></a>
+         	for the <b>Stratum_constraint_region</b>.
+         	The scope establishes the design context for the <b>Stratum_constraint_region</b>.	
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.stratum_constraint_region.precedent_version_constraint_region">precedent_version_constraint_region:
+               </a></b>
+         	an inverse relationship that specifies that the existence of the 
+         	<b>Stratum_constraint_region</b> is dependent on the existence of 
+         	the  
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element_relationship"><b>Non_feature_shape_element_relationship</b></a> 
+         	that specifies the <b>Stratum_constraint_region</b> as its 
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element_relationship.related"><b>related</b></a>.
+         	There shall be no more than one
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element_relationship"><b>Non_feature_shape_element_relationship</b></a>
+         	for an <b>Stratum_constraint_region</b>.
+         	The <b>precedent_version_constraint_region</b> is included to support the case that there are multiple versions of the design included 
+         	in one database and specifies the constraint region assigned to the previous version of the design
+         	if there is a difference between the constraint regions for the previous design
+         	version and the current design version.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		Usual industrial practice is to focus on one version of an interconnect
+            		at a time and therefore this attribute is not usually populated.
+            		
+            	</small></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.stratum_constraint_region.requirement">requirement:
+               </a></b>
+         	an inverse relationship that specifies that the existence of the 
+         	<b>Stratum_constraint_region</b> is dependent on the existence of 
+         	the  
+         	<a href="../../../modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment"><b>Requirement_assignment</b></a> 
+         	that specifies the <b>Stratum_constraint_region</b> as its 
+         	<a href="../../../modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment.assigned_to"><b>assigned_to</b></a>.
+         	There shall be exactly one
+         	<a href="../../../modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment"><b>Requirement_assignment</b></a>
+         	for a <b>Stratum_constraint_region</b>.
+         	A <b>requirement</b> provides the semantic or rationale behind the constraint, usually for archival purposes.	
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.stratum_constraint_region.wr:wr1">WR1:
+               </a></b>
+         	If there is a <b>precedent_version_constraint_region</b> provided then a
+         	<b>Stratum_constraint_region</b> shall be related to this 
+         	<b>Stratum_constraint_region</b> by the relationship.	
+         	
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.stratum_constraint_region.wr:wr2">WR2:
+               </a></b>
+         	The 
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element.description"><b>description</b></a>
+         	shall not be populated.
+         	
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.stratum_constraint_region.wr:wr3">WR3:
+               </a></b>
+         	The 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a> 
+         	being constrained by the region shall contribute to the definition of the 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layered_interconnect_module_design_view"><b>Layered_interconnect_module_design_view</b></a> 
+         	referenced by the <b>scope</b>.	
+         	
+      </p>
+      <h2><a name="subtype_constraints">4.4 ARM subtype constraint definitions</a></h2>
+      <p>
+         This subclause specifies the ARM
+         subtype constraints for 
+         this module. Each subtype constraint places constraints on the
+         possible super-type / subtype instantiations.
+         The ARM subtype constraints and definitions are
+         specified below.
+         
+      </p>
+      <h2><A NAME="interconnect_placement_requirements_arm.ipr_predefined_requirement_view_definition_subtypes">4.4.1 ipr_predefined_requirement_view_definition_subtypes</A>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#scconstraintipr_predefined_requirement_view_definition_subtypes"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         The
+         <b>ipr_predefined_requirement_view_definition_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.predefined_requirement_view_definition">Predefined_requirement_view_definition</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="interconnect_placement_requirements_arm.ipr_predefined_requirement_view_definition_subtypes">SUBTYPE_CONSTRAINT ipr_predefined_requirement_view_definition_subtypes</A> FOR <A HREF="../../../../data/modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.predefined_requirement_view_definition">Predefined_requirement_view_definition</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="../../../../data/modules/assembly_component_placement_requirements/sys/4_info_reqs.htm#assembly_component_placement_requirements_arm.assembly_spacing_requirement">Assembly_spacing_requirement</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/assembly_component_placement_requirements/sys/4_info_reqs.htm#assembly_component_placement_requirements_arm.assembly_group_spacing_requirement">Assembly_group_spacing_requirement</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/assembly_component_placement_requirements/sys/4_info_reqs.htm#assembly_component_placement_requirements_arm.item_restricted_requirement">Item_restricted_requirement</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#interconnect_placement_requirements_arm.layout_spacing_requirement">Layout_spacing_requirement</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p>
+      <h2><A NAME="interconnect_placement_requirements_arm.ipr_non_feature_shape_element_subtypes">4.4.2 ipr_non_feature_shape_element_subtypes</A>
+         &nbsp;&nbsp;<a href="../../interconnect_placement_requirements/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#scconstraintipr_non_feature_shape_element_subtypes"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         The
+         <b>ipr_non_feature_shape_element_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="interconnect_placement_requirements_arm.ipr_non_feature_shape_element_subtypes">SUBTYPE_CONSTRAINT ipr_non_feature_shape_element_subtypes</A> FOR <A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="../../../../data/modules/extended_geometric_tolerance/sys/4_info_reqs.htm#extended_geometric_tolerance_arm.derived_non_feature_shape_element">Derived_non_feature_shape_element</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/extended_geometric_tolerance/sys/4_info_reqs.htm#extended_geometric_tolerance_arm.directed_axis">Directed_axis</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/extended_geometric_tolerance/sys/4_info_reqs.htm#extended_geometric_tolerance_arm.positional_boundary">Positional_boundary</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/extended_geometric_tolerance/sys/4_info_reqs.htm#extended_geometric_tolerance_arm.positional_boundary_member">Positional_boundary_member</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/extended_geometric_tolerance/sys/4_info_reqs.htm#extended_geometric_tolerance_arm.tolerance_zone_boundary">Tolerance_zone_boundary</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/extended_geometric_tolerance/sys/4_info_reqs.htm#extended_geometric_tolerance_arm.tolerance_zone_boundary_member">Tolerance_zone_boundary_member</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/extended_geometric_tolerance/sys/4_info_reqs.htm#extended_geometric_tolerance_arm.viewing_plane">Viewing_plane</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.seating_plane">Seating_plane</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#interconnect_placement_requirements_arm.interconnect_module_constraint_region">Interconnect_module_constraint_region</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#interconnect_placement_requirements_arm.stratum_constraint_region">Stratum_constraint_region</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.reference_graphic_registration_mark">Reference_graphic_registration_mark</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/assembly_component_placement_requirements/sys/4_info_reqs.htm#assembly_component_placement_requirements_arm.mounting_restriction_area">Mounting_restriction_area</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/assembly_component_placement_requirements/sys/4_info_reqs.htm#assembly_component_placement_requirements_arm.mounting_restriction_volume">Mounting_restriction_volume</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p>
+      <h2><a name="functions">4.5 ARM function definitions</a></h2>
+      <p>
+         This subclause specifies the ARM functions for 
+         this module. The ARM functions and definitions are
+         specified below.
+         
+      </p>
+      <h2><A NAME="interconnect_placement_requirements_arm.valid_non_conformant_design_object_context">4.5.1 valid_non_conformant_design_object_context</A></h2>
+      	The <b>valid_non_conformant_design_object_context</b> function returns true if there are no 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.laminate_component"><b>Laminate_components</b></a>
+      	in <b>input1</b> or if the assembly context of the items in <b>input1</b> includes <b>input2</b>.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION valid_non_conformant_design_object_context&nbsp;(input1 : SET[0:?] OF <A HREF="#interconnect_placement_requirements_arm.interconnect_module_design_object_select">interconnect_module_design_object_select</A>; input2 : <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layered_interconnect_module_design_view">Layered_interconnect_module_design_view</A>) :BOOLEAN;
+         </code><pre>LOCAL
+    vdr : SET OF Assembly_component_relationship := [];
+    valid : BOOLEAN := TRUE;
+    pvd : SET OF Product_view_definition := [];
+  END_LOCAL;
+
+   REPEAT i := 1 to HIINDEX(input1);
+    IF ('LAYERED_INTERCONNECT_MODULE_DESIGN_ARM.LAMINATE_COMPONENT' IN TYPEOF(input1[i]))
+    THEN
+       vdr := input1[i]\Assembly_component.occurrence_contexts;
+       pvd := [];
+      REPEAT j := 1 to HIINDEX(vdr);
+       pvd := pvd + vdr[j]\Product_occurrence_definition_relationship.relating_view;
+      END_REPEAT;
+       IF NOT (input2 IN pvd) 
+         THEN valid := FALSE; 
+       END_IF;
+    END_IF;
+   END_REPEAT;
+   
+    RETURN(valid);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.valid_non_conformant_design_object_context.input1">input1:
+               </a></b>
+         	the specified set of
+         	<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.interconnect_module_design_object_select"><b>interconnect_module_design_object_select</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.valid_non_conformant_design_object_context.input2">input2:
+               </a></b>
+         	the specified 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layered_interconnect_module_design_view"><b>Layered_interconnect_module_design_view</b></a>.
+         
+      </p>
+      <h2><A NAME="interconnect_placement_requirements_arm.valid_non_conformant_stratum_context">4.5.2 valid_non_conformant_stratum_context</A></h2>
+      	The <b>valid_non_conformant_stratum_context</b> function returns TRUE if the set of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a> 
+      	included in <b>input1</b> are related by an assembly relationship to the
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layered_interconnect_module_design_view"><b>Layered_interconnect_module_design_view</b></a> 
+      	specified as <b>input2</b>.
+      	
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION valid_non_conformant_stratum_context&nbsp;(input1 : SET[0:?] OF <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum">Stratum</A>; input2 : <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layered_interconnect_module_design_view">Layered_interconnect_module_design_view</A>) :BOOLEAN;
+         </code><pre>LOCAL
+    imsar : SET OF Interconnect_module_stratum_assembly_relationship := [];
+    valid : BOOLEAN := TRUE;
+    i, j : INTEGER := 0;
+    pvd : SET OF Product_view_definition := [];
+  END_LOCAL;
+
+   REPEAT i := 1 to HIINDEX(input1);
+       imsar := input1[i]\Stratum.assembly;
+       pvd := [];
+      REPEAT j := 1 to HIINDEX(pvd);
+       pvd := pvd + imsar[j]\Interconnect_module_stratum_assembly_relationship.assembly;
+      END_REPEAT;
+       IF NOT (input2 IN pvd) 
+         THEN valid := FALSE; 
+       END_IF;
+   END_REPEAT;
+   
+    RETURN(valid);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.valid_non_conformant_stratum_context.input1">input1:
+               </a></b>
+         	the specified set of
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratums</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_placement_requirements_arm.valid_non_conformant_stratum_context.input2">input2:
+               </a></b>
+         	the specified
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layered_interconnect_module_design_view"><b>Layered_interconnect_module_design_view</b></a>.
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Interconnect_placement_requirements_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

@@ -1,0 +1,618 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Extended_geometric_tolerance_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Extended_geometric_tolerance_arm</h2>
+      <p><i>Source : </i></p><code><br><br><a name="extended_geometric_tolerance_arm">SCHEMA <b>Extended_geometric_tolerance_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/requirement_decomposition/sys/e_exp_arm.htm#requirement_decomposition_arm">Requirement_decomposition_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1740<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/default_tolerance/sys/e_exp_arm.htm#default_tolerance_arm">Default_tolerance_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1052<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm">Geometric_tolerance_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1051<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/non_feature_shape_element/sys/e_exp_arm.htm#non_feature_shape_element_arm">Non_feature_shape_element_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1706<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/modules/requirement_decomposition/sys/e_exp_arm.htm#requirement_decomposition_arm">Requirement_decomposition_arm</A>&nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1740<br>&nbsp;&nbsp;(<A HREF="../../../data/modules/requirement_decomposition/sys/e_exp_arm.htm#requirement_decomposition_arm.get_rvd">get_rvd</A>);
+         <br><br></code><code><br><A NAME="extended_geometric_tolerance_arm.centre_type">TYPE </A><b>centre_type</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (centred_on_arc,<br>&nbsp;&nbsp;&nbsp;&nbsp;centred_on_radial);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_arm.descriptive_or_geometric_orientation">TYPE </A><b>descriptive_or_geometric_orientation</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.direction">Direction</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.measure_orientation">measure_orientation</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_arm.dimension_qualifiers">TYPE </A><b>dimension_qualifiers</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (free_state,<br>&nbsp;&nbsp;&nbsp;&nbsp;average);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_arm.dimensional_location_or_dimensional_size">TYPE </A><b>dimensional_location_or_dimensional_size</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/dimension_tolerance/sys/e_exp_arm.htm#dimension_tolerance_arm.location_dimension">Location_dimension</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/dimension_tolerance/sys/e_exp_arm.htm#dimension_tolerance_arm.size_dimension">Size_dimension</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_arm.egt_external_identification_item">TYPE </A><b>egt_external_identification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_arm.htm#external_item_identification_assignment_arm.external_identification_item">external_identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#extended_geometric_tolerance_arm.externally_defined_dimension_representation">Externally_defined_dimension_representation</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_arm.egt_requirement_assignment_item">TYPE </A><b>egt_requirement_assignment_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/requirement_assignment/sys/e_exp_arm.htm#requirement_assignment_arm.requirement_assignment_item">requirement_assignment_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#extended_geometric_tolerance_arm.restraint_condition">Restraint_condition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.statistical_dimensional_location">Statistical_dimensional_location</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.statistical_dimensional_size">Statistical_dimensional_size</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.statistical_geometric_tolerance">Statistical_geometric_tolerance</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_arm.geometric_or_dimension_select">TYPE </A><b>geometric_or_dimension_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/dimension_tolerance/sys/e_exp_arm.htm#dimension_tolerance_arm.geometric_dimension">Geometric_dimension</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_arm.geometric_tolerance_qualifiers">TYPE </A><b>geometric_tolerance_qualifiers</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (pitch_diameter,<br>&nbsp;&nbsp;&nbsp;&nbsp;minor_diameter,<br>&nbsp;&nbsp;&nbsp;&nbsp;each_element,<br>&nbsp;&nbsp;&nbsp;&nbsp;major_diameter,<br>&nbsp;&nbsp;&nbsp;&nbsp;each_radial_element,<br>&nbsp;&nbsp;&nbsp;&nbsp;not_concave,<br>&nbsp;&nbsp;&nbsp;&nbsp;not_convex,<br>&nbsp;&nbsp;&nbsp;&nbsp;free_state);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_arm.locating_or_refinement_linear_profile_tolerance">TYPE </A><b>locating_or_refinement_linear_profile_tolerance</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#extended_geometric_tolerance_arm.composite_linear_profile_refinement_tolerance">Composite_linear_profile_refinement_tolerance</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.line_profile_tolerance">Line_profile_tolerance</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_arm.locating_or_refinement_surface_profile_tolerance">TYPE </A><b>locating_or_refinement_surface_profile_tolerance</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#extended_geometric_tolerance_arm.composite_surface_profile_refinement_tolerance">Composite_surface_profile_refinement_tolerance</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.surface_profile_tolerance">Surface_profile_tolerance</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_arm.measure_orientation">TYPE </A><b>measure_orientation</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (reversed,<br>&nbsp;&nbsp;&nbsp;&nbsp;normal);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_arm.offset_types">TYPE </A><b>offset_types</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (towards_material,<br>&nbsp;&nbsp;&nbsp;&nbsp;away_from_material);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_arm.orientation_select">TYPE </A><b>orientation_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#extended_geometric_tolerance_arm.datum_axis_related_orientation">Datum_axis_related_orientation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.datum_based_vector_orientation">Datum_based_vector_orientation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.viewing_plane_based_orientation">Viewing_plane_based_orientation</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_arm.physical_feature_or_part_template">TYPE </A><b>physical_feature_or_part_template</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element">Shape_element</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_arm.restrained_item_select">TYPE </A><b>restrained_item_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#extended_geometric_tolerance_arm.physical_feature_or_part_template">physical_feature_or_part_template</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.single_datum">Single_datum</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_arm.true_profile_representations">TYPE </A><b>true_profile_representations</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#extended_geometric_tolerance_arm.dimension_set">Dimension_set</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm.document_definition">Document_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/production_rule/sys/e_exp_arm.htm#production_rule_arm.func">Func</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_geometric_tolerance_arm.apex">ENTITY <b>Apex</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.derived_non_feature_shape_element">Derived_non_feature_shape_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.boundary_size_characteristic">ENTITY <b>Boundary_size_characteristic</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#extended_geometric_tolerance_arm.diametrical_boundary_size_characteristic">Diametrical_boundary_size_characteristic</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.opposing_boundary_set_size_characteristic">Opposing_boundary_set_size_characteristic</A>));<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.boundary_size_characteristic.tolerance_value">tolerance_value : </A><A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_arm.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.boundary_size_characteristic.maximum_tolerance_value">maximum_tolerance_value : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_arm.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.centre_axis">ENTITY <b>Centre_axis</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.centre_of_symmetry">Centre_of_symmetry</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.centre_axis.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.centre_of_symmetry">ENTITY <b>Centre_of_symmetry</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#extended_geometric_tolerance_arm.centre_axis">Centre_axis</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.centre_plane">Centre_plane</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.centre_point">Centre_point</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.derived_non_feature_shape_element">Derived_non_feature_shape_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.centre_plane">ENTITY <b>Centre_plane</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.centre_of_symmetry">Centre_of_symmetry</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.centre_plane.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.centre_point">ENTITY <b>Centre_point</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.centre_of_symmetry">Centre_of_symmetry</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.centre_point.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.composite_linear_profile_refinement_tolerance">ENTITY <b>Composite_linear_profile_refinement_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.line_profile_tolerance">Line_profile_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.composite_linear_profile_refinement_tolerance.refined_control">refined_control : </A><A HREF="#extended_geometric_tolerance_arm.locating_or_refinement_linear_profile_tolerance">locating_or_refinement_linear_profile_tolerance</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.composite_linear_profile_refinement_tolerance.wr:wr1">WR1: NOT EXISTS(SELF\Geometric_tolerance.name);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.composite_surface_profile_refinement_tolerance">ENTITY <b>Composite_surface_profile_refinement_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.surface_profile_tolerance">Surface_profile_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.composite_surface_profile_refinement_tolerance.refined_control">refined_control : </A><A HREF="#extended_geometric_tolerance_arm.locating_or_refinement_surface_profile_tolerance">locating_or_refinement_surface_profile_tolerance</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.composite_surface_profile_refinement_tolerance.wr:wr1">WR1: NOT EXISTS(SELF\Geometric_tolerance.name);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.conical_tolerance_zone_boundary">ENTITY <b>Conical_tolerance_zone_boundary</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.tolerance_zone_boundary">Tolerance_zone_boundary</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.conical_tolerance_zone_boundary.boundary_and_surface_relationships">boundary_and_surface_relationships : </A>SET[2:2] OF <A HREF="#extended_geometric_tolerance_arm.conical_tolerance_zone_boundary_and_surface_relationship">Conical_tolerance_zone_boundary_and_surface_relationship</A> FOR sized_tolerance_zone_boundary;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.conical_tolerance_zone_boundary.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.conical_tolerance_zone_boundary_and_surface_relationship">ENTITY <b>Conical_tolerance_zone_boundary_and_surface_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.conical_tolerance_zone_boundary_and_surface_relationship.sized_tolerance_zone_boundary">sized_tolerance_zone_boundary : </A><A HREF="#extended_geometric_tolerance_arm.conical_tolerance_zone_boundary">Conical_tolerance_zone_boundary</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.conical_tolerance_zone_boundary_and_surface_relationship.terminating_surface">terminating_surface : </A><A HREF="#extended_geometric_tolerance_arm.physical_feature_or_part_template">physical_feature_or_part_template</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.conical_tolerance_zone_boundary_and_surface_relationship.terminating_surface_datum">terminating_surface_datum : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.datum_defined_by_feature">Datum_defined_by_feature</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.conical_tolerance_zone_boundary_and_surface_relationship.size_characteristic">size_characteristic : </A><A HREF="#extended_geometric_tolerance_arm.conical_tolerance_zone_boundary_diametrical_size_characteristic">Conical_tolerance_zone_boundary_diametrical_size_characteristic</A> FOR sized_boundary_at_surface;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.conical_tolerance_zone_boundary_and_surface_relationship.wr:wr1">WR1: NOT EXISTS(terminating_surface_datum) OR 
+            (terminating_surface :=: terminating_surface_datum\Datum_defined_by_feature.defined_by);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.conical_tolerance_zone_boundary_diametrical_size_characteristic">ENTITY <b>Conical_tolerance_zone_boundary_diametrical_size_characteristic</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.conical_tolerance_zone_boundary_diametrical_size_characteristic.sized_boundary_at_surface">sized_boundary_at_surface : </A><A HREF="#extended_geometric_tolerance_arm.conical_tolerance_zone_boundary_and_surface_relationship">Conical_tolerance_zone_boundary_and_surface_relationship</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.conical_tolerance_zone_boundary_diametrical_size_characteristic.tolerance_value">tolerance_value : </A><A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_arm.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.conical_tolerance_zone_definition">ENTITY <b>Conical_tolerance_zone_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.tolerance_zone_definition">Tolerance_zone_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.datum_axis">ENTITY <b>Datum_axis</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.datum_defined_by_derived_shape">Datum_defined_by_derived_shape</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.datum_axis_and_tolerance_zone_orienting_relationship">ENTITY <b>Datum_axis_and_tolerance_zone_orienting_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_axis_and_tolerance_zone_orienting_relationship.oriented_tolerance_zone">oriented_tolerance_zone : </A><A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.tolerance_zone">Tolerance_zone</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_axis_and_tolerance_zone_orienting_relationship.orienting_datum_axis">orienting_datum_axis : </A><A HREF="#extended_geometric_tolerance_arm.datum_axis">Datum_axis</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_axis_and_tolerance_zone_orienting_relationship.zone_orientation">zone_orientation : </A><A HREF="#extended_geometric_tolerance_arm.datum_axis_related_orientation">Datum_axis_related_orientation</A> FOR orienting_relationship;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.datum_axis_related_orientation">ENTITY <b>Datum_axis_related_orientation</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_axis_related_orientation.orienting_relationship">orienting_relationship : </A><A HREF="#extended_geometric_tolerance_arm.datum_axis_and_tolerance_zone_orienting_relationship">Datum_axis_and_tolerance_zone_orienting_relationship</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_axis_related_orientation.orientation_type">orientation_type : </A><A HREF="#extended_geometric_tolerance_arm.centre_type">centre_type</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.datum_based_direction_element">ENTITY <b>Datum_based_direction_element</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_based_direction_element.direction">direction : </A><A HREF="#extended_geometric_tolerance_arm.datum_based_direction_vector">Datum_based_direction_vector</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_based_direction_element.angle_value">angle_value : </A><A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_arm.htm#value_with_unit_extension_arm.angle_data_element">Angle_data_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_based_direction_element.base_datum_plane">base_datum_plane : </A><A HREF="#extended_geometric_tolerance_arm.datum_plane">Datum_plane</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_based_direction_element.direction_of_half_datum_plane">direction_of_half_datum_plane : </A><A HREF="#extended_geometric_tolerance_arm.datum_based_direction_vector">Datum_based_direction_vector</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_based_direction_element.elements_of">elements_of : </A>SET[1:?] OF <A HREF="#extended_geometric_tolerance_arm.datum_based_vector_orientation">Datum_based_vector_orientation</A> FOR direction_components;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.datum_based_direction_vector">ENTITY <b>Datum_based_direction_vector</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_based_direction_vector.direction_vector_representation">direction_vector_representation : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_based_direction_vector.vector_of">vector_of : </A><A HREF="#extended_geometric_tolerance_arm.datum_plane">Datum_plane</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_based_direction_vector.positive_direction_vector">positive_direction_vector : </A>BOOLEAN;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.datum_based_length_measure">ENTITY <b>Datum_based_length_measure</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_based_length_measure.measure">measure : </A><A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_arm.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_based_length_measure.measure_orientation">measure_orientation : </A><A HREF="#extended_geometric_tolerance_arm.descriptive_or_geometric_orientation">descriptive_or_geometric_orientation</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_based_length_measure.of_datum">of_datum : </A><A HREF="#extended_geometric_tolerance_arm.datum_plane">Datum_plane</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.datum_based_vector_orientation">ENTITY <b>Datum_based_vector_orientation</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_based_vector_orientation.direction_components">direction_components : </A>SET[2:2] OF <A HREF="#extended_geometric_tolerance_arm.datum_based_direction_element">Datum_based_direction_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.datum_difference">ENTITY <b>Datum_difference</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_difference.precedent_datum">precedent_datum : </A><A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.datum">Datum</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_difference.subsequent_datum">subsequent_datum : </A><A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.datum">Datum</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.datum_difference_based_characteristic">ENTITY <b>Datum_difference_based_characteristic</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_item">Representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.datum_difference_based_characteristic.of_datum_difference">of_datum_difference : </A><A HREF="#extended_geometric_tolerance_arm.datum_difference">Datum_difference</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.datum_plane">ENTITY <b>Datum_plane</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.single_datum">Single_datum</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.datum_point">ENTITY <b>Datum_point</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.datum_defined_by_derived_shape">Datum_defined_by_derived_shape</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.datum_shape_element">ENTITY <b>Datum_shape_element</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.datum">Datum</A>, <A HREF="../../../data/modules/non_feature_shape_element/sys/e_exp_arm.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.derived_non_feature_shape_element">ENTITY <b>Derived_non_feature_shape_element</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#extended_geometric_tolerance_arm.apex">Apex</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.centre_of_symmetry">Centre_of_symmetry</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.linear_extension">Linear_extension</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.geometric_intersection">Geometric_intersection</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.geometric_alignment">Geometric_alignment</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.tangent_shape_element">Tangent_shape_element</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/non_feature_shape_element/sys/e_exp_arm.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.derived_non_feature_shape_element.deriving_relationships">deriving_relationships : </A>SET[1:?] OF <A HREF="#extended_geometric_tolerance_arm.shape_element_deriving_relationship">Shape_element_deriving_relationship</A> FOR relating;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.diametrical_boundary_size_characteristic">ENTITY <b>Diametrical_boundary_size_characteristic</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.boundary_size_characteristic">Boundary_size_characteristic</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.diametrical_boundary_size_characteristic.sized_boundary">sized_boundary : </A><A HREF="#extended_geometric_tolerance_arm.tolerance_zone_circular_or_cylindrical_or_spherical_boundary">Tolerance_zone_circular_or_cylindrical_or_spherical_boundary</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.dimension_qualifier">ENTITY <b>Dimension_qualifier</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#extended_geometric_tolerance_arm.pre_defined_dimension_qualifier">Pre_defined_dimension_qualifier</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.user_defined_dimension_qualifier">User_defined_dimension_qualifier</A>));<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.dimension_qualifier.qualified_dimensions">qualified_dimensions : </A>SET[1:?] OF <A HREF="../../../data/modules/dimension_tolerance/sys/e_exp_arm.htm#dimension_tolerance_arm.geometric_dimension">Geometric_dimension</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.dimension_related_positional_boundary">ENTITY <b>Dimension_related_positional_boundary</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.positional_boundary">Positional_boundary</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.dimension_related_positional_boundary.boundary_members">boundary_members : </A>SET[1:?] OF <A HREF="#extended_geometric_tolerance_arm.positional_boundary_member">Positional_boundary_member</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.dimension_related_positional_boundary.constrained_physical_feature">constrained_physical_feature : </A><A HREF="#extended_geometric_tolerance_arm.physical_feature_or_part_template">physical_feature_or_part_template</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.dimension_related_positional_boundary.constrained_physical_feature_datum">constrained_physical_feature_datum : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.datum_defined_by_feature">Datum_defined_by_feature</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.dimension_related_positional_boundary.wr:wr1">WR1: NOT EXISTS(constrained_physical_feature_datum) OR 
+            (constrained_physical_feature :=: constrained_physical_feature_datum\Datum_defined_by_feature.defined_by);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.dimension_related_positional_boundary_definition">ENTITY <b>Dimension_related_positional_boundary_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.positional_boundary_definition">Positional_boundary_definition</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/extended_geometric_tolerance/sys/e_exp_arm.htm#extended_geometric_tolerance_arm.positional_boundary_definition">Positional_boundary_definition</A>.<A NAME="extended_geometric_tolerance_arm.dimension_related_positional_boundary_definition.defined_positional_boundary">defined_positional_boundary : </A><A HREF="#extended_geometric_tolerance_arm.dimension_related_positional_boundary">Dimension_related_positional_boundary</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.dimension_related_positional_boundary_definition.characterized_boundary_member_definitions">characterized_boundary_member_definitions : </A>SET[1:?] OF <A HREF="#extended_geometric_tolerance_arm.positional_boundary_member_definition">Positional_boundary_member_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.dimension_set">ENTITY <b>Dimension_set</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.dimension_set.associated_dimensions">associated_dimensions : </A>SET[1:?] OF <A HREF="../../../data/modules/dimension_tolerance/sys/e_exp_arm.htm#dimension_tolerance_arm.geometric_dimension">Geometric_dimension</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.dimensional_characteristic_representation">ENTITY <b>Dimensional_characteristic_representation</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.dimensional_characteristic_representation.representation">representation : </A><A HREF="#extended_geometric_tolerance_arm.shape_dimension_representation">Shape_dimension_representation</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.dimensional_characteristic_representation.dimension">dimension : </A><A HREF="#extended_geometric_tolerance_arm.dimensional_location_or_dimensional_size">dimensional_location_or_dimensional_size</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.dimensional_characteristic_representation.auxiliary_dimension_representation">auxiliary_dimension_representation : </A>BOOLEAN;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.dimensional_size_based_on_opposing_boundaries">ENTITY <b>Dimensional_size_based_on_opposing_boundaries</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/dimension_tolerance/sys/e_exp_arm.htm#dimension_tolerance_arm.size_dimension">Size_dimension</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.dimensional_size_based_on_opposing_boundaries.boundary_separation">boundary_separation : </A><A HREF="../../../data/modules/shape_composition/sys/e_exp_arm.htm#shape_composition_arm.shape_element_locating_relationship">Shape_element_locating_relationship</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/dimension_tolerance/sys/e_exp_arm.htm#dimension_tolerance_arm.size_dimension">Size_dimension</A>.<A NAME="extended_geometric_tolerance_arm.dimensional_size_based_on_opposing_boundaries.is_applied_to">is_applied_to : </A><A HREF="../../../data/modules/shape_composition/sys/e_exp_arm.htm#shape_composition_arm.composite_unit_shape_element">Composite_unit_shape_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.directed_axis">ENTITY <b>Directed_axis</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/non_feature_shape_element/sys/e_exp_arm.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.directed_axis.axis_to_be_oriented">axis_to_be_oriented : </A><A HREF="#extended_geometric_tolerance_arm.centre_axis">Centre_axis</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.directed_axis.start_shape_element">start_shape_element : </A><A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element">Shape_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.directed_axis.end_shape_element">end_shape_element : </A><A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element">Shape_element</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.directed_axis.ur:ur1">UR1: </A>axis_to_be_oriented, start_shape_element;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.directed_axis.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.edge_segment_vertex">ENTITY <b>Edge_segment_vertex</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.datum_point">Datum_point</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.externally_defined_dimension_representation">ENTITY <b>Externally_defined_dimension_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.shape_dimension_representation">Shape_dimension_representation</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.externally_defined_dimension_representation.dimension_value">dimension_value : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.value_with_unit">Value_with_unit</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.externally_defined_dimension_representation.definitions">definitions : </A>SET[1:?] OF <A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_arm.htm#external_item_identification_assignment_arm.external_source_identification">External_source_identification</A> FOR item;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.geometric_alignment">ENTITY <b>Geometric_alignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.derived_non_feature_shape_element">Derived_non_feature_shape_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.geometric_intersection">ENTITY <b>Geometric_intersection</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.derived_non_feature_shape_element">Derived_non_feature_shape_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.geometric_tolerance_qualifier">ENTITY <b>Geometric_tolerance_qualifier</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#extended_geometric_tolerance_arm.pre_defined_geometric_tolerance_qualifier">Pre_defined_geometric_tolerance_qualifier</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.user_defined_geometric_tolerance_qualifier">User_defined_geometric_tolerance_qualifier</A>));<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.geometric_tolerance_qualifier.qualified_geometric_tolerances">qualified_geometric_tolerances : </A>SET[1:?] OF <A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.geometric_tolerance_with_applied_material_condition_property">ENTITY <b>Geometric_tolerance_with_applied_material_condition_property</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.geometric_tolerance_with_applied_material_condition_property.applied_material_condition_property_name">applied_material_condition_property_name : </A><A HREF="../../../data/modules/shape_parameters/sys/e_exp_arm.htm#shape_parameters_arm.material_condition_property_names">material_condition_property_names</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.limit_dimension_representation">ENTITY <b>Limit_dimension_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.shape_dimension_representation">Shape_dimension_representation</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.limit_dimension_representation.upper_dimension_value">upper_dimension_value : </A><A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.value_with_unit">Value_with_unit</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.limit_dimension_representation.lower_dimension_value">lower_dimension_value : </A><A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.value_with_unit">Value_with_unit</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.linear_extension">ENTITY <b>Linear_extension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.derived_non_feature_shape_element">Derived_non_feature_shape_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.maximum_dimension_representation">ENTITY <b>Maximum_dimension_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.singular_dimension_representation">Singular_dimension_representation</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.minimum_dimension_representation">ENTITY <b>Minimum_dimension_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.singular_dimension_representation">Singular_dimension_representation</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.opposing_boundary_set_size_characteristic">ENTITY <b>Opposing_boundary_set_size_characteristic</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.boundary_size_characteristic">Boundary_size_characteristic</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.opposing_boundary_set_size_characteristic.sized_boundary_set">sized_boundary_set : </A><A HREF="#extended_geometric_tolerance_arm.tolerance_zone_opposing_boundary_set">Tolerance_zone_opposing_boundary_set</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.parallel_shape_element_relationship">ENTITY <b>Parallel_shape_element_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.parallel_shape_element_relationship.wr:wr1">WR1: NOT EXISTS (SELF\Shape_element_relationship.relation_type);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.perpendicular_shape_element_relationship">ENTITY <b>Perpendicular_shape_element_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.perpendicular_shape_element_relationship.wr:wr1">WR1: NOT EXISTS (SELF\Shape_element_relationship.relation_type);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.positional_boundary">ENTITY <b>Positional_boundary</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#extended_geometric_tolerance_arm.profile_related_positional_boundary">Profile_related_positional_boundary</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.dimension_related_positional_boundary">Dimension_related_positional_boundary</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/non_feature_shape_element/sys/e_exp_arm.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.positional_boundary.boundary_definition">boundary_definition : </A><A HREF="#extended_geometric_tolerance_arm.positional_boundary_definition">Positional_boundary_definition</A> FOR defined_positional_boundary;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.positional_boundary.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.positional_boundary_and_profile_boundary_member_relationship">ENTITY <b>Positional_boundary_and_profile_boundary_member_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.positional_boundary_and_profile_boundary_member_relationship.offset_positional_boundary">offset_positional_boundary : </A><A HREF="#extended_geometric_tolerance_arm.profile_related_positional_boundary">Profile_related_positional_boundary</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.positional_boundary_and_profile_boundary_member_relationship.base_profile_tolerance_zone_boundary_member">base_profile_tolerance_zone_boundary_member : </A><A HREF="#extended_geometric_tolerance_arm.tolerance_zone_boundary_member">Tolerance_zone_boundary_member</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.positional_boundary_and_profile_boundary_member_relationship.offset">offset : </A><A HREF="#extended_geometric_tolerance_arm.positional_boundary_offset">Positional_boundary_offset</A> FOR offset_boundary_relationship;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.positional_boundary_definition">ENTITY <b>Positional_boundary_definition</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#extended_geometric_tolerance_arm.profile_related_positional_boundary_definition">Profile_related_positional_boundary_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.dimension_related_positional_boundary_definition">Dimension_related_positional_boundary_definition</A>));<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.positional_boundary_definition.defined_positional_boundary">defined_positional_boundary : </A><A HREF="#extended_geometric_tolerance_arm.positional_boundary">Positional_boundary</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.positional_boundary_member">ENTITY <b>Positional_boundary_member</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/non_feature_shape_element/sys/e_exp_arm.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.positional_boundary_member.composed_positional_boundary">composed_positional_boundary : </A><A HREF="#extended_geometric_tolerance_arm.dimension_related_positional_boundary">Dimension_related_positional_boundary</A> FOR boundary_members;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.positional_boundary_member.boundary_member_definition">boundary_member_definition : </A><A HREF="#extended_geometric_tolerance_arm.positional_boundary_member_definition">Positional_boundary_member_definition</A> FOR defined_positional_boundary_member;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.positional_boundary_member_definition">ENTITY <b>Positional_boundary_member_definition</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.positional_boundary_member_definition.defined_positional_boundary_member">defined_positional_boundary_member : </A><A HREF="#extended_geometric_tolerance_arm.positional_boundary_member">Positional_boundary_member</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.positional_boundary_member_definition.tolerance_value">tolerance_value : </A><A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_arm.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.positional_boundary_member_definition.associated_dimension">associated_dimension : </A><A HREF="../../../data/modules/dimension_tolerance/sys/e_exp_arm.htm#dimension_tolerance_arm.size_dimension">Size_dimension</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.positional_boundary_member_definition.boundary_definition">boundary_definition : </A><A HREF="#extended_geometric_tolerance_arm.dimension_related_positional_boundary_definition">Dimension_related_positional_boundary_definition</A> FOR characterized_boundary_member_definitions;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.positional_boundary_offset">ENTITY <b>Positional_boundary_offset</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.positional_boundary_offset.offset_boundary_relationship">offset_boundary_relationship : </A><A HREF="#extended_geometric_tolerance_arm.positional_boundary_and_profile_boundary_member_relationship">Positional_boundary_and_profile_boundary_member_relationship</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.positional_boundary_offset.tolerance_value">tolerance_value : </A><A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_arm.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.positional_boundary_offset.boundary_definition">boundary_definition : </A><A HREF="#extended_geometric_tolerance_arm.profile_related_positional_boundary_definition">Profile_related_positional_boundary_definition</A> FOR boundary_offset;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.pre_defined_dimension_qualifier">ENTITY <b>Pre_defined_dimension_qualifier</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.dimension_qualifier">Dimension_qualifier</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.pre_defined_dimension_qualifier.description">description : </A><A HREF="#extended_geometric_tolerance_arm.dimension_qualifiers">dimension_qualifiers</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.pre_defined_geometric_tolerance_qualifier">ENTITY <b>Pre_defined_geometric_tolerance_qualifier</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.geometric_tolerance_qualifier">Geometric_tolerance_qualifier</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.pre_defined_geometric_tolerance_qualifier.description">description : </A><A HREF="#extended_geometric_tolerance_arm.geometric_tolerance_qualifiers">geometric_tolerance_qualifiers</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.profile_related_positional_boundary">ENTITY <b>Profile_related_positional_boundary</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.positional_boundary">Positional_boundary</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.profile_related_positional_boundary.associating_relationship">associating_relationship : </A><A HREF="#extended_geometric_tolerance_arm.positional_boundary_and_profile_boundary_member_relationship">Positional_boundary_and_profile_boundary_member_relationship</A> FOR offset_positional_boundary;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.profile_related_positional_boundary_definition">ENTITY <b>Profile_related_positional_boundary_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.positional_boundary_definition">Positional_boundary_definition</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/extended_geometric_tolerance/sys/e_exp_arm.htm#extended_geometric_tolerance_arm.positional_boundary_definition">Positional_boundary_definition</A>.<A NAME="extended_geometric_tolerance_arm.profile_related_positional_boundary_definition.defined_positional_boundary">defined_positional_boundary : </A><A HREF="#extended_geometric_tolerance_arm.profile_related_positional_boundary">Profile_related_positional_boundary</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.profile_related_positional_boundary_definition.boundary_offset">boundary_offset : </A><A HREF="#extended_geometric_tolerance_arm.positional_boundary_offset">Positional_boundary_offset</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.projected_zone_and_base_relationship">ENTITY <b>Projected_zone_and_base_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.projected_zone_and_base_relationship.base_physical_feature">base_physical_feature : </A><A HREF="#extended_geometric_tolerance_arm.physical_feature_or_part_template">physical_feature_or_part_template</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.projected_zone_and_base_relationship.projected_zone">projected_zone : </A><A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.tolerance_zone">Tolerance_zone</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.projected_zone_and_base_relationship.size_characteristic">size_characteristic : </A><A HREF="#extended_geometric_tolerance_arm.projected_zone_height_characteristic">Projected_zone_height_characteristic</A> FOR defined_height_of;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.projected_zone_and_base_relationship.wr:wr1">WR1: NOT('SHAPE_PROPERTY_ASSIGNMENT_ARM.SHAPE_ELEMENT' IN TYPEOF(base_physical_feature)) OR
+            (SIZEOF(USEDIN(base_physical_feature,'GEOMETRIC_TOLERANCE_ARM.DATUM_DEFINED_BY_FEATURE.DEFINED_BY'))&gt; 0);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.projected_zone_height_characteristic">ENTITY <b>Projected_zone_height_characteristic</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.projected_zone_height_characteristic.defined_height_of">defined_height_of : </A><A HREF="#extended_geometric_tolerance_arm.projected_zone_and_base_relationship">Projected_zone_and_base_relationship</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.projected_zone_height_characteristic.projected_height_value">projected_height_value : </A><A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_arm.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.restraint_condition">ENTITY <b>Restraint_condition</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (<A HREF="#extended_geometric_tolerance_arm.tolerance_specific_restraint_condition">Tolerance_specific_restraint_condition</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.restraint_condition.applied_to">applied_to : </A><A HREF="#extended_geometric_tolerance_arm.restrained_item_select">restrained_item_select</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.restraint_condition.restraint_description">restraint_description : </A>SET[0:?] OF <A HREF="../../../data/modules/requirement_view_definition/sys/e_exp_arm.htm#requirement_view_definition_arm.requirement_view_definition">Requirement_view_definition</A> := get_rvd(SELF, 'restraint description');<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.restraint_condition.wr:wr1">WR1: (SIZEOF(restraint_description) = 1);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.runout_tolerance_zone_definition_with_specified_angle">ENTITY <b>Runout_tolerance_zone_definition_with_specified_angle</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.tolerance_zone_definition">Tolerance_zone_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.runout_tolerance_zone_definition_with_specified_angle.runout_orientation">runout_orientation : </A><A HREF="#extended_geometric_tolerance_arm.runout_zone_orientation">Runout_zone_orientation</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.runout_tolerance_zone_orienting_relationship">ENTITY <b>Runout_tolerance_zone_orienting_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.runout_tolerance_zone_orienting_relationship.oriented_zone">oriented_zone : </A><A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.tolerance_zone">Tolerance_zone</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.runout_tolerance_zone_orienting_relationship.orienting_axis">orienting_axis : </A><A HREF="#extended_geometric_tolerance_arm.directed_axis">Directed_axis</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.runout_tolerance_zone_orienting_relationship.angular_size_characteristic">angular_size_characteristic : </A><A HREF="#extended_geometric_tolerance_arm.runout_zone_orientation">Runout_zone_orientation</A> FOR oriented_relationship;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.runout_zone_orientation">ENTITY <b>Runout_zone_orientation</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.runout_zone_orientation.oriented_relationship">oriented_relationship : </A><A HREF="#extended_geometric_tolerance_arm.runout_tolerance_zone_orienting_relationship">Runout_tolerance_zone_orienting_relationship</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.runout_zone_orientation.semi_angle_value">semi_angle_value : </A><A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_arm.htm#value_with_unit_extension_arm.angle_data_element">Angle_data_element</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.runout_zone_orientation.zone_definition">zone_definition : </A><A HREF="#extended_geometric_tolerance_arm.runout_tolerance_zone_definition_with_specified_angle">Runout_tolerance_zone_definition_with_specified_angle</A> FOR runout_orientation;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.separate_geometric_tolerance_requirement">ENTITY <b>Separate_geometric_tolerance_requirement</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.separate_geometric_tolerance_requirement.separated_geometric_tolerances">separated_geometric_tolerances : </A>SET[1:?] OF <A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.shape_dimension_representation">ENTITY <b>Shape_dimension_representation</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#extended_geometric_tolerance_arm.limit_dimension_representation">Limit_dimension_representation</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.singular_dimension_representation">Singular_dimension_representation</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.externally_defined_dimension_representation">Externally_defined_dimension_representation</A>));<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.shape_element_deriving_relationship">ENTITY <b>Shape_element_deriving_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>.<A NAME="extended_geometric_tolerance_arm.shape_element_deriving_relationship.relating">relating : </A><A HREF="#extended_geometric_tolerance_arm.derived_non_feature_shape_element">Derived_non_feature_shape_element</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.shape_element_deriving_relationship.ur:ur1">UR1: </A>
+         SELF\<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>.related, relating;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.simultaneous_geometric_tolerance_requirement">ENTITY <b>Simultaneous_geometric_tolerance_requirement</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.simultaneous_geometric_tolerance_requirement.grouped_geometric_tolerances">grouped_geometric_tolerances : </A>SET[2:?] OF <A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.singular_dimension_representation">ENTITY <b>Singular_dimension_representation</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#extended_geometric_tolerance_arm.theoretically_exact_dimension_representation">Theoretically_exact_dimension_representation</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.maximum_dimension_representation">Maximum_dimension_representation</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.minimum_dimension_representation">Minimum_dimension_representation</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.shape_dimension_representation">Shape_dimension_representation</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.singular_dimension_representation.dimension_value">dimension_value : </A><A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.value_with_unit">Value_with_unit</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.statistical_dimensional_location">ENTITY <b>Statistical_dimensional_location</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/dimension_tolerance/sys/e_exp_arm.htm#dimension_tolerance_arm.geometric_dimension">Geometric_dimension</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.statistical_dimensional_location.alternate_dimension">alternate_dimension : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/dimension_tolerance/sys/e_exp_arm.htm#dimension_tolerance_arm.geometric_dimension">Geometric_dimension</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.statistical_dimensional_location.statistical_control_requirement">statistical_control_requirement : </A>SET[0:?] OF <A HREF="../../../data/modules/requirement_view_definition/sys/e_exp_arm.htm#requirement_view_definition_arm.requirement_view_definition">Requirement_view_definition</A> := get_rvd(SELF, 'statistical control requirement');<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.statistical_dimensional_location.wr:wr1">WR1: (SIZEOF(statistical_control_requirement) = 1);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.statistical_dimensional_size">ENTITY <b>Statistical_dimensional_size</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/dimension_tolerance/sys/e_exp_arm.htm#dimension_tolerance_arm.geometric_dimension">Geometric_dimension</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.statistical_dimensional_size.alternate_dimension">alternate_dimension : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/dimension_tolerance/sys/e_exp_arm.htm#dimension_tolerance_arm.geometric_dimension">Geometric_dimension</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.statistical_dimensional_size.statistical_control_requirement">statistical_control_requirement : </A>SET[0:?] OF <A HREF="../../../data/modules/requirement_view_definition/sys/e_exp_arm.htm#requirement_view_definition_arm.requirement_view_definition">Requirement_view_definition</A> := get_rvd(SELF, 'statistical control requirement');<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.statistical_dimensional_size.wr:wr1">WR1: (SIZEOF(statistical_control_requirement) = 1);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.statistical_geometric_tolerance">ENTITY <b>Statistical_geometric_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.statistical_geometric_tolerance.alternate_tolerance">alternate_tolerance : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.statistical_geometric_tolerance.statistical_control_requirement">statistical_control_requirement : </A>SET[0:?] OF <A HREF="../../../data/modules/requirement_view_definition/sys/e_exp_arm.htm#requirement_view_definition_arm.requirement_view_definition">Requirement_view_definition</A> := get_rvd(SELF, 'statistical control requirement');<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.statistical_geometric_tolerance.wr:wr1">WR1: (SIZEOF(statistical_control_requirement) = 1);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.tangent_plane">ENTITY <b>Tangent_plane</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.tangent_shape_element">Tangent_shape_element</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tangent_plane.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.tangent_shape_element">ENTITY <b>Tangent_shape_element</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (<A HREF="#extended_geometric_tolerance_arm.tangent_plane">Tangent_plane</A>)<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.derived_non_feature_shape_element">Derived_non_feature_shape_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.theoretically_exact_dimension_representation">ENTITY <b>Theoretically_exact_dimension_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.singular_dimension_representation">Singular_dimension_representation</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.tolerance_specific_restraint_condition">ENTITY <b>Tolerance_specific_restraint_condition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.restraint_condition">Restraint_condition</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_specific_restraint_condition.affected_tolerances">affected_tolerances : </A>SET[1:?] OF <A HREF="#extended_geometric_tolerance_arm.geometric_or_dimension_select">geometric_or_dimension_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.tolerance_zone_and_viewing_plane_orienting_relationship">ENTITY <b>Tolerance_zone_and_viewing_plane_orienting_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_and_viewing_plane_orienting_relationship.orienting_viewing_plane">orienting_viewing_plane : </A><A HREF="#extended_geometric_tolerance_arm.viewing_plane">Viewing_plane</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_and_viewing_plane_orienting_relationship.oriented_tolerance_zone">oriented_tolerance_zone : </A><A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.tolerance_zone">Tolerance_zone</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_and_viewing_plane_orienting_relationship.zone_orientation">zone_orientation : </A><A HREF="#extended_geometric_tolerance_arm.viewing_plane_based_orientation">Viewing_plane_based_orientation</A> FOR orienting_relationship;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.tolerance_zone_boundary">ENTITY <b>Tolerance_zone_boundary</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#extended_geometric_tolerance_arm.tolerance_zone_circular_or_cylindrical_or_spherical_boundary">Tolerance_zone_circular_or_cylindrical_or_spherical_boundary</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.tolerance_zone_opposing_boundary_set">Tolerance_zone_opposing_boundary_set</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.conical_tolerance_zone_boundary">Conical_tolerance_zone_boundary</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/non_feature_shape_element/sys/e_exp_arm.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.tolerance_zone_boundary_member">ENTITY <b>Tolerance_zone_boundary_member</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/non_feature_shape_element/sys/e_exp_arm.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_boundary_member.explicit_opposing_boundary_set">explicit_opposing_boundary_set : </A><A HREF="#extended_geometric_tolerance_arm.tolerance_zone_explicit_opposing_boundary_set">Tolerance_zone_explicit_opposing_boundary_set</A> FOR boundary_members;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_boundary_member.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.tolerance_zone_boundary_member_offset">ENTITY <b>Tolerance_zone_boundary_member_offset</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_boundary_member_offset.offset_tolerance_zone_boundary_member">offset_tolerance_zone_boundary_member : </A><A HREF="#extended_geometric_tolerance_arm.tolerance_zone_boundary_member">Tolerance_zone_boundary_member</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_boundary_member_offset.offset_value">offset_value : </A><A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_arm.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_boundary_member_offset.type_of_offset">type_of_offset : </A><A HREF="#extended_geometric_tolerance_arm.offset_types">offset_types</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.tolerance_zone_circular_or_cylindrical_or_spherical_boundary">ENTITY <b>Tolerance_zone_circular_or_cylindrical_or_spherical_boundary</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.tolerance_zone_boundary">Tolerance_zone_boundary</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_circular_or_cylindrical_or_spherical_boundary.size_characteristic">size_characteristic : </A><A HREF="#extended_geometric_tolerance_arm.diametrical_boundary_size_characteristic">Diametrical_boundary_size_characteristic</A> FOR sized_boundary;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_circular_or_cylindrical_or_spherical_boundary.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.tolerance_zone_definition_with_per_unit_size_specification">ENTITY <b>Tolerance_zone_definition_with_per_unit_size_specification</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.tolerance_zone_definition">Tolerance_zone_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_definition_with_per_unit_size_specification.per_unit_size_specification">per_unit_size_specification : </A><A HREF="#extended_geometric_tolerance_arm.tolerance_zone_per_unit_size_specification">Tolerance_zone_per_unit_size_specification</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.tolerance_zone_definition_with_specified_orientation">ENTITY <b>Tolerance_zone_definition_with_specified_orientation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.tolerance_zone_definition">Tolerance_zone_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_definition_with_specified_orientation.zone_orientation">zone_orientation : </A><A HREF="#extended_geometric_tolerance_arm.orientation_select">orientation_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.tolerance_zone_explicit_opposing_boundary_set">ENTITY <b>Tolerance_zone_explicit_opposing_boundary_set</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.tolerance_zone_opposing_boundary_set">Tolerance_zone_opposing_boundary_set</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_explicit_opposing_boundary_set.boundary_members">boundary_members : </A>SET[2:2] OF <A HREF="#extended_geometric_tolerance_arm.tolerance_zone_boundary_member">Tolerance_zone_boundary_member</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.tolerance_zone_form">ENTITY <b>Tolerance_zone_form</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_form.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_form.characterized_tolerance_zone">characterized_tolerance_zone : </A><A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.tolerance_zone">Tolerance_zone</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.tolerance_zone_implicit_opposing_boundary_set">ENTITY <b>Tolerance_zone_implicit_opposing_boundary_set</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.tolerance_zone_opposing_boundary_set">Tolerance_zone_opposing_boundary_set</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.tolerance_zone_opposing_boundary_set">ENTITY <b>Tolerance_zone_opposing_boundary_set</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#extended_geometric_tolerance_arm.tolerance_zone_explicit_opposing_boundary_set">Tolerance_zone_explicit_opposing_boundary_set</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.tolerance_zone_implicit_opposing_boundary_set">Tolerance_zone_implicit_opposing_boundary_set</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.tolerance_zone_boundary">Tolerance_zone_boundary</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_opposing_boundary_set.size_characteristic">size_characteristic : </A><A HREF="#extended_geometric_tolerance_arm.opposing_boundary_set_size_characteristic">Opposing_boundary_set_size_characteristic</A> FOR sized_boundary_set;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.tolerance_zone_per_unit_size_specification">ENTITY <b>Tolerance_zone_per_unit_size_specification</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_per_unit_size_specification.specified_tolerance_zone">specified_tolerance_zone : </A><A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.tolerance_zone">Tolerance_zone</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_per_unit_size_specification.per_unit_size">per_unit_size : </A>SET[1:2] OF <A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_arm.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.tolerance_zone_per_unit_size_specification.zone_definition">zone_definition : </A><A HREF="#extended_geometric_tolerance_arm.tolerance_zone_definition_with_per_unit_size_specification">Tolerance_zone_definition_with_per_unit_size_specification</A> FOR per_unit_size_specification;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.true_profile">ENTITY <b>True_profile</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.true_profile.profiled_surface">profiled_surface : </A><A HREF="#extended_geometric_tolerance_arm.physical_feature_or_part_template">physical_feature_or_part_template</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.true_profile.profiled_surface_datum">profiled_surface_datum : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_arm.htm#geometric_tolerance_arm.datum_defined_by_feature">Datum_defined_by_feature</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.true_profile.profile_representation">profile_representation : </A><A HREF="#extended_geometric_tolerance_arm.true_profile_representations">true_profile_representations</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.true_profile.wr:wr1">WR1: NOT EXISTS(profiled_surface_datum) OR 
+            (profiled_surface :=: profiled_surface_datum\Datum_defined_by_feature.defined_by);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.user_defined_dimension_qualifier">ENTITY <b>User_defined_dimension_qualifier</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.dimension_qualifier">Dimension_qualifier</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.user_defined_dimension_qualifier.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.user_defined_dimension_qualifier.description">description : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.user_defined_geometric_tolerance_qualifier">ENTITY <b>User_defined_geometric_tolerance_qualifier</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#extended_geometric_tolerance_arm.geometric_tolerance_qualifier">Geometric_tolerance_qualifier</A>);<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.user_defined_geometric_tolerance_qualifier.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.user_defined_geometric_tolerance_qualifier.description">description : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.viewing_plane">ENTITY <b>Viewing_plane</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/non_feature_shape_element/sys/e_exp_arm.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.viewing_plane.viewing_plane_specification">viewing_plane_specification : </A><A HREF="#extended_geometric_tolerance_arm.viewing_plane_definition">Viewing_plane_definition</A> FOR defined_viewing_plane;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.viewing_plane.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.viewing_plane_based_orientation">ENTITY <b>Viewing_plane_based_orientation</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.viewing_plane_based_orientation.orienting_relationship">orienting_relationship : </A><A HREF="#extended_geometric_tolerance_arm.tolerance_zone_and_viewing_plane_orienting_relationship">Tolerance_zone_and_viewing_plane_orienting_relationship</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.viewing_plane_based_orientation.viewing_plane_specification">viewing_plane_specification : </A><A HREF="#extended_geometric_tolerance_arm.viewing_plane_definition">Viewing_plane_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.viewing_plane_definition">ENTITY <b>Viewing_plane_definition</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.viewing_plane_definition.defined_viewing_plane">defined_viewing_plane : </A><A HREF="#extended_geometric_tolerance_arm.viewing_plane">Viewing_plane</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.viewing_plane_definition.viewing_plane_representation">viewing_plane_representation : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="extended_geometric_tolerance_arm.viewing_plane_definition.zone_orientation">zone_orientation : </A><A HREF="#extended_geometric_tolerance_arm.viewing_plane_based_orientation">Viewing_plane_based_orientation</A> FOR viewing_plane_specification;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_geometric_tolerance_arm.egt_non_feature_shape_element_subtypes">SUBTYPE_CONSTRAINT <b>egt_non_feature_shape_element_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/modules/non_feature_shape_element/sys/e_exp_arm.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#extended_geometric_tolerance_arm.derived_non_feature_shape_element">Derived_non_feature_shape_element</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.directed_axis">Directed_axis</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.positional_boundary">Positional_boundary</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.positional_boundary_member">Positional_boundary_member</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.tolerance_zone_boundary">Tolerance_zone_boundary</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.tolerance_zone_boundary_member">Tolerance_zone_boundary_member</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_geometric_tolerance_arm.viewing_plane">Viewing_plane</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/non_feature_shape_element/sys/e_exp_arm.htm#non_feature_shape_element_arm.seating_plane">Seating_plane</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/non_feature_shape_element/sys/e_exp_arm.htm#non_feature_shape_element_arm.reference_graphic_registration_mark">Reference_graphic_registration_mark</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Extended_geometric_tolerance_arm<br></code></body>
+</HTML>

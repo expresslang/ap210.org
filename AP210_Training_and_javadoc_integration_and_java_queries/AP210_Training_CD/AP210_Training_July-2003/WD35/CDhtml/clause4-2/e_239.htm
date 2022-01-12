@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Datum_system_defining_conditions_with_material_conditions</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.238 Datum_system_defining_conditions_with_material_conditions</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Datum_system_defining_conditions_with_material_conditions is a type of <A
+CLASS="INTERNALREF"
+HREF="e_237.htm"
+>Datum_system_defining_conditions</A
+> that specifies the conditions under which a <A
+CLASS="INTERNALREF"
+HREF="e_236.htm"
+>Datum_system</A
+> is 
+established and in which either the "least_material_requirement" or the "maximum_material_principle" has been applied to usages of 
+one or more <A
+CLASS="INTERNALREF"
+HREF="e_226.htm"
+>Datum_feature</A
+> in the Datum_system.
+<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: If neither the "least_material_requirement" nor the "maximum_material_principle" is explicitly applied and the Datum_feature is a feature of size, the principle that is termed "regardless of feature size" in ASME Y14.5M is assumed to be in effect.</DIV
+>&#13;</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>applied_material_condition_properties</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.238.1 applied_material_condition_properties</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The applied_material_condition_properties specify the <A
+CLASS="INTERNALREF"
+HREF="e_227.htm"
+>Datum_feature_material_condition_property</A
+> that define 
+the material condition properties that are explicitly applied to the <A
+CLASS="INTERNALREF"
+HREF="e_226.htm"
+>Datum_feature</A
+> in the context of the <A
+CLASS="INTERNALREF"
+HREF="e_236.htm"
+>Datum_system</A
+> for the Datum_system_defining_conditions_with_material_conditions. 
+There shall be one or more Datum_feature_material_condition_property for a Datum_system_defining_conditions_with_material_conditions.
+<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: The requirements may be such that the "maximum material principle" applies to Datum_feature A when it is used in one 
+Datum_system. However, additional requirements may be such that neither the "maximum material principle" nor the "least material requirement" applies to Datum_feature A when it is used in a second Datum_system.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The conditions_of the Datum_system_defining_conditions_with_material_conditions shall be the same instance of Datum_system as 
+specified by the established_datum_system attribute of the Datum_feature_usage_in_datum_system_relationship that is specified by 
+the applied_to attribute of the Datum_feature_material_condition_property specified by the applied_material_condition_properties. That 
+is, the Datum_system_defining_conditions_with_material_conditions and the specified Datum_feature_material_condition_propertys 
+shall be associated with the same Datum_system.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY datum_system_defining_conditions_with_material_conditions
+  SUBTYPE OF (datum_system_defining_conditions);
+    applied_material_condition_properties : 
+	SET [1:?] OF datum_feature_material_condition_property;
+END_ENTITY; -- datum_system_defining_conditions_with_material_conditions
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

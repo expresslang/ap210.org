@@ -1,0 +1,51 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Signal_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Signal_arm</h2><code><br><br><a name="signal_arm">SCHEMA <b>Signal_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/characteristic/sys/e_exp_arm.htm#characteristic_arm">Characteristic_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1654<br><br></code><code><br><A NAME="signal_arm.s_external_identification_item">TYPE </A><b>s_external_identification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_arm.htm#external_item_identification_assignment_arm.external_identification_item">external_identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#signal_arm.composite_signal_property_relationship">Composite_signal_property_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#signal_arm.signal">Signal</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#signal_arm.signal_property">Signal_property</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="signal_arm.composite_signal_property">ENTITY <b>Composite_signal_property</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#signal_arm.signal_property">Signal_property</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="signal_arm.composite_signal_property.signal_property_structure">signal_property_structure : </A>SET[1:?] OF <A HREF="#signal_arm.composite_signal_property_relationship">Composite_signal_property_relationship</A> FOR composition;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="signal_arm.composite_signal_property_relationship">ENTITY <b>Composite_signal_property_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="signal_arm.composite_signal_property_relationship.composition">composition : </A><A HREF="#signal_arm.composite_signal_property">Composite_signal_property</A>;<br>
+         &nbsp;&nbsp;<A NAME="signal_arm.composite_signal_property_relationship.signal_property_structural_element">signal_property_structural_element : </A><A HREF="#signal_arm.signal_property">Signal_property</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="signal_arm.composite_signal_property_relationship.aggregation_operation">aggregation_operation : </A><A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_arm.htm#external_item_identification_assignment_arm.external_source_identification">External_source_identification</A> FOR item;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="signal_arm.signal">ENTITY <b>Signal</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="signal_arm.signal.name">name : </A>STRING;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="signal_arm.signal.signal_category">signal_category : </A><A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_arm.htm#external_item_identification_assignment_arm.external_source_identification">External_source_identification</A> FOR item;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="signal_arm.signal.ur:ur1">UR1: </A>name;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="signal_arm.signal_property">ENTITY <b>Signal_property</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (<A HREF="#signal_arm.composite_signal_property">Composite_signal_property</A>);<br>
+         &nbsp;&nbsp;<A NAME="signal_arm.signal_property.signal_property_representation">signal_property_representation : </A><A HREF="../../../data/modules/characteristic/sys/e_exp_arm.htm#characteristic_arm.characteristic_data_table">Characteristic_data_table</A>;<br>
+         &nbsp;&nbsp;<A NAME="signal_arm.signal_property.characterized_signal">characterized_signal : </A><A HREF="#signal_arm.signal">Signal</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="signal_arm.signal_property.signal_property_category">signal_property_category : </A><A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_arm.htm#external_item_identification_assignment_arm.external_source_identification">External_source_identification</A> FOR item;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Signal_arm<br></code></body>
+</HTML>

@@ -1,0 +1,70 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Text_appearance_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Text_appearance_mim</h2><code><br><br><a name="text_appearance_mim">SCHEMA <b>Text_appearance_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/basic_geometry/sys/e_exp_mim.htm#basic_geometry_mim">Basic_geometry_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1652<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema">presentation_appearance_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-46<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema.box_height">box_height</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema.box_width">box_width</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema.box_slant_angle">box_slant_angle</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema.box_rotate_angle">box_rotate_angle</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema.character_glyph_style_stroke">character_glyph_style_stroke</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema.character_glyph_style_outline">character_glyph_style_outline</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema.text_style">text_style</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema.text_style_with_spacing">text_style_with_spacing</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema">presentation_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-46<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.composite_text">composite_text</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.composite_text_with_extent">composite_text_with_extent</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.composite_text_with_delineation">composite_text_with_delineation</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.composite_text_with_blanking_box">composite_text_with_blanking_box</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.text_literal">text_literal</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.text_literal_with_extent">text_literal_with_extent</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.text_literal_with_delineation">text_literal_with_delineation</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.text_literal_with_blanking_box">text_literal_with_blanking_box</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/presentation_resource_schema/presentation_resource_schema.htm#presentation_resource_schema">presentation_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-46<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_resource_schema/presentation_resource_schema.htm#presentation_resource_schema.colour_rgb">colour_rgb</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_resource_schema/presentation_resource_schema.htm#presentation_resource_schema.draughting_pre_defined_text_font">draughting_pre_defined_text_font</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_resource_schema/presentation_resource_schema.htm#presentation_resource_schema.externally_defined_text_font">externally_defined_text_font</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_resource_schema/presentation_resource_schema.htm#presentation_resource_schema.font_select">font_select</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_resource_schema/presentation_resource_schema.htm#presentation_resource_schema.pre_defined_colour">pre_defined_colour</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_resource_schema/presentation_resource_schema.htm#presentation_resource_schema.pre_defined_text_font">pre_defined_text_font</A>);
+         <br><br></code><code><br><A NAME="text_appearance_mim.text_font_usage">RULE&nbsp;<b>text_font_usage</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/resources/presentation_resource_schema/presentation_resource_schema.htm#presentation_resource_schema.externally_defined_text_font">externally_defined_text_font</A>, <A HREF="../../../data/resources/presentation_resource_schema/presentation_resource_schema.htm#presentation_resource_schema.pre_defined_text_font">pre_defined_text_font</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="text_appearance_mim.text_font_usage.wr:wr1">WR1: SIZEOF (QUERY (pdtf &lt;* pre_defined_text_font | SIZEOF (USEDIN (pdtf, 'PRESENTATION_DEFINITION_SCHEMA.TEXT_LITERAL.FONT'))
+            = 0 )) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="text_appearance_mim.text_font_usage.wr:wr2">WR2: SIZEOF (QUERY (edtf &lt;* externally_defined_text_font | SIZEOF (USEDIN (edtf, 'PRESENTATION_DEFINITION_SCHEMA.TEXT_LITERAL.FONT'))
+            = 0 )) = 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Text_appearance_mim<br></code></body>
+</HTML>

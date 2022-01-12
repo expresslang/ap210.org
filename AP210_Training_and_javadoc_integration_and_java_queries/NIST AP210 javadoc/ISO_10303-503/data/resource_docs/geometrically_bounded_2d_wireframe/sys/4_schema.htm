@@ -1,0 +1,477 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="&#xA;  Application interpreted construct">
+      <META name="DC.Dates" content="2010/06/01 21:07:30">
+      <META name="DC.Published" content="2010-01-01">
+      <META name="DC.Contributor" content="Klein, Lothar">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The integrated resource geometrically_bounded_2d_wireframe">
+      <META name="DC.Subject" content="STEP, ISO 10303, integrated resource, bounded, curve, point, 2D wireframe, application interpreted construct.">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12&nbsp;N6158">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5245">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6160">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6161">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6162">
+      <META name="STEPMOD.resource.rcs.date" content="Date: 2010/06/01 21:07:30 ">
+      <META name="STEPMOD.resource.rcs.revision" content="Revision: 1.16 ">
+      <TITLE>ISO 10303-503:2010(E) </TITLE>
+   </HEAD>
+   <BODY>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  	  Application interpreted construct: Geometrically bounded 2d wireframe</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO 10303-503:2010(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     3 Terms and abbreviated terms
+                     </A><br>
+                  &nbsp; &nbsp;
+                  <a href="../sys/3_defs.htm#termsdefns">3.1 Terms and definitions</a><br>
+                  &nbsp; &nbsp;
+                  <a href="../sys/3_defs.htm#abbrv">3.2 Abbreviated terms</a><br></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_schema.htm">4 EXPRESS short listing</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/4_schema.htm#intro">4.1 Introduction</A><BR>
+                     
+                     
+                     &nbsp; &nbsp;<A HREF="../sys/4_schema.htm#funcon">4.2 Fundamental concepts and assumptions</A><BR>
+                     				&nbsp; &nbsp;<A HREF="../sys/4_schema.htm#entities">4.3 Geometrically bounded 2d wireframe entity definition</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_schema.htm#functions">4.4 Geometrically bounded 2d wireframe function definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A Short names of entities</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_exp.htm">C Computer interpretable listings</A><BR><A HREF="../sys/d_expg.htm">
+                     D EXPRESS-G diagrams
+                     </A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/resdocindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="schema$schema_no+3">4 EXPRESS short listing</A></H2>The following EXPRESS declaration begins the <b>aic_geometrically_bounded_2d_wireframe</b>
+      schema that uses elements from the integrated resources and contains
+      the types, entity specializations, and functions that are specific to this part of ISO 10303.
+      	    
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="aic_geometrically_bounded_2d_wireframe">
+            	SCHEMA aic_geometrically_bounded_2d_wireframe;</a></code><a name="interfaces"></a><p><code>
+            USE FROM
+            <A HREF="../../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema">geometric_model_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-42<br>&nbsp;&nbsp;(geometric_curve_set,<br>
+            &nbsp;&nbsp;
+            geometric_set);
+            <br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema">geometry_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-42<br>&nbsp;&nbsp;(axis2_placement_2d,<br>
+            &nbsp;&nbsp;
+            b_spline_curve_with_knots,<br>
+            &nbsp;&nbsp;
+            bezier_curve,<br>
+            &nbsp;&nbsp;
+            circle,<br>
+            &nbsp;&nbsp;
+            composite_curve,<br>
+            &nbsp;&nbsp;
+            composite_curve_segment,<br>
+            &nbsp;&nbsp;
+            curve,<br>
+            &nbsp;&nbsp;
+            curve_replica,<br>
+            &nbsp;&nbsp;
+            ellipse,<br>
+            &nbsp;&nbsp;
+            geometric_representation_context,<br>
+            &nbsp;&nbsp;
+            hyperbola,<br>
+            &nbsp;&nbsp;
+            line,<br>
+            &nbsp;&nbsp;
+            offset_curve_2d,<br>
+            &nbsp;&nbsp;
+            parabola,<br>
+            &nbsp;&nbsp;
+            point_on_curve,<br>
+            &nbsp;&nbsp;
+            polyline,<br>
+            &nbsp;&nbsp;
+            quasi_uniform_curve,<br>
+            &nbsp;&nbsp;
+            rational_b_spline_curve,<br>
+            &nbsp;&nbsp;
+            trimmed_curve,<br>
+            &nbsp;&nbsp;
+            uniform_curve);
+            <br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema">product_property_representation_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-41<br>&nbsp;&nbsp;(shape_representation);
+            <br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-43<br>&nbsp;&nbsp;(mapped_item);
+            <br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>geometric_model_schema</small></b></td>
+               <td width="127"><small>ISO 10303-42</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>geometry_schema</small></b></td>
+               <td width="127"><small>ISO 10303-42</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>product_property_representation_schema</small></b></td>
+               <td width="127"><small>ISO 10303-41</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>representation_schema</small></b></td>
+               <td width="127"><small>ISO 10303-43</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="d_expg.htm">D</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <p class="note"><small>
+            					NOTE&nbsp;3&nbsp;&nbsp;
+            					There may be subtypes and items of select lists that appear in
+            					the integrated resources that are
+            					not imported into the AIC. Constructs are eliminated from the subtype
+            					tree or select list through the use of
+            					the implicit interface rules of ISO 10303-11. References to eliminated
+            					constructs are outside the scope of the
+            					AIC. In some cases, all items of the select list are eliminated. Because
+            					AICs are intended to be implemented
+            					in the context of an application protocol, the items of the select
+            					list will be defined by the scope of the
+            					application protocol
+            			</small></p>
+      <H2><A NAME="intro">4.1 Introduction</A></H2>
+         	This part of ISO 10303 provides the geometric structures to represent two-dimensional shapes and is
+      	represented by the entity <b>geometrically_bounded_2d_wireframe_representation</b>, that is a <b>shape_representation</b> (see ISO 10303-41).
+         
+      <H2><A NAME="funcon">4.2 Fundamental concepts and assumptions</A></H2>
+         	This wireframe representation of shape is based on two-dimensional geometry where unbounded curves are trimmed by points.
+         	The shapes represented by the <b>geometrically_bounded_2d_wireframe_representation</b> are those requiring only bounded curves.
+         
+      <h2><A NAME="entities">4.3 aic_geometrically_bounded_2d_wireframe entity definition</A></h2>
+      <h2><A NAME="aic_geometrically_bounded_2d_wireframe.geometrically_bounded_2d_wireframe_representation">4.3.1 geometrically_bounded_2d_wireframe_representation</A>
+         &nbsp;&nbsp;<a href="../../../resources/aic_geometrically_bounded_2d_wireframe/aic_geometrically_bounded_2d_wireframeexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>geometrically_bounded_2d_wireframe_representation</b> is a type of
+      	<a href="../../../resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.shape_representation"><b>shape_representation</b></a> 
+      	that represents the shape of a product by two-dimensional wireframe geometry without topology.
+      	These representations are formed by the use of two-dimensional points and curves only.
+      	All unbounded curves shall be explicitly trimmed unless they are closed.
+      	The geometric entities that are used to support the definition of another
+      	geometric entity shall not exist themselves in the elements set of a 
+      	<a href="../../../resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.geometric_curve_set"><b>geometric_curve_set</b></a>.
+      	
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		A circular arc is to be used to define the corner radius on a part that is being represented using a
+            		<b>geometrically_bounded_2d_wireframe_representation</b>.
+            		The representation of that arc is a 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.trimmed_curve"><b>trimmed_curve</b></a> 
+            		that references a circle as its 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.trimmed_curve.basis_curve"><b>basis_curve</b></a>.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		An application protocol that uses this AIC may ensure that the 
+            		<a href="../../../resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.shape_representation"><b>shape_representation</b></a> 
+            		entity is instantiated as an <b>geometrically_bounded_2d_wireframe_representation</b>.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY geometrically_bounded_2d_wireframe_representation<br>
+            &nbsp;&nbsp;SUBTYPE OF (shape_representation);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF.context_of_items\geometric_representation_context.
+            coordinate_space_dimension = 2;<br> 
+            &nbsp;&nbsp;WR2: SIZEOF (QUERY (item &lt;* SELF.items |
+            NOT (SIZEOF (TYPEOF (item) *
+            ['AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.GEOMETRIC_CURVE_SET',          
+            'AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.AXIS2_PLACEMENT_2D',
+            'AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.MAPPED_ITEM']) = 1)
+            )) = 0;<br> 
+            &nbsp;&nbsp;WR3: SIZEOF (QUERY (item &lt;* SELF.items |
+            SIZEOF (TYPEOF (item) *          
+            ['AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.GEOMETRIC_CURVE_SET',
+            'AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.MAPPED_ITEM']) = 1
+            )) &gt;= 1;<br> 
+            &nbsp;&nbsp;WR4: SIZEOF (QUERY (mi &lt;* QUERY (item &lt;* SELF.items |
+            ('AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.MAPPED_ITEM'
+            IN TYPEOF (item))) |
+            NOT ('AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.' +
+            'GEOMETRICALLY_BOUNDED_2D_WIREFRAME_REPRESENTATION'
+            IN TYPEOF
+            (mi\mapped_item.mapping_source.mapped_representation))
+            )) = 0;<br> 
+            &nbsp;&nbsp;WR5: SIZEOF (QUERY (gcs &lt;* QUERY (item &lt;* SELF.items |
+            ('AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.GEOMETRIC_CURVE_SET'
+            IN TYPEOF (item))) |
+            NOT (SIZEOF (QUERY (elem &lt;* gcs\geometric_set.elements |
+            NOT (SIZEOF (TYPEOF (elem) *
+            ['AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.B_SPLINE_CURVE',
+            'AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.CIRCLE',
+            'AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.COMPOSITE_CURVE',
+            'AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.ELLIPSE',
+            'AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.OFFSET_CURVE_2D',
+            'AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.POINT',
+            'AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.POLYLINE',
+            'AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.TRIMMED_CURVE']) =
+            1)
+            )) = 0)
+            )) = 0;<br> 
+            &nbsp;&nbsp;WR6: SIZEOF (QUERY (gcs &lt;* QUERY (item &lt;* SELF.items |
+            ('AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.GEOMETRIC_CURVE_SET'
+            IN TYPEOF (item))) |
+            NOT (SIZEOF (QUERY (crv &lt;* 
+            QUERY (elem &lt;* gcs\geometric_set.elements |
+            ('AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.CURVE'
+            IN TYPEOF (elem))) |
+            NOT (valid_basis_curve_in_2d_wireframe
+            (crv))
+            )) = 0)
+            )) = 0;<br> 
+            &nbsp;&nbsp;WR7: SIZEOF (QUERY (gcs &lt;* QUERY (item &lt;* SELF.items |         
+            ('AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.GEOMETRIC_CURVE_SET'
+            IN TYPEOF (item))) |
+            NOT (SIZEOF (QUERY (pnt &lt;*
+            QUERY (elem &lt;* gcs\geometric_set.elements |
+            ('AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.POINT'
+            IN TYPEOF(elem))) |
+            NOT (SIZEOF (TYPEOF (pnt) *
+            ['AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.CARTESIAN_POINT',
+            'AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.POINT_ON_CURVE'])
+            = 1)
+            )) = 0)
+            )) = 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="aic_geometrically_bounded_2d_wireframe.geometrically_bounded_2d_wireframe_representation.wr:wr1">WR1:
+               </a></b>
+         	The <b>geometrically_bounded_2d_wireframe_representation</b> shall have a 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_context.coordinate_space_dimension"><b>coordinate_space_dimension</b></a> 
+         	equal to two.
+         
+      </p>
+      <p class="expressdescription"><b><a name="aic_geometrically_bounded_2d_wireframe.geometrically_bounded_2d_wireframe_representation.wr:wr2">WR2:
+               </a></b>
+         	The items in a <b>geometrically_bounded_2d_wireframe_representation</b> shall be 
+         	<a href="../../../resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.geometric_curve_set"><b>geometric_curve_set</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_2d"><b>axis2_placement_2d</b></a>, 
+         	or 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="aic_geometrically_bounded_2d_wireframe.geometrically_bounded_2d_wireframe_representation.wr:wr3">WR3:
+               </a></b>
+         	The items of a <b>geometrically_bounded_2d_wireframe_representation</b> shall include at least one
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a> 
+         	or one 
+         	<a href="../../../resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.geometric_curve_set"><b>geometric_curve_set</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="aic_geometrically_bounded_2d_wireframe.geometrically_bounded_2d_wireframe_representation.wr:wr4">WR4:
+               </a></b>
+         	If there is a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a> 
+         	in a <b>geometrically_bounded_2d_wireframe_representation</b>, the source of the 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a> 
+         	shall be a <b>geometrically_bounded_2d_wireframe_representation</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="aic_geometrically_bounded_2d_wireframe.geometrically_bounded_2d_wireframe_representation.wr:wr5">WR5:
+               </a></b>
+         	Every element in a 
+         	<a href="../../../resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.geometric_curve_set"><b>geometric_curve_set</b></a> 
+         	shall be either a 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.b_spline_curve"><b>b_spline_curve</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.circle"><b>circle</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.composite_curve"><b>composite_curve</b></a>,
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.ellipse"><b>ellipse</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.offset_curve_2d"><b>offset_curve_2d</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.point"><b>point</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.polyline"><b>polyline</b></a>, 
+         	or 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.trimmed_curve"><b>trimmed_curve</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="aic_geometrically_bounded_2d_wireframe.geometrically_bounded_2d_wireframe_representation.wr:wr6">WR6:
+               </a></b>
+         	Every 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.offset_curve_2d"><b>offset_curve_2d</b></a>	
+         	in a 
+         	<a href="../../../resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.geometric_curve_set"><b>geometric_curve_set</b></a> 
+         	of a <b>geometrically_bounded_2d_wireframe_representation</b> shall have a basis curve that is a 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.polyline"><b>polyline</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.b_spline_curve"><b>b_spline_curve</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.ellipse"><b>ellipse</b></a>, 
+         	or 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.circle"><b>circle</b></a>.
+         	Every 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.curve_replica"><b>curve_replica</b></a> 
+         	in a 
+         	<a href="../../../resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.geometric_curve_set"><b>geometric_curve_set</b></a> 
+         	of a <b>geometrically_bounded_2d_wireframe_representation</b> shall have a parent curve that is a 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.polyline"><b>polyline</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.b_spline_curve"><b>b_spline_curve</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.ellipse"><b>ellipse</b></a>, 
+         	or 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.circle"><b>circle</b></a>.
+         	Every 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.composite_curve"><b>composite_curve</b></a> 
+         	in a 
+         	<a href="../../../resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.geometric_curve_set"><b>geometric_curve_set</b></a> 
+         	of a <b>geometrically_bounded_2d_wireframe_representation</b> shall have segments that can be 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.polyline"><b>polyline</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.b_spline_curve"><b>b_spline_curve</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.ellipse"><b>ellipse</b></a>, 
+         	or 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.circle"><b>circle</b></a>.
+         	Every 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.trimmed_curve"><b>trimmed_curve</b></a> 
+         	in a 
+         	<a href="../../../resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.geometric_curve_set"><b>geometric_curve_set</b></a> 
+         	of a <b>geometrically_bounded_2d_wireframe_representation</b> shall have a basis curve that is either a
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.polyline"><b>polyline</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.b_spline_curve"><b>b_spline_curve</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.ellipse"><b>ellipse</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.circle"><b>circle</b></a>,
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.line"><b>line</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.parabola"><b>parabola</b></a>, 
+         	or 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.hyperbola"><b>hyperbola</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="aic_geometrically_bounded_2d_wireframe.geometrically_bounded_2d_wireframe_representation.wr:wr7">WR7:
+               </a></b>
+         	Every point in the elements of a 
+         	<a href="../../../resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.geometric_curve_set"><b>geometric_curve_set</b></a> 
+         	of a <b>geometrically_bounded_2d_wireframe_representation</b> shall be either a 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.cartesian_point"><b>cartesian_point</b></a> 
+         	or a 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.point_on_curve"><b>point_on_curve</b></a>.
+         
+      </p>
+      <h2><a name="functions">4.4 aic_geometrically_bounded_2d_wireframe function definitions</a></h2>
+      <h2><A NAME="aic_geometrically_bounded_2d_wireframe.valid_basis_curve_in_2d_wireframe">4.4.1 valid_basis_curve_in_2d_wireframe</A></h2>
+      
+      <p>
+         	The <b>valid_basis_curve_in_2d_wireframe</b> function determines whether or not an input curve is valid for use
+         	as the basis of another curve in representing a shape defined by a two dimen-sional geometrically bounded wireframe.
+         	It is concerned with the correct use of bounded curves to serve as reference curves for 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.offset_curve_2d"><b>offset_curve_2d</b></a>, 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.curve_replica"><b>curve_replica</b></a>, 
+         	and 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.composite_curve"><b>composite_curve</b></a>.
+         	If an unbounded curve such as a parabola or hyperbola is used, it must be trimmed.
+         	The function is recursive in its structure in order to check to the necessary levels.
+         
+      </p>
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION valid_basis_curve_in_2d_wireframe&nbsp;(crv : curve) :BOOLEAN;
+         </code><pre>IF SIZEOF (['AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.POLYLINE',
+               'AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.B_SPLINE_CURVE',
+               'AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.ELLIPSE',
+               'AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.CIRCLE'] * 
+               TYPEOF (crv)) = 1
+    THEN RETURN (TRUE);
+  ELSE
+    -- if the curve is a trimmed_curve
+    IF (('AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.TRIMMED_CURVE') 
+    IN TYPEOF (crv)) THEN
+      -- if a line, parabola, or hyperbola is being trimmed, then valid
+      IF SIZEOF (['AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.LINE',
+                   'AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.PARABOLA',
+                   'AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.HYPERBOLA'] *
+           TYPEOF(crv\trimmed_curve.basis_curve)) = 1
+        THEN RETURN (TRUE);
+      -- otherwise, recursively check basis_curve
+      ELSE RETURN (valid_basis_curve_in_2d_wireframe
+                         (crv\trimmed_curve.basis_curve));
+      END_IF;
+    ELSE
+      -- recursively check the offset_curve basis curve
+      IF (('AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.OFFSET_CURVE_2D') 
+      IN TYPEOF (crv))
+        THEN RETURN (valid_basis_curve_in_2d_wireframe
+                           (crv\offset_curve_2d.basis_curve));
+      ELSE
+        -- recursively check the curve_replica parent curve
+        IF (('AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.CURVE_REPLICA') 
+        IN TYPEOF (crv))
+          THEN RETURN (valid_basis_curve_in_2d_wireframe
+                         (crv\curve_replica.parent_curve));
+        ELSE
+          -- recursively check the composite_curve segments
+          IF (('AIC_GEOMETRICALLY_BOUNDED_2D_WIREFRAME.COMPOSITE_CURVE') 
+          IN TYPEOF (crv)) THEN
+            RETURN (SIZEOF (QUERY (ccs &lt;* crv\composite_curve.segments |
+                      NOT (valid_basis_curve_in_2d_wireframe
+                             (ccs.parent_curve)))) = 0);
+          END_IF;
+        END_IF;
+      END_IF;
+    END_IF;
+  END_IF;
+  RETURN (FALSE);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="aic_geometrically_bounded_2d_wireframe.valid_basis_curve_in_2d_wireframe.crv">crv:
+               </a></b>
+         	the input 
+         	<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.curve"><b>curve</b></a> 
+         	that is to be examined.
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;aic_geometrically_bounded_2d_wireframe<br>(*
+         </code><br><br><p>&copy; ISO 2010 &#8212; All rights reserved</p>
+   </BODY>
+</HTML>

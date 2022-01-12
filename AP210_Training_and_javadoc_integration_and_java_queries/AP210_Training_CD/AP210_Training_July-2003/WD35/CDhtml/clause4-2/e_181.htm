@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Conical_tolerance_zone_boundary_diametrical_size_characteristic</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.181 Conical_tolerance_zone_boundary_diametrical_size_characteristic</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Conical_tolerance_zone_boundary_diametrical_size_characteristic is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Conical_tolerance_zone_boundary_diametrical_size_characteristic is a definition that characterizes the size of a <A
+CLASS="INTERNALREF"
+HREF="e_178.htm"
+>Conical_tolerance_zone_boundary</A
+> at one of the <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+> that defines the ends of the 
+Conical_tolerance_zone_boundary. </DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>boundary_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>sized_boundary_at_surface</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>tolerance_value</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.181.1 boundary_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The boundary_definition is an inverse relationship that specifies that the existence of the 
+Conical_tolerance_zone_boundary_diametrical_size_characteristic is dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_180.htm"
+>Conical_tolerance_zone_boundary_definition</A
+> that specifies the Conical_tolerance_zone_boundary_diametrical_size_characteristic as 
+one of its boundary_sizes.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.181.2 sized_boundary_at_surface</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The sized_boundary_at_surface specifies the <A
+CLASS="INTERNALREF"
+HREF="e_179.htm"
+>Conical_tolerance_zone_boundary_and_surface_relationship</A
+> that associates the <A
+CLASS="INTERNALREF"
+HREF="e_178.htm"
+>Conical_tolerance_zone_boundary</A
+> with a <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+> that defines an end of the 
+Conical_tolerance_zone_boundary at which the size is characterized by the 
+Conical_tolerance_zone_boundary_diametrical_size_characteristic.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.181.3 tolerance_value</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The tolerance_value specifies the <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> that represents the diameter of the specified <A
+CLASS="INTERNALREF"
+HREF="e_178.htm"
+>Conical_tolerance_zone_boundary</A
+> at the specified <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+> for the 
+Conical_tolerance_zone_boundary_diametrical_size_characteristic.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The Conical_tolerance_zone_boundary specified as the sized_tolerance_zone_boundary by the 
+Conical_tolerance_zone_boundary_and_surface_relationship that is specified as the sized_boundary_at_surface shall be the same 
+instance of Conical_tolerance_zone_boundary as specified as the defined_zone_boundary by the 
+Conical_tolerance_zone_boundary_definition that is specified as the boundary_definition. That is, the 
+Conical_tolerance_zone_boundary_diametrical_size_characteristic and the Conical_tolerance_zone_boundary_definition specified as 
+the boundary_definition shall define the same Conical_tolerance_zone_boundary.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The Conical_tolerance_zone_boundary_diametrical_size_characteristic shall be specified by exactly one Geometric_tolerance as the 
+tolerance_zone_or_boundary_definition, and that Geometric_tolerance shall be one of a Position_tolerance, a Parallelism_tolerance, a 
+Perpendicularity_tolerance, or an Angularity_tolerance.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY conical_tolerance_zone_boundary_diametrical_size_characteristic
+  SUBTYPE OF (managed_design_object);
+    sized_boundary_at_surface : conical_tolerance_zone_boundary_and_surface_relationship;
+    tolerance_value           : length_data_element;
+  INVERSE
+    boundary_definition : conical_tolerance_zone_boundary_definition FOR 
+                             boundary_sizes;
+END_ENTITY; -- conical_tolerance_zone_boundary_diametrical_size_characteristic
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

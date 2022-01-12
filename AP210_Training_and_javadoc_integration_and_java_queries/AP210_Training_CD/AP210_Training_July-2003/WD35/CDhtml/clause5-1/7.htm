@@ -1,0 +1,577 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>assembly_component</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><TABLE
+CLASS="UOFMAPPINGSUBTBL"
+BORDER="1"
+><CAPTION
+><A
+NAME="1807"
+></A
+>Table 7 - Mapping table for assembly_component UoF</CAPTION
+><THEAD
+CLASS="MAPPINGSUBTBLCOLUMNS"
+><TR
+><TH
+>Application element</TH
+><TH
+>AIM element</TH
+><TH
+>Source</TH
+><TH
+>Reference path</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="1816"
+></A
+>ASSEMBLY_COMPONENT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>(component_definition) </TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>(component_definition &#60;=<BR>(product_definition<BR>{[product_definition<BR>product_definition.description != `printed component']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical occurrence']})<BR>(product_definition<BR>{[product_definition<BR>product_definition.description = `printed component']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `layout occurrence']}))<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>assembly_component&nbsp;to<BR>footprint_definition<BR>(as usage_definition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>component_shape_aspect &#60;=<BR>shape_aspect &#60;-<BR>shape_aspect_relationship.related_shape_aspect<BR>shape_aspect_relationship<BR>{shape_aspect_relationship.name = `usage definition'}<BR>shape_aspect_relationship.relating_shape_aspect -&#62;<BR>shape_aspect.of_shape -&#62;<BR>product_definition_shape &#60;=<BR>property_definition.definition -&#62;<BR>characterized_definition = characterized_product_definition<BR>characterized_product_definition = product_definition<BR>product_definition =&#62;<BR>footprint_definition<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>assembly_component&nbsp;to<BR>padstack_definition<BR>(as usage_definition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>component_shape_aspect &#60;=<BR>shape_aspect &#60;-<BR>shape_aspect_relationship.related_shape_aspect<BR>shape_aspect_relationship<BR>{shape_aspect_relationship.name = `usage definition'}<BR>shape_aspect_relationship.relating_shape_aspect -&#62;<BR>shape_aspect.of_shape -&#62;<BR>product_definition_shape &#60;=<BR>property_definition.definition -&#62;<BR>characterized_definition = characterized_product_definition<BR>characterized_product_definition = product_definition<BR>product_definition =&#62;<BR>padstack_definition<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>assembly_component&nbsp;to<BR>physical_unit<BR>(as usage_definition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>{product_definition_relationship<BR>product_definition_relationship.name = `instantiated part'}<BR>product_definition_relationship<BR>product_definition_relationship.relating_product_definition -&#62;<BR>{product_definition<BR>product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>(application_context_element.name = `physical design')<BR>(application_context_element.name = `physical design usage')}<BR>product_definition =&#62;<BR>(physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit =&#62;<BR>library_defined_physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="1897"
+></A
+>ASSEMBLY_MODULE_COMPONENT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>component_definition</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition<BR>{product_definition<BR>[product_definition<BR>product_definition.description != `laminate component']<BR>[product_definition.name = `assembly module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical occurrence']}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>assembly_module_component&nbsp;to<BR>assembly_module_usage_view<BR>(as usage_definition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>{product_definition_relationship<BR>product_definition_relationship.name = `instantiated part'}<BR>product_definition_relationship<BR>product_definition_relationship.relating_product_definition -&#62;<BR>{product_definition<BR>[product_definition.name = `assembly module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical design usage']}<BR>product_definition =&#62;<BR>(physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit =&#62;<BR>library_defined_physical_unit)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="1939"
+></A
+>ASSEMBLY_MODULE_MACRO_COMPONENT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>component_definition</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition<BR>{product_definition<BR>[product_definition.name = `assembly module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `macro occurrence']}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>assembly_module_macro_component&nbsp;to<BR>assembly_module<BR>(as design_definition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>{product_definition_relationship<BR>product_definition_relationship.name = `design definition'}<BR>product_definition_relationship<BR>product_definition_relationship.relating_product_definition -&#62;<BR>{product_definition<BR>[product_definition.name = `assembly module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical design']}<BR>product_definition =&#62;<BR>(physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit =&#62;<BR>library_defined_physical_unit)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="1977"
+></A
+>ASSEMBLY_MODULE_MACRO_COMPONENT_JOIN_TERMINAL</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>assembly_module_macro_component_join_terminal</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>assembly_module_macro_component_join_terminal &#60;=<BR>component_terminal &#60;=<BR>shape_aspect<BR>{shape_aspect<BR>[shape_aspect.description = `assembly module component terminal']<BR>[shape_aspect.product_definitional = .TRUE.]}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>assembly_module_macro_component_join_terminal&nbsp;to<BR>assembly_module_macro_component<BR>(as associated_component)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>assembly_module_macro_component_join_terminal &#60;=<BR>component_terminal &#60;=<BR>shape_aspect<BR>shape_aspect.of_shape -&#62;<BR>product_definition_shape &#60;=<BR>property_definition<BR>property_definition.definition -&#62;<BR>characterized_definition<BR>characterized_definition = characterized_product_definition<BR>characterized_product_definition<BR>characterized_product_definition = product_definition<BR>{product_definition<BR>[product_definition.name = `assembly module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `macro occurrence']}<BR>product_definition =&#62;<BR>component_definition<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>assembly_module_macro_component_join_terminal&nbsp;to<BR>assembly_module_join_terminal<BR>(as definition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>assembly_module_macro_component_join_terminal &#60;=<BR>component_terminal &#60;=<BR>shape_aspect &#60;-<BR>shape_aspect_relationship.related_shape_aspect<BR>{shape_aspect_relationship<BR>shape_aspect_relationship.name = `instantiated feature'}<BR>shape_aspect_relationship<BR>shape_aspect_relationship.relating_shape_aspect -&#62;<BR>{shape_aspect<BR>shape_aspect.of_shape -&#62;<BR>product_definition_shape &#60;=<BR>property_definition<BR>property_definition.definition -&#62;<BR>characterized_definition<BR>characterized_definition = characterized_product_definition<BR>characterized_product_definition<BR>characterized_product_definition = product_definition<BR>product_definition<BR>product_definition.name = `assembly module'}<BR>shape_aspect =&#62;<BR>assembly_module_terminal =&#62;<BR>assembly_module_join_terminal<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="2038"
+></A
+>BARE_DIE_COMPONENT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>component_definition</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition<BR>{product_definition<BR>[product_definition.description = `bare die component']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical occurrence']}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>bare_die_component&nbsp;to<BR>bare_die<BR>(as usage_definition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>product_definition_relationship<BR>{product_definition_relationship<BR>product_definition_relationship.name = `instantiated part'}<BR>product_definition_relationship.relating_product_definition -&#62;<BR>{product_definition<BR>product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical design usage'}<BR>product_definition =&#62;<BR>physical_unit =&#62;<BR>(bare_die)<BR>(externally_defined_physical_unit =&#62;<BR>externally_defined_bare_die)<BR>(externally_defined_physical_unit =&#62;<BR>library_defined_physical_unit =&#62;<BR>library_defined_bare_die)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="2077"
+></A
+>CABLE_COMPONENT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>cable_component</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>cable_component &#60;=<BR>component_definition &#60;=<BR>product_definition<BR>{product_definition<BR>product_definition.description != `laminate component'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="2088"
+></A
+>INTERCONNECT_MODULE_COMPONENT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>component_definition</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition<BR>{product_definition<BR>[product_definition<BR>product_definition.description != `laminate component']<BR>[product_definition.name = `interconnect module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical occurrence']}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>interconnect_module_component&nbsp;to<BR>interconnect_module_usage_view<BR>(as usage_definition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>{product_definition_relationship<BR>product_definition_relationship.name = `instantiated part'}<BR>product_definition_relationship<BR>product_definition_relationship.relating_product_definition -&#62;<BR>{product_definition<BR>[product_definition.name = `interconnect module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical design usage']}<BR>product_definition =&#62;<BR>(physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit =&#62;<BR>library_defined_physical_unit)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="2130"
+></A
+>INTERCONNECT_MODULE_MACRO_COMPONENT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>component_definition</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition<BR>{product_definition<BR>[product_definition.name = `interconnect module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `macro occurrence']}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>interconnect_module_macro_component&nbsp;to<BR>interconnect_module<BR>(as design_definition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>{product_definition_relationship<BR>product_definition_relationship.name = `design definition'}<BR>product_definition_relationship<BR>product_definition_relationship.relating_product_definition -&#62;<BR>{product_definition<BR>[product_definition.name = `interconnect module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical design']}<BR>product_definition =&#62;<BR>(physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit =&#62;<BR>library_defined_physical_unit)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="2168"
+></A
+>INTERFACE_COMPONENT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>interface_component_definition</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>interface_component_definition &#60;=<BR>component_definition &#60;=<BR>product_definition<BR>{product_definition<BR>product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical occurrence'}<BR>{product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>{product_definition_relationship<BR>product_definition_relationship.name = `instantiated part'}<BR>product_definition_relationship<BR>product_definition_relationship.relating_product_definition -&#62;<BR>[product_definition<BR>product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical design usage']<BR>[product_definition =&#62;<BR>(physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit =&#62;<BR>library_defined_physical_unit)]}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="2199"
+></A
+>PACKAGED_COMPONENT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>packaged_component</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>packaged_component &#60;=<BR>component_definition &#60;=<BR>product_definition<BR>{product_definition<BR>product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical occurrence'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>packaged_component&nbsp;to<BR>packaged_part<BR>(as usage_definition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>packaged_component &#60;=<BR>component_definition &#60;=<BR>product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>{product_definition_relationship<BR>product_definition_relationship.name = `instantiated part'}<BR>product_definition_relationship<BR>product_definition_relationship.relating_product_definition -&#62;<BR>{product_definition<BR>product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical design usage'}<BR>product_definition =&#62;<BR>physical_unit =&#62;<BR>(packaged_part)<BR>(externally_defined_physical_unit =&#62;<BR>library_defined_physical_unit =&#62;<BR>library_defined_packaged_part)<BR>(externally_defined_physical_unit =&#62;<BR>externally_defined_packaged_part)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>packaged_component&nbsp;to<BR>altered_package<BR>(as selected_package_alternate)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>packaged_component &#60;=<BR>component_definition &#60;=<BR>product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>{product_definition_relationship<BR>product_definition_relationship.name = `package alternate'}<BR>product_definition_relationship<BR>product_definition_relationship.relating_product_definition -&#62;<BR>{product_definition<BR>[product_definition.description = `altered package']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical design usage']}<BR>product_definition =&#62;<BR>physical_unit =&#62;<BR>(package)<BR>(externally_defined_physical_unit =&#62;<BR>library_defined_physical_unit =&#62;<BR>library_defined_package)<BR>(externally_defined_physical_unit =&#62;<BR>externally_defined_package)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="2265"
+></A
+>PACKAGED_CONNECTOR_COMPONENT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>packaged_component</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>packaged_component &#60;=<BR>component_definition &#60;=<BR>product_definition<BR>{[product_definition.description = `packaged connector component']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical occurrence']}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>packaged_connector_component&nbsp;to<BR>packaged_connector<BR>(as usage_definition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>packaged_component &#60;=<BR>component_definition &#60;=<BR>product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>product_definition_relationship<BR>{product_definition_relationship<BR>product_definition_relationship.name = `instantiated part'}<BR>product_definition_relationship.relating_product_definition -&#62;<BR>product_definition =&#62;<BR>physical_unit =&#62;<BR>(packaged_part =&#62;<BR>packaged_connector)<BR>(externally_defined_physical_unit =&#62;<BR>externally_defined_packaged_part =&#62;<BR>externally_defined_packaged_connector)<BR>(externally_defined_physical_unit =&#62;<BR>library_defined_physical_unit =&#62;<BR>library_defined_packaged_part =&#62;<BR>library_defined_packaged_connector)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="2304"
+></A
+>PHYSICAL_COMPONENT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>component_definition</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition<BR>{[product_definition<BR>product_definition.description != `laminate component']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical occurrence']}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>physical_component&nbsp;to<BR>physical_unit<BR>(as usage_definition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>{product_definition_relationship<BR>product_definition_relationship.name = `instantiated part'}<BR>product_definition_relationship<BR>product_definition_relationship.relating_product_definition -&#62;<BR>{product_definition<BR>product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>(application_context_element.name = `physical design')<BR>(application_context_element.name = `physical design usage')}<BR>product_definition =&#62;<BR>(physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit =&#62;<BR>library_defined_physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="2342"
+></A
+>ROUTED_INTERCONNECT_COMPONENT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>component_definition</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition<BR>{[product_definition<BR>product_definition.description = `routed interconnect component']<BR>[product_definition =&#62;<BR>component_definition]<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical occurrence']}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>routed_interconnect_component&nbsp;to<BR>curve<BR>(as routed_centreline_shape)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition<BR>characterized_product_definition = product_definition<BR>characterized_product_definition<BR>characterized_definition = characterized_product_definition<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition =&#62;<BR>product_definition_shape &#60;-<BR>shape_aspect.of_shape<BR>shape_aspect<BR>shape_definition = shape_aspect<BR>shape_definition<BR>characterized_definition = shape_definition<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition &#60;-<BR>property_definition_representation.definition<BR>property_definition_representation<BR>property_definition_representation.used_representation -&#62;<BR>representation.items[i] -&#62;<BR>representation_item =&#62;<BR>geometric_representation_item =&#62;<BR>curve<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="2387"
+></A
+>SHIELD</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>(discrete_shield) </TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>(discrete_shield &#60;=<BR>component_definition &#60;=<BR>product_definition<BR>{product_definition<BR>product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical occurrence'})<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>shield&nbsp;to<BR>assembly_component<BR>(as shielded_item)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>(discrete_shield &#60;=<BR>component_definition &#60;=<BR>product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>{product_definition_relationship<BR>product_definition_relationship.name = `shielded item'}<BR>product_definition_relationship<BR>product_definition_relationship.relating_product_definition -&#62;<BR>(product_definition =&#62;<BR>component_definition)<BR>)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>shield&nbsp;to<BR>component_feature<BR>(as shielded_item)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>(discrete_shield &#60;=<BR>component_definition &#60;=<BR>product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>{product_definition_relationship<BR>product_definition_relationship.name = `shielded item'}<BR>product_definition_relationship<BR>product_definition_relationship.relating_product_definition -&#62;<BR>{product_definition<BR>product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical occurrence'}<BR>product_definition<BR>characterized_product_definition = product_definition<BR>characterized_product_definition<BR>characterized_definition = characterized_product_definition<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition =&#62;<BR>product_definition_shape &#60;-<BR>shape_aspect.of_shape<BR>(shape_aspect =&#62;<BR>(component_terminal)<BR>(component_interface_terminal)<BR>(laminate_component_interface_terminal)<BR>(component_feature)))<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>shield&nbsp;to<BR>physical_connectivity_definition<BR>(as shielded_item)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>(discrete_shield &#60;=<BR>component_definition &#60;=<BR>product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>{product_definition_relationship<BR>product_definition_relationship.name = `shielded item'}<BR>product_definition_relationship<BR>product_definition_relationship.relating_product_definition -&#62;<BR>{product_definition<BR>product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical occurrence'}<BR>product_definition<BR>characterized_product_definition = product_definition<BR>characterized_product_definition<BR>characterized_definition = characterized_product_definition<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition =&#62;<BR>product_definition_shape &#60;-<BR>shape_aspect.of_shape<BR>shape_aspect =&#62;<BR>physical_connectivity_definition)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="2479"
+></A
+>THERMAL_COMPONENT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>(thermal_component) </TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>(thermal_component &#60;=<BR>component_definition &#60;=<BR>product_definition)<BR></TD
+></TR
+></TBODY
+></TABLE
+></BODY
+></HTML
+>

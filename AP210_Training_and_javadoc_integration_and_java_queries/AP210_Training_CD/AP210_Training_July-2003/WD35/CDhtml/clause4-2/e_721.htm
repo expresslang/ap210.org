@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Printed_component</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.721 Printed_component</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Printed_component is a type of <A
+CLASS="INTERNALREF"
+HREF="e_34.htm"
+>Assembly_component</A
+>. A Printed_component may be a <A
+CLASS="INTERNALREF"
+HREF="e_481.htm"
+>Join_two_physical_connectivity_definition_supporting_printed_component</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_724.htm"
+>Printed_connector_component</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_779.htm"
+>Routed_printed_component</A
+>. A Printed_component is an occurrence of <A
+CLASS="INTERNALREF"
+HREF="e_730.htm"
+>Printed_part_template</A
+> that is used as an <A
+CLASS="INTERNALREF"
+HREF="e_34.htm"
+>Assembly_component</A
+> in an <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+>.  A Printed_component is manufactured integral to an <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+>.  Only the Routed_printed_component subtype shall reference a Printed_part_cross_section_template as a usage_definition.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>access_mechanism</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>cad_layer</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>stratum_feature_implementation</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>usage_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.721.1 access_mechanism</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The access_mechanism is an inverse relationship that specifies that the existence of the Printed_component is dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_722.htm"
+>Printed_component_join_terminal</A
+> that specifies the Printed_component as its associated_component. There shall be one or more Printed_component_join_terminal for a Printed_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.721.2 cad_layer</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The cad_layer specifies the <A
+CLASS="INTERNALREF"
+HREF="e_367.htm"
+>External_definition</A
+> for the Printed_component.  The cad_layer is optional and need not be supplied.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The cad_layer is only appropriate where there is a single layer material being defined.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.721.3 stratum_feature_implementation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The stratum_feature_implementation specifies the <A
+CLASS="INTERNALREF"
+HREF="e_851.htm"
+>Stratum_feature</A
+> for  the Printed_component. There shall be one or more Stratum_feature for a Printed_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.721.4 usage_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The usage_definition specifies the <A
+CLASS="INTERNALREF"
+HREF="e_730.htm"
+>Printed_part_template</A
+> or the <A
+CLASS="INTERNALREF"
+HREF="e_728.htm"
+>Printed_part_cross_section_template</A
+> for the definition for the Printed_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY printed_component
+  SUPERTYPE OF (ONEOF(layout_macro_component,
+         printed_connector_component,
+         routed_printed_component))
+  SUBTYPE OF (assembly_component);
+    cad_layer                                : OPTIONAL external_definition;
+    stratum_feature_implementation           : OPTIONAL SET [1:?] OF stratum_feature;
+    SELF\assembly_component.usage_definition : 
+             printed_part_template_or_printed_part_cross_section_template;
+    printed_component_stack                  : OPTIONAL SET [1:?] OF printed_component_link;
+    required_material_stack                  : OPTIONAL layer;
+DERIVE
+    access_mechanism : SET [1:?] OF printed_component_join_terminal :=
+    raw_access_mechanism + 
+    printed_component_access_mechanisms(printed_component_stack);
+INVERSE
+    raw_access_mechanism : SET [1:?] OF printed_component_join_terminal FOR 
+                       associated_component;
+    associated_precedent_link : SET [0:1] OF printed_component_link FOR
+                       precedent_printed_component;
+    associated_subsequent_link : SET [0:1] OF printed_component_link FOR
+                       subsequent_printed_component;
+WHERE
+  WR1: (NOT EXISTS(stratum_feature_implementation) OR 
+            same_stratum(stratum_feature_implementation)) OR
+       ('AP210_ARM.LAYOUT_MACRO_COMPONENT' IN TYPEOF(SELF));
+--either a printed component is a single layer self contained or is defined by the
+--links entirely.
+--defining things depend on whethere the right stuff is included in teh definition
+--if self is a layout_macro_component, then the rules are defined in that object.
+  WR2: (NOT ((EXISTS (SELF\assembly_component.usage_definition.of_stratum_technology)) XOR
+       EXISTS(stratum_feature_implementation))) OR
+       ('AP210_ARM.LAYOUT_MACRO_COMPONENT' IN TYPEOF(SELF));
+  WR3: (NOT ((EXISTS (SELF\assembly_component.usage_definition.material_stack)) XOR
+       EXISTS(required_material_stack))) OR
+       ('AP210_ARM.LAYOUT_MACRO_COMPONENT' IN TYPEOF(SELF));
+  WR4: (NOT ((EXISTS (SELF\assembly_component.usage_definition.printed_part_template_stack)) XOR
+       EXISTS(printed_component_stack))) OR
+       ('AP210_ARM.LAYOUT_MACRO_COMPONENT' IN TYPEOF(SELF));
+  WR5: (NOT (EXISTS(printed_component_stack)) OR
+       consistent_stack_definition(SELF\assembly_component.usage_definition,
+       printed_component_stack)) OR
+       ('AP210_ARM.LAYOUT_MACRO_COMPONENT' IN TYPEOF(SELF));
+  WR6: (NOT (EXISTS(associated_precedent_link) OR EXISTS(associated_subsequent_link)) OR
+        EXISTS(stratum_feature_implementation)) OR
+       ('AP210_ARM.LAYOUT_MACRO_COMPONENT' IN TYPEOF(SELF));
+--if this is used by a link, there shall be no further decomposition.
+  WR7: NOT('AP210_ARM.ROUTED_PRINTED_COMPONENT' IN TYPEOF(SELF)) OR
+       ('AP210_ARM.PRINTED_PART_CROSS_SECTION_TEMPLATE' 
+           IN TYPEOF(SELF\assembly_component.usage_definition));
+  WR8: NOT('AP210_ARM.PRINTED_PART_CROSS_SECTION_TEMPLATE' 
+           IN TYPEOF(SELF\assembly_component.usage_definition)) OR
+       ('AP210_ARM.ROUTED_PRINTED_COMPONENT' 
+           IN TYPEOF(SELF));
+END_ENTITY; -- printed_component
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

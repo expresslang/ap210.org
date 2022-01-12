@@ -1,0 +1,242 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: aic_non_manifold_surface</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: aic_non_manifold_surface</h2>
+      <p><i>Source : ISO 10303-508</i></p><code><br><br><a name="aic_non_manifold_surface">SCHEMA <b>aic_non_manifold_surface</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/aic_topologically_bounded_surface/aic_topologically_bounded_surface.htm#aic_topologically_bounded_surface">aic_topologically_bounded_surface</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO 10303-511<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema">geometric_model_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-42<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.face_based_surface_model">face_based_surface_model</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema">geometry_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-42<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.b_spline_curve">b_spline_curve</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.b_spline_surface">b_spline_surface</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.bounded_pcurve">bounded_pcurve</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.bounded_surface_curve">bounded_surface_curve</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.cartesian_transformation_operator_3d">cartesian_transformation_operator_3d</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.curve">curve</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.curve_replica">curve_replica</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.degenerate_pcurve">degenerate_pcurve</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.evaluated_degenerate_pcurve">evaluated_degenerate_pcurve</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.intersection_curve">intersection_curve</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.offset_curve_3d">offset_curve_3d</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.offset_surface">offset_surface</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.point_on_curve">point_on_curve</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.point_on_surface">point_on_surface</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.seam_curve">seam_curve</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface">surface</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface_replica">surface_replica</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema">product_property_representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.shape_representation">shape_representation</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.mapped_item">mapped_item</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_map">representation_map</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema">topology_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-42<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.closed_shell">closed_shell</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.connected_face_set">connected_face_set</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.face">face</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.open_shell">open_shell</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.oriented_face">oriented_face</A>);
+         <br><br></code><code><br><A NAME="aic_non_manifold_surface.non_manifold_surface_shape_representation">ENTITY <b>non_manifold_surface_shape_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.shape_representation">shape_representation</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="aic_non_manifold_surface.non_manifold_surface_shape_representation.wr:wr1">WR1: SIZEOF (QUERY (it &lt;* SELF.items | NOT (SIZEOF (['AIC_NON_MANIFOLD_SURFACE.FACE_BASED_SURFACE_MODEL','AIC_NON_MANIFOLD_SURFACE.MAPPED_ITEM','AIC_NON_MANIFOLD_SURFACE.AXIS2_PLACEMENT_3D']
+            * TYPEOF (it)) = 1)))= 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_non_manifold_surface.non_manifold_surface_shape_representation.wr:wr2">WR2: SIZEOF (QUERY (it &lt;* SELF.items | SIZEOF (['AIC_NON_MANIFOLD_SURFACE.FACE_BASED_SURFACE_MODEL','AIC_NON_MANIFOLD_SURFACE.MAPPED_ITEM']
+            * TYPEOF (it)) = 1)) &gt; 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_non_manifold_surface.non_manifold_surface_shape_representation.wr:wr3">WR3: SIZEOF (QUERY (mi &lt;* QUERY (it &lt;* SELF.items |'AIC_NON_MANIFOLD_SURFACE.MAPPED_ITEM' IN TYPEOF (it)) | NOT (('AIC_NON_MANIFOLD_SURFACE.'+'NON_MANIFOLD_SURFACE_SHAPE_REPRESENTATION'
+            IN TYPEOF (mi\mapped_item.mapping_source.mapped_representation)) AND(SIZEOF(QUERY (mr_it &lt;* mi\mapped_item.mapping_source.mapped_representation.items
+            |('AIC_NON_MANIFOLD_SURFACE.FACE_BASED_SURFACE_MODEL' IN TYPEOF (mr_it)))) &gt; 0)))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_non_manifold_surface.non_manifold_surface_shape_representation.wr:wr4">WR4: SIZEOF (QUERY (fbsm &lt;* QUERY (it &lt;* SELF.items |'AIC_NON_MANIFOLD_SURFACE.FACE_BASED_SURFACE_MODEL' IN TYPEOF (it)) |
+            NOT (SIZEOF (QUERY (cfs &lt;* fbsm\face_based_surface_model.fbsm_faces | NOT (SIZEOF (QUERY (fa &lt;* cfs.cfs_faces | NOT (SIZEOF
+            (['AIC_NON_MANIFOLD_SURFACE.FACE_SURFACE','AIC_NON_MANIFOLD_SURFACE.ORIENTED_FACE'] * TYPEOF (fa)) = 1)))= 0))) = 0))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_non_manifold_surface.non_manifold_surface_shape_representation.wr:wr5">WR5: SIZEOF (QUERY (fbsm &lt;* QUERY (it &lt;* SELF.items |'AIC_NON_MANIFOLD_SURFACE.FACE_BASED_SURFACE_MODEL' IN TYPEOF (it)) |
+            NOT (SIZEOF (QUERY (cfs &lt;* fbsm\face_based_surface_model.fbsm_faces | NOT (SIZEOF (QUERY (f_sf &lt;* QUERY (fa &lt;* cfs.cfs_faces
+            |('AIC_NON_MANIFOLD_SURFACE.FACE_SURFACE' IN TYPEOF (fa))) | NOT (('AIC_NON_MANIFOLD_SURFACE.ADVANCED_FACE' IN TYPEOF (f_sf))
+            OR(nmsf_surface_check(f_sf\face_surface.face_geometry))))) = 0)))= 0))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_non_manifold_surface.non_manifold_surface_shape_representation.wr:wr6">WR6: SIZEOF (QUERY (fbsm &lt;* QUERY (it &lt;* SELF.items |'AIC_NON_MANIFOLD_SURFACE.FACE_BASED_SURFACE_MODEL' IN TYPEOF (it)) |
+            NOT (SIZEOF (QUERY (cfs &lt;* fbsm\face_based_surface_model.fbsm_faces | NOT (SIZEOF (QUERY (o_fa &lt;* QUERY (fa &lt;* cfs.cfs_faces
+            |('AIC_NON_MANIFOLD_SURFACE.ORIENTED_FACE' IN TYPEOF (fa))) | NOT (('AIC_NON_MANIFOLD_SURFACE.ADVANCED_FACE' IN TYPEOF(o_fa\oriented_face.face_element))
+            OR(nmsf_surface_check(o_fa\oriented_face.face_element\face_surface.face_geometry)))))= 0))) = 0))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_non_manifold_surface.non_manifold_surface_shape_representation.wr:wr7">WR7: SIZEOF (QUERY (fbsm &lt;* QUERY (it &lt;* SELF.items |'AIC_NON_MANIFOLD_SURFACE.FACE_BASED_SURFACE_MODEL' IN TYPEOF (it)) |
+            NOT (SIZEOF (QUERY (cfs &lt;* fbsm\face_based_surface_model.fbsm_faces | NOT (SIZEOF (QUERY (fa &lt;* cfs.cfs_faces | NOT (('AIC_NON_MANIFOLD_SURFACE.ADVANCED_FACE'
+            IN TYPEOF (fa)) OR(SIZEOF (QUERY (bnds &lt;* fa.bounds | NOT (SIZEOF (['AIC_NON_MANIFOLD_SURFACE.EDGE_LOOP','AIC_NON_MANIFOLD_SURFACE.VERTEX_LOOP']*
+            TYPEOF (bnds.bound)) = 1))) = 0)))) = 0))) = 0))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_non_manifold_surface.non_manifold_surface_shape_representation.wr:wr8">WR8: SIZEOF (QUERY (fbsm &lt;* QUERY (it &lt;* SELF.items|'AIC_NON_MANIFOLD_SURFACE.FACE_BASED_SURFACE_MODEL' IN TYPEOF (it)) |
+            NOT (SIZEOF (QUERY (cfs &lt;* fbsm\face_based_surface_model.fbsm_faces | NOT (SIZEOF (QUERY (fa &lt;* cfs.cfs_faces | NOT (('AIC_NON_MANIFOLD_SURFACE.ADVANCED_FACE'
+            IN TYPEOF (fa)) OR(SIZEOF (QUERY (elp_fbnds &lt;* QUERY (bnds &lt;* fa.bounds |'AIC_NON_MANIFOLD_SURFACE.EDGE_LOOP' IN TYPEOF (bnds.bound))
+            | NOT (SIZEOF (QUERY (oe &lt;* elp_fbnds\path.edge_list | NOT ('AIC_NON_MANIFOLD_SURFACE.EDGE_CURVE' IN TYPEOF(oe.edge_element))))
+            = 0))) = 0)))) = 0))) = 0))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_non_manifold_surface.non_manifold_surface_shape_representation.wr:wr9">WR9: SIZEOF (QUERY (fbsm &lt;* QUERY (it &lt;* SELF.items |'AIC_NON_MANIFOLD_SURFACE.FACE_BASED_SURFACE_MODEL' IN TYPEOF (it)) |
+            NOT (SIZEOF (QUERY (cfs &lt;* fbsm\face_based_surface_model.fbsm_faces | NOT (SIZEOF (QUERY (fa &lt;* cfs.cfs_faces | NOT (('AIC_NON_MANIFOLD_SURFACE.ADVANCED_FACE'
+            IN TYPEOF (fa)) OR(SIZEOF (QUERY (elp_fbnds &lt;* QUERY (bnds &lt;* fa.bounds |'AIC_NON_MANIFOLD_SURFACE.EDGE_LOOP' IN TYPEOF (bnds.bound))
+            | NOT (SIZEOF (QUERY (oe_cv &lt;* QUERY (oe &lt;* elp_fbnds\path.edge_list |'AIC_NON_MANIFOLD_SURFACE.EDGE_CURVE' IN TYPEOF (oe.edge_element))
+            | NOT (SIZEOF (['AIC_NON_MANIFOLD_SURFACE.B_SPLINE_CURVE','AIC_NON_MANIFOLD_SURFACE.CONIC','AIC_NON_MANIFOLD_SURFACE.CURVE_REPLICA','AIC_NON_MANIFOLD_SURFACE.LINE','AIC_NON_MANIFOLD_SURFACE.OFFSET_CURVE_3D','AIC_NON_MANIFOLD_SURFACE.PCURVE','AIC_NON_MANIFOLD_SURFACE.POLYLINE','AIC_NON_MANIFOLD_SURFACE.SURFACE_CURVE']
+            * TYPEOF (oe_cv.edge_element\edge_curve.edge_geometry))= 1))) = 0))) = 0)))) = 0))) = 0))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_non_manifold_surface.non_manifold_surface_shape_representation.wr:wr10">WR10: SIZEOF (QUERY (fbsm &lt;* QUERY (it &lt;* SELF.items |'AIC_NON_MANIFOLD_SURFACE.FACE_BASED_SURFACE_MODEL' IN TYPEOF (it))
+            | NOT (SIZEOF (QUERY (cfs &lt;* fbsm\face_based_surface_model.fbsm_faces | NOT (SIZEOF (QUERY (fa &lt;* cfs.cfs_faces | NOT (('AIC_NON_MANIFOLD_SURFACE.ADVANCED_FACE'
+            IN TYPEOF (fa)) OR(SIZEOF (QUERY (elp_fbnds &lt;* QUERY (bnds &lt;* fa.bounds |'AIC_NON_MANIFOLD_SURFACE.EDGE_LOOP' IN TYPEOF (bnds.bound))
+            | NOT (SIZEOF (QUERY (oe &lt;* elp_fbnds\path.edge_list | NOT (nmsf_curve_check (oe.edge_element\edge_curve.edge_geometry))))=
+            0))) = 0)))) = 0))) = 0))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_non_manifold_surface.non_manifold_surface_shape_representation.wr:wr11">WR11: SIZEOF (QUERY(fbsm &lt;* QUERY (it &lt;* SELF.items |'AIC_NON_MANIFOLD_SURFACE.FACE_BASED_SURFACE_MODEL' IN TYPEOF (it)) |
+            NOT (SIZEOF (QUERY (cfs &lt;* fbsm\face_based_surface_model.fbsm_faces | NOT (SIZEOF (QUERY (fa &lt;* cfs.cfs_faces | NOT (('AIC_NON_MANIFOLD_SURFACE.ADVANCED_FACE'
+            IN TYPEOF (fa)) OR(SIZEOF (QUERY (elp_fbnds &lt;* QUERY (bnds &lt;* fa.bounds |'AIC_NON_MANIFOLD_SURFACE.EDGE_LOOP' IN TYPEOF (bnds.bound))
+            | NOT (SIZEOF (QUERY (oe &lt;* elp_fbnds\path.edge_list| NOT (('AIC_NON_MANIFOLD_SURFACE.VERTEX_POINT' IN TYPEOF(oe.edge_element.edge_start))
+            AND('AIC_NON_MANIFOLD_SURFACE.VERTEX_POINT' IN TYPEOF (oe.edge_element.edge_end)))))= 0))) = 0)))) = 0))) = 0))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_non_manifold_surface.non_manifold_surface_shape_representation.wr:wr12">WR12: SIZEOF (QUERY (fbsm &lt;* QUERY (it &lt;* SELF.items |'AIC_NON_MANIFOLD_SURFACE.FACE_BASED_SURFACE_MODEL' IN TYPEOF (it))
+            | NOT (SIZEOF (QUERY (cfs &lt;* fbsm\face_based_surface_model.fbsm_faces | NOT (SIZEOF (QUERY (fa &lt;* cfs.cfs_faces | NOT (('AIC_NON_MANIFOLD_SURFACE.ADVANCED_FACE'
+            IN TYPEOF (fa)) OR(SIZEOF (QUERY (elp_fbnds &lt;* QUERY (bnds &lt;* fa.bounds |'AIC_NON_MANIFOLD_SURFACE.EDGE_LOOP' IN TYPEOF (bnds.bound))
+            | NOT (SIZEOF (QUERY (oe &lt;* elp_fbnds\path.edge_list | NOT ((SIZEOF (['AIC_NON_MANIFOLD_SURFACE.CARTESIAN_POINT','AIC_NON_MANIFOLD_SURFACE.DEGENERATE_PCURVE','AIC_NON_MANIFOLD_SURFACE.POINT_ON_CURVE','AIC_NON_MANIFOLD_SURFACE.POINT_ON_SURFACE']
+            * TYPEOF(oe.edge_element.edge_start\vertex_point.vertex_geometry)) = 1) AND(SIZEOF (['AIC_NON_MANIFOLD_SURFACE.CARTESIAN_POINT','AIC_NON_MANIFOLD_SURFACE.DEGENERATE_PCURVE','AIC_NON_MANIFOLD_SURFACE.POINT_ON_CURVE','AIC_NON_MANIFOLD_SURFACE.POINT_ON_SURFACE']
+            * TYPEOF(oe.edge_element.edge_end\vertex_point.vertex_geometry)) = 1)))) = 0))) = 0)))) = 0))) = 0))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_non_manifold_surface.non_manifold_surface_shape_representation.wr:wr13">WR13: SIZEOF (QUERY (fbsm &lt;* QUERY (it &lt;* SELF.items |'AIC_NON_MANIFOLD_SURFACE.FACE_BASED_SURFACE_MODEL' IN TYPEOF (it))
+            | NOT (SIZEOF (QUERY (cfs &lt;* fbsm\face_based_surface_model.fbsm_faces | NOT (SIZEOF (QUERY (fa &lt;* cfs.cfs_faces | NOT (('AIC_NON_MANIFOLD_SURFACE.ADVANCED_FACE'
+            IN TYPEOF (fa)) OR(SIZEOF (QUERY (vlp_fbnds &lt;* QUERY (bnds &lt;* fa.bounds |'AIC_NON_MANIFOLD_SURFACE.VERTEX_LOOP' IN TYPEOF
+            (bnds.bound)) | NOT ('AIC_NON_MANIFOLD_SURFACE.VERTEX_POINT' IN TYPEOF(vlp_fbnds\vertex_loop.loop_vertex)))) = 0)))) = 0)))=
+            0))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_non_manifold_surface.non_manifold_surface_shape_representation.wr:wr14">WR14: SIZEOF (QUERY (fbsm &lt;* QUERY (it &lt;* SELF.items |'AIC_NON_MANIFOLD_SURFACE.FACE_BASED_SURFACE_MODEL' IN TYPEOF (it))
+            | NOT (SIZEOF (QUERY (cfs &lt;* fbsm\face_based_surface_model.fbsm_faces | NOT (SIZEOF (QUERY (fa &lt;* cfs.cfs_faces | NOT (('AIC_NON_MANIFOLD_SURFACE.ADVANCED_FACE'
+            IN TYPEOF (fa)) OR(SIZEOF (QUERY (vlp_fbnds &lt;* QUERY (bnds &lt;* fa.bounds |'AIC_NON_MANIFOLD_SURFACE.VERTEX_LOOP' IN TYPEOF
+            (bnds.bound)) | NOT (SIZEOF (['AIC_NON_MANIFOLD_SURFACE.CARTESIAN_POINT','AIC_NON_MANIFOLD_SURFACE.DEGENERATE_PCURVE','AIC_NON_MANIFOLD_SURFACE.POINT_ON_CURVE','AIC_NON_MANIFOLD_SURFACE.POINT_ON_SURFACE']
+            * TYPEOF(vlp_fbnds\vertex_loop.loop_vertex\vertex_point.vertex_geometry))= 1))) = 0)))) = 0))) = 0))) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="aic_non_manifold_surface.nmsf_curve_check">FUNCTION <b>nmsf_curve_check</b></A><br>&nbsp;(cv : <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>) : BOOLEAN;
+         </code><pre>
+IF SIZEOF (['AIC_NON_MANIFOLD_SURFACE.BOUNDED_CURVE',
+'AIC_NON_MANIFOLD_SURFACE.CONIC',
+'AIC_NON_MANIFOLD_SURFACE.CURVE_REPLICA',
+'AIC_NON_MANIFOLD_SURFACE.LINE',
+'AIC_NON_MANIFOLD_SURFACE.OFFSET_CURVE_3D'] * TYPEOF(cv)) &gt; 1
+THEN RETURN(FALSE);
+ELSE
+IF (('AIC_NON_MANIFOLD_SURFACE.B_SPLINE_CURVE' IN TYPEOF (cv)) AND
+(cv\b_spline_curve.self_intersect = FALSE) OR
+(cv\b_spline_curve.self_intersect = UNKNOWN))
+THEN RETURN(TRUE);
+ELSE
+IF SIZEOF (['AIC_NON_MANIFOLD_SURFACE.CONIC',
+'AIC_NON_MANIFOLD_SURFACE.LINE'] * TYPEOF (cv)) = 1 THEN
+RETURN(TRUE);
+ELSE
+IF 'AIC_NON_MANIFOLD_SURFACE.CURVE_REPLICA' IN TYPEOF(cv) THEN
+RETURN (nmsf_curve_check(cv\curve_replica.parent_curve));
+ELSE
+IF (('AIC_NON_MANIFOLD_SURFACE.OFFSET_CURVE_3D' IN TYPEOF (cv))
+AND
+((cv\offset_curve_3d.self_intersect = FALSE) OR
+(cv\offset_curve_3d.self_intersect = UNKNOWN))
+AND
+(NOT ('AIC_NON_MANIFOLD_SURFACE.POLYLINE' IN TYPEOF
+(cv\offset_curve_3d.basis_curve)))) THEN
+RETURN (nmsf_curve_check(cv\offset_curve_3d.basis_curve));
+ELSE
+IF 'AIC_NON_MANIFOLD_SURFACE.PCURVE' IN TYPEOF(cv) THEN
+RETURN ((nmsf_curve_check
+(cv\pcurve.reference_to_curve\representation.items[1]))
+AND
+(nmsf_surface_check(cv\pcurve.basis_surface)));
+ELSE
+IF 'AIC_NON_MANIFOLD_SURFACE.SURFACE_CURVE' IN TYPEOF(cv) THEN
+IF nmsf_curve_check(cv\surface_curve.curve_3d) THEN
+REPEAT i := 1 TO SIZEOF
+(cv\surface_curve.associated_geometry);
+IF 'AIC_NON_MANIFOLD_SURFACE.SURFACE' IN
+TYPEOF (cv\surface_curve.associated_geometry[i]) THEN
+IF NOT nmsf_surface_check
+(cv\surface_curve.associated_geometry[i]) THEN
+RETURN(FALSE);
+END_IF;
+ELSE
+IF 'AIC_NON_MANIFOLD_SURFACE.PCURVE' IN TYPEOF
+(cv\surface_curve.associated_geometry[i]) THEN
+IF NOT nmsf_curve_check
+(cv\surface_curve.associated_geometry[i]) THEN
+RETURN(FALSE);
+END_IF;
+END_IF;
+END_IF;
+END_REPEAT;
+RETURN(TRUE);
+END_IF;
+ELSE
+IF 'AIC_NON_MANIFOLD_SURFACE.POLYLINE' IN TYPEOF(cv) THEN
+IF (SIZEOF (cv\polyline.points) &gt;= 3) THEN RETURN (TRUE);
+END_IF;
+END_IF;
+END_IF;
+END_IF;
+END_IF;
+END_IF;
+END_IF;
+END_IF;
+END_IF;
+RETURN (FALSE);
+      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="aic_non_manifold_surface.nmsf_surface_check">FUNCTION <b>nmsf_surface_check</b></A><br>&nbsp;(surf : <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface">surface</A>) : BOOLEAN;
+         </code><pre>
+IF 'AIC_NON_MANIFOLD_SURFACE.ELEMENTARY_SURFACE' IN TYPEOF(surf) THEN
+RETURN(TRUE);
+ELSE
+IF 'AIC_NON_MANIFOLD_SURFACE.SWEPT_SURFACE' IN TYPEOF (surf) THEN
+RETURN (nmsf_curve_check(surf\swept_surface.swept_curve));
+ELSE
+IF (('AIC_NON_MANIFOLD_SURFACE.OFFSET_SURFACE' IN TYPEOF (surf)) AND
+(surf\offset_surface.self_intersect = FALSE) OR
+(surf\offset_surface.self_intersect = UNKNOWN)) THEN
+RETURN (nmsf_surface_check(surf\offset_surface.basis_surface));
+ELSE
+IF 'AIC_NON_MANIFOLD_SURFACE.SURFACE_REPLICA' IN TYPEOF(surf) THEN
+RETURN(nmsf_surface_check(surf\surface_replica.parent_surface));
+ELSE
+IF (('AIC_NON_MANIFOLD_SURFACE.B_SPLINE_SURFACE' IN TYPEOF(surf))
+AND
+(surf\b_spline_surface.self_intersect = FALSE) OR
+(surf\b_spline_surface.self_intersect = UNKNOWN)) THEN
+RETURN(TRUE);
+END_IF;
+END_IF;
+END_IF;
+END_IF;
+END_IF;
+RETURN(FALSE);
+      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;aic_non_manifold_surface<br></code></body>
+</HTML>

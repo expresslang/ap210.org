@@ -1,0 +1,2883 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="&#xA;  Integrated generic resource">
+      <META name="DC.Dates" content="2010/12/26 12:06:25">
+      <META name="DC.Published" content="2011-02-01">
+      <META name="DC.Contributor" content="Klein, Lothar">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The integrated resource representation_structures">
+      <META name="DC.Subject" content="STEP, ISO 10303, integrated resource, resource, integrated generic resources, representation, coordinate space, transformation">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12&nbsp;N6134">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N4827">
+      <META name="SC4.version" content="3">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6136">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6137">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6138">
+      <META name="STEPMOD.resource.rcs.date" content="Date: 2010/12/26 12:06:25 ">
+      <META name="STEPMOD.resource.rcs.revision" content="Revision: 1.34 ">
+      <TITLE>ISO 10303-43:2011-02(E) </TITLE>
+   </HEAD>
+   <BODY>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  	  Integrated generic resource: Representation structures</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO 10303-43:2011-02(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     3 Terms, definitions and abbreviated terms
+                     </A><br>
+                  &nbsp; &nbsp;
+                  <a href="../sys/3_defs.htm#termsdefns">3.1 Terms and definitions</a><br>
+                  &nbsp; &nbsp;
+                  <a href="../sys/3_defs.htm#abbrv">3.2 Abbreviated terms</a><br></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_schema.htm">4 Representation</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/4_schema.htm#gen">4.1 General</A><BR>
+                     
+                     
+                     &nbsp; &nbsp;<A HREF="../sys/4_schema.htm#funcon">4.2 Fundamental concepts and assumptions</A><BR>
+                     				&nbsp; &nbsp;<A HREF="../sys/4_schema.htm#types">4.3 Representation type definitions</A><BR>
+                     				&nbsp; &nbsp;<A HREF="../sys/4_schema.htm#entities">4.4 Representation entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_schema.htm#functions">4.5 Representation function definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A Short names of entities</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_exp.htm">C Computer interpretable listings</A><BR><A HREF="../sys/d_expg.htm">
+                     D EXPRESS-G diagrams
+                     </A><BR><A HREF="../sys/g_change.htm">E Change history</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/resdocindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="schema$schema_no+3">4 Representation schema</A></H2>This clause defines the information requirements to which implementations shall conform using the EXPRESS language as defined
+      in ISO 10303-11. The following EXPRESS declaration begins the <b>representation_schema</b>
+      and identifies the necessary external references.
+      	    
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="representation_schema">
+            	SCHEMA representation_schema;</a></code><a name="interfaces"></a><p><code>
+            REFERENCE FROM 
+            <A HREF="../../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema">basic_attribute_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-41<br>&nbsp;&nbsp;(get_description_value,<br>
+            &nbsp;&nbsp;
+            get_id_value);
+            <br><br></code></p>
+      <p><code>
+            REFERENCE FROM 
+            <A HREF="../../../../data/resources/measure_schema/measure_schema.htm#measure_schema">measure_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-41<br>&nbsp;&nbsp;(measure_value,<br>
+            &nbsp;&nbsp;
+            measure_with_unit);
+            <br><br></code></p>
+      <p><code>
+            REFERENCE FROM 
+            <A HREF="../../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-41<br>&nbsp;&nbsp;(bag_to_set,<br>
+            &nbsp;&nbsp;
+            identifier,<br>
+            &nbsp;&nbsp;
+            label,<br>
+            &nbsp;&nbsp;
+            text);
+            <br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            	
+            		        The schemas referenced above are specified in the following 
+            		        parts:
+            		</small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>basic_attribute_schema</small></b></td>
+               <td width="127"><small>ISO 10303-41</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>measure_schema</small></b></td>
+               <td width="127"><small>ISO 10303-41</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>support_resource_schema</small></b></td>
+               <td width="127"><small>ISO 10303-41</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="d_expg.htm">D</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <H2><A NAME="gen">4.1 General</A></H2>
+         		
+      <p>
+            		The subjects of the <b>representation_schema</b> are the structures that relate a collection of elements of product data to a context.
+            		These structures are representations.
+            		Representations are used to describe aspects of products.
+            		The associations between representations and the aspects of products they describe are specified 
+            		in annotated EXPRESS schemas that use or specialize this schema.
+            		Representations can be used to:
+         		
+      </p>
+      		
+      <ul>
+         			
+         <li>
+            			describe a property or a relationship between two properties, in which the properties are associated 
+            			with a complete product or with a part of a product;
+            			
+            <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+                  
+                  				The use of representations to collect elements of product data in order to describe the properties of a
+                  				product is specified in ISO 10303-41, and can be specified in annotated EXPRESS schemas that use or
+                  				specialize the constructs specified in this part of ISO 10303 and in ISO 10303-41.
+                  			</small></p>
+            			
+         </li>
+         			
+         <li>
+            			describe a picture.
+            			
+            <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+                  
+                  				The use of representations to collect elements of product data in order to describe a picture of a
+                  				product is specified in ISO 10303-46 [6], and can be specified in annotated EXPRESS schemas that use or
+                  				specialize the constructs specified in this part of ISO 10303 and in ISO 10303-46 [6].
+                  			</small></p>
+            			
+         </li>
+         		
+      </ul>
+      		
+      <p>One representation can be part of another representation.</p>
+      		
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+            			A collection of lines and points describes the shape of a wall. 
+            			This representation can be used as part of the description of the shape of the building, of which the wall is a part.
+            		</small></p>
+      		
+      <p>Each representation has a context and a collection of elements specified in that context.</p>
+      		
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            
+            			For the representation of geometric elements, the context is a coordinate space.
+            		</small></p>
+      		
+      <p>A context can be related to other contexts.</p>
+      		
+      <p class="example"><small><a name="example_3">EXAMPLE&nbsp;3</a>&nbsp;&nbsp;
+            
+            			Local coordinate spaces can be defined for each building in a factory complex. 
+            			These coordinate spaces can be related to each other, and to the coordinate space of the factory complex itself.
+            		</small></p>
+      		
+      <p>Transformations between representations can be specified.</p>
+         
+      <H2><A NAME="funcon">4.2 Fundamental concepts and assumptions</A></H2>
+         		<b><i>Representation</i></b>
+         		
+      <p>The following concepts and assumptions apply to the portions of this schema that deal with representation:</p>
+         		
+      <ul>
+            			
+         <li>
+               			A representation consists of a collection of elements of representation and a context.
+               			A representation corresponds to an instance of the 
+               			<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+               			entity data type.
+               			By structuring the elements in this way, relationships between elements can be established.
+               			Elements of representation are related if:
+               				
+            <ol type="1">
+                  					
+               <li>they are elements in the same representation, or</li>
+                  					
+               <li>they are elements in different representations that have the same context, or</li>
+                  					
+               <li>they are elements in different representations that have different contexts, if the contexts are related</li>
+                  				
+            </ol>
+               			
+            <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+                  
+                     				Consider two points with coordinate values of (0,0,0) and (1,0,0).
+                     				It is not possible to calculate the distance between these points until it is established that they are in the same
+                  coordinate space.
+                     				The specification of a point by itself does not contain enough data to state which coordinate space it is in and what
+                  				other elements also share that coordinate space.
+                  				In this part of ISO 10303, a point is an example of an element of representation, and a coordinate space is an example
+                  of a context.
+                     			</small></p>
+               			
+         </li>
+            			
+         <li>
+               			A representation can be used more than once. A representation is separate from its use.
+               			
+            <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+                  
+                     				Consider a collection of points and lines in a coordinate space.
+                     				This collection can be used to describe the shape of a product.
+                     				The collection can also be used, possibly with some transformation, to describe
+                  				a drawing or picture of the product. 
+                  				Neither of these uses is part of the definition of the collection itself.
+                     			</small></p>
+               			
+         </li>
+            		
+      </ul>
+         		
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+               			Representations can be specialized further in annotated EXPRESS schemas that use or specialize this schema.
+               		</small></p>
+         		
+         		<b><i>Context of representation</i></b>
+         		
+      <p>The following assumptions apply to the portions of this schema that deal with the context of representation:</p>
+         		
+      <ul>
+            			
+         <li>
+               				A representation has a context. 
+               				It is the context in which the elements of the representation are related.
+               				The context of a representation corresponds to an instance of the 
+               				<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a>
+            				entity data type.
+               			
+         </li>
+            			
+         <li>
+               				The context of a representation exists only as a basis for the representations that use it. 
+               				Therefore, representation contexts are related only if representations using the contexts are related.
+               			
+         </li>
+            		
+      </ul>
+         		
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+               			Representation contexts can be specialized further in annotated EXPRESS schemas that use or specialize this schema.
+               		</small></p>
+         		
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+               			Possible specializations include contexts for geometry, topology, finite element modelling and kinematic modelling.
+               		</small></p>
+         		
+         		<b><i>Elements of representation</i></b>
+         		
+      <p>The following concepts and assumptions apply to the portions of this schema that deal with elements of representation:</p>
+         		
+      <ul>
+            			
+         <li>
+               				Elements of representation participate directly in a representation, or support the definition of 
+               				another element of representation, or both.
+               				
+            <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+                  
+                     					A point could be the only element in the representation of the location of a product, or it could
+                  					serve as the end point of a line that is the only element in the representation of the edge of a product. 
+                  					In the first case the point itself is an element in a representation directly.
+                  					In the second case, the point serves only to provide definition for the line entity.
+                     				</small></p>
+               				
+            <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+                  
+                     					An element of representation that specifies the presentation of a text string could be part of the description of
+                  a drawing. 
+                     					In this case it participates directly in a representation. 
+                     					The same element of representation could, alternatively, be part of a dimension callout. 
+                     					In this second case the text is part of the callout, and participates indirectly in the description of the drawing.
+                     				</small></p>
+               				
+            <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+                  
+                     					Elements of representation that describe the presentation of text strings are specified in ISO 10303-46 [6]. 
+                     					Elements of representation that describe dimension callouts are described in ISO 10303-101 [8].
+                     				</small></p>
+               			
+         </li>
+            			
+         <li>
+               				Elements of representation can refer to each other, thereby forming graphs of such elements in
+            				which each graph has an identifiable root.
+            				The association of a root element with a context associates all elements in the graph with the context.
+            				
+            <p class="example"><small><a name="example_3">EXAMPLE&nbsp;3</a>&nbsp;&nbsp;
+                  
+                  					A curve is defined by a number of points. 
+                  					These points are all in the same coordinate space as the curve by virtue of their reference from the curve.
+                  				</small></p>
+               			
+         </li>
+            			
+         <li>
+               				Elements of representation are collected into representations and associated with contexts as a
+            				basis for establishing relationships between elements.
+               			
+         </li>
+            			
+         <li>
+               				An element of representation corresponds to an instance of the 
+               				<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+               				entity data type.
+               			
+         </li>
+            			
+         <li>
+               				An association of one or more elements of representation with a context corresponds to an
+            				instance of the 
+            				<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            				entity data type.
+               			
+         </li>
+            		
+      </ul>
+         		
+         		<b><i>Association of representations</i></b>
+         		
+      <p>The following concepts and assumptions apply to the portions of this schema that deal with the association of representations:</p>
+         		
+      <ul>
+            			
+         <li>A representation can be related to another representation.</li>
+            			
+         <li>
+               				One representation can be related to another representation such that they both participate in the
+            				association, but one does not define the other.
+            				This type of association corresponds to the 
+            				<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship"><b>representation_relationship</b></a> 
+            				entity data type.
+               			
+         </li>
+            			
+         <li>
+               				One representation can be related to another representation such that the first is part of the definition of the second.
+               				This type of association corresponds to the 
+               				<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a> 
+               				and 
+               				<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map"><b>representation_map</b></a> 
+               				entity data types.
+               			
+         </li>
+            			
+         <li>
+               				Two collections of representation elements can be unrelated in two separate contexts, and yet be
+            				related in a third context, or be related only as they both participate in a relating structure.
+               			
+         </li>
+            		
+      </ul>
+         		
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+               			Two collections of points and lines each represent the shape of a part. 
+               			Each of those shapes exists in a separate context independent and completely unrelated to the other.
+               			A third context can exist for the shape of an assembly of which these parts are components.
+               			In this third context, all of the elements are related, either
+            			through a direct association of those elements with that context, or through an association of the representations
+            			of the parts with the representation of the assembly.
+               		</small></p>
+         		
+         		<b><i>Transformation</i></b>
+         		
+      <p>The following concepts and assumptions apply to the portions of this schema that deal with transformations:</p>
+         		
+      <ul>
+            			
+         <li>
+               				Elements in different representations can be compared if
+               				
+            <ol type="1">
+                  					
+               <li>the representations have the same context, or</li>
+                  					
+               <li>a transformation is defined that relates the representations to each other.</li>
+                  				
+            </ol>
+               			
+         </li>
+            			
+         <li>
+               				A transformation can be defined as a function f between a domain A and a range B.
+               				The function f:A-&gt;B takes each element a in A and maps it to an element b in B, i.e., f(a)=b.
+               				The complete specification of a transformation requires the following:
+               				
+            <ol type="1">
+                  					
+               <li>the set of elements a to be transformed;</li>
+                  					
+               <li>the set of elements b resulting from the transformations;</li>
+                  					
+               <li>the definition of the context A that is common to the set of elements a;</li>
+                  					
+               <li>the definition of the context B that is common to the set of elements b;</li>
+                  					
+               <li>the function f.</li>
+                  				
+            </ol>
+               				The domain A and the range B are instances of the 
+               				<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a> 
+               				entity data type.
+               				The elements a and b are instances of the 
+               				<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+               				entity data type.
+               				The relationships between a and A, and between b and B, are instances of the 
+               				<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+               				entity data type: a is an element in a representation whose context is A, b is an element in a representation whose
+            				context is B.
+               			
+         </li>
+            			
+         <li>
+               				Two different approaches are used in this part of ISO 10303 to specify transformations.
+               				
+            <ol type="1">
+                  					
+               <li>
+                     						The function f can be specified. 
+                     						This type of transformation corresponds to the 
+                     						<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.functionally_defined_transformation"><b>functionally_defined_transformation</b></a> 
+                     						entity data type.
+                     						
+                  <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+                        
+                           							Two representations are related such that one is rotated and skewed with respect to the other.
+                        							This transformation can be specified by a matrix.
+                           						</small></p>
+                     						
+                  <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+                        
+                           							The data structures for particular kinds of transformation functions, such as matrices, are not
+                        							specified in this part of ISO 10303.
+                           						</small></p>
+                     						
+                  <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+                        
+                           							Points on a map are related to points on the surface of the earth by a function that transforms the
+                        							three dimensional surface to a two dimensional picture, and applies a scaling factor.
+                           						</small></p>
+                     					
+               </li>
+                  					
+               <li>
+                     						An element a in context A and an element b in context B that are sufficient to derive the
+                  						function can be specified.
+                  						This type of transformation corresponds to the
+                  						<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.item_defined_transformation"><b>item_defined_transformation</b></a>
+                  						entity data type, or to the mapping defined by the
+                  						<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a> 
+                  						entity data type.
+                  						
+                  <p class="example"><small><a name="example_3">EXAMPLE&nbsp;3</a>&nbsp;&nbsp;
+                        
+                        							A translation between coordinate spaces can be uniquely determined by two instances of
+                        							<b>axis2_placement_3d</b> 
+                        							a1 and b1 (one in each coordinate space), such that f takes a1 and transforms it to b1.
+                        						</small></p>
+                  						
+                  <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+                        
+                        							The 
+                        							<b>axis2_placement_3d</b> 
+                        							entity data type is defined in ISO 10303-42 [4].
+                        						</small></p>
+                     					
+               </li>
+                  				
+            </ol>
+               			
+         </li>
+            		
+      </ul>
+         		
+         		<b><i>Uncertainty</i></b>
+         		
+      <p>
+            			Numeric values that are measured or calculated can be imprecise.
+            			Uncertainty is a measure of the interval of confidence associated with this imprecision.
+            			In this International Standard, uncertainty can be specified for:
+            		
+      </p>
+         		
+         		
+      <ol type="1">
+            			
+         <li>multiple representations that share a common context;</li>
+            			
+         <li>individual representations;</li>
+            			
+         <li>individual elements of representation.</li>
+            		
+      </ol>
+         		
+         		
+      <p>This part of ISO 10303 supports (1) and (2).</p>
+         		
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            (3) is supported by ISO 10303-45 [5].</small></p>
+         		
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            	   		Uncertainty is unrelated to the subject of tolerances or permitted variations. 
+            	   		These are supported by ISO 10303-47 [7].
+               		</small></p>
+         		
+      <p>The following concepts and assumptions apply to the portions of this schema that deal with uncertainty:</p>
+         		
+      <ul>
+            			
+         <li>
+               				The uncertainty for numeric values can be specified for all the representations that share a context.
+               				This is specified using the 
+               				<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.global_uncertainty_assigned_context"><b>global_uncertainty_assigned_context</b></a> 
+               				entity data type.
+               			
+         </li>
+            			
+         <li>
+               				The uncertainty for numeric values can be specified for a representation in a given context.
+               				This is specified using the 
+               				<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.uncertainty_assigned_representation"><b>uncertainty_assigned_representation</b></a>  
+               				entity data type.
+               			
+         </li>
+            		
+      </ul>
+         		
+      <p>
+            			If uncertainties are specified more than once, the following precedence rules shall apply.
+            			The uncertainty specified for an individual element of representation shall have precedence over the uncertainty specified
+         by any
+            			<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.uncertainty_assigned_representation"><b>uncertainty_assigned_representation</b></a> 
+            			in which the item participates.
+            			The uncertainty specified by an
+            			<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.uncertainty_assigned_representation"><b>uncertainty_assigned_representation</b></a> 
+            			shall have precedence over the uncertainty specified by any
+            			<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.global_uncertainty_assigned_context"><b>global_uncertainty_assigned_context</b></a>
+            			in which the representation participates.
+            		
+      </p>
+         		
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+               			Uncertainty for an individual element of representation is specified by the
+               			<b>qualified_representation_item</b> 
+               			entity data type, defined in ISO 10303-45 [5].
+               		</small></p>
+         
+      <h2><A NAME="types">4.3 representation_schema type definitions</A></h2>
+      <h2><A NAME="representation_schema.compound_item_definition">4.3.1 compound_item_definition</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      
+      The <b>compound_item_definition</b> type is a list of
+      alternate data types. It provides a mechanism to refer to an
+      instance of one of these data types.  
+      
+      	The alternate data types are different aggregations of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>.
+      
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            compound_item_definition
+            =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#representation_schema.list_representation_item">list_representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#representation_schema.set_representation_item">set_representation_item</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><A NAME="representation_schema.founded_item_select">4.3.2 founded_item_select</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      
+      The <b>founded_item_select</b> type is a list of
+      alternate data types. It provides a mechanism to refer to an
+      instance of one of these data types.  
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            founded_item_select
+            =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#representation_schema.founded_item">founded_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#representation_schema.representation_item">representation_item</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><A NAME="representation_schema.list_representation_item">4.3.3 list_representation_item</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>list_representation_item</b> is an ordered aggregation of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+      	instances.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            list_representation_item
+            =
+            LIST[1:?] OF <A HREF="../../../../data/resource_docs/representation_structures/sys/4_schema.htm#representation_schema.representation_item">representation_item</A>;<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><A NAME="representation_schema.set_representation_item">4.3.4 set_representation_item</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>set_representation_item</b> is an unordered aggregation of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>
+      	instances.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            set_representation_item
+            =
+            SET[1:?] OF <A HREF="../../../../data/resource_docs/representation_structures/sys/4_schema.htm#representation_schema.representation_item">representation_item</A>;<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><A NAME="representation_schema.transformation">4.3.5 transformation</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      
+      The <b>transformation</b> type is a list of
+      alternate data types. It provides a mechanism to refer to an
+      instance of one of these data types.  
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            transformation
+            =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#representation_schema.functionally_defined_transformation">functionally_defined_transformation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#representation_schema.item_defined_transformation">item_defined_transformation</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><A NAME="entities">4.4 representation_schema entity definitions</A></h2>
+      <h2><A NAME="representation_schema.binary_representation_item">4.4.1 binary_representation_item</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>binary_representation_item</b> is a type of
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>
+      	that specifies a binary value.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY binary_representation_item<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#representation_schema.representation_item">representation_item</A>);<br>
+            
+            
+            &nbsp;&nbsp;binary_value : BINARY;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.binary_representation_item.binary_value">binary_value:
+               </a></b>
+         	the value of the element of representation.
+         
+      </p>
+      <h2><A NAME="representation_schema.bytes_representation_item">4.4.2 bytes_representation_item</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>bytes_representation_item</b> is a type of
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.binary_representation_item"><b>binary_representation_item</b></a>
+      	that specifies a byte value.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY bytes_representation_item<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#representation_schema.binary_representation_item">binary_representation_item</A>);<br>DERIVE<br>
+            &nbsp;&nbsp;no_of_bytes : INTEGER := BLENGTH(SELF\binary_representation_item.binary_value) DIV 8;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: BLENGTH(SELF\binary_representation_item.binary_value) MOD 8 = 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.bytes_representation_item.no_of_bytes">no_of_bytes:
+               </a></b>
+         	the number of bytes of the element of representation.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.bytes_representation_item.wr:wr1">WR1:
+               </a></b>
+         	The number of bits in 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.binary_representation_item.binary_value"><b>binary_value</b></a> 
+         	shall be a multiple of 8.
+         	
+      </p>
+      <h2><A NAME="representation_schema.compound_representation_item">4.4.3 compound_representation_item</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>compound_representation_item</b> is a type of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+      	that is defined by an aggregation of other instances of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>.
+      	This aggregation is either ordered or unordered.
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		A <b>compound_representation_item</b> supports the description of aspects of product data using structured collections.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		The meaning and usage of a structured collection of instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+            		can be specified in an annotated EXPRESS listing that uses or specializes this entity data type.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		In an application protocol in the domain of ship design, hydrostatic properties of the ship hull can
+            		be represented using a tabular structure composed of instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.list_representation_item"><b>list_representation_item</b></a>.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY compound_representation_item<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#representation_schema.representation_item">representation_item</A>);<br>
+            
+            
+            &nbsp;&nbsp;item_element : <A HREF="#representation_schema.compound_item_definition">compound_item_definition</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.compound_representation_item.item_element">item_element:
+               </a></b>
+         	the 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.list_representation_item"><b>list_representation_item</b></a>
+         	or 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.set_representation_item"><b>set_representation_item</b></a> 
+         	whose component instances of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>
+         	define the <b>compound_representation_item</b>.
+         
+      </p>
+      <h2><A NAME="representation_schema.definitional_representation">4.4.4 definitional_representation</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>definitional_representation</b> is a type of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+      	that has a 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.parametric_representation_context"><b>parametric_representation_context</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY definitional_representation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#representation_schema.representation">representation</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: 'REPRESENTATION_SCHEMA.PARAMETRIC_REPRESENTATION_CONTEXT' IN
+            TYPEOF (SELF\representation.context_of_items );<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.definitional_representation.wr:wr1">WR1:
+               </a></b>
+         	The context of the <b>definitional_representation</b> shall be a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.parametric_representation_context"><b>parametric_representation_context</b></a>.
+         
+      </p>
+      <h2><A NAME="representation_schema.definitional_representation_relationship">4.4.5 definitional_representation_relationship</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>definitional_representation_relationship</b> is a type of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship"><b>representation_relationship</b></a>.
+      	The representation indicated by 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship.rep_1"><b>rep_1</b></a> 
+      	is part of the definition indicated by 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship.rep_2"><b>rep_2</b></a>.
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		A <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship"><b>representation_relationship</b></a> 
+            		by itself is not making one representation part of the definition of the other like it is the case with 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a>. 
+            		The <b>definitional_representation_relationship</b> acts in a similar way as  
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a>.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY definitional_representation_relationship<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#representation_schema.representation_relationship">representation_relationship</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: acyclic_representation_relationship(SELF,
+            [SELF\representation_relationship.rep_2],
+            'REPRESENTATION_SCHEMA.'+'REPRESENTATION');<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.definitional_representation_relationship.wr:wr1">WR1:
+               </a></b>
+         	The <b>definitional_representation_relationship</b> shall not participate in cycles.
+         	
+      </p>
+      <h2><A NAME="representation_schema.definitional_representation_relationship_with_same_context">4.4.6 definitional_representation_relationship_with_same_context</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>definitional_representation_relationship_with_same_context</b> is a type of
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.definitional_representation_relationship"><b>definitional_representation_relationship</b></a>
+      	in which the related representations have the same context.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY definitional_representation_relationship_with_same_context<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#representation_schema.definitional_representation_relationship">definitional_representation_relationship</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF\representation_relationship.rep_1.context_of_items :=: 
+            SELF\representation_relationship.rep_2.context_of_items;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.definitional_representation_relationship_with_same_context.wr:wr1">WR1:
+               </a></b>	
+         	Two referenced representations shall have the same context instance.
+         
+      </p>
+      <h2><A NAME="representation_schema.founded_item">4.4.7 founded_item</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>founded_item</b> is an entity data type that represents part of an element of representation.
+      	A <b>founded_item</b> can be used only as part of the definition of a 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>, 
+      	and is founded through the participation of the 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+      	in a representation.
+      	A 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+      	that is part of a <b>founded_item</b> is founded through that participation. 
+      	A <b>founded_item</b> cannot be an item in a 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		This entity data type allows errors in other parts of ISO 10303 to be corrected in an upwardly compatible manner.
+            		Specifically, it is a supertype of the entity data types 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.composite_curve_segment"><b>composite_curve_segment</b></a>
+            		and
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.surface_patch"><b>surface_patch</b></a>, 
+            		defined in ISO 10303-42 [4], and 
+            		<a href="../../../resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.view_volume"><b>view_volume</b></a>, 
+            		defined in ISO 10303-46 [6].
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		This entity data type is not intended to be instantiated as a complex instance of two or more of its
+            		defined subtypes 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.composite_curve_segment"><b>composite_curve_segment</b></a>, 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.surface_patch"><b>surface_patch</b></a>, 
+            		and 
+            		<a href="../../../resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.view_volume"><b>view_volume</b></a>.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            		This entity data type is not intended for any other use apart from the correction of the errors in other parts of 
+            		ISO 10303 listed in NOTE 1 above.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		A 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.bounded_curve"><b>bounded_curve</b></a> 
+            		that is the parent curve of a 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.composite_curve_segment"><b>composite_curve_segment</b></a>
+            		is founded as a result of the 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.composite_curve_segment"><b>composite_curve_segment</b></a>
+            		being a <b>founded_item</b> that is part of a 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+            		(a <a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.composite_curve"><b>composite_curve</b></a>).
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_4">NOTE&nbsp;4</a>&nbsp;&nbsp;
+            
+            		The 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.bounded_curve"><b>bounded_curve</b></a>, 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.composite_curve"><b>composite_curve</b></a>, 
+            		and 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_context"><b>geometric_representation_context</b></a> 
+            		entity types are defined in ISO 10303-42 [4].
+            	</small></p>
+      	
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY founded_item;<br>DERIVE<br>
+            &nbsp;&nbsp;users : SET[0:?] OF <A HREF="#representation_schema.founded_item_select">founded_item_select</A> := using_items(SELF,[]);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(users) &gt; 0;<br> 
+            &nbsp;&nbsp;WR2: NOT(SELF IN users);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.founded_item.users">users:
+               </a></b>
+             the set of 
+             <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+             or other 
+             <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.founded_item"><b>founded_item</b></a> 
+             that directly or indirectly uses this instance.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.founded_item.wr:wr1">WR1:
+               </a></b>
+         	There shall be at least one user. Together with WR2
+         	this ensures that a 
+             <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.founded_item"><b>founded_item</b></a> 
+         	will be used by at least one 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.founded_item.wr:wr2">WR2:
+               </a></b>
+         	The graph of all users shall be acyclic.
+         
+      </p>
+      <h2><A NAME="representation_schema.functionally_defined_transformation">4.4.8 functionally_defined_transformation</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>functionally_defined_transformation</b> is a transformation that is
+      	defined by an explicit transformation function, the function f between a domain A and range B.
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		Let f be the transformation function between domain A and range B.
+            		The function f:A-&gt;B takes each element a in A and maps it to an element b in B, i.e., f(a)=b.
+            	</small></p>
+      	
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		The transformation function can be specified in an annotated EXPRESS schema that uses or
+            		specializes this entity data type, or in an agreement of common understanding between the 
+            		partners sharing this information.
+            	</small></p>
+      	
+      	
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            		The function f can be specified in specializations of this entity type, or through constraints on the
+            		population and usage of the <b>description</b> attribute.
+            	</small></p>
+      	
+      	
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		An annotated EXPRESS schema could define a subtype <i>x y plane mirror transformation</i>
+            		of this entity type; the definition of the subtype would state that the nature of the functionally defined
+            		transformation is to mirror all instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+            		in the x-y plane.
+            	</small></p>
+      	
+      	
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		An annotated EXPRESS schema could associate different natural language translation functions
+            		with the values &#8216;English to French&#8217; and &#8216;French to English&#8217;, where these are populations of the <b>description</b>
+            		attribute of <b>functionally_defined_transformation</b>.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY functionally_defined_transformation;<br>
+            
+            
+            &nbsp;&nbsp;name : label;<br>
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            text;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.functionally_defined_transformation.name">name:
+               </a></b>
+         	the 
+         	<a href="../../../resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label"><b>label</b></a>
+         	by which the <b>functionally_defined_transformation</b> is known.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.functionally_defined_transformation.description">description:
+               </a></b>
+         	the 
+         	<a href="../../../resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text"><b>text</b></a> 
+         	that characterizes the <b>functionally_defined_transformation</b>.
+         	The value of the <b>description</b> need not be specified.
+         
+      </p>
+      <h2><A NAME="representation_schema.global_uncertainty_assigned_context">4.4.9 global_uncertainty_assigned_context</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>global_uncertainty_assigned_context</b> is a type of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a> 
+      	that specifies uncertainty for the elements of representation that are associated with it.
+      	The uncertainty is specified by instances of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.uncertainty_measure_with_unit"><b>uncertainty_measure_with_unit</b></a>, 
+      	and applies to all elements of representation that are expressed in the same measure and that are associated 
+      	with a representation that has this 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.global_uncertainty_assigned_context"><b>global_uncertainty_assigned_context</b></a>.
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The precedence rules that apply to uncertainties in numeric quantities are specified in Clause
+            		Fundamental concepts and assumptions, Uncertainty.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		An instance of <b>global_uncertainty_assigned_context</b> specifies uncertainty of 0.01m with respect to lengths.
+            		Unless modified by the precedence rules specified in 4.2, this uncertainty applies to each length that occurs in each 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+            		associated with a representation that has this <b>global_uncertainty_assigned_context</b>.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY global_uncertainty_assigned_context<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#representation_schema.representation_context">representation_context</A>);<br>
+            
+            
+            &nbsp;&nbsp;uncertainty : SET[1:?] OF <A HREF="#representation_schema.uncertainty_measure_with_unit">uncertainty_measure_with_unit</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.global_uncertainty_assigned_context.uncertainty">uncertainty:
+               </a></b>
+         	the instances of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.uncertainty_measure_with_unit"><b>uncertainty_measure_with_unit</b></a>  
+         	that apply in the 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a>.
+         
+      </p>
+      <h2><A NAME="representation_schema.item_defined_transformation">4.4.10 item_defined_transformation</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	An <b>item_defined_transformation</b> is a transformation that is defined by two instances of
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+      	in which one instance of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+      	is the result of applying the transformation function to the other.
+      	The transformation function is not explicitly provided, but it is
+      	derived from the relationship between the instances of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>.
+      
+      <p>
+         	The transformation function is a function f between a domain A and range B. The function f:A-&gt;B
+         	takes each element a in A and maps it to an element b in B, i.e., f(a)=b.
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            	In special cases, the inverse transformation function g:B-&gt;A can also be derived as appropriate.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY item_defined_transformation;<br>
+            
+            
+            &nbsp;&nbsp;name : label;<br>
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            text;<br>
+            
+            
+            &nbsp;&nbsp;transform_item_1 : <A HREF="#representation_schema.representation_item">representation_item</A>;<br>
+            
+            
+            &nbsp;&nbsp;transform_item_2 : <A HREF="#representation_schema.representation_item">representation_item</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.item_defined_transformation.name">name:
+               </a></b>
+         	the 
+         	<a href="../../../resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label"><b>label</b></a> 
+         	by which the <b>item_defined_transformation</b> is known.
+         
+      </p>
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            	The name could designate a particular instance of <b>item_defined_transformation</b>, or the kind of
+            	information that an instance of <b>item_defined_transformation</b> conveys.
+            	</small></p>
+      <p class="expressdescription"><b><a name="representation_schema.item_defined_transformation.description">description:
+               </a></b>
+         	the 
+         	<a href="../../../resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text"><b>text</b></a> 
+         	that characterizes the <b>item_defined_transformation</b>. 
+         	The value of the <b>description</b> need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.item_defined_transformation.transform_item_1">transform_item_1:
+               </a></b>
+         	the first instance of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	that describes the transformation function.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.item_defined_transformation.transform_item_2">transform_item_2:
+               </a></b>
+         	the second instance of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	that describes the transformation function.
+         
+      </p>
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		Consider one 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>
+            		having a set of instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+            		and a context that is a cartesian coordinate space and a second 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		with another set of instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+            		and a context that is a second cartesian coordinate space.
+            		These instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		are related by rigid motion in a 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship_with_transformation"><b>representation_relationship_with_transformation</b></a> 
+            		that uses an <b>item_defined_transformation</b>.
+            		The <b>transform_item_1</b> and <b>transform_item_2</b> might each be an 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d"><b>axis2_placement_3d</b></a> 
+            		where each is in the respective cartesian coordinate space.
+            		The meaning of such a 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship"><b>representation_relationship</b></a> 
+            		would be to relate the two instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		such that the transformation between the two instances of
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d"><b>axis2_placement_3d</b></a>
+            		applies to every element in the representations.
+            	</small></p>
+      <h2><A NAME="representation_schema.mapped_item">4.4.11 mapped_item</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>mapped_item</b> is a type of
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>
+      	that specifies the mapping of a 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+      	as an element of the items of a second 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		See 4.2 for the fundamental concepts and assumptions that apply to this entity data type.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		The mapping includes a transformation that is derived from the 
+            		<b>mapping_source</b>.<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map.mapping_origin"><b>mapping_origin</b></a>
+            		and the <b>mapping_target</b> attributes. 
+            		See 4.2 for the fundamental concepts and assumptions that apply to transformation.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            		The precise meaning of the mapping can be specified in an annotated EXPRESS schema that uses or
+            		specializes this entity data type and the 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map"><b>representation_map</b></a>
+            		entity data type, or in an agreement of common understanding between the partners sharing this information.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		Figure 2 illustrates the use of the <b>mapped_item</b> and 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map"><b>representation_map</b></a> 
+            		entity data types.
+            		Three instances of representation are shown.
+            		The first representation R1 consists of geometry G1 and an 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d"><b>axis2_placement_3d</b></a> 
+            		A1.
+            		The second representation R2 consists of geometry G2 and an 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d"><b>axis2_placement_3d</b></a>
+            		A2.
+            		For the purpose of this example, the nature and structure of G1 and G2 are not relevant.
+            		R1 represents the shape of a roof. 
+            		R2 represents the shape of some walls.
+            	</small></p><br><br><a name="figure_example_use_of_mapped_item_and_representation_map"></a><div align="center"><IMG src="../example_use_of_mapped_item_and_representation_map.gif" border="0" alt="Figure 2&nbsp;&#8212;&nbsp;&nbsp;Example of the use of mapped_item and &#xA;representation_map&#xA;"></div><br><div align="center"><b>Figure 2&nbsp;&#8212;&nbsp;&nbsp;Example of the use of mapped_item and 
+            			representation_map
+            			</b></div><br><p><small>
+            		Two instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map"><b>representation_map</b></a>
+            		allow R1 and R2 to be used as elements in a third 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>, 
+            		R3. 
+            		R3 represents the shape of the building.
+            		The first instance of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map"><b>representation_map</b></a> 
+            		RM1 references R1 as its 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map.mapped_representation"><b>mapped_representation</b></a> 
+            		and A1 as its 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map.mapping_origin"><b>mapping_origin</b></a>.
+            		The second instance of
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map"><b>representation_map</b></a> 
+            		RM2 references R2 as its 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map.mapped_representation"><b>mapped_representation</b></a> 
+            		and A2 as its 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map.mapping_origin"><b>mapping_origin</b></a>.
+            	</small></p>
+      <p><small>
+            		R3 contains as its items an 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d"><b>axis2_placement_3d</b></a> 
+            		and two instances of <b>mapped_item</b>, M1 and M2. M1 references RM1 as its <b>mapping_source</b> and A3 as its <b>mapping_target</b>.
+            		M2 references RM2 as its <b>mapping_source</b> and A3 as its <b>mapping_target</b>.
+            		The result is that R3 uses R1 and R2 as parts of its definition.
+            		As it is used in R3, R1 is transformed so that A1 is mapped onto A3. 
+            		As it is used in R3, R2 is transformed so that A2 is mapped onto A3.
+            	</small></p>
+      <p><small>
+            		This example shows how the <b>mapped_item</b> and 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map"><b>representation_map</b></a> 
+            		entity data types can be used to describe the composition of one representation from other instances of representation.
+            		See 4.4.14 for an example of the use of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship"><b>representation_relationship</b></a> 
+            		to describe whole-part associations between instances of representation.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY mapped_item<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#representation_schema.representation_item">representation_item</A>);<br>
+            
+            
+            &nbsp;&nbsp;mapping_source : <A HREF="#representation_schema.representation_map">representation_map</A>;<br>
+            
+            
+            &nbsp;&nbsp;mapping_target : <A HREF="#representation_schema.representation_item">representation_item</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: acyclic_mapped_representation(SELF);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.mapped_item.mapping_source">mapping_source:
+               </a></b>
+         	the 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map"><b>representation_map</b></a> 
+         	that specifies the source and the origin of the <b>mapped_item</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.mapped_item.mapping_target">mapping_target:
+               </a></b>
+         	the 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>
+         	that is the target onto which the <b>mapping_source</b> is mapped.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.mapped_item.wr:wr1">WR1:
+               </a></b>
+         	A <b>mapped_item</b> shall not be self-defining by participating in the definition of the
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+         	being mapped.
+         
+      </p>
+      <h2><A NAME="representation_schema.parametric_representation_context">4.4.12 parametric_representation_context</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>parametric_representation_context</b> is a type of
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a>
+      	in which instances of
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+      	are defined in a parametric space.
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		The definition of the parametric space can be specified in an annotated EXPRESS schema that uses
+            		or specializes this entity data type.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		In a <b>parametric_representation_context</b>, length units are dimensionless.
+            	</small></p>
+      	
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY parametric_representation_context<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#representation_schema.representation_context">representation_context</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Informal propositions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.parametric_representation_context.wr:ip1">IP1:
+               </a></b>
+         	If the entity instance is also an instance of 
+         	<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.global_unit_assigned_context"><b>global_unit_assigned_context</b></a>, 
+         	then the 
+         	<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.global_unit_assigned_context"><b>global_unit_assigned_context</b></a>.<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.global_unit_assigned_context.units"><b>units</b></a>  
+         	attribute shall not include a 
+         	<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.length_unit"><b>length_unit</b></a>.
+         
+      </p>
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            		The 
+            		<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.global_unit_assigned_context"><b>global_unit_assigned_context</b></a> 
+            		and 
+            		<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.length_unit"><b>length_unit</b></a>  
+            		entity data types are defined in ISO 10303-41.
+            	</small></p>
+      <h2><A NAME="representation_schema.representation">4.4.13 representation</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>representation</b> is a collection of one or more 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+      	instances that are related in a specified 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a>.
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		The use of a <b>representation</b>, i.e., that which is being represented, is not specified in this part of ISO 10303.
+            		It can be specified in an annotated EXPRESS schema that uses or specializes this entity data type.
+            	</small></p>
+      
+      <p>
+         	The relationship of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	to 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a> 
+         	is the basis for distinguishing which 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	entities are related.
+         
+      </p>
+      	
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		Two cartesian points P and Q (described by instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>) 
+            		are related in a context A 
+            		(they are elements in the same representation in context A, or are elements in different representations that share context
+            A).
+            		It is therefore possible to calculate the distance between these points.
+            		A third cartesian point R (also described by an instance of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>)
+            		is not related to context A.
+            		It is not possible to determine the distance between R and P, or between R and Q.
+            	</small></p>
+      
+      <p>
+         	A 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	can be related to a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a> 
+         	directly, when it occurs as an element in a representation, or indirectly, 
+         	when it is referenced through any number of intervening entities, each of type 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	or 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.founded_item"><b>founded_item</b></a>.
+         
+      </p>
+      
+      <p>
+         	A <b>representation</b> relates a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a> 
+         	to trees of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	instances each tree being rooted in one member of the set of <b>items</b>.
+         	A 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	or 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.founded_item"><b>founded_item</b></a> 
+         	is one node in the tree; a relationship between one 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	or 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.founded_item"><b>founded_item</b></a> 
+         	and another is an edge.
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		Instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship"><b>representation_item_relationship</b></a>
+            		do not form either nodes or edges in this tree; an instance of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+            		is not part of the tree solely because it is associated with an element in the tree by an instance of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship"><b>representation_item_relationship</b></a>.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            		A <b>representation</b> can be incomplete in that it need not fully model the concept that is represented,
+            		although it could be adequate for a given application.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		Consider a collection of two-dimensional 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+            		instances used to represent the shape of a machined part.
+            		It is not a complete description of the shape, but is suitable for certain applications such as computer-aided draughting.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_4">NOTE&nbsp;4</a>&nbsp;&nbsp;
+            
+            		Two instances of <b>representation</b> are not related solely because the same instance of
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>
+            		is referenced directly or indirectly from their sets of <b>items</b>.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_3">EXAMPLE&nbsp;3</a>&nbsp;&nbsp;
+            
+            		Consider a surface that is used in the respective representations of the shape of a casting die and of the shape of the
+            part cast in that die.
+            		The same surface is related to two distinct instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a> 
+            		(i.e., coordinate spaces): one for the die and one for the part by the two instances of <b>representation</b>.
+            		However, the two instances of <b>representation</b> are not related; they simply share a common 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_5">NOTE&nbsp;5</a>&nbsp;&nbsp;
+            
+            		Two instances of <b>representation</b> are not related solely because instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>
+            		in their sets of items are related by an instance of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship"><b>representation_item_relationship</b></a>.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY representation;<br>
+            
+            
+            &nbsp;&nbsp;name : label;<br>
+            
+            
+            &nbsp;&nbsp;items : SET[1:?] OF <A HREF="#representation_schema.representation_item">representation_item</A>;<br>
+            
+            
+            &nbsp;&nbsp;context_of_items : <A HREF="#representation_schema.representation_context">representation_context</A>;<br>DERIVE<br>
+            &nbsp;&nbsp;id : identifier := get_id_value (SELF);<br>
+            &nbsp;&nbsp;description : text := get_description_value (SELF);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' +
+            'ID_ATTRIBUTE.IDENTIFIED_ITEM'))
+            &lt;= 1;<br> 
+            &nbsp;&nbsp;WR2: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' +
+            'DESCRIPTION_ATTRIBUTE.DESCRIBED_ITEM'))
+            &lt;= 1;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation.name">name:
+               </a></b>
+         	the 
+         	<a href="../../../resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label"><b>label</b></a> 
+         	by which the <b>representation</b> is known.
+         
+      </p>
+      <p class="note"><small><a name="note_6">NOTE&nbsp;6</a>&nbsp;&nbsp;
+            
+            		The name could designate a particular instance of <b>representation</b>, or the kind of information that an
+            		instance of <b>representation</b> conveys.
+            	</small></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation.items">items:
+               </a></b>
+         	a set of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_items</b></a> 
+         	that are related in the <b>context_of_items</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.representation.context_of_items">context_of_items:
+               </a></b>
+         	a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a> 
+         	in which the items are related to form a representation of some concept.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.representation.id">id:
+               </a></b>
+         	the 
+         	<a href="../../../resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier"><b>identifier</b></a> 
+         	that distinguishes the <b>representation</b>.
+         
+      </p>
+      <p class="note"><small><a name="note_7">NOTE&nbsp;7</a>&nbsp;&nbsp;
+            
+            		This attribute is an upwardly compatible addition to <b>representation</b> as specified in the first edition of this part of ISO 10303.
+            	</small></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation.description">description:
+               </a></b>
+         	the 
+         	<a href="../../../resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text"><b>text</b></a> 
+         	that characterizes the <b>representation</b>.
+         
+      </p>
+      <p class="note"><small><a name="note_8">NOTE&nbsp;8</a>&nbsp;&nbsp;
+            
+            		This attribute is an upwardly compatible addition to <b>representation</b> as specified in the first edition of this part of ISO 10303.
+            	</small></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation.wr:wr1">WR1:
+               </a></b>
+         	Each <b>representation</b> shall be the 
+         	<a href="../../../resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.id_attribute.identified_item"><b>identified_item</b></a> 
+         	in at most one 
+         	<a href="../../../resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.id_attribute"><b>id_attribute</b></a>.
+         
+      </p>
+      <p class="note"><small><a name="note_9">NOTE&nbsp;9</a>&nbsp;&nbsp;
+            
+            		The 
+            		<a href="../../../resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.id_attribute"><b>id_attribute</b></a> 
+            		entity data type is defined in the 
+            		<a href="../../../resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema"><b>basic_attribute_schema</b></a> 
+            		in ISO 10303-41.
+            	</small></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation.wr:wr2">WR2:
+               </a></b>
+         	Each representation shall be the 
+         	<a href="../../../resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.name_attribute.named_item"><b>named_item</b></a> 
+         	in at most one 
+         	<a href="../../../resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.name_attribute"><b>name_attribute</b></a>.
+         
+      </p>
+      <p class="note"><small><a name="note_10">NOTE&nbsp;10</a>&nbsp;&nbsp;
+            
+            		The 
+            		<a href="../../../resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.name_attribute"><b>name_attribute</b></a> 
+            		entity data type is defined in the 
+            		<a href="../../../resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema"><b>basic_attribute_schema</b></a>
+            		in ISO 10303-41.
+            	</small></p>
+      <p class="note"><small><a name="note_11">NOTE&nbsp;11</a>&nbsp;&nbsp;
+            
+            		A template for constraining the population of the entity data types defined in the 
+            		<a href="../../../resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema"><b>basic_attribute_schema</b></a> 
+            		is described in Annex E of ISO 10303-41.
+            	</small></p>
+      <h2><A NAME="representation_schema.representation_context">4.4.14 representation_context</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>representation_context</b> is a context in which instances of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>
+      	are related.
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		Two instances of <b>representation_context</b> are separate and have no relationship unless a relationship
+            		is explicitly specified between them in an annotated EXPRESS schema that uses or specializes this entity data type.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY representation_context;<br>
+            
+            
+            &nbsp;&nbsp;context_identifier : identifier;<br>
+            
+            
+            &nbsp;&nbsp;context_type : text;<br>INVERSE<br>
+            &nbsp;&nbsp;representations_in_context : SET[1:?] OF <A HREF="#representation_schema.representation">representation</A> FOR context_of_items;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_context.context_identifier">context_identifier:
+               </a></b>
+         	the 
+         	<a href="../../../resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier"><b>identifier</b></a> 
+         	that distinguishes the <b>representation_context</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_context.context_type">context_type:
+               </a></b>
+         	a description of the type of the <b>representation_context</b>.
+         
+      </p>
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		Constraints on the uniqueness of <b>context_identifier</b>, or the allowed values of <b>context_type</b>, can be
+            		specified in an annotated EXPRESS schema that uses or specializes this entity data type.
+            	</small></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_context.representations_in_context">representations_in_context:
+               </a></b>
+         	the instances of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+         	that refer to the <b>representation_context</b>.
+         
+      </p>
+      <h2><A NAME="representation_schema.representation_item">4.4.15 representation_item</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>representation_item</b> is an element of representation.
+      	A <b>representation_item</b> participates in one or more instances of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>, 
+      	or contributes to the definition of another <b>representation_item</b>.
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		One <b>representation_item</b> contributes to the definition of a second <b>representation_item</b> if the first is referenced by the second.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		The same <b>representation_item</b> could be related multiple times to the same 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a>
+            		by being used directly or indirectly in several instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>, 
+            		each referencing the same 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a>.
+            		This does not have the meaning that each 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		is creating a new instance of the same <b>representation_item</b> in the same 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a>.
+            		Rather, each 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>
+            		reasserts the use of the same instance of <b>representation_item</b> in the 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a> 
+            		for different uses.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		Consider two instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>, 
+            		each having the same value for 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation.context_of_items"><b>context_of_items</b></a>.
+            		One is a 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		of the shape of a cube and indirectly references a 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.line"><b>line</b></a> 
+            		as one of its edges.
+            		The second simply references the 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.line"><b>line</b></a>
+            		as one of its 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation.items"><b>items</b></a>.
+            		There are not two occurrences of the 
+            		line 
+            		and its sub-tree of referenced instances of <b>representation_item</b> in the 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a>.
+            		Rather, the use of the line in that
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_context"><b>geometric_representation_context</b></a> 
+            		has been asserted twice, once in each 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		The 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item"><b>compound_representation_item</b></a> 
+            		entity data type provides a general capability to define one <b>representation_item</b> using other instances of <b>representation_item</b>.
+            		This can be used to create tabular structures: each cell in the table is a <b>representation_item</b> (such as a 
+            		<a href="../../../resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.measure_representation_item"><b>measure_representation_item</b></a>
+            		that provides a name-value-unit tuple), and the table is itself a <b>representation_item</b> that
+            		participates in the representation of a product property.
+            		The <b>representation_item</b> instances that are the cells in the table do not participate directly in the representation.
+            	</small></p>	
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY representation_item<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#representation_schema.binary_representation_item">binary_representation_item</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#representation_schema.compound_representation_item">compound_representation_item</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#representation_schema.mapped_item">mapped_item</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#representation_schema.value_representation_item">value_representation_item</A>));<br>
+            
+            
+            &nbsp;&nbsp;name : label;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(using_representations(SELF)) &gt; 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_item.name">name:
+               </a></b>
+         	the 
+         	<a href="../../../resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label"><b>label</b></a> 
+         	by which the <b>representation_item</b> is known.
+         
+      </p>
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            		The name could designate a particular instance of <b>representation_item</b> or the kind of information
+            		that an instance of <b>representation_item</b> conveys.
+            	</small></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_item.wr:wr1">WR1:
+               </a></b>
+         	The <b>representation_item</b> shall participate in at least one 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>, 
+         	either as an item in that 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+         	or being directly or indirectly referenced by an item in the 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.
+         
+      </p>
+      <h2><A NAME="representation_schema.representation_item_relationship">4.4.16 representation_item_relationship</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>representation_item_relationship</b> is an association between two instances of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>.
+      	A <b>representation_item_relationship</b> can associate two instances of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+      	in the same 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+      	or in two different instances of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.
+      	In this association the two instances of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>
+      	are independent; neither is founded with respect to the other or the instance(s) of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+      	in which they participate.
+      	If the instances of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+      	that are associated are in different instances of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>, 
+      	this association does not relate the instances of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		The meaning of the association can be specified in an annotated EXPRESS schema that uses or
+            		specializes this entity, or in an agreement of common understanding between the partners sharing this information.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY representation_item_relationship;<br>
+            
+            
+            &nbsp;&nbsp;name : label;<br>
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            text;<br>
+            
+            
+            &nbsp;&nbsp;relating_representation_item : <A HREF="#representation_schema.representation_item">representation_item</A>;<br>
+            
+            
+            &nbsp;&nbsp;related_representation_item : <A HREF="#representation_schema.representation_item">representation_item</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_item_relationship.name">name:
+               </a></b>
+         	the 
+         	<a href="../../../resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label"><b>label</b></a>
+         	by which the <b>representation_item_relationship</b> is known.
+         
+      </p>
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		The name could designate a particular instance of <b>representation_item_relationship</b> or the kind of
+            		information that an instance of <b>representation_item_relationship</b> conveys.
+            	</small></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_item_relationship.description">description:
+               </a></b>
+         	the 
+         	<a href="../../../resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text"><b>text</b></a>  
+         	that characterizes the <b>representation_item_relationship</b>.
+         	The value of the <b>description</b> need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_item_relationship.relating_representation_item">relating_representation_item:
+               </a></b>
+         	one of the instances of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	that participates in the association.
+         
+      </p>
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            		The role of this attribute can be defined in an annotated EXPRESS schema that uses or specializes this entity data type.
+            	</small></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_item_relationship.related_representation_item">related_representation_item:
+               </a></b>
+         	the other instance of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>
+         	that participates in the association. 
+         	If one element of the association is dependent upon the other, this attribute shall be the dependent one.
+         
+      </p>
+      <p class="note"><small><a name="note_4">NOTE&nbsp;4</a>&nbsp;&nbsp;
+            
+            		The role of this attribute can be defined in an annotated EXPRESS schema that uses or specializes this entity data type.
+            	</small></p>
+      <h2><A NAME="representation_schema.representation_map">4.4.17 representation_map</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>representation_map</b> is the identification of a 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>, 
+      	and of a 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+      	that is an element within the context of the 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>, 
+      	for the purpose of mapping.
+      	The 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+      	defines the origin of the mapping.
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		An instance of <b>representation_map</b> is used as the source of a mapping by an instance of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a>. 
+            		See 4.4.7 for an example of the use of these two entity data types.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY representation_map;<br>
+            
+            
+            &nbsp;&nbsp;mapping_origin : <A HREF="#representation_schema.representation_item">representation_item</A>;<br>
+            
+            
+            &nbsp;&nbsp;mapped_representation : <A HREF="#representation_schema.representation">representation</A>;<br>INVERSE<br>
+            &nbsp;&nbsp;map_usage : SET[1:?] OF <A HREF="#representation_schema.mapped_item">mapped_item</A> FOR mapping_source;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: item_in_context(SELF.mapping_origin,
+            SELF.mapped_representation.context_of_items);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_map.mapping_origin">mapping_origin:
+               </a></b>
+         	a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	from which the <b>mapped_representation</b> is to be mapped.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_map.mapped_representation">mapped_representation:
+               </a></b>
+         	a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>
+         	that is to be mapped to at least one 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_map.map_usage">map_usage:
+               </a></b>
+         	the set of one or more instances of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a> 
+         	to which the <b>representation_map</b> is mapped.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_map.wr:wr1">WR1:
+               </a></b>
+         	The <b>mapping_origin</b> shall be in the 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a> 
+         	of the <b>mapped_representation</b>.
+         
+      </p>
+      <h2><A NAME="representation_schema.representation_relationship">4.4.18 representation_relationship</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>representation_relationship</b> is the association of two instances of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.
+      	One
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>
+      	is not made part of the definition of the other by participation in a <b>representation_relationship</b>.
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		The meaning of the association can be specified in an annotated EXPRESS schema that uses or
+            		specializes this entity, or in an agreement of common understanding between the partners sharing this information.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		Two instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		each describe a property of a product.
+            		The second of these instances is a more complete and accurate description of the property.
+            		An instance of <b>representation_relationship</b> can be used to denote the second instance of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		as being the successor of the first.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		A combination of instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		and <b>representation_relationship</b> can form a graph of related instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.
+            		In such a graph, instances of 
+            		representation 
+            		are the nodes and instances of <b>representation_relationship</b> are the branches connecting the nodes.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            		Constraints can be specified that ensure that such a graph is acyclic, i.e., that no instance of
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>
+            		is its own ancestor.
+            		Such constraints are outside the scope of this part of ISO 10303.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY representation_relationship;<br>
+            
+            
+            &nbsp;&nbsp;name : label;<br>
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            text;<br>
+            
+            
+            &nbsp;&nbsp;rep_1 : <A HREF="#representation_schema.representation">representation</A>;<br>
+            
+            
+            &nbsp;&nbsp;rep_2 : <A HREF="#representation_schema.representation">representation</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_relationship.name">name:
+               </a></b>
+         	the 
+         	<a href="../../../resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label"><b>label</b></a>
+         	by which the <b>representation_relationship</b> is known.
+         
+      </p>
+      <p class="note"><small><a name="note_4">NOTE&nbsp;4</a>&nbsp;&nbsp;
+            
+            		The name could designate a particular instance of <b>representation_relationship</b> or the kind of
+            		information that an instance of <b>representation_relationship</b> conveys.
+            	</small></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_relationship.description">description:
+               </a></b>
+         	the 
+         	<a href="../../../resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text"><b>text</b></a>  
+         	that characterizes the <b>representation_relationship</b>. 
+         	The value of the <b>description</b> need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_relationship.rep_1">rep_1:
+               </a></b>
+         	the first of two 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representations</b></a>
+         	that are related.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_relationship.rep_2">rep_2:
+               </a></b>
+         	the second of two 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representations</b></a>
+         	that are related.
+         
+      </p>
+      <p class="note"><small><a name="note_5">NOTE&nbsp;5</a>&nbsp;&nbsp;
+            
+            		There is no significance to the ordering of the two related instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.
+            		The names <b>rep_1</b> and <b>rep_2</b> serve only to distinguish the attributes.
+            		If any significance to the ordering is needed in any
+            		specialization of <b>representation_relationship</b>, this significance can be defined in the specialization.
+            	</small></p>
+      <h2><A NAME="representation_schema.representation_relationship_with_transformation">4.4.19 representation_relationship_with_transformation</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>representation_relationship_with_transformation</b> is a type of
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship"><b>representation_relationship</b></a>.
+      	A <b>representation_relationship_with_transformation</b> is an association between two
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representations</b></a> 
+      	such that the contexts of the 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representations</b></a>
+      	are related through the transformation.
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		The existence of a <b>representation_relationship_with_transformation</b> instance does not necessarily
+            		imply that there is any correspondence between instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>
+            		in the two instances of
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>
+            		that are related.
+            		Any such correspondence and other constraints can be defined in specializations of this entity data type.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		Figure 3
+            		illustrates the use of the 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship"><b>representation_relationship</b></a>
+            		entity data type.
+            		Three instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		are shown.
+            		The first
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		R1 contains some geometry G1 and an 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d"><b>axis2_placement_3d</b></a> 
+            		A1.
+            		The second 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		contains some geometry G2 and an 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d"><b>axis2_placement_3d</b></a>
+            		A2.
+            		For the purpose of this example, the nature and structure of G1 and G2 are not relevant. 
+            		R1 represents the shape of a roof. 
+            		R2 represents the shape of some walls.
+            	</small></p><br><br><a name="figure_example_use_of_mapped_item_and_representation_map"></a><div align="center"><IMG src="../example_use_of_representation_relationship_with_transformation.gif" border="0" alt="Figure 3&nbsp;&#8212;&nbsp;&nbsp;Example of the use of representation_relationship_with_transformation"></div><br><div align="center"><b>Figure 3&nbsp;&#8212;&nbsp;&nbsp;Example of the use of representation_relationship_with_transformation</b></div><br><p><small>
+            		Two instances of <b>representation_relationship_with_transformation</b> allow R1 and R2 to be associated with a third 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>, 
+            		R3. 
+            		R3 represents the shape of the building. 
+            		R3 contains a single item: an 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d"><b>axis2_placement_3d</b></a>.
+            		The associations between R1 and R3, and between R2 and R3, do not make R1 and R2 parts of R3.
+            		However, the associations between R1 and R3, and between R2 and R3, allow an application to infer that G1 and
+            		G2 can be combined and used to describe the shape of the building.
+            		An application can make use of the specified transformations to compose the overall shape from G1 and G2.
+            	</small></p>
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		See the example given for 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a> 
+            		and its use of
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map"><b>representation_map</b></a> 
+            		to describe the composition of one 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		from other instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		If the related representations both have geometric contexts, the 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.transformation"><b>transformation</b></a> 
+            		can be used to calculate the distances between instances of 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item"><b>geometric_representation_item</b></a> 
+            		in the two instances of
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.
+            		The 
+            		<a href="../../../resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item"><b>geometric_representation_item</b></a> 
+            		entity data type is defined in ISO 10303-42 [4].
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_3">EXAMPLE&nbsp;3</a>&nbsp;&nbsp;
+            
+            		Two instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		contain instances of 
+            		<a href="../../../resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item"><b>descriptive_representation_item</b></a>, 
+            		an element of representation that specifies the use of a text string for representation.
+            		The first instance of
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		contains descriptions in the English language; and the second contains descriptions in the French language.	
+            		An instance of <b>representation_relationship_with_transformation</b> could be used to assert an
+            		association between these instances of representation, where the referenced 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.functionally_defined_transformation"><b>functionally_defined_transformation</b></a> 
+            		is a language translation table.
+            		The 
+            		<a href="../../../resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item"><b>descriptive_representation_item</b></a> 
+            		entity data type is defined in ISO 10303-45 [5].	
+            	</small></p>
+      	
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY representation_relationship_with_transformation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#representation_schema.representation_relationship">representation_relationship</A>);<br>
+            
+            
+            &nbsp;&nbsp;transformation_operator : <A HREF="#representation_schema.transformation">transformation</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF\representation_relationship.rep_1.context_of_items
+            :&lt;&gt;: SELF\representation_relationship.rep_2.context_of_items;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_relationship_with_transformation.transformation_operator">transformation_operator:
+               </a></b>
+         	a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.transformation"><b>transformation</b></a> 
+         	that relates the 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation.context_of_items"><b>context_of_items</b></a> 
+         	of the two related 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representations</b></a>.
+         
+      </p>
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            		The 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.transformation"><b>transformation</b></a> 
+            		that relates the 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation.items"><b>items</b></a>  
+            		of one 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		with the
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation.items"><b>items</b></a>   
+            		in a second 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		can be specified by operating with the graphs of instances of
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+            		that define the respective 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation.items"><b>items</b></a>  .
+            	</small></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_relationship_with_transformation.wr:wr1">WR1:
+               </a></b>
+         	The two related 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representations</b></a> 
+         	shall not have the same 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a>.
+         
+      </p>
+      <p><u>Informal propositions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.representation_relationship_with_transformation.wr:ip1">IP1:
+               </a></b>
+         	If the 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.transformation"><b>transformation</b></a> 
+         	is an 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.item_defined_transformation"><b>item_defined_transformation</b></a>, 
+         	the ordering of the instances of
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+         	given for the inherited attributes of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship"><b>representation_relationship</b></a>  
+         	shall be consistent with the ordering of the two instances of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	given as attributes of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.item_defined_transformation"><b>item_defined_transformation</b></a>.
+         
+      </p>
+      <h2><A NAME="representation_schema.uncertainty_assigned_representation">4.4.20 uncertainty_assigned_representation</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	An <b>uncertainty_assigned_representation</b> is a type of
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>
+      	that specifies uncertainty with respect to the elements of representation that it collects.
+      	The <b>uncertainty</b> is specified by instances of
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.uncertainty_measure_with_unit"><b>uncertainty_measure_with_unit</b></a>, 
+      	and applies to all elements of representation that are expressed in the same measures.
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		This entity data type can be used to specify the uncertainties that apply to the numeric values used to represent a property.
+            		For example, in an application protocol whose domain is acoustical engineering, 
+            		there could be an uncertainty of 1 decibel in the values that represent the relative loudness of sounds.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The precedence rules that apply to uncertainty in numeric quantities are specified in 4.2.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY uncertainty_assigned_representation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#representation_schema.representation">representation</A>);<br>
+            
+            
+            &nbsp;&nbsp;uncertainty : SET[1:?] OF <A HREF="#representation_schema.uncertainty_measure_with_unit">uncertainty_measure_with_unit</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.uncertainty_assigned_representation.uncertainty">uncertainty:
+               </a></b>
+         	the set of instances of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.uncertainty_measure_with_unit"><b>uncertainty_measure_with_unit</b></a> 
+         	that apply to instances of
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>
+         	in the <b>uncertainty_assigned_representation</b>.
+         
+      </p>
+      <h2><A NAME="representation_schema.uncertainty_measure_with_unit">4.4.21 uncertainty_measure_with_unit</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	An <b>uncertainty_measure_with_unit</b> is a type of
+      	<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit"><b>measure_with_unit</b></a>
+      	that specifies the uncertainty that applies to a type of measure.
+      	An <b>uncertainty_measure_with_unit</b> applies to each 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+      	that uses the type of measure specified in the 
+      	<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit.value_component"><b>value_component</b></a> 
+      	of the <b>uncertainty_measure_with_unit</b>, in the following cases:
+      
+      <ul>
+         	
+         <li>
+            		the 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+            		is part of an 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.uncertainty_assigned_representation"><b>uncertainty_assigned_representation</b></a>;
+            	
+         </li>
+         	
+         <li>
+            		the 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+            		is founded in a 
+            		<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.global_unit_assigned_context"><b>global_unit_assigned_context</b></a>; 
+            		or
+            	
+         </li>
+         	
+         <li>
+            		the 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+            		is a 
+            		<a href="../../../resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.qualified_representation_item"><b>qualified_representation_item</b></a>.
+            	
+         </li>
+         
+      </ul>
+      
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            	The 
+            	<a href="../../../resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.qualified_representation_item"><b>qualified_representation_item</b></a> 
+            	entity data type is defined in ISO 10303-45 [5].
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY uncertainty_measure_with_unit<br>
+            &nbsp;&nbsp;SUBTYPE OF (measure_with_unit);<br>
+            
+            
+            &nbsp;&nbsp;name : label;<br>
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            text;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: valid_measure_value (SELF\measure_with_unit.value_component);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.uncertainty_measure_with_unit.name">name:
+               </a></b>
+         	the 
+         	<a href="../../../resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label"><b>label</b></a>
+         	by which the <b>uncertainty_measure_with_unit</b> is known.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.uncertainty_measure_with_unit.description">description:
+               </a></b>
+         	the 
+         	<a href="../../../resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text"><b>text</b></a>
+         	that characterizes the <b>uncertainty_measure_with_unit</b>.
+         	The value of the <b>description</b> need not be specified.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.uncertainty_measure_with_unit.wr:wr1">WR1:
+               </a></b>
+         	The 
+         	<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit.value_component"><b>value_component</b></a>
+         	of the <b>uncertainty_measure_with_unit</b> shall be a positive number if the type of the 
+         	<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit.value_component"><b>value_component</b></a>
+         	is a number.
+         
+      </p>
+      <h2><A NAME="representation_schema.value_representation_item">4.4.22 value_representation_item</A>
+         &nbsp;&nbsp;<a href="../../../resources/representation_schema/representation_schemaexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>value_representation_item</b> is a type of
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>
+      	that specifies only a measure value.
+      	The unit that applies to the specified value is provided by a 
+      	<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.global_unit_assigned_context"><b>global_unit_assigned_context</b></a> 
+      	of the
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+      	containing the <b>value_representation_item</b>.
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		The 
+            		<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.global_unit_assigned_context"><b>global_unit_assigned_context</b></a>  
+            		entity data type, subtype of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a>, 
+            		is defined in ISO 10303-41.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		The 
+            		<a href="../../../resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.measure_representation_item"><b>measure_representation_item</b></a> 
+            		entity data type, specified in ISO 10303-45 [5], is an element of
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		that consists of a value and a unit.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY value_representation_item<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#representation_schema.representation_item">representation_item</A>);<br>
+            
+            
+            &nbsp;&nbsp;value_component : measure_value;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF (QUERY (rep &lt;* using_representations (SELF) |
+            NOT ('MEASURE_SCHEMA.GLOBAL_UNIT_ASSIGNED_CONTEXT'
+            IN TYPEOF (rep.context_of_items)
+            ))) = 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.value_representation_item.value_component">value_component:
+               </a></b>
+         	the value of the element of representation when expressed with in the unit specified in the 
+         	<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.global_unit_assigned_context"><b>global_unit_assigned_context</b></a>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.value_representation_item.wr:wr1">WR1:
+               </a></b>
+         	Every <b>value_representation_item</b> shall be an item in a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+         	whose 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation.context_of_items"><b>context_of_items</b></a> 
+         	attribute references an instance of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a> 
+         	that is a 
+         	<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.global_unit_assigned_context"><b>global_unit_assigned_context</b></a>, 
+         	or shall participate in the definition of such a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>.
+         
+      </p>
+      <p><u>Informal propositions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.value_representation_item.wr:ip1">IP1:
+               </a></b>
+         	If a <b>value_representation_item</b> is an item in more than one 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>, 
+         	each
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+         	shall specify the same unit, either by referencing the same 
+         	<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.global_unit_assigned_context"><b>global_unit_assigned_context</b></a>, 
+         	or by referencing different instances of 
+         	<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.global_unit_assigned_context"><b>global_unit_assigned_context</b></a> 
+         	that specify the same unit.
+         
+      </p>
+      <h2><a name="functions">4.5 representation_schema function definitions</a></h2>
+      <h2><A NAME="representation_schema.acyclic_mapped_representation">4.5.1 acyclic_mapped_representation</A></h2>
+      
+      <p>
+         	The function <b>acyclic_mapped_representation</b> determines if a given 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a> 
+         	is self-defining by virtue of mapping a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+         	in which the 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a> 
+         	is used.
+         	The function checks both the 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map.mapped_representation"><b>mapped_representation</b></a> 
+         	and the 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map.mapped_representation"><b>mapped_representation</b></a>.<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation.items"><b>items</b></a> 
+         	recursively for any instances of
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a>, 
+         	or 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	referencing a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a>, 
+         	that might cause a self defining reference.
+         
+      </p>
+      
+      <p>
+         	This function returns TRUE if the input candidate 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	does not cause self definition.
+         	It returns FALSE otherwise. 
+         	The type of the function is 
+         	BOOLEAN.
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		This function is used to constrain the entity 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a>.
+            	</small></p>
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION acyclic_mapped_representation&nbsp;(mi : <A HREF="#representation_schema.mapped_item">mapped_item</A>) :BOOLEAN;
+         </code><pre>LOCAL
+      rms : SET OF representation_map;
+      mis : SET OF mapped_item;
+      rs1, rs2 : SET OF representation;
+    END_LOCAL;
+ 
+    rs1 := using_representations(mi);
+    rs2 := [];
+    -- loop as long as there are elements in rs1
+    REPEAT WHILE SIZEOF(rs1) &gt; 0; 
+      REPEAT i := 1 TO HIINDEX(rs1);
+        -- Determine the set of representation_map that reference the parent_set
+        rms := bag_to_set(USEDIN(rs1[i], 'REPRESENTATION_SCHEMA.REPRESENTATION_MAP.MAPPED_REPRESENTATION'));
+        IF SIZEOF(rms) &gt; 0 THEN
+          REPEAT j := 1 TO HIINDEX(rms);
+            mis := bag_to_set(USEDIN(rms[i], 'REPRESENTATION_SCHEMA.MAPPED_ITEM.MAPPING_SOURCE'));
+            IF SIZEOF(mis) &gt; 0 THEN
+              REPEAT j := 1 TO HIINDEX(mis);
+                -- check mis members for instance equal with mi. If so then there is a cycle
+                IF mis[i] :=: mi THEN
+                  RETURN (FALSE);
+                END_IF;
+                rs2 := rs2 + using_representations(mis[i]);
+              END_REPEAT;
+            END_IF;
+          END_REPEAT;
+        END_IF;
+      END_REPEAT;
+      rs1 := rs2;
+      rs2 := [];
+    END_REPEAT;
+    RETURN (TRUE);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.acyclic_mapped_representation.mi">mi:
+               </a></b>
+         	the specified <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_items</b></a>.
+         
+      </p>
+      <h2><A NAME="representation_schema.acyclic_representation_relationship">4.5.2 acyclic_representation_relationship</A></h2>
+      	The <b>acyclic_representation_relationship</b> function checks if specified
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship"><b>representation_relationship</b></a>
+      	is not participating in cycle with regards to specified
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representations</b></a>. 
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION acyclic_representation_relationship&nbsp;(relation : <A HREF="#representation_schema.representation_relationship">representation_relationship</A>, relatives : SET[1:?] OF <A HREF="#representation_schema.representation">representation</A>, specific_relation : STRING) :BOOLEAN;
+         </code><pre>LOCAL
+      x : SET OF representation_relationship;
+    END_LOCAL;
+
+    IF relation.rep_1 IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(r &lt;* bag_to_set(USEDIN(relation.rep_1, 'REPRESENTATION_SCHEMA.' + 'REPRESENTATION_RELATIONSHIP.' + 'REP_2')) | specific_relation IN TYPEOF(r));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_representation_relationship(x[i], relatives + relation.rep_1, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.acyclic_representation_relationship.relation">relation:
+               </a></b>
+         	the specified <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship"><b>representation_relationship</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.acyclic_representation_relationship.relatives">relatives:
+               </a></b>
+         	the specified <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representations</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.acyclic_representation_relationship.specific_relation">specific_relation:
+               </a></b>
+         	the specified type of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship"><b>Representation_relationships</b></a>
+         	to be considered.
+         
+      </p>
+      <h2><A NAME="representation_schema.item_in_context">4.5.3 item_in_context</A></h2>
+      
+      <p>
+         	The function <b>item_in_context</b> determines if a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	is related to a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a>.
+         	The function returns TRUE if the <b>item</b> argument is related by a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+         	to the input <b>cntxt</b> argument.
+         	Function <b>item_in_context</b> returns FALSE otherwise.
+         	The type of the function is BOOLEAN.
+         
+      </p>
+      
+      <p>
+         	A 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	is related to a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a> 
+         	if it is:
+         
+      </p>
+      	
+      <ul>
+         		
+         <li>
+            			referenced in the set of 
+            			<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation.items"><b>items</b></a>
+            			of a 
+            			<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            			where <b>cntxt</b> appears as the 
+            			<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation.context_of_items"><b>context_of_items</b></a>, 
+            		or
+            		
+         </li>
+         		
+         <li>
+            			referenced by a 
+            			<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>
+            			that is an <b>item_in_context</b> of the <b>cntxt</b>.
+            		
+         </li>
+         	
+      </ul>
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		The second condition is a recursive check allowing for a 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+            		to be related to a
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a> 
+            		by being part of a tree of related instances of 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>.
+            		The tree is rooted in an entity that is related to a 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a> 
+            		by fulfilling the first or second condition.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		The function <b>item_in_context</b> only determines if an <b>item</b> is related to a specific 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a>.
+            		The relationship of the <b>item</b> to some other 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a> 
+            		is not determined.
+            	</small></p>
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION item_in_context&nbsp;(item : <A HREF="#representation_schema.representation_item">representation_item</A>, cntxt : <A HREF="#representation_schema.representation_context">representation_context</A>) :BOOLEAN;
+         </code><pre>LOCAL
+      y : BAG OF representation_item;
+    END_LOCAL;
+    -- If there is one or more representation using both the item
+    -- and cntxt return true.
+    IF SIZEOF(USEDIN(item,'REPRESENTATION_SCHEMA.REPRESENTATION.ITEMS')
+      * cntxt.representations_in_context) &gt; 0 THEN
+      RETURN (TRUE);
+      -- Determine the bag of representation_items that reference
+      -- item
+      ELSE y := QUERY(z &lt;* USEDIN (item , '') |
+             'REPRESENTATION_SCHEMA.REPRESENTATION_ITEM' IN TYPEOF(z));
+        -- Ensure that the bag is not empty
+        IF SIZEOF(y) &gt; 0 THEN
+        -- For each element in the bag
+        REPEAT i := 1 TO HIINDEX(y);
+          -- Check to see it is an item in the input cntxt.
+          IF item_in_context(y[i], cntxt) THEN
+            RETURN (TRUE);
+          END_IF;
+        END_REPEAT;
+      END_IF;
+    END_IF;
+    -- Return false when all possible branches have been checked
+    -- with no success.
+    RETURN (FALSE);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.item_in_context.item">item:
+               </a></b>
+         	the 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	checked for relationship in <b>cntxt</b>. 
+         	This is input to the function.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.item_in_context.cntxt">cntxt:
+               </a></b>
+         	the 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a> 
+         	for which relationship to <b>item</b> is determined. 
+         	This is input to the function.
+         
+      </p>
+      <h2><A NAME="representation_schema.using_items">4.5.4 using_items</A></h2>
+      	The function <b>using_items</b> returns the set of instances of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+      	or 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.founded_item"><b>founded_item</b></a> 
+      	that reference a 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+      	directly or indirectly.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION using_items&nbsp;(item : <A HREF="#representation_schema.founded_item_select">founded_item_select</A>, checked_items : SET[0:?] OF <A HREF="#representation_schema.founded_item_select">founded_item_select</A>) :SET[0:?] OF <A HREF="../../../../data/resource_docs/representation_structures/sys/4_schema.htm#representation_schema.founded_item_select">founded_item_select</A>;
+         </code><pre>LOCAL
+      new_check_items    : SET OF founded_item_select;
+      result_items       : SET OF founded_item_select;
+      next_items         : SET OF founded_item_select;
+    END_LOCAL;
+    result_items := [];
+    new_check_items := checked_items + item;
+    -- Find the set of representation_items or founded_items
+    -- in which item is used directly.
+    next_items := QUERY(z &lt;* bag_to_set( USEDIN(item , '')) |
+      ('REPRESENTATION_SCHEMA.REPRESENTATION_ITEM' IN TYPEOF(z)) OR
+      ('REPRESENTATION_SCHEMA.FOUNDED_ITEM'        IN TYPEOF(z)));
+    -- If the set of next_items is not empty;
+    IF SIZEOF(next_items) &gt; 0 THEN
+      -- For each element in the set, find the using_items recursively
+      REPEAT i := 1 TO HIINDEX(next_items);
+        -- Check for loop in data model, i.e. one of the next_items
+        -- occurred earlier in the set of check_items;
+        IF NOT(next_items[i] IN new_check_items) THEN
+          result_items := result_items + next_items[i] +
+                          using_items(next_items[i],new_check_items);
+        END_IF;
+      END_REPEAT;
+    END_IF;
+    -- return the set of representation_items or founded_items
+    -- in which the input item is used directly and indirectly.
+    RETURN (result_items);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.using_items.item">item:
+               </a></b>
+         	the 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	for which the referencing instances of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	and
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.founded_item"><b>founded_item</b></a> 
+         	are determined. 
+         	This is input to the function.
+         
+      </p>
+      <p class="expressdescription"><b><a name="representation_schema.using_items.checked_items">checked_items:
+               </a></b>
+         	the set of instances of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	and 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.founded_item"><b>founded_item</b></a> 
+         	that have been checked already in order to ensure termination of the recursive function. 
+         	This is input to the function.
+         
+      </p>
+      <h2><A NAME="representation_schema.using_representations">4.5.5 using_representations</A></h2>
+      
+      <p>
+         	The function <b>using_representations</b> returns the set of representations in which a 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	is used.
+         
+      </p>
+      
+      <p>
+         	A 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	is used in a representation if it is:
+         
+      </p>
+      	
+      <ul>
+         		
+         <li>
+            			referenced in the set of 
+            			<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation.items"><b>items</b></a> 
+            			of the 
+            			<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>,
+            		
+         </li>
+         		
+         <li>
+            			referenced by a 
+            			<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>
+            			used in the 
+            			<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>, 
+            			or
+            		
+         </li>
+         		
+         <li>
+            			referenced by a 
+            			<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.founded_item"><b>founded_item</b></a> 
+            			used in the 
+            			<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.
+            		
+         </li>
+         	
+      </ul>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The second and third conditions are checks allowing for a 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+            		to be used in a
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		by being part of a tree of related 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_items</b></a> 
+            		or 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.founded_item"><b>founded_items</b></a>.
+            		The tree is rooted in an entity used in a 
+            		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+            		by fulfilling the first condition.
+            	</small></p>
+      	
+      <p>
+         		A 
+         		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.founded_item"><b>founded_item</b></a> 
+         		or a 
+         		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         		is used in a 
+         		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+         		if it is referenced directly, or indirectly, by a 
+         		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         		in the set of items of the 
+         		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.
+         	
+      </p>
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION using_representations&nbsp;(item : <A HREF="#representation_schema.founded_item_select">founded_item_select</A>) :SET[0:?] OF <A HREF="../../../../data/resource_docs/representation_structures/sys/4_schema.htm#representation_schema.representation">representation</A>;
+         </code><pre>LOCAL
+      results            : SET OF representation;
+      result_bag         : BAG OF representation;
+      intermediate_items : SET OF founded_item_select;
+    END_LOCAL;
+    -- Find the representations in which the item is used and add to the
+    -- results set.
+    results := [];
+    result_bag := USEDIN(item,'REPRESENTATION_SCHEMA.REPRESENTATION.ITEMS');
+    IF SIZEOF(result_bag) &gt; 0 THEN
+      REPEAT i := 1 TO HIINDEX(result_bag);
+        results := results + result_bag[i];
+      END_REPEAT;
+    END_IF;
+    -- Find all representation_items or founded_items
+    -- by which item is referenced directly or indirectly.
+    intermediate_items := using_items(item,[]);
+    -- If the set of intermediate items is not empty;
+    IF SIZEOF(intermediate_items) &gt; 0 THEN
+      -- For each element in the set, add the
+      -- representations of that element.
+      REPEAT i := 1 TO HIINDEX(intermediate_items);
+        result_bag := USEDIN(intermediate_items[i],
+                      'REPRESENTATION_SCHEMA.REPRESENTATION.ITEMS');
+        IF SIZEOF(result_bag) &gt; 0 THEN
+          REPEAT j := 1 TO HIINDEX(result_bag);
+            results := results + result_bag[j];
+          END_REPEAT;
+        END_IF;
+      END_REPEAT;
+    END_IF;
+    -- Return the set of representation in which the input item is
+    -- used directly and indirectly (through intervening
+    -- representation_items or founded items).
+    RETURN (results);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.using_representations.item">item:
+               </a></b>
+         	the 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a> 
+         	or 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.founded_item"><b>founded_item</b></a> 
+         	for which using instances of 
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+         	are determined. 
+         	This is input to the function.
+         
+      </p>
+      <h2><A NAME="representation_schema.valid_measure_value">4.5.6 valid_measure_value</A></h2>
+      	The function <b>valid_measure_value</b> determines whether a 
+      	<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.measure_value"><b>measure_value</b></a> 
+      	is valid.
+      	The function returns TRUE if the 
+      	<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.measure_value"><b>measure_value</b></a> 
+      	is numeric and is positive, or if it is textual.
+      	Function <b>valid_measure_value</b> returns FALSE otherwise.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION valid_measure_value&nbsp;(m : measure_value) :BOOLEAN;
+         </code><pre>IF ('REAL' IN TYPEOF (m)) THEN
+    RETURN (m &gt; 0.0);
+    ELSE
+     IF ('INTEGER' IN TYPEOF (m)) THEN
+      RETURN (m &gt; 0);
+      ELSE
+        RETURN (TRUE);
+      END_IF;
+    END_IF;</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="representation_schema.valid_measure_value.m">m:
+               </a></b>
+         	the 
+         	<a href="../../../resources/measure_schema/measure_schema.htm#measure_schema.measure_value"><b>measure_value</b></a>
+         	to be checked. 
+         	This is the input to the function.
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;representation_schema<br>(*
+         </code><br><br><p>&copy; ISO 2011-02 &#8212; All rights reserved</p>
+   </BODY>
+</HTML>

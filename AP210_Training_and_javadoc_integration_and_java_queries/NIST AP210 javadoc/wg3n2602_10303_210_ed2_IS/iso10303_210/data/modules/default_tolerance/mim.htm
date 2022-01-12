@@ -1,0 +1,98 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Default_tolerance_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Default_tolerance_mim</h2><code><br><br><a name="default_tolerance_mim">SCHEMA <b>Default_tolerance_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/foundation_representation/sys/e_exp_mim.htm#foundation_representation_mim">Foundation_representation_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1006<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/measure_representation/sys/e_exp_mim.htm#measure_representation_mim">Measure_representation_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1118<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_item_definition">compound_item_definition</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.set_representation_item">set_representation_item</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_mim.htm#shape_property_assignment_mim">Shape_property_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1032<br><br></code><code><br><A NAME="default_tolerance_mim.default_tolerance_table">ENTITY <b>default_tolerance_table</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_mim.default_tolerance_table.wr:wr1">WR1: SIZEOF( QUERY( i &lt;* SELF.items | NOT('DEFAULT_TOLERANCE_MIM.DEFAULT_TOLERANCE_TABLE_CELL' IN TYPEOF(i)) )) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_mim.default_tolerance_table.wr:wr2">WR2: (SIZEOF( QUERY( rr &lt;* USEDIN(SELF,'REPRESENTATION_SCHEMA.' + 'REPRESENTATION_RELATIONSHIP.REP_1') | rr.name &lt; 'general
+            tolerance definition' )) = 0) AND (SIZEOF( QUERY( rr &lt;* USEDIN(SELF,'REPRESENTATION_SCHEMA.' + 'REPRESENTATION_RELATIONSHIP.REP_1')
+            | (rr.name = 'general tolerance definition') AND (rr.rep_2.name &lt; 'default tolerance') )) = 0) AND (SIZEOF( USEDIN(SELF,'REPRESENTATION_SCHEMA.'
+            + 'REPRESENTATION_RELATIONSHIP.REP_2') ) = 0);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="default_tolerance_mim.default_tolerance_table_cell">ENTITY <b>default_tolerance_table_cell</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_mim.default_tolerance_table_cell.wr:wr1">WR1: SIZEOF(QUERY( x &lt;* USEDIN(SELF,'REPRESENTATION_SCHEMA.' + 'REPRESENTATION.ITEMS') | 'DEFAULT_TOLERANCE_MIM.' + 'DEFAULT_TOLERANCE_TABLE'
+            IN TYPEOF(x)))=1;</A><br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_mim.default_tolerance_table_cell.wr:wr2">WR2: default_tolerance_table_cell_wr2(SELF\compound_representation_item.item_element);</A><br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_mim.default_tolerance_table_cell.wr:wr3">WR3: default_tolerance_table_cell_wr3(SELF\compound_representation_item.item_element);</A><br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_mim.default_tolerance_table_cell.wr:wr4">WR4: default_tolerance_table_cell_wr4(SELF\compound_representation_item.item_element);</A><br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_mim.default_tolerance_table_cell.wr:wr5">WR5: default_tolerance_table_cell_wr5(SELF\compound_representation_item.item_element);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="default_tolerance_mim.default_tolerance_table_cell_wr2">FUNCTION <b>default_tolerance_table_cell_wr2</b></A><br>&nbsp;(agg : <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_item_definition">compound_item_definition</A>) : BOOLEAN;
+         </code><pre>BEGIN 
+IF SIZEOF(agg) &lt;= 5 THEN 
+  RETURN(TRUE); 
+ELSE 
+  RETURN(FALSE); 
+END_IF; 
+END;</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="default_tolerance_mim.default_tolerance_table_cell_wr3">FUNCTION <b>default_tolerance_table_cell_wr3</b></A><br>&nbsp;(agg : <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_item_definition">compound_item_definition</A>) : BOOLEAN;
+         </code><pre>BEGIN 
+IF (SIZEOF(QUERY ( i &lt;* agg | (('DEFAULT_TOLERANCE_MIM.MEASURE_REPRESENTATION_ITEM' IN TYPEOF(i)) 
+  AND (i\representation_item.name = 'significant number of digits')) )) = 1) OR 
+((SIZEOF(QUERY ( i &lt;* agg | (('DEFAULT_TOLERANCE_MIM.MEASURE_REPRESENTATION_ITEM' IN TYPEOF(i)) AND 
+  (i\representation_item.name = 'lower limit')) )) = 1) AND 
+(SIZEOF( QUERY ( i &lt;* agg | (('DEFAULT_TOLERANCE_MIM.MEASURE_REPRESENTATION_ITEM' IN TYPEOF(i)) AND 
+  (i\representation_item.name = 'upper limit')) )) = 1)) THEN 
+  RETURN(TRUE); 
+ELSE 
+  RETURN(FALSE); 
+END_IF; 
+END;</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="default_tolerance_mim.default_tolerance_table_cell_wr4">FUNCTION <b>default_tolerance_table_cell_wr4</b></A><br>&nbsp;(agg : <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_item_definition">compound_item_definition</A>) : BOOLEAN;
+         </code><pre>BEGIN 
+IF (SIZEOF(QUERY ( i &lt;* agg | (('DEFAULT_TOLERANCE_MIM.MEASURE_REPRESENTATION_ITEM' IN TYPEOF(i)) AND 
+  (i\representation_item.name = 'plus minus tolerance value')) )) = 1) OR 
+((SIZEOF(QUERY ( i &lt;* agg | (('DEFAULT_TOLERANCE_MIM.MEASURE_REPRESENTATION_ITEM' IN TYPEOF(i)) AND (
+  i\representation_item.name = 'lower tolerance value')) )) = 1) AND 
+(SIZEOF( QUERY ( i &lt;* agg | (('DEFAULT_TOLERANCE_MIM.MEASURE_REPRESENTATION_ITEM' IN TYPEOF(i)) AND (
+  i\representation_item.name = 'upper tolerance value')) )) = 1)) THEN 
+  RETURN(TRUE); 
+ELSE 
+  RETURN(FALSE); 
+END_IF; 
+END;</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="default_tolerance_mim.default_tolerance_table_cell_wr5">FUNCTION <b>default_tolerance_table_cell_wr5</b></A><br>&nbsp;(agg : <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_item_definition">compound_item_definition</A>) : BOOLEAN;
+         </code><pre>BEGIN 
+IF (SIZEOF(QUERY ( i &lt;* agg | ('DEFAULT_TOLERANCE_MIM.DESCRIPTIVE_REPRESENTATION_ITEM' IN TYPEOF(i)) )) &lt;= 1) AND 
+(SIZEOF(QUERY ( i &lt;* agg | ('DEFAULT_TOLERANCE_MIM.DESCRIPTIVE_REPRESENTATION_ITEM' IN TYPEOF(i)) )) = 
+  SIZEOF(QUERY ( i &lt;* agg | (('DEFAULT_TOLERANCE_MIM.DESCRIPTIVE_REPRESENTATION_ITEM' IN TYPEOF(i)) AND 
+  (i\representation_item.name = 'cell description'))) )) 
+THEN 
+  RETURN(TRUE); 
+ELSE 
+  RETURN(FALSE); 
+END_IF; 
+END;</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Default_tolerance_mim<br></code></body>
+</HTML>

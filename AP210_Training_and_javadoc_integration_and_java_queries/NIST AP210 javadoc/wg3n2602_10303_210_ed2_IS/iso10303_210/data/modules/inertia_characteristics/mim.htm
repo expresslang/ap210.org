@@ -1,0 +1,51 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Inertia_characteristics_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Inertia_characteristics_mim</h2><code><br><br><a name="inertia_characteristics_mim">SCHEMA <b>Inertia_characteristics_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_mim.htm#elemental_geometric_shape_mim">Elemental_geometric_shape_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1004<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_mim.htm#shape_property_assignment_mim">Shape_property_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1032<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/value_with_unit/sys/e_exp_mim.htm#value_with_unit_mim">Value_with_unit_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1054<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.list_representation_item">list_representation_item</A>);
+         <br><br></code><code><br><A NAME="inertia_characteristics_mim.moments_of_inertia_representation">ENTITY <b>moments_of_inertia_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="inertia_characteristics_mim.moments_of_inertia_representation.wr:wr1">WR1: (SIZEOF(SELF.items) = 1) AND(SIZEOF(QUERY(i &lt;* SELF.items | ('INERTIA_CHARACTERISTICS_MIM' + '.COMPOUND_REPRESENTATION_ITEM'
+            IN TYPEOF(i)) AND(i.name = 'moments of inertia matrix'))) = 1);</A><br>
+         &nbsp;&nbsp;<A NAME="inertia_characteristics_mim.moments_of_inertia_representation.wr:wr2">WR2: SIZEOF(QUERY(i &lt;* SELF.items | ('INERTIA_CHARACTERISTICS_MIM' + '.COMPOUND_REPRESENTATION_ITEM' IN TYPEOF(i)) AND('INERTIA_CHARACTERISTICS_MIM'
+            + '.LIST_REPRESENTATION_ITEM' IN TYPEOF(i\compound_representation_item.item_element)) AND value_range_aggregate_rep_item (i\compound_representation_item.item_element)))
+            = 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="inertia_characteristics_mim.restrict_centre_of_mass_representation">RULE&nbsp;<b>restrict_centre_of_mass_representation</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="inertia_characteristics_mim.restrict_centre_of_mass_representation.wr:wr1">WR1: SIZEOF (QUERY (r &lt;* representation |(r.name ='centre of mass') AND((SIZEOF (r.items) &lt;&gt;1) OR(SIZEOF (QUERY (i &lt;* r.items
+            |('INERTIA_CHARACTERISTICS_MIM' + '.POINT' IN TYPEOF (i)) AND(i.name = 'centre point'))) &lt;&gt;1))))=0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="inertia_characteristics_mim.value_range_aggregate_rep_item">FUNCTION <b>value_range_aggregate_rep_item</b></A><br>&nbsp;(agg : AGGREGATE OF <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>) : BOOLEAN;
+         </code><pre>
+BEGIN
+IF (SIZEOF(QUERY(i1 &lt;* agg | ('INERTIA_CHARACTERISTICS_MIM' + '.MEASURE_REPRESENTATION_ITEM' IN TYPEOF(i1)))) = 6) THEN
+RETURN (TRUE);
+ELSE
+RETURN (FALSE);
+END_IF;
+END;
+      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Inertia_characteristics_mim<br></code></body>
+</HTML>

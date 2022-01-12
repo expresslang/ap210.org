@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Component_2d_stacked_location</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.109 Component_2d_stacked_location</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Component_2d_stacked_location is a type of <A
+CLASS="INTERNALREF"
+HREF="e_108.htm"
+>Component_2d_location</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>mounting_joint</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.109.1 mounting_joint</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The mounting_joint specifies an <A
+CLASS="INTERNALREF"
+HREF="e_41.htm"
+>Assembly_joint</A
+>for the Component_2d_stacked_location.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY component_2d_stacked_location
+  SUBTYPE OF (component_2d_location);
+    mounting_joint : assembly_joint;
+--tt tc1 wd9
+WHERE
+(* tt tc1 wd13 deleted
+  WR1: NOT EXISTS(mounting_surface);
+*)
+  WR1: SIZEOF(['AP210_ARM.INTERCONNECT_MODULE_COMPONENT_TERMINAL',
+       'AP210_ARM.INTERCONNECT_MODULE_COMPONENT_SURFACE_FEATURE'] *
+       TYPEOF(mounting_joint.assembly_features_1)) = 0; 
+  WR2: SIZEOF(['AP210_ARM.INTERCONNECT_MODULE_COMPONENT_TERMINAL',
+       'AP210_ARM.INTERCONNECT_MODULE_COMPONENT_SURFACE_FEATURE'] *
+       TYPEOF(mounting_joint.assembly_features_2)) = 0; 
+  WR3: SELF\component_2d_location.substrate_location = FALSE;
+END_ENTITY; -- component_2d_stacked_location
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

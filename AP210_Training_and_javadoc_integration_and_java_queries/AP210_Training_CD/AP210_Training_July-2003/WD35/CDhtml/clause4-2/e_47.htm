@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Assembly_module_join_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.47 Assembly_module_join_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Assembly_module_join_terminal is a type of <A
+CLASS="INTERNALREF"
+HREF="e_50.htm"
+>Assembly_module_terminal</A
+>.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY assembly_module_join_terminal
+  SUBTYPE OF (assembly_module_terminal);
+INVERSE
+--tt tc1 wd9 modified
+defining_terminal : component_feature_to_physical_usage_view_assignment for
+     defined_part_feature;
+WHERE
+  WR1: 'AP210_ARM.INTERCONNECT_MODULE_JOIN_TERMINAL' IN TYPEOF(defining_terminal.assigned_terminal);
+  WR2: 'AP210_ARM.COMPONENT_TERMINAL_TO_ASSEMBLY_MODULE_JOIN_TERMINAL_ASSIGNMENT' IN TYPEOF(defining_terminal);
+END_ENTITY; -- assembly_module_join_terminal
+
+--tt tc1 wd8 added
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,619 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Person organization">
+      <META name="DC.Dates" content="2004-11-09 17:36:50">
+      <META name="DC.Published" content="2004-12-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Person organization">
+      <META name="DC.Subject" content="module, person, organization, address">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N2920">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N1528">
+      <META name="SC4.version" content="1">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N2133">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N2134">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N2135">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2004-11-09 17:36:50">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.28">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.14">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.13">
+      <TITLE>ISO/TS 10303-1011:2004 Person organization</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Person organization</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1011:2004(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.1 ARM type definition</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.2 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.1 MIM entity definition</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/f_guide.htm">
+                     F Application module implementation and usage guide</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Person organization</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Person organization</b> schema.
+         
+      </p>
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="person_organization_arm">
+            SCHEMA Person_organization_arm;</a><br>(*<br></code><h2><a name="types">4.1 ARM type definition</a></h2>
+      <p>
+         This subclause specifies the ARM type
+         for this application module. The ARM type and
+         definition is specified below. 
+         
+      </p>
+      <h2><a name="person_organization_arm.organization_or_person_in_organization_select">4.1.1 organization_or_person_in_organization_select</a>
+         &nbsp;&nbsp;<a href="../../person_organization/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>organization_or_person_in_organization_select</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#person_organization_arm.organization">Organization</A></b>
+         and
+         <b><A HREF="#person_organization_arm.person_in_organization">Person_in_organization</A></b>.
+         
+      </p>
+         
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            organization_or_person_in_organization_select =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#person_organization_arm.organization">Organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#person_organization_arm.person_in_organization">Person_in_organization</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.2 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="person_organization_arm.address">4.2.1 Address</a>
+         &nbsp;&nbsp;<a href="../../person_organization/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityaddress"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      An <b>Address</b> is the information that locate persons or organizations.
+      It provides location details for communication via postal mail, telephone, facsimile, telex or electronic mail.
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Address;<br>
+            
+            
+            
+            &nbsp;&nbsp;name : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;street_number : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;street : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;postal_box : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;town : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;region : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;postal_code : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;country : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;internal_location : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;facsimile_number : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;telephone_number : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;electronic_mail_address : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;telex_number : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;url : 
+            OPTIONAL 
+            STRING;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: (EXISTS (street_number) OR         EXISTS (street) OR         EXISTS (postal_box) OR         EXISTS (town) OR       
+            EXISTS (region) OR         EXISTS (postal_code) OR         EXISTS (country) OR         EXISTS (internal_location) OR     
+            EXISTS (facsimile_number) OR     EXISTS (telephone_number) OR         EXISTS (electronic_mail_address) OR         EXISTS (telex_number));<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address.name">name:
+               </a></b>the words by which the <b>Address</b> is known.  It  specifies the name of the location identified by the address.
+         	 The value of this attribute need not be specified.
+         
+      </p>
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            "White House", "Buckingham Palace", and  "North Pole" are examples of address name.
+            	</small></p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address.street_number">street_number:
+               </a></b>
+         	 the number of a location on a street.
+         	The value of this attribute need not be specified.
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address.street">street:
+               </a></b>
+         	 the name of a street.	The value of this attribute need not be specified.
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address.postal_box">postal_box:
+               </a></b>
+         	 the number of a postal box.
+         	The value of this attribute need not be specified.
+         		
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address.town">town:
+               </a></b>
+         	 the name of a town.	The value of this attribute need not be specified.
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address.region">region:
+               </a></b>
+         	 the name of a region.	The value of this attribute need not be specified.
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address.postal_code">postal_code:
+               </a></b>
+         	 the code that is used by the country's postal service.
+           The value of this attribute need not be specified.
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address.country">country:
+               </a></b>
+         	 the name of a country.	The value of this attribute need not be specified.
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address.internal_location">internal_location:
+               </a></b>
+         	 an organization-defined address for internal mail delivery.
+         	The value of this attribute need not be specified.
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address.facsimile_number">facsimile_number:
+               </a></b>
+         	 the number to which facsimiles may be sent.
+         	The value of this attribute need not be specified.
+         		
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address.telephone_number">telephone_number:
+               </a></b>
+         	 the number at which telephone calls may be received.
+         	The value of this attribute need not be specified.
+         	
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address.electronic_mail_address">electronic_mail_address:
+               </a></b>
+         	 the electronic address to which electronic mail may be sent.
+         	The value of this attribute need not be specified.
+         	
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address.telex_number">telex_number:
+               </a></b>
+         	 the number where telex messages may be received.
+         	The value of this attribute need not be specified.
+         		
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address.url">url:
+               </a></b>
+         	 the text that specifies the Uniform Resource Locator associated with the address.
+         	The value of this attribute need not be specified.
+         		
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address.wr:wr1">WR1:
+               </a></b>
+         	At least one of the attributes shall have a value.
+         	
+      </p>
+      <h2><a name="person_organization_arm.address_assignment">4.2.2 Address_assignment</a>
+         &nbsp;&nbsp;<a href="../../person_organization/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityaddress_assignment"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      		An <b>Address_assignment</b> is the association of an <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.organization"><b>Organization</b></a>
+      
+      
+      
+      		or a <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.person_in_organization"><b>Person_in_organization</b></a>
+      
+       with an <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.address"><b>Address</b></a>.
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Address_assignment;<br>
+            
+            
+            
+            &nbsp;&nbsp;address_type : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;assigned_address : <A HREF="#person_organization_arm.address">Address</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;located_person_organizations : SET[1:?] OF <A HREF="#person_organization_arm.organization_or_person_in_organization_select">organization_or_person_in_organization_select</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address_assignment.address_type">address_type:
+               </a></b>
+                     the string that specifies the type of the <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.address"><b>Address</b></a>.
+         	The value of this attribute need not be specified.
+                 
+      </p>
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+             'postal address' and 'visitor address' are examples of address types that may be used to characterize addresses of an organization.
+            	</small></p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address_assignment.assigned_address">assigned_address:
+               </a></b>
+          the <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.address"><b>Address</b></a>
+         
+          that is provided.
+         	
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.address_assignment.located_person_organizations">located_person_organizations:
+               </a></b>
+          the <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.organization"><b>Organization</b></a>
+         
+          or the <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.person_in_organization"><b>Person_in_organization</b></a>
+         
+          that is located with the <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.address"><b>Address</b></a>.
+         		
+      </p>
+      <h2><a name="person_organization_arm.organization">4.2.3 Organization</a>
+         &nbsp;&nbsp;<a href="../../person_organization/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityorganization"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      		An <b>Organization</b> is an administrative structure in which persons are active.
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Organization;<br>
+            
+            
+            
+            &nbsp;&nbsp;id : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;name : STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="person_organization_arm.organization.id">id:
+               </a></b>the 
+         identifier that distinguishes the <b>Organization</b>. 	The value of this attribute need not be specified.
+         	
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.organization.name">name:
+               </a></b>
+         	 the words by which the <b>Organization</b> is known.
+         	
+      </p>
+      <h2><a name="person_organization_arm.organization_relationship">4.2.4 Organization_relationship</a>
+         &nbsp;&nbsp;<a href="../../person_organization/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityorganization_relationship"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      An <b>Organization_relationship</b> is a relationship between two instances of <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.organization"><b>Organization</b></a>.
+      
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            A team belongs to a department which itself belongs to a company. Such an organizational structure can be described up using
+            instances of <b>Organization_relationship</b>.
+            </small></p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Organization_relationship;<br>
+            
+            
+            
+            &nbsp;&nbsp;relation_type : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;relating_organization : <A HREF="#person_organization_arm.organization">Organization</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;related_organization : <A HREF="#person_organization_arm.organization">Organization</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="person_organization_arm.organization_relationship.relation_type">relation_type:
+               </a></b>
+                     the string that specifies the meaning of the relationship.
+                   
+      </p>
+      <p>Where applicable the following values shall be used:</p>
+      <ul>
+         
+         <li>
+            'hierarchy': The related Organization is a sub organization of the relating <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.organization"><b>Organization</b></a>;
+            
+         </li>
+         <li>
+            'legal succession': The related <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.organization"><b>Organization</b></a>
+            
+             is the legal successor of the relating <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.organization"><b>Organization</b></a>;
+            
+         </li>
+         <li> 
+            'reorganization': The related <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.organization"><b>Organization</b></a>
+            
+             is the successor of the relating <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.organization"><b>Organization</b></a>
+            
+             due to an organizational transfer of responsibility. 
+            
+         </li>
+      </ul>
+      <p class="expressdescription"><b><a name="person_organization_arm.organization_relationship.description">description:
+               </a></b>
+          the text that provides further information about the <b>Organization_relationship</b>.
+         The value of this attribute need not be specified.
+         	
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.organization_relationship.relating_organization">relating_organization:
+               </a></b>
+          one of the instances of <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.organization"><b>Organization</b></a>
+         
+          that is a part of the relationship.
+         	 
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.organization_relationship.related_organization">related_organization:
+               </a></b>
+          the other instance of <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.organization"><b>Organization</b></a>
+         
+          that is part of the relationship. If one element of the relationship is dependent upon the other, this attribute shall be
+         the dependent one.
+         	 
+      </p>
+      <h2><a name="person_organization_arm.person">4.2.5 Person</a>
+         &nbsp;&nbsp;<a href="../../person_organization/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityperson"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      		A <b>Person</b> is an individual human being.
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Person;<br>
+            
+            
+            
+            &nbsp;&nbsp;last_name : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;first_name : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;middle_names : 
+            OPTIONAL 
+            LIST[1:?] OF STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;prefix_titles : 
+            OPTIONAL 
+            LIST[1:?] OF STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;suffix_titles : 
+            OPTIONAL 
+            LIST[1:?] OF STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="person_organization_arm.person.last_name">last_name:
+               </a></b>
+         	 the <b>Person</b>'s name.
+         		
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.person.first_name">first_name:
+               </a></b>
+         	 the first element of the <b>Person</b>'s list of forenames.
+         	The value of this attribute need not be specified.
+         	
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.person.middle_names">middle_names:
+               </a></b>
+         	 the <b>Person</b>'s other forenames. 
+         	The value of this attribute need not be specified.
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.person.prefix_titles">prefix_titles:
+               </a></b>the text that specifies the <b>Person</b>'s social or professional 
+         	standing and appear before his or her names.
+         	The value of this attribute need not be specified.
+      </p>
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            "Mr.", "Ms", "Dr." and combinations are examples of <b>prefix_titles</b>.</small></p>
+      <p class="expressdescription"><b><a name="person_organization_arm.person.suffix_titles">suffix_titles:
+               </a></b>the text that specifies the <b>Person</b>'s social or professional standing and appear after his or her names.
+         	The value of this attribute need not be specified.
+      </p>
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            "Ph.D." and "Esquire"  are examples of <b>suffix_titles</b>.</small></p>
+      <h2><a name="person_organization_arm.person_in_organization">4.2.6 Person_in_organization</a>
+         &nbsp;&nbsp;<a href="../../person_organization/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityperson_in_organization"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Person_in_organization</b> is the identification of a <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.person"><b>Person</b></a>
+      
+       and of his role in an <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.organization"><b>Organization</b></a>
+      
+       
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Person_in_organization;<br>
+            
+            
+            
+            &nbsp;&nbsp;concerned_person : <A HREF="#person_organization_arm.person">Person</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;containing_organization : <A HREF="#person_organization_arm.organization">Organization</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;role : STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="person_organization_arm.person_in_organization.concerned_person">concerned_person:
+               </a></b>
+         	 the <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.person"><b>Person</b></a>
+         
+          who is related with an <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.organization"><b>Organization</b></a>.
+         	
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.person_in_organization.containing_organization">containing_organization:
+               </a></b>
+         	 the <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.organization"><b>Organization</b></a>
+         
+          to which a <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.person"><b>Person</b></a>
+         
+          is related.
+         
+         	
+      </p>
+      <p class="expressdescription"><b><a name="person_organization_arm.person_in_organization.role">role:
+               </a></b>
+         	 the text that designates the role of the <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.person"><b>Person</b></a>
+         
+          in the related <a href="../../../modules/person_organization/sys/4_info_reqs.htm#person_organization_arm.organization"><b>Organization</b></a>.
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Person_organization_arm<br>(*
+         </code><br><br><p>&copy; ISO 2004 &#8212; All rights reserved</p>
+   </body>
+</HTML>

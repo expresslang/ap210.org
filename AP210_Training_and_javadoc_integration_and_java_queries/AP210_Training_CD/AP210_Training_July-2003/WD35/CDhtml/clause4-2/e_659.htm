@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Physical_laminate_component</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.659 Physical_laminate_component</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+>A Physical_laminate_component is a type of <A
+CLASS="INTERNALREF"
+HREF="e_483.htm"
+>Laminate_component</A
+> and a type of <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+>.
+The Physical_laminate_component supports the specification of a Laminate_component as a Datum_target or Datum_feature for the purpose of estabishing a Datum_reference_frame for tolerance specification.  A Physical_laminate_component shall be in a complex instance with another member of the subtype tree of Laminate_component and Physical_feature_or_part_template.  The interpretation shall be in compliance with the interpretation as if Physical_laminate_component were Abstract.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: ISO 10303-11 does not permit Physical_laminate_component to be Abstract.  Therefore this requirement is encoded in a rule.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY physical_laminate_component
+  SUBTYPE OF (laminate_component, physical_feature_or_part_template);
+WHERE
+  WR1: SIZEOF(TYPEOF(SELF)) &#62; 6;
+END_ENTITY; -- physical_laminate_component
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

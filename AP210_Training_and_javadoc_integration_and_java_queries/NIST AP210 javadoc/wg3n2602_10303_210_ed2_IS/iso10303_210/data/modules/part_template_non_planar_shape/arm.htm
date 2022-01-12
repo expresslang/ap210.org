@@ -1,0 +1,39 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Part_template_non_planar_shape_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Part_template_non_planar_shape_arm</h2><code><br><br><a name="part_template_non_planar_shape_arm">SCHEMA <b>Part_template_non_planar_shape_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/part_template_3d_shape/sys/e_exp_arm.htm#part_template_3d_shape_arm">Part_template_3d_shape_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1717<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/manifold_surface/sys/e_exp_arm.htm#manifold_surface_arm">Manifold_surface_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1509<br><br></code><code><br><A NAME="part_template_non_planar_shape_arm.ptnps_part_template_or_physical_unit_3d_shape_model_select">TYPE </A><b>ptnps_part_template_or_physical_unit_3d_shape_model_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/layered_3d_shape/sys/e_exp_arm.htm#layered_3d_shape_arm.part_template_or_physical_unit_3d_shape_model_select">part_template_or_physical_unit_3d_shape_model_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#part_template_non_planar_shape_arm.part_template_non_planar_2d_shape_model">Part_template_non_planar_2d_shape_model</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="part_template_non_planar_shape_arm.part_template_non_planar_2d_shape_model">ENTITY <b>Part_template_non_planar_2d_shape_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/manifold_surface/sys/e_exp_arm.htm#manifold_surface_arm.manifold_surface_shape_representation">Manifold_surface_shape_representation</A>, <A HREF="../../../data/modules/part_template_shape_with_parameters/sys/e_exp_arm.htm#part_template_shape_with_parameters_arm.part_template_shape_model">Part_template_shape_model</A>);<br>
+         &nbsp;&nbsp;<A NAME="part_template_non_planar_shape_arm.part_template_non_planar_2d_shape_model.transformation">transformation : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement_3d">Axis_placement_3d</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="part_template_non_planar_shape_arm.part_template_non_planar_2d_shape_model.wr:wr1">WR1: NOT EXISTS(SELF\Representation.name);</A><br>
+         &nbsp;&nbsp;<A NAME="part_template_non_planar_shape_arm.part_template_non_planar_2d_shape_model.wr:wr2">WR2: NOT EXISTS(SELF\Representation.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Part_template_non_planar_shape_arm<br></code></body>
+</HTML>

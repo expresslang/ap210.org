@@ -1,0 +1,71 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Mechanical_design_presentation_representation_with_draughting_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Mechanical_design_presentation_representation_with_draughting_arm</h2><code><br><br><a name="mechanical_design_presentation_representation_with_draughting_arm">SCHEMA <b>Mechanical_design_presentation_representation_with_draughting_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/associative_draughting_elements/sys/e_exp_arm.htm#associative_draughting_elements_arm">Associative_draughting_elements_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1311<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/mechanical_design_geometric_presentation/sys/e_exp_arm.htm#mechanical_design_geometric_presentation_arm">Mechanical_design_geometric_presentation_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1313<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/mechanical_design_shaded_presentation/sys/e_exp_arm.htm#mechanical_design_shaded_presentation_arm">Mechanical_design_shaded_presentation_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1314<br><br></code><code><br><A NAME="mechanical_design_presentation_representation_with_draughting_arm.mdprwd_draughting_model_element_select">TYPE </A><b>mdprwd_draughting_model_element_select</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/associative_draughting_elements/sys/e_exp_arm.htm#associative_draughting_elements_arm.draughting_model_element_select">draughting_model_element_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/camera_view_3d/sys/e_exp_arm.htm#camera_view_3d_arm.camera_model_d3">Camera_model_d3</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="mechanical_design_presentation_representation_with_draughting_arm.mdprwd_element_select">TYPE </A><b>mdprwd_element_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/camera_view_3d/sys/e_exp_arm.htm#camera_view_3d_arm.camera_model_d3">Camera_model_d3</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="mechanical_design_presentation_representation_with_draughting_arm.mechanical_design_and_draughting_relationship_select">TYPE </A><b>mechanical_design_and_draughting_relationship_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/associative_draughting_elements/sys/e_exp_arm.htm#associative_draughting_elements_arm.draughting_model">Draughting_model</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#mechanical_design_presentation_representation_with_draughting_arm.mechanical_design_presentation_representation_with_draughting">Mechanical_design_presentation_representation_with_draughting</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/mechanical_design_shaded_presentation/sys/e_exp_arm.htm#mechanical_design_shaded_presentation_arm.mechanical_design_shaded_styled_model">Mechanical_design_shaded_styled_model</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/mechanical_design_geometric_presentation/sys/e_exp_arm.htm#mechanical_design_geometric_presentation_arm.mechanical_representation_styled_model">Mechanical_representation_styled_model</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="mechanical_design_presentation_representation_with_draughting_arm.mechanical_design_and_draughting_relationship">ENTITY <b>Mechanical_design_and_draughting_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/geometric_model_relationship/sys/e_exp_arm.htm#geometric_model_relationship_arm.definitional_representation_relationship">Definitional_representation_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_relationship">Representation_relationship</A>.<A NAME="mechanical_design_presentation_representation_with_draughting_arm.mechanical_design_and_draughting_relationship.rep_1">rep_1 : </A><A HREF="#mechanical_design_presentation_representation_with_draughting_arm.mechanical_design_and_draughting_relationship_select">mechanical_design_and_draughting_relationship_select</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_relationship">Representation_relationship</A>.<A NAME="mechanical_design_presentation_representation_with_draughting_arm.mechanical_design_and_draughting_relationship.rep_2">rep_2 : </A><A HREF="#mechanical_design_presentation_representation_with_draughting_arm.mechanical_design_and_draughting_relationship_select">mechanical_design_and_draughting_relationship_select</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="mechanical_design_presentation_representation_with_draughting_arm.mechanical_design_and_draughting_relationship.wr:wr1">WR1: NOT('ASSOCIATIVE_DRAUGHTING_ELEMENTS_ARM.'+'DRAUGHTING_MODEL' IN TYPEOF(rep_2)) OR 
+            (SIZEOF(['ASSOCIATIVE_DRAUGHTING_ELEMENTS_ARM.'+'DRAUGHTING_MODEL', 
+            'ELEMENTAL_GEOMETRIC_SHAPE_ARM.'+'GEOMETRIC_MODEL'] * TYPEOF(rep_1)) = 1);</A><br>
+         &nbsp;&nbsp;<A NAME="mechanical_design_presentation_representation_with_draughting_arm.mechanical_design_and_draughting_relationship.wr:wr2">WR2: NOT('MECHANICAL_DESIGN_GEOMETRIC_PRESENTATION_ARM.'+'MECHANICAL_REPRESENTATION_STYLED_MODEL' IN TYPEOF(rep_2)) 
+            OR (SIZEOF(['MECHANICAL_DESIGN_GEOMETRIC_PRESENTATION_ARM.'+'MECHANICAL_REPRESENTATION_STYLED_MODEL', 
+            'ELEMENTAL_GEOMETRIC_SHAPE_ARM.'+'GEOMETRIC_MODEL'] * TYPEOF(rep_1)) = 1);</A><br>
+         &nbsp;&nbsp;<A NAME="mechanical_design_presentation_representation_with_draughting_arm.mechanical_design_and_draughting_relationship.wr:wr3">WR3: NOT('MECHANICAL_DESIGN_SHADED_PRESENTATION_ARM.'+'MECHANICAL_DESIGN_SHADED_STYLED_MODEL' IN TYPEOF(rep_2)) 
+            OR (SIZEOF(['MECHANICAL_DESIGN_SHADED_PRESENTATION_ARM.'+'MECHANICAL_DESIGN_SHADED_STYLED_MODEL',
+            'ELEMENTAL_GEOMETRIC_SHAPE_ARM.'+'GEOMETRIC_MODEL'] * TYPEOF(rep_1)) = 1);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="mechanical_design_presentation_representation_with_draughting_arm.mechanical_design_presentation_representation_with_draughting">ENTITY <b>Mechanical_design_presentation_representation_with_draughting</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/appearance_assignment/sys/e_exp_arm.htm#appearance_assignment_arm.styled_model">Styled_model</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>.<A NAME="mechanical_design_presentation_representation_with_draughting_arm.mechanical_design_presentation_representation_with_draughting.items">items : </A>SET[1:?] OF <A HREF="#mechanical_design_presentation_representation_with_draughting_arm.mdprwd_element_select">mdprwd_element_select</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="mechanical_design_presentation_representation_with_draughting_arm.mechanical_design_presentation_representation_with_draughting.wr:wr1">WR1: SELF\Representation.context_of_items\Geometric_coordinate_space.dimension_count = 3;</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Mechanical_design_presentation_representation_with_draughting_arm<br></code></body>
+</HTML>

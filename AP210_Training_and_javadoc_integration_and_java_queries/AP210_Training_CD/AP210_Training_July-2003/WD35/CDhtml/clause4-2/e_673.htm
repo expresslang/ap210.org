@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Pitch_class</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.673 Pitch_class</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Pitch_class is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.  A Pitch_class is a category in which a particular group of <A
+CLASS="INTERNALREF"
+HREF="e_613.htm"
+>Part_feature</A
+> may fall, depending on the value of their paired spacing.
+The Pitch_class controls the width of the mating feature which is measured perpendicular to the primary axis of a terminal in the class.  The only Data_element type permitted in the range is a Length_data_element.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: The Pitch_class is included so that tolerances may be applied to all members of the 
+same class, and specified only once.  E.g., all pitchs with a design spacing greater than 50 
+mils and less than 75 mils are in the 'big' class.</DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Other Application Objects will be populated in order to apply the class property to tolerances of the product being designed .</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>class_member</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>class_name</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.673.1 class_member</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The class_member specifies the role of the Range_characteristic for the Pitch_class.  The range specifies the spacings which are included as a member of the Pitch_class.  The Range_characteristic shall use Length_data_element for the Numeric_parameter.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.673.2 class_name</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The class_name specifies the name for the Pitch_class.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY pitch_class
+  SUBTYPE OF (managed_design_object);
+    class_member : range_characteristic;
+    class_name   : ee_name;
+WHERE
+ wr1: SIZEOF(QUERY( np &#60;* class_member\coordinated_characteristic.component_characteristic |
+      NOT('AP210_ARM.LENGTH_DATA_ELEMENT' IN TYPEOF(np\characteristic.property_value))
+         )) = 0;
+END_ENTITY; -- pitch_class
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

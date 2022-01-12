@@ -1,0 +1,625 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Packaged part white box model">
+      <META name="DC.Dates" content="2009-05-04 09:30:28">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Packaged part white box model">
+      <META name="DC.Subject" content="module, white box, behaviour, model, analysis, design, electrical, electronic, mechanical, piece part, component, thermal, vibration">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6464">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5727">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-04 09:30:28">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.48">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.48">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.48">
+      <TITLE>ISO/TS 10303-1709:2009 Packaged part white box model</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Packaged part white box model</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1709:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definition</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.4 ARM subtype constraint definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.1 MIM entity definition</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Packaged part white box model</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Packaged_part_white_box_model_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+       
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            An electrical part is sometimes realized by installing one or more occurrences of die into a container and creating a set
+            of terminals attached to the die
+            on the inside and available for external connections on the outside of the container. See 
+              <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#figure_pp">Figure 1</a> 
+              for an illustration of a cutaway view of an electrical component that includes terms related to the <b>Packaged_part</b> Application Object.
+             </small></p>
+       <br><br><a name="figure_pp"></a><div align="center"><IMG src="../pp.gif" border="0" alt="Figure 1&nbsp;&#8212;&nbsp;&nbsp;Electrical part exploded assembly detail"></div><br><div align="center"><b>Figure 1&nbsp;&#8212;&nbsp;&nbsp;Electrical part exploded assembly detail</b></div><br>
+       
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+              Two <b>Packaged_part</b> models may be exchanged with this part of ISO 10303, depending on usage.
+              One may support the exchange information that maps the functionality of the Electrical part to the  
+              <a href="../../../modules/bare_die/sys/4_info_reqs.htm#bare_die_arm.bare_die"><b>Bare_die</b></a>, 
+              or dies, included in the composition of the <b>Packaged_part</b>; and information that maps the terminals of those instances of  
+              <a href="../../../modules/bare_die/sys/4_info_reqs.htm#bare_die_arm.bare_die"><b>Bare_die</b></a> to the terminals of the <b>Packaged_part</b>.
+              This mechanism provides maximum flexibility and information exchange and is characterized as a "white box" model.
+              This model is primarily included in the standard to support design to analysis activities.
+              Alternatively, one may map the functionality required directly to the <b>Packaged_part</b> terminals, and not populate the 
+              <a href="../../../modules/bare_die/sys/4_info_reqs.htm#bare_die_arm.bare_die"><b>Bare_die</b></a>. 
+              The alternative is simpler and is characterized as the "black box" model.
+             </small></p>
+       
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+              The inclusion of composition elements to help compose a <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part"><b>Packaged_part</b></a>
+              does not cause the conversion of the <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part"><b>Packaged_part</b></a> to a design view.
+             </small></p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="packaged_part_white_box_model_arm">
+            SCHEMA Packaged_part_white_box_model_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/bare_die/sys/4_info_reqs.htm#bare_die_arm">Bare_die_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1650<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm">Packaged_part_black_box_model_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1710<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/physical_unit_2d_shape/sys/4_info_reqs.htm#physical_unit_2d_shape_arm">Physical_unit_2d_shape_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1726<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/physical_unit_3d_shape/sys/4_info_reqs.htm#physical_unit_3d_shape_arm">Physical_unit_3d_shape_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1727<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Bare_die_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1650</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Packaged_part_black_box_model_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1710</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Physical_unit_2d_shape_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1726</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Physical_unit_3d_shape_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1727</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>, <a href="../armexpg2.htm">C.2</a>and <a href="../armexpg3.htm">C.3</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definition</a></h2>
+      <p>
+         This subclause specifies the ARM type
+         for this application module. The ARM type and
+         definition is specified below. 
+         
+      </p>
+      <h2><a name="packaged_part_white_box_model_arm.ppwbm_analytical_model_port_assignment_select">4.2.1 ppwbm_analytical_model_port_assignment_select</a>
+         &nbsp;&nbsp;<a href="../../packaged_part_white_box_model/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>ppwbm_analytical_model_port_assignment_select</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/analytical_model/sys/4_info_reqs.htm#analytical_model_arm.analytical_model_port_assignment_select">analytical_model_port_assignment_select</A></b> type. 
+         
+         It adds the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone">Connection_zone</A></b>, <b><A HREF="../../../../data/modules/extended_geometric_tolerance/sys/4_info_reqs.htm#extended_geometric_tolerance_arm.datum_difference">Datum_difference</A></b>, <b><A HREF="../../../../data/modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_usage_view_terminal_definition">Functional_unit_usage_view_terminal_definition</A></b>, <b><A HREF="#packaged_part_white_box_model_arm.part_device_terminal">Part_device_terminal</A></b>
+         
+         and
+         
+         <b><A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            ppwbm_analytical_model_port_assignment_select =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/analytical_model/sys/4_info_reqs.htm#analytical_model_arm.analytical_model_port_assignment_select">analytical_model_port_assignment_select</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone">Connection_zone</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/extended_geometric_tolerance/sys/4_info_reqs.htm#extended_geometric_tolerance_arm.datum_difference">Datum_difference</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_usage_view_terminal_definition">Functional_unit_usage_view_terminal_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#packaged_part_white_box_model_arm.part_device_terminal">Part_device_terminal</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="packaged_part_white_box_model_arm.device_2d_position">4.3.1 Device_2d_position</a>
+         &nbsp;&nbsp;<a href="../../packaged_part_white_box_model/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydevice_2d_position"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Device_2d_position</b> is the location in two dimensions of a 
+      <a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.part_device"><b>Part_device</b></a>
+      within a <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part"><b>Packaged_part</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Device_2d_position;<br>
+            
+            
+            
+            &nbsp;&nbsp;placed_device : <A HREF="#packaged_part_white_box_model_arm.part_device">Part_device</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;transformation : <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement_2d">Axis_placement_2d</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;part_shape : <A HREF="../../../../data/modules/physical_unit_2d_shape/sys/4_info_reqs.htm#physical_unit_2d_shape_arm.physical_unit_planar_shape_model">Physical_unit_planar_shape_model</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;device_shape : <A HREF="../../../../data/modules/physical_unit_2d_shape/sys/4_info_reqs.htm#physical_unit_2d_shape_arm.physical_unit_planar_shape_model">Physical_unit_planar_shape_model</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.device_2d_position.placed_device">placed_device:
+               </a></b>
+         specifies a role of the <a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.part_device"><b>Part_device</b></a> 
+         for the 
+         <b>Device_2d_position</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.device_2d_position.transformation">transformation:
+               </a></b>
+         specifies the <a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement_2d"><b>Axis_placement_2d</b></a> 
+         for the 
+         <b>Device_2d_position</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.device_2d_position.part_shape">part_shape:
+               </a></b>
+         specifies the <a href="../../../modules/physical_unit_2d_shape/sys/4_info_reqs.htm#physical_unit_2d_shape_arm.physical_unit_planar_shape_model"><b>Physical_unit_planar_shape_model</b></a> of the 
+         <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part"><b>Packaged_part</b></a> for the 
+         <b>Device_2d_position</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.device_2d_position.device_shape">device_shape:
+               </a></b>
+         specifies the <a href="../../../modules/physical_unit_2d_shape/sys/4_info_reqs.htm#physical_unit_2d_shape_arm.physical_unit_planar_shape_model"><b>Physical_unit_planar_shape_model</b></a> of the 
+         <a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.part_device"><b>Part_device</b></a> for the 
+         <b>Device_2d_position</b>.
+         
+      </p>
+      <h2><a name="packaged_part_white_box_model_arm.device_3d_position">4.3.2 Device_3d_position</a>
+         &nbsp;&nbsp;<a href="../../packaged_part_white_box_model/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydevice_3d_position"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Device_3d_position</b> is the location in three dimensions of a 
+      <a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.part_device"><b>Part_device</b></a> within a 
+      <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part"><b>Packaged_part</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Device_3d_position;<br>
+            
+            
+            
+            &nbsp;&nbsp;placed_device : <A HREF="#packaged_part_white_box_model_arm.part_device">Part_device</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;transformation : <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement_3d">Axis_placement_3d</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;part_shape : <A HREF="../../../../data/modules/physical_unit_3d_shape/sys/4_info_reqs.htm#physical_unit_3d_shape_arm.physical_unit_3d_shape_model">Physical_unit_3d_shape_model</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;device_shape : <A HREF="../../../../data/modules/physical_unit_3d_shape/sys/4_info_reqs.htm#physical_unit_3d_shape_arm.physical_unit_3d_shape_model">Physical_unit_3d_shape_model</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.device_3d_position.placed_device">placed_device:
+               </a></b>
+         specifies a role of the <a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.part_device"><b>Part_device</b></a> 
+         for the 
+         <b>Device_3d_position</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.device_3d_position.transformation">transformation:
+               </a></b>
+         specifies the <a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement_3d"><b>Axis_placement_3d</b></a> of the 
+         <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part"><b>Packaged_part</b></a>
+         for the <b>Device_3d_position</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.device_3d_position.part_shape">part_shape:
+               </a></b>
+         specifies the <a href="../../../modules/physical_unit_3d_shape/sys/4_info_reqs.htm#physical_unit_3d_shape_arm.physical_unit_3d_shape_model"><b>Physical_unit_3d_shape_model</b></a> of the 
+         <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part"><b>Packaged_part</b></a>
+         for the <b>Device_3d_position</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.device_3d_position.device_shape">device_shape:
+               </a></b>
+         specifies the <a href="../../../modules/physical_unit_3d_shape/sys/4_info_reqs.htm#physical_unit_3d_shape_arm.physical_unit_3d_shape_model"><b>Physical_unit_3d_shape_model</b></a> of the 
+         <a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.part_device"><b>Part_device</b></a> for the
+         <b>Device_3d_position</b>.
+         
+      </p>
+      <h2><a name="packaged_part_white_box_model_arm.device_terminal_map">4.3.3 Device_terminal_map</a>
+         &nbsp;&nbsp;<a href="../../packaged_part_white_box_model/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydevice_terminal_map"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+       A <b>Device_terminal_map</b> is the association between a 
+       <a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.part_device_terminal"><b>Part_device_terminal</b></a> and a 
+       <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part_terminal"><b>Packaged_part_terminal</b></a>. A 
+       <b>Device_terminal_map</b> provides the 
+      topological equivalent of a bond wire from the package terminal to the terminal of the installed 
+      <a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.part_device"><b>Part_device</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Device_terminal_map;<br>
+            
+            
+            
+            &nbsp;&nbsp;target_terminal : <A HREF="../../../../data/modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part_terminal">Packaged_part_terminal</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;mapped_device_terminal : <A HREF="#packaged_part_white_box_model_arm.part_device_terminal">Part_device_terminal</A>;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: mapped_device_terminal, target_terminal;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.device_terminal_map.target_terminal">target_terminal:
+               </a></b>
+         specifies the targeted 
+         <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part_terminal"><b>Packaged_part_terminal</b></a> for the 
+         <b>Device_terminal_map</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.device_terminal_map.mapped_device_terminal">mapped_device_terminal:
+               </a></b>
+         specifies the <a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.part_device_terminal"><b>Part_device_terminal</b></a> 
+         from which the association is made to the <b>target_terminal</b> by the 
+         <b>Device_terminal_map</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.device_terminal_map.ur:ur1">UR1:
+               </a></b>
+         The combination of <b>target_terminal</b> and <b>mapped_device_terminal</b> shall be unique within a population of 
+         <b>Device_terminal_map</b>.
+         
+      </p>
+      <h2><a name="packaged_part_white_box_model_arm.device_terminal_map_relationship">4.3.4 Device_terminal_map_relationship</a>
+         &nbsp;&nbsp;<a href="../../packaged_part_white_box_model/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydevice_terminal_map_relationship"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Device_terminal_map_relationship</b> is the association of one 
+      <a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.device_terminal_map"><b>Device_terminal_map</b></a> to another.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Device_terminal_map_relationship;<br>
+            
+            
+            
+            &nbsp;&nbsp;relating_device_terminal_map : <A HREF="#packaged_part_white_box_model_arm.device_terminal_map">Device_terminal_map</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;related_device_terminal_map : <A HREF="#packaged_part_white_box_model_arm.device_terminal_map">Device_terminal_map</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.device_terminal_map_relationship.relating_device_terminal_map">relating_device_terminal_map:
+               </a></b>
+         an instance specifies the source 
+         <a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.device_terminal_map"><b>Device_terminal_map</b></a> in the 
+         <b>Device_terminal_map_relationship</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.device_terminal_map_relationship.related_device_terminal_map">related_device_terminal_map:
+               </a></b>
+         an instance specifies the target 
+         <a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.device_terminal_map"><b>Device_terminal_map</b></a> in the 
+         <b>Device_terminal_map_relationship</b>. If one element of the relationship is dependent up on the other, this attribute shall be the dependent one.
+         
+      </p>
+      <h2><a name="packaged_part_white_box_model_arm.part_device">4.3.5 Part_device</a>
+         &nbsp;&nbsp;<a href="../../packaged_part_white_box_model/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_device"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+       A <b>Part_device</b> is a specific occurrence of a <a href="../../../modules/bare_die/sys/4_info_reqs.htm#bare_die_arm.bare_die"><b>Bare_die</b></a> in a 
+       <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part"><b>Packaged_part</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_device;<br>
+            
+            
+            
+            &nbsp;&nbsp;defined_packaged_part : <A HREF="../../../../data/modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part">Packaged_part</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;included_device : <A HREF="../../../../data/modules/bare_die/sys/4_info_reqs.htm#bare_die_arm.bare_die">Bare_die</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;item_identification : STRING;<br>INVERSE<br>
+            &nbsp;&nbsp;device_3d_position : SET[0:1] OF <A HREF="#packaged_part_white_box_model_arm.device_3d_position">Device_3d_position</A> FOR placed_device;<br>
+            &nbsp;&nbsp;device_2d_position : SET[0:1] OF <A HREF="#packaged_part_white_box_model_arm.device_2d_position">Device_2d_position</A> FOR placed_device;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: defined_packaged_part, item_identification;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.part_device.defined_packaged_part">defined_packaged_part:
+               </a></b>
+         specifies the <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part"><b>Packaged_part</b></a> that 
+         contains this <b>Part_device</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.part_device.included_device">included_device:
+               </a></b>
+         specifies the <a href="../../../modules/bare_die/sys/4_info_reqs.htm#bare_die_arm.bare_die"><b>Bare_die</b></a> used to provide the 
+         function of the <b>Part_device</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.part_device.item_identification">item_identification:
+               </a></b>
+         specifies the string for the <b>Part_device</b>. 
+         The <b>item_identification</b> specifies the name for the reference designation of the  
+         <a href="../../../modules/bare_die/sys/4_info_reqs.htm#bare_die_arm.bare_die"><b>Bare_die</b></a> instance within the  
+         <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part"><b>Packaged_part</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.part_device.device_3d_position">device_3d_position:
+               </a></b>
+         	specifies an inverse relationship that specifies that the existence of the  <b>Part_device</b> 
+         	is dependent on the existence of the 
+         	<a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.device_3d_position"><b>Device_3d_position</b></a> 
+         	that specifies the <b>Part_device</b>
+         	as its 
+         	<a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.device_3d_position.placed_device"><b>placed_device</b></a>. 
+         	There shall be no more than one <b>device_3d_position</b> for a <b>Part_device</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.part_device.device_2d_position">device_2d_position:
+               </a></b>
+         	specifies an inverse relationship that specifies that the existence of the  <b>Part_device</b> 
+         	is dependent on the existence of the 
+         	<a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.device_2d_position"><b>Device_2d_position</b></a> 
+         	that specifies the <b>Part_device</b>
+         	as its 
+         	<a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.device_2d_position.placed_device"><b>placed_device</b></a>.
+         	There shall be no more than one <b>device_2d_position</b> for a <b>Part_device</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.part_device.ur:ur1">UR1:
+               </a></b>
+         The combination of <b>defined_packaged_part</b> and <b>item_identification</b> shall be unique within a 
+         population of <b>Part_devices</b>.
+         
+      </p>
+      <h2><a name="packaged_part_white_box_model_arm.part_device_terminal">4.3.6 Part_device_terminal</a>
+         &nbsp;&nbsp;<a href="../../packaged_part_white_box_model/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_device_terminal"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+       A <b>Part_device_terminal</b> is the surface area on an occurrence of a 
+       <a href="../../../modules/bare_die/sys/4_info_reqs.htm#bare_die_arm.bare_die"><b>Bare_die</b></a> in a 
+       <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part"><b>Packaged_part</b></a> that shall allow access 
+       to the function of an occurrence of the  <a href="../../../modules/bare_die/sys/4_info_reqs.htm#bare_die_arm.bare_die"><b>Bare_die</b></a>.  A 
+       <b>Part_device_terminal</b> is included to support detailed modeling and analysis of the internal connection to a  
+       <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part_terminal"><b>Packaged_part_terminal</b></a>.  No 
+       connection between <b>Part_device_terminal</b>s is supported in this part of ISO 10303.  Connections between  
+       <a href="../../../modules/bare_die/sys/4_info_reqs.htm#bare_die_arm.bare_die"><b>Bare_die</b></a> are supported only within  
+       <a href="../../../modules/assembly_module_design/sys/4_info_reqs.htm#assembly_module_design_arm.assembly_module_design_view"><b>Assembly_module_design_view</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_device_terminal;<br>
+            
+            
+            
+            &nbsp;&nbsp;used_bare_die_terminal : <A HREF="../../../../data/modules/bare_die/sys/4_info_reqs.htm#bare_die_arm.minimally_defined_bare_die_terminal">Minimally_defined_bare_die_terminal</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;terminated_device : <A HREF="#packaged_part_white_box_model_arm.part_device">Part_device</A>;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: used_bare_die_terminal, terminated_device;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.part_device_terminal.used_bare_die_terminal">used_bare_die_terminal:
+               </a></b>
+         specifies the <a href="../../../modules/bare_die/sys/4_info_reqs.htm#bare_die_arm.minimally_defined_bare_die_terminal"><b>Minimally_defined_bare_die_terminal</b></a> that shall be used by the 
+         <b>Part_device_terminal</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.part_device_terminal.terminated_device">terminated_device:
+               </a></b>
+         specifies the <a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.part_device"><b>Part_device</b></a> that has 
+         this 
+         <b>Part_device_terminal</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="packaged_part_white_box_model_arm.part_device_terminal.ur:ur1">UR1:
+               </a></b>
+         The combination of <b>terminated_device</b> and <b>used_bare_die_terminal</b> shall be unique within a 
+         population of <b>Part_device_terminal</b>s.
+         
+      </p>
+      <h2><a name="subtype_constraints">4.4 ARM subtype constraint definitions</a></h2>
+      <p>
+         This subclause specifies the ARM
+         subtype constraints for 
+         this module. Each subtype constraint places constraints on the
+         possible super-type / subtype instantiations.
+         The ARM subtype constraints and definitions are
+         specified below.
+         
+      </p>
+      <h2><A NAME="packaged_part_white_box_model_arm.physical_unit_keepout_shape_model_subtypes">4.4.1 physical_unit_keepout_shape_model_subtypes</A>
+         &nbsp;&nbsp;<a href="../../packaged_part_white_box_model/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#scconstraintphysical_unit_keepout_shape_model_subtypes"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         The
+         <b>physical_unit_keepout_shape_model_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/physical_unit_shape_with_parameters/sys/4_info_reqs.htm#physical_unit_shape_with_parameters_arm.physical_unit_keepout_shape_model">Physical_unit_keepout_shape_model</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="packaged_part_white_box_model_arm.physical_unit_keepout_shape_model_subtypes">SUBTYPE_CONSTRAINT physical_unit_keepout_shape_model_subtypes</A> FOR <A HREF="../../../../data/modules/physical_unit_shape_with_parameters/sys/4_info_reqs.htm#physical_unit_shape_with_parameters_arm.physical_unit_keepout_shape_model">Physical_unit_keepout_shape_model</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="../../../../data/modules/physical_unit_3d_shape/sys/4_info_reqs.htm#physical_unit_3d_shape_arm.physical_unit_3d_keepout_shape_model">Physical_unit_3d_keepout_shape_model</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/physical_unit_2d_shape/sys/4_info_reqs.htm#physical_unit_2d_shape_arm.physical_unit_planar_keepout_shape_model">Physical_unit_planar_keepout_shape_model</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p>
+      <h2><A NAME="packaged_part_white_box_model_arm.physical_unit_shape_model_subtypes">4.4.2 physical_unit_shape_model_subtypes</A>
+         &nbsp;&nbsp;<a href="../../packaged_part_white_box_model/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#scconstraintphysical_unit_shape_model_subtypes"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         The
+         <b>physical_unit_shape_model_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/physical_unit_shape_with_parameters/sys/4_info_reqs.htm#physical_unit_shape_with_parameters_arm.physical_unit_shape_model">Physical_unit_shape_model</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="packaged_part_white_box_model_arm.physical_unit_shape_model_subtypes">SUBTYPE_CONSTRAINT physical_unit_shape_model_subtypes</A> FOR <A HREF="../../../../data/modules/physical_unit_shape_with_parameters/sys/4_info_reqs.htm#physical_unit_shape_with_parameters_arm.physical_unit_shape_model">Physical_unit_shape_model</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="../../../../data/modules/physical_unit_3d_shape/sys/4_info_reqs.htm#physical_unit_3d_shape_arm.physical_unit_3d_shape_model">Physical_unit_3d_shape_model</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/physical_unit_2d_shape/sys/4_info_reqs.htm#physical_unit_2d_shape_arm.physical_unit_planar_shape_model">Physical_unit_planar_shape_model</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Packaged_part_white_box_model_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

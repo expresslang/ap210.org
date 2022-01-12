@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Aggregate_connectivity_requirement</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.7 Aggregate_connectivity_requirement</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Aggregate_connectivity_requirement is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. 
+An Aggregate_connectivity_requirement is the association between a set of one or more <A
+CLASS="INTERNALREF"
+HREF="e_403.htm"
+>Functional_unit_network_node_definition</A
+> and one <A
+CLASS="INTERNALREF"
+HREF="e_262.htm"
+>Design_composition_path</A
+> that ensures that the 
+requirement for connectivity is 
+maintained between the functional and the physical designs.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>connectivity_requirement</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>design_definition_path</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.7.1 connectivity_requirement</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The connectivity_requirement specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_403.htm"
+>Functional_unit_network_node_definition</A
+> for the Aggregate_connectivity_requirement. </DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.7.2 design_definition_path</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The design_definition_path specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_262.htm"
+>Design_composition_path</A
+> for the Aggregate_connectivity_requirement.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The design_definition_path shall be unique within a 
+population of Aggregate_connectivity_requirements.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>Each of the terminals that participate in a connectivity_requirement shall be reachable from any other 
+terminal in the design_definition_path that is specified by the same connectivity_requirement.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Since the hierarchical product structure is represented in this part of ISO 10303 as a directed acyclic graph, the 
+closure requirement is evaluated by traversing the combined graph including both product structure and nodal representation.  There is an individual nodal representation for each node or level of the product structure.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY aggregate_connectivity_requirement
+  SUBTYPE OF (managed_design_object);
+    connectivity_requirement : functional_unit_network_node_definition;
+    design_definition_path   : design_composition_path_or_root;
+  UNIQUE
+    ur1 : design_definition_path, connectivity_requirement;
+  WHERE
+  wr1: NOT ('AP210_ARM.FUNCTIONAL_UNIT_NETWORK_DEFINITION' IN 
+                                  TYPEOF(design_definition_path)) OR
+       (connectivity_requirement.associated_functional_unit_definition = 
+                                           design_definition_path);
+  wr2: NOT ('AP210_ARM.DESIGN_COMPOSITION_PATH' IN 
+                                 TYPEOF(design_definition_path)) OR
+       (connectivity_requirement.associated_functional_unit_definition = 
+                design_definition_path.design_functional_unit.definition);
+--tt tc1 wd12 modified
+(*
+WHERE
+  should not allocate this to both a physical_connectivity_definition
+and to a physical_network for the same revision of the physical
+product.
+*)
+END_ENTITY; -- aggregate_connectivity_requirement
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

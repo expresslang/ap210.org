@@ -1,0 +1,164 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: set_theory_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: set_theory_schema</h2>
+      <p><i>Source : ISO 10303-54</i></p><code><br><br><a name="set_theory_schema">SCHEMA <b>set_theory_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema">classification_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-54<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>);
+         <br><br></code><code><br><A NAME="set_theory_schema.complement">ENTITY <b>complement</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.complement.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.complement.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.complement.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.complement.set_1">set_1 : </A><A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.complement.set_2">set_2 : </A><A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.complement.universe">universe : </A><A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.complement.wr:complement_different">complement_different: NOT identical_sets(set_1, set_2);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_schema.intersection">ENTITY <b>intersection</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.intersection.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.intersection.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.intersection.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.intersection.operand">operand : </A>SET[2:?] OF <A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.intersection.resultant">resultant : </A><A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_schema.power_set">ENTITY <b>power_set</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.power_set.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.power_set.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.power_set.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.power_set.base">base : </A><A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.power_set.derived">derived : </A><A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.power_set.wr:derived_different">derived_different: NOT identical_sets(base, derived);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_schema.proper_subset">ENTITY <b>proper_subset</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#set_theory_schema.subset">subset</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.proper_subset.wr:subset_different">subset_different: NOT identical_sets(superset, subset);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_schema.same_membership">ENTITY <b>same_membership</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.same_membership.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.same_membership.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.same_membership.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.same_membership.set_1">set_1 : </A><A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.same_membership.set_2">set_2 : </A><A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_schema.subset">ENTITY <b>subset</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.subset.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.subset.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.subset.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.subset.subset">subset : </A><A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.subset.superset">superset : </A><A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_schema.union">ENTITY <b>union</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.union.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.union.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.union.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.union.operand">operand : </A>SET[2:?] OF <A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.union.resultant">resultant : </A><A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_schema.union_of_all_members">ENTITY <b>union_of_all_members</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.union_of_all_members.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.union_of_all_members.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.union_of_all_members.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.union_of_all_members.operand">operand : </A><A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.union_of_all_members.resultant">resultant : </A><A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="set_theory_schema.union_of_all_members.wr:resultant_different">resultant_different: NOT identical_sets(operand, resultant);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_schema.identical_sets">FUNCTION <b>identical_sets</b></A><br>&nbsp;(set_a : <A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>; set_b : <A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>) : BOOLEAN;
+         </code><pre>
+  LOCAL
+    set_of_sets : SET OF class := [];
+  END_LOCAL;
+  
+  IF (set_a = set_b) THEN
+    RETURN (TRUE);
+  END_IF;
+  
+  set_of_sets := set_of_sets + set_b;
+  RETURN (identical_to_one_of_set_of_sets(set_a, set_of_sets));
+      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="set_theory_schema.identical_to_one_of_set_of_sets">FUNCTION <b>identical_to_one_of_set_of_sets</b></A><br>&nbsp;(set_a : <A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>; set_of_sets : SET OF <A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>) : BOOLEAN;
+         </code><pre>
+  LOCAL
+    i                            : INTEGER;
+    initial_size                 : INTEGER;
+    augmented_size               : INTEGER;
+    set_of_forward_equivalences  : SET OF same_membership := [];
+    set_of_backward_equivalences : SET OF same_membership := [];
+    augmented_set_of_sets        : SET OF class := [];
+  END_LOCAL;
+  
+  --  test membership of the specified set of sets
+  
+  IF (set_a IN set_of_sets) THEN
+    RETURN (TRUE);
+  END_IF;
+  
+  --  extend the specified set to include all sets that have the same membership
+  --  as an existing member
+  
+  initial_size := SIZEOF(set_of_sets);
+  IF (initial_size = 0) THEN
+    RETURN (FALSE);
+  END_IF;
+  REPEAT i := 1 TO initial_size;
+    set_of_forward_equivalences := set_of_forward_equivalences +
+      USEDIN(set_of_sets[i], 'SET_THEORY_SCHEMA.SAME_MEMBERSHIP.SET_1');
+    set_of_backward_equivalences := set_of_forward_equivalences +
+      USEDIN(set_of_sets[i], 'SET_THEORY_SCHEMA.SAME_MEMBERSHIP.SET_2');
+  END_REPEAT;
+  
+  augmented_set_of_sets := set_of_sets;
+  IF (SIZEOF(set_of_forward_equivalences) &gt; 0) THEN
+    REPEAT i := 1 to HIINDEX(set_of_forward_equivalences);
+      augmented_set_of_sets := augmented_set_of_sets +
+        set_of_forward_equivalences[i].set_2;
+    END_REPEAT;
+  END_IF;
+  IF (SIZEOF(set_of_backward_equivalences) &gt; 0) THEN
+    REPEAT i := 1 to HIINDEX(set_of_backward_equivalences);
+      augmented_set_of_sets := augmented_set_of_sets +
+        set_of_backward_equivalences[i].set_1;
+    END_REPEAT;
+  END_IF;
+  
+  -- if the specified set of sets has been augmented, then test membership
+  
+  augmented_size := SIZEOF(augmented_set_of_sets);
+  IF augmented_size = initial_size THEN
+    RETURN (FALSE);
+  END_IF;
+  
+  RETURN (identical_to_one_of_set_of_sets(set_a, augmented_set_of_sets));
+      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;set_theory_schema<br></code></body>
+</HTML>

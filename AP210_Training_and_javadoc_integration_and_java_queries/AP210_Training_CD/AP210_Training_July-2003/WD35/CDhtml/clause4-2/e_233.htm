@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Datum_point</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.233 Datum_point</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Datum_point is a type of <A
+CLASS="INTERNALREF"
+HREF="e_214.htm"
+>Datum</A
+> that is a theoretically
+exact point to which toleranced <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> are related.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>If the Datum_point is not specified as a reference_origin of a Datum_reference_frame then the Datum_point shall be either a 
+Common_datum, or a Single_datum.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY datum_point
+  SUPERTYPE OF (edge_segment_vertex)
+  SUBTYPE OF (datum);
+  location_in_2d : OPTIONAL cartesian_point;
+  location_in_3d : OPTIONAL cartesian_point;
+  associated_volume_shape_intersection : OPTIONAL volume_shape_intersection;
+WHERE
+ wr1: NOT(EXISTS(location_in_2d) AND EXISTS(location_in_3d)) OR
+      EXISTS(associated_volume_shape_intersection);
+ wr2: NOT(EXISTS(location_in_2d)) OR (location_in_2d.geometric_context.dimensionality 
+                                                       = two_dimensional);
+ wr3: NOT(EXISTS(location_in_3d)) OR (location_in_3d.geometric_context.dimensionality 
+                                                       = three_dimensional);
+END_ENTITY; -- datum_point
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,498 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Functional usage view">
+      <META name="DC.Dates" content="2009-05-04 09:11:53">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Functional usage view">
+      <META name="DC.Subject" content="module, network, functional interface, usage, terminal, group, simulation, analysis">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6386">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5715">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-04 09:11:53">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.26">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.15">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.8">
+      <TITLE>ISO/TS 10303-1705:2009 Functional usage view</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Functional usage view</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1705:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definition</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.4 ARM function definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definition</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <h2><a name="mim_express">5.2 MIM EXPRESS short listing</a></h2>
+      <p>
+         This clause specifies the EXPRESS schema derived from the mapping
+         table. 
+         It uses elements from the common resources or from other application
+         modules and defines the EXPRESS constructs that are specific to this
+         part of ISO 10303.
+         
+      </p>
+      <p>
+         This clause constitutes the Module Interpreted Module (MIM) of the
+         application module.
+         
+      </p>
+      <p>This clause also
+         specifies the modifications that apply to the constructs 
+         imported from the common resources.
+      </p>
+      <p>The following restrictions apply to the use, in this schema, of constructs defined in common resources or in application
+         modules:
+      </p>
+      <ul>
+         <li>
+            use of a supertype entity does not make applicable any of its
+            specializations, unless the specialization is also imported in the
+            MIM schema;
+            
+         </li>
+         <li>
+            use of a SELECT type does not make applicable any of its listed types
+            unless the listed type is also imported in the MIM schema.
+            
+         </li>
+      </ul>
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="functional_usage_view_mim">
+            SCHEMA Functional_usage_view_mim;</a></code><h2><A NAME="interfaces"></A></h2>
+      <p></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/analytical_model/sys/5_mim.htm#analytical_model_mim">Analytical_model_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1603<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/network_functional_design_view/sys/5_mim.htm#network_functional_design_view_mim">Network_functional_design_view_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1704<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/shape_property_assignment/sys/5_mim.htm#shape_property_assignment_mim">Shape_property_assignment_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1032<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/resources/document_schema/document_schema.htm#document_schema">document_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../../data/resources/document_schema/document_schema.htm#document_schema.document_type">document_type</A>);
+            <br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema">product_definition_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category">product_related_product_category</A>);
+            <br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema">product_property_definition_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>,
+            
+            
+            <br>
+            &nbsp;&nbsp;
+            <A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);
+            <br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema">material_property_definition_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-45<br>&nbsp;&nbsp;(<A HREF="../../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.property_definition_relationship">property_definition_relationship</A>);
+            <br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Analytical_model_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1603</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Network_functional_design_view_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1704</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Shape_property_assignment_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1032</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>document_schema</small></b></td>
+               <td width="127"><small>ISO 10303-41</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>product_definition_schema</small></b></td>
+               <td width="127"><small>ISO 10303-41</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>product_property_definition_schema</small></b></td>
+               <td width="127"><small>ISO 10303-41</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>material_property_definition_schema</small></b></td>
+               <td width="127"><small>ISO 10303-45</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="d_mim_expg.htm">D</a>, 
+            
+            Figures
+            <a href="../mimexpg1.htm">D.1</a>and <a href="../mimexpg2.htm">D.2</a>
+            for a graphical representation of this schema.            
+            </small></p>
+      <h2><a name="types">5.2.1 MIM type definition</a></h2>
+      <p>
+         This subclause specifies the MIM type
+         for this application module. The MIM type and
+         definition is specified below. 
+         
+      </p>
+      <h2><a name="functional_usage_view_mim.nfuv_groupable_item">5.2.1.1 nfuv_groupable_item</a>
+         &nbsp;&nbsp;<a href="../../functional_usage_view/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>nfuv_groupable_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/group/sys/5_mim.htm#group_mim.groupable_item">groupable_item</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            nfuv_groupable_item =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/group/sys/5_mim.htm#group_mim.groupable_item">groupable_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">5.2.2 MIM entity definitions</a></h2>
+      <p>
+         This subclause specifies the MIM entities for this
+         module. The MIM entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="functional_usage_view_mim.functional_terminal_group">5.2.2.1 functional_terminal_group</a>
+         &nbsp;&nbsp;<a href="../../functional_usage_view/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>functional_terminal_group</b> is a type of 
+      	<a href="../../../resources/group_schema/group_schema.htm#group_schema.group"><b>group</b></a>
+      	group that implements the ARM concept of
+      	<a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_terminal_group"><b>Functional_terminal_group</b></a>.
+      	A <b>functional_terminal_group</b> specifies a type for the terminals assigned to the group.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY functional_terminal_group<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>);<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: 
+            SELF\<A HREF="../../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>.name;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="functional_usage_view_mim.functional_terminal_group.ur:ur1">UR1:
+               </a></b>
+         	The 
+         	<a href="../../../resources/group_schema/group_schema.htm#group_schema.group.name"><b>name</b></a> 
+         	shall be unique within a population of <b>functional_terminal_group</b>.
+         
+      </p>
+      <h2><a name="functional_usage_view_mim.functional_unit">5.2.2.2 functional_unit</a>
+         &nbsp;&nbsp;<a href="../../functional_usage_view/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>functional_unit</b> is a type of 
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a>
+         	and a type of
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.product_definition_shape"><b>product_definition_shape</b></a>.
+         A <b>functional_unit</b> is the characterization of the functionality of an occurrence of an electrical device or of an abstract component.
+         A <b>functional_unit</b> implements the ARM concepts of:
+         
+      </p>
+      <ul>
+         
+         <li> <a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>Product_view_definition</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/electrical_network_definition/sys/4_info_reqs.htm#electrical_network_definition_arm.electrical_network_definition"><b>Electrical_network_definition</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/functional_specification/sys/4_info_reqs.htm#functional_specification_arm.functional_specification_definition"><b>Functional_specification_definition</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_definition"><b>Functional_unit_definition</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_definition"><b>Functional_unit_network_definition</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_usage_view"><b>Functional_unit_usage_view</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/thermal_network_definition/sys/4_info_reqs.htm#thermal_network_definition_arm.thermal_network_definition"><b>Thermal_network_definition</b></a>.
+         </li>
+         
+      </ul>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY functional_unit<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.product_definition_shape">product_definition_shape</A>);<br>DERIVE<br>
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>.definition : <A HREF="#functional_usage_view_mim.functional_unit">functional_unit</A> := SELF;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' +'NAME_ATTRIBUTE.NAMED_ITEM')) = 0;<br> 
+            &nbsp;&nbsp;WR2: NOT EXISTS(SELF\property_definition.description);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="functional_usage_view_mim.functional_unit.definition">definition:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition"><b>property_definition</b></a>
+         	shall be redeclared as the
+         	<a href="../../../modules/functional_usage_view/sys/5_mim.htm#functional_usage_view_mim.functional_unit"><b>functional_unit</b></a>
+         	for the <b>functional_unit</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="functional_usage_view_mim.functional_unit.wr:wr1">WR1:
+               </a></b>
+         	No member of entity data type <b>functional_unit</b> 
+         	shall be referenced by a member of entity data type 
+         	<a href="../../../resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.name_attribute"><b>name_attribute</b></a> 
+         	as a 
+         	<a href="../../../resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.name_attribute.named_item"><b>named_item</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_usage_view_mim.functional_unit.wr:wr2">WR2:
+               </a></b>
+         	The
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition.description"><b>description</b></a>
+         	shall not be populated.
+         
+      </p>
+      <h2><a name="functional_usage_view_mim.functional_unit_terminal_definition">5.2.2.3 functional_unit_terminal_definition</a>
+         &nbsp;&nbsp;<a href="../../functional_usage_view/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         A <b>functional_unit_terminal_definition</b> is a type of <a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect"><b>shape_aspect</b></a> that implements the
+         ARM concepts of 
+          <a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_usage_view_terminal_definition"><b>Functional_unit_usage_view_terminal_definition</b></a>
+         and  <a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.scalar_terminal_definition"><b>Scalar_terminal_definition</b></a>. 
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY functional_unit_terminal_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>.of_shape : <A HREF="#functional_usage_view_mim.functional_unit">functional_unit</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="functional_usage_view_mim.functional_unit_terminal_definition.of_shape">of_shape:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect"><b>shape_aspect</b></a>
+         	shall be redeclared as the
+         	<a href="../../../modules/functional_usage_view/sys/5_mim.htm#functional_usage_view_mim.functional_unit"><b>functional_unit</b></a>
+         	for the <b>functional_unit_terminal_definition</b>.
+         
+      </p>
+      <h2><a name="functional_usage_view_mim.make_from_functional_unit_terminal_definition_relationship">5.2.2.4 make_from_functional_unit_terminal_definition_relationship</a>
+         &nbsp;&nbsp;<a href="../../functional_usage_view/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>make_from_functional_unit_terminal_definition_relationship</b> is a type of 
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect"><b>shape_aspect</b></a> 
+         	and  of
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship"><b>shape_aspect_relationship</b></a> 
+         	that implements the ARM concept of  
+         	<a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_usage_view_terminal_definition_make_from_relationship"><b>Functional_unit_usage_view_terminal_definition_make_from_relationship</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY make_from_functional_unit_terminal_definition_relationship<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>, <A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: 
+            SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.relating_shape_aspect, 
+            SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.related_shape_aspect;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: relating_shape_aspect.of_shape :&lt;&gt;: 
+            related_shape_aspect.of_shape;<br> 
+            &nbsp;&nbsp;WR2: SELF\shape_aspect.product_definitional = FALSE;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="functional_usage_view_mim.make_from_functional_unit_terminal_definition_relationship.ur:ur1">UR1:
+               </a></b>
+         The combination of 
+         <a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship.relating_shape_aspect"><b>relating_shape_aspect</b></a> 
+         and 
+         <a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship.related_shape_aspect"><b>related_shape_aspect</b></a> 
+         shall be unique within a population of <b>make_from_functional_unit_terminal_definition_relationship</b>s.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_usage_view_mim.make_from_functional_unit_terminal_definition_relationship.wr:wr1">WR1:
+               </a></b>
+         The <b>make_from_functional_unit_terminal_definition_relationship</b> shall have a <a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship.relating_shape_aspect"><b>relating_shape_aspect</b></a>
+         that is a  <a href="../../../modules/functional_usage_view/sys/5_mim.htm#functional_usage_view_mim.functional_unit_terminal_definition"><b>functional_unit_terminal_definition</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_usage_view_mim.make_from_functional_unit_terminal_definition_relationship.wr:wr2">WR2:
+               </a></b>
+         The <b>make_from_functional_unit_terminal_definition_relationship</b> shall have a <a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship.related_shape_aspect"><b>related_shape_aspect</b></a>
+         that is a  <a href="../../../modules/functional_usage_view/sys/5_mim.htm#functional_usage_view_mim.functional_unit_terminal_definition"><b>functional_unit_terminal_definition</b></a>.
+         
+      </p>
+      <h2><a name="functional_usage_view_mim.scalar_terminal_definition_link">5.2.2.5 scalar_terminal_definition_link</a>
+         &nbsp;&nbsp;<a href="../../functional_usage_view/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>scalar_terminal_definition_link</b> is a type of 
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect"><b>shape_aspect</b></a> 
+         	and of  
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship"><b>shape_aspect_relationship</b></a> 
+         	that implements the ARM concept of 
+         	<a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.scalar_terminal_definition_link"><b>Scalar_terminal_definition_link</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY scalar_terminal_definition_link<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>, <A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.relating_shape_aspect : <A HREF="#functional_usage_view_mim.functional_unit_terminal_definition">functional_unit_terminal_definition</A>;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: 
+            SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.related_shape_aspect, relating_shape_aspect;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF\shape_aspect_relationship.related_shape_aspect :&lt;&gt;:
+            SELF\shape_aspect_relationship.relating_shape_aspect;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="functional_usage_view_mim.scalar_terminal_definition_link.relating_shape_aspect">relating_shape_aspect:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/functional_usage_view/sys/5_mim.htm#functional_usage_view_mim.functional_unit_terminal_definition"><b>functional_unit_terminal_definition</b></a>
+         	for the <b>scalar_terminal_definition_link</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="functional_usage_view_mim.scalar_terminal_definition_link.ur:ur1">UR1:
+               </a></b>
+         The combination of 
+         <a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship.related_shape_aspect"><b>related_shape_aspect</b></a> 
+         and  
+         <a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship.relating_shape_aspect"><b>relating_shape_aspect</b></a> 
+         shall be unique within a population of <b>scalar_terminal_definition_link</b>s. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_usage_view_mim.scalar_terminal_definition_link.wr:wr1">WR1:
+               </a></b>
+         The related point shall not be the relating point. 
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Functional_usage_view_mim<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

@@ -1,0 +1,101 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Elemental_geometric_shape_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Elemental_geometric_shape_arm</h2><code><br><br><a name="elemental_geometric_shape_arm">SCHEMA <b>Elemental_geometric_shape_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm">Foundation_representation_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1006<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/identification_assignment/sys/e_exp_arm.htm#identification_assignment_arm">Identification_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1021<br><br></code><code><br><A NAME="elemental_geometric_shape_arm.cartesian_transformation">TYPE </A><b>cartesian_transformation</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#elemental_geometric_shape_arm.cartesian_transformation_2d">Cartesian_transformation_2d</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#elemental_geometric_shape_arm.cartesian_transformation_3d">Cartesian_transformation_3d</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="elemental_geometric_shape_arm.geometric_mapping_target">TYPE </A><b>geometric_mapping_target</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#elemental_geometric_shape_arm.cartesian_transformation">cartesian_transformation</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="elemental_geometric_shape_arm.axis_placement">ENTITY <b>Axis_placement</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#elemental_geometric_shape_arm.axis_placement_2d">Axis_placement_2d</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#elemental_geometric_shape_arm.axis_placement_3d">Axis_placement_3d</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.axis_placement.origin">origin : </A><A HREF="#elemental_geometric_shape_arm.cartesian_point">Cartesian_point</A>;<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.axis_placement.x_axis">x_axis : </A><A HREF="#elemental_geometric_shape_arm.direction">Direction</A>;<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.axis_placement.y_axis">y_axis : </A><A HREF="#elemental_geometric_shape_arm.direction">Direction</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.axis_placement.dim">dim : </A>INTEGER := SIZEOF(origin.coordinates);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.axis_placement.wr:wr1">WR1: dim &gt;1;</A><br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.axis_placement.wr:wr2">WR2: dim = SIZEOF(x_axis.coordinates);</A><br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.axis_placement.wr:wr3">WR3: dim = SIZEOF(y_axis.coordinates);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="elemental_geometric_shape_arm.axis_placement_2d">ENTITY <b>Axis_placement_2d</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="elemental_geometric_shape_arm.axis_placement_3d">ENTITY <b>Axis_placement_3d</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="elemental_geometric_shape_arm.axis_placement_mapping">ENTITY <b>Axis_placement_mapping</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.axis_placement_mapping.source">source : </A><A HREF="#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.axis_placement_mapping.target">target : </A><A HREF="#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.axis_placement_mapping.wr:wr1">WR1: source\Axis_placement.dim = target\Axis_placement.dim;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="elemental_geometric_shape_arm.cartesian_point">ENTITY <b>Cartesian_point</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.cartesian_point.coordinates">coordinates : </A>LIST[1:3] OF <A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.length_measure">length_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="elemental_geometric_shape_arm.cartesian_transformation_2d">ENTITY <b>Cartesian_transformation_2d</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.cartesian_transformation_2d.multiplication_matrix">multiplication_matrix : </A>ARRAY[1:2] OF <A HREF="#elemental_geometric_shape_arm.direction">Direction</A>;<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.cartesian_transformation_2d.translation">translation : </A><A HREF="#elemental_geometric_shape_arm.cartesian_point">Cartesian_point</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.cartesian_transformation_2d.wr:wr1">WR1: SIZEOF(multiplication_matrix[1]\Direction.coordinates)=2;</A><br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.cartesian_transformation_2d.wr:wr2">WR2: SIZEOF(multiplication_matrix[2]\Direction.coordinates)=2;</A><br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.cartesian_transformation_2d.wr:wr3">WR3: SIZEOF(translation.coordinates)=2;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="elemental_geometric_shape_arm.cartesian_transformation_3d">ENTITY <b>Cartesian_transformation_3d</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.cartesian_transformation_3d.multiplication_matrix">multiplication_matrix : </A>ARRAY[1:3] OF <A HREF="#elemental_geometric_shape_arm.direction">Direction</A>;<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.cartesian_transformation_3d.translation">translation : </A><A HREF="#elemental_geometric_shape_arm.cartesian_point">Cartesian_point</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.cartesian_transformation_3d.wr:wr1">WR1: SIZEOF(multiplication_matrix[1]\Direction.coordinates)=3;</A><br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.cartesian_transformation_3d.wr:wr2">WR2: SIZEOF(multiplication_matrix[2]\Direction.coordinates)=3;</A><br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.cartesian_transformation_3d.wr:wr3">WR3: SIZEOF(multiplication_matrix[3]\Direction.coordinates)=3;</A><br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.cartesian_transformation_3d.wr:wr4">WR4: SIZEOF(translation.coordinates)=3;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="elemental_geometric_shape_arm.detailed_geometric_model_element">ENTITY <b>Detailed_geometric_model_element</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#elemental_geometric_shape_arm.cartesian_point">Cartesian_point</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#elemental_geometric_shape_arm.direction">Direction</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#elemental_geometric_shape_arm.cartesian_transformation_2d">Cartesian_transformation_2d</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#elemental_geometric_shape_arm.cartesian_transformation_3d">Cartesian_transformation_3d</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_item">Representation_item</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="elemental_geometric_shape_arm.direction">ENTITY <b>Direction</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.direction.coordinates">coordinates : </A>LIST[2:3] OF <A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.length_measure">length_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="elemental_geometric_shape_arm.geometric_coordinate_space">ENTITY <b>Geometric_coordinate_space</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.numerical_representation_context">Numerical_representation_context</A>);<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.geometric_coordinate_space.dimension_count">dimension_count : </A>INTEGER;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.geometric_coordinate_space.wr:wr1">WR1: dimension_count &gt;0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="elemental_geometric_shape_arm.geometric_model">ENTITY <b>Geometric_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>);<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.geometric_model.version_id">version_id : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="elemental_geometric_shape_arm.geometric_model.model_extent">model_extent : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.length_measure">length_measure</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>.<A NAME="elemental_geometric_shape_arm.geometric_model.context_of_items">context_of_items : </A><A HREF="#elemental_geometric_shape_arm.geometric_coordinate_space">Geometric_coordinate_space</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>.<A NAME="elemental_geometric_shape_arm.geometric_model.items">items : </A>SET[1:?] OF <A HREF="#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Elemental_geometric_shape_arm<br></code></body>
+</HTML>

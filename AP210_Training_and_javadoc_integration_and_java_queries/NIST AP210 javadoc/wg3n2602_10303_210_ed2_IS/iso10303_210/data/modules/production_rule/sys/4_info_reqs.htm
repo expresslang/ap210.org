@@ -1,0 +1,1978 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Production rule">
+      <META name="DC.Dates" content="2009-05-04 10:06:18">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Production rule">
+      <META name="DC.Subject" content="module rule change adoption rejection modification request supersedence submission function conclusion definition expiration domain range parameter justification">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6539">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N4163">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-04 10:06:18">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.30">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.18">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.11">
+      <TITLE>ISO/TS 10303-1739:2009 Production rule</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Production rule</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1739:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.4 ARM function definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#rules">4.5 ARM rule definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Production rule</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Production_rule_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="production_rule_arm">
+            SCHEMA Production_rule_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/specification_document/sys/4_info_reqs.htm#specification_document_arm">Specification_document_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1747<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/software/sys/4_info_reqs.htm#software_arm">Software_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1746<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm">Date_time_assignment_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1014<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/activity/sys/4_info_reqs.htm#activity_arm">Activity_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1047<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm">Identification_assignment_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1021<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/product_identification/sys/4_info_reqs.htm#product_identification_arm">Product_identification_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1017<br><br></code></p>
+      <p><code>
+            REFERENCE FROM 
+            <A HREF="../../../../data/modules/specification_document/sys/4_info_reqs.htm#specification_document_arm">Specification_document_arm</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1747<br>&nbsp;&nbsp;(<A HREF="../../../../data/modules/specification_document/sys/4_info_reqs.htm#specification_document_arm.get_document_definition">get_document_definition</A>);
+            <br><br></code></p>
+      <p><code>
+            REFERENCE FROM 
+            <A HREF="../../../../data/modules/characterizable_object/sys/4_info_reqs.htm#characterizable_object_arm">Characterizable_object_arm</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1765<br>&nbsp;&nbsp;(<A HREF="../../../../data/modules/characterizable_object/sys/4_info_reqs.htm#characterizable_object_arm.bag_to_set">bag_to_set</A>);
+            <br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Specification_document_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1747</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Software_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1746</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Date_time_assignment_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1014</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Activity_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1047</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Identification_assignment_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1021</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Product_identification_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1017</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Specification_document_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1747</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Characterizable_object_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1765</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>, <a href="../armexpg2.htm">C.2</a>, <a href="../armexpg3.htm">C.3</a>and <a href="../armexpg4.htm">C.4</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="production_rule_arm.built_in_functions">4.2.1 built_in_functions</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	The <b>built_in_functions</b> is an extensible enumeration of functions. It provides a means to associate a list of available functions to a function symbol.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            built_in_functions =
+            
+            EXTENSIBLE
+            
+            ENUMERATION
+            
+            OF
+            <br>
+            &nbsp;&nbsp; 
+            (attr_val);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <p><u>Enumerated item definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.built_in_functions.attr_val">attr_val:
+               </a></b>
+         the available functions.	
+         
+      </p>
+      <h2><a name="production_rule_arm.clause_select">4.2.2 clause_select</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>clause_select</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#production_rule_arm.complex_clause">Complex_clause</A></b>
+         and
+         <b><A HREF="#production_rule_arm.simple_clause">Simple_clause</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            clause_select =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#production_rule_arm.complex_clause">Complex_clause</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.simple_clause">Simple_clause</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="production_rule_arm.constants">4.2.3 constants</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>constants</b> type is an
+         extensible list of alternate data types
+         that allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.any_number_value">any_number_value</A></b>, <b><A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.any_string_value">any_string_value</A></b>
+         
+         and
+         
+         <b><A HREF="../../../../data/modules/basic_data_representation/sys/4_info_reqs.htm#basic_data_representation_arm.logical_representation_item">Logical_representation_item</A></b>.
+         
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;
+            The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.                 
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            constants =
+            
+            EXTENSIBLE
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.any_number_value">any_number_value</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.any_string_value">any_string_value</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/basic_data_representation/sys/4_info_reqs.htm#basic_data_representation_arm.logical_representation_item">Logical_representation_item</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="production_rule_arm.expression_syntax">4.2.4 expression_syntax</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	The <b>expression_syntax</b> is the data type that provides the available syntax to be used to develop expressions. 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            expression_syntax =
+            
+            EXTENSIBLE
+            
+            ENUMERATION
+            
+            OF
+            <br>
+            &nbsp;&nbsp; 
+            (express);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <p><u>Enumerated item definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.expression_syntax.express">express:
+               </a></b>
+         a source of the syntax. This data type indicates that EXPRESS syntax is used to develop expressions.	
+         
+      </p>
+      <h2><a name="production_rule_arm.function_symbol">4.2.5 function_symbol</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>function_symbol</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.any_string_value">any_string_value</A></b>
+         and
+         <b><A HREF="#production_rule_arm.built_in_functions">built_in_functions</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            function_symbol =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.any_string_value">any_string_value</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.built_in_functions">built_in_functions</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="production_rule_arm.pr_documented_element_select">4.2.6 pr_documented_element_select</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>pr_documented_element_select</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/document_assignment/sys/4_info_reqs.htm#document_assignment_arm.documented_element_select">documented_element_select</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#production_rule_arm.rule_set">Rule_set</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            pr_documented_element_select =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/document_assignment/sys/4_info_reqs.htm#document_assignment_arm.documented_element_select">documented_element_select</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#production_rule_arm.rule_set">Rule_set</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="production_rule_arm.pr_identification_item">4.2.7 pr_identification_item</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>pr_identification_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_item">identification_item</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#production_rule_arm.rule_set">Rule_set</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            pr_identification_item =
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_item">identification_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#production_rule_arm.rule_set">Rule_set</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="production_rule_arm.pr_organization_or_person_in_organization_item">4.2.8 pr_organization_or_person_in_organization_item</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>pr_organization_or_person_in_organization_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_item">organization_or_person_in_organization_item</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#production_rule_arm.rule_action">Rule_action</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            pr_organization_or_person_in_organization_item =
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_item">organization_or_person_in_organization_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="production_rule_arm.predicate_symbol">4.2.9 predicate_symbol</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      A <b>predicate_symbol</b> is a text string signifying the characters used to connect or show relationships between parts of an expression. 
+      
+      
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            The plus sign "+" is often used to represent concatenation in expressions.</small></p>	
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            predicate_symbol =
+            STRING;<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="production_rule_arm.scope_select">4.2.10 scope_select</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>scope_select</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#production_rule_arm.rule_definition">Rule_definition</A></b>, <b><A HREF="#production_rule_arm.rule_set">Rule_set</A></b>
+         
+         and
+         
+         <b><A HREF="#production_rule_arm.rule_set_group">Rule_set_group</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            scope_select =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#production_rule_arm.rule_definition">Rule_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_set">Rule_set</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_set_group">Rule_set_group</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="production_rule_arm.term_select">4.2.11 term_select</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>term_select</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#production_rule_arm.constants">constants</A></b>, <b><A HREF="#production_rule_arm.func">Func</A></b>, <b><A HREF="#production_rule_arm.row_value">Row_value</A></b>, <b><A HREF="#production_rule_arm.row_variable">Row_variable</A></b>, <b><A HREF="#production_rule_arm.scalar_variable">Scalar_variable</A></b>
+         
+         and
+         
+         <b><A HREF="#production_rule_arm.symbol">Symbol</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            term_select =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#production_rule_arm.constants">constants</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.func">Func</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.row_value">Row_value</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.row_variable">Row_variable</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.scalar_variable">Scalar_variable</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.symbol">Symbol</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="production_rule_arm.abstract_variable">4.3.1 Abstract_variable</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityabstract_variable"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	An <b>Abstract_variable</b> is the specification of a variable with an identifier and scope.
+      An <b>Abstract_variable</b> 	is one of a
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.scalar_variable"><b>Scalar_variable</b></a>
+      	or a
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.row_variable"><b>Row_variable</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Abstract_variable<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#production_rule_arm.scalar_variable">Scalar_variable</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.row_variable">Row_variable</A>));<br>
+            
+            
+            
+            &nbsp;&nbsp;name : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;scope : <A HREF="#production_rule_arm.scope_select">scope_select</A>;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: name, scope;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.abstract_variable.name">name:
+               </a></b>
+         	the words by which the <b>Abstract_variable</b> is known.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.abstract_variable.scope">scope:
+               </a></b>
+         	specifies the
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.scope_select"><b>scope_select</b></a>
+         	for the <b>Abstract_variable</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.abstract_variable.ur:ur1">UR1:
+               </a></b>
+         	The combination of <b>name</b> and <b>scope</b> shall be unique within a population of an <b>Abstract_variables</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.atomic_formula">4.3.2 Atomic_formula</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityatomic_formula"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	An <b>Atomic_formula</b> 
+      	is one of a
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_condition"><b>Rule_condition</b></a>
+      	or a
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.ground_fact"><b>Ground_fact</b></a>.
+      	It is an abstraction that binds a symbol to a list  of items.
+          Properties of the item membership are specialized in <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_condition"><b>Rule_condition</b></a> or <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.ground_fact"><b>Ground_fact</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Atomic_formula<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#production_rule_arm.rule_condition">Rule_condition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.ground_fact">Ground_fact</A>));<br>
+            
+            
+            
+            &nbsp;&nbsp;predicate_symbol : <A HREF="#production_rule_arm.predicate_symbol">predicate_symbol</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;terms : LIST[0:?] OF <A HREF="#production_rule_arm.term_select">term_select</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.atomic_formula.predicate_symbol">predicate_symbol:
+               </a></b>
+         	specifies the
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.predicate_symbol"><b>predicate_symbol</b></a>
+         	for the <b>Atomic_formula</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.atomic_formula.terms">terms:
+               </a></b>
+         	specifies a list of the
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.term_select"><b>term_select</b></a>
+         	for the <b>Atomic_formula</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.attribute_assertion">4.3.3 Attribute_assertion</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityattribute_assertion"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	An <b>Attribute_assertion</b> is a type of
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.fact_type"><b>Fact_type</b></a>.
+      		In this case, the factual data relates to an attribute, not an entity.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Attribute_assertion<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.fact_type">Fact_type</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;entity_type : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;attribute : STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.attribute_assertion.entity_type">entity_type:
+               </a></b>
+         	specifies the text that describes the <b>Attribute_assertion</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.attribute_assertion.attribute">attribute:
+               </a></b>
+         	specifies the text that describes the <b>Attribute_assertion</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.back_chaining_rule">4.3.4 Back_chaining_rule</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityback_chaining_rule"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Back_chaining_rule</b> is a type of
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_definition"><b>Rule_definition</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Back_chaining_rule<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_definition">Rule_definition</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;head : <A HREF="#production_rule_arm.rule_condition">Rule_condition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;body : LIST[0:?] OF <A HREF="#production_rule_arm.rule_condition">Rule_condition</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF.head.positive = TRUE;<br> 
+            &nbsp;&nbsp;WR2: local_vars_of(SELF.head) &lt;= local_vars_of(SELF.body);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.back_chaining_rule.head">head:
+               </a></b>
+         	specifies the
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_condition"><b>Rule_condition</b></a>
+         	for the <b>Back_chaining_rule</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.back_chaining_rule.body">body:
+               </a></b>
+         	specifies a list of the
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_condition"><b>Rule_condition</b></a>
+         	for the <b>Back_chaining_rule</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.back_chaining_rule.wr:wr1">WR1:
+               </a></b>
+         The <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_condition.positive"><b>positive</b></a>
+         of <b>head</b> shall be set to TRUE.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.back_chaining_rule.wr:wr2">WR2:
+               </a></b>
+         The set of variable of <b>head</b> shall be a subset of set of variable of <b>body</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.complex_clause">4.3.5 Complex_clause</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycomplex_clause"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Complex_clause</b> is one of a
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.complex_conjunctive_clause"><b>Complex_conjunctive_clause</b></a>
+      	or a
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.complex_disjunctive_clause"><b>Complex_disjunctive_clause</b></a>.
+      	A <b>Complex_clause</b> consists of two or more simple clauses that are combined using the same operator for
+      	all elements.  The operator is defined in the subtype.  
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Complex_clause<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#production_rule_arm.complex_conjunctive_clause">Complex_conjunctive_clause</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.complex_disjunctive_clause">Complex_disjunctive_clause</A>));<br>
+            
+            
+            
+            &nbsp;&nbsp;clauses : LIST[2:?] OF <A HREF="#production_rule_arm.clause_select">clause_select</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.complex_clause.clauses">clauses:
+               </a></b>
+         	specifies a list of the
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.clause_select"><b>clause_select</b></a>
+         	for the <b>Complex_clause</b>. There shall exist two or more
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.clause_select"><b>clause_select</b></a>
+         	for the <b>Complex_clause</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.complex_conjunctive_clause">4.3.6 Complex_conjunctive_clause</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycomplex_conjunctive_clause"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Complex_conjunctive_clause</b> is a type of
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.complex_clause"><b>Complex_clause</b></a> where the 
+      	operator used to compose the clause is an AND operator.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Complex_conjunctive_clause<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.complex_clause">Complex_clause</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="production_rule_arm.complex_disjunctive_clause">4.3.7 Complex_disjunctive_clause</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycomplex_disjunctive_clause"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Complex_disjunctive_clause</b> is a type of
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.complex_clause"><b>Complex_clause</b></a> where the 
+      	operator used to compose the clause is an OR operator.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Complex_disjunctive_clause<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.complex_clause">Complex_clause</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="production_rule_arm.entity_assertion">4.3.8 Entity_assertion</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityentity_assertion"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	An <b>Entity_assertion</b> is a type of
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.fact_type"><b>Fact_type</b></a>. 
+      	In this case, the factual data relates to an entity, not an attribute.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Entity_assertion<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.fact_type">Fact_type</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="production_rule_arm.enum_reference_prefix">4.3.9 Enum_reference_prefix</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityenum_reference_prefix"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	An <b>Enum_reference_prefix</b> is the text that can be prepended to an enumeration to provide additional information about the enumeration.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Enum_reference_prefix;<br>
+            
+            
+            
+            &nbsp;&nbsp;prefix : STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.enum_reference_prefix.prefix">prefix:
+               </a></b>
+         	specifies the text that describes the <b>Enum_reference_prefix</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.extent">4.3.10 Extent</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityextent"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	An <b>Extent</b> is a means to provide information about the 
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.fact_type"><b>Fact_type</b></a> 
+      	by providing the <b>query_expression</b> and optional <b>syntax</b> information used to extract the 
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.fact_type"><b>Fact_type</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Extent;<br>
+            
+            
+            
+            &nbsp;&nbsp;variable_id : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;source : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;query_expression : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;syntax : 
+            OPTIONAL 
+            <A HREF="#production_rule_arm.expression_syntax">expression_syntax</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.extent.variable_id">variable_id:
+               </a></b>
+         	specifies the text that describes the variable identifier of the <b>Extent</b>.
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.extent.source">source:
+               </a></b>
+         	specifies the text that describes the origin of the <b>Extent</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.extent.query_expression">query_expression:
+               </a></b>
+         	specifies the text that describes the expression used to extract the <b>Extent</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.extent.syntax">syntax:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.expression_syntax"><b>expression_syntax</b></a>
+         	for the <b>Extent</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <h2><a name="production_rule_arm.fact_type">4.3.11 Fact_type</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityfact_type"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Fact_type</b> is one of an
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.entity_assertion"><b>Entity_assertion</b></a>
+      	or an 
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.attribute_assertion"><b>Attribute_assertion</b></a>.	
+      	A <b>Fact_type</b> represents the form of an <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.atomic_formula"><b>Atomic_formula</b></a>, including indication of its predicate symbol and its arity.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Fact_type<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#production_rule_arm.entity_assertion">Entity_assertion</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.attribute_assertion">Attribute_assertion</A>));<br>
+            
+            
+            
+            &nbsp;&nbsp;source : <A HREF="#production_rule_arm.extent">Extent</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;predicate_symbol : STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.fact_type.source">source:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.extent"><b>Extent</b></a>
+         	for the <b>Fact_type</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.fact_type.predicate_symbol">predicate_symbol:
+               </a></b>
+         	specifies the text that describes the <b>Fact_type</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.forward_chaining_rule">4.3.12 Forward_chaining_rule</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityforward_chaining_rule"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Forward_chaining_rule</b> is a type of
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_definition"><b>Rule_definition</b></a>.	
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Forward_chaining_rule<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_definition">Rule_definition</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;premise : <A HREF="#production_rule_arm.clause_select">clause_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;conclusion : <A HREF="#production_rule_arm.literal_conjunction">Literal_conjunction</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: local_vars_of(SELF.conclusion) &lt;= local_vars_of(SELF.premise);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.forward_chaining_rule.premise">premise:
+               </a></b>
+         	specifies the
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.clause_select"><b>clause_select</b></a>
+         	for the <b>Forward_chaining_rule</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.forward_chaining_rule.conclusion">conclusion:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.literal_conjunction"><b>Literal_conjunction</b></a>
+         	for the <b>Forward_chaining_rule</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.forward_chaining_rule.wr:wr1">WR1:
+               </a></b>
+         The set of variable of <b>conclusion</b> shall be a subset of set of variable of <b>premise</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.func">4.3.13 Func</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityfunc"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Func</b> is an association of a symbol to a list of terms. It is used to represent the notion of function in the production rule system.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Func;<br>
+            
+            
+            
+            &nbsp;&nbsp;func_sym : <A HREF="#production_rule_arm.function_symbol">function_symbol</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;terms : LIST[0:?] OF <A HREF="#production_rule_arm.term_select">term_select</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.func.func_sym">func_sym:
+               </a></b>
+         	specifies the
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.function_symbol"><b>function_symbol</b></a>
+         	for the <b>Func</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.func.terms">terms:
+               </a></b>
+         	specifies a list of the
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.term_select"><b>term_select</b></a>
+         	for the <b>Func</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.global_assignment">4.3.14 Global_assignment</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityglobal_assignment"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Global_assignment</b> is a statement in the production rules that assigns a value to a variable.  
+      
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            The variable being assigned to may be used in rules (provided that the variable is in the scope of the rule). 
+            In such rules, the value bound to the variable is the value provided by the <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.global_assignment"><b>Global_assignment</b></a>.
+            </small></p>
+      
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Global_assignment;<br>
+            
+            
+            
+            &nbsp;&nbsp;variable : <A HREF="#production_rule_arm.abstract_variable">Abstract_variable</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;val : <A HREF="#production_rule_arm.term_select">term_select</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: NOT(contains_variable(SELF.val));<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.global_assignment.variable">variable:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.abstract_variable"><b>Abstract_variable</b></a>
+         	for the <b>Global_assignment</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.global_assignment.val">val:
+               </a></b>
+         	specifies the
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.term_select"><b>term_select</b></a>
+         	for the <b>Global_assignment</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.global_assignment.wr:wr1">WR1:
+               </a></b>
+         The <b>val</b> shall not contain a variable.
+         
+      </p>
+      <h2><a name="production_rule_arm.ground_fact">4.3.15 Ground_fact</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityground_fact"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	
+      <p>A <b>Ground_fact</b> is a type of
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.atomic_formula"><b>Atomic_formula</b></a>.
+         	A <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.ground_fact"><b>Ground_fact</b></a> is an <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.atomic_formula"><b>Atomic_formula</b></a> that does not contain variables. 
+         	A <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.ground_fact"><b>Ground_fact</b></a> can be used to represent a true statement about the domain. 
+         	The statement that it represents does not contain logical connectives.
+         		
+      </p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		Logical connectives may include: and, or, not, implication, bi-conditional.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Ground_fact<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.atomic_formula">Atomic_formula</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(QUERY(r &lt;* SELF\Atomic_formula.terms | contains_variable(r))) = 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.ground_fact.wr:wr1">WR1:
+               </a></b>
+         The <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.atomic_formula.terms"><b>terms</b></a>
+         inherited from <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.atomic_formula"><b>Atomic_formula</b></a>
+         shall not contain variables.
+         
+      </p>
+      <h2><a name="production_rule_arm.literal_conjunction">4.3.16 Literal_conjunction</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityliteral_conjunction"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Literal_conjunction</b> is a type of
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.simple_clause"><b>Simple_clause</b></a>.
+      	The operator applied is the AND operator.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Literal_conjunction<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.simple_clause">Simple_clause</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="production_rule_arm.literal_disjunction">4.3.17 Literal_disjunction</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityliteral_disjunction"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Literal_disjunction</b> is a type of
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.simple_clause"><b>Simple_clause</b></a>.
+      	The operator applied is the OR operator.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Literal_disjunction<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.simple_clause">Simple_clause</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="production_rule_arm.row_value">4.3.18 Row_value</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrow_value"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Row_value</b> is a data type containing a sequenced arrangement of data values.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Row_value;<br>
+            
+            
+            
+            &nbsp;&nbsp;values : LIST[0:?] OF <A HREF="#production_rule_arm.term_select">term_select</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(QUERY(v &lt;* SELF.values | contains_variable(v))) = 0;<br> 
+            &nbsp;&nbsp;WR2: SIZEOF(QUERY(v &lt;* SELF.values | 'PRODUCTION_RULE_ARM.ROW_VALUE' IN TYPEOF(v))) = 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.row_value.values">values:
+               </a></b>
+         	specifies a list of the
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.term_select"><b>term_select</b></a>
+         	for the <b>Row_value</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.row_value.wr:wr1">WR1:
+               </a></b>
+         No member of <b>values</b> shall contain variable.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.row_value.wr:wr2">WR2:
+               </a></b>
+         No member if <b>values</b> shall be of type <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.row_value"><b>Row_value</b></a>.
+         
+      </p>
+      <h2><a name="production_rule_arm.row_variable">4.3.19 Row_variable</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrow_variable"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Row_variable</b> is a type of
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.abstract_variable"><b>Abstract_variable</b></a> with a size that may be more than one.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Row_variable<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.abstract_variable">Abstract_variable</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="production_rule_arm.rule_action">4.3.20 Rule_action</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_action"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Rule_action</b> is one of a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_adoption"><b>Rule_adoption</b></a>, a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_change_request"><b>Rule_change_request</b></a>, a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_creation"><b>Rule_creation</b></a>, a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_expiration"><b>Rule_expiration</b></a>, a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_modification"><b>Rule_modification</b></a>, a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_rejection"><b>Rule_rejection</b></a>, a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_request"><b>Rule_request</b></a>, a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_submission"><b>Rule_submission</b></a>, or a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_supersedence"><b>Rule_supersedence</b></a>. A <b>Rule_action</b> is an assertion that some action has 
+      occurred toward management of rules.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_action<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#production_rule_arm.rule_submission">Rule_submission</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_adoption">Rule_adoption</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_rejection">Rule_rejection</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_supersedence">Rule_supersedence</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_creation">Rule_creation</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_expiration">Rule_expiration</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_change_request">Rule_change_request</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_request">Rule_request</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_modification">Rule_modification</A>));<br>
+            
+            
+            
+            &nbsp;&nbsp;subject_rule : <A HREF="#production_rule_arm.rule_version">Rule_version</A>;<br>DERIVE<br>
+            &nbsp;&nbsp;subject_action_assignment : SET[0:?] OF <A HREF="../../../../data/modules/person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment">Organization_or_person_in_organization_assignment</A> := bag_to_set(QUERY(temp &lt;* USEDIN ( SELF , 'PERSON_ORGANIZATION_ASSIGNMENT_ARM.' + 
+            'ORGANIZATION_OR_PERSON_IN_ORGANIZATION_ASSIGNMENT.ITEMS' ) 
+            | ( temp.role = 'subject action assignment')));<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: subject_rule, subject_action_assignment;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: EXISTS (subject_action_assignment) AND (SIZEOF(subject_action_assignment) = 1 );<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_action.subject_rule">subject_rule:
+               </a></b>
+         specifies the <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_version"><b>Rule_version</b></a> as the 
+         version of a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_product"><b>Rule_product</b></a>
+         for which some management <b>Rule_action</b> has occurred.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_action.subject_action_assignment">subject_action_assignment:
+               </a></b>
+         specifies a role of the <a href="../../../modules/person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment"><b>Organization_or_person_in_organization_assignment</b></a> for the <b>Rule_action</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_action.ur:ur1">UR1:
+               </a></b>
+         The combination of <b>subject_action_assignment</b> and <b>subject_rule</b> shall be unique within a population 
+         of <b>Rule_actions</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_action.wr:wr1">WR1:
+               </a></b>
+         The <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_action.subject_action_assignment"><b>subject_action_assignment</b></a> shall exist and it's size shall be one.
+         
+      </p>
+      <h2><a name="production_rule_arm.rule_adoption">4.3.21 Rule_adoption</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_adoption"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Rule_adoption</b> is a type of <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_action"><b>Rule_action</b></a> that states a version 
+      of a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_product"><b>Rule_product</b></a> has been adopted.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_adoption<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="production_rule_arm.rule_change_request">4.3.22 Rule_change_request</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_change_request"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Rule_change_request</b> is a type of <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_action"><b>Rule_action</b></a> that states a 
+      request has been made for modification to a version of a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_product"><b>Rule_product</b></a>. 
+      The change reason shall be provided as a part of the <b>Rule_change_request</b>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_change_request<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;change_reason : STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_change_request.change_reason">change_reason:
+               </a></b>
+         specifies the human-interpretable reason for requesting a <b>Rule_change_request</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.rule_condition">4.3.23 Rule_condition</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_condition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Rule_condition</b> is a type of
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.atomic_formula"><b>Atomic_formula</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_condition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.atomic_formula">Atomic_formula</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;positive : BOOLEAN;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_condition.positive">positive:
+               </a></b>
+         	specifies a logical value.
+         
+      </p>
+      <h2><a name="production_rule_arm.rule_creation">4.3.24 Rule_creation</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_creation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Rule_creation</b> is a type of <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_action"><b>Rule_action</b></a> that states that a 
+      version of a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_product"><b>Rule_product</b></a> has been created.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_creation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="production_rule_arm.rule_definition">4.3.25 Rule_definition</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Rule_definition</b> is a type of 
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_software_definition"><b>Rule_software_definition</b></a>. 
+      	A <b>Rule_definition</b> is for one version of a rule only.
+      	A <b>Rule_definition</b> is one of a 
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.forward_chaining_rule"><b>Forward_chaining_rule</b></a>
+      	or a
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.back_chaining_rule"><b>Back_chaining_rule</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_definition<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#production_rule_arm.forward_chaining_rule">Forward_chaining_rule</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.back_chaining_rule">Back_chaining_rule</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_software_definition">Rule_software_definition</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="production_rule_arm.rule_expiration">4.3.26 Rule_expiration</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_expiration"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Rule_expiration</b> is a type of <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_action"><b>Rule_action</b></a> that states that a 
+      version of a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_product"><b>Rule_product</b></a> has expired.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_expiration<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;expiration_rationale : STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_expiration.expiration_rationale">expiration_rationale:
+               </a></b>
+         specifies the human-interpretable reason for the <b>Rule_expiration</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.rule_justification">4.3.27 Rule_justification</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_justification"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Rule_justification</b> is a type of <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_action"><b>Rule_action</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_justification<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;justified_action : <A HREF="#production_rule_arm.rule_action">Rule_action</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;justification_rationale : STRING;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF &lt;&gt; justified_action;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_justification.justified_action">justified_action:
+               </a></b>
+         specifies the <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_action"><b>Rule_action</b></a> that results from 
+         the <b>Rule_justification</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_justification.justification_rationale">justification_rationale:
+               </a></b>
+         specifies the text that describes the <b>Rule_justification</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_justification.wr:wr1">WR1:
+               </a></b>
+         The <b>justified_action</b> shall not be this <b>Rule_justification</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.rule_modification">4.3.28 Rule_modification</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_modification"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Rule_modification</b> is a type of <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_action"><b>Rule_action</b></a> that states a 
+      version of a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_product"><b>Rule_product</b></a> is a result of a request to change an existing 
+      version of an  <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_product"><b>Rule_product</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_modification<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;modification_rationale : <A HREF="#production_rule_arm.rule_change_request">Rule_change_request</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_modification.modification_rationale">modification_rationale:
+               </a></b>
+         specifies a role of the <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_change_request"><b>Rule_change_request</b></a> for the <b>Rule_modification</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.rule_priority">4.3.29 Rule_priority</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_priority"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+       A <b>Rule_priority</b> is a statement that an <a href="../../../modules/product_identification/sys/4_info_reqs.htm#product_identification_arm.product"><b>Product</b></a> that is in the rule category has a <b>priority</b> value.  This value is used to order rules.  The <b>priority</b> is applied to the rule through the  <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_definition"><b>Rule_definition</b></a>.  It is not the  <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_definition"><b>Rule_definition</b></a> that has the <b>priority</b>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_priority;<br>
+            
+            
+            
+            &nbsp;&nbsp;priority : INTEGER;<br>
+            
+            
+            
+            &nbsp;&nbsp;prioritized_rule : <A HREF="#production_rule_arm.rule_definition">Rule_definition</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: priority &gt;= 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_priority.priority">priority:
+               </a></b>
+         specifies the integer for the <b>priority</b> number of the <b>Rule_priority</b>. 
+         The lowest numeric value shall have the highest <b>priority</b>. 
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_priority.prioritized_rule">prioritized_rule:
+               </a></b>
+         specifies a role of the <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_definition"><b>Rule_definition</b></a> for the <b>Rule_priority</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_priority.wr:wr1">WR1:
+               </a></b>
+         A number less than zero shall not be allowed. 
+         
+      </p>
+      <h2><a name="production_rule_arm.rule_product">4.3.30 Rule_product</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_product"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Rule_product</b> is a type of <a href="../../../modules/software/sys/4_info_reqs.htm#software_arm.software"><b>Software</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_product<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/software/sys/4_info_reqs.htm#software_arm.software">Software</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="production_rule_arm.rule_rejection">4.3.31 Rule_rejection</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_rejection"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Rule_rejection</b> is a type of <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_action"><b>Rule_action</b></a> that states a version 
+      of a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_product"><b>Rule_product</b></a> has been rejected. The rejection rationale shall be 
+      part of the <b>Rule_rejection</b>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_rejection<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;rejection_reason : STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_rejection.rejection_reason">rejection_reason:
+               </a></b>
+         specifies the human-interpretable explanation for the <b>Rule_rejection</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.rule_request">4.3.32 Rule_request</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_request"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Rule_request</b> is a type of <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_action"><b>Rule_action</b></a> that states a version of 
+      a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_product"><b>Rule_product</b></a> has been requested. The rationale for the version shall 
+      be part of the <b>Rule_request</b>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_request<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="production_rule_arm.rule_set">4.3.33 Rule_set</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_set"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Rule_set</b> is a type of 
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_software_definition"><b>Rule_software_definition</b></a>. 
+         	A <b>Rule_set</b> is an association among 
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_priority"><b>Rule_priority</b></a>.
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The <b>purpose</b> for a <b>Rule_set</b> is renamed from the 
+            		<a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition.initial_context"><b>initial_context</b></a> 
+            		attribute inherited from  
+            		<a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>Product_view_definition</b></a>.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_set<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_software_definition">Rule_software_definition</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;conflict_resolution_strategy : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;rule_member : SET[1:?] OF <A HREF="#production_rule_arm.rule_priority">Rule_priority</A>;<br>DERIVE<br>
+            &nbsp;&nbsp;engine : SET[1:1] OF <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.document_definition">Document_definition</A> := get_document_definition(SELF, 'engine', 
+            		'SPECIFICATION_DOCUMENT_ARM.LANGUAGE_REFERENCE_MANUAL');<br>INVERSE<br>
+            &nbsp;&nbsp;purpose : <A HREF="../../../../data/modules/identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment">Identification_assignment</A> FOR items;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: purpose.role = 'purpose';<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_set.conflict_resolution_strategy">conflict_resolution_strategy:
+               </a></b>
+         	specifies the text that describes a conflict resolution strategy for the <b>Rule_set</b>.
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_set.rule_member">rule_member:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_priority"><b>Rule_priority</b></a> 
+         	for the <b>Rule_set</b>. There shall be one or more  
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_priority"><b>Rule_priority</b></a> 
+         	for the <b>Rule_set</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_set.engine">engine:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/specification_document/sys/4_info_reqs.htm#specification_document_arm.language_reference_manual"><b>Language_reference_manual</b></a>
+         	for the <b>Rule_set</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_set.purpose">purpose:
+               </a></b>
+         	an inverse relationship that specifies that the existence of the <b>Rule_set</b> is dependent on the existence of the 
+         	<a href="../../../modules/identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment"><b>Identification_assignment</b></a> 
+         	that specifies the <b>Rule_set</b> as its 
+         	<a href="../../../modules/identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment.items"><b>items</b></a>. 
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_set.wr:wr1">WR1:
+               </a></b>
+         	The 
+         	<a href="../../../modules/name_assignment/sys/4_info_reqs.htm#name_assignment_arm.name_assignment.role"><b>role</b></a> 
+         	of the <b>purpose</b>
+         	shall be 'purpose'.
+         
+      </p>
+      <h2><a name="production_rule_arm.rule_set_group">4.3.34 Rule_set_group</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_set_group"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Rule_set_group</b> is a type of <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_software_definition"><b>Rule_software_definition</b></a>. A <b>Rule_set_group</b> shall have at least two <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_set"><b>Rule_sets</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_set_group<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_software_definition">Rule_software_definition</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;elements : SET[2:?] OF <A HREF="#production_rule_arm.rule_set">Rule_set</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_set_group.elements">elements:
+               </a></b>
+         specifies the <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_set"><b>Rule_set</b></a> for the <b>Rule_set_group</b>. There may be more than two  <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_set"><b>Rule_set</b></a> for the <b>Rule_set_group</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.rule_software_definition">4.3.35 Rule_software_definition</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_software_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Rule_software_definition</b> is a type of 
+      	<a href="../../../modules/software/sys/4_info_reqs.htm#software_arm.software_definition"><b>Software_definition</b></a> 
+      	that encodes instructions for a rule.
+      	A <b>Rule_software_definition</b> may be one of a
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_definition"><b>Rule_definition</b></a>, 
+      	a
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_set_group"><b>Rule_set_group</b></a>
+      	or a
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_set"><b>Rule_set</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_software_definition<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#production_rule_arm.rule_definition">Rule_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_set_group">Rule_set_group</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_set">Rule_set</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/software/sys/4_info_reqs.htm#software_arm.software_definition">Software_definition</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>.defined_version : <A HREF="#production_rule_arm.rule_version">Rule_version</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_software_definition.defined_version">defined_version:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>Product_view_definition</b></a>
+         	shall be redeclared as the 
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_version"><b>Rule_version</b></a> 
+         	for the <b>Rule_software_definition</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.rule_submission">4.3.36 Rule_submission</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_submission"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Rule_submission</b> is a type of <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_action"><b>Rule_action</b></a> stating that a 
+      version of a <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_product"><b>Rule_product</b></a> has been submitted.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_submission<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;submission_rationale : STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_submission.submission_rationale">submission_rationale:
+               </a></b>
+         specifies the text that 
+         describes the rationale for the <b>Rule_submission</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.rule_supersedence">4.3.37 Rule_supersedence</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_supersedence"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Rule_supersedence</b> is a type of <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_action"><b>Rule_action</b></a> stating that one <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_version"><b>Rule_version</b></a> has 
+      been superseded by another 
+       <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_version"><b>Rule_version</b></a>. Both shall be versions of the same <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_product"><b>Rule_product</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_supersedence<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;superseded_rule : <A HREF="#production_rule_arm.rule_version">Rule_version</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_supersedence.superseded_rule">superseded_rule:
+               </a></b>
+         specifies the <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_version"><b>Rule_version</b></a> that 
+         has been superseded for the <b>Rule_supersedence</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.rule_version">4.3.38 Rule_version</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrule_version"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Rule_version</b> is a type of 
+      	<a href="../../../modules/software/sys/4_info_reqs.htm#software_arm.software_version"><b>Software_version</b></a>. 
+      	A <b>Rule_version</b> is the management of the assignment of 
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_definition"><b>Rule_definition</b></a> 
+      	to 
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_product"><b>Rule_product</b></a>. 
+      	A  
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_product"><b>Rule_product</b></a> 
+      	may evolve with usage for any number of reasons.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Rule_version<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/software/sys/4_info_reqs.htm#software_arm.software_version">Software_version</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_version/sys/4_info_reqs.htm#product_version_arm.product_version">Product_version</A>.of_product : <A HREF="#production_rule_arm.rule_product">Rule_product</A>;<br>INVERSE<br>
+            &nbsp;&nbsp;management_action : SET[1:?] OF <A HREF="#production_rule_arm.rule_action">Rule_action</A> FOR subject_rule;<br>
+            &nbsp;&nbsp;product_definition : SET[1:?] OF <A HREF="#production_rule_arm.rule_software_definition">Rule_software_definition</A> FOR defined_version;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_version.of_product">of_product:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../modules/product_version/sys/4_info_reqs.htm#product_version_arm.product_version"><b>Product_version</b></a>
+         	shall be redeclared as the 
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_product"><b>Rule_product</b></a> 
+         	for the <b>Rule_version</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_version.management_action">management_action:
+               </a></b>
+         	an inverse relationship that specifies that the existence of the <b>Rule_version</b> 
+         	is dependent on the existence of the  
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_action"><b>Rule_action</b></a> 
+         	that specifies the <b>Rule_version</b> as its 
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_action.subject_rule"><b>subject_rule</b></a>. 
+         	There shall be one or more  
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_action"><b>Rule_actions</b></a> 
+         	for a <b>Rule_version</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_version.product_definition">product_definition:
+               </a></b>
+         	an inverse relationship that specifies that the existence of the <b>Rule_version</b> 
+         	is dependent on the existence of the  
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_software_definition"><b>Rule_software_definition</b></a>
+         	that specifies the <b>Rule_version</b> as its 
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_software_definition.defined_version"><b>defined_version</b></a>.
+         	There shall be one or more  
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_software_definition"><b>Rule_software_definitions</b></a> 
+         	for a <b>Rule_version</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.scalar_variable">4.3.39 Scalar_variable</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityscalar_variable"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Scalar_variable</b> is a type of
+      	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.abstract_variable"><b>Abstract_variable</b></a> with a size of one.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Scalar_variable<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.abstract_variable">Abstract_variable</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="production_rule_arm.simple_clause">4.3.40 Simple_clause</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitysimple_clause"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	
+      <p>A <b>Simple_clause</b> is one of a 
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.literal_conjunction"><b>Literal_conjunction</b></a>
+         	or a
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.literal_disjunction"><b>Literal_disjunction</b></a>.
+         	A <b>Simple_clause</b> is the result of applying the same operator to all the formulas.
+         	It is a syntactic construct used in the construction of rules, 
+         	and may correspond to a structure used in the inference mechanism.
+         	
+      </p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		A clause in clausal logic may be represented by a <b>Simple_clause</b>.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Simple_clause<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#production_rule_arm.literal_conjunction">Literal_conjunction</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.literal_disjunction">Literal_disjunction</A>));<br>
+            
+            
+            
+            &nbsp;&nbsp;formulas : LIST[1:?] OF <A HREF="#production_rule_arm.rule_condition">Rule_condition</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.simple_clause.formulas">formulas:
+               </a></b>
+         	specifies the role of the
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_condition"><b>Rule_condition</b></a>
+         	for the <b>Simple_clause</b>. There shall exist one or more
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_condition"><b>Rule_conditions</b></a>
+         	for the <b>Simple_clause</b>.
+         
+      </p>
+      <h2><a name="production_rule_arm.symbol">4.3.41 Symbol</a>
+         &nbsp;&nbsp;<a href="../../production_rule/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitysymbol"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Symbol</b> is a type of
+         	<a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation_item"><b>Representation_item</b></a>
+         	used by the rules system to name the things on which assertions are made.
+         
+      </p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		EXPRESS entity instances could be represented by symbols. 
+            		An entity instance encoded using the clear text encoding (ISO 10303-21)
+            		#34=POINT(1.0,2.0,1.0); 
+            		might be represented in the production system as a <b>Symbol</b> with name '#34'.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Symbol<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation_item">Representation_item</A>);<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: 
+            SELF\<A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation_item">Representation_item</A>.name;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.symbol.ur:ur1">UR1:
+               </a></b>
+         	The
+         	<a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation_item.name"><b>name</b></a>
+         	shall be unique within a population of <b>Symbols</b>.
+         
+      </p>
+      <h2><a name="functions">4.4 ARM function definitions</a></h2>
+      <p>
+         This subclause specifies the ARM functions for 
+         this module. The ARM functions and definitions are
+         specified below.
+         
+      </p>
+      <h2><A NAME="production_rule_arm.contains_variable">4.4.1 contains_variable</A></h2>
+      The <b>contains_variable</b> function checks if the specified 
+      <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.term_select"><b>term_select</b></a>
+      contains an <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.abstract_variable"><b>Abstract_variable</b></a>.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION contains_variable&nbsp;(x : <A HREF="#production_rule_arm.term_select">term_select</A>) :BOOLEAN;
+         </code><pre>IF ('PRODUCTION_RULE_ARM.ABSTRACT_VARIABLE' IN TYPEOF(x)) THEN RETURN (TRUE);
+      ELSE IF (('PRODUCTION_RULE_ARM.FUNC' IN TYPEOF(X)) AND
+              (SIZEOF(QUERY(y &lt;* x.terms | contains_variable(y))) &gt; 0)) 
+              THEN RETURN (TRUE);
+              ELSE RETURN (FALSE);
+           END_IF;
+  END_IF;</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.contains_variable.x">x:
+               </a></b>
+         	the specified 
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.term_select"><b>term_select</b></a>.
+         
+      </p>
+      <h2><A NAME="production_rule_arm.local_vars_aux">4.4.2 local_vars_aux</A></h2>
+      The <b>local_vars_aux</b> function retrieves the set of local variables
+      for specified entity instance.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION local_vars_aux&nbsp;(thing : GENERIC; accum : SET[0:?] OF <A HREF="#production_rule_arm.scalar_variable">Scalar_variable</A>) :SET[0:?] OF <A HREF="../../../../data/modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.scalar_variable">Scalar_variable</A>;
+         </code><pre>LOCAL i,j,k : INTEGER; END_LOCAL;
+  IF (('PRODUCTION_RULE_ARM.ABSTRACT_VARIABLE' IN TYPEOF(thing)) AND 
+      ('PRODUCTION_RULE_ARM.RULE_DEFINITION' IN (TYPEOF(thing.scope))))
+   THEN accum := accum + thing;
+   ELSE IF ('PRODUCTION_RULE_ARM.RULE_CONDITION' IN TYPEOF(thing))
+        THEN REPEAT i := 1 TO HIINDEX(thing\Atomic_formula.terms);
+                accum := local_vars_aux(thing\Atomic_formula.terms[i],accum);
+             END_REPEAT;
+        ELSE IF ('PRODUCTION_RULE_ARM.SIMPLE_CLAUSE' IN TYPEOF(thing))
+             THEN REPEAT j := 1 TO HIINDEX(thing.formulas);
+                        accum := local_vars_aux(thing.formulas[j],accum);
+                  END_REPEAT;
+             ELSE IF ('PRODUCTION_RULE_ARM.COMPLEX_CLAUSE' IN TYPEOF(thing))
+                  THEN REPEAT k := 1 TO HIINDEX(thing.clauses);
+                        accum := local_vars_aux(thing.clauses[k],accum);
+                       END_REPEAT;
+                  END_IF;
+             END_IF;
+        END_IF;
+  END_IF;
+  RETURN(accum);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.local_vars_aux.thing">thing:
+               </a></b>
+         specified entity instance.
+         
+      </p>
+      <p class="expressdescription"><b><a name="production_rule_arm.local_vars_aux.accum">accum:
+               </a></b>
+         	the specified set of 
+         	<a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.scalar_variable"><b>Scalar_variables</b></a>.
+         
+      </p>
+      <h2><A NAME="production_rule_arm.local_vars_of">4.4.3 local_vars_of</A></h2>
+      The <b>local_vars_of</b> function retrieves the set of local variables
+      for specified entity instance.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION local_vars_of&nbsp;(thing : GENERIC) :SET[0:?] OF <A HREF="../../../../data/modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.scalar_variable">Scalar_variable</A>;
+         </code><pre>LOCAL
+    accum : SET [0:?] OF Scalar_variable := [];
+  END_LOCAL;
+  RETURN (local_vars_aux(thing, accum));</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.local_vars_of.thing">thing:
+               </a></b>
+         specified entity instance.
+         
+      </p>
+      <h2><a name="rules">4.5 ARM rule definitions</a></h2>
+      <p>
+         This subclause specifies the ARM rules for 
+         this module. The ARM rules and definitions are
+         specified below.
+         
+      </p>
+      <h2><A NAME="production_rule_arm.max_one_entity_prefix">4.5.1 max_one_entity_prefix</A></h2>
+      The <b>max_one_entity_prefix</b> rule constrains the population of <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.enum_reference_prefix"><b>Enum_reference_prefix</b></a>
+      entity instances, so that there shall be no more than one instance of that type in whole population.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         RULE max_one_entity_prefix FOR
+         <br>
+         
+         (<A HREF="../../../../data/modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.enum_reference_prefix">Enum_reference_prefix</A>);<br></code><code>WHERE<br> 
+         &nbsp;&nbsp;WR1: SIZEOF(QUERY(x &lt;* Enum_reference_prefix | TRUE)) &lt;= 1;<br>
+         END_RULE;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b>Enum_reference_prefix : </b>
+         
+         the set of all instances of 
+         <A HREF="../../../../data/modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.enum_reference_prefix">Enum_reference_prefix</A>.
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.max_one_entity_prefix.wr:wr1">WR1:
+               </a></b>
+         There shall be no more than one instance of type <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.enum_reference_prefix"><b>Enum_reference_prefix</b></a>
+         in population of entity instances.
+         
+      </p>
+      <h2><A NAME="production_rule_arm.rule_software_definition_constraint">4.5.2 rule_software_definition_constraint</A></h2>
+      The rule <b>rule_software_definition_constraint</b> constrains the use of <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_version"><b>Rule_version</b></a>
+      as <a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition.defined_version"><b>defined_version</b></a>
+      to <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_software_definition"><b>Rule_software_definition</b></a> only.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         RULE rule_software_definition_constraint FOR
+         <br>
+         
+         (<A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br></code><code>WHERE<br> 
+         &nbsp;&nbsp;WR1: SIZEOF (QUERY ( pvd &lt;* Product_view_definition | ( NOT('PRODUCTION_RULE_ARM.' + 'RULE_SOFTWARE_DEFINITION' 
+         IN TYPEOF(pvd))) 
+         AND ('PRODUCTION_RULE_ARM.' + 'RULE_VERSION' IN TYPEOF (pvd . defined_version)))) = 0;<br>
+         END_RULE;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b>Product_view_definition : </b>
+         
+         the set of all instances of 
+         <A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>.
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_software_definition_constraint.wr:wr1">WR1:
+               </a></b>
+         There shall not be any instance of <a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>Product_view_definition</b></a>
+         that refers <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_version"><b>Rule_version</b></a> as
+         <a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition.defined_version"><b>defined_version</b></a>
+         and is not an instance of <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_software_definition"><b>Rule_software_definition</b></a>.
+         
+      </p>
+      <h2><A NAME="production_rule_arm.rule_version_constraint">4.5.3 rule_version_constraint</A></h2>
+      The rule <b>rule_version_constraint</b> constrains the use of <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_product"><b>Rule_product</b></a>
+      as <a href="../../../modules/product_version/sys/4_info_reqs.htm#product_version_arm.product_version.of_product"><b>of_product</b></a>
+      to <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_version"><b>Rule_version</b></a> only.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         RULE rule_version_constraint FOR
+         <br>
+         
+         (<A HREF="../../../../data/modules/product_version/sys/4_info_reqs.htm#product_version_arm.product_version">Product_version</A>);<br></code><code>WHERE<br> 
+         &nbsp;&nbsp;WR1: SIZEOF (QUERY(pv &lt;* Product_version | (NOT('PRODUCTION_RULE_ARM.' + 'RULE_VERSION' IN TYPEOF(pv))) 
+         AND ( 'PRODUCTION_RULE_ARM.' + 'RULE_PRODUCT' IN TYPEOF(pv.of_product)))) = 0;<br>
+         END_RULE;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b>Product_version : </b>
+         
+         the set of all instances of 
+         <A HREF="../../../../data/modules/product_version/sys/4_info_reqs.htm#product_version_arm.product_version">Product_version</A>.
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="production_rule_arm.rule_version_constraint.wr:wr1">WR1:
+               </a></b>
+         There shall not be any instance of <a href="../../../modules/product_version/sys/4_info_reqs.htm#product_version_arm.product_version"><b>Product_version</b></a>
+         that refers <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_product"><b>Rule_product</b></a> as
+         <a href="../../../modules/product_version/sys/4_info_reqs.htm#product_version_arm.product_version.of_product"><b>of_product</b></a>
+         and is not an instance of <a href="../../../modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.rule_version"><b>Rule_version</b></a>.
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Production_rule_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

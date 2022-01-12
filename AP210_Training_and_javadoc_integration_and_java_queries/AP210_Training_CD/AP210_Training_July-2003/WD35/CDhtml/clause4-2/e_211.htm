@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Data_element</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.211 Data_element</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Data_element is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Data_element may be an <A
+CLASS="INTERNALREF"
+HREF="e_23.htm"
+>Angle_data_element</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+>. A Data_element is a quantitative value that includes the measurement units associated with the value.  This part of ISO 10303 predefines base units from which user defined un
+its may be mapped.  ISO 10303-41 defines the mechanism for mapping between user defined units and predefined units.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>measure_value</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>unit_of_measure</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.211.1 measure_value</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The measure_value specifies the REAL type for the Data_element.  The interpretation of the measure_value shall be in accordance with the unit_of_measure.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.211.2 unit_of_measure</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The unit_of_measure specifies the descriptive label for the unit of measure for the associated 
+measure_value of the Data_element. The units may be SI, derived from SI, or context dependent, and may 
+have prefixes included whose syntax is defined in ISO 10303-41 and whose semantic is defined in ISO 31.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: This note will need to turn into normative text when the xx_prefix attribute is added!!!!!!!!!!!!!!!!!
+allowed values for prefix:
+  (exa,
+   peta,
+   tera,
+   giga,
+   mega,
+   kilo,
+   hecto,
+   deca,
+   deci,
+   centi,
+   milli,
+   micro,
+   nano,
+   pico,
+   femto,
+   atto);
+///////////////////////////////////////</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY data_element
+  SUPERTYPE OF (ONEOF (
+      absorbed_dose_data_element,
+      activity_data_element,
+      angle_data_element,
+      area_data_element,
+      capacitance_data_element,
+      celsius_temperature_data_element,
+      conductance_data_element,
+      dose_equivalent_data_element,
+      electric_charge_data_element,
+      electric_current_data_element,
+      electromotive_force_data_element,
+      energy_data_element,
+      event_data_element,
+      force_data_element,
+      frequency_data_element,
+      illuminance_data_element,
+      inductance_data_element,
+      length_data_element,
+      luminous_flux_data_element,
+      luminous_intensity_data_element,
+      magnetic_flux_data_element,
+      magnetic_flux_density_data_element,
+      mass_data_element,
+      power_data_element,
+      pressure_data_element,
+      ratio_data_element,
+      resistance_data_element,
+      scattering_parameter_data_element,
+      solid_angle_data_element,
+      thermodynamic_temperature_data_element,
+      time_data_element,
+      volume_data_element))
+SUBTYPE OF (managed_design_object);
+    measure_value   : REAL;
+    unit_of_measure : STRING;
+    unit_of_measure_prefix : OPTIONAL si_prefix;
+END_ENTITY; -- data_element
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

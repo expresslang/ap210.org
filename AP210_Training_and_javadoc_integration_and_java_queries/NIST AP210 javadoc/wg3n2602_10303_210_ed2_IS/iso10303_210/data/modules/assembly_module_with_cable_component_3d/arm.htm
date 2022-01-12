@@ -1,0 +1,33 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Assembly_module_with_cable_component_3d_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Assembly_module_with_cable_component_3d_arm</h2><code><br><br><a name="assembly_module_with_cable_component_3d_arm">SCHEMA <b>Assembly_module_with_cable_component_3d_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/assembly_module_with_cable_component/sys/e_exp_arm.htm#assembly_module_with_cable_component_arm">Assembly_module_with_cable_component_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1644<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/physical_unit_3d_design_view/sys/e_exp_arm.htm#physical_unit_3d_design_view_arm">Physical_unit_3d_design_view_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1725<br><br></code><code><br><A NAME="assembly_module_with_cable_component_3d_arm.routed_cable_component_3d_shape_model">ENTITY <b>Routed_cable_component_3d_shape_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_unit_3d_design_view/sys/e_exp_arm.htm#physical_unit_3d_design_view_arm.assembly_component_3d_shape_model">Assembly_component_3d_shape_model</A>);<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_cable_component_3d_arm.routed_cable_component_3d_shape_model.cable_path_shape">cable_path_shape : </A>SET[1:?] OF <A HREF="../../../data/modules/curve_swept_solid/sys/e_exp_arm.htm#curve_swept_solid_arm.curve_swept_solid">Curve_swept_solid</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_cable_component_3d_arm.routed_cable_component_3d_shape_model.connector_placement">connector_placement : </A>SET[1:?] OF <A HREF="#assembly_module_with_cable_component_3d_arm.sub_model_placement_3d">Sub_model_placement_3d</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_cable_component_3d_arm.routed_cable_component_3d_shape_model.junction_placement">junction_placement : </A>
+         OPTIONAL 
+         SET[1:?] OF <A HREF="../../../data/modules/extended_basic_geometry/sys/e_exp_arm.htm#extended_basic_geometry_arm.geometric_model_element_relationship">Geometric_model_element_relationship</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/physical_unit_3d_design_view/sys/e_exp_arm.htm#physical_unit_3d_design_view_arm.assembly_component_3d_shape_model">Assembly_component_3d_shape_model</A>.<A NAME="assembly_module_with_cable_component_3d_arm.routed_cable_component_3d_shape_model.shape_characterized_component">shape_characterized_component : </A>SET[1:1] OF <A HREF="../../../data/modules/assembly_module_with_cable_component/sys/e_exp_arm.htm#assembly_module_with_cable_component_arm.cable_component">Cable_component</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_cable_component_3d_arm.routed_cable_component_3d_shape_model.wr:wr1">WR1: NOT EXISTS(SELF\Representation.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_with_cable_component_3d_arm.sub_model_placement_3d">ENTITY <b>Sub_model_placement_3d</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_cable_component_3d_arm.sub_model_placement_3d.placement">placement : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement_3d">Axis_placement_3d</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_cable_component_3d_arm.sub_model_placement_3d.sub_model">sub_model : </A><A HREF="../../../data/modules/physical_unit_3d_design_view/sys/e_exp_arm.htm#physical_unit_3d_design_view_arm.component_3d_location">Component_3d_location</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Assembly_module_with_cable_component_3d_arm<br></code></body>
+</HTML>

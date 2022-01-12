@@ -1,0 +1,204 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: draughting_element_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: draughting_element_schema</h2>
+      <p><i>Source : ISO 10303-101</i></p><code><br><br><a name="draughting_element_schema">SCHEMA <b>draughting_element_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema">geometry_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-42<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema">presentation_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-46<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_occurrence">annotation_occurrence</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_curve_occurrence">annotation_curve_occurrence</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_fill_area_occurrence">annotation_fill_area_occurrence</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_point_occurrence">annotation_point_occurrence</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_text_occurrence">annotation_text_occurrence</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_symbol_occurrence">annotation_symbol_occurrence</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema">presentation_appearance_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-46<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema.invisible_item">invisible_item</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema.presentation_style_assignment">presentation_style_assignment</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema.styled_item">styled_item</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/presentation_resource_schema/presentation_resource_schema.htm#presentation_resource_schema">presentation_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-46<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_resource_schema/presentation_resource_schema.htm#presentation_resource_schema.planar_box">planar_box</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema">geometry_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-42<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.plane">plane</A>);
+         <br><br></code><code><br><A NAME="draughting_element_schema.annotation_plane_element">TYPE </A><b>annotation_plane_element</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#draughting_element_schema.draughting_callout">draughting_callout</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema.styled_item">styled_item</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="draughting_element_schema.des_invisible_item">TYPE </A><b>des_invisible_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema.invisible_item">invisible_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#draughting_element_schema.draughting_callout">draughting_callout</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="draughting_element_schema.dimension_extent_usage">TYPE </A><b>dimension_extent_usage</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (origin,<br>&nbsp;&nbsp;&nbsp;&nbsp;target);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="draughting_element_schema.draughting_callout_element">TYPE </A><b>draughting_callout_element</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_curve_occurrence">annotation_curve_occurrence</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_symbol_occurrence">annotation_symbol_occurrence</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_text_occurrence">annotation_text_occurrence</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="draughting_element_schema.plane_or_planar_box">TYPE </A><b>plane_or_planar_box</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_resource_schema/presentation_resource_schema.htm#presentation_resource_schema.planar_box">planar_box</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.plane">plane</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="draughting_element_schema.annotation_plane">ENTITY <b>annotation_plane</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_occurrence">annotation_occurrence</A>, <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.annotation_plane.elements">elements : </A>
+         OPTIONAL 
+         SET[1:?] OF <A HREF="#draughting_element_schema.annotation_plane_element">annotation_plane_element</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema.styled_item">styled_item</A>.<A NAME="draughting_element_schema.annotation_plane.item">item : </A><A HREF="#draughting_element_schema.plane_or_planar_box">plane_or_planar_box</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.annotation_plane.wr:wr1">WR1: SELF\geometric_representation_item.dim = 3;</A><br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.annotation_plane.wr:wr2">WR2: NOT('PRESENTATION_RESOURCE_SCHEMA.'+'PLANAR_BOX' IN TYPEOF(SELF\styled_item.item)) OR
+            ('GEOMETRY_SCHEMA.'+'AXIS2_PLACEMENT_3D' IN TYPEOF(SELF\styled_item.item\planar_box.placement));</A><br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.annotation_plane.wr:wr3">WR3: (('PRESENTATION_RESOURCE_SCHEMA.'+'PLANAR_BOX' IN TYPEOF(SELF\styled_item.item)) AND
+            ('PRESENTATION_APPEARANCE_SCHEMA.'+'CURVE_STYLE' IN TYPEOF(SELF\styled_item.styles[1]\presentation_style_assignment.styles[1])))
+            OR
+            (('GEOMETRY_SCHEMA.'+'PLANE' IN TYPEOF(SELF\styled_item.item)) AND
+            ('PRESENTATION_APPEARANCE_SCHEMA.'+'FILL_AREA_STYLE' IN TYPEOF(SELF\styled_item.styles[1]\presentation_style_assignment.styles[1])));</A><br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.annotation_plane.wr:wr4">WR4: (SIZEOF(SELF\styled_item.styles) = 1) AND
+            (SIZEOF(SELF\styled_item.styles[1]\presentation_style_assignment.styles) = 1);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_schema.dimension_curve">ENTITY <b>dimension_curve</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_curve_occurrence">annotation_curve_occurrence</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.dimension_curve.wr:wr1">WR1: (SIZEOF(
+            QUERY(dct &lt;* USEDIN(SELF,'DRAUGHTING_ELEMENT_SCHEMA.' +
+            'TERMINATOR_SYMBOL.ANNOTATED_CURVE')
+            | (('DRAUGHTING_ELEMENT_SCHEMA.'+
+            'DIMENSION_CURVE_TERMINATOR' IN TYPEOF(dct))
+            ))
+            ) &lt;= 2);</A><br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.dimension_curve.wr:wr2">WR2: SIZEOF(
+            QUERY( dcdc &lt;* USEDIN(SELF,'DRAUGHTING_ELEMENT_SCHEMA.' +
+            'DRAUGHTING_CALLOUT.CONTENTS') |
+            ('DRAUGHTING_ELEMENT_SCHEMA.'+
+            'DIMENSION_CURVE_DIRECTED_CALLOUT' IN TYPEOF(dcdc)))
+            )&gt;= 1;</A><br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.dimension_curve.wr:wr3">WR3: (SIZEOF(
+            QUERY(dct1 &lt;* USEDIN(SELF,'DRAUGHTING_ELEMENT_SCHEMA.' +
+            'TERMINATOR_SYMBOL.ANNOTATED_CURVE') 
+            | (('DRAUGHTING_ELEMENT_SCHEMA.'+
+            'DIMENSION_CURVE_TERMINATOR' IN TYPEOF(dct1)) 
+            AND (dct1\dimension_curve_terminator.role = dimension_extent_usage.origin)))
+            ) &lt;= 1)
+            AND 
+            (SIZEOF(
+            QUERY (dct2 &lt;* USEDIN(SELF,'DRAUGHTING_ELEMENT_SCHEMA.'+
+            'TERMINATOR_SYMBOL.ANNOTATED_CURVE') 
+            | (('DRAUGHTING_ELEMENT_SCHEMA.'+
+            'DIMENSION_CURVE_TERMINATOR' IN TYPEOF(dct2))
+            AND (dct2\dimension_curve_terminator.role = dimension_extent_usage.target)))
+            ) &lt;= 1);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_schema.dimension_curve_directed_callout">ENTITY <b>dimension_curve_directed_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_schema.draughting_callout">draughting_callout</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.dimension_curve_directed_callout.wr:wr1">WR1: SIZEOF(QUERY(d_c&lt;*SELF\draughting_callout.contents | 
+            'DRAUGHTING_ELEMENT_SCHEMA.DIMENSION_CURVE' IN (TYPEOF(d_c))))=1;</A><br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.dimension_curve_directed_callout.wr:wr2">WR2: SIZEOF(SELF\draughting_callout.contents) &gt;= 2;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_schema.dimension_curve_terminator">ENTITY <b>dimension_curve_terminator</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_schema.terminator_symbol">terminator_symbol</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.dimension_curve_terminator.role">role : </A><A HREF="#draughting_element_schema.dimension_extent_usage">dimension_extent_usage</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.dimension_curve_terminator.wr:wr1">WR1: 'DRAUGHTING_ELEMENT_SCHEMA.DIMENSION_CURVE' IN TYPEOF
+            (SELF\terminator_symbol.annotated_curve);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_schema.draughting_callout">ENTITY <b>draughting_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.draughting_callout.contents">contents : </A>SET[1:?] OF <A HREF="#draughting_element_schema.draughting_callout_element">draughting_callout_element</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.draughting_callout.wr:wr1">WR1: (SIZEOF (QUERY (l_1 &lt;* SELF\draughting_callout.contents |
+            'DRAUGHTING_ELEMENT_SCHEMA.LEADER_CURVE' IN (TYPEOF(l_1)))) = 0) OR
+            ('DRAUGHTING_ELEMENT_SCHEMA.LEADER_DIRECTED_CALLOUT' IN (TYPEOF(SELF))) AND
+            (SIZEOF (QUERY (l_1 &lt;* SELF\draughting_callout.contents |
+            'DRAUGHTING_ELEMENT_SCHEMA.PROJECTION_CURVE' IN (TYPEOF(l_1)))) = 0) OR
+            ('DRAUGHTING_ELEMENT_SCHEMA.PROJECTION_DIRECTED_CALLOUT' IN (TYPEOF(SELF))) AND  
+            (SIZEOF (QUERY (l_1 &lt;* SELF\draughting_callout.contents |
+            'DRAUGHTING_ELEMENT_SCHEMA.DIMENSION_CURVE' IN (TYPEOF(l_1)))) = 0) OR
+            ('DRAUGHTING_ELEMENT_SCHEMA.DIMENSION_CURVE_DIRECTED_CALLOUT' IN (TYPEOF(SELF)));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_schema.draughting_callout_relationship">ENTITY <b>draughting_callout_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.draughting_callout_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.draughting_callout_relationship.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.draughting_callout_relationship.relating_draughting_callout">relating_draughting_callout : </A><A HREF="#draughting_element_schema.draughting_callout">draughting_callout</A>;<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.draughting_callout_relationship.related_draughting_callout">related_draughting_callout : </A><A HREF="#draughting_element_schema.draughting_callout">draughting_callout</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_schema.leader_curve">ENTITY <b>leader_curve</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_curve_occurrence">annotation_curve_occurrence</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.leader_curve.wr:wr1">WR1: SIZEOF( 
+            QUERY(ldc &lt;* USEDIN( SELF, 'DRAUGHTING_ELEMENT_SCHEMA.' +
+            'DRAUGHTING_CALLOUT.CONTENTS')
+            |   'DRAUGHTING_ELEMENT_SCHEMA.' +
+            'LEADER_DIRECTED_CALLOUT'  IN TYPEOF(ldc))) &gt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_schema.leader_directed_callout">ENTITY <b>leader_directed_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_schema.draughting_callout">draughting_callout</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.leader_directed_callout.wr:wr1">WR1: SIZEOF (QUERY (l_1 &lt;* SELF\draughting_callout.contents |
+            'DRAUGHTING_ELEMENT_SCHEMA.LEADER_CURVE' IN (TYPEOF(l_1)))) &gt;= 1;</A><br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.leader_directed_callout.wr:wr2">WR2: SIZEOF(SELF\draughting_callout.contents) &gt;=2;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_schema.leader_terminator">ENTITY <b>leader_terminator</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_schema.terminator_symbol">terminator_symbol</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.leader_terminator.wr:wr1">WR1: 'DRAUGHTING_ELEMENT_SCHEMA.LEADER_CURVE' IN TYPEOF
+            (SELF\terminator_symbol.annotated_curve);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_schema.projection_curve">ENTITY <b>projection_curve</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_curve_occurrence">annotation_curve_occurrence</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_schema.projection_directed_callout">ENTITY <b>projection_directed_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_schema.draughting_callout">draughting_callout</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.projection_directed_callout.wr:wr1">WR1: SIZEOF(QUERY(p_1&lt;*SELF\draughting_callout.contents | 
+            'DRAUGHTING_ELEMENT_SCHEMA.PROJECTION_CURVE' IN (TYPEOF(p_1))))=1;</A><br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.projection_directed_callout.wr:wr2">WR2: SIZEOF(SELF\draughting_callout.contents) &gt;=2;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_schema.terminator_symbol">ENTITY <b>terminator_symbol</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_symbol_occurrence">annotation_symbol_occurrence</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_schema.terminator_symbol.annotated_curve">annotated_curve : </A><A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_curve_occurrence">annotation_curve_occurrence</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_schema.annotation_curve_subtypes">SUBTYPE_CONSTRAINT <b>annotation_curve_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_curve_occurrence">annotation_curve_occurrence</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#draughting_element_schema.dimension_curve">dimension_curve</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_element_schema.leader_curve">leader_curve</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_element_schema.projection_curve">projection_curve</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br><A NAME="draughting_element_schema.annotation_occurrence_subtypes">SUBTYPE_CONSTRAINT <b>annotation_occurrence_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_occurrence">annotation_occurrence</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_curve_occurrence">annotation_curve_occurrence</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_fill_area_occurrence">annotation_fill_area_occurrence</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_element_schema.annotation_plane">annotation_plane</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_point_occurrence">annotation_point_occurrence</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_symbol_occurrence">annotation_symbol_occurrence</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_text_occurrence">annotation_text_occurrence</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;draughting_element_schema<br></code></body>
+</HTML>

@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Security_classification</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.804 Security_classification</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Security_classification is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.  A Security_classification is the level of confidentiality that is required for the purpose of product data protection.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>classification_date</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>classification_officer</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>classification_level</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>declassification_date</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>security_classification_approval</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.804.1 classification_date</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The classification_date specifies either the effective <A
+CLASS="INTERNALREF"
+HREF="e_212.htm"
+>Date</A
+> or the effective <A
+CLASS="INTERNALREF"
+HREF="e_213.htm"
+>Date_and_time</A
+> for the Security_classification.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.804.2 classification_officer</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The classification_officer specifies the <A
+CLASS="INTERNALREF"
+HREF="e_647.htm"
+>Person_and_organization</A
+> responsible for the 
+Security_classification.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.804.3 classification_level</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The classification_level specifies the level for the Security_classification.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.804.4 declassification_date</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The declassification_date specifies either the <A
+CLASS="INTERNALREF"
+HREF="e_212.htm"
+>Date</A
+> or the <A
+CLASS="INTERNALREF"
+HREF="e_213.htm"
+>Date_and_time</A
+> upon which 
+the Security_classification no 
+longer applies. The declassification_date need not be provided for a particular Security_classification.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.804.5 security_classification_approval</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The security_classification_approval specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_314.htm"
+>Ee_approval</A
+> for the Security_classification.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY security_classification
+  SUBTYPE OF (managed_design_object);
+    classification_officer           : person_and_organization;
+    security_classification_approval : ee_approval;
+    classification_date              : date_or_date_and_time;
+    classification_level             : ee_name;
+    declassification_date            : OPTIONAL date_or_date_and_time;
+END_ENTITY; -- security_classification
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

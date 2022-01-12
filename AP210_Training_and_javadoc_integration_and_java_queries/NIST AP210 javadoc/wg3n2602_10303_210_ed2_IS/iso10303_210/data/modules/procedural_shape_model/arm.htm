@@ -1,0 +1,56 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Procedural_shape_model_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Procedural_shape_model_arm</h2><code><br><br><a name="procedural_shape_model_arm">SCHEMA <b>Procedural_shape_model_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm">Elemental_geometric_shape_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1004<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/elemental_topology/sys/e_exp_arm.htm#elemental_topology_arm">Elemental_topology_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1005<br><br></code><code><br><A NAME="procedural_shape_model_arm.shape_model_element">TYPE </A><b>shape_model_element</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/elemental_topology/sys/e_exp_arm.htm#elemental_topology_arm.detailed_topological_model_element">Detailed_topological_model_element</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="procedural_shape_model_arm.explicit_procedural_geometric_representation_item_relationship">ENTITY <b>Explicit_procedural_geometric_representation_item_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="procedural_shape_model_arm.explicit_procedural_geometric_representation_item_relationship.relating_item">relating_item : </A><A HREF="#procedural_shape_model_arm.procedural_shape_representation_sequence">Procedural_shape_representation_sequence</A>;<br>
+         &nbsp;&nbsp;<A NAME="procedural_shape_model_arm.explicit_procedural_geometric_representation_item_relationship.related_item">related_item : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="procedural_shape_model_arm.explicit_procedural_geometric_representation_item_relationship.wr:wr1">WR1: NOT('PROCEDURAL_SHAPE_MODEL_ARM.PROCEDURAL_SHAPE_REPRESENTATION_SEQUENCE' 
+            IN TYPEOF(related_item));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="procedural_shape_model_arm.explicit_procedural_shape_representation_relationship">ENTITY <b>Explicit_procedural_shape_representation_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_relationship">Representation_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_relationship">Representation_relationship</A>.<A NAME="procedural_shape_model_arm.explicit_procedural_shape_representation_relationship.rep_1">rep_1 : </A><A HREF="#procedural_shape_model_arm.procedural_shape_representation">Procedural_shape_representation</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_relationship">Representation_relationship</A>.<A NAME="procedural_shape_model_arm.explicit_procedural_shape_representation_relationship.rep_2">rep_2 : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="procedural_shape_model_arm.explicit_procedural_shape_representation_relationship.wr:wr1">WR1: NOT('PROCEDURAL_SHAPE_MODEL_ARM.PROCEDURAL_SHAPE_REPRESENTATION' 
+            in TYPEOF(rep_2));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="procedural_shape_model_arm.indirectly_selected_shape_elements">ENTITY <b>Indirectly_selected_shape_elements</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#procedural_shape_model_arm.user_selected_shape_elements">User_selected_shape_elements</A>);<br>
+         &nbsp;&nbsp;<A NAME="procedural_shape_model_arm.indirectly_selected_shape_elements.indirectly_selected_items">indirectly_selected_items : </A>SET[1:?] OF <A HREF="#procedural_shape_model_arm.shape_model_element">shape_model_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="procedural_shape_model_arm.procedural_shape_representation">ENTITY <b>Procedural_shape_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>.<A NAME="procedural_shape_model_arm.procedural_shape_representation.items">items : </A>SET[1:?] OF <A HREF="#procedural_shape_model_arm.procedural_shape_representation_sequence">Procedural_shape_representation_sequence</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="procedural_shape_model_arm.procedural_shape_representation_sequence">ENTITY <b>Procedural_shape_representation_sequence</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="procedural_shape_model_arm.procedural_shape_representation_sequence.elements">elements : </A>LIST[1:?] OF <A HREF="#procedural_shape_model_arm.shape_model_element">shape_model_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="procedural_shape_model_arm.procedural_shape_representation_sequence.suppressed_elements">suppressed_elements : </A>SET[0:?] OF <A HREF="#procedural_shape_model_arm.shape_model_element">shape_model_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="procedural_shape_model_arm.procedural_shape_representation_sequence.rationale">rationale : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="procedural_shape_model_arm.user_selected_shape_elements">ENTITY <b>User_selected_shape_elements</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_item">Representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="procedural_shape_model_arm.user_selected_shape_elements.selected_items">selected_items : </A>SET[1:?] OF <A HREF="#procedural_shape_model_arm.shape_model_element">shape_model_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Procedural_shape_model_arm<br></code></body>
+</HTML>

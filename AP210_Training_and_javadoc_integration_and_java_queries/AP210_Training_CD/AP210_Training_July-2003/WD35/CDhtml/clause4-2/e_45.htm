@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Assembly_module_component_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.45 Assembly_module_component_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+An Assembly_module_component_terminal is a type of <A
+CLASS="INTERNALREF"
+HREF="e_137.htm"
+>Component_terminal</A
+>.
+The Assembly_module_component_terminal is included with the Assembly_module_component 
+to assure the data integrity of references to the terminals of the 
+Assembly_module_component.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_component</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.45.1 associated_component</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_component specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_44.htm"
+>Assembly_module_component</A
+> for the Assembly_module_component_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.45.2 definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The definition specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_50.htm"
+>Assembly_module_terminal</A
+> for the Assembly_module_component_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY assembly_module_component_terminal
+  SUBTYPE OF (physical_component_terminal);
+    SELF\component_feature.definition           : assembly_module_terminal;
+    SELF\component_feature.associated_component : assembly_module_component;
+END_ENTITY; -- assembly_module_component_terminal
+
+--tt tc1 wd9 added 
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

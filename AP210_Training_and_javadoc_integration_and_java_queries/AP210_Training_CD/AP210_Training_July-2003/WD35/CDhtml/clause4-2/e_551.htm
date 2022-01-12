@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Mounting_restriction_volume</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.551 Mounting_restriction_volume</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Mounting_restriction_volume is a type of <A
+CLASS="INTERNALREF"
+HREF="e_561.htm"
+>Non_feature_shape_element</A
+>. A Mounting_restriction_volume is the region on an <A
+CLASS="INTERNALREF"
+HREF="e_435.htm"
+>Interconnect_module_component</A
+> where mounting restrictions for components exist.
+The shape representing the Mounting_restriction_region shall have an origin that is congruent with the origin of the shape representing the Interconnect_module_component.
+This congruency shall be accomplished using concepts equivalent to the Application objects Component_2d_position or Component_3d_position.
+The shape representing the Mounting_restriction_volume is itself in the shape of the assembly, as is the shape of the Interconnect_module_component.
+The congruency requirement is established so that an application interface can more unambiguously import the Mounting_restriction_volume into a CAD layout tool.
+Mounting_restriction_volume is part of a design requirement for an interconnect that is established in the assembly or assemblies in which the interconnect is used.
+The interconnect shall specify the assembly or assemblies it is designed to support by the assembly_design_requirement attribute of <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+> if the attribute is present.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>volume</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>mounting_surface</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>scope</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.551.1 volume</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The volume is an inverse attribute that specifies the Shape_definition the Mounting_restriction_volume is dependent on for existence.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.551.2 mounting_surface</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The mounting_surface specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_437.htm"
+>Interconnect_module_component_surface_feature</A
+> for
+the Mounting_restriction_volume.  There shall be one surface in the role of mounting_surface for a Mounting_restriction_volume.  The type of surface is determined by the definition of the Interconnect_module_component_surface_feature specified by mounting_surface.  The mounting_surface conveys design intent to identify the component that implements the connectivity prescribed by the relevant member of <A
+CLASS="INTERNALREF"
+HREF="e_652.htm"
+>Physical_connectivity_definition</A
+>.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.551.3 scope</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The scope specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_43.htm"
+>Assembly_module</A
+> for the Mounting_restriction_volume.  The volume is within the Assembly_module geometric model coordinate system.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The component associated with the mounting_surface shall be a component in the scope.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY mounting_restriction_volume
+  SUBTYPE OF (non_feature_shape_element);
+    mounting_surface : interconnect_module_component_surface_feature;
+    SELF\non_feature_shape_element.scope : assembly_module;
+INVERSE
+    volume : non_feature_shape_definition for associated_element;
+WHERE
+  WR1: 'AP210_ARM.BOUND_VOLUME_SHAPE' IN TYPEOF(volume);
+(*
+  WR1: dimensionality (volume) = 3;
+*)
+END_ENTITY; -- mounting_restriction_volume
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

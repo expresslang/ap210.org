@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Ee_rule_conclusion_definition</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.332 Ee_rule_conclusion_definition</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Ee_rule_conclusion_definition is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.  An Ee_rule_conclusion_definition provides the conclusion part of a rule construct.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>rule_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>identifier</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>conjunctive_content</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.332.1 rule_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The rule_definition specifies the <A
+CLASS="INTERNALREF"
+HREF="e_333.htm"
+>Ee_rule_definition</A
+> for the Ee_rule_conclusion_definition.  The rule_definition is the rule being composed by this Ee_rule_conclusion_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.332.2 identifier</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The identifier specifies the name for the Ee_rule_conclusion_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.332.3 conjunctive_content</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The conjunctive_content specifies specifies the Ee_rule_simple_clause for the Ee_rule_conclusion_definition.  There shall be one or more conjunctive_content specified for an Ee_rule_conclusion_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the rule_definition and the identifier shall be unique within a population of Ee_rule_conclusion_definition.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY ee_rule_conclusion_definition
+ SUBTYPE OF ( managed_design_object );
+     rule_definition     : ee_rule_definition;
+     identifier          : STRING ;
+     conjunctive_content : SET [1:?] OF ee_rule_simple_clause;
+ UNIQUE
+     ur1 : rule_definition, identifier;
+END_ENTITY; -- ee_rule_conclusion_definition
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

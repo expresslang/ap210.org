@@ -1,0 +1,508 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: geometric_model_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: geometric_model_schema</h2>
+      <p><i>Source : ISO 10303-42</i></p><code><br><br><a name="geometric_model_schema">SCHEMA <b>geometric_model_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema">geometry_schema</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO 10303-42<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema">topology_schema</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO 10303-42<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema">measure_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.length_measure">length_measure</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.parameter_value">parameter_value</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.plane_angle_measure">plane_angle_measure</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.plane_angle_unit">plane_angle_unit</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_plane_angle_measure">positive_plane_angle_measure</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.founded_item">founded_item</A>);
+         <br><br></code><code><br><A NAME="geometric_model_schema.boolean_operand">TYPE </A><b>boolean_operand</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#geometric_model_schema.boolean_result">boolean_result</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.csg_primitive">csg_primitive</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.half_space_2d">half_space_2d</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.half_space_solid">half_space_solid</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.solid_model">solid_model</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="geometric_model_schema.boolean_operator">TYPE </A><b>boolean_operator</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (union,<br>&nbsp;&nbsp;&nbsp;&nbsp;intersection,<br>&nbsp;&nbsp;&nbsp;&nbsp;difference);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="geometric_model_schema.csg_primitive">TYPE </A><b>csg_primitive</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#geometric_model_schema.block">block</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.cyclide_segment_solid">cyclide_segment_solid</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.eccentric_cone">eccentric_cone</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.ellipsoid">ellipsoid</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.faceted_primitive">faceted_primitive</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.primitive_2d">primitive_2d</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.rectangular_pyramid">rectangular_pyramid</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.right_angular_wedge">right_angular_wedge</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.right_circular_cone">right_circular_cone</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.right_circular_cylinder">right_circular_cylinder</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.sphere">sphere</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.torus">torus</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="geometric_model_schema.csg_select">TYPE </A><b>csg_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#geometric_model_schema.boolean_result">boolean_result</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.csg_primitive">csg_primitive</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="geometric_model_schema.geometric_set_select">TYPE </A><b>geometric_set_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.curve">curve</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.point">point</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface">surface</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="geometric_model_schema.surface_model">TYPE </A><b>surface_model</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#geometric_model_schema.face_based_surface_model">face_based_surface_model</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.shell_based_surface_model">shell_based_surface_model</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="geometric_model_schema.wireframe_model">TYPE </A><b>wireframe_model</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#geometric_model_schema.edge_based_wireframe_model">edge_based_wireframe_model</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.shell_based_wireframe_model">shell_based_wireframe_model</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="geometric_model_schema.block">ENTITY <b>block</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.block.position">position : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d">axis2_placement_3d</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.block.x">x : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.block.y">y : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.block.z">z : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.boolean_result">ENTITY <b>boolean_result</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.boolean_result.operator">operator : </A><A HREF="#geometric_model_schema.boolean_operator">boolean_operator</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.boolean_result.first_operand">first_operand : </A><A HREF="#geometric_model_schema.boolean_operand">boolean_operand</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.boolean_result.second_operand">second_operand : </A><A HREF="#geometric_model_schema.boolean_operand">boolean_operand</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.box_domain">ENTITY <b>box_domain</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.founded_item">founded_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.box_domain.corner">corner : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.cartesian_point">cartesian_point</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.box_domain.xlength">xlength : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.box_domain.ylength">ylength : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.box_domain.zlength">zlength : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.box_domain.wr:wr1">WR1: SIZEOF(QUERY(item &lt;* USEDIN(SELF,'')| NOT ('GEOMETRIC_MODEL_SCHEMA.BOXED_HALF_SPACE' IN TYPEOF(item)))) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.boxed_half_space">ENTITY <b>boxed_half_space</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.half_space_solid">half_space_solid</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.boxed_half_space.enclosure">enclosure : </A><A HREF="#geometric_model_schema.box_domain">box_domain</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.brep_2d">ENTITY <b>brep_2d</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.solid_model">solid_model</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.brep_2d.extent">extent : </A><A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.face">face</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.brep_2d.wr:wr1">WR1: SIZEOF (['TOPOLOGY_SCHEMA.FACE_SURFACE','TOPOLOGY_SCHEMA.SUBFACE', 'TOPOLOGY_SCHEMA.ORIENTED_FACE'] * TYPEOF (SELF.extent))
+            = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.brep_2d.wr:wr2">WR2: SIZEOF (QUERY (bnds &lt;* extent.bounds | NOT ('TOPOLOGY_SCHEMA.EDGE_LOOP' IN TYPEOF(bnds.bound)))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.brep_2d.wr:wr3">WR3: SIZEOF (QUERY (bnds &lt;* extent.bounds |'TOPOLOGY_SCHEMA.FACE_OUTER_BOUND' IN TYPEOF(bnds))) = 1;</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.brep_2d.wr:wr4">WR4: SIZEOF(QUERY (elp_fbnds &lt;* QUERY (bnds &lt;* extent.bounds |'TOPOLOGY_SCHEMA.EDGE_LOOP' IN TYPEOF(bnds.bound)) | NOT (SIZEOF
+            (QUERY (oe &lt;* elp_fbnds.bound\path.edge_list | NOT(('TOPOLOGY_SCHEMA.EDGE_CURVE' IN TYPEOF(oe.edge_element)) AND(oe.edge_element\geometric_representation_item.dim
+            = 2)))) =0))) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.brep_with_voids">ENTITY <b>brep_with_voids</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.manifold_solid_brep">manifold_solid_brep</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.brep_with_voids.voids">voids : </A>SET[1:?] OF <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.oriented_closed_shell">oriented_closed_shell</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.circular_area">ENTITY <b>circular_area</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.primitive_2d">primitive_2d</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.circular_area.centre">centre : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.cartesian_point">cartesian_point</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.circular_area.radius">radius : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.convex_hexahedron">ENTITY <b>convex_hexahedron</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.faceted_primitive">faceted_primitive</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.convex_hexahedron.wr:wr1">WR1: SIZEOF(points) = 8;</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.convex_hexahedron.wr:wr2">WR2: above_plane(points[1], points[2], points[3], points[4]) = 0.0;</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.convex_hexahedron.wr:wr3">WR3: above_plane(points[5], points[8], points[7], points[6]) = 0.0;</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.convex_hexahedron.wr:wr4">WR4: above_plane(points[1], points[4], points[8], points[5]) = 0.0;</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.convex_hexahedron.wr:wr5">WR5: above_plane(points[4], points[3], points[7], points[8]) = 0.0;</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.convex_hexahedron.wr:wr6">WR6: above_plane(points[3], points[2], points[6], points[7]) = 0.0;</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.convex_hexahedron.wr:wr7">WR7: above_plane(points[1], points[5], points[6], points[2]) = 0.0;</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.convex_hexahedron.wr:wr8">WR8: same_side([points[1], points[2], points[3]],[points[5], points[6], points[7], points[8]]);</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.convex_hexahedron.wr:wr9">WR9: same_side([points[1], points[4], points[8]],[points[3], points[7], points[6], points[2]]);</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.convex_hexahedron.wr:wr10">WR10: same_side([points[1], points[2], points[5]],[points[3], points[7], points[8], points[4]]);</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.convex_hexahedron.wr:wr11">WR11: same_side([points[5], points[6], points[7]],[points[1], points[2], points[3], points[4]]);</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.convex_hexahedron.wr:wr12">WR12: same_side([points[3], points[7], points[6]],[points[1], points[4], points[8], points[5]]);</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.convex_hexahedron.wr:wr13">WR13: same_side([points[3], points[7], points[8]],[points[1], points[5], points[6], points[2]]);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.csg_solid">ENTITY <b>csg_solid</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.solid_model">solid_model</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.csg_solid.tree_root_expression">tree_root_expression : </A><A HREF="#geometric_model_schema.csg_select">csg_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.cyclide_segment_solid">ENTITY <b>cyclide_segment_solid</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.cyclide_segment_solid.position">position : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d">axis2_placement_3d</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.cyclide_segment_solid.radius1">radius1 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.cyclide_segment_solid.radius2">radius2 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.cyclide_segment_solid.cone_angle1">cone_angle1 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.plane_angle_measure">plane_angle_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.cyclide_segment_solid.cone_angle2">cone_angle2 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.plane_angle_measure">plane_angle_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.cyclide_segment_solid.turn_angle">turn_angle : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.plane_angle_measure">plane_angle_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.eccentric_cone">ENTITY <b>eccentric_cone</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.eccentric_cone.position">position : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d">axis2_placement_3d</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.eccentric_cone.semi_axis_1">semi_axis_1 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.eccentric_cone.semi_axis_2">semi_axis_2 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.eccentric_cone.height">height : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.eccentric_cone.x_offset">x_offset : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.length_measure">length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.eccentric_cone.y_offset">y_offset : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.length_measure">length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.eccentric_cone.ratio">ratio : </A>REAL;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.eccentric_cone.wr:wr1">WR1: ratio &gt;= 0.0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.edge_based_wireframe_model">ENTITY <b>edge_based_wireframe_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.edge_based_wireframe_model.ebwm_boundary">ebwm_boundary : </A>SET[1:?] OF <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.connected_edge_set">connected_edge_set</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.ellipsoid">ENTITY <b>ellipsoid</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.ellipsoid.position">position : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d">axis2_placement_3d</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.ellipsoid.semi_axis_1">semi_axis_1 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.ellipsoid.semi_axis_2">semi_axis_2 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.ellipsoid.semi_axis_3">semi_axis_3 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.elliptic_area">ENTITY <b>elliptic_area</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.primitive_2d">primitive_2d</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.elliptic_area.position">position : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_2d">axis2_placement_2d</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.elliptic_area.semi_axis_1">semi_axis_1 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.elliptic_area.semi_axis_2">semi_axis_2 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.extruded_area_solid">ENTITY <b>extruded_area_solid</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.swept_area_solid">swept_area_solid</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.extruded_area_solid.extruded_direction">extruded_direction : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.direction">direction</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.extruded_area_solid.depth">depth : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.extruded_area_solid.wr:wr1">WR1: dot_product((swept_area_solid.swept_area.basis_surface\ elementary_surface.position.p[3]), extruded_direction) &lt;&gt; 0.0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.extruded_face_solid">ENTITY <b>extruded_face_solid</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.swept_face_solid">swept_face_solid</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.extruded_face_solid.extruded_direction">extruded_direction : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.direction">direction</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.extruded_face_solid.depth">depth : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.extruded_face_solid.wr:wr1">WR1: dot_product((swept_face_solid.swept_face.face_geometry\ elementary_surface.position.p[3]), extruded_direction) &lt;&gt; 0.0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.face_based_surface_model">ENTITY <b>face_based_surface_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.face_based_surface_model.fbsm_faces">fbsm_faces : </A>SET[1:?] OF <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.connected_face_set">connected_face_set</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.faceted_brep">ENTITY <b>faceted_brep</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.manifold_solid_brep">manifold_solid_brep</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.faceted_primitive">ENTITY <b>faceted_primitive</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#geometric_model_schema.tetrahedron">tetrahedron</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.convex_hexahedron">convex_hexahedron</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.faceted_primitive.points">points : </A>LIST[4:?] OF 
+         UNIQUE
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.cartesian_point">cartesian_point</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.faceted_primitive.wr:wr1">WR1: points[1].dim = 3;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.geometric_curve_set">ENTITY <b>geometric_curve_set</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.geometric_set">geometric_set</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.geometric_curve_set.wr:wr1">WR1: SIZEOF(QUERY(temp &lt;* geometric_set.elements |'GEOMETRY_SCHEMA.SURFACE' IN TYPEOF(temp))) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.geometric_set">ENTITY <b>geometric_set</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#geometric_model_schema.geometric_curve_set">geometric_curve_set</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.geometric_set_replica">geometric_set_replica</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.geometric_set.elements">elements : </A>SET[1:?] OF <A HREF="#geometric_model_schema.geometric_set_select">geometric_set_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.geometric_set_replica">ENTITY <b>geometric_set_replica</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.geometric_set">geometric_set</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.geometric_set_replica.parent_set">parent_set : </A><A HREF="#geometric_model_schema.geometric_set">geometric_set</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.geometric_set_replica.transformation">transformation : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.cartesian_transformation_operator">cartesian_transformation_operator</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.geometric_set_replica.geometric_set.elements">geometric_set.elements : </A>SET[1:?] OF <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.geometric_set_select">geometric_set_select</A> := build_transformed_set(transformation, parent_set);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.geometric_set_replica.wr:wr1">WR1: acyclic_set_replica(SELF, parent_set);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.half_space_2d">ENTITY <b>half_space_2d</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.half_space_2d.base_curve">base_curve : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.curve">curve</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.half_space_2d.agreement_flag">agreement_flag : </A>BOOLEAN;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.half_space_solid">ENTITY <b>half_space_solid</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.half_space_solid.base_surface">base_surface : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface">surface</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.half_space_solid.agreement_flag">agreement_flag : </A>BOOLEAN;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.manifold_solid_brep">ENTITY <b>manifold_solid_brep</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.solid_model">solid_model</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.manifold_solid_brep.outer">outer : </A><A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.closed_shell">closed_shell</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.polygonal_area">ENTITY <b>polygonal_area</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.primitive_2d">primitive_2d</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.polygonal_area.bounds">bounds : </A>LIST[3:?] OF 
+         UNIQUE
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.cartesian_point">cartesian_point</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.primitive_2d">ENTITY <b>primitive_2d</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.primitive_2d.wr:wr1">WR1: geometric_representation_item.dim = 2;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.rectangle_domain">ENTITY <b>rectangle_domain</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.founded_item">founded_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.rectangle_domain.corner">corner : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.cartesian_point">cartesian_point</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.rectangle_domain.xlength">xlength : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.rectangle_domain.ylength">ylength : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.rectangle_domain.wr:wr1">WR1: SIZEOF(QUERY(item &lt;* USEDIN(SELF, '')| NOT('GEOMETRIC_MODEL_SCHEMA.RECTANGLED_HALF_SPACE' IN TYPEOF(item)))) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.rectangled_half_space">ENTITY <b>rectangled_half_space</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.half_space_2d">half_space_2d</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.rectangled_half_space.enclosure">enclosure : </A><A HREF="#geometric_model_schema.rectangle_domain">rectangle_domain</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.rectangular_area">ENTITY <b>rectangular_area</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.primitive_2d">primitive_2d</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.rectangular_area.position">position : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_2d">axis2_placement_2d</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.rectangular_area.x">x : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.rectangular_area.y">y : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.rectangular_pyramid">ENTITY <b>rectangular_pyramid</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.rectangular_pyramid.position">position : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d">axis2_placement_3d</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.rectangular_pyramid.xlength">xlength : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.rectangular_pyramid.ylength">ylength : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.rectangular_pyramid.height">height : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.revolved_area_solid">ENTITY <b>revolved_area_solid</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.swept_area_solid">swept_area_solid</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.revolved_area_solid.axis">axis : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis1_placement">axis1_placement</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.revolved_area_solid.angle">angle : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.plane_angle_measure">plane_angle_measure</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.revolved_area_solid.axis_line">axis_line : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.line">line</A> := representation_item('')|| geometric_representation_item()|| curve()|| line(axis.location, representation_item('')|| geometric_representation_item()||
+         vector(axis.z, 1.0));<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.revolved_face_solid">ENTITY <b>revolved_face_solid</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.swept_face_solid">swept_face_solid</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.revolved_face_solid.axis">axis : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis1_placement">axis1_placement</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.revolved_face_solid.angle">angle : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.plane_angle_measure">plane_angle_measure</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.revolved_face_solid.axis_line">axis_line : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.line">line</A> := representation_item('')|| geometric_representation_item()|| curve()|| line(axis.location, representation_item('')|| geometric_representation_item()||
+         vector(axis.z, 1.0));<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.right_angular_wedge">ENTITY <b>right_angular_wedge</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.right_angular_wedge.position">position : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d">axis2_placement_3d</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.right_angular_wedge.x">x : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.right_angular_wedge.y">y : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.right_angular_wedge.z">z : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.right_angular_wedge.ltx">ltx : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.length_measure">length_measure</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.right_angular_wedge.wr:wr1">WR1: ((0.0 &lt;= ltx) AND (ltx &lt; x));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.right_circular_cone">ENTITY <b>right_circular_cone</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.right_circular_cone.position">position : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis1_placement">axis1_placement</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.right_circular_cone.height">height : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.right_circular_cone.radius">radius : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.length_measure">length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.right_circular_cone.semi_angle">semi_angle : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.plane_angle_measure">plane_angle_measure</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.right_circular_cone.wr:wr1">WR1: radius &gt;= 0.0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.right_circular_cylinder">ENTITY <b>right_circular_cylinder</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.right_circular_cylinder.position">position : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis1_placement">axis1_placement</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.right_circular_cylinder.height">height : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.right_circular_cylinder.radius">radius : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.sectioned_spine">ENTITY <b>sectioned_spine</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.geometric_curve_set">geometric_curve_set</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.sectioned_spine.cross_sections">cross_sections : </A>LIST[2:?] OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.curve">curve</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.sectioned_spine.spine_points">spine_points : </A>LIST[2:?] OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.point">point</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.sectioned_spine.wr:wr1">WR1: SIZEOF(geometric_set.elements) = 1;</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.sectioned_spine.wr:wr2">WR2: 'GEOMETRY_SCHEMA.CURVE' IN TYPEOF(geometric_set.elements[1]);</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.sectioned_spine.wr:wr3">WR3: SIZEOF(cross_sections) = SIZEOF(spine_points);</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.sectioned_spine.wr:wr4">WR4: geometric_representation_item.dim = 3;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.shell_based_surface_model">ENTITY <b>shell_based_surface_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.shell_based_surface_model.sbsm_boundary">sbsm_boundary : </A>SET[1:?] OF <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.shell">shell</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.shell_based_surface_model.wr:wr1">WR1: constraints_geometry_shell_based_surface_model(SELF);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.shell_based_wireframe_model">ENTITY <b>shell_based_wireframe_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.shell_based_wireframe_model.sbwm_boundary">sbwm_boundary : </A>SET[1:?] OF <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.shell">shell</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.shell_based_wireframe_model.wr:wr1">WR1: constraints_geometry_shell_based_wireframe_model(SELF);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.solid_model">ENTITY <b>solid_model</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#geometric_model_schema.csg_solid">csg_solid</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.manifold_solid_brep">manifold_solid_brep</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.swept_face_solid">swept_face_solid</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.swept_area_solid">swept_area_solid</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.swept_disk_solid">swept_disk_solid</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.solid_replica">solid_replica</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.brep_2d">brep_2d</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.trimmed_volume">trimmed_volume</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.solid_replica">ENTITY <b>solid_replica</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.solid_model">solid_model</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.solid_replica.parent_solid">parent_solid : </A><A HREF="#geometric_model_schema.solid_model">solid_model</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.solid_replica.transformation">transformation : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.cartesian_transformation_operator_3d">cartesian_transformation_operator_3d</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.solid_replica.wr:wr1">WR1: acyclic_solid_replica(SELF, parent_solid);</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.solid_replica.wr:wr2">WR2: parent_solid\geometric_representation_item.dim = 3;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.sphere">ENTITY <b>sphere</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.sphere.radius">radius : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.sphere.centre">centre : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.point">point</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.surface_curve_swept_area_solid">ENTITY <b>surface_curve_swept_area_solid</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.swept_area_solid">swept_area_solid</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.surface_curve_swept_area_solid.directrix">directrix : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.curve">curve</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.surface_curve_swept_area_solid.start_param">start_param : </A>REAL;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.surface_curve_swept_area_solid.end_param">end_param : </A>REAL;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.surface_curve_swept_area_solid.reference_surface">reference_surface : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface">surface</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.surface_curve_swept_area_solid.wr:wr1">WR1: (NOT ('GEOMETRY_SCHEMA.SURFACE_CURVE' IN TYPEOF(directrix))) OR(reference_surface IN (directrix\surface_curve.basis_surface));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.surface_curve_swept_face_solid">ENTITY <b>surface_curve_swept_face_solid</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.swept_face_solid">swept_face_solid</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.surface_curve_swept_face_solid.directrix">directrix : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.curve">curve</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.surface_curve_swept_face_solid.start_param">start_param : </A>REAL;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.surface_curve_swept_face_solid.end_param">end_param : </A>REAL;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.surface_curve_swept_face_solid.reference_surface">reference_surface : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface">surface</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.surface_curve_swept_face_solid.wr:wr1">WR1: (NOT ('GEOMETRY_SCHEMA.SURFACE_CURVE' IN TYPEOF(directrix))) OR(reference_surface IN (directrix\surface_curve.basis_surface));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.swept_area_solid">ENTITY <b>swept_area_solid</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#geometric_model_schema.revolved_area_solid">revolved_area_solid</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.extruded_area_solid">extruded_area_solid</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.surface_curve_swept_area_solid">surface_curve_swept_area_solid</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.solid_model">solid_model</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.swept_area_solid.swept_area">swept_area : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.curve_bounded_surface">curve_bounded_surface</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.swept_area_solid.wr:wr1">WR1: 'GEOMETRY_SCHEMA.PLANE' IN TYPEOF(swept_area.basis_surface);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.swept_disk_solid">ENTITY <b>swept_disk_solid</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.solid_model">solid_model</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.swept_disk_solid.directrix">directrix : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.curve">curve</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.swept_disk_solid.radius">radius : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.swept_disk_solid.inner_radius">inner_radius : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.swept_disk_solid.start_param">start_param : </A>REAL;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.swept_disk_solid.end_param">end_param : </A>REAL;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.swept_disk_solid.wr:wr1">WR1: directrix.dim = 3;</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.swept_disk_solid.wr:wr2">WR2: (NOT EXISTS(inner_radius)) OR (radius &gt; inner_radius);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.swept_face_solid">ENTITY <b>swept_face_solid</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#geometric_model_schema.extruded_face_solid">extruded_face_solid</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.revolved_face_solid">revolved_face_solid</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_model_schema.surface_curve_swept_face_solid">surface_curve_swept_face_solid</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.solid_model">solid_model</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.swept_face_solid.swept_face">swept_face : </A><A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.face_surface">face_surface</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.swept_face_solid.wr:wr1">WR1: 'GEOMETRY_SCHEMA.PLANE' IN TYPEOF(swept_face.face_geometry);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.tetrahedron">ENTITY <b>tetrahedron</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.faceted_primitive">faceted_primitive</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.tetrahedron.wr:wr1">WR1: SIZEOF(points) = 4;</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.tetrahedron.wr:wr2">WR2: above_plane(points[1], points[2], points[3], points[4]) &lt;&gt; 0.0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.torus">ENTITY <b>torus</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.torus.position">position : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis1_placement">axis1_placement</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.torus.major_radius">major_radius : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.torus.minor_radius">minor_radius : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.torus.wr:wr1">WR1: major_radius &gt; minor_radius;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.trimmed_volume">ENTITY <b>trimmed_volume</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_model_schema.solid_model">solid_model</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.trimmed_volume.basis_volume">basis_volume : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.volume">volume</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.trimmed_volume.u1">u1 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.parameter_value">parameter_value</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.trimmed_volume.u2">u2 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.parameter_value">parameter_value</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.trimmed_volume.v1">v1 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.parameter_value">parameter_value</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.trimmed_volume.v2">v2 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.parameter_value">parameter_value</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.trimmed_volume.w1">w1 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.parameter_value">parameter_value</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.trimmed_volume.w2">w2 : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.parameter_value">parameter_value</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.trimmed_volume.wr:wr1">WR1: u1 &lt;&gt; u2;</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.trimmed_volume.wr:wr2">WR2: v1 &lt;&gt; v2;</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_model_schema.trimmed_volume.wr:wr3">WR3: w1 &lt;&gt; w2;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_model_schema.acyclic_set_replica">FUNCTION <b>acyclic_set_replica</b></A><br>&nbsp;(rep : <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.geometric_set_replica">geometric_set_replica</A>; parent : <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.geometric_set">geometric_set</A>) : BOOLEAN;
+         </code><pre>
+IF NOT (('GEOMETRY_SCHEMA.GEOMETRIC_SET_REPLICA') IN TYPEOF(parent))
+THEN RETURN (TRUE);
+END_IF;
+IF (parent :=: rep) THEN
+RETURN (FALSE);
+ELSE RETURN(acyclic_set_replica(rep,
+parent\geometric_set_replica.parent_set));
+END_IF;
+      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="geometric_model_schema.acyclic_solid_replica">FUNCTION <b>acyclic_solid_replica</b></A><br>&nbsp;(rep : <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.solid_replica">solid_replica</A>; parent : <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.solid_model">solid_model</A>) : BOOLEAN;
+         </code><pre>
+IF NOT (('GEOMETRY_SCHEMA.SOLID_REPLICA') IN TYPEOF(parent)) THEN
+RETURN (TRUE);
+END_IF;
+IF (parent :=: rep) THEN
+RETURN (FALSE);
+ELSE RETURN(acyclic_solid_replica(rep,
+parent\solid_replica.parent_solid));
+END_IF;
+      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="geometric_model_schema.build_transformed_set">FUNCTION <b>build_transformed_set</b></A><br>&nbsp;(tr : <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.cartesian_transformation_operator">cartesian_transformation_operator</A>; gset : <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.geometric_set">geometric_set</A>) : SET[0:?] OF <A HREF="#geometric_model_schema.geometric_set_select">geometric_set_select</A>;
+         </code><pre>
+LOCAL
+s : SET [1:?] OF geometric_set_select := gset.elements;
+trset : SET [0:?] OF geometric_set_select := [];
+END_LOCAL;
+REPEAT j := 1 TO SIZEOF(s);
+IF ('GEOMETRY_SCHEMA.CURVE' IN TYPEOF(s[j])) THEN
+trset := trset + dummy_gri || curve() ||curve_replica(s[j],tr); ELSE
+IF ('GEOMETRY_SCHEMA.POINT' IN TYPEOF(s[j])) THEN
+trset := trset + dummy_gri || point() || point_replica(s[j],tr);
+ELSE
+IF ('GEOMETRY_SCHEMA.SURFACE' IN TYPEOF(s[j])) THEN
+trset := trset + dummy_gri || surface() || surface_replica(s[j],
+tr || cartesian_transformation_operator_3d (?));
+END_IF;
+END_IF;
+END_IF;
+END_REPEAT;
+RETURN(trset);
+      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="geometric_model_schema.constraints_geometry_shell_based_surface_model">FUNCTION <b>constraints_geometry_shell_based_surface_model</b></A><br>&nbsp;(m : <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.shell_based_surface_model">shell_based_surface_model</A>) : BOOLEAN;
+         </code><pre>
+LOCAL
+result : BOOLEAN := TRUE;
+END_LOCAL;
+REPEAT j := 1 TO SIZEOF(m.sbsm_boundary);
+IF (NOT ('TOPOLOGY_SCHEMA.OPEN_SHELL' IN
+TYPEOF(m.sbsm_boundary[j])) AND
+(NOT ('TOPOLOGY_SCHEMA.CLOSED_SHELL' IN
+TYPEOF(m.sbsm_boundary[j]))))
+THEN
+result := FALSE;
+RETURN(result);
+END_IF;
+END_REPEAT;
+RETURN(result);
+      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="geometric_model_schema.constraints_geometry_shell_based_wireframe_model">FUNCTION <b>constraints_geometry_shell_based_wireframe_model</b></A><br>&nbsp;(m : <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.shell_based_wireframe_model">shell_based_wireframe_model</A>) : BOOLEAN;
+         </code><pre>
+LOCAL
+result : BOOLEAN := TRUE;
+END_LOCAL;
+REPEAT j := 1 TO SIZEOF(m.sbwm_boundary);
+IF (NOT ('TOPOLOGY_SCHEMA.WIRE_SHELL' IN
+TYPEOF(m.sbwm_boundary[j])) AND
+(NOT ('TOPOLOGY_SCHEMA.VERTEX_SHELL' IN
+TYPEOF(m.sbwm_boundary[j]))))
+THEN
+result := FALSE;
+RETURN(result);
+END_IF;
+END_REPEAT;
+RETURN(result);
+      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="geometric_model_schema.msb_shells">FUNCTION <b>msb_shells</b></A><br>&nbsp;(brep : <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.manifold_solid_brep">manifold_solid_brep</A>) : SET[1:?] OF <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.closed_shell">closed_shell</A>;
+         </code><pre>
+IF SIZEOF (QUERY (msbtype &lt;* TYPEOF (brep) |
+msbtype LIKE '*BREP_WITH_VOIDS')) &gt;= 1 THEN
+RETURN (brep\brep_with_voids.voids + brep.outer);
+ELSE
+RETURN([brep.outer]);
+END_IF;
+      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;geometric_model_schema<br></code></body>
+</HTML>

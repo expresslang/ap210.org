@@ -1,0 +1,24 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Part_collection_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Part_collection_arm</h2><code><br><br><a name="part_collection_arm">SCHEMA <b>Part_collection_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_occurrence/sys/e_exp_arm.htm#product_occurrence_arm">Product_occurrence_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1063<br><br></code><code><br><A NAME="part_collection_arm.collected_item_association">ENTITY <b>Collected_item_association</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/part_occurrence/sys/e_exp_arm.htm#part_occurrence_arm.part_occurrence_definition_relationship">Part_occurrence_definition_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/assembly_structure/sys/e_exp_arm.htm#assembly_structure_arm.product_occurrence_definition_relationship">Product_occurrence_definition_relationship</A>.<A NAME="part_collection_arm.collected_item_association.relating_view">relating_view : </A><A HREF="#part_collection_arm.collection_definition">Collection_definition</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="part_collection_arm.collected_item_association.wr:wr1">WR1: NOT ('PART_COLLECTION_ARM.ASSEMBLY_COMPONENT_RELATIONSHIP' IN TYPEOF(SELF));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="part_collection_arm.collection_definition">ENTITY <b>Collection_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/part_view_definition/sys/e_exp_arm.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Part_collection_arm<br></code></body>
+</HTML>

@@ -1,0 +1,184 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Product_class_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Product_class_mim</h2><code><br><br><a name="product_class_mim">SCHEMA <b>Product_class_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/identification_assignment/sys/e_exp_mim.htm#identification_assignment_mim">Identification_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1021<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_concept_identification/sys/e_exp_mim.htm#product_concept_identification_mim">Product_concept_identification_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1060<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/group/sys/e_exp_mim.htm#group_mim">Group_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1113<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema">product_concept_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-44<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.conditional_concept_feature">conditional_concept_feature</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept_relationship">product_concept_relationship</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept_feature">product_concept_feature</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept_feature_association">product_concept_feature_association</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.concept_feature_operator">concept_feature_operator</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema">product_property_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>);
+         <br><br></code><code><br><A NAME="product_class_mim.category_usage_item">TYPE </A><b>category_usage_item</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#product_class_mim.product_class">product_class</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="product_class_mim.id_for_class">TYPE </A><b>id_for_class</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/identification_assignment/sys/e_exp_mim.htm#identification_assignment_mim.identification_item">identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#product_class_mim.product_class">product_class</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept_feature">product_concept_feature</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="product_class_mim.specification_for_category">TYPE </A><b>specification_for_category</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/group/sys/e_exp_mim.htm#group_mim.groupable_item">groupable_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#product_class_mim.package_product_concept_feature">package_product_concept_feature</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept_feature">product_concept_feature</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="product_class_mim.version_for_class">TYPE </A><b>version_for_class</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/identification_assignment/sys/e_exp_mim.htm#identification_assignment_mim.versionable_item">versionable_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#product_class_mim.product_class">product_class</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept_feature">product_concept_feature</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="product_class_mim.exclusive_product_concept_feature_category">ENTITY <b>exclusive_product_concept_feature_category</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_class_mim.product_concept_feature_category">product_concept_feature_category</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_class_mim.inclusion_product_concept_feature">ENTITY <b>inclusion_product_concept_feature</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.conditional_concept_feature">conditional_concept_feature</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_class_mim.inclusion_product_concept_feature.wr:wr1">WR1: NOT ( 'PRODUCT_CLASS_MIM.' + 'PACKAGE_PRODUCT_CONCEPT_FEATURE' IN TYPEOF ( SELF ) );</A><br>
+         &nbsp;&nbsp;<A NAME="product_class_mim.inclusion_product_concept_feature.wr:wr2">WR2: SIZEOF (QUERY
+            ( cfr &lt;* USEDIN 
+            ( SELF ,'PRODUCT_CONCEPT_SCHEMA.' + 'CONCEPT_FEATURE_RELATIONSHIP.RELATING_PRODUCT_CONCEPT_FEATURE' ) 
+            | 
+            'PRODUCT_CONCEPT_SCHEMA.'+ 'CONCEPT_FEATURE_RELATIONSHIP_WITH_CONDITION' IN TYPEOF( cfr ) 
+            ) 
+            ) + 
+            SIZEOF(QUERY
+            ( cfr &lt;* USEDIN 
+            (SELF , 'PRODUCT_CONCEPT_SCHEMA.' + 'CONCEPT_FEATURE_RELATIONSHIP.RELATED_PRODUCT_CONCEPT_FEATURE' ) 
+            | 
+            'PRODUCT_CONCEPT_SCHEMA.' + 'CONCEPT_FEATURE_RELATIONSHIP_WITH_CONDITION' IN TYPEOF(cfr)
+            )
+            )= 0;</A><br>
+         &nbsp;&nbsp;<A NAME="product_class_mim.inclusion_product_concept_feature.wr:wr3">WR3: SELF.condition.conditional_operator.name = 'implication';</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_class_mim.package_product_concept_feature">ENTITY <b>package_product_concept_feature</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept_feature">product_concept_feature</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_class_mim.package_product_concept_feature.wr:wr1">WR1: NOT ( 'PRODUCT_CONCEPT_SCHEMA.' + 'CONDITIONAL_CONCEPT_FEATURE' IN TYPEOF ( SELF ) );</A><br>
+         &nbsp;&nbsp;<A NAME="product_class_mim.package_product_concept_feature.wr:wr2">WR2: SIZEOF ( QUERY 
+            ( 
+            cfr &lt;* USEDIN ( SELF , 'PRODUCT_CONCEPT_SCHEMA.' + 'CONCEPT_FEATURE_RELATIONSHIP.' +'RELATING_PRODUCT_CONCEPT_FEATURE' ) 
+            | 
+            ('PRODUCT_CONCEPT_SCHEMA.' + 'CONCEPT_FEATURE_RELATIONSHIP_WITH_CONDITION' IN TYPEOF (cfr ) ) 
+            AND 
+            ( SIZEOF ( QUERY 
+            ( 
+            ipcf &lt;* USEDIN ( cfr , 'PRODUCT_CONCEPT_SCHEMA.' + 'CONDITIONAL_CONCEPT_FEATURE.' + 'CONDITION' ) 
+            | 
+            'PRODUCT_CLASS_MIM.' + 'INCLUSION_PRODUCT_CONCEPT_FEATURE' IN TYPEOF ( ipcf ) 
+            )
+            )= 1 
+            )
+            )
+            )&gt;0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_class_mim.product_class">ENTITY <b>product_class</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>, <A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept">product_concept</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_class_mim.product_concept_feature_category">ENTITY <b>product_concept_feature_category</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_class_mim.product_concept_feature_category.wr:wr1">WR1: SIZEOF(QUERY
+            ( 
+            aga &lt;* USEDIN( SELF, 'MANAGEMENT_RESOURCES_SCHEMA.' + 'GROUP_ASSIGNMENT.ASSIGNED_GROUP' ) 
+            |
+            ('GROUP_MIM.'+ 'APPLIED_GROUP_ASSIGNMENT' IN TYPEOF(aga)) 
+            AND
+            (
+            ( aga.role.name &lt;&gt; 'specification category member' ) 
+            OR 
+            ( SIZEOF(QUERY 
+            ( 
+            i &lt;* aga.items 
+            | 
+            ('PRODUCT_CONCEPT_SCHEMA.'+ 'PRODUCT_CONCEPT_FEATURE' IN TYPEOF ( i ) ) 
+            AND 
+            NOT ('PRODUCT_CONCEPT_SCHEMA.'+ 'CONDITIONAL_CONCEPT_FEATURE' IN TYPEOF (i))
+            )
+            ) &lt;&gt; SIZEOF (aga.items)
+            )
+            ) 
+            ) 
+            ) =0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_class_mim.product_concept_feature_category_usage">ENTITY <b>product_concept_feature_category_usage</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.group_assignment">group_assignment</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.group_assignment">group_assignment</A>.<A NAME="product_class_mim.product_concept_feature_category_usage.assigned_group">assigned_group : </A><A HREF="#product_class_mim.product_concept_feature_category">product_concept_feature_category</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_class_mim.product_concept_feature_category_usage.items">items : </A>SET[1:?] OF <A HREF="#product_class_mim.category_usage_item">category_usage_item</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_class_mim.product_concept_feature_category_usage.wr:wr1">WR1: SELF.role.name IN [ 'mandatory category usage', 'optional category usage' ];</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_class_mim.product_concept_feature_requires_category">RULE&nbsp;<b>product_concept_feature_requires_category</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept_feature">product_concept_feature</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_class_mim.product_concept_feature_requires_category.wr:wr1">WR1: SIZEOF ( QUERY ( pcf &lt;* product_concept_feature |
+            (SIZEOF(['PRODUCT_CLASS_MIM.' + 'INCLUSION_PRODUCT_CONCEPT_FEATURE',
+            'PRODUCT_CONCEPT_SCHEMA.' + 'CONDITIONAL_CONCEPT_FEATURE'] * TYPEOF(pcf)) = 0) AND 
+            (SIZEOF ( QUERY ( aga &lt;* USEDIN ( pcf , 'GROUP_MIM.' + 'APPLIED_GROUP_ASSIGNMENT.' + 'ITEMS' ) | 
+            ( aga.role.name = 'specification category member' ) AND 
+            ('PRODUCT_CLASS_MIM.' + 'PRODUCT_CONCEPT_FEATURE_CATEGORY' IN TYPEOF ( aga.assigned_group )))) &lt;&gt;1 ) ) ) = 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="product_class_mim.restrict_concept_feature_operator">RULE&nbsp;<b>restrict_concept_feature_operator</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.concept_feature_operator">concept_feature_operator</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_class_mim.restrict_concept_feature_operator.wr:wr1">WR1: SIZEOF ( QUERY ( cfo &lt;* concept_feature_operator | NOT
+            ( cfo.name IN ['and' , 'or' , 'oneof' , 'not' , 'implication'] ) ) ) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="product_class_mim.restrict_concept_feature_operator.wr:wr2">WR2: SIZEOF ( QUERY ( cfo &lt;* concept_feature_operator | (cfo.name = 'implication' ) AND
+            ( SIZEOF ( QUERY (cfrwc &lt;* USEDIN ( cfo , 'PRODUCT_CONCEPT_SCHEMA.' + 'CONCEPT_FEATURE_RELATIONSHIP_WITH_CONDITION.' +
+            'CONDITIONAL_OPERATOR' ) | 
+            SIZEOF ( QUERY ( ccf &lt;* USEDIN( cfrwc , 'PRODUCT_CONCEPT_SCHEMA.' + 'CONDITIONAL_CONCEPT_FEATURE.CONDITION' ) | 
+            NOT ('PRODUCT_CLASS_MIM.' + 'INCLUSION_PRODUCT_CONCEPT_FEATURE' IN TYPEOF ( ccf )))) &gt;0 )) &gt;0 ))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="product_class_mim.restrict_concept_feature_operator.wr:wr3">WR3: SIZEOF( QUERY (cfo &lt;* concept_feature_operator | (cfo.name = 'not')
+            AND (SIZEOF(QUERY(cfrwc &lt;* USEDIN(cfo, 'PRODUCT_CONCEPT_SCHEMA.' + 'CONCEPT_FEATURE_RELATIONSHIP_WITH_CONDITION.CONDITIONAL_OPERATOR')
+            | 
+            cfrwc.related_product_concept_feature :&lt;&gt;: cfrwc.relating_product_concept_feature)) &gt;0 ))) = 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="product_class_mim.restrict_group_relationship_for_specification_category">RULE&nbsp;<b>restrict_group_relationship_for_specification_category</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group_relationship">group_relationship</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_class_mim.restrict_group_relationship_for_specification_category.wr:wr1">WR1: SIZEOF( QUERY( gr &lt;* group_relationship | 
+            (gr.name = 'specification category hierarchy') AND 
+            (NOT('PRODUCT_CLASS_MIM.PRODUCT_CONCEPT_FEATURE_CATEGORY' IN TYPEOF(gr.related_group)) 
+            OR NOT('PRODUCT_CLASS_MIM.PRODUCT_CONCEPT_FEATURE_CATEGORY' IN TYPEOF(gr.relating_group))) )) = 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Product_class_mim<br></code></body>
+</HTML>

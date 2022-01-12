@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Rule_priority</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.789 Rule_priority</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+>A Rule_priority is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Rule_priority is a statement that an <A
+CLASS="INTERNALREF"
+HREF="e_319.htm"
+>Ee_product</A
+> that is in the rule category has a priority value.  This value is used to order rules.  The priority is applied to the rule through the Ee_rule_definition.  It is not the Ee_rule_definition that has the priority.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>prioritized_rule</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>priority</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.789.1 prioritized_rule</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The prioritized_rule specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_333.htm"
+>Ee_rule_definition</A
+> for the Rule_priority.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.789.2 priority</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The priority specifies the integer for the priority number of the Rule_priority. 
+The lowest numeric value shall have the highest priority. </DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>A number less than zero shall not be allowed. </DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY rule_priority
+  SUBTYPE OF (managed_design_object);
+    priority         : INTEGER;
+    prioritized_rule : ee_rule_definition;
+WHERE
+  WR1: priority &#62;= 0;
+END_ENTITY; -- rule_priority
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

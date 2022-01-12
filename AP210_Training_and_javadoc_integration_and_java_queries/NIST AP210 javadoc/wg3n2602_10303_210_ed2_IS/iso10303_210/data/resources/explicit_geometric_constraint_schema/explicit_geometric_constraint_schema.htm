@@ -1,0 +1,366 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: explicit_geometric_constraint_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: explicit_geometric_constraint_schema</h2>
+      <p><i>Source : ISO 10303-108</i></p><code><br><br><a name="explicit_geometric_constraint_schema">SCHEMA <b>explicit_geometric_constraint_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema">measure_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.length_measure">length_measure</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.plane_angle_measure">plane_angle_measure</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema">geometry_schema</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO 10303-42<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema">geometric_model_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-42<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.extruded_area_solid">extruded_area_solid</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.extruded_face_solid">extruded_face_solid</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.revolved_area_solid">revolved_area_solid</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.revolved_face_solid">revolved_face_solid</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.right_circular_cone">right_circular_cone</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.right_circular_cylinder">right_circular_cylinder</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.sphere">sphere</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.swept_area_solid">swept_area_solid</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.swept_face_solid">swept_face_solid</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.torus">torus</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema">explicit_constraint_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-108<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.defined_constraint">defined_constraint</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>);
+         <br><br></code><code><br><A NAME="explicit_geometric_constraint_schema.axial_geometry_constraint_element">TYPE </A><b>axial_geometry_constraint_element</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.circle">circle</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.conical_surface">conical_surface</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.cylindrical_surface">cylindrical_surface</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.line">line</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.plane">plane</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.point">point</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.revolved_area_solid">revolved_area_solid</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.revolved_face_solid">revolved_face_solid</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.right_circular_cone">right_circular_cone</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.right_circular_cylinder">right_circular_cylinder</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.sphere">sphere</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.spherical_surface">spherical_surface</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface_of_revolution">surface_of_revolution</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.toroidal_surface">toroidal_surface</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.torus">torus</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="explicit_geometric_constraint_schema.curve_or_surface_constraint_element">TYPE </A><b>curve_or_surface_constraint_element</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.curve">curve</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface">surface</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="explicit_geometric_constraint_schema.geometric_constraint_element">TYPE </A><b>geometric_constraint_element</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.curve">curve</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.direction">direction</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.point">point</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface">surface</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.vector">vector</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="explicit_geometric_constraint_schema.linear_geometry_constraint_element">TYPE </A><b>linear_geometry_constraint_element</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.direction">direction</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.line">line</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.plane">plane</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.vector">vector</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="explicit_geometric_constraint_schema.non_negative_length_measure">TYPE </A><b>non_negative_length_measure</b> =
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.length_measure">length_measure</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.non_negative_length_measure.wr:wr1">WR1: SELF &gt;= 0;</A><br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="explicit_geometric_constraint_schema.parallel_offset_type">TYPE </A><b>parallel_offset_type</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (curve_2d_offset,<br>&nbsp;&nbsp;&nbsp;&nbsp;curve_3d_offset,<br>&nbsp;&nbsp;&nbsp;&nbsp;surface_offset);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="explicit_geometric_constraint_schema.point_curve_or_surface_constraint_element">TYPE </A><b>point_curve_or_surface_constraint_element</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.curve">curve</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.point">point</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface">surface</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="explicit_geometric_constraint_schema.radial_geometry_constraint_element">TYPE </A><b>radial_geometry_constraint_element</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.circle">circle</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.conical_surface">conical_surface</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.cylindrical_surface">cylindrical_surface</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.right_circular_cone">right_circular_cone</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.right_circular_cylinder">right_circular_cylinder</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.sphere">sphere</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.spherical_surface">spherical_surface</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="explicit_geometric_constraint_schema.swept_surface_or_solid">TYPE </A><b>swept_surface_or_solid</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.swept_area_solid">swept_area_solid</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.swept_face_solid">swept_face_solid</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.swept_surface">swept_surface</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="explicit_geometric_constraint_schema.tangent_contact_type">TYPE </A><b>tangent_contact_type</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (point_contact,<br>&nbsp;&nbsp;&nbsp;&nbsp;curve_contact,<br>&nbsp;&nbsp;&nbsp;&nbsp;surface_contact);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="explicit_geometric_constraint_schema.agc_with_dimension">ENTITY <b>agc_with_dimension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.angle_geometric_constraint">angle_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.agc_with_dimension.angle_value">angle_value : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.plane_angle_measure">plane_angle_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.angle_geometric_constraint">ENTITY <b>angle_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.angle_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:?] OF <A HREF="#explicit_geometric_constraint_schema.linear_geometry_constraint_element">linear_geometry_constraint_element</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.angle_geometric_constraint.reference_elements">reference_elements : </A>SET[0:1] OF <A HREF="#explicit_geometric_constraint_schema.linear_geometry_constraint_element">linear_geometry_constraint_element</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.angle_geometric_constraint.wr:wr1">WR1: (SIZEOF(SELF\explicit_constraint.reference_elements) = 1) OR
+            (('EXPLICIT_GEOMETRIC_CONSTRAINT_SCHEMA.AGC_WITH_DIMENSION' 
+            IN TYPEOF(SELF)) AND 
+            (SIZEOF(SELF\explicit_constraint.constrained_elements) = 2));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.cdgc_with_dimension">ENTITY <b>cdgc_with_dimension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.curve_distance_geometric_constraint">curve_distance_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.cdgc_with_dimension.distance_value">distance_value : </A><A HREF="#explicit_geometric_constraint_schema.non_negative_length_measure">non_negative_length_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.clgc_with_dimension">ENTITY <b>clgc_with_dimension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.curve_length_geometric_constraint">curve_length_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.clgc_with_dimension.length_value">length_value : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.coaxial_geometric_constraint">ENTITY <b>coaxial_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.coaxial_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:?] OF <A HREF="#explicit_geometric_constraint_schema.axial_geometry_constraint_element">axial_geometry_constraint_element</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.coaxial_geometric_constraint.reference_elements">reference_elements : </A>SET[0:1] OF <A HREF="#explicit_geometric_constraint_schema.axial_geometry_constraint_element">axial_geometry_constraint_element</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.coaxial_geometric_constraint.wr:wr1">WR1: SIZEOF(QUERY(q &lt;* SELF\explicit_constraint.reference_elements | 
+            SIZEOF(TYPEOF(q) * ['GEOMETRY_SCHEMA.POINT','GEOMETRY_SCHEMA.PLANE',
+            'GEOMETRY_SCHEMA.SPHERICAL_SURFACE','GEOMETRY_SCHEMA.SPHERE']) 
+            &gt; 0)) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.curve_distance_geometric_constraint">ENTITY <b>curve_distance_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.curve_distance_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:2] OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.curve">curve</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.curve_distance_geometric_constraint.reference_elements">reference_elements : </A>SET[0:4] OF <A HREF="#explicit_geometric_constraint_schema.point_curve_or_surface_constraint_element">point_curve_or_surface_constraint_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.curve_distance_geometric_constraint.near_points">near_points : </A>SET[0:4] OF <A HREF="#explicit_geometric_constraint_schema.near_point_relationship">near_point_relationship</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.curve_distance_geometric_constraint.wr:wr1">WR1: (SIZEOF(SELF\explicit_constraint.reference_elements) &gt; 0) OR
+            (('EXPLICIT_GEOMETRIC_CONSTRAINT_SCHEMA.CDGC_WITH_DIMENSION'
+            IN TYPEOF(SELF)) 
+            AND (SIZEOF(SELF\explicit_constraint.constrained_elements) = 2));</A><br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.curve_distance_geometric_constraint.wr:wr2">WR2: SIZEOF(near_points) &lt;= 
+            SIZEOF(SELF\explicit_constraint.reference_elements);</A><br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.curve_distance_geometric_constraint.wr:wr3">WR3: SIZEOF(QUERY(q &lt;* near_points | NOT
+            (q\representation_item_relationship.relating_representation_item
+            IN SELF\explicit_constraint.reference_elements))) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.curve_length_geometric_constraint">ENTITY <b>curve_length_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.curve_length_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:?] OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.bounded_curve">bounded_curve</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.curve_length_geometric_constraint.wr:wr1">WR1: SIZEOF(SELF\explicit_constraint.reference_elements) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.curve_segment_set">ENTITY <b>curve_segment_set</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.curve_segment_set.segments">segments : </A>SET[1:?] OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.composite_curve_segment">composite_curve_segment</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.curve_smoothness_geometric_constraint">ENTITY <b>curve_smoothness_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.curve_smoothness_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:1] OF <A HREF="#explicit_geometric_constraint_schema.curve_segment_set">curve_segment_set</A>;<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.curve_smoothness_geometric_constraint.smoothness">smoothness : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.transition_code">transition_code</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.curve_smoothness_geometric_constraint.wr:wr1">WR1: SIZEOF(SELF\explicit_constraint.reference_elements) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.explicit_geometric_constraint">ENTITY <b>explicit_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#explicit_geometric_constraint_schema.fixed_element_geometric_constraint">fixed_element_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.parallel_geometric_constraint">parallel_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.point_distance_geometric_constraint">point_distance_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.skew_line_distance_geometric_constraint">skew_line_distance_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.curve_distance_geometric_constraint">curve_distance_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.surface_distance_geometric_constraint">surface_distance_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.radius_geometric_constraint">radius_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.curve_length_geometric_constraint">curve_length_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.parallel_offset_geometric_constraint">parallel_offset_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.angle_geometric_constraint">angle_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.perpendicular_geometric_constraint">perpendicular_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.incidence_geometric_constraint">incidence_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.coaxial_geometric_constraint">coaxial_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.tangent_geometric_constraint">tangent_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.symmetry_geometric_constraint">symmetry_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.swept_point_curve_geometric_constraint">swept_point_curve_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.swept_curve_surface_geometric_constraint">swept_curve_surface_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.curve_smoothness_geometric_constraint">curve_smoothness_geometric_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#explicit_geometric_constraint_schema.surface_smoothness_geometric_constraint">surface_smoothness_geometric_constraint</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.defined_constraint">defined_constraint</A>, <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.explicit_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:?] OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.explicit_geometric_constraint.reference_elements">reference_elements : </A>SET[0:?] OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.fixed_element_geometric_constraint">ENTITY <b>fixed_element_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.fixed_element_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:?] OF <A HREF="#explicit_geometric_constraint_schema.geometric_constraint_element">geometric_constraint_element</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.fixed_element_geometric_constraint.wr:wr1">WR1: SIZEOF(SELF\explicit_constraint.reference_elements) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.incidence_geometric_constraint">ENTITY <b>incidence_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.incidence_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:?] OF <A HREF="#explicit_geometric_constraint_schema.geometric_constraint_element">geometric_constraint_element</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.incidence_geometric_constraint.reference_elements">reference_elements : </A>SET[0:?] OF <A HREF="#explicit_geometric_constraint_schema.geometric_constraint_element">geometric_constraint_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.incidence_geometric_constraint.near_points">near_points : </A>SET[0:?] OF <A HREF="#explicit_geometric_constraint_schema.near_point_relationship">near_point_relationship</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.incidence_geometric_constraint.wr:wr1">WR1: (SIZEOF(SELF\explicit_constraint.reference_elements) &gt; 0)
+            OR (SIZEOF(SELF\explicit_constraint.constrained_elements) = 2);</A><br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.incidence_geometric_constraint.wr:wr2">WR2: SIZEOF(near_points) &lt;= 
+            SIZEOF(SELF\explicit_constraint.reference_elements);</A><br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.incidence_geometric_constraint.wr:wr3">WR3: SIZEOF(QUERY(q &lt;* near_points | NOT
+            (q\representation_item_relationship.relating_representation_item
+            IN SELF\explicit_constraint.reference_elements))) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.near_point_relationship">ENTITY <b>near_point_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>.<A NAME="explicit_geometric_constraint_schema.near_point_relationship.relating_representation_item">relating_representation_item : </A><A HREF="#explicit_geometric_constraint_schema.curve_or_surface_constraint_element">curve_or_surface_constraint_element</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>.<A NAME="explicit_geometric_constraint_schema.near_point_relationship.related_representation_item">related_representation_item : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.point">point</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.parallel_geometric_constraint">ENTITY <b>parallel_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.parallel_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:?] OF <A HREF="#explicit_geometric_constraint_schema.linear_geometry_constraint_element">linear_geometry_constraint_element</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.parallel_geometric_constraint.reference_elements">reference_elements : </A>SET[0:1] OF <A HREF="#explicit_geometric_constraint_schema.linear_geometry_constraint_element">linear_geometry_constraint_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.parallel_offset_geometric_constraint">ENTITY <b>parallel_offset_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.parallel_offset_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:?] OF <A HREF="#explicit_geometric_constraint_schema.curve_or_surface_constraint_element">curve_or_surface_constraint_element</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.parallel_offset_geometric_constraint.reference_elements">reference_elements : </A>SET[0:1] OF <A HREF="#explicit_geometric_constraint_schema.curve_or_surface_constraint_element">curve_or_surface_constraint_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.parallel_offset_geometric_constraint.offset_type">offset_type : </A><A HREF="#explicit_geometric_constraint_schema.parallel_offset_type">parallel_offset_type</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.parallel_offset_geometric_constraint.wr:wr1">WR1: NOT(((offset_type = curve_2d_offset) 
+            OR (offset_type = curve_3d_offset)) AND 
+            (SIZEOF(QUERY( q &lt;* (SELF\explicit_constraint.constrained_elements 
+            + SELF\explicit_constraint.reference_elements) |
+            'GEOMETRY_SCHEMA.SURFACE' IN TYPEOF(q))) &gt; 0));</A><br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.parallel_offset_geometric_constraint.wr:wr2">WR2: NOT((offset_type = surface_offset) AND (SIZEOF(QUERY( q &lt;* 
+            (SELF\explicit_constraint.constrained_elements +
+            SELF\explicit_constraint.reference_elements) | 
+            'GEOMETRY_SCHEMA.CURVE' IN TYPEOF(q))) &gt; 0));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.pdgc_with_dimension">ENTITY <b>pdgc_with_dimension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.point_distance_geometric_constraint">point_distance_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.pdgc_with_dimension.distance_value">distance_value : </A><A HREF="#explicit_geometric_constraint_schema.non_negative_length_measure">non_negative_length_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.perpendicular_geometric_constraint">ENTITY <b>perpendicular_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.perpendicular_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:?] OF <A HREF="#explicit_geometric_constraint_schema.linear_geometry_constraint_element">linear_geometry_constraint_element</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.perpendicular_geometric_constraint.reference_elements">reference_elements : </A>SET[0:2] OF <A HREF="#explicit_geometric_constraint_schema.linear_geometry_constraint_element">linear_geometry_constraint_element</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.perpendicular_geometric_constraint.wr:wr1">WR1: NOT ((SIZEOF(SELF\explicit_constraint.reference_elements) = 2) AND 
+            NOT ((SIZEOF(QUERY(q &lt;* SELF\explicit_constraint.constrained_elements + 
+            SELF\explicit_constraint.reference_elements | 
+            'GEOMETRY_SCHEMA.LINE' IN TYPEOF(q))) =
+            SIZEOF(SELF\explicit_constraint.reference_elements + 
+            SELF\explicit_constraint.constrained_elements)) XOR 
+            (SIZEOF(QUERY(q &lt;* SELF\explicit_constraint.constrained_elements + 
+            SELF\explicit_constraint.reference_elements | 
+            'GEOMETRY_SCHEMA.PLANE' IN TYPEOF(q))) =
+            SIZEOF(SELF\explicit_constraint.reference_elements + 
+            SELF\explicit_constraint.constrained_elements))));</A><br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.perpendicular_geometric_constraint.wr:wr2">WR2: (SIZEOF(SELF\explicit_constraint.reference_elements) &gt; 0) OR
+            (SIZEOF(SELF\explicit_constraint.constrained_elements) IN [2,3]);</A><br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.perpendicular_geometric_constraint.wr:wr3">WR3: NOT ((SIZEOF(SELF\explicit_constraint.reference_elements) = 0) AND 
+            (SIZEOF(SELF\explicit_constraint.constrained_elements) = 3)) AND NOT  
+            ((SIZEOF(QUERY(q &lt;* SELF\explicit_constraint.constrained_elements | 
+            'GEOMETRY_SCHEMA.LINE' IN TYPEOF(q))) = 3) XOR
+            (SIZEOF(QUERY(q &lt;* SELF\explicit_constraint.constrained_elements | 
+            'GEOMETRY_SCHEMA.PLANE' IN TYPEOF(q))) = 3));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.pgc_with_dimension">ENTITY <b>pgc_with_dimension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.parallel_geometric_constraint">parallel_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.pgc_with_dimension.distance_value">distance_value : </A><A HREF="#explicit_geometric_constraint_schema.non_negative_length_measure">non_negative_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.pgc_with_dimension.negative_direction">negative_direction : </A>BOOLEAN;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.pgc_with_dimension.wr:wr1">WR1: (SIZEOF(SELF\explicit_constraint.reference_elements) = 1)
+            OR (SIZEOF(SELF\explicit_constraint.constrained_elements) = 2);</A><br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.pgc_with_dimension.wr:wr2">WR2: SIZEOF(QUERY(q &lt;* (SELF\explicit_constraint.reference_elements +
+            SELF\explicit_constraint.constrained_elements) | SIZEOF(TYPEOF(q) *
+            ['GEOMETRY_SCHEMA.DIRECTION', 'GEOMETRY_SCHEMA.VECTOR']) &gt; 0)) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.pogc_with_dimension">ENTITY <b>pogc_with_dimension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.parallel_offset_geometric_constraint">parallel_offset_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.pogc_with_dimension.offset_value">offset_value : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.pogc_with_dimension.offset_direction_constrained">offset_direction_constrained : </A>BOOLEAN;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.pogc_with_dimension.wr:wr1">WR1: (SIZEOF(SELF\explicit_constraint.reference_elements) = 1)
+            OR (SIZEOF(SELF\explicit_constraint.constrained_elements) = 2);</A><br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.pogc_with_dimension.wr:wr2">WR2: (NOT (offset_direction_constrained = TRUE)
+            AND ((offset_type = curve_2d_offset) 
+            OR (offset_type = surface_offset)));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.point_distance_geometric_constraint">ENTITY <b>point_distance_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.point_distance_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:?] OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.point">point</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.point_distance_geometric_constraint.reference_elements">reference_elements : </A>SET[0:4] OF <A HREF="#explicit_geometric_constraint_schema.point_curve_or_surface_constraint_element">point_curve_or_surface_constraint_element</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.point_distance_geometric_constraint.wr:wr1">WR1: (SIZEOF(SELF\explicit_constraint.reference_elements) &gt; 0) OR
+            (('EXPLICIT_GEOMETRIC_CONSTRAINT_SCHEMA.PDGC_WITH_DIMENSION' 
+            IN TYPEOF(SELF)) AND 
+            (SIZEOF(SELF\explicit_constraint.constrained_elements) = 2));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.radius_geometric_constraint">ENTITY <b>radius_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.radius_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:?] OF <A HREF="#explicit_geometric_constraint_schema.radial_geometry_constraint_element">radial_geometry_constraint_element</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.radius_geometric_constraint.wr:wr1">WR1: SIZEOF(SELF\explicit_constraint.reference_elements) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.rgc_with_dimension">ENTITY <b>rgc_with_dimension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.radius_geometric_constraint">radius_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.rgc_with_dimension.radius_value">radius_value : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.positive_length_measure">positive_length_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.sdgc_with_dimension">ENTITY <b>sdgc_with_dimension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.surface_distance_geometric_constraint">surface_distance_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.sdgc_with_dimension.distance_value">distance_value : </A><A HREF="#explicit_geometric_constraint_schema.non_negative_length_measure">non_negative_length_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.skew_line_distance_geometric_constraint">ENTITY <b>skew_line_distance_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.skew_line_distance_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:2] OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.line">line</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.skew_line_distance_geometric_constraint.reference_elements">reference_elements : </A>SET[0:1] OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.line">line</A>;<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.skew_line_distance_geometric_constraint.distance_value">distance_value : </A><A HREF="#explicit_geometric_constraint_schema.non_negative_length_measure">non_negative_length_measure</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.skew_line_distance_geometric_constraint.wr:wr1">WR1: SIZEOF(SELF\explicit_constraint.constrained_elements +
+            SELF\explicit_constraint.reference_elements) = 2;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.surface_distance_geometric_constraint">ENTITY <b>surface_distance_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.surface_distance_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:2] OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface">surface</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.surface_distance_geometric_constraint.reference_elements">reference_elements : </A>SET[0:4] OF <A HREF="#explicit_geometric_constraint_schema.point_curve_or_surface_constraint_element">point_curve_or_surface_constraint_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.surface_distance_geometric_constraint.near_points">near_points : </A>SET[0:4] OF <A HREF="#explicit_geometric_constraint_schema.near_point_relationship">near_point_relationship</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.surface_distance_geometric_constraint.wr:wr1">WR1: (SIZEOF(SELF\explicit_constraint.reference_elements) &gt; 0) OR 
+            (('EXPLICIT_GEOMETRIC_CONSTRAINT_SCHEMA.SDGC_WITH_DIMENSION' 
+            IN TYPEOF(SELF)) 
+            AND (SIZEOF(SELF\explicit_constraint.constrained_elements) = 2));</A><br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.surface_distance_geometric_constraint.wr:wr2">WR2: SIZEOF(near_points) &lt;= 
+            SIZEOF(SELF\explicit_constraint.reference_elements);</A><br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.surface_distance_geometric_constraint.wr:wr3">WR3: SIZEOF(QUERY(q &lt;* near_points | NOT
+            (q\representation_item_relationship.relating_representation_item
+            IN SELF\explicit_constraint.reference_elements))) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.surface_patch_set">ENTITY <b>surface_patch_set</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.surface_patch_set.patches">patches : </A>SET[1:?] OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface_patch">surface_patch</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.surface_smoothness_geometric_constraint">ENTITY <b>surface_smoothness_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.surface_smoothness_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:1] OF <A HREF="#explicit_geometric_constraint_schema.surface_patch_set">surface_patch_set</A>;<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.surface_smoothness_geometric_constraint.u_smoothness">u_smoothness : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.transition_code">transition_code</A>;<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.surface_smoothness_geometric_constraint.v_smoothness">v_smoothness : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.transition_code">transition_code</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.surface_smoothness_geometric_constraint.wr:wr1">WR1: SIZEOF(SELF\explicit_constraint.reference_elements) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.swept_curve_surface_geometric_constraint">ENTITY <b>swept_curve_surface_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.swept_curve_surface_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:?] OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface">surface</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.swept_curve_surface_geometric_constraint.reference_elements">reference_elements : </A>SET[1:1] OF <A HREF="#explicit_geometric_constraint_schema.swept_surface_or_solid">swept_surface_or_solid</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.swept_point_curve_geometric_constraint">ENTITY <b>swept_point_curve_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.swept_point_curve_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:?] OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.curve">curve</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.swept_point_curve_geometric_constraint.reference_elements">reference_elements : </A>SET[1:1] OF <A HREF="../../../data/resources/geometric_model_schema/geometric_model_schema.htm#geometric_model_schema.swept_face_solid">swept_face_solid</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.symmetry_geometric_constraint">ENTITY <b>symmetry_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.symmetry_geometric_constraint.constrained_elements">constrained_elements : </A>SET[2:2] OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.symmetry_geometric_constraint.mirror_element">mirror_element : </A><A HREF="#explicit_geometric_constraint_schema.linear_geometry_constraint_element">linear_geometry_constraint_element</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.symmetry_geometric_constraint.wr:wr1">WR1: SIZEOF(SELF\explicit_constraint.reference_elements) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.symmetry_geometric_constraint.wr:wr2">WR2: SIZEOF(TYPEOF(mirror_element) * 
+            ['GEOMETRY_SCHEMA.DIRECTION','GEOMETRY_SCHEMA.VECTOR']) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.symmetry_geometric_constraint.wr:wr3">WR3: NOT ((SELF\geometric_representation_item.dim = 2) AND 
+            ('GEOMETRY_SCHEMA.PLANE' IN TYPEOF(mirror_element)));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="explicit_geometric_constraint_schema.tangent_geometric_constraint">ENTITY <b>tangent_geometric_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#explicit_geometric_constraint_schema.explicit_geometric_constraint">explicit_geometric_constraint</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.tangent_geometric_constraint.constrained_elements">constrained_elements : </A>SET[1:?] OF <A HREF="#explicit_geometric_constraint_schema.curve_or_surface_constraint_element">curve_or_surface_constraint_element</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/explicit_constraint_schema/explicit_constraint_schema.htm#explicit_constraint_schema.explicit_constraint">explicit_constraint</A>.<A NAME="explicit_geometric_constraint_schema.tangent_geometric_constraint.reference_elements">reference_elements : </A>SET[0:?] OF <A HREF="#explicit_geometric_constraint_schema.curve_or_surface_constraint_element">curve_or_surface_constraint_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.tangent_geometric_constraint.near_points">near_points : </A>SET[0:?] OF <A HREF="#explicit_geometric_constraint_schema.near_point_relationship">near_point_relationship</A>;<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.tangent_geometric_constraint.tangent_contact">tangent_contact : </A><A HREF="#explicit_geometric_constraint_schema.tangent_contact_type">tangent_contact_type</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.tangent_geometric_constraint.wr:wr1">WR1: (SIZEOF(SELF\explicit_constraint.reference_elements) &gt; 0) OR 
+            (SIZEOF(SELF\explicit_constraint.constrained_elements) = 2);</A><br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.tangent_geometric_constraint.wr:wr2">WR2: NOT ((SELF\geometric_representation_item.dim = 2)
+            AND (tangent_contact = surface_contact));</A><br>
+         &nbsp;&nbsp;<A NAME="explicit_geometric_constraint_schema.tangent_geometric_constraint.wr:wr3">WR3: SIZEOF(QUERY(q &lt;* near_points | NOT
+            (q\representation_item_relationship.relating_representation_item
+            IN SELF\explicit_constraint.reference_elements))) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;explicit_geometric_constraint_schema<br></code></body>
+</HTML>

@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Product_association</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.741 Product_association</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Product_association is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Product_association is a usage constraint relationship among 
+some parts that may be used in a design. If the relating part is used 
+in a design then the related parts must also be incorporated in the design and in a prescribed fashion.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>constraint_source</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>related_product</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>relating_product</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.741.1 constraint_source</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The constraint_source specifies the <A
+CLASS="INTERNALREF"
+HREF="e_338.htm"
+>Ee_specification</A
+> that 
+describes the manner in which <A
+CLASS="INTERNALREF"
+HREF="e_328.htm"
+>Ee_product_version</A
+>
+that participate in the Product_association are to be used in the design.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.741.2 related_product</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The related_product specifies the <A
+CLASS="INTERNALREF"
+HREF="e_328.htm"
+>Ee_product_version</A
+> that 
+must be incorporated in the design when the relating_product is used 
+in the design for the Product_association. There shall be one or more Ee_product_version for the 
+Product_association.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.741.3 relating_product</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The relating_product specifies the <A
+CLASS="INTERNALREF"
+HREF="e_328.htm"
+>Ee_product_version</A
+>
+that, when incorporated in the design, requires the incorporation of 
+one or more related_product to be incorporated in the design to realize the desired functionality of the 
+relating_product for the Product_association.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The constraint_source shall be unique within a population of Product_associations.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>An Ee_product_version shall not be an ancestor or descendent of itself in a population of this object.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY product_association
+  SUBTYPE OF (managed_design_object);
+    relating_product  : ee_product_version;
+    related_product   : SET [1:?] OF ee_product_version;
+    constraint_source : ee_specification;
+  UNIQUE
+    ur1 : constraint_source, relating_product;
+END_ENTITY; -- product_association
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,87 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: approval_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: approval_schema</h2>
+      <p><i>Source : ISO 10303-41</i></p><code><br><br><a name="approval_schema">SCHEMA <b>approval_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema">basic_attribute_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.description_attribute">description_attribute</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.get_description_value">get_description_value</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.get_role">get_role</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.object_role">object_role</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.role_association">role_association</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema">date_time_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema.date_time_select">date_time_select</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema">person_organization_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.person_organization_select">person_organization_select</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.bag_to_set">bag_to_set</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>);
+         <br><br></code><code><br><A NAME="approval_schema.approval">ENTITY <b>approval</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval.status">status : </A><A HREF="#approval_schema.approval_status">approval_status</A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval.level">level : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="approval_schema.approval_date_time">ENTITY <b>approval_date_time</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval_date_time.date_time">date_time : </A><A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema.date_time_select">date_time_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval_date_time.dated_approval">dated_approval : </A><A HREF="#approval_schema.approval">approval</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval_date_time.role">role : </A><A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.object_role">object_role</A> := get_role (SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval_date_time.wr:wr1">WR1: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'ROLE_ASSOCIATION.ITEM_WITH_ROLE')) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="approval_schema.approval_person_organization">ENTITY <b>approval_person_organization</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval_person_organization.person_organization">person_organization : </A><A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.person_organization_select">person_organization_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval_person_organization.authorized_approval">authorized_approval : </A><A HREF="#approval_schema.approval">approval</A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval_person_organization.role">role : </A><A HREF="#approval_schema.approval_role">approval_role</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="approval_schema.approval_relationship">ENTITY <b>approval_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval_relationship.relating_approval">relating_approval : </A><A HREF="#approval_schema.approval">approval</A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval_relationship.related_approval">related_approval : </A><A HREF="#approval_schema.approval">approval</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="approval_schema.approval_role">ENTITY <b>approval_role</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval_role.role">role : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval_role.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A> := get_description_value (SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval_role.wr:wr1">WR1: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'DESCRIPTION_ATTRIBUTE.DESCRIBED_ITEM')) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="approval_schema.approval_status">ENTITY <b>approval_status</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_schema.approval_status.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="approval_schema.acyclic_approval_relationship">FUNCTION <b>acyclic_approval_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/approval_schema/approval_schema.htm#approval_schema.approval_relationship">approval_relationship</A>; relatives : SET[1:?] OF <A HREF="../../../data/resources/approval_schema/approval_schema.htm#approval_schema.approval">approval</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>
+ LOCAL
+      x : SET OF approval_relationship;
+    END_LOCAL;
+
+    IF relation.relating_approval IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(app &lt;* bag_to_set(USEDIN(relation.relating_approval, 'APPROVAL_SCHEMA.' + 'APPROVAL_RELATIONSHIP.' + 'RELATED_APPROVAL')) | specific_relation IN TYPEOF(app));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_approval_relationship(x[i], relatives + relation.relating_approval, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);
+			</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;approval_schema<br></code></body>
+</HTML>

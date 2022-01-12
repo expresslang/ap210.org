@@ -1,0 +1,801 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Type definitions</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><DIV
+CLASS="TYPEDEFSSECTION"
+><H2
+><A
+NAME="typedefs"
+></A
+>5.2.2 Type definitions</H2
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="84"
+></A
+>5.2.2.1 action_assigned_item</H3
+> 
+An action_assigned_item type specifies those items to
+which an action may be assigned.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE action_assigned_item = SELECT 
+     (product_definition_formation);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="88"
+></A
+>5.2.2.2 approval_assigned_item</H3
+>An approval_assigned_item type specifies those items
+to which an approval may be assigned which has more values than approved, unapproved.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE approval_assigned_item = SELECT
+     (action,
+      action_directive,
+      certification,
+      change,
+      change_request,
+      configuration_effectivity,
+      configuration_item,
+      contract,
+      date,
+      directed_action,
+      document,
+      product,
+      product_definition,
+      product_definition_formation,
+      product_definition_formation_with_specified_source,
+      representation,
+      security_classification,
+      start_request,
+      start_work,
+      versioned_action_request);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="92"
+></A
+>5.2.2.3 certification_assigned_item</H3
+>A certification_assigned_item type specifies those items
+to which a certification may be assigned.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE certification_assigned_item = SELECT 
+     (supplied_part_relationship,
+      make_from_usage_option,
+      product_definition_formation_with_specified_source);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="96"
+></A
+>5.2.2.4 change_request_item</H3
+>A change_request_item type specifies those items
+to which a request for change may be assigned.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE change_request_item = SELECT
+     (product_definition_formation,
+      representation_relationship);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="100"
+></A
+>5.2.2.5 classification_assigned_item</H3
+>A classification_assigned_item type specifies those items
+to which a classification may be assigned.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE classification_assigned_item = SELECT
+     (material_designation,
+      requirements_property,
+      signal,
+      stratum);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="104"
+></A
+>5.2.2.6 contract_assigned_item</H3
+>A contract_assigned_item type specifies those objects to which a
+contract may be assigned.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE contract_assigned_item = SELECT
+     (alternate_product_relationship,
+      directed_action,
+      product,
+      product_definition_formation);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="108"
+></A
+>5.2.2.7 date_and_time_assigned_item</H3
+>A date_and_time_assigned_item type specifies those items
+to which a date and a time may be assigned.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE date_and_time_assigned_item = SELECT
+     (approval_person_organization,
+      certification,
+      change,
+      contract,
+      directed_action,
+      document,
+      product_definition,
+      rule_action,
+      security_classification,
+      versioned_action_request);
+END_TYPE; -- date_and_time_assigned_item
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="112"
+></A
+>5.2.2.8 date_assigned_item</H3
+>A date_assigned_item type specifies those items to which a date may
+be assigned.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE date_assigned_item = SELECT
+     (product_definition,
+      versioned_action_request,
+      directed_action,
+      approval_person_organization,
+      contract,
+      security_classification,
+      certification);
+END_TYPE; -- date_assigned_item
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="116"
+></A
+>5.2.2.9 document_assigned_item</H3
+>A document_assigned_item type specifies those items
+to which a document may be assigned.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE document_assigned_item = SELECT
+     (action_method,
+      assembly_component_usage,
+      bond_category,
+      characterized_object,
+      component_definition,
+      component_feature,
+      component_interface_terminal,
+      component_shape_aspect,
+      component_terminal,
+      coordinated_representation_item,
+      configuration_item,
+      descriptive_representation_item,
+      externally_defined_item,
+      functional_unit_terminal_definition,
+      inter_stratum_feature,
+      interconnect_module_component_surface_feature,
+      layer,
+      laminate_component_interface_terminal,
+      material_designation,
+      measure_representation_item,
+      package_terminal,
+      part_template_definition,
+      physical_connectivity_definition,
+      physical_connectivity_element,
+      product,
+      product_definition,
+      product_definition_formation,
+      product_definition_formation_relationship,
+      property_definition,
+      representation,
+      representation_item,
+      requirements_property,
+      rule_definition,
+      shape_aspect,
+      signal,
+      stratum,
+      stratum_feature);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="120"
+></A
+>5.2.2.10 document_identifier_assigned_item</H3
+>A document_identifier_assigned_item type specifies those items
+to which a document_identifier may be assigned.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE document_identifier_assigned_item = SELECT
+     (document);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="124"
+></A
+>5.2.2.11 frozen_assigned_item</H3
+>An frozen_assigned_item type specifies those items
+to which an approval with value of (approved, unapproved) may be assigned to indicate acceptance of a design element.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE frozen_assigned_item = SELECT
+     (alternate_product_relationship,
+      applied_date_and_time_assignment,
+      applied_document_reference,
+      applied_group_assignment,
+      characterized_object,
+      colour,
+      component_definition,
+      component_shape_aspect,
+      composite_curve_segment,
+      curve_style,
+      curve_style_font,
+      curve_style_font_and_scaling,
+      dimension_related_tolerance_zone_element,
+      dimensional_characteristic_representation,
+      dimensional_size,
+      document_usage_constraint,
+      externally_defined_item,
+      fill_area_style,
+      fill_area_style_colour,
+      geometric_tolerance,
+      geometric_tolerance_relationship,
+      group,
+      inter_stratum_feature,
+      material_designation,
+      measure_with_unit,
+      plus_minus_tolerance,
+      pre_defined_item,
+      product_concept,
+      product_definition_formation_relationship,
+      product_definition_relationship,
+      property_definition,
+      property_definition_relationship,
+      property_definition_representation,
+      representation,
+      representation_context,
+      representation_item,
+      representation_relationship,
+      runout_zone_orientation,
+      shape_aspect,
+      shape_aspect_relationship,
+      stratum_feature,
+      tolerance_value,
+      tolerance_zone_form);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="128"
+></A
+>5.2.2.12 group_assigned_item</H3
+>A group_assigned_item type specifies those items to which a group may be assigned.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE group_assigned_item = SELECT
+     (assembly_bond_definition,
+      design_object,
+      component_definition,
+      component_feature,
+      component_interface_terminal,
+      component_shape_aspect,
+      component_terminal,
+      compound_representation_item,
+      configuration_item,
+      inter_stratum_feature,
+      laminate_component_interface_terminal,
+      printed_part_template_terminal,
+      product,
+      product_definition_formation,
+      property_definition_representation,
+      representation,
+      representation_item,
+      requirements_property,
+      rule_definition,
+      shape_aspect,
+      shape_aspect_relationship,
+      stratum,
+      stratum_feature,
+      stratum_surface);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="132"
+></A
+>5.2.2.13 managed_design_object</H3
+>A managed_design_object type specifies those items
+to which design management information may be assigned.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE managed_design_object = SELECT
+     (action,
+      alternate_product_relationship,
+      applied_approval_assignment,
+      applied_date_and_time_assignment,
+      applied_document_reference,
+      applied_group_assignment,
+      approval,
+      approval_status,
+      certification,
+      characterized_object,
+      colour,
+      composite_curve_segment,
+      configuration_effectivity,
+      configuration_item,
+      contract,
+      curve_style,
+      curve_style_font,
+      curve_style_font_and_scaling,
+      date,
+      dimension_related_tolerance_zone_element,
+      dimensional_characteristic_representation,
+      dimensional_size,
+      document,
+      document_usage_constraint,
+      externally_defined_item,
+      fill_area_style,
+      fill_area_style_colour,
+      geometric_tolerance,
+      geometric_tolerance_relationship,
+      group,
+      layer_connection_point,
+      layer_connection_point_link,
+      material_designation,
+      measure_with_unit,
+      organization,
+      person,
+      person_and_organization,
+      plus_minus_tolerance,
+      pre_defined_item,
+      product,
+      product_concept,
+      product_definition,
+      product_definition_formation,
+      product_definition_formation_relationship,
+      product_definition_relationship,
+      property_definition,
+      property_definition_relationship,
+      property_definition_representation,
+      representation,
+      representation_context,
+      representation_item,
+      representation_relationship,
+      runout_zone_orientation,
+      security_classification,
+      shape_aspect,
+      shape_aspect_relationship,
+      tolerance_value,
+      tolerance_zone_form,
+      versioned_action_request);
+END_TYPE; -- managed_design_object
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="136"
+></A
+>5.2.2.14 organization_assigned_item</H3
+>An organization_assigned_item type specifies those items
+to which an organization may be assigned.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE organization_assigned_item = SELECT
+     (configuration_item,
+      contract,
+      directed_action,
+      document,
+      versioned_action_request,
+      product,
+      product_definition,
+      product_definition_formation,
+      product_definition_formation_with_specified_source,
+      rule_definition,
+      representation,
+      security_classification);
+END_TYPE; -- organization_assigned_item
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="140"
+></A
+>5.2.2.15 owner_assigned_item</H3
+>An owner_assigned_item type specifies those items to which a person_organization may be assigned to indicate direct control of a design element.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Owner in this usage indicates a single point of design control.</DIV
+><DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE owner_assigned_item = SELECT
+     (alternate_product_relationship,
+      characterized_object,
+      colour,
+      component_definition,
+      component_shape_aspect,
+      composite_curve_segment,
+      curve_style,
+      curve_style_font,
+      curve_style_font_and_scaling,
+      dimension_related_tolerance_zone_element,
+      dimensional_characteristic_representation,
+      dimensional_size,
+      document_usage_constraint,
+      externally_defined_item,
+      fill_area_style,
+      fill_area_style_colour,
+      geometric_tolerance,
+      geometric_tolerance_relationship,
+      group,
+      inter_stratum_feature,
+      material_designation,
+      measure_with_unit,
+      plus_minus_tolerance,
+      pre_defined_item,
+      product_concept,
+      product_definition_formation_relationship,
+      product_definition_relationship,
+      property_definition,
+      property_definition_relationship,
+      property_definition_representation,
+      representation,
+      representation_context,
+      representation_item,
+      representation_relationship,
+      runout_zone_orientation,
+      shape_aspect,
+      shape_aspect_relationship,
+      stratum_feature,
+      tolerance_value,
+      tolerance_zone_form);
+END_TYPE; -- owner_assigned_item
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="145"
+></A
+>5.2.2.16 person_and_organization_assigned_item</H3
+>A person_and_organization_assigned_item type specifies those items
+to which a person associated with an organization may be assigned.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE person_and_organization_assigned_item = SELECT
+     (change,
+      configuration_item,
+      contract,
+      document,
+      product,
+      product_definition_formation,
+      product_definition,
+      directed_action,
+      rule_action,
+      security_classification,
+      versioned_action_request);
+END_TYPE; -- person_and_organization_assigned_item
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="149"
+></A
+>5.2.2.17 person_assigned_item</H3
+>A person_assigned_item type specifies those items
+to which a person may be assigned.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE person_assigned_item = SELECT
+     (document);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="153"
+></A
+>5.2.2.18 promissory_usage_in_product_model_assigned_item</H3
+>A promissory_usage_in_product_model_assigned_item type specifies those items to which a promissory_usage_in_product_model_assignment may be made.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE promissory_usage_in_product_model_assigned_item = SELECT
+     (product_concept,
+      product_definition);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="157"
+></A
+>5.2.2.19 replacement_from_item</H3
+>A replacement_from_item type specifies those items for which
+a replacement may be specified.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE replacement_from_item = SELECT
+     (product_definition_formation);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="161"
+></A
+>5.2.2.20 replacement_to_item</H3
+>A replacement_to_item type specifies those items which
+may be used as a replacement for another item.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE replacement_to_item = SELECT
+     (product_definition_formation);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="165"
+></A
+>5.2.2.21 security_classification_assigned_item</H3
+>A security_classification_assigned_item type specifies those items to which a security classification may be assigned.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE security_classification_assigned_item = SELECT
+     (applied_promissory_usage_in_product_model_assignment,
+      assembly_component_usage,
+      document,
+      make_from_usage_option,
+      product_definition_formation,
+      product_definition);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="169"
+></A
+>5.2.2.22 start_request_item</H3
+>A start_request_item type specifies those items
+to which a request to start may be assigned.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE start_request_item = SELECT
+     (product_definition_formation,
+      representation_relationship);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+><DIV
+CLASS="TYPEDEF"
+><H3
+><A
+NAME="173"
+></A
+>5.2.2.23 work_item</H3
+>A work_item type specifies those items
+to which work may be performed.<DIV
+CLASS="EXPRESSCODE"
+><P
+CLASS="EXPCODEHEAD"
+>EXPRESS specification:</P
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+TYPE work_item = SELECT
+     (product_definition_formation);
+END_TYPE;
+(*</PRE
+></DIV
+></DIV
+></DIV
+></BODY
+></HTML
+>

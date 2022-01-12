@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Dimensional_location</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.300 Dimensional_location</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Dimensional_location is a type of <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+> that defines the location of a <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> relative to another Shape_element. A Dimensional_location may be one of an <A
+CLASS="INTERNALREF"
+HREF="e_25.htm"
+>Angular_dimension_with_direction_vector</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_296.htm"
+>Dimension_along_curve</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_297.htm"
+>Dimension_location_with_direction_vector</A
+>. Additionally, the Dimensional_location may be a <A
+CLASS="INTERNALREF"
+HREF="e_298.htm"
+>Dimension_location_with_specified_datum_system</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>directed</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>located_elements</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.300.1 directed</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The directed specifies the boolean value that indicates whether there is significance to the direction of measure of the Dimensional_location. A value of TRUE indicates that the measurement direction shall be from the <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> specified as the locating_shape_element to the Shape_element specified as the located_shape_element by the <A
+CLASS="INTERNALREF"
+HREF="e_815.htm"
+>Shape_element_locating_relationship</A
+> that is characterized by the Dimensional_location. A value of FALSE indicates that there is no significance placed on the direction of measure.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.300.2 located_elements</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The located_elements specifies the <A
+CLASS="INTERNALREF"
+HREF="e_815.htm"
+>Shape_element_locating_relationship</A
+> that specifies the two Shape_elements for which the relationship is characterized by the Dimensional_location.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+> The dimension_type of the Dimensional_location shall not be "diameter".<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The attribute dimension_type is declared in the Dimensional_characteristic entity of which this entity is a subtype.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY dimensional_location
+  SUPERTYPE OF (dimension_location_with_specified_datum_system ANDOR 
+      ONEOF (dimension_along_curve,
+      angular_dimension_with_direction_vector,
+      dimension_location_with_direction_vector))
+  SUBTYPE OF (dimensional_characteristic);
+    located_elements : shape_element_locating_relationship;
+    directed         : BOOLEAN;
+END_ENTITY; -- dimensional_location
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

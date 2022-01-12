@@ -1,0 +1,50 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Presentation_hierarchy_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Presentation_hierarchy_mim</h2><code><br><br><a name="presentation_hierarchy_mim">SCHEMA <b>Presentation_hierarchy_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/appearance_assignment/sys/e_exp_mim.htm#appearance_assignment_mim">Appearance_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1001<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/contextual_shape_positioning/sys/e_exp_mim.htm#contextual_shape_positioning_mim">Contextual_shape_positioning_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1027<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema">presentation_organization_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-46<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.area_in_set">area_in_set</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presentation_view">presentation_view</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presentation_area">presentation_area</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presented_item">presented_item</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presentation_set">presentation_set</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presentation_size">presentation_size</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presented_item_representation">presented_item_representation</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>);
+         <br><br></code><code><br><A NAME="presentation_hierarchy_mim.presented_item_select">TYPE </A><b>presented_item_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="presentation_hierarchy_mim.applied_presented_item">ENTITY <b>applied_presented_item</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presented_item">presented_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="presentation_hierarchy_mim.applied_presented_item.items">items : </A>SET[1:?] OF <A HREF="#presentation_hierarchy_mim.presented_item_select">presented_item_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Presentation_hierarchy_mim<br></code></body>
+</HTML>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Packaged_part_interface_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.592 Packaged_part_interface_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Packaged_part_interface_terminal is a type of <A
+CLASS="INTERNALREF"
+HREF="e_583.htm"
+>Packaged_part_terminal</A
+> that is a terminal of a <A
+CLASS="INTERNALREF"
+HREF="e_576.htm"
+>Packaged_connector</A
+>. An occurrence of the 
+Packaged_part_interface_terminal provides access to the functionality of the assembly into which an 
+occurrence of a Packaged_connector is installed.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>external_connector_function</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.592.1 external_connector_function</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The external_connector_function is an inverse relationship that specifies that the existence of the Packaged_part_interface_terminal is 
+dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_579.htm"
+>Packaged_connector_terminal_relationship</A
+> that specifies the 
+Packaged_part_interface_terminal as its interface_terminal. There shall be one or more Packaged_connector_terminal_relationship for a Packaged_part_interface_terminal.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: One interface terminal may be connected to several join terminals by members of 
+Packaged_connector_terminal_relationship.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY packaged_part_interface_terminal
+  SUBTYPE OF (packaged_part_terminal);
+  INVERSE
+    external_connector_function : SET [1:?] OF 
+                                  packaged_connector_terminal_relationship FOR 
+                                  interface_terminal;
+END_ENTITY; -- packaged_part_interface_terminal
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

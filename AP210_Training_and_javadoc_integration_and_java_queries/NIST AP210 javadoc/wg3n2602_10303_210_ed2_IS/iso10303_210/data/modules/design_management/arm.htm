@@ -1,0 +1,84 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Design_management_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Design_management_arm</h2><code><br><br><a name="design_management_arm">SCHEMA <b>Design_management_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/approval/sys/e_exp_arm.htm#approval_arm">Approval_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1012<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm">Product_view_definition_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1019<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/work_order/sys/e_exp_arm.htm#work_order_arm">Work_order_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1043<br><br></code><code><br><A NAME="design_management_arm.dm_approval_item">TYPE </A><b>dm_approval_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/approval/sys/e_exp_arm.htm#approval_arm.approval_item">approval_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#design_management_arm.frozen_assignment">Frozen_assignment</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_management_arm.managed_design_object">TYPE </A><b>managed_design_object</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_management_arm.add_design_object_management_relationship">ENTITY <b>Add_design_object_management_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#design_management_arm.design_object_management_relationship">Design_object_management_relationship</A>);<br>
+         &nbsp;&nbsp;<A NAME="design_management_arm.add_design_object_management_relationship.current_design_object">current_design_object : </A><A HREF="#design_management_arm.managed_design_object">managed_design_object</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="design_management_arm.add_design_object_management_relationship.ur:ur1">UR1: </A>current_design_object;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="design_management_arm.change_design_object_management_relationship">ENTITY <b>Change_design_object_management_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#design_management_arm.design_object_management_relationship">Design_object_management_relationship</A>);<br>
+         &nbsp;&nbsp;<A NAME="design_management_arm.change_design_object_management_relationship.current_design_object">current_design_object : </A><A HREF="#design_management_arm.managed_design_object">managed_design_object</A>;<br>
+         &nbsp;&nbsp;<A NAME="design_management_arm.change_design_object_management_relationship.previous_design_object">previous_design_object : </A>
+         OPTIONAL 
+         <A HREF="#design_management_arm.managed_design_object">managed_design_object</A>;<br>
+         &nbsp;&nbsp;<A NAME="design_management_arm.change_design_object_management_relationship.attribute_name">attribute_name : </A>
+         OPTIONAL 
+         STRING;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="design_management_arm.change_design_object_management_relationship.wr:wr1">WR1: TYPEOF(current_design_object) = TYPEOF(previous_design_object);</A><br>
+         &nbsp;&nbsp;<A NAME="design_management_arm.change_design_object_management_relationship.wr:wr2">WR2: current_design_object &lt;&gt; previous_design_object;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="design_management_arm.delete_design_object_management_relationship">ENTITY <b>Delete_design_object_management_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#design_management_arm.design_object_management_relationship">Design_object_management_relationship</A>);<br>
+         &nbsp;&nbsp;<A NAME="design_management_arm.delete_design_object_management_relationship.previous_design_object">previous_design_object : </A><A HREF="#design_management_arm.managed_design_object">managed_design_object</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="design_management_arm.delete_design_object_management_relationship.ur:ur1">UR1: </A>previous_design_object;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="design_management_arm.design_object_management_relationship">ENTITY <b>Design_object_management_relationship</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#design_management_arm.change_design_object_management_relationship">Change_design_object_management_relationship</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#design_management_arm.delete_design_object_management_relationship">Delete_design_object_management_relationship</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#design_management_arm.add_design_object_management_relationship">Add_design_object_management_relationship</A>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ANDOR&nbsp;<A HREF="#design_management_arm.view_dependent_design_object_management_relationship">View_dependent_design_object_management_relationship</A>)<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/activity/sys/e_exp_arm.htm#activity_arm.activity">Activity</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="design_management_arm.design_object_management_relationship.wr:wr1">WR1: NOT EXISTS(SELF\Activity.name);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="design_management_arm.frozen_assignment">ENTITY <b>Frozen_assignment</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="design_management_arm.frozen_assignment.frozen_item">frozen_item : </A>SET[1:?] OF <A HREF="#design_management_arm.managed_design_object">managed_design_object</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="design_management_arm.frozen_assignment.assigned_approval">assigned_approval : </A>SET[1:1] OF <A HREF="../../../data/modules/approval/sys/e_exp_arm.htm#approval_arm.approval_assignment">Approval_assignment</A> FOR items;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="design_management_arm.view_dependent_design_object_management_relationship">ENTITY <b>View_dependent_design_object_management_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#design_management_arm.design_object_management_relationship">Design_object_management_relationship</A>);<br>
+         &nbsp;&nbsp;<A NAME="design_management_arm.view_dependent_design_object_management_relationship.previous_design">previous_design : </A><A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="design_management_arm.view_dependent_design_object_management_relationship.current_design">current_design : </A><A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Design_management_arm<br></code></body>
+</HTML>

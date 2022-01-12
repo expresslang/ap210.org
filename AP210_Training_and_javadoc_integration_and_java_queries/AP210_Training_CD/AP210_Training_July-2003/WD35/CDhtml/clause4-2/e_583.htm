@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Packaged_part_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.594 Packaged_part_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Packaged_part_terminal is a type of <A
+CLASS="INTERNALREF"
+HREF="e_634.htm"
+>Part_terminal</A
+> that describes a terminal of a <A
+CLASS="INTERNALREF"
+HREF="e_580.htm"
+>Packaged_part</A
+>. A Packaged_part_terminal is one of a <A
+CLASS="INTERNALREF"
+HREF="e_581.htm"
+>Packaged_part_interface_terminal</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_582.htm"
+>Packaged_part_join_terminal</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>terminal_connection_zone</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>terminal_of_package</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.594.1 associated_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_definition specifies the <A
+CLASS="INTERNALREF"
+HREF="e_580.htm"
+>Packaged_part</A
+> that has the Packaged_part_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.594.2 terminal_connection_zone</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The terminal_connection_zone specifies the <A
+CLASS="INTERNALREF"
+HREF="e_185.htm"
+>Connection_zone</A
+> of the Packaged_part_terminal. There may be more than one Connection_zone for a Packaged_part_terminal. The terminal_connection_zone need not be specified for a particular Packaged_part_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.594.3 terminal_of_package</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The terminal_of_package specifies the role of either the <A
+CLASS="INTERNALREF"
+HREF="e_591.htm"
+>Package_terminal</A
+> or the <A
+CLASS="INTERNALREF"
+HREF="e_592.htm"
+>Package_terminal_external_reference</A
+>for the Packaged_part_terminal.  There may be more than one terminal_of_package.  If there is more than one terminal_of_package then the member reference different Package members.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>Each member of terminal_of_package shall specify a member of Package that is specified by the Packaged_part in the role of associated_definition as used_package.  No member of Package that is specified by the Packaged_part in the role of a
+ssociated_definition as used_package shall be specified by more than one member of terminal_of_package.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The precedent_feature attribute inherited from Part_feature shall not exist.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY packaged_part_terminal
+  ABSTRACT SUPERTYPE OF (ONEOF (packaged_part_interface_terminal,
+      packaged_part_join_terminal))
+  SUBTYPE OF (part_terminal);
+    terminal_of_package                     : 
+  SET [1:?] OF package_terminal_or_package_terminal_external_reference;
+    SELF\part_feature.associated_definition : packaged_part;
+WHERE
+  WR1: disjoint_package_terminals(SELF);
+  WR2: NOT EXISTS(SELF\part_feature.precedent_feature);
+END_ENTITY; -- packaged_part_terminal
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

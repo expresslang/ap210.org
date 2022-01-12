@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Device_terminal_map</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.285 Device_terminal_map</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Device_terminal_map is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Device_terminal_map is the association between a <A
+CLASS="INTERNALREF"
+HREF="e_611.htm"
+>Part_device_terminal</A
+> and a <A
+CLASS="INTERNALREF"
+HREF="e_583.htm"
+>Packaged_part_terminal</A
+>. A Device_terminal_map provides the 
+topological equivalent of a bond wire from the package terminal to the terminal of the installed <A
+CLASS="INTERNALREF"
+HREF="e_610.htm"
+>Part_device</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>mapped_device_terminal</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>target_terminal</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.285.1 mapped_device_terminal</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The mapped_device_terminal specifies the <A
+CLASS="INTERNALREF"
+HREF="e_611.htm"
+>Part_device_terminal</A
+> from which the association is made to the target_terminal by the 
+Device_terminal_map.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.285.2 target_terminal</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The target_terminal specifies the targeted <A
+CLASS="INTERNALREF"
+HREF="e_583.htm"
+>Packaged_part_terminal</A
+> for the Device_terminal_map.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the target_terminal and mapped_device_terminal shall be unique within a population of Device_terminal_map.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The mapped_device_terminal and the target_terminal shall be in the context of the same Packaged_part.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Reference 
+Part_device_terminal_model_port_assignment 
+for Analytical_model_port_assignment.</DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY device_terminal_map
+  SUBTYPE OF (managed_design_object);
+    target_terminal        : packaged_part_terminal;
+    mapped_device_terminal : part_device_terminal;
+  UNIQUE
+    ur1 : mapped_device_terminal, target_terminal;
+END_ENTITY; -- device_terminal_map
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Geometric_representation_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.418 Geometric_representation_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Geometric_representation_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.
+A Geometric_representation_relationship may be a <A
+CLASS="INTERNALREF"
+HREF="e_807.htm"
+>Shape_composition_relationship</A
+>, or a Component_part_2d_geometric_relationship or a Component_part_3d_relationship or a Component_part_non_planar_relationship.  A Geometric_representation_relationship is the association between a <A
+CLASS="INTERNALREF"
+HREF="e_808.htm"
+>Shape_definition</A
+> and another <A
+CLASS="INTERNALREF"
+HREF="e_808.htm"
+>Shape_definition</A
+> for predefined purposes. <DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The purposes are described in the subtypes of this Application Object.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>shape_1</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>shape_2</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>purpose</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.418.1 shape_1</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The shape_1 specifies one role of the <A
+CLASS="INTERNALREF"
+HREF="e_808.htm"
+>Shape_definition</A
+> for the Geometric_representation_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.418.2 shape_2</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The shape_1 specifies one role of the <A
+CLASS="INTERNALREF"
+HREF="e_808.htm"
+>Shape_definition</A
+> for the Geometric_representation_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY geometric_representation_relationship 
+  SUPERTYPE OF(ONEOF(
+       shape_composition_relationship,
+       component_part_2d_geometric_representation_relationship,
+       component_part_2d_non_planar_geometric_representation_relationship,
+       component_part_3d_geometric_representation_relationship))
+  SUBTYPE OF (managed_design_object);
+    shape_1 : shape_definition;
+    shape_2 : shape_definition;
+WHERE
+  wr1: shape_1 &#60;&#62; shape_2;
+--acyclic relationship
+END_ENTITY; -- geometric_representation_relationship 
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

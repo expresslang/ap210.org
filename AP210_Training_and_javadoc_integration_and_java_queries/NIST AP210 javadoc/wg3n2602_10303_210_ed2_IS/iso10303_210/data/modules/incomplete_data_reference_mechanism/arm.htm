@@ -1,0 +1,42 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Incomplete_data_reference_mechanism_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Incomplete_data_reference_mechanism_arm</h2><code><br><br><a name="incomplete_data_reference_mechanism_arm">SCHEMA <b>Incomplete_data_reference_mechanism_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/classification_assignment/sys/e_exp_arm.htm#classification_assignment_arm">Classification_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1114<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm">Document_definition_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1123<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/part_view_definition/sys/e_exp_arm.htm#part_view_definition_arm">Part_view_definition_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1023<br><br></code><code><br><A NAME="incomplete_data_reference_mechanism_arm.idrm_marked_item">TYPE </A><b>idrm_marked_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/classification_assignment/sys/e_exp_arm.htm#classification_assignment_arm.classification_item">classification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm.digital_document_definition">Digital_document_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/file_identification/sys/e_exp_arm.htm#file_identification_arm.digital_file">Digital_file</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/part_view_definition/sys/e_exp_arm.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="incomplete_data_reference_mechanism_arm.incomplete_reference_marking">ENTITY <b>Incomplete_reference_marking</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/classification_assignment/sys/e_exp_arm.htm#classification_assignment_arm.classification_assignment">Classification_assignment</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="incomplete_data_reference_mechanism_arm.incomplete_reference_marking.wr:wr1">WR1: SIZEOF(QUERY(item &lt;* SELF\Classification_assignment.items |  NOT ('INCOMPLETE_DATA_REFERENCE_MECHANISM_ARM.IDRM_MARKED_ITEM'
+            IN TYPEOF(item)))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="incomplete_data_reference_mechanism_arm.incomplete_reference_marking.wr:wr2">WR2: SELF\Classification_assignment.assigned_class.id = 'reference';</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Incomplete_data_reference_mechanism_arm<br></code></body>
+</HTML>

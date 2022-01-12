@@ -1,0 +1,78 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Set_theory_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Set_theory_arm</h2><code><br><br><a name="set_theory_arm">SCHEMA <b>Set_theory_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/class/sys/e_exp_arm.htm#class_arm">Class_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1070<br><br></code><code><br><A NAME="set_theory_arm.complement">ENTITY <b>Complement</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.complement.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.complement.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.complement.description">description : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.complement.set_1">set_1 : </A><A HREF="../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.complement.set_2">set_2 : </A><A HREF="../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.complement.universe">universe : </A><A HREF="../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_arm.intersection">ENTITY <b>Intersection</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.intersection.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.intersection.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.intersection.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.intersection.operand">operand : </A>SET[2:?] OF <A HREF="../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.intersection.resultant">resultant : </A><A HREF="../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_arm.power_set">ENTITY <b>Power_set</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.power_set.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.power_set.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.power_set.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.power_set.base">base : </A><A HREF="../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.power_set.derived">derived : </A><A HREF="../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_arm.proper_subset">ENTITY <b>Proper_subset</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.proper_subset.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.proper_subset.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.proper_subset.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.proper_subset.subset">subset : </A><A HREF="../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.proper_subset.superset">superset : </A><A HREF="../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_arm.same_membership">ENTITY <b>Same_membership</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.same_membership.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.same_membership.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.same_membership.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.same_membership.set_1">set_1 : </A><A HREF="../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.same_membership.set_2">set_2 : </A><A HREF="../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_arm.subset">ENTITY <b>Subset</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.subset.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.subset.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.subset.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.subset.subset">subset : </A><A HREF="../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.subset.superset">superset : </A><A HREF="../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_arm.union">ENTITY <b>Union</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.union.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.union.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.union.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.union.operand">operand : </A>SET[2:?] OF <A HREF="../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.union.resultant">resultant : </A><A HREF="../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Set_theory_arm<br></code></body>
+</HTML>

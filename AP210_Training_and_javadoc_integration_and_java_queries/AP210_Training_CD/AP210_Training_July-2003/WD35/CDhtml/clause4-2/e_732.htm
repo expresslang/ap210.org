@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Printed_part_template_interface_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.732 Printed_part_template_interface_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Printed_part_template_interface_terminal is a type of <A
+CLASS="INTERNALREF"
+HREF="e_737.htm"
+>Printed_part_template_terminal</A
+>, an occurrence of which is an external access to the printed 
+circuit board of which it is a component.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>external_connector_function</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.732.1 external_connector_function</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The external_connector_function is an inverse relationship that specifies the <A
+CLASS="INTERNALREF"
+HREF="e_727.htm"
+>Printed_connector_template_terminal_relationship</A
+> that specifies the 
+Printed_part_template_interface_terminal as its interface_terminal. There shall be one or more Printed_connector_template_terminal_relationship for a Printed_part_template_interface_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY printed_part_template_interface_terminal
+  SUBTYPE OF (printed_part_template_terminal);
+    SELF\printed_part_template_terminal.associated_definition : 
+                                         printed_connector_template;
+  INVERSE
+    external_connector_function : SET [1:?] OF 
+                                  printed_connector_template_terminal_relationship FOR 
+                                  interface_terminal;
+END_ENTITY; -- printed_part_template_interface_terminal
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

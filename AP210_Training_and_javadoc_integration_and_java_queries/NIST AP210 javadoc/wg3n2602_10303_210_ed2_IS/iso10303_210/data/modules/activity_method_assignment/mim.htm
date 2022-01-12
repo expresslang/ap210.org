@@ -1,0 +1,33 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Activity_method_assignment_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Activity_method_assignment_mim</h2><code><br><br><a name="activity_method_assignment_mim">SCHEMA <b>Activity_method_assignment_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema">action_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_method_relationship">action_method_relationship</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/activity_method/sys/e_exp_mim.htm#activity_method_mim">Activity_method_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1049<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema">management_resources_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.action_method_assignment">action_method_assignment</A>);
+         <br><br></code><code><br><A NAME="activity_method_assignment_mim.action_method_items">TYPE </A><b>action_method_items</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="activity_method_assignment_mim.applied_action_method_assignment">ENTITY <b>applied_action_method_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.action_method_assignment">action_method_assignment</A>);<br>
+         &nbsp;&nbsp;<A NAME="activity_method_assignment_mim.applied_action_method_assignment.items">items : </A>SET[1:?] OF <A HREF="#activity_method_assignment_mim.action_method_items">action_method_items</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Activity_method_assignment_mim<br></code></body>
+</HTML>

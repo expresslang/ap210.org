@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Parameter_assignment</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.603 Parameter_assignment</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Parameter_assignment is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Parameter_assignment is the association of either a <A
+CLASS="INTERNALREF"
+HREF="e_98.htm"
+>Characteristic</A
+> or <A
+CLASS="INTERNALREF"
+HREF="e_197.htm"
+>Coordinated_characteristic</A
+> with a <A
+CLASS="INTERNALREF"
+HREF="e_549.htm"
+>Model_parameter</A
+>, used to provide actual values for characteristics declared formally by the 
+the Model_parameter.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>assigned_parameter</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>parameter_value</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.603.1 assigned_parameter</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The assigned_parameter specifies the <A
+CLASS="INTERNALREF"
+HREF="e_549.htm"
+>Model_parameter</A
+>
+that declares the formal parameters assigned values by the Parameter_assignment.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.603.2 parameter_value</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The parameter_value specifies either the role of a <A
+CLASS="INTERNALREF"
+HREF="e_98.htm"
+>Characteristic</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_197.htm"
+>Coordinated_characteristic</A
+>
+for the 
+Parameter_assignment.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The type of the parameter_value shall be the same as that of the assigned_parameter.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY parameter_assignment
+  SUBTYPE OF (managed_design_object);
+    parameter_value    : scalar_or_coordinated_characteristics;
+    assigned_parameter : model_parameter;
+END_ENTITY; -- parameter_assignment
+
+--tc1 wd8 modification
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

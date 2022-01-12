@@ -1,0 +1,139 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: process_property_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: process_property_schema</h2>
+      <p><i>Source : ISO 10303-49</i></p><code><br><br><a name="process_property_schema">SCHEMA <b>process_property_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema">action_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action">action</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_method">action_method</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_method_relationship">action_method_relationship</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_relationship">action_relationship</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_resource">action_resource</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_resource_relationship">action_resource_relationship</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.acyclic_action_relationship">acyclic_action_relationship</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema">product_property_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_product_definition">characterized_product_definition</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_definition">shape_definition</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>);
+         <br><br></code><code><br><A NAME="process_property_schema.characterized_action_definition">TYPE </A><b>characterized_action_definition</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action">action</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_method">action_method</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_method_relationship">action_method_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_relationship">action_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="process_property_schema.characterized_resource_definition">TYPE </A><b>characterized_resource_definition</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_resource">action_resource</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_resource_relationship">action_resource_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#process_property_schema.action_resource_requirement">action_resource_requirement</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#process_property_schema.action_resource_requirement_relationship">action_resource_requirement_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="process_property_schema.property_or_shape_select">TYPE </A><b>property_or_shape_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_definition">shape_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="process_property_schema.action_property">ENTITY <b>action_property</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_property.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_property.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_property.definition">definition : </A><A HREF="#process_property_schema.characterized_action_definition">characterized_action_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="process_property_schema.action_property_relationship">ENTITY <b>action_property_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_property_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_property_relationship.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_property_relationship.relating_action_property">relating_action_property : </A><A HREF="#process_property_schema.action_property">action_property</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_property_relationship.related_action_property">related_action_property : </A><A HREF="#process_property_schema.action_property">action_property</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_property_relationship.wr:wr1">WR1: relating_action_property :&lt;&gt;: related_action_property;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="process_property_schema.action_resource_requirement">ENTITY <b>action_resource_requirement</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_resource_requirement.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_resource_requirement.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_resource_requirement.kind">kind : </A><A HREF="#process_property_schema.resource_requirement_type">resource_requirement_type</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_resource_requirement.operations">operations : </A>SET[1:?] OF <A HREF="#process_property_schema.characterized_action_definition">characterized_action_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="process_property_schema.action_resource_requirement_relationship">ENTITY <b>action_resource_requirement_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_resource_requirement_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_resource_requirement_relationship.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_resource_requirement_relationship.relating_action_resource_requirement">relating_action_resource_requirement : </A><A HREF="#process_property_schema.action_resource_requirement">action_resource_requirement</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_resource_requirement_relationship.related_action_resource_requirement">related_action_resource_requirement : </A><A HREF="#process_property_schema.action_resource_requirement">action_resource_requirement</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.action_resource_requirement_relationship.wr:wr1">WR1: relating_action_resource_requirement :&lt;&gt;:        related_action_resource_requirement;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="process_property_schema.process_product_association">ENTITY <b>process_product_association</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.process_product_association.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.process_product_association.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.process_product_association.defined_product">defined_product : </A><A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_product_definition">characterized_product_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.process_product_association.process">process : </A><A HREF="#process_property_schema.product_definition_process">product_definition_process</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="process_property_schema.process_property_association">ENTITY <b>process_property_association</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.process_property_association.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.process_property_association.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.process_property_association.process">process : </A><A HREF="#process_property_schema.property_process">property_process</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.process_property_association.property_or_shape">property_or_shape : </A><A HREF="#process_property_schema.property_or_shape_select">property_or_shape_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="process_property_schema.product_definition_process">ENTITY <b>product_definition_process</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action">action</A>);<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.product_definition_process.identification">identification : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.product_definition_process.product_definitions">product_definitions : </A>SET[1:?] OF <A HREF="#process_property_schema.process_product_association">process_product_association</A> FOR process;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="process_property_schema.property_process">ENTITY <b>property_process</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action">action</A>);<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.property_process.identification">identification : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.property_process.properties">properties : </A>SET[1:?] OF <A HREF="#process_property_schema.process_property_association">process_property_association</A> FOR process;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="process_property_schema.replacement_relationship">ENTITY <b>replacement_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_relationship">action_relationship</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.replacement_relationship.wr:wr1">WR1: acyclic_action_relationship (SELF,       [SELF\action_relationship.related_action],       'PROCESS_PROPERTY_SCHEMA.REPLACEMENT_RELATIONSHIP');</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="process_property_schema.requirement_for_action_resource">ENTITY <b>requirement_for_action_resource</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#process_property_schema.action_resource_requirement">action_resource_requirement</A>);<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.requirement_for_action_resource.resources">resources : </A>SET[1:?] OF <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_resource">action_resource</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="process_property_schema.resource_property">ENTITY <b>resource_property</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.resource_property.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.resource_property.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.resource_property.resource">resource : </A><A HREF="#process_property_schema.characterized_resource_definition">characterized_resource_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="process_property_schema.resource_property_relationship">ENTITY <b>resource_property_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.resource_property_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.resource_property_relationship.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.resource_property_relationship.relating_resource_property">relating_resource_property : </A><A HREF="#process_property_schema.resource_property">resource_property</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.resource_property_relationship.related_resource_property">related_resource_property : </A><A HREF="#process_property_schema.resource_property">resource_property</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.resource_property_relationship.wr:wr1">WR1: relating_resource_property :&lt;&gt;: related_resource_property;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="process_property_schema.resource_requirement_type">ENTITY <b>resource_requirement_type</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.resource_requirement_type.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.resource_requirement_type.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="process_property_schema.resource_requirement_type_relationship">ENTITY <b>resource_requirement_type_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.resource_requirement_type_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.resource_requirement_type_relationship.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.resource_requirement_type_relationship.relating_requirement_type">relating_requirement_type : </A><A HREF="#process_property_schema.resource_requirement_type">resource_requirement_type</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.resource_requirement_type_relationship.related_requirement_type">related_requirement_type : </A><A HREF="#process_property_schema.resource_requirement_type">resource_requirement_type</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="process_property_schema.resource_requirement_type_relationship.wr:wr1">WR1: relating_requirement_type :&lt;&gt;: related_requirement_type;</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;process_property_schema<br></code></body>
+</HTML>

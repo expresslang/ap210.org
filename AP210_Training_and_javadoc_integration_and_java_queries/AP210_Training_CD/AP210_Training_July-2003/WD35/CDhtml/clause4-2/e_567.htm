@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Open_shell_based_surface</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.566 Open_shell_based_surface</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Open_shell_based_surface is a type of <A
+CLASS="INTERNALREF"
+HREF="e_372.htm"
+>Feature_shape_definition</A
+> that represents a shape with a simple or complex surface using a set of connected faces.  The shape shall be manifold and shall not be closed.  The shape shall not be used in the composition of a closed volume.  The shape shall be a single shell if it is the shape of a <A
+CLASS="INTERNALREF"
+HREF="e_851.htm"
+>Stratum_feature</A
+>, <A
+CLASS="INTERNALREF"
+HREF="e_862.htm"
+>Stratum_feature_template_component</A
+>, <A
+CLASS="INTERNALREF"
+HREF="e_861.htm"
+>Stratum_feature_template</A
+>, or the shape of a <A
+CLASS="INTERNALREF"
+HREF="e_267.htm"
+>Design_intent_modification</A
+>.  The shape shall be one or more shell if it is the shape of a <A
+CLASS="INTERNALREF"
+HREF="e_845.htm"
+>Stratum</A
+>.  The shape shall be a single shell if it is the shape of a <A
+CLASS="INTERNALREF"
+HREF="e_847.htm"
+>Stratum_average_surface</A
+> or the shape of a <A
+CLASS="INTERNALREF"
+HREF="e_868.htm"
+>Stratum_surface</A
+>. 
+An Open_shell_based_surface guarantees material continuity as the material traverses corners in a three-dimensional model.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY open_shell_based_surface
+  SUPERTYPE OF (ONEOF(
+   stratum_average_surface_shape,
+   stratum_surface_shape,
+   design_intent_modification_non_planar_2d_shape,
+   part_template_non_planar_2d_shape,
+   stratum_feature_non_planar_2d_shape))
+  SUBTYPE OF (shape_definition);
+END_ENTITY; -- open_shell_based_surface
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

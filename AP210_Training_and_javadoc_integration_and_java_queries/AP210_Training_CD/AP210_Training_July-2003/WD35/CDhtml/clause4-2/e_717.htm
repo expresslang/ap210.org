@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Primary_orientation_feature</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.717 Primary_orientation_feature</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Primary_orientation_feature is a type of <A
+CLASS="INTERNALREF"
+HREF="e_613.htm"
+>Part_feature</A
+> and is a type of <A
+CLASS="INTERNALREF"
+HREF="e_226.htm"
+>Datum_feature</A
+>. A Primary_orientation_feature participates in providing for the unambiguos orientation of a part on its next assembly.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: A Primary_orientation_feature is not necessarily also a <A
+CLASS="INTERNALREF"
+HREF="e_718.htm"
+>Primary_reference_terminal</A
+>.</DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>pof8</SPAN
+> illustrates two of the three-dimensional geometric relationships between a component and the printed circuit board it is mounted on.  A <A
+CLASS="INTERNALREF"
+HREF="e_236.htm"
+>Datum_system</A
+> is included for reference purposes.  The Z direction is parallel to the normal of the top surface of the board.  Both the top and bottom surface normal vectors are parallel to the normal vectors of the seating plane for the components.</DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>pkgxfrm</SPAN
+> illustrates two of the two-dimensional geometric relationships between a component and the printed circuit board it is mounted on.  A <A
+CLASS="INTERNALREF"
+HREF="e_236.htm"
+>Datum_system</A
+> is included for reference purposes.  </DIV
+>
+
+<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figures  <SPAN
+CLASS="INTERNALREF"
+>pof7</SPAN
+> through  <SPAN
+CLASS="INTERNALREF"
+>pof3</SPAN
+> illustrates orientation details for microcircuit packages.</DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>pof2</SPAN
+> illustrates details associated with several variations of an Axial package modification and the associated seating_plane.  In all these cases, the seating plane orientation with respect to the <A
+CLASS="INTERNALREF"
+HREF="e_56.htm"
+>Axis_placement</A
+> is constant, while the <A
+CLASS="INTERNALREF"
+HREF="e_573.htm"
+>Package</A
+> shape orientation changes due to the modification.</DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>pof1</SPAN
+> illustrates <A
+CLASS="INTERNALREF"
+HREF="e_718.htm"
+>Primary_reference_terminal</A
+> assignment and also assignment of Polarity_indication_feature.  Knowledge of Polarity_indication_features separate from the orientation feature increases the ability to determine when to use polarity indication symbols on the interconnect substrate for polarized components e.g., polarized capacitors, diodes).</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY primary_orientation_feature
+  SUBTYPE OF (part_feature, datum_feature);
+    associated_body_vertical_extent : OPTIONAL SET [1:2] OF package_body_surface;
+END_ENTITY; -- primary_orientation_feature
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

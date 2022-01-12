@@ -1,0 +1,34 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Certification_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Certification_arm</h2><code><br><br><a name="certification_arm">SCHEMA <b>Certification_arm</b>;</a><br><br></code><code><br><A NAME="certification_arm.certification_item">TYPE </A><b>certification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="certification_arm.certification">ENTITY <b>Certification</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="certification_arm.certification.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="certification_arm.certification.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="certification_arm.certification.kind">kind : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="certification_arm.certification_assignment">ENTITY <b>Certification_assignment</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="certification_arm.certification_assignment.assigned_certification">assigned_certification : </A><A HREF="#certification_arm.certification">Certification</A>;<br>
+         &nbsp;&nbsp;<A NAME="certification_arm.certification_assignment.items">items : </A>SET[1:?] OF <A HREF="#certification_arm.certification_item">certification_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="certification_arm.certification_assignment.role">role : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Certification_arm<br></code></body>
+</HTML>

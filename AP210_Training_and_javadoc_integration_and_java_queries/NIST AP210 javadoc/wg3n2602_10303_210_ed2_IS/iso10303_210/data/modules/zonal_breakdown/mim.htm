@@ -1,0 +1,51 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Zonal_breakdown_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Zonal_breakdown_mim</h2><code><br><br><a name="zonal_breakdown_mim">SCHEMA <b>Zonal_breakdown_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/group/sys/e_exp_mim.htm#group_mim">Group_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1113<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema">group_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_breakdown/sys/e_exp_mim.htm#product_breakdown_mim">Product_breakdown_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1248<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema">product_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_view_definition/sys/e_exp_mim.htm#product_view_definition_mim">Product_view_definition_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1019<br><br></code><code><br><A NAME="zonal_breakdown_mim.in_zone_groupable_item">TYPE </A><b>in_zone_groupable_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/group/sys/e_exp_mim.htm#group_mim.groupable_item">groupable_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="zonal_breakdown_mim.in_zone">ENTITY <b>in_zone</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="zonal_breakdown_mim.zone_breakdown_context">ENTITY <b>zone_breakdown_context</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_breakdown/sys/e_exp_mim.htm#product_breakdown_mim.breakdown_context">breakdown_context</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="zonal_breakdown_mim.zone_element_usage">ENTITY <b>zone_element_usage</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_breakdown/sys/e_exp_mim.htm#product_breakdown_mim.breakdown_element_usage">breakdown_element_usage</A>);<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Zonal_breakdown_mim<br></code></body>
+</HTML>

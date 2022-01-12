@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Ee_approval</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.314 Ee_approval</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Ee_approval is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. An Ee_approval is the dated indication that an <A
+CLASS="INTERNALREF"
+HREF="e_570.htm"
+>Organization</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_647.htm"
+>Person_and_organization</A
+> has reviewed and approved an occurrence of something.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>approval_status</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>authorizer</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>purpose</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>signoff_date</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.314.1 approval_status</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The approval_status specifies either approved, disapproved, not_yet_approved, or withdrawn as the state 
+of consent applied to an aspect of product data as indicated by the Ee_approval.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.314.2 authorizer</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The authorizer specifies either a <A
+CLASS="INTERNALREF"
+HREF="e_647.htm"
+>Person_and_organization</A
+> or an <A
+CLASS="INTERNALREF"
+HREF="e_570.htm"
+>Organization</A
+>
+that authorizes the Ee_approval.  There shall be one or more Person_and_organization or Organization for an Ee_approval.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.314.3 purpose</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The purpose specifies the text that provides the reason for the Ee_approval.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Typical values include "preliminary", "detailed", or"final".</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.314.4 signoff_date</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The signoff_date specifies either the <A
+CLASS="INTERNALREF"
+HREF="e_212.htm"
+>Date</A
+> or the <A
+CLASS="INTERNALREF"
+HREF="e_213.htm"
+>Date_and_time</A
+> of the Ee_approval.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>There shall be something to approve for approval to exist.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY ee_approval
+  SUBTYPE OF (managed_design_object);
+    purpose         : text;
+    authorizer      : SET [1:?] OF person_organization;
+    approval_status : status;
+    signoff_date    : date_or_date_and_time;
+END_ENTITY; -- ee_approval
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

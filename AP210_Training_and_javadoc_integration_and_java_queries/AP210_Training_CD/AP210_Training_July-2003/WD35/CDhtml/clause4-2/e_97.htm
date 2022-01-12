@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Change_request</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.97 Change_request</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Change_request is a type of <A
+CLASS="INTERNALREF"
+HREF="e_965.htm"
+>Work_request</A
+> that identifies 
+the proposed extent of work to be done to modify the design of a product.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>consequence</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>recommended_solution</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>version</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.97.1 consequence</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The consequence specifies the <A
+CLASS="INTERNALREF"
+HREF="e_339.htm"
+>Ee_text</A
+> that describes the impact 
+that the Change_request will have on the product.  There shall be one or more Ee_text for a Change_request.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.97.2 recommended_solution</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The recommended_solution specifies one or more <A
+CLASS="INTERNALREF"
+HREF="e_278.htm"
+>Design_object_management_relationship</A
+>, or <A
+CLASS="INTERNALREF"
+HREF="e_339.htm"
+>Ee_text</A
+> of a potential solution which 
+meets the requirements defined in the Change_request. A recommended_solution need not be specified for a Change_request.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.97.3 version</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The version specifies the string identifying a Change_request. The version shall be human 
+interpretable.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the version and the work_request_id inherited from Work_request shall be unique within
+a population of Change_request.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY change_request
+  SUBTYPE OF (work_request);
+    recommended_solution : OPTIONAL SET [1:?] OF 
+                           design_object_management_relationship_or_description;
+    consequence          : SET [1:?] OF ee_text;
+    version              : ee_name;
+  UNIQUE
+    ur1 : version, SELF\work_request.work_request_id;
+END_ENTITY; -- change_request
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

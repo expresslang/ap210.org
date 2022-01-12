@@ -1,0 +1,114 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: material_property_definition_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: material_property_definition_schema</h2>
+      <p><i>Source : ISO 10303-45</i></p><code><br><br><a name="material_property_definition_schema">SCHEMA <b>material_property_definition_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/material_property_representation_schema/material_property_representation_schema.htm#material_property_representation_schema">material_property_representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-45<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/material_property_representation_schema/material_property_representation_schema.htm#material_property_representation_schema.material_property_representation">material_property_representation</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema">measure_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema">product_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema">product_property_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_definition">characterized_definition</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema">qualified_measure_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-45<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.maths_value_with_unit">maths_value_with_unit</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.bag_to_set">bag_to_set</A>);
+         <br><br></code><code><br><A NAME="material_property_definition_schema.characterized_material_property">TYPE </A><b>characterized_material_property</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/material_property_representation_schema/material_property_representation_schema.htm#material_property_representation_schema.material_property_representation">material_property_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#material_property_definition_schema.product_material_composition_relationship">product_material_composition_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="material_property_definition_schema.characterized_product_composition_value">TYPE </A><b>characterized_product_composition_value</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.maths_value_with_unit">maths_value_with_unit</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="material_property_definition_schema.material_designation">ENTITY <b>material_designation</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_definition_schema.material_designation.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_definition_schema.material_designation.definitions">definitions : </A>SET[1:?] OF <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_definition">characterized_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="material_property_definition_schema.material_designation_characterization">ENTITY <b>material_designation_characterization</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_definition_schema.material_designation_characterization.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_definition_schema.material_designation_characterization.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_definition_schema.material_designation_characterization.designation">designation : </A><A HREF="#material_property_definition_schema.material_designation">material_designation</A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_definition_schema.material_designation_characterization.property">property : </A><A HREF="#material_property_definition_schema.characterized_material_property">characterized_material_property</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="material_property_definition_schema.material_property">ENTITY <b>material_property</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>);<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="material_property_definition_schema.material_property.ur:ur1">UR1: </A>
+         SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>.name, 
+         SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>.definition;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="material_property_definition_schema.material_property.wr:wr1">WR1: ('PRODUCT_PROPERTY_DEFINITION_SCHEMA.CHARACTERIZED_OBJECT' IN
+            TYPEOF(SELF\property_definition.definition)) OR
+            (SIZEOF(bag_to_set(USEDIN(SELF ,
+            'PRODUCT_PROPERTY_REPRESENTATION_SCHEMA.' +
+            'PROPERTY_DEFINITION_REPRESENTATION.DEFINITION')) -
+            QUERY(temp &lt;* bag_to_set(USEDIN(SELF ,
+            'PRODUCT_PROPERTY_REPRESENTATION_SCHEMA.' +
+            'PROPERTY_DEFINITION_REPRESENTATION.DEFINITION')) |
+            ('MATERIAL_PROPERTY_REPRESENTATION_SCHEMA.' +
+            'MATERIAL_PROPERTY_REPRESENTATION' IN
+            TYPEOF(temp)))) = 0);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="material_property_definition_schema.product_material_composition_relationship">ENTITY <b>product_material_composition_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>);<br>
+         &nbsp;&nbsp;<A NAME="material_property_definition_schema.product_material_composition_relationship.class">class : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_definition_schema.product_material_composition_relationship.constituent_amount">constituent_amount : </A>SET[1:?] OF <A HREF="#material_property_definition_schema.characterized_product_composition_value">characterized_product_composition_value</A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_definition_schema.product_material_composition_relationship.composition_basis">composition_basis : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_definition_schema.product_material_composition_relationship.determination_method">determination_method : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="material_property_definition_schema.property_definition_relationship">ENTITY <b>property_definition_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_definition_schema.property_definition_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_definition_schema.property_definition_relationship.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_definition_schema.property_definition_relationship.relating_property_definition">relating_property_definition : </A><A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_definition_schema.property_definition_relationship.related_property_definition">related_property_definition : </A><A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="material_property_definition_schema.acyclic_property_definition_relationship">FUNCTION <b>acyclic_property_definition_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.property_definition_relationship">property_definition_relationship</A>; relatives : SET[1:?] OF <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>; specific_relation : STRING) : LOGICAL;
+         </code><pre>LOCAL
+    x                : SET OF property_definition_relationship;
+  END_LOCAL;
+  IF relation.relating_property_definition IN 
+            relatives THEN
+    RETURN (FALSE);
+  END_IF;             -- IN is based in instance equality
+  x := QUERY (pd &lt;* bag_to_set (USEDIN
+       (relation.relating_property_definition,
+        'MATERIAL_PROPERTY_DEFINITION_SCHEMA.' +
+        'PROPERTY_DEFINITION_RELATIONSHIP.' +
+        'RELATED_PROPERTY_DEFINITION')) |
+         specific_relation IN TYPEOF (pd));
+  REPEAT I := 1 TO HIINDEX(x);             -- pre-checked loop
+    IF NOT acyclic_property_definition_relationship
+      (x[I],
+       relatives + relation.relating_property_definition,
+       specific_relation) THEN
+      RETURN(FALSE);
+    END_IF;
+  END_REPEAT;
+  RETURN(TRUE);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;material_property_definition_schema<br></code></body>
+</HTML>

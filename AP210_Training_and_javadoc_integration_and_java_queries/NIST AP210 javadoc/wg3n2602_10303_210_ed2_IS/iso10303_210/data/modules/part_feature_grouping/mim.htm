@@ -1,0 +1,42 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Part_feature_grouping_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Part_feature_grouping_mim</h2><code><br><br><a name="part_feature_grouping_mim">SCHEMA <b>Part_feature_grouping_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/physical_unit_usage_view/sys/e_exp_mim.htm#physical_unit_usage_view_mim">Physical_unit_usage_view_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1732<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/shape_aspect_definition_schema/shape_aspect_definition_schema.htm#shape_aspect_definition_schema">shape_aspect_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-47<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/shape_aspect_definition_schema/shape_aspect_definition_schema.htm#shape_aspect_definition_schema.composite_shape_aspect">composite_shape_aspect</A>);
+         <br><br></code><code><br><A NAME="part_feature_grouping_mim.composite_array_shape_aspect">ENTITY <b>composite_array_shape_aspect</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#part_feature_grouping_mim.linear_composite_array_shape_aspect">linear_composite_array_shape_aspect</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_feature_grouping_mim.rectangular_composite_array_shape_aspect">rectangular_composite_array_shape_aspect</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/shape_aspect_definition_schema/shape_aspect_definition_schema.htm#shape_aspect_definition_schema.composite_shape_aspect">composite_shape_aspect</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="part_feature_grouping_mim.composite_array_shape_aspect_link">ENTITY <b>composite_array_shape_aspect_link</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>, <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="part_feature_grouping_mim.composite_array_shape_aspect_link.wr:wr1">WR1: SELF\shape_aspect_relationship.related_shape_aspect :&lt;&gt;:
+            SELF\shape_aspect_relationship.relating_shape_aspect;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="part_feature_grouping_mim.linear_composite_array_shape_aspect">ENTITY <b>linear_composite_array_shape_aspect</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#part_feature_grouping_mim.composite_array_shape_aspect">composite_array_shape_aspect</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="part_feature_grouping_mim.linear_composite_array_shape_aspect_link">ENTITY <b>linear_composite_array_shape_aspect_link</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>, <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.<A NAME="part_feature_grouping_mim.linear_composite_array_shape_aspect_link.relating_shape_aspect">relating_shape_aspect : </A><A HREF="#part_feature_grouping_mim.linear_composite_array_shape_aspect">linear_composite_array_shape_aspect</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.<A NAME="part_feature_grouping_mim.linear_composite_array_shape_aspect_link.related_shape_aspect">related_shape_aspect : </A><A HREF="#part_feature_grouping_mim.linear_composite_array_shape_aspect">linear_composite_array_shape_aspect</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="part_feature_grouping_mim.linear_composite_array_shape_aspect_link.wr:wr1">WR1: SELF\shape_aspect_relationship.related_shape_aspect :&lt;&gt;:
+            SELF\shape_aspect_relationship.relating_shape_aspect;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="part_feature_grouping_mim.rectangular_composite_array_shape_aspect">ENTITY <b>rectangular_composite_array_shape_aspect</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#part_feature_grouping_mim.composite_array_shape_aspect">composite_array_shape_aspect</A>);<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Part_feature_grouping_mim<br></code></body>
+</HTML>

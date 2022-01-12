@@ -1,0 +1,46 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Integral_shield_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Integral_shield_arm</h2><code><br><br><a name="integral_shield_arm">SCHEMA <b>Integral_shield_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/layered_interconnect_module_with_printed_component_design/sys/e_exp_arm.htm#layered_interconnect_module_with_printed_component_design_arm">Layered_interconnect_module_with_printed_component_design_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1700<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/requirement_assignment/sys/e_exp_arm.htm#requirement_assignment_arm">Requirement_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1233<br><br></code><code><br><A NAME="integral_shield_arm.laminate_shieldable_item">TYPE </A><b>laminate_shieldable_item</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/assembly_module_design/sys/e_exp_arm.htm#assembly_module_design_arm.component_external_reference">Component_external_reference</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/component_feature/sys/e_exp_arm.htm#component_feature_arm.component_feature">Component_feature</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/assembly_module_design/sys/e_exp_arm.htm#assembly_module_design_arm.component_feature_external_reference">Component_feature_external_reference</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#integral_shield_arm.component_group_external_reference">Component_group_external_reference</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/layered_interconnect_module_design/sys/e_exp_arm.htm#layered_interconnect_module_design_arm.generic_physical_network">Generic_physical_network</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/physical_connectivity_definition/sys/e_exp_arm.htm#physical_connectivity_definition_arm.physical_connectivity_definition">Physical_connectivity_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#integral_shield_arm.physical_connectivity_definition_external_reference">Physical_connectivity_definition_external_reference</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/layered_interconnect_module_design/sys/e_exp_arm.htm#layered_interconnect_module_design_arm.stratum_feature_template_component">Stratum_feature_template_component</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="integral_shield_arm.component_group_external_reference">ENTITY <b>Component_group_external_reference</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="integral_shield_arm.component_group_external_reference.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="integral_shield_arm.component_group_external_reference.associated_definition">associated_definition : </A>STRING;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="integral_shield_arm.component_group_external_reference.ur:ur1">UR1: </A>name, associated_definition;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="integral_shield_arm.integral_shield">ENTITY <b>Integral_shield</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/layered_interconnect_module_design/sys/e_exp_arm.htm#layered_interconnect_module_design_arm.laminate_component">Laminate_component</A>);<br>
+         &nbsp;&nbsp;<A NAME="integral_shield_arm.integral_shield.shielded_item">shielded_item : </A>SET[1:?] OF <A HREF="#integral_shield_arm.laminate_shieldable_item">laminate_shieldable_item</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="integral_shield_arm.physical_connectivity_definition_external_reference">ENTITY <b>Physical_connectivity_definition_external_reference</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="integral_shield_arm.physical_connectivity_definition_external_reference.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="integral_shield_arm.physical_connectivity_definition_external_reference.associated_definition">associated_definition : </A>STRING;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="integral_shield_arm.physical_connectivity_definition_external_reference.ur:ur1">UR1: </A>name, associated_definition;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="integral_shield_arm.routed_shield">ENTITY <b>Routed_shield</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#integral_shield_arm.integral_shield">Integral_shield</A>);<br>
+         &nbsp;&nbsp;<A NAME="integral_shield_arm.routed_shield.routed_centreline_shape">routed_centreline_shape : </A><A HREF="../../../data/modules/basic_geometry/sys/e_exp_arm.htm#basic_geometry_arm.curve">Curve</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/generic_product_occurrence/sys/e_exp_arm.htm#generic_product_occurrence_arm.definition_based_product_occurrence">Definition_based_product_occurrence</A>.<A NAME="integral_shield_arm.routed_shield.derived_from">derived_from : </A><A HREF="../../../data/modules/printed_physical_layout_template/sys/e_exp_arm.htm#printed_physical_layout_template_arm.printed_part_cross_section_template">Printed_part_cross_section_template</A>;<br>
+         &nbsp;&nbsp;<A NAME="integral_shield_arm.routed_shield.component_extent">component_extent : </A><A HREF="../../../data/modules/layered_interconnect_module_design/sys/e_exp_arm.htm#layered_interconnect_module_design_arm.inter_stratum_extent">Inter_stratum_extent</A>;<br>
+         &nbsp;&nbsp;<A NAME="integral_shield_arm.routed_shield.curve_parameters">curve_parameters : </A><A HREF="../../../data/modules/constructive_solid_geometry_2d/sys/e_exp_arm.htm#constructive_solid_geometry_2d_arm.curve_style_parameters">Curve_style_parameters</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Integral_shield_arm<br></code></body>
+</HTML>

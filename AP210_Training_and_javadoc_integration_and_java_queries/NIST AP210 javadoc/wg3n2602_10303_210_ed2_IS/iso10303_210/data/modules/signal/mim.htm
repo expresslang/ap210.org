@@ -1,0 +1,55 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Signal_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Signal_mim</h2><code><br><br><a name="signal_mim">SCHEMA <b>Signal_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/characteristic/sys/e_exp_mim.htm#characteristic_mim">Characteristic_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1654<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema">product_property_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema">material_property_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-45<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.property_definition_relationship">property_definition_relationship</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema">group_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema">document_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema.document_usage_constraint">document_usage_constraint</A>);
+         <br><br></code><code><br><A NAME="signal_mim.s_external_identification_item">TYPE </A><b>s_external_identification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_mim.htm#external_item_identification_assignment_mim.external_identification_item">external_identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#signal_mim.composite_signal_property_relationship">composite_signal_property_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#signal_mim.signal">signal</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="signal_mim.composite_signal_property_relationship">ENTITY <b>composite_signal_property_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>, <A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.property_definition_relationship">property_definition_relationship</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="signal_mim.composite_signal_property_relationship.wr:wr1">WR1: SELF\property_definition_relationship.related_property_definition.definition :&lt;&gt;:
+            SELF\property_definition_relationship.relating_property_definition.definition;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="signal_mim.signal">ENTITY <b>signal</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="signal_mim.signal_category">ENTITY <b>signal_category</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>);<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Signal_mim<br></code></body>
+</HTML>

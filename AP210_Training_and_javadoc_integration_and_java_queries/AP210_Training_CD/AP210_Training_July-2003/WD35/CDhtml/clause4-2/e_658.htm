@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Physical_feature_or_part_template</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.658 Physical_feature_or_part_template</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Physical_feature_or_part_template is a type of <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> that is
+either on the physical boundary of a <A
+CLASS="INTERNALREF"
+HREF="e_664.htm"
+>Physical_unit</A
+> or is a <A
+CLASS="INTERNALREF"
+HREF="e_624.htm"
+>Part_template</A
+>.
+A Physical_feature_or_part_template is one of a <A
+CLASS="INTERNALREF"
+HREF="e_613.htm"
+>Part_feature</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_649.htm"
+>Physical_component_feature</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_659.htm"
+>Physical_laminate_component</A
+>,
+a Part_template, or a <A
+CLASS="INTERNALREF"
+HREF="e_851.htm"
+>Stratum_feature</A
+>. Additionally, a Physical_feature_or_part_template may either be a <A
+CLASS="INTERNALREF"
+HREF="e_226.htm"
+>Datum_feature</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_240.htm"
+>Datum_target</A
+>.  The Physical_feature_or_part_template is an intersection application object that supports assignemt of Geometric Dimensioning and Tolerance data to features or template definitions.</DIV
+></DIV
+><DIV
+CLASS="INFORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Informal constraints:</P
+><DIV
+CLASS="INFORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>IP1: </SPAN
+>If the Physical_feature_or_part_template is not a Part_template it
+shall be on the boundary of the Physical_unit.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY physical_feature_or_part_template
+  ABSTRACT SUPERTYPE OF (ONEOF (part_feature,
+      physical_component_feature,physical_laminate_component,part_template,
+	stratum_feature) ANDOR ONEOF (datum_feature,datum_target))
+  SUBTYPE OF (shape_element);
+END_ENTITY; -- physical_feature_or_part_template
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

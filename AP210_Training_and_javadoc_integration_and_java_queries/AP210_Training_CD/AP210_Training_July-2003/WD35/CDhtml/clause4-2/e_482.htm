@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Junction_vertex_allocation</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.482 Junction_vertex_allocation</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Junction_vertex_allocation is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.
+A Junction_vertex_allocation is the relationship that specifies one or more <A
+CLASS="INTERNALREF"
+HREF="e_499.htm"
+>Layer_connection_point</A
+> to which a <A
+CLASS="INTERNALREF"
+HREF="e_928.htm"
+>Topological_junction</A
+> is mapped during the layout routing process.
+A Junction_vertex_allocation is the result of an assignment process by a designer or a layout routing process that defines the location of <A
+CLASS="INTERNALREF"
+HREF="e_476.htm"
+>Inter_stratum_join_relationship</A
+> or <A
+CLASS="INTERNALREF"
+HREF="e_360.htm"
+>Explicitly_located_layer_connection_point</A
+>.  A Junction_vertex_allocation maps a node of a Physical_network which may be only partially ordered into a network description which is highly ordered using a tree.  A Junction_vertex_allocation associates two Ee_product_definitions, one an Interconnect_module and the other a Physical_unit_network_definition.  The Physical_unit_network_definition may be populated for the express purpose of representing the tree structure of the Physical_network in the Interconnect_module, and therefore the version of the design would be the same for both.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>implementation_point</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>required_vertex</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.482.1 implementation_point</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The implementation_point specifies either the <A
+CLASS="INTERNALREF"
+HREF="e_476.htm"
+>Inter_stratum_join_relationship</A
+> or <A
+CLASS="INTERNALREF"
+HREF="e_360.htm"
+>Explicitly_located_layer_connection_point</A
+> that, individually, maps the requirement that a junction participates in a connectivity onto points on conducting <A
+CLASS="INTERNALREF"
+HREF="e_845.htm"
+>Stratum</A
+> for the Junction_vertex_allocation.<DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>This construct allows the Junction_vertex_allocation to consider an Inter_stratum_join_relationship to be a vertex.</LI
+><LI
+CLASS="NOTEINGROUP"
+>The Junction_vertex_allocation allows for the specification of the location of the connections between physical traces and connected areas.  It is common practice for the point where a trace, via, pad, etc., connects with other features to be specified by the designer interactively during layout.  This location may be constrained for fabrication, layout, or signal integrity purposes.  The Junction_vertex allocation specifies these relationships.</LI
+></OL
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.482.2 required_vertex</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The required_vertex specifies the <A
+CLASS="INTERNALREF"
+HREF="e_928.htm"
+>Topological_junction</A
+>, as a vertex of a <A
+CLASS="INTERNALREF"
+HREF="e_652.htm"
+>Physical_connectivity_definition</A
+>, that is to be mapped to an implementation_point by the Junction_vertex_allocation.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The required_vertex shall be unique within a population of Junction_vertex_allocations.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The implementation_point and required_vertex shall be for the same product.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY junction_vertex_allocation
+  SUBTYPE OF (managed_design_object);
+    implementation_point : trace_junction_or_via;
+    required_vertex      : topological_junction;
+  UNIQUE
+    ur1 : required_vertex;
+END_ENTITY; -- junction_vertex_allocation
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

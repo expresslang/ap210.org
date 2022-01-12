@@ -1,0 +1,50 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Date_time_assignment_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Date_time_assignment_mim</h2><code><br><br><a name="date_time_assignment_mim">SCHEMA <b>Date_time_assignment_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/date_time/sys/e_exp_mim.htm#date_time_mim">Date_time_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1010<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema">date_time_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema.date">date</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema.date_role">date_role</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema.date_time_role">date_time_role</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema">management_resources_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.date_and_time_assignment">date_and_time_assignment</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.date_assignment">date_assignment</A>);
+         <br><br></code><code><br><A NAME="date_time_assignment_mim.date_and_time_item">TYPE </A><b>date_and_time_item</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="date_time_assignment_mim.date_item">TYPE </A><b>date_item</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="date_time_assignment_mim.applied_date_and_time_assignment">ENTITY <b>applied_date_and_time_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.date_and_time_assignment">date_and_time_assignment</A>);<br>
+         &nbsp;&nbsp;<A NAME="date_time_assignment_mim.applied_date_and_time_assignment.items">items : </A>SET[1:?] OF <A HREF="#date_time_assignment_mim.date_and_time_item">date_and_time_item</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="date_time_assignment_mim.applied_date_assignment">ENTITY <b>applied_date_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.date_assignment">date_assignment</A>);<br>
+         &nbsp;&nbsp;<A NAME="date_time_assignment_mim.applied_date_assignment.items">items : </A>SET[1:?] OF <A HREF="#date_time_assignment_mim.date_item">date_item</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Date_time_assignment_mim<br></code></body>
+</HTML>

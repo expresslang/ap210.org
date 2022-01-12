@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Datum_feature</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.226 Datum_feature</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Datum_feature is a type of <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+> that is used to establish one or more <A
+CLASS="INTERNALREF"
+HREF="e_214.htm"
+>Datum</A
+>. A Datum_feature may be a <A
+CLASS="INTERNALREF"
+HREF="e_241.htm"
+>Datum_target_set</A
+>. A Datum_feature may be used to establish 
+one <A
+CLASS="INTERNALREF"
+HREF="e_828.htm"
+>Single_datum</A
+>, and one or more <A
+CLASS="INTERNALREF"
+HREF="e_105.htm"
+>Common_datum</A
+>.
+<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The definition of datum feature is given in 3.3 of ISO 5459.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>datum_feature_usages</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>identification</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.226.1 datum_feature_usages</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The datum_feature_usages is an inverse relationship that specifies that the existence of the Datum_feature is dependent on the 
+existence of the <A
+CLASS="INTERNALREF"
+HREF="e_229.htm"
+>Datum_feature_usage_in_datum_relationship</A
+> that specifies the Datum_feature as its 
+related_shape_element. There shall be one or more Datum_feature_usage_in_datum_relationship for a Datum_feature.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.226.2 identification</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The identification specifies the label by which the Datum_feature is referred.
+<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  <A
+CLASS="INTERNALREF"
+HREF="e_214.htm"
+>Datum</A
+> letter identifiers are examples of identifiers of Datum features. The Datum letter identifier is described in 6.1.2 of ISO 5459.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>A Datum_feature shall be used to establish at most one Single_datum.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY datum_feature
+  SUPERTYPE OF (datum_target_set)
+  SUBTYPE OF (physical_feature_or_part_template);
+    identification : label;
+  INVERSE
+    datum_feature_usages : SET [1:?] OF
+                           datum_feature_usage_in_datum_relationship FOR 
+                           related_shape_element;
+END_ENTITY; -- datum_feature
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

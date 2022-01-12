@@ -1,0 +1,442 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Characteristic">
+      <META name="DC.Dates" content="2009-04-30 12:02:50">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Characteristic">
+      <META name="DC.Subject" content="module, characteristic, tolerance, range, uncertainty">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6218">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5310">
+      <META name="SC4.version" content="3">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6563">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6564">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6565">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-04-30 12:02:50">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.75">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.65">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.56">
+      <TITLE>ISO/TS 10303-1654:2009 Characteristic</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Characteristic</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1654:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.4 ARM subtype constraint definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.5 ARM function definition</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definition</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#subtype_constraints">5.2.3 MIM subtype constraint definition</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <h2><a name="mim_express">5.2 MIM EXPRESS short listing</a></h2>
+      <p>
+         This clause specifies the EXPRESS schema derived from the mapping
+         table. 
+         It uses elements from the common resources or from other application
+         modules and defines the EXPRESS constructs that are specific to this
+         part of ISO 10303.
+         
+      </p>
+      <p>
+         This clause constitutes the Module Interpreted Module (MIM) of the
+         application module.
+         
+      </p>
+      <p>This clause also
+         specifies the modifications that apply to the constructs 
+         imported from the common resources.
+      </p>
+      <p>The following restrictions apply to the use, in this schema, of constructs defined in common resources or in application
+         modules:
+      </p>
+      <ul>
+         <li>
+            use of a supertype entity does not make applicable any of its
+            specializations, unless the specialization is also imported in the
+            MIM schema;
+            
+         </li>
+         <li>
+            use of a SELECT type does not make applicable any of its listed types
+            unless the listed type is also imported in the MIM schema.
+            
+         </li>
+      </ul>
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="characteristic_mim">
+            SCHEMA Characteristic_mim;</a></code><h2><A NAME="interfaces"></A></h2>
+      <p></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/basic_data_representation/sys/5_mim.htm#basic_data_representation_mim">Basic_data_representation_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1773<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/document_assignment/sys/5_mim.htm#document_assignment_mim">Document_assignment_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1122<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/extended_measure_representation/sys/5_mim.htm#extended_measure_representation_mim">Extended_measure_representation_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1106<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/external_library/sys/5_mim.htm#external_library_mim">External_library_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1778<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/value_with_unit_extension/sys/5_mim.htm#value_with_unit_extension_mim">Value_with_unit_extension_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1753<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/external_properties/sys/5_mim.htm#external_properties_mim">External_properties_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1129<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/resources/group_schema/group_schema.htm#group_schema">group_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>);
+            <br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Basic_data_representation_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1773</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Document_assignment_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1122</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Extended_measure_representation_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1106</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>External_library_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1778</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Value_with_unit_extension_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1753</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>External_properties_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1129</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>group_schema</small></b></td>
+               <td width="127"><small>ISO 10303-41</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="d_mim_expg.htm">D</a>, 
+            
+            Figures
+            <a href="../mimexpg1.htm">D.1</a>and <a href="../mimexpg2.htm">D.2</a>
+            for a graphical representation of this schema.            
+            </small></p>
+      <h2><a name="types">5.2.1 MIM type definition</a></h2>
+      <p>
+         This subclause specifies the MIM type
+         for this application module. The MIM type and
+         definition is specified below. 
+         
+      </p>
+      <h2><a name="characteristic_mim.c_document_reference_item">5.2.1.1 c_document_reference_item</a>
+         &nbsp;&nbsp;<a href="../../characteristic/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>c_document_reference_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/document_assignment/sys/5_mim.htm#document_assignment_mim.document_reference_item">document_reference_item</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            c_document_reference_item =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/document_assignment/sys/5_mim.htm#document_assignment_mim.document_reference_item">document_reference_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">5.2.2 MIM entity definitions</a></h2>
+      <p>
+         This subclause specifies the MIM entities for this
+         module. The MIM entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="characteristic_mim.characteristic_data_column_header">5.2.2.1 characteristic_data_column_header</a>
+         &nbsp;&nbsp;<a href="../../characteristic/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>characteristic_data_column_header</b> is a type of
+      	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property"><b>general_property</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.characteristic_data_column_header"><b>Characteristic_data_column_header</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY characteristic_data_column_header<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property">general_property</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="characteristic_mim.characteristic_data_column_header_link">5.2.2.2 characteristic_data_column_header_link</a>
+         &nbsp;&nbsp;<a href="../../characteristic/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>characteristic_data_column_header_link</b> is a type of
+      	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property_relationship"><b>general_property_relationship</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.characteristic_data_column_header_link"><b>Characteristic_data_column_header_link</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY characteristic_data_column_header_link<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property_relationship">general_property_relationship</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="characteristic_mim.characteristic_data_table_header">5.2.2.3 characteristic_data_table_header</a>
+         &nbsp;&nbsp;<a href="../../characteristic/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>characteristic_data_table_header</b> is a type of
+      	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property"><b>general_property</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY characteristic_data_table_header<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property">general_property</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="characteristic_mim.characteristic_data_table_header_decomposition">5.2.2.4 characteristic_data_table_header_decomposition</a>
+         &nbsp;&nbsp;<a href="../../characteristic/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>characteristic_data_table_header_decomposition</b> is a type of
+      	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property_relationship"><b>general_property_relationship</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.characteristic_data_table_header_decomposition"><b>Characteristic_data_table_header_decomposition</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY characteristic_data_table_header_decomposition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property_relationship">general_property_relationship</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="characteristic_mim.characteristic_type">5.2.2.5 characteristic_type</a>
+         &nbsp;&nbsp;<a href="../../characteristic/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      A <b>characteristic_type</b> is a type of <a href="../../../resources/group_schema/group_schema.htm#group_schema.group"><b>group</b></a> that specifies a boolean property, a numeric property whose units are in accordance with ISO 10303-41, a compound characteristic,
+      a
+      logical property, a string property, or an externally defined property for a characteristic.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY characteristic_type<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="characteristic_mim.null_representation_item">5.2.2.6 null_representation_item</a>
+         &nbsp;&nbsp;<a href="../../characteristic/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>null_representation_item</b> is a type of
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_item"><b>representation_item</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.null_representation_item"><b>Null_representation_item</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY null_representation_item<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="characteristic_mim.range_characteristic">5.2.2.7 range_characteristic</a>
+         &nbsp;&nbsp;<a href="../../characteristic/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>range_characteristic</b> is a type of
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+      	and of
+      	<a href="../../../resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item"><b>descriptive_representation_item</b></a>
+      	that implements the ARM concept of
+      	<a href="../../../modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.range_characteristic"><b>Range_characteristic</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY range_characteristic<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item">descriptive_representation_item</A>, <A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: NOT(SELF\representation.name IN ['tolerance', 'minimum tolerance', 'maximum tolerance', 
+            'nominal tolerance', 'plus minus tolerance', 'symmetrical tolerance', 'statistical tolerance']);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="characteristic_mim.range_characteristic.wr:wr1">WR1:
+               </a></b>
+         	The
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation.name"><b>name</b></a> 
+         	shall not be of type
+         	'tolerance', 'minimum tolerance', 'maximum tolerance', 'nominal tolerance', 'plus minus tolerance', 'symmetrical tolerance',
+         'statistical tolerance'.
+         
+      </p>
+      <h2><a name="characteristic_mim.row_representation_item">5.2.2.8 row_representation_item</a>
+         &nbsp;&nbsp;<a href="../../characteristic/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>row_representation_item</b> is a type of
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item"><b>compound_representation_item</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY row_representation_item<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>.item_element : <A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.list_representation_item">list_representation_item</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="characteristic_mim.row_representation_item.item_element">item_element:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item"><b>compound_representation_item</b></a>
+         	shall be redeclared as the
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.list_representation_item"><b>list_representation_item</b></a>
+         	for the <b>row_representation_item</b>.
+         
+      </p>
+      <h2><a name="characteristic_mim.table_representation_item">5.2.2.9 table_representation_item</a>
+         &nbsp;&nbsp;<a href="../../characteristic/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>table_representation_item</b> is a type of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item"><b>compound_representation_item</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY table_representation_item<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(QUERY(itet &lt;* SELF\compound_representation_item.item_element |
+            NOT('CHARACTERISTIC_MIM.ROW_REPRESENTATION_ITEM' IN TYPEOF(itet))
+            )) = 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="characteristic_mim.table_representation_item.wr:wr1">WR1:
+               </a></b>
+         The <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item.item_element"><b>item_element</b></a>
+         inherited from <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item"><b>compound_representation_item</b></a>
+         shall be of type <a href="../../../modules/characteristic/sys/5_mim.htm#characteristic_mim.row_representation_item"><b>row_representation_item</b></a>.
+         
+      </p>
+      <h2><a name="subtype_constraints">5.2.3 MIM subtype constraint definition</a></h2>
+      <p>
+         This subclause specifies the MIM subtype constraint for
+         this module. The subtype constraint places a constraint on the
+         possible super-type / subtype instantiations.
+         The MIM subtype constraint and definition is
+         specified below.
+         
+      </p>
+      <h2><A NAME="characteristic_mim.c_compound_representation_item_subtypes">5.2.3.1 c_compound_representation_item_subtypes</A>
+         &nbsp;&nbsp;<a href="../../characteristic/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	The <b>c_compound_representation_item_subtypes</b> constraint specifies a constraint that applies to instances of subtypes of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item"><b>compound_representation_item</b></a>.
+      
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="characteristic_mim.c_compound_representation_item_subtypes">SUBTYPE_CONSTRAINT c_compound_representation_item_subtypes</A> FOR <A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#characteristic_mim.row_representation_item">row_representation_item</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#characteristic_mim.table_representation_item">table_representation_item</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Characteristic_mim<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

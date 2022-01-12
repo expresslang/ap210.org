@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Datum_precedence_assignment</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.234 Datum_precedence_assignment</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Datum_precedence_assignment is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Datum_precedence_assignment is 
+a specification that defines the order in which a <A
+CLASS="INTERNALREF"
+HREF="e_214.htm"
+>Datum</A
+> is used to establish a <A
+CLASS="INTERNALREF"
+HREF="e_236.htm"
+>Datum_system</A
+>.
+<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Datum systems established by a sequence of datums is discussed in 6.2.3 of ISO 5459.</DIV
+>&#13;</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>assigned_to</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>datum_system_conditions_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>name</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.234.1 assigned_to</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The assigned_to specifies the <A
+CLASS="INTERNALREF"
+HREF="e_243.htm"
+>Datum_usage_in_datum_system_relationship</A
+> that associates a <A
+CLASS="INTERNALREF"
+HREF="e_236.htm"
+>Datum_system</A
+> with the <A
+CLASS="INTERNALREF"
+HREF="e_214.htm"
+>Datum</A
+> to which the precedence in establishing the Datum_system is 
+assigned by the Datum_precedence_assignment.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.234.2 datum_system_conditions_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The datum_system_conditions_definition is an inverse relationship that specifies that the existence of the 
+Datum_precedence_assignment 
+depends on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_237.htm"
+>Datum_system_defining_conditions</A
+>
+that specifies the Datum_precedence_assignment as its assigned_datum_precedences.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.234.3 name</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The name specifies the label that corresponds to the Datum_precedence_assignment of the specified usage of a <A
+CLASS="INTERNALREF"
+HREF="e_214.htm"
+>Datum</A
+> in a <A
+CLASS="INTERNALREF"
+HREF="e_236.htm"
+>Datum_system</A
+>. The name shall be "primary", "secondary", or "tertiary".
+<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: The requirements may be such that Datum A is assigned as the primary Datum when it is used in one Datum_system. However, 
+additional requirements may be such that Datum A is assigned as the tertiary Datum when it is used in a second Datum_system.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of name and datum_system_conditions_definition shall be unique within a population of 
+Datum_precedence_assignment. That is, the defining conditions of a Datum_system shall be such that no two Datum of the 
+Datum_system have been assigned the same precedence.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY datum_precedence_assignment
+  SUBTYPE OF (managed_design_object);
+    assigned_to : datum_usage_in_datum_system_relationship;
+    name        : precedence_type;
+  INVERSE
+    datum_system_conditions_definition : datum_system_defining_conditions FOR 
+                                         assigned_datum_precedences;
+  UNIQUE
+    ur1 : datum_system_conditions_definition, name;
+END_ENTITY; -- datum_precedence_assignment
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

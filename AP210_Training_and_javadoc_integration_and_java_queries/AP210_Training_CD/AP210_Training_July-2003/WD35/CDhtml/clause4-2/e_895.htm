@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Test_requirement_allocation</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.895 Test_requirement_allocation</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Test_requirement_allocation is a type of <A
+CLASS="INTERNALREF"
+HREF="e_769.htm"
+>Requirement_allocation</A
+> for which the <A
+CLASS="INTERNALREF"
+HREF="e_330.htm"
+>Ee_requirement_occurrence</A
+> has test characteristics. A Test_requirement_allocation is the relationship between the <A
+CLASS="INTERNALREF"
+HREF="e_896.htm"
+>Test_requirement_occurrence</A
+> and the <A
+CLASS="INTERNALREF"
+HREF="e_328.htm"
+>Ee_product_version</A
+> to which the requirement is allocated.
+The terminals of the product are related to either parametric data in an executable form or to data derived from experimental or theoretical measurements.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The structural split of allocation and requirement occurrence permits re-use of common test requirements and associated procedures over multiple products.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>requirement</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>target_product_object</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>analytical_model_based_data</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>functional_specification_based_data</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.895.1 target_product_object</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The target_product_object specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="Test_component.htm"
+>Test_component</A
+> for the Test_requirement_allocation.
+The target_product_object is a specialization of the attribute inherited from Assembly_requirement_allocation.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.895.2 analytical_model_based_data</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The analytical_model_based_data specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_615.htm"
+>Part_feature_model_port_assignment</A
+> for the Test_requirement_allocation.
+The analytical_model_based_data specifies the mapping of the ports of the <A
+CLASS="INTERNALREF"
+HREF="e_14.htm"
+>Analytical_model</A
+> onto the relevant terminals of the product for which the test is specified.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The mapping provides a formal mechanism for associating the details of the required behavior represented in computer executable form, as defined in the body of an Analytical_model, with the terminals of the tested product.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.895.3 functional_specification_based_data</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The functional_specification_based_data specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="Functional_unit_usage_view_to_part_terminal_assignment.htm"
+>Functional_unit_usage_view_to_part_terminal_assignment</A
+> for the Test_requirement_allocation.
+The functional_specification_based_data specifies the mapping of the terminals of the <A
+CLASS="INTERNALREF"
+HREF="e_410.htm"
+>Functional_unit_usage_view</A
+> onto the relevant terminals of the product for which the test is specified.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The mapping provides a formal mechanism for associating the details of the required behavior represented as a result of a experiment, as defined by a Functional_specification, with the terminals of the tested product.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.895.4 allocated_requirement</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The allocated_requirement specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_896.htm"
+>Test_requirement_occurrence</A
+> for the Test_requirement_allocation.
+The allocated_requirement is a specialization of the attribute inherited from Assembly_requirement_allocation.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY test_requirement_allocation
+  SUBTYPE OF (requirement_allocation);
+    SELF\requirement_allocation.target_product_object : ee_product_version;
+    SELF\requirement_allocation.allocated_requirement : 
+	test_requirement_occurrence;
+    analytical_model_based_test_access : OPTIONAL SET [1:?] OF part_feature_model_port_assignment;
+    functional_specification_based_test_access : OPTIONAL SET [1:?] OF functional_usage_view_to_part_terminal_assignment;
+WHERE
+  wr1: NOT(EXISTS(analytical_model_based_test_access)) OR
+     (SIZEOF(QUERY(ta &#60;* analytical_model_based_test_access |
+    NOT(ta.source.associated_definition.version = 
+             SELF\requirement_allocation.target_product_object)
+                )) = 0);
+  wr2: NOT(EXISTS(analytical_model_based_test_access)) OR 
+      (SIZEOF(QUERY(ta &#60;* analytical_model_based_test_access |
+    NOT(ta.target.accessed_analytical_model = 
+       SELF\requirement_allocation.allocated_requirement.required_analytical_representation.model_representation)
+                )) = 0);
+  wr3: EXISTS(analytical_model_based_test_access) XOR EXISTS(functional_specification_based_test_access);
+  wr4: NOT(EXISTS(analytical_model_based_test_access)) OR
+       (EXISTS(SELF\requirement_allocation.allocated_requirement\ee_requirement_occurrence.required_analytical_representation));
+  wr5: NOT(EXISTS(functional_specification_based_test_access)) OR
+     (SIZEOF(QUERY(fa &#60;* functional_specification_based_test_access |
+    NOT(fa.physical_usage_view_terminal\part_feature.associated_definition.version =
+             SELF\requirement_allocation.target_product_object)
+                )) = 0);
+  wr6: NOT(EXISTS(functional_specification_based_test_access)) OR
+       (EXISTS(SELF\requirement_allocation.
+                allocated_requirement\ee_requirement_occurrence.
+                              required_functional_specification));
+  wr7: NOT(EXISTS(functional_specification_based_test_access)) OR
+      (SIZEOF(QUERY(fa &#60;* functional_specification_based_test_access |
+    NOT(fa.functional_usage_view_terminal\functional_unit_usage_view_terminal_definition.
+                             associated_functional_unit_definition =
+       SELF\requirement_allocation.
+              allocated_requirement\ee_requirement_occurrence.
+              required_functional_specification.characterizing_functional_unit.definition)
+                )) = 0);
+END_ENTITY; -- test_requirement_allocation
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

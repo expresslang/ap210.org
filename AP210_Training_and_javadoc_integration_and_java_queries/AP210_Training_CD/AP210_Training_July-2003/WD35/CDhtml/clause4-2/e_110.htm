@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Component_2d_surface_location</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.110 Component_2d_surface_location</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Component_2d_surface_location is a type of <A
+CLASS="INTERNALREF"
+HREF="e_108.htm"
+>Component_2d_location</A
+>.
+The Component_2d_surface_location places components on the external surface of a substrate.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  <A
+CLASS="INTERNALREF"
+HREF="e_188.htm"
+>Connection_zone_interface_plane_relationship</A
+> and <A
+CLASS="INTERNALREF"
+HREF="e_186.htm"
+>Connection_zone_based_assembly_joint</A
+> may be used to provide more details if needed by a receiving organization.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.110.1 mounting_surface_assembly_joint</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The mounting_surface_assembly_joint specifies the <A
+CLASS="INTERNALREF"
+HREF="e_41.htm"
+>Assembly_joint</A
+> that joins the <A
+CLASS="INTERNALREF"
+HREF="e_129.htm"
+>Component_mounting_feature</A
+> of the component being located to the associated mating component feature.
+The surface the mating component feature is associated with is part of the orientation description for the Component_2d_surface_location.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY component_2d_surface_location
+  SUBTYPE OF (component_2d_location);
+      mounting_surface_assembly_joint : assembly_joint;
+WHERE
+ wr1: SELF\component_2d_location.substrate_location = FALSE;
+ wr2: SIZEOF(['AP210_ARM.INTERCONNECT_MODULE_COMPONENT_TERMINAL',
+       'AP210_ARM.INTERCONNECT_MODULE_COMPONENT_SURFACE_FEATURE'] *
+       TYPEOF(mounting_surface_assembly_joint.assembly_features_1)) &#62;= 0;
+END_ENTITY; -- component_2d_surface_location
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

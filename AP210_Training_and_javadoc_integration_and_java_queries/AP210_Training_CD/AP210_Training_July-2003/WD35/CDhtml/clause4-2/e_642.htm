@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Pcb</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.642 Pcb</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Pcb is a type of <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+>. A Pcb describes a printed circuit board.
+A printed circuit board is nearly a synonym for printed wiring board, except that a printed circuit board may include printed components and a printed wiring board is totally interconnected without printed components. This part of ISO 10303 supports the exchange of product categories in order to allow the exchange partners to differentiate between printed wiring board and printed circuit board.<DIV
+CLASS="EXAMPLEGROUP"
+><P
+>EXAMPLES:</P
+><OL
+><LI
+CLASS="EXAMPLEINGROUP"
+>Figure  <SPAN
+CLASS="INTERNALREF"
+>pcb</SPAN
+> illustrates a printed wiring board design.</LI
+><LI
+CLASS="EXAMPLEINGROUP"
+>Figures <SPAN
+CLASS="INTERNALREF"
+>pcbcir</SPAN
+> and <SPAN
+CLASS="INTERNALREF"
+>pcbcom</SPAN
+> illustrate complex printed wiring board mechanical designs that have functional shape requirements that are communicated using Geometric Dimensioning and Tolerancing information in a product model and not graphically.</LI
+></OL
+></DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>usage_view</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.642.1 usage_view</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The usage_view specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_643.htm"
+>Pcb_usage_view</A
+> for the Pcb.  The usage_view shall not be specified if the Pcb is a Layout_macro_definition, otherwise it shall exist.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY pcb
+  SUPERTYPE OF (layout_macro_definition)
+  SUBTYPE OF (interconnect_module);
+    SELF\physical_unit_design_view.usage_view : OPTIONAL pcb_usage_view;
+WHERE
+  WR1: ('AP210_ARM.LAYOUT_MACRO_DEFINITION' IN TYPEOF(SELF)) XOR
+       (EXISTS(SELF\physical_unit_design_view.usage_view));
+END_ENTITY; -- pcb
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

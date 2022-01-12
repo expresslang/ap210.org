@@ -1,0 +1,37 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Swept_solid_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Swept_solid_arm</h2><code><br><br><a name="swept_solid_arm">SCHEMA <b>Swept_solid_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/topologically_bounded_surface/sys/e_exp_arm.htm#topologically_bounded_surface_arm">Topologically_bounded_surface_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1511<br><br></code><code><br><A NAME="swept_solid_arm.axis1_placement">ENTITY <b>Axis1_placement</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="swept_solid_arm.axis1_placement.axis">axis : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.direction">Direction</A>;<br>
+         &nbsp;&nbsp;<A NAME="swept_solid_arm.axis1_placement.position">position : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.cartesian_point">Cartesian_point</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="swept_solid_arm.extruded_solid">ENTITY <b>Extruded_solid</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#swept_solid_arm.swept_solid">Swept_solid</A>);<br>
+         &nbsp;&nbsp;<A NAME="swept_solid_arm.extruded_solid.depth">depth : </A><A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.length_measure">length_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="swept_solid_arm.extruded_solid.extruded_direction">extruded_direction : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.direction">Direction</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="swept_solid_arm.solid_of_revolution">ENTITY <b>Solid_of_revolution</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#swept_solid_arm.swept_solid">Swept_solid</A>);<br>
+         &nbsp;&nbsp;<A NAME="swept_solid_arm.solid_of_revolution.angle">angle : </A><A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.plane_angle_measure">plane_angle_measure</A>;<br>
+         &nbsp;&nbsp;<A NAME="swept_solid_arm.solid_of_revolution.axis">axis : </A><A HREF="#swept_solid_arm.axis1_placement">Axis1_placement</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="swept_solid_arm.swept_solid">ENTITY <b>Swept_solid</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#swept_solid_arm.extruded_solid">Extruded_solid</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#swept_solid_arm.solid_of_revolution">Solid_of_revolution</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="swept_solid_arm.swept_solid.swept_face">swept_face : </A><A HREF="../../../data/modules/topologically_bounded_surface/sys/e_exp_arm.htm#topologically_bounded_surface_arm.advanced_face">Advanced_face</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Swept_solid_arm<br></code></body>
+</HTML>

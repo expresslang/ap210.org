@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Wire_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.963 Wire_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Wire_terminal is a type of a <A
+CLASS="INTERNALREF"
+HREF="e_591.htm"
+>Package_terminal</A
+> whose 
+core_material is inherently flexible and ready for installation to a <A
+CLASS="INTERNALREF"
+HREF="e_639.htm"
+>Pca</A
+>
+without prior formal preparation by shape modification. The shape of the Wire_terminal is incompletely 
+defined in the library.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The <A
+CLASS="INTERNALREF"
+HREF="Feature_shape_occurrence.htm"
+>Feature_shape_occurrence</A
+> inherited by the terminal may be the same Feature_shape_occurrence that is specified by the associated <A
+CLASS="INTERNALREF"
+HREF="e_185.htm"
+>Connection_zone</A
+>.  In this case the whole terminal is the Connection_zone.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>internal_connection_zone</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>maximum_wire_terminal_length</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>minimum_wire_terminal_length</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.963.1 internal_connection_zone</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The internal_connection_zone specifies the role of a  <A
+CLASS="INTERNALREF"
+HREF="e_185.htm"
+>Connection_zone</A
+> for the Wire_terminal.  There shall be one or more Connection_zone for the Wire_terminal.  The internal_connection_zone is mandatory because it locates the end of the wire that is the attachment area on the package body.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.963.2 maximum_wire_terminal_length</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The maximum_wire_terminal_length specifies the <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> for the maximum length of the Wire_terminal. </DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.963.3 minimum_wire_terminal_length</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The minimum_wire_terminal_length specifies the <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> for the minimum length of the Wire_terminal. </DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY wire_terminal
+  SUBTYPE OF (package_terminal);
+    SELF\package_terminal.internal_connection_zone : SET [1:?] OF connection_zone;
+    maximum_wire_terminal_length                   : length_data_element;
+    minimum_wire_terminal_length                   : length_data_element;
+END_ENTITY; -- wire_terminal
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

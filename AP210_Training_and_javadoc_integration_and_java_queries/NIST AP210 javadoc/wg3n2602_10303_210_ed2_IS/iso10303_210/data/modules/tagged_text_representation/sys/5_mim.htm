@@ -1,0 +1,341 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Tagged text representation">
+      <META name="DC.Dates" content="2008-10-15 08:05:02">
+      <META name="DC.Published" content="2008-12-19">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Tagged text representation">
+      <META name="DC.Subject" content="module, tagged text, content, markup, sgml, xml, html">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N5520">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5008">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N5268">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N5269">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N5270">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2008-10-15 08:05:02">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.42">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.16">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.12">
+      <TITLE>ISO/TS 10303-1366:2008 Tagged text representation</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Tagged text representation</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1366:2008(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARM</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.4 ARM subtype constraint definition</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definition</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#subtype_constraints">5.2.3 MIM subtype constraint definition</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <h2><a name="mim_express">5.2 MIM EXPRESS short listing</a></h2>
+      <p>
+         This clause specifies the EXPRESS schema derived from the mapping
+         table. 
+         It uses elements from the common resources or from other application
+         modules and defines the EXPRESS constructs that are specific to this
+         part of ISO 10303.
+         
+      </p>
+      <p>
+         This clause constitutes the Module Interpreted Module (MIM) of the
+         application module.
+         
+      </p>
+      <p>This clause also
+         specifies the modifications that apply to the constructs 
+         imported from the common resources.
+      </p>
+      <p>The following restrictions apply to the use, in this schema, of constructs defined in common resources or in application
+         modules:
+      </p>
+      <ul>
+         <li>
+            use of a supertype entity does not make applicable any of its
+            specializations, unless the specialization is also imported in the
+            MIM schema;
+            
+         </li>
+         <li>
+            use of a SELECT type does not make applicable any of its listed types
+            unless the listed type is also imported in the MIM schema.
+            
+         </li>
+      </ul>
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="tagged_text_representation_mim">
+            SCHEMA Tagged_text_representation_mim;</a></code><h2><A NAME="interfaces"></A></h2>
+      <p></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/foundation_representation/sys/5_mim.htm#foundation_representation_mim">Foundation_representation_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1006<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>,
+            
+            
+            <br>
+            &nbsp;&nbsp;
+            <A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.mapped_item">mapped_item</A>);
+            <br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Foundation_representation_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1006</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>representation_schema</small></b></td>
+               <td width="127"><small>ISO 10303-43</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="d_mim_expg.htm">D</a>, 
+            
+            Figures
+            <a href="../mimexpg1.htm">D.1</a>and <a href="../mimexpg2.htm">D.2</a>
+            for a graphical representation of this schema.            
+            </small></p>
+      <h2><a name="types">5.2.1 MIM type definition</a></h2>
+      <p>
+         This subclause specifies the MIM type
+         for this application module. The MIM type and
+         definition is specified below. 
+         
+      </p>
+      <h2><a name="tagged_text_representation_mim.string_representation_item_select">5.2.1.1 string_representation_item_select</a>
+         &nbsp;&nbsp;<a href="../../tagged_text_representation/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>string_representation_item_select</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item">descriptive_representation_item</A></b>, <b><A HREF="#tagged_text_representation_mim.included_text_block">included_text_block</A></b>
+         
+         and
+         
+         <b><A HREF="#tagged_text_representation_mim.structured_text_composition">structured_text_composition</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            string_representation_item_select =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item">descriptive_representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#tagged_text_representation_mim.included_text_block">included_text_block</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#tagged_text_representation_mim.structured_text_composition">structured_text_composition</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">5.2.2 MIM entity definitions</a></h2>
+      <p>
+         This subclause specifies the MIM entities for this
+         module. The MIM entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="tagged_text_representation_mim.included_text_block">5.2.2.1 included_text_block</a>
+         &nbsp;&nbsp;<a href="../../tagged_text_representation/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      		An <b>included_text_block</b> is a type of 
+      		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item"><b>mapped_item</b></a>
+      		that implements the ARM concept of
+      		<a href="../../../modules/tagged_text_representation/sys/4_info_reqs.htm#tagged_text_representation_arm.included_text_block"><b>Included_text_block</b></a>.
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY included_text_block<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.mapped_item">mapped_item</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: 'TAGGED_TEXT_REPRESENTATION_MIM.STRUCTURED_TEXT_REPRESENTATION' IN TYPEOF(SELF\mapped_item.mapping_source.mapped_representation);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="tagged_text_representation_mim.included_text_block.wr:wr1">WR1:
+               </a></b>
+         		The <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_map.mapped_representation"><b>mapped_representation</b></a>
+         		of <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.mapped_item.mapping_source"><b>mapping_source</b></a>
+         		shall be of type <a href="../../../modules/tagged_text_representation/sys/5_mim.htm#tagged_text_representation_mim.structured_text_representation"><b>structured_text_representation</b></a>.
+         	
+      </p>
+      <h2><a name="tagged_text_representation_mim.structured_text_composition">5.2.2.2 structured_text_composition</a>
+         &nbsp;&nbsp;<a href="../../tagged_text_representation/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      		An <b>structured_text_composition</b> is a type of 
+      		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item"><b>compound_representation_item</b></a>
+      		that implements the ARM concept of
+      		<a href="../../../modules/tagged_text_representation/sys/4_info_reqs.htm#tagged_text_representation_arm.structured_text_composition"><b>Structured_text_composition</b></a>.
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY structured_text_composition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="tagged_text_representation_mim.structured_text_representation">5.2.2.3 structured_text_representation</a>
+         &nbsp;&nbsp;<a href="../../tagged_text_representation/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      		An <b>structured_text_representation</b> is a type of 
+      		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>
+      		that implements the ARM concept of
+      		<a href="../../../modules/tagged_text_representation/sys/4_info_reqs.htm#tagged_text_representation_arm.structured_text_representation"><b>Structured_text_representation</b></a>.
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY structured_text_representation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>.items : SET[1:?] OF <A HREF="#tagged_text_representation_mim.string_representation_item_select">string_representation_item_select</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="tagged_text_representation_mim.structured_text_representation.items">items:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>
+         	shall be redeclared as the
+         	<a href="../../../modules/tagged_text_representation/sys/5_mim.htm#tagged_text_representation_mim.string_representation_item_select"><b>string_representation_item_select</b></a> 
+         	for the <b>structured_text_representation</b>. There shall exist more than one
+         	<a href="../../../modules/tagged_text_representation/sys/5_mim.htm#tagged_text_representation_mim.string_representation_item_select"><b>string_representation_item_select</b></a> 
+         	for the <b>structured_text_representation</b>.
+         	
+      </p>
+      <h2><a name="tagged_text_representation_mim.tagged_text_format">5.2.2.4 tagged_text_format</a>
+         &nbsp;&nbsp;<a href="../../tagged_text_representation/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      		An <b>tagged_text_format</b> is a type of 
+      		<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_context"><b>representation_context</b></a>
+      		that implements the ARM concept of
+      		<a href="../../../modules/tagged_text_representation/sys/4_info_reqs.htm#tagged_text_representation_arm.tagged_text_format"><b>Tagged_text_format</b></a>.
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY tagged_text_format<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_context">representation_context</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="tagged_text_representation_mim.tagged_text_item">5.2.2.5 tagged_text_item</a>
+         &nbsp;&nbsp;<a href="../../tagged_text_representation/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      		A <b>tagged_text_item</b> is a type of 
+      		<a href="../../../resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item"><b>descriptive_representation_item</b></a> 
+      		that implements the ARM concept of
+      		<a href="../../../modules/tagged_text_representation/sys/4_info_reqs.htm#tagged_text_representation_arm.tagged_text_item"><b>Tagged_text_item</b></a>.
+      		A <b>tagged_text_item</b> is used to hold encoded string data.
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY tagged_text_item<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item">descriptive_representation_item</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="tagged_text_representation_mim.uniform_resource_identifier">5.2.2.6 uniform_resource_identifier</a>
+         &nbsp;&nbsp;<a href="../../tagged_text_representation/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      		A <b>uniform_resource_identifier</b> is a type of 
+      		<a href="../../../resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item"><b>descriptive_representation_item</b></a> 
+      		that implements the ARM concept of
+      		<a href="../../../modules/tagged_text_representation/sys/4_info_reqs.htm#tagged_text_representation_arm.uniform_resource_identifier"><b>Uniform_resource_identifier</b></a>.
+      		A <b>uniform_resource_identifier</b> identifies a resource in the web.
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY uniform_resource_identifier<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item">descriptive_representation_item</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="subtype_constraints">5.2.3 MIM subtype constraint definition</a></h2>
+      <p>
+         This subclause specifies the MIM subtype constraint for
+         this module. The subtype constraint places a constraint on the
+         possible super-type / subtype instantiations.
+         The MIM subtype constraint and definition is
+         specified below.
+         
+      </p>
+      <h2><A NAME="tagged_text_representation_mim.ttr_descriptive_representation_item_subtypes">5.2.3.1 ttr_descriptive_representation_item_subtypes</A>
+         &nbsp;&nbsp;<a href="../../tagged_text_representation/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The
+         <b>ttr_descriptive_representation_item_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item">descriptive_representation_item</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="tagged_text_representation_mim.ttr_descriptive_representation_item_subtypes">SUBTYPE_CONSTRAINT ttr_descriptive_representation_item_subtypes</A> FOR <A HREF="../../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item">descriptive_representation_item</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#tagged_text_representation_mim.tagged_text_item">tagged_text_item</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#tagged_text_representation_mim.uniform_resource_identifier">uniform_resource_identifier</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Tagged_text_representation_mim<br>(*
+         </code><br><br><p>&copy; ISO 2008 &#8212; All rights reserved</p>
+   </body>
+</HTML>

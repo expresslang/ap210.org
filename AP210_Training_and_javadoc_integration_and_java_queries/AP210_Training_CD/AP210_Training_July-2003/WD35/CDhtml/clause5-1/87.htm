@@ -1,0 +1,830 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>product_identification</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><TABLE
+CLASS="UOFMAPPINGSUBTBL"
+BORDER="1"
+><CAPTION
+><A
+NAME="55694"
+></A
+>Table 87 - Mapping table for product_identification UoF</CAPTION
+><THEAD
+CLASS="MAPPINGSUBTBLCOLUMNS"
+><TR
+><TH
+>Application element</TH
+><TH
+>AIM element</TH
+><TH
+>Source</TH
+><TH
+>Reference path</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="55703"
+></A
+>EE_PRODUCT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>description</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product.description</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+>&nbsp;</TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>product_nomenclature</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product.name</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+>&nbsp;</TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>part_number</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product.id</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+>&nbsp;</TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>standard_product_indicator</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product_category.name</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>product &#60;-<BR>product_related_product_category.products[i]<BR>product_related_product_category &#60;=<BR>product_category &#60;-<BR>product_category_relationship.sub_category<BR>product_category_relationship<BR>product_category_relationship.category -&#62;<BR>product_category<BR>{product_category<BR>product_category.name = `standard part'}<BR>product_category.name<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product&nbsp;to<BR>organization<BR>(as design_owner)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product<BR>organization_assigned_item = product<BR>organization_assigned_item &#60;-<BR>applied_organization_assignment.items[i]<BR>applied_organization_assignment &#60;=<BR>{organization_assignment<BR>organization_assignment.role -&#62;<BR>organization_role<BR>organization_role.name = `design owner'}<BR>organization_assignment<BR>organization_assignment.assigned_organization -&#62;<BR>organization<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product&nbsp;to<BR>person_and_organization<BR>(as design_owner)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product<BR>person_and_organization_assigned_item = product<BR>person_and_organization_assigned_item &#60;-<BR>applied_person_and_organization_assignment.items[i]<BR>applied_person_and_organization_assignment &#60;=<BR>{person_and_organization_assignment<BR>person_and_organization_assignment.role -&#62;<BR>person_and_organization_role<BR>person_and_organization_role.name = `design owner'}<BR>person_and_organization_assignment<BR>person_and_organization_assignment.assigned_person_and_organization -&#62;<BR>person_and_organization<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="55771"
+></A
+>EE_PRODUCT_CATEGORY</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>characterized_product_category</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>characterized_product_category<BR>characterized_product_category &#60;=<BR>[product_category]<BR>[characterized_object]<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>description</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product_category.description</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>characterized_product_category &#60;=<BR>product_category<BR>product_category.description<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>name</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product_category.name</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>characterized_product_category &#60;=<BR>product_category<BR>product_category.name<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_category&nbsp;to<BR>model_parameter<BR>(as category_parameter)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>characterized_product_category &#60;=<BR>characterized_object<BR>characterized_definition = characterized_object<BR>characterized_definition<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition<BR>{property_definition.description = `product category parameter'}<BR>property_definition &#60;-<BR>property_definition_representation.definition<BR>property_definition_representation<BR>property_definition_representation.used_representation -&#62;<BR>representation<BR>representation.items[i] -&#62;<BR>representation_item<BR>representation_item =&#62;<BR>model_parameter<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_category&nbsp;to<BR>parameter_assignment<BR>(as category_specific_values)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>characterized_product_category &#60;=<BR>characterized_object<BR>characterized_definition = characterized_object<BR>characterized_definition<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition<BR>{property_definition.description = `product category values'}<BR>property_definition &#60;-<BR>property_definition_representation.definition<BR>property_definition_representation<BR>property_definition_representation.used_representation -&#62;<BR>representation<BR>representation =&#62;<BR>parameter_assignment_representation<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_category&nbsp;to<BR>ee_document<BR>(as reference_document)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>characterized_product_category &#60;=<BR>characterized_object<BR>document_assigned_item = characterized_object<BR>document_assigned_item<BR>document_assigned_item &#60;-<BR>applied_document_reference.items[i]<BR>applied_document_reference<BR>applied_document_reference &#60;=<BR>document_reference<BR>{document_reference.role -&#62;<BR>object_role<BR>object_role.name = `product category reference document'}<BR>document_reference.assigned_document -&#62;<BR>(document)<BR>(document =&#62;<BR>ee_specification)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="55859"
+></A
+>EE_PRODUCT_CATEGORY_RELATIONSHIP</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product_category_relationship</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>product_category_relationship<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_category_relationship&nbsp;to<BR>ee_product_category<BR>(as category)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_category_relationship<BR>product_category_relationship.category -&#62;<BR>product_category =&#62;<BR>characterized_product_category<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_category_relationship&nbsp;to<BR>ee_product_category<BR>(as sub_category)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_category_relationship<BR>product_category_relationship.sub_category -&#62;<BR>product_category =&#62;<BR>characterized_product_category<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="55882"
+></A
+>EE_PRODUCT_DEFINITION</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>(product_definition_with_associated_documents) (product_definition) (evaluation_product_definition) (physical_unit) (rule_definition) (externally_defined_product_definition) (externally_defined_physical_unit) (library_defined_physical_unit) (analytical_model_definition) (footprint_definition) (padstack_definition) (physical_unit_network_definition) (requirement_definition) (stratum) (functional_unit) (externally_defined_functional_unit) (library_defined_functional_unit) </TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41 41 210 210 210 210 210 210 210 210 210 210 210 210 210 210 210</TD
+><TD
+VALIGN="top"
+>(product_definition_with_associated_documents &#60;=<BR>product_definition)<BR>(product_definition<BR>{product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>(application_context_element.name = `template definition')<BR>(application_context_element.name = `material definition')})<BR>(evaluation_product_definition &#60;=<BR>product_definition)<BR>(rule_definition &#60;=<BR>product_definition)<BR>(physical_unit &#60;=<BR>product_definition)<BR>([externally_defined_product_definition &#60;=<BR>product_definition]<BR>[externally_defined_product_definition &#60;=<BR>externally_defined_item])<BR>(externally_defined_physical_unit &#60;=<BR>[externally_defined_product_definition]<BR>[physical_unit &#60;=<BR>product_definition])<BR>(library_defined_physical_unit &#60;=<BR>externally_defined_physical_unit &#60;=<BR>[externally_defined_product_definition]<BR>[physical_unit &#60;=<BR>product_definition])<BR>(analytical_model_definition &#60;=<BR>product_definition)<BR>(footprint_definition &#60;=<BR>product_definition)<BR>(padstack_definition &#60;=<BR>product_definition)<BR>(physical_unit_network_definition &#60;=<BR>product_definition)<BR>(requirement_definition &#60;=<BR>product_definition)<BR>(stratum &#60;=<BR>product_definition)<BR>(functional_unit &#60;=<BR>product_definition)<BR>(externally_defined_functional_unit &#60;=<BR>[externally_defined_product_definition]<BR>[functional_unit &#60;=<BR>product_definition])<BR>(library_defined_functional_unit &#60;=<BR>externally_defined_functional_unit &#60;=<BR>[externally_defined_product_definition]<BR>[functional_unit &#60;=<BR>product_definition])<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>cad_filename</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>document.id</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>product_definition_with_associated_documents<BR>product_definition_with_associated_documents.documentation_ids[i] -&#62;<BR>document<BR>{document<BR>document.kind -&#62;<BR>document_type<BR>document_type.product_data_type = `cad filename'}<BR>document.id<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>life_cycle_status</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product_definition_context.life_cycle_stage</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>((product_definition_with_associated_documents &#60;=)<BR>(physical_unit &#60;=)<BR>(externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(library_defined_physical_unit &#60;=<BR>externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(functional_unit &#60;=)<BR>(externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>(library_defined_functional_unit &#60;=<BR>externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>product_definition)<BR>([externally_defined_product_definition &#60;=<BR>product_definition]<BR>[externally_defined_product_definition &#60;=<BR>externally_defined_item])<BR>(rule_definition &#60;=<BR>product_definition)<BR>(analytical_model_definition &#60;=<BR>product_definition)<BR>(footprint_definition &#60;=<BR>product_definition)<BR>(padstack_definition &#60;=<BR>product_definition)<BR>(physical_unit_network_definition &#60;=<BR>product_definition)<BR>(requirement_definition &#60;=<BR>product_definition)<BR>(stratum &#60;=<BR>product_definition)<BR>(product_definition<BR>{product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>(application_context_element.name = `template definition')<BR>(application_context_element.name = `material definition')})<BR>product_definition.frame_of_reference -&#62;<BR>product_definition_context<BR>product_definition_context.life_cycle_stage<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>product_definition_id</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product_definition.id</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>((product_definition_with_associated_documents &#60;=)<BR>(physical_unit &#60;=)<BR>(externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(library_defined_physical_unit &#60;=<BR>externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(functional_unit &#60;=)<BR>(externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>(library_defined_functional_unit &#60;=<BR>externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>product_definition)<BR>([externally_defined_product_definition &#60;=<BR>product_definition]<BR>[externally_defined_product_definition &#60;=<BR>externally_defined_item])<BR>(rule_definition &#60;=<BR>product_definition)<BR>(analytical_model_definition &#60;=<BR>product_definition)<BR>(footprint_definition &#60;=<BR>product_definition)<BR>(padstack_definition &#60;=<BR>product_definition)<BR>(physical_unit_network_definition &#60;=<BR>product_definition)<BR>(requirement_definition &#60;=<BR>product_definition)<BR>(stratum &#60;=<BR>product_definition)<BR>(product_definition<BR>{product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>(application_context_element.name = `template definition')<BR>(application_context_element.name = `material definition')})<BR>product_definition.id<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_definition&nbsp;to<BR>date_and_time<BR>(as creation_date)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>((product_definition_with_associated_documents &#60;=)<BR>(physical_unit &#60;=)<BR>(externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(library_defined_physical_unit &#60;=<BR>externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(functional_unit &#60;=)<BR>(externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>(library_defined_functional_unit &#60;=<BR>externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>product_definition)<BR>([externally_defined_product_definition &#60;=<BR>product_definition]<BR>[externally_defined_product_definition &#60;=<BR>externally_defined_item])<BR>(rule_definition &#60;=<BR>product_definition)<BR>(analytical_model_definition &#60;=<BR>product_definition)<BR>(footprint_definition &#60;=<BR>product_definition)<BR>(padstack_definition &#60;=<BR>product_definition)<BR>(physical_unit_network_definition &#60;=<BR>product_definition)<BR>(requirement_definition &#60;=<BR>product_definition)<BR>(stratum &#60;=<BR>product_definition)<BR>(product_definition<BR>{product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>(application_context_element.name = `template definition')<BR>(application_context_element.name = `material definition')})<BR>date_and_time_assigned_item = product_definition<BR>date_and_time_assigned_item &#60;-<BR>applied_date_and_time_assignment.items[i]<BR>applied_date_and_time_assignment &#60;=<BR>date_and_time_assignment<BR>{date_and_time_assignment.role -&#62;<BR>date_time_role<BR>date_time_role.name = `creation date'}<BR>date_and_time_assignment.assigned_date_and_time -&#62;<BR>date_and_time<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_definition&nbsp;to<BR>ee_approval<BR>(as product_definition_approval)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>((product_definition_with_associated_documents &#60;=)<BR>(physical_unit &#60;=)<BR>(externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(library_defined_physical_unit &#60;=<BR>externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(functional_unit &#60;=)<BR>(externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>(library_defined_functional_unit &#60;=<BR>externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>product_definition)<BR>([externally_defined_product_definition &#60;=<BR>product_definition]<BR>[externally_defined_product_definition &#60;=<BR>externally_defined_item])<BR>(rule_definition &#60;=<BR>product_definition)<BR>(analytical_model_definition &#60;=<BR>product_definition)<BR>(footprint_definition &#60;=<BR>product_definition)<BR>(padstack_definition &#60;=<BR>product_definition)<BR>(physical_unit_network_definition &#60;=<BR>product_definition)<BR>(requirement_definition &#60;=<BR>product_definition)<BR>(stratum &#60;=<BR>product_definition)<BR>(product_definition<BR>{product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>(application_context_element.name = `template definition')<BR>(application_context_element.name = `material definition')})<BR>approval_assigned_item = product_definition<BR>approval_assigned_item &#60;-<BR>applied_approval_assignment.items[i]<BR>applied_approval_assignment &#60;=<BR>approval_assignment<BR>approval_assignment.assigned_approval -&#62;<BR>approval<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_definition&nbsp;to<BR>ee_document<BR>(as documentation)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>((product_definition_with_associated_documents &#60;=)<BR>(physical_unit &#60;=)<BR>(externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(library_defined_physical_unit &#60;=<BR>externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(functional_unit &#60;=)<BR>(externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>(library_defined_functional_unit &#60;=<BR>externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>product_definition)<BR>([externally_defined_product_definition &#60;=<BR>product_definition]<BR>[externally_defined_product_definition &#60;=<BR>externally_defined_item])<BR>(rule_definition &#60;=<BR>product_definition)<BR>(analytical_model_definition &#60;=<BR>product_definition)<BR>(footprint_definition &#60;=<BR>product_definition)<BR>(padstack_definition &#60;=<BR>product_definition)<BR>(physical_unit_network_definition &#60;=<BR>product_definition)<BR>(requirement_definition &#60;=<BR>product_definition)<BR>(stratum &#60;=<BR>product_definition)<BR>(product_definition<BR>{product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>(application_context_element.name = `template definition')<BR>(application_context_element.name = `material definition')})<BR>document_assigned_item = product_definition<BR>document_assigned_item &#60;-<BR>applied_document_reference.items[i]<BR>applied_document_reference &#60;=<BR>document_reference<BR>document_reference.assigned_document -&#62;<BR>(document)<BR>(document =&#62;<BR>ee_specification)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_definition&nbsp;to<BR>ee_product_version<BR>(as version)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>(((product_definition_with_associated_documents &#60;=)<BR>(physical_unit &#60;=)<BR>(externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(library_defined_physical_unit &#60;=<BR>externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(functional_unit &#60;=)<BR>(externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>(library_defined_functional_unit &#60;=<BR>externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>product_definition)<BR>([externally_defined_product_definition &#60;=<BR>product_definition]<BR>[externally_defined_product_definition &#60;=<BR>externally_defined_item])<BR>(analytical_model_definition &#60;=<BR>product_definition)<BR>(footprint_definition &#60;=<BR>product_definition)<BR>(padstack_definition &#60;=<BR>product_definition)<BR>(physical_unit_network_definition &#60;=<BR>product_definition)<BR>(requirement_definition &#60;=<BR>product_definition)<BR>(stratum &#60;=<BR>product_definition)<BR>(product_definition<BR>{product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>(application_context_element.name = `template definition')<BR>(application_context_element.name = `material definition')})<BR>product_definition.formation -&#62;<BR>product_definition_formation<BR>{product_definition_formation.description != `rule version'})<BR>(rule_definition &#60;=<BR>product_definition<BR>product_definition.formation -&#62;<BR>product_definition_formation<BR>{product_definition_formation.description = `rule version'})<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_definition&nbsp;to<BR>ee_text<BR>(as context_description)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>((product_definition_with_associated_documents &#60;=)<BR>(physical_unit &#60;=)<BR>(externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(library_defined_physical_unit &#60;=<BR>externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(functional_unit &#60;=)<BR>(externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>(library_defined_functional_unit &#60;=<BR>externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>product_definition)<BR>([externally_defined_product_definition &#60;=<BR>product_definition]<BR>[externally_defined_product_definition &#60;=<BR>externally_defined_item])<BR>(rule_definition &#60;=<BR>product_definition)<BR>(analytical_model_definition &#60;=<BR>product_definition)<BR>(footprint_definition &#60;=<BR>product_definition)<BR>(padstack_definition &#60;=<BR>product_definition)<BR>(physical_unit_network_definition &#60;=<BR>product_definition)<BR>(requirement_definition &#60;=<BR>product_definition)<BR>(stratum &#60;=<BR>product_definition)<BR>(product_definition<BR>{product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>(application_context_element.name = `template definition')<BR>(application_context_element.name = `material definition')})<BR>characterized_product_definition = product_definition<BR>characterized_product_definition<BR>characterized_definition = characterized_product_definition<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition<BR>{property_definition<BR>property_definition.name = `product definition context description'}<BR>property_definition &#60;-<BR>property_definition_representation.definition<BR>property_definition_representation<BR>property_definition_representation.used_representation -&#62;<BR>representation<BR>representation.items[i] -&#62;<BR>representation_item<BR>representation_item =&#62;<BR>descriptive_representation_item<BR>{descriptive_representation_item<BR>descriptive_representation_item.name = `product definition context description'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_definition&nbsp;to<BR>ee_text<BR>(as discipline_id)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>((product_definition_with_associated_documents &#60;=)<BR>(physical_unit &#60;=)<BR>(externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(library_defined_physical_unit &#60;=<BR>externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(functional_unit &#60;=)<BR>(externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>(library_defined_functional_unit &#60;=<BR>externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>product_definition)<BR>([externally_defined_product_definition &#60;=<BR>product_definition]<BR>[externally_defined_product_definition &#60;=<BR>externally_defined_item])<BR>(rule_definition &#60;=<BR>product_definition)<BR>(analytical_model_definition &#60;=<BR>product_definition)<BR>(footprint_definition &#60;=<BR>product_definition)<BR>(padstack_definition &#60;=<BR>product_definition)<BR>(physical_unit_network_definition &#60;=<BR>product_definition)<BR>(requirement_definition &#60;=<BR>product_definition)<BR>(stratum &#60;=<BR>product_definition)<BR>(product_definition<BR>{product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>(application_context_element.name = `template definition')<BR>(application_context_element.name = `material definition')})<BR>characterized_product_definition = product_definition<BR>characterized_product_definition<BR>characterized_definition = characterized_product_definition<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition<BR>{property_definition<BR>property_definition.name = `product definition discipline id'}<BR>property_definition &#60;-<BR>property_definition_representation.definition<BR>property_definition_representation<BR>property_definition_representation.used_representation -&#62;<BR>representation<BR>representation.items[i] -&#62;<BR>representation_item<BR>representation_item =&#62;<BR>descriptive_representation_item<BR>{descriptive_representation_item<BR>descriptive_representation_item.name = `product definition discipline id'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_definition&nbsp;to<BR>organization<BR>(as creator)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>((product_definition_with_associated_documents &#60;=)<BR>(physical_unit &#60;=)<BR>(externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(library_defined_physical_unit &#60;=<BR>externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(functional_unit &#60;=)<BR>(externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>(library_defined_functional_unit &#60;=<BR>externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>product_definition)<BR>([externally_defined_product_definition &#60;=<BR>product_definition]<BR>[externally_defined_product_definition &#60;=<BR>externally_defined_item])<BR>(rule_definition &#60;=<BR>product_definition)<BR>(analytical_model_definition &#60;=<BR>product_definition)<BR>(footprint_definition &#60;=<BR>product_definition)<BR>(padstack_definition &#60;=<BR>product_definition)<BR>(physical_unit_network_definition &#60;=<BR>product_definition)<BR>(requirement_definition &#60;=<BR>product_definition)<BR>(stratum &#60;=<BR>product_definition)<BR>(product_definition<BR>{product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>(application_context_element.name = `template definition')<BR>(application_context_element.name = `material definition')})<BR>organization_assigned_item = product_definition<BR>organization_assigned_item &#60;-<BR>applied_organization_assignment.items[i]<BR>applied_organization_assignment &#60;=<BR>organization_assignment<BR>{organization_assignment<BR>organization_assignment.role -&#62;<BR>organization_role<BR>organization_role.name = `creator'}<BR>organization_assignment.assigned_organization -&#62;<BR>organization<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_definition&nbsp;to<BR>person_and_organization<BR>(as creator)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>((product_definition_with_associated_documents &#60;=)<BR>(physical_unit &#60;=)<BR>(externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(library_defined_physical_unit &#60;=<BR>externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(functional_unit &#60;=)<BR>(externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>(library_defined_functional_unit &#60;=<BR>externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>product_definition)<BR>([externally_defined_product_definition &#60;=<BR>product_definition]<BR>[externally_defined_product_definition &#60;=<BR>externally_defined_item])<BR>(rule_definition &#60;=<BR>product_definition)<BR>(analytical_model_definition &#60;=<BR>product_definition)<BR>(footprint_definition &#60;=<BR>product_definition)<BR>(padstack_definition &#60;=<BR>product_definition)<BR>(physical_unit_network_definition &#60;=<BR>product_definition)<BR>(requirement_definition &#60;=<BR>product_definition)<BR>(stratum &#60;=<BR>product_definition)<BR>(product_definition<BR>{product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>(application_context_element.name = `template definition')<BR>(application_context_element.name = `material definition')})<BR>person_and_organization_assigned_item = product_definition<BR>person_and_organization_assigned_item &#60;-<BR>applied_person_and_organization_assignment.items[i]<BR>applied_person_and_organization_assignment &#60;=<BR>person_and_organization_assignment<BR>{person_and_organization_assignment<BR>person_and_organization_assignment.role -&#62;<BR>person_and_organization_role<BR>person_and_organization_role.name = `creator'}<BR>person_and_organization_assignment.assigned_person_and_organization -&#62;<BR>person_and_organization<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_definition&nbsp;to<BR>security_classification<BR>(as security_code)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>((product_definition_with_associated_documents &#60;=)<BR>(physical_unit &#60;=)<BR>(externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(library_defined_physical_unit &#60;=<BR>externally_defined_physical_unit &#60;=<BR>physical_unit &#60;=)<BR>(functional_unit &#60;=)<BR>(externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>(library_defined_functional_unit &#60;=<BR>externally_defined_functional_unit &#60;=<BR>functional_unit &#60;=)<BR>product_definition)<BR>([externally_defined_product_definition &#60;=<BR>product_definition]<BR>[externally_defined_product_definition &#60;=<BR>externally_defined_item])<BR>(rule_definition &#60;=<BR>product_definition)<BR>(analytical_model_definition &#60;=<BR>product_definition)<BR>(footprint_definition &#60;=<BR>product_definition)<BR>(padstack_definition &#60;=<BR>product_definition)<BR>(physical_unit_network_definition &#60;=<BR>product_definition)<BR>(requirement_definition &#60;=<BR>product_definition)<BR>(stratum &#60;=<BR>product_definition)<BR>(product_definition<BR>{product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>(application_context_element.name = `template definition')<BR>(application_context_element.name = `material definition')})<BR>security_classification_assigned_item = product_definition<BR>security_classification_assigned_item &#60;-<BR>applied_security_classification_assignment.items[i]<BR>applied_security_classification_assignment &#60;=<BR>security_classification_assignment<BR>security_classification_assignment.assigned_security_classification -&#62;<BR>security_classification<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="56526"
+></A
+>EE_PRODUCT_RELATED_PRODUCT_CATEGORY</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product_related_characterized_product_category</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>product_related_characterized_product_category &#60;=<BR>characterized_product_category &#60;=<BR>product_category<BR>{product_category =&#62;<BR>product_related_product_category}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_related_product_category&nbsp;to<BR>ee_product<BR>(as of_product)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_related_characterized_product_category &#60;=<BR>product_related_product_category<BR>product_related_product_category.products[i] -&#62;<BR>product<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="56545"
+></A
+>EE_PRODUCT_SPECIFIC_PARAMETER_VALUE_ASSIGNMENT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product_specific_parameter_value_assignment</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>product_specific_parameter_value_assignment &#60;=<BR>product_related_characterized_product_category &#60;=<BR>characterized_product_category &#60;=<BR>product_category<BR>{product_category =&#62;<BR>product_related_product_category}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_specific_parameter_value_assignment&nbsp;to<BR>parameter_assignment<BR>(as assigned_parameter)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_specific_parameter_value_assignment &#60;=<BR>product_related_characterized_product_category &#60;=<BR>product_related_product_category &#60;=<BR>product_category =&#62;<BR>characterized_product_category &#60;=<BR>characterized_object<BR>characterized_definition = characterized_object<BR>characterized_definition<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition<BR>{property_definition.description = `product category parameter'}<BR>property_definition &#60;-<BR>property_definition_representation.definition<BR>property_definition_representation<BR>property_definition_representation.used_representation -&#62;<BR>representation<BR>representation.items[i] -&#62;<BR>representation_item<BR>representation_item =&#62;<BR>(model_parameter)<BR>(measure_representation_item)<BR>(descriptive_representation_item)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_specific_parameter_value_assignment&nbsp;to<BR>ee_product_related_product_category<BR>(as associated_product_category)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_specific_parameter_value_assignment &#60;=<BR>product_related_characterized_product_category &#60;=<BR>product_related_product_category &#60;=<BR>product_category &#60;-<BR>product_category_relationship.sub_category<BR>product_category_relationship<BR>{product_category_relationship.description = `product value assignment'}<BR>product_category_relationship.category -&#62;<BR>product_category =&#62;<BR>product_related_product_category =&#62;<BR>product_related_characterized_product_category<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_specific_parameter_value_assignment&nbsp;to<BR>ee_product<BR>(as of_product)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_specific_parameter_value_assignment &#60;=<BR>product_related_characterized_product_category &#60;=<BR>product_related_product_category<BR>product_related_product_category.products[i] -&#62;<BR>product<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="56609"
+></A
+>EE_PRODUCT_VERSION</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product_definition_formation</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>revision_code</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product_definition_formation.id</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+>&nbsp;</TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_version&nbsp;to<BR>ee_approval<BR>(as product_version_approval)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_definition_formation<BR>approval_assigned_item = product_definition_formation<BR>approval_assigned_item &#60;-<BR>applied_approval_assignment.items[i]<BR>applied_approval_assignment &#60;=<BR>approval_assignment<BR>approval_assignment.assigned_approval -&#62;<BR>approval<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_version&nbsp;to<BR>contract<BR>(as authorizing_agreement)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_definition_formation<BR>contract_assigned_item = product_definition_formation<BR>contract_assigned_item &#60;-<BR>applied_contract_assignment.items[i]<BR>applied_contract_assignment &#60;=<BR>contract_assignment<BR>contract_assignment.assigned_contract -&#62;<BR>contract<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_version&nbsp;to<BR>ee_product<BR>(as versioned_item)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_definition_formation<BR>product_definition_formation.of_product -&#62;<BR>product<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_version&nbsp;to<BR>organization<BR>(as creator)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_definition_formation<BR>organization_assigned_item = product_definition_formation<BR>organization_assigned_item &#60;-<BR>applied_organization_assignment.items[i]<BR>applied_organization_assignment &#60;=<BR>{organization_assignment<BR>organization_assignment.role -&#62;<BR>organization_role<BR>organization_role.name = `creator'}<BR>organization_assignment<BR>organization_assignment.assigned_organization -&#62;<BR>organization<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_version&nbsp;to<BR>person_and_organization<BR>(as creator)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_definition_formation<BR>person_and_organization_assigned_item = product_definition_formation<BR>person_and_organization_assigned_item &#60;-<BR>applied_person_and_organization_assignment.items[i]<BR>applied_person_and_organization_assignment &#60;=<BR>{person_and_organization_assignment<BR>person_and_organization_assignment.role -&#62;<BR>person_and_organization_role<BR>person_and_organization_role.name = `creator'}<BR>person_and_organization_assignment<BR>person_and_organization_assignment.assigned_person_and_organization -&#62;<BR>person_and_organization<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>ee_product_version&nbsp;to<BR>security_classification<BR>(as security_code)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_definition_formation<BR>security_classification_assigned_item = product_definition_formation<BR>security_classification_assigned_item &#60;-<BR>applied_security_classification_assignment.items[i]<BR>applied_security_classification_assignment &#60;=<BR>security_classification_assignment<BR>security_classification_assignment.assigned_security_classification -&#62;<BR>security_classification<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="56699"
+></A
+>EE_PRODUCT_VERSION_SUPERSEDENCE</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product_definition_formation_relationship</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>{product_definition_formation_relationship<BR>product_definition_formation_relationship.name = `product version supersedence'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>product_association&nbsp;to<BR>ee_product_version<BR>(as superseded_product_version)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_definition_formation_relationship<BR>product_definition_formation_relationship.related_product_definition_formation -&#62;<BR>product_definition_formation<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>product_association&nbsp;to<BR>ee_product_version<BR>(as superseding_product_version)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_definition_formation_relationship<BR>product_definition_formation_relationship.relating_product_definition_formation -&#62;<BR>product_definition_formation<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="56721"
+></A
+>EXTERNALLY_DEFINED_EE_PRODUCT_DEFINITION</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>(externally_defined_product_definition) (externally_defined_physical_unit) (externally_defined_functional_unit) </TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210 210 210</TD
+><TD
+VALIGN="top"
+>(externally_defined_product_definition &#60;=<BR>[product_definition]<BR>[externally_defined_item])<BR>(externally_defined_physical_unit &#60;=<BR>[externally_defined_product_definition]<BR>[physical_unit &#60;=<BR>product_definition])<BR>(externally_defined_functional_unit &#60;=<BR>[externally_defined_product_definition]<BR>[functional_unit &#60;=<BR>product_definition])<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>source</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>external_source.source_id</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>(externally_defined_product_definition &#60;=)<BR>(externally_defined_physical_unit &#60;=)<BR>(externally_defined_functional_unit &#60;=)<BR>externally_defined_item<BR>externally_defined_item.source -&#62;<BR>external_source<BR>external_source.source_id<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="56751"
+></A
+>PRODUCT_ASSOCIATION</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product_definition_formation_relationship</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>{product_definition_formation_relationship<BR>product_definition_formation_relationship.name = `product association'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>product_association&nbsp;to<BR>ee_product_version<BR>(as related_product)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_definition_formation_relationship<BR>product_definition_formation_relationship.related_product_definition_formation -&#62;<BR>product_definition_formation<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>product_association&nbsp;to<BR>ee_product_version<BR>(as relating_product)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_definition_formation_relationship<BR>product_definition_formation_relationship.relating_product_definition_formation -&#62;<BR>product_definition_formation<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>product_association&nbsp;to<BR>ee_specification<BR>(as constraint_source)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>product_definition_formation_relationship<BR>document_assigned_item = product_definition_formation_relationship<BR>document_assigned_item &#60;-<BR>applied_document_reference.items[i]<BR>applied_document_reference &#60;=<BR>document_reference<BR>document_reference.assigned_document -&#62;<BR>document =&#62;<BR>ee_specification<BR></TD
+></TR
+></TBODY
+></TABLE
+></BODY
+></HTML
+>

@@ -1,0 +1,132 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Ply_orientation_specification_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Ply_orientation_specification_mim</h2><code><br><br><a name="ply_orientation_specification_mim">SCHEMA <b>Ply_orientation_specification_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/part_and_zone_laminate_tables/sys/e_exp_mim.htm#part_and_zone_laminate_tables_mim">Part_and_zone_laminate_tables_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1770<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema">geometry_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-42<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.point">point</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>);
+         <br><br></code><code><br><A NAME="ply_orientation_specification_mim.angle_direction_reference_select">TYPE </A><b>angle_direction_reference_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.curve">curve</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.direction">direction</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#ply_orientation_specification_mim.point_path">point_path</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="ply_orientation_specification_mim.angle_direction_reference_with_a2p3d_select">TYPE </A><b>angle_direction_reference_with_a2p3d_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#ply_orientation_specification_mim.angle_direction_reference_select">angle_direction_reference_select</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d">axis2_placement_3d</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="ply_orientation_specification_mim.orientation_basis_select">TYPE </A><b>orientation_basis_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d">axis2_placement_3d</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#ply_orientation_specification_mim.min_and_major_ply_orientation_basis">min_and_major_ply_orientation_basis</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="ply_orientation_specification_mim.point_and_vector_member">TYPE </A><b>point_and_vector_member</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.direction">direction</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.point">point</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="ply_orientation_specification_mim.point_and_vector_members">TYPE </A><b>point_and_vector_members</b> =
+         LIST[2:3] OF <A HREF="#ply_orientation_specification_mim.point_and_vector_member">point_and_vector_member</A>;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="ply_orientation_specification_mim.point_path_members">TYPE </A><b>point_path_members</b> =
+         LIST[1:?] OF <A HREF="#ply_orientation_specification_mim.point_and_vector">point_and_vector</A>;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="ply_orientation_specification_mim.angle_direction_reference">ENTITY <b>angle_direction_reference</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>, <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>.<A NAME="ply_orientation_specification_mim.angle_direction_reference.relating_representation_item">relating_representation_item : </A><A HREF="#ply_orientation_specification_mim.orientation_basis_select">orientation_basis_select</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>.<A NAME="ply_orientation_specification_mim.angle_direction_reference.related_representation_item">related_representation_item : </A><A HREF="#ply_orientation_specification_mim.angle_direction_reference_select">angle_direction_reference_select</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="ply_orientation_specification_mim.angle_direction_reference.wr:wr1">WR1: ((('PLY_ORIENTATION_SPECIFICATION_MIM.POINT_PATH' IN TYPEOF(related_representation_item)) AND
+            ('PLY_ORIENTATION_SPECIFICATION_MIM.MIN_AND_MAJOR_PLY_ORIENTATION_BASIS' IN TYPEOF(relating_representation_item))) 
+            OR
+            (NOT('PLY_ORIENTATION_SPECIFICATION_MIM.POINT_PATH' IN TYPEOF(related_representation_item)) AND
+            ('GEOMETRY_SCHEMA.AXIS2_PLACEMENT_3D' IN TYPEOF(relating_representation_item))));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="ply_orientation_specification_mim.draped_defined_transformation">ENTITY <b>draped_defined_transformation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#ply_orientation_specification_mim.transformation_with_derived_angle">transformation_with_derived_angle</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="ply_orientation_specification_mim.laid_defined_transformation">ENTITY <b>laid_defined_transformation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#ply_orientation_specification_mim.transformation_with_derived_angle">transformation_with_derived_angle</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="ply_orientation_specification_mim.min_and_major_ply_orientation_basis">ENTITY <b>min_and_major_ply_orientation_basis</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>, <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>.relating_representation_item&nbsp;RENAMED&nbsp;<A NAME="ply_orientation_specification_mim.min_and_major_ply_orientation_basis.minor_orientation_basis">minor_orientation_basis : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d">axis2_placement_3d</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>.related_representation_item&nbsp;RENAMED&nbsp;<A NAME="ply_orientation_specification_mim.min_and_major_ply_orientation_basis.major_orientation_basis">major_orientation_basis : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d">axis2_placement_3d</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="ply_orientation_specification_mim.point_and_vector">ENTITY <b>point_and_vector</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>, <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>.<A NAME="ply_orientation_specification_mim.point_and_vector.item_element">item_element : </A><A HREF="#ply_orientation_specification_mim.point_and_vector_members">point_and_vector_members</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="ply_orientation_specification_mim.point_path">ENTITY <b>point_path</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>, <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>.<A NAME="ply_orientation_specification_mim.point_path.item_element">item_element : </A><A HREF="#ply_orientation_specification_mim.point_path_members">point_path_members</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="ply_orientation_specification_mim.transformation_with_derived_angle">ENTITY <b>transformation_with_derived_angle</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#ply_orientation_specification_mim.draped_defined_transformation">draped_defined_transformation</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#ply_orientation_specification_mim.laid_defined_transformation">laid_defined_transformation</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.item_defined_transformation">item_defined_transformation</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.item_defined_transformation">item_defined_transformation</A>.<A NAME="ply_orientation_specification_mim.transformation_with_derived_angle.transform_item_1">transform_item_1 : </A><A HREF="#ply_orientation_specification_mim.angle_direction_reference_with_a2p3d_select">angle_direction_reference_with_a2p3d_select</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.item_defined_transformation">item_defined_transformation</A>.<A NAME="ply_orientation_specification_mim.transformation_with_derived_angle.transform_item_2">transform_item_2 : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d">axis2_placement_3d</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="ply_orientation_specification_mim.transformation_with_derived_angle.orientation_angle">orientation_angle : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.plane_angle_measure">plane_angle_measure</A> := derive_angle (
+         SELF\item_defined_transformation.transform_item_1,
+         SELF\item_defined_transformation.transform_item_2);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="ply_orientation_specification_mim.transformation_with_derived_angle.wr:wr1">WR1: (SELF\item_defined_transformation.transform_item_1\
+            axis2_placement_3d.p[3].direction_ratios[1] =
+            SELF\item_defined_transformation.transform_item_2\
+            axis2_placement_3d.p[3].direction_ratios[1])
+            AND
+            (SELF\item_defined_transformation.transform_item_1\
+            axis2_placement_3d.p[3].direction_ratios[2] =
+            SELF\item_defined_transformation.transform_item_2\
+            axis2_placement_3d.p[3].direction_ratios[2])
+            AND
+            (SELF\item_defined_transformation.transform_item_1\
+            axis2_placement_3d.p[3].direction_ratios[3] =
+            SELF\item_defined_transformation.transform_item_2\
+            axis2_placement_3d.p[3].direction_ratios[3]);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="ply_orientation_specification_mim.pos_compound_representation_item_subtypes">SUBTYPE_CONSTRAINT <b>pos_compound_representation_item_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#ply_orientation_specification_mim.point_and_vector">point_and_vector</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#ply_orientation_specification_mim.point_path">point_path</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br><A NAME="ply_orientation_specification_mim.derive_angle">FUNCTION <b>derive_angle</b></A><br>&nbsp;(placement_1 : <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d">axis2_placement_3d</A>; placement_2 : <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_3d">axis2_placement_3d</A>) : <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.plane_angle_measure">plane_angle_measure</A>;
+         </code><pre>LOCAL
+      v1     : direction;
+      v2     : direction;
+      mag_v1 : REAL;
+      mag_v2 : REAL;
+      theta  : plane_angle_measure;
+    END_LOCAL;
+    v1 := placement_1.p[1];
+    v2 := placement_2.p[1];
+    mag_v1 := SQRT (v1.direction_ratios[1]*v1.direction_ratios[1] +
+                    v1.direction_ratios[2]*v1.direction_ratios[2]);
+    mag_v2 := SQRT (v2.direction_ratios[1]*v2.direction_ratios[1] +
+                    v2.direction_ratios[2]*v2.direction_ratios[2]);
+    IF ((mag_v1 = 0.0) OR (mag_v2 = 0.0)) THEN
+      theta := 0.0;
+      RETURN (theta);
+    END_IF;
+    theta := ACOS ((v1.direction_ratios[1]*v2.direction_ratios[1] +
+                    v1.direction_ratios[2]*v2.direction_ratios[2]) /
+                   (mag_v1*mag_v2));
+    RETURN (theta);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Ply_orientation_specification_mim<br></code></body>
+</HTML>

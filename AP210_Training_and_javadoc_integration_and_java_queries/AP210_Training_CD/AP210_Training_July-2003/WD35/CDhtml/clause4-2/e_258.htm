@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Dependently_located_layer_connection_point</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.259 Dependently_located_layer_connection_point</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Dependently_located_layer_connection_point is a type of <A
+CLASS="INTERNALREF"
+HREF="e_499.htm"
+>Layer_connection_point</A
+> that is position dependent on the location of an <A
+CLASS="INTERNALREF"
+HREF="e_456.htm"
+>Interconnect_module_terminal</A
+> or an <A
+CLASS="INTERNALREF"
+HREF="e_471.htm"
+>Inter_stratum_feature</A
+>.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: This part of ISO 10303 provides the capability to support one interconnect design for multiple assembly designs where components at the 
+assembly level may or may not exist for any or all of the multiple assembly designs.</DIV
+><DIV
+CLASS="EXAMPLEGROUP"
+><P
+>EXAMPLES:</P
+><OL
+><LI
+CLASS="EXAMPLEINGROUP"
+>An example of an Dependently_located_layer_connection_point is the case where a common interconnect must be supplied for several assemblies. A specific microcircuit device, such as "U32" 
+may be supplied for one or more, but not all, of the assemblies, but the interconnect must be identical.</LI
+><LI
+CLASS="EXAMPLEINGROUP"
+>Figure  <SPAN
+CLASS="INTERNALREF"
+>dllcp</SPAN
+> illustrates a detail of a layout drawing that shows the relationship of two members of Dependently_located_layer_connection_point and the associated <A
+CLASS="INTERNALREF"
+HREF="e_176.htm"
+>Conductor</A
+>.</LI
+></OL
+></DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_design_object</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.259.1 associated_design_object</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_design_object specifies either the role of an <A
+CLASS="INTERNALREF"
+HREF="e_456.htm"
+>Interconnect_module_terminal</A
+> or the role of an <A
+CLASS="INTERNALREF"
+HREF="e_471.htm"
+>Inter_stratum_feature</A
+> for the Dependently_located_layer_connection_point.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The associated_design_object may not fully constrain the location of the Dependently_located_layer_connection_point.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="INFORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Informal constraints:</P
+><DIV
+CLASS="INFORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>IP1: </SPAN
+>The Layer_connection_point is constrained to be within the material volume specified by the associated_design_object.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY dependently_located_layer_connection_point
+  SUBTYPE OF (layer_connection_point);
+    associated_design_object : terminal_or_inter_stratum_feature;
+    reference_zone : OPTIONAL connection_zone;
+END_ENTITY; -- dependently_located_layer_connection_point
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

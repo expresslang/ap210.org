@@ -1,0 +1,166 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Product breakdown">
+      <META name="DC.Dates" content="2008-10-03 08:13:47">
+      <META name="DC.Published" content="2008-12-19">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Product breakdown">
+      <META name="DC.Subject" content="module, breakdown">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N5472">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N4797">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N5268">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N5269">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N5270">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2008-10-03 08:13:47">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.69">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.20">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.16">
+      <TITLE>ISO/TS 10303-1248:2008 Product breakdown</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Product breakdown</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1248:2008(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="annexe-arm-express"></A></H2><code>
+         (*<br>ISO TC184/SC4/WG12&nbsp;N5473 - ISO/TS&nbsp;10303-1248 Product breakdown - EXPRESS ARM<br>Supersedes 
+         ISO TC184/SC4/WG12&nbsp;N4798<br>*)
+         </code><br><code><br><br><a name="product_breakdown_arm">SCHEMA <b>Product_breakdown_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm">Product_view_definition_relationship_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1041<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/property_assignment/sys/e_exp_arm.htm#property_assignment_arm">Property_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1030<br><br></code><code><br><A NAME="product_breakdown_arm.breakdown_element_realization_property_assignment_select">TYPE </A><b>breakdown_element_realization_property_assignment_select</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/property_assignment/sys/e_exp_arm.htm#property_assignment_arm.property_assignment_select">property_assignment_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#product_breakdown_arm.breakdown_element_realization">Breakdown_element_realization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#product_breakdown_arm.breakdown_element_usage">Breakdown_element_usage</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="product_breakdown_arm.breakdown_item">TYPE </A><b>breakdown_item</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#product_breakdown_arm.breakdown_element_definition">Breakdown_element_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#product_breakdown_arm.breakdown_element_usage">Breakdown_element_usage</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="product_breakdown_arm.product_item">TYPE </A><b>product_item</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_usage">View_definition_usage</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="product_breakdown_arm.breakdown">ENTITY <b>Breakdown</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_breakdown_arm.breakdown_context">ENTITY <b>Breakdown_context</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.breakdown_context.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.breakdown_context.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.breakdown_context.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.breakdown_context.breakdown">breakdown : </A><A HREF="#product_breakdown_arm.breakdown_version">Breakdown_version</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.breakdown_context.breakdown_element">breakdown_element : </A><A HREF="#product_breakdown_arm.breakdown_element_definition">Breakdown_element_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_breakdown_arm.breakdown_element">ENTITY <b>Breakdown_element</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_breakdown_arm.breakdown_element_definition">ENTITY <b>Breakdown_element_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>.<A NAME="product_breakdown_arm.breakdown_element_definition.defined_version">defined_version : </A><A HREF="#product_breakdown_arm.breakdown_element_version">Breakdown_element_version</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_breakdown_arm.breakdown_element_realization">ENTITY <b>Breakdown_element_realization</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_breakdown_arm.product_definition_element_relationship">Product_definition_element_relationship</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_breakdown_arm.breakdown_element_usage">ENTITY <b>Breakdown_element_usage</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_usage">View_definition_usage</A>);<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.breakdown_element_usage.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.relating_view&nbsp;RENAMED&nbsp;<A NAME="product_breakdown_arm.breakdown_element_usage.parent_element">parent_element : </A><A HREF="#product_breakdown_arm.breakdown_element_definition">Breakdown_element_definition</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.related_view&nbsp;RENAMED&nbsp;<A NAME="product_breakdown_arm.breakdown_element_usage.child_element">child_element : </A><A HREF="#product_breakdown_arm.breakdown_element_definition">Breakdown_element_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_breakdown_arm.breakdown_element_version">ENTITY <b>Breakdown_element_version</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>.<A NAME="product_breakdown_arm.breakdown_element_version.of_product">of_product : </A><A HREF="#product_breakdown_arm.breakdown_element">Breakdown_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_breakdown_arm.breakdown_of">ENTITY <b>Breakdown_of</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.breakdown_of.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.breakdown_of.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.breakdown_of.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.breakdown_of.breakdown">breakdown : </A><A HREF="#product_breakdown_arm.breakdown_version">Breakdown_version</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.breakdown_of.of_view">of_view : </A><A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_breakdown_arm.breakdown_version">ENTITY <b>Breakdown_version</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>.<A NAME="product_breakdown_arm.breakdown_version.of_product">of_product : </A><A HREF="#product_breakdown_arm.breakdown">Breakdown</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.breakdown_version.breakdown_of">breakdown_of : </A>SET[1:?] OF <A HREF="#product_breakdown_arm.breakdown_of">Breakdown_of</A> FOR breakdown;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_breakdown_arm.product_definition_element_relationship">ENTITY <b>Product_definition_element_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.product_definition_element_relationship.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.product_definition_element_relationship.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.product_definition_element_relationship.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.product_definition_element_relationship.breakdown">breakdown : </A><A HREF="#product_breakdown_arm.breakdown_item">breakdown_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_arm.product_definition_element_relationship.product">product : </A><A HREF="#product_breakdown_arm.product_item">product_item</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Product_breakdown_arm<br></code><br><br><p>&copy; ISO 2008 &#8212; All rights reserved</p>
+   </body>
+</HTML>

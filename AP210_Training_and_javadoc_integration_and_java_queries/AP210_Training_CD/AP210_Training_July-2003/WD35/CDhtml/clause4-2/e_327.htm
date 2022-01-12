@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Ee_product_specific_parameter_value_assignment</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.327 Ee_product_specific_parameter_value_assignment</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Ee_product_specific_parameter_value_assignment is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. An Ee_product_specific_parameter_value_assignment is the assignment of a specific value to a specific characteristic of an 
+Ee_product_category
+for a specific product.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>assigned_parameter</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_product_category</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>of_product</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.327.1 assigned_parameter</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The assigned_parameter specifies the <A
+CLASS="INTERNALREF"
+HREF="e_603.htm"
+>Parameter_assignment</A
+> that is assigning the specific value for this Ee_product_specific_parameter_value_assignment.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.327.2 associated_product_category</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_product_category specifies the <A
+CLASS="INTERNALREF"
+HREF="e_326.htm"
+>Ee_product_related_product_category</A
+> that includes the characteristic being assigned a value with this Ee_product_specific_parameter_value_assignment.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.327.3 of_product</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The of_product specifies the <A
+CLASS="INTERNALREF"
+HREF="e_319.htm"
+>Ee_product</A
+> assigned a characteristic value by this Ee_product_specific_parameter_value_assignment.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>Each Model_parameter in the role of assigned_parameter.assigned_parameter shall be in the role of category_parameter for the Ee_product_related_product_category specified by associated_product_category.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>Each Ee_product in the role of of_product shall be in the role of of_product for the Ee_product_related_product_category specified by associated_product_category.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY ee_product_specific_parameter_value_assignment
+  SUBTYPE OF (managed_design_object);
+    associated_product_category : ee_product_related_product_category;
+    of_product                  : ee_product;
+    assigned_parameter          : parameter_assignment;
+END_ENTITY; -- ee_product_specific_parameter_value_assignment
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

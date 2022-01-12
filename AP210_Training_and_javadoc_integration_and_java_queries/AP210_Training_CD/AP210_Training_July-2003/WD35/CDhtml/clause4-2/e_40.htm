@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Assembly_group_component</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.40 Assembly_group_component</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+An Assembly_group_component is a type of <A
+CLASS="INTERNALREF"
+HREF="e_34.htm"
+>Assembly_component</A
+>. An Assembly_group_component may be either one or both of 
+an <A
+CLASS="INTERNALREF"
+HREF="e_29.htm"
+>Array_placement_group</A
+> or an <A
+CLASS="INTERNALREF"
+HREF="e_459.htm"
+>Interfaced_group_component</A
+>.  Each component that is part of a group is in the same design view as that group.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: This application object is provided to support, for instance, the hardware items required for power device 
+mounting.</DIV
+><DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>This application object is not included to support process plans.</LI
+><LI
+CLASS="NOTEINGROUP"
+>The intent is for all members of Assembly_component that are also in the role of related_components for Sub_assembly_relationship to be placed as a group in a placement activity using a CAD tool.  However, each member of the group is placed individually in this standard.  A receiving system should treat the relative placement of members of the group as derived data.</LI
+></OL
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: This application object supports paired-line layout by making each individual conductive_interconnect_element 
+associated by the sub_assembly_relationship entity to this application object one of the lines to be paired.
+Extensions to higher number of lines is obvious.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>components</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.40.1 components</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The components is an inverse relationship that specifies that the existence of the Assembly_group_component is dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_878.htm"
+>Sub_assembly_relationship</A
+> that specifies the Assembly_group_component as its relating_component.  There shall be one or more Sub_assembly_relationship for an Assembly_group_component.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The usual case is for one member of Sub_assembly_relationship to associate all relating components, but more than one is permitted.  There is no semantic difference in this part of ISO 10303 between all the components being related with one member of Sub_assembly_relationship or each of the component being related having its own Sub_assembly_relationship.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY assembly_group_component
+  SUPERTYPE OF (interfaced_group_component ANDOR array_placement_group ANDOR
+   (ONEOF(footprint_occurrence, padstack_occurrence)))
+  SUBTYPE OF (assembly_component);
+  INVERSE
+    components : SET [1:?] OF sub_assembly_relationship FOR relating_component;
+END_ENTITY; -- assembly_group_component
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

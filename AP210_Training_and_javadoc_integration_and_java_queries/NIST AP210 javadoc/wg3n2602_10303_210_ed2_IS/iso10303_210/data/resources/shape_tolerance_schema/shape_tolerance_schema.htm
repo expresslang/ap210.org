@@ -1,0 +1,158 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: shape_tolerance_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: shape_tolerance_schema</h2>
+      <p><i>Source : ISO 10303-47</i></p><code><br><br><a name="shape_tolerance_schema">SCHEMA <b>shape_tolerance_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema">product_property_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema">measure_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.derive_dimensional_exponents">derive_dimensional_exponents</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.dimensional_exponents">dimensional_exponents</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_value">measure_value</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/shape_aspect_definition_schema/shape_aspect_definition_schema.htm#shape_aspect_definition_schema">shape_aspect_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-47<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/shape_aspect_definition_schema/shape_aspect_definition_schema.htm#shape_aspect_definition_schema.datum_reference">datum_reference</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/shape_aspect_definition_schema/shape_aspect_definition_schema.htm#shape_aspect_definition_schema.limit_condition">limit_condition</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/shape_dimension_schema/shape_dimension_schema.htm#shape_dimension_schema">shape_dimension_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-47<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/shape_dimension_schema/shape_dimension_schema.htm#shape_dimension_schema.dimensional_characteristic">dimensional_characteristic</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/shape_dimension_schema/shape_dimension_schema.htm#shape_dimension_schema.dimensional_location">dimensional_location</A>);
+         <br><br></code><code><br><A NAME="shape_tolerance_schema.shape_tolerance_select">TYPE </A><b>shape_tolerance_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#shape_tolerance_schema.geometric_tolerance">geometric_tolerance</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#shape_tolerance_schema.plus_minus_tolerance">plus_minus_tolerance</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="shape_tolerance_schema.tolerance_method_definition">TYPE </A><b>tolerance_method_definition</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#shape_tolerance_schema.limits_and_fits">limits_and_fits</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#shape_tolerance_schema.tolerance_value">tolerance_value</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="shape_tolerance_schema.dimension_related_tolerance_zone_element">ENTITY <b>dimension_related_tolerance_zone_element</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.dimension_related_tolerance_zone_element.related_dimension">related_dimension : </A><A HREF="../../../data/resources/shape_dimension_schema/shape_dimension_schema.htm#shape_dimension_schema.dimensional_location">dimensional_location</A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.dimension_related_tolerance_zone_element.related_element">related_element : </A><A HREF="#shape_tolerance_schema.tolerance_zone_definition">tolerance_zone_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.geometric_tolerance">ENTITY <b>geometric_tolerance</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.geometric_tolerance.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.geometric_tolerance.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.geometric_tolerance.magnitude">magnitude : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.geometric_tolerance.toleranced_shape_aspect">toleranced_shape_aspect : </A><A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.geometric_tolerance.wr:wr1">WR1: ('NUMBER' IN TYPEOF
+            (magnitude\measure_with_unit.value_component)) AND
+            (magnitude\measure_with_unit.value_component &gt;= 0.0);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.geometric_tolerance_relationship">ENTITY <b>geometric_tolerance_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.geometric_tolerance_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.geometric_tolerance_relationship.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.geometric_tolerance_relationship.relating_geometric_tolerance">relating_geometric_tolerance : </A><A HREF="#shape_tolerance_schema.geometric_tolerance">geometric_tolerance</A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.geometric_tolerance_relationship.related_geometric_tolerance">related_geometric_tolerance : </A><A HREF="#shape_tolerance_schema.geometric_tolerance">geometric_tolerance</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.geometric_tolerance_with_datum_reference">ENTITY <b>geometric_tolerance_with_datum_reference</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_tolerance_schema.geometric_tolerance">geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.geometric_tolerance_with_datum_reference.datum_system">datum_system : </A>SET[1:?] OF <A HREF="../../../data/resources/shape_aspect_definition_schema/shape_aspect_definition_schema.htm#shape_aspect_definition_schema.datum_reference">datum_reference</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.geometric_tolerance_with_defined_unit">ENTITY <b>geometric_tolerance_with_defined_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_tolerance_schema.geometric_tolerance">geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.geometric_tolerance_with_defined_unit.unit_size">unit_size : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.geometric_tolerance_with_defined_unit.wr:wr1">WR1: ('NUMBER' IN TYPEOF
+            (unit_size\measure_with_unit.value_component)) AND
+            (unit_size\measure_with_unit.value_component &gt; 0.0);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.limits_and_fits">ENTITY <b>limits_and_fits</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.limits_and_fits.form_variance">form_variance : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.limits_and_fits.zone_variance">zone_variance : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.limits_and_fits.grade">grade : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.limits_and_fits.source">source : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.modified_geometric_tolerance">ENTITY <b>modified_geometric_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_tolerance_schema.geometric_tolerance">geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.modified_geometric_tolerance.modifier">modifier : </A><A HREF="../../../data/resources/shape_aspect_definition_schema/shape_aspect_definition_schema.htm#shape_aspect_definition_schema.limit_condition">limit_condition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.plus_minus_tolerance">ENTITY <b>plus_minus_tolerance</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.plus_minus_tolerance.range">range : </A><A HREF="#shape_tolerance_schema.tolerance_method_definition">tolerance_method_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.plus_minus_tolerance.toleranced_dimension">toleranced_dimension : </A><A HREF="../../../data/resources/shape_dimension_schema/shape_dimension_schema.htm#shape_dimension_schema.dimensional_characteristic">dimensional_characteristic</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.plus_minus_tolerance.ur:ur1">UR1: </A>toleranced_dimension;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.projected_zone_definition">ENTITY <b>projected_zone_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_tolerance_schema.tolerance_zone_definition">tolerance_zone_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.projected_zone_definition.projection_end">projection_end : </A><A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.projected_zone_definition.projected_length">projected_length : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.projected_zone_definition.wr:wr1">WR1: ('NUMBER' IN TYPEOF
+            (projected_length\measure_with_unit.value_component)) AND
+            (projected_length\measure_with_unit.value_component &gt; 0.0);</A><br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.projected_zone_definition.wr:wr2">WR2: (derive_dimensional_exponents
+            (projected_length\measure_with_unit.unit_component)=
+            dimensional_exponents(1,0,0,0,0,0,0));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.runout_zone_definition">ENTITY <b>runout_zone_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_tolerance_schema.tolerance_zone_definition">tolerance_zone_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.runout_zone_definition.orientation">orientation : </A><A HREF="#shape_tolerance_schema.runout_zone_orientation">runout_zone_orientation</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.runout_zone_orientation">ENTITY <b>runout_zone_orientation</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.runout_zone_orientation.angle">angle : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.runout_zone_orientation_reference_direction">ENTITY <b>runout_zone_orientation_reference_direction</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_tolerance_schema.runout_zone_orientation">runout_zone_orientation</A>);<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.runout_zone_orientation_reference_direction.orientation_defining_relationship">orientation_defining_relationship : </A><A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.statistical_distribution_for_tolerance">ENTITY <b>statistical_distribution_for_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.statistical_distribution_for_tolerance.wr:wr1">WR1: SIZEOF (QUERY (item &lt;* SELF\representation.items |
+            NOT ('QUALIFIED_MEASURE_SCHEMA.MEASURE_REPRESENTATION_ITEM' 
+            IN TYPEOF (item)))) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.tolerance_value">ENTITY <b>tolerance_value</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.tolerance_value.lower_bound">lower_bound : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.tolerance_value.upper_bound">upper_bound : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.tolerance_value.ubvc">ubvc : </A>REAL := upper_bound\measure_with_unit.value_component;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.tolerance_value.lbvc">lbvc : </A>REAL := lower_bound\measure_with_unit.value_component;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.tolerance_value.wr:wr1">WR1: ubvc &gt; lbvc;</A><br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.tolerance_value.wr:wr2">WR2: upper_bound\measure_with_unit.unit_component =
+            lower_bound\measure_with_unit.unit_component;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.tolerance_with_statistical_distribution">ENTITY <b>tolerance_with_statistical_distribution</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.tolerance_with_statistical_distribution.associated_tolerance">associated_tolerance : </A><A HREF="#shape_tolerance_schema.shape_tolerance_select">shape_tolerance_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.tolerance_with_statistical_distribution.tolerance_allocation">tolerance_allocation : </A><A HREF="#shape_tolerance_schema.statistical_distribution_for_tolerance">statistical_distribution_for_tolerance</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.tolerance_zone">ENTITY <b>tolerance_zone</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.tolerance_zone.defining_tolerance">defining_tolerance : </A>SET[1:?] OF <A HREF="#shape_tolerance_schema.geometric_tolerance">geometric_tolerance</A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.tolerance_zone.form">form : </A><A HREF="#shape_tolerance_schema.tolerance_zone_form">tolerance_zone_form</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.tolerance_zone_definition">ENTITY <b>tolerance_zone_definition</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#shape_tolerance_schema.projected_zone_definition">projected_zone_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#shape_tolerance_schema.runout_zone_definition">runout_zone_definition</A>));<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.tolerance_zone_definition.zone">zone : </A><A HREF="#shape_tolerance_schema.tolerance_zone">tolerance_zone</A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.tolerance_zone_definition.boundaries">boundaries : </A>SET[1:?] OF <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_tolerance_schema.tolerance_zone_form">ENTITY <b>tolerance_zone_form</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_tolerance_schema.tolerance_zone_form.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;shape_tolerance_schema<br></code></body>
+</HTML>

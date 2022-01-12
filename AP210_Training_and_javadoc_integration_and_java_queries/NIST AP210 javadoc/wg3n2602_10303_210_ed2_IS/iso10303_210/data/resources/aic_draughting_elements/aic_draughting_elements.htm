@@ -1,0 +1,133 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: aic_draughting_elements</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: aic_draughting_elements</h2>
+      <p><i>Source : ISO 10303-506</i></p><code><br><br><a name="aic_draughting_elements">SCHEMA <b>aic_draughting_elements</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema">draughting_element_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-101<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.dimension_curve">dimension_curve</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.dimension_curve_directed_callout">dimension_curve_directed_callout</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.dimension_curve_terminator">dimension_curve_terminator</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.draughting_callout">draughting_callout</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.draughting_callout_relationship">draughting_callout_relationship</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.leader_curve">leader_curve</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.leader_directed_callout">leader_directed_callout</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.leader_terminator">leader_terminator</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.projection_curve">projection_curve</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.projection_directed_callout">projection_directed_callout</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema">presentation_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-46<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_text_occurrence">annotation_text_occurrence</A>);
+         <br><br></code><code><br><A NAME="aic_draughting_elements.angular_dimension">ENTITY <b>angular_dimension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.dimension_curve_directed_callout">dimension_curve_directed_callout</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="aic_draughting_elements.curve_dimension">ENTITY <b>curve_dimension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.dimension_curve_directed_callout">dimension_curve_directed_callout</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="aic_draughting_elements.datum_feature_callout">ENTITY <b>datum_feature_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.draughting_callout">draughting_callout</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="aic_draughting_elements.datum_target_callout">ENTITY <b>datum_target_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.draughting_callout">draughting_callout</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="aic_draughting_elements.diameter_dimension">ENTITY <b>diameter_dimension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.dimension_curve_directed_callout">dimension_curve_directed_callout</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="aic_draughting_elements.dimension_callout_component_relationship">ENTITY <b>dimension_callout_component_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.draughting_callout_relationship">draughting_callout_relationship</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.dimension_callout_component_relationship.wr:wr1">WR1: SELF.name IN ['prefix', 'suffix'];</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.dimension_callout_component_relationship.wr:wr2">WR2: 'AIC_DRAUGHTING_ELEMENTS.STRUCTURED_DIMENSION_CALLOUT' IN TYPEOF (SELF.relating_draughting_callout);</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.dimension_callout_component_relationship.wr:wr3">WR3: SIZEOF (TYPEOF (SELF.related_draughting_callout) *['AIC_DRAUGHTING_ELEMENTS.LEADER_DIRECTED_CALLOUT','AIC_DRAUGHTING_ELEMENTS.PROJECTION_DIRECTED_CALLOUT','AIC_DRAUGHTING_ELEMENTS.DIMENSION_CURVE_DIRECTED_CALLOUT','AIC_DRAUGHTING_ELEMENTS.STRUCTURED_DIMENSION_CALLOUT'])
+            = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.dimension_callout_component_relationship.wr:wr4">WR4: SELF.related_draughting_callout.contents * SELF.relating_draughting_callout.contents = SELF.related_draughting_callout.contents;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.dimension_callout_component_relationship.wr:wr5">WR5: ((SELF.name = 'prefix') AND(SIZEOF (QUERY (ato &lt;* QUERY (con &lt;* SELF.related_draughting_callout.contents |('AIC_DRAUGHTING_ELEMENTS.ANNOTATION_TEXT_OCCURRENCE'
+            IN TYPEOF(con))) | NOT (ato.name = 'prefix text'))) = 0));</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.dimension_callout_component_relationship.wr:wr6">WR6: ((SELF.name = 'suffix') AND(SIZEOF (QUERY (ato &lt;* QUERY (con &lt;* SELF.related_draughting_callout.contents |('AIC_DRAUGHTING_ELEMENTS.ANNOTATION_TEXT_OCCURRENCE'
+            IN TYPEOF(con))) | NOT (ato.name = 'suffix text'))) = 0));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="aic_draughting_elements.dimension_callout_relationship">ENTITY <b>dimension_callout_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.draughting_callout_relationship">draughting_callout_relationship</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.dimension_callout_relationship.wr:wr1">WR1: SELF.name IN ['primary', 'secondary'];</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.dimension_callout_relationship.wr:wr2">WR2: SIZEOF (TYPEOF (SELF.relating_draughting_callout) *['AIC_DRAUGHTING_ELEMENTS.ANGULAR_DIMENSION','AIC_DRAUGHTING_ELEMENTS.CURVE_DIMENSION','AIC_DRAUGHTING_ELEMENTS.DIAMETER_DIMENSION','AIC_DRAUGHTING_ELEMENTS.LEADER_DIRECTED_DIMENSION','AIC_DRAUGHTING_ELEMENTS.LINEAR_DIMENSION','AIC_DRAUGHTING_ELEMENTS.ORDINATE_DIMENSION','AIC_DRAUGHTING_ELEMENTS.RADIUS_DIMENSION'])&gt;=1;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.dimension_callout_relationship.wr:wr3">WR3: SIZEOF (TYPEOF (SELF.related_draughting_callout) *['AIC_DRAUGHTING_ELEMENTS.DIMENSION_CURVE_DIRECTED_CALLOUT','AIC_DRAUGHTING_ELEMENTS.PROJECTION_DIRECTED_CALLOUT','AIC_DRAUGHTING_ELEMENTS.LEADER_DIRECTED_CALLOUT'])
+            = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.dimension_callout_relationship.wr:wr4">WR4: SELF.related_draughting_callout.contents * SELF.relating_draughting_callout.contents = SELF.related_draughting_callout.contents;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="aic_draughting_elements.dimension_pair">ENTITY <b>dimension_pair</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.draughting_callout_relationship">draughting_callout_relationship</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.dimension_pair.wr:wr1">WR1: SELF.name IN ['chained', 'parallel'];</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.dimension_pair.wr:wr2">WR2: SIZEOF (TYPEOF (SELF.relating_draughting_callout) *['AIC_DRAUGHTING_ELEMENTS.ANGULAR_DIMENSION','AIC_DRAUGHTING_ELEMENTS.CURVE_DIMENSION','AIC_DRAUGHTING_ELEMENTS.DIAMETER_DIMENSION','AIC_DRAUGHTING_ELEMENTS.LINEAR_DIMENSION','AIC_DRAUGHTING_ELEMENTS.ORDINATE_DIMENSION','AIC_DRAUGHTING_ELEMENTS.RADIUS_DIMENSION'])=1;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.dimension_pair.wr:wr3">WR3: SIZEOF (TYPEOF (SELF.related_draughting_callout) *['AIC_DRAUGHTING_ELEMENTS.ANGULAR_DIMENSION','AIC_DRAUGHTING_ELEMENTS.CURVE_DIMENSION','AIC_DRAUGHTING_ELEMENTS.DIAMETER_DIMENSION','AIC_DRAUGHTING_ELEMENTS.LINEAR_DIMENSION','AIC_DRAUGHTING_ELEMENTS.ORDINATE_DIMENSION','AIC_DRAUGHTING_ELEMENTS.RADIUS_DIMENSION'])=1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="aic_draughting_elements.draughting_elements">ENTITY <b>draughting_elements</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.draughting_callout">draughting_callout</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.draughting_elements.wr:wr1">WR1: SIZEOF (QUERY (l_c &lt;* QUERY (con &lt;* SELF.contents |('AIC_DRAUGHTING_ELEMENTS.LEADER_CURVE' IN TYPEOF(con))) | NOT (SIZEOF
+            (QUERY (ldc &lt;* USEDIN (l_c,'DRAUGHTING_ELEMENT_SCHEMA.' + 'DRAUGHTING_CALLOUT.CONTENTS') |('AIC_DRAUGHTING_ELEMENTS.LEADER_DIRECTED_CALLOUT'
+            IN TYPEOF (ldc)))) &lt;= 1)))=0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.draughting_elements.wr:wr2">WR2: NOT ('DRAUGHTING_ELEMENT_SCHEMA.DIMENSION_CURVE_DIRECTED_CALLOUT' IN TYPEOF(SELF)) OR(SIZEOF (QUERY (con &lt;* SELF.contents
+            |('AIC_DRAUGHTING_ELEMENTS.PROJECTION_CURVE' IN TYPEOF (con)))) &lt;= 2);</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.draughting_elements.wr:wr3">WR3: SIZEOF (QUERY (rc &lt;* USEDIN (SELF,'DRAUGHTING_ELEMENT_SCHEMA.DRAUGHTING_CALLOUT_' +'RELATIONSHIP.RELATING_DRAUGHTING_CALLOUT')
+            |('AIC_DRAUGHTING_ELEMENTS.' +'DIMENSION_CALLOUT_RELATIONSHIP' IN TYPEOF (rc)) AND(rc.name = 'primary'))) &lt;= 1;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.draughting_elements.wr:wr4">WR4: SIZEOF (QUERY (rc &lt;* USEDIN (SELF,'DRAUGHTING_ELEMENT_SCHEMA.DRAUGHTING_CALLOUT_' +'RELATIONSHIP.RELATING_DRAUGHTING_CALLOUT')
+            |('AIC_DRAUGHTING_ELEMENTS.' +'DIMENSION_CALLOUT_RELATIONSHIP' IN TYPEOF (rc)) AND(rc.name = 'secondary'))) &lt;= 1;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.draughting_elements.wr:wr5">WR5: SIZEOF (QUERY (sec &lt;* QUERY (rc &lt;* USEDIN (SELF,'DRAUGHTING_ELEMENT_SCHEMA.DRAUGHTING_CALLOUT_' +'RELATIONSHIP.RELATING_DRAUGHTING_CALLOUT')
+            |('AIC_DRAUGHTING_ELEMENTS.' +'DIMENSION_CALLOUT_RELATIONSHIP' IN TYPEOF (rc)) AND(rc.name = 'secondary')) | NOT (SIZEOF (QUERY
+            (prim &lt;* USEDIN (SELF,'DRAUGHTING_ELEMENT_SCHEMA.DRAUGHTING_CALLOUT_' +'RELATIONSHIP.RELATING_DRAUGHTING_CALLOUT') |('AIC_DRAUGHTING_ELEMENTS.'
+            +'DIMENSION_CALLOUT_RELATIONSHIP' IN TYPEOF (prim)) AND(prim.name = 'primary'))) = 1))) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="aic_draughting_elements.geometrical_tolerance_callout">ENTITY <b>geometrical_tolerance_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.draughting_callout">draughting_callout</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="aic_draughting_elements.leader_directed_dimension">ENTITY <b>leader_directed_dimension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.leader_directed_callout">leader_directed_callout</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.leader_directed_dimension.wr:wr1">WR1: SIZEOF (QUERY (con &lt;* SELF.contents |'AIC_DRAUGHTING_ELEMENTS.LEADER_CURVE' IN TYPEOF (con)))=1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="aic_draughting_elements.linear_dimension">ENTITY <b>linear_dimension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.dimension_curve_directed_callout">dimension_curve_directed_callout</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="aic_draughting_elements.ordinate_dimension">ENTITY <b>ordinate_dimension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.projection_directed_callout">projection_directed_callout</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="aic_draughting_elements.radius_dimension">ENTITY <b>radius_dimension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.dimension_curve_directed_callout">dimension_curve_directed_callout</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.radius_dimension.wr:wr1">WR1: SIZEOF (QUERY (con &lt;* SELF.contents |'AIC_DRAUGHTING_ELEMENTS.PROJECTION_CURVE' IN TYPEOF (con)))&lt;=1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="aic_draughting_elements.structured_dimension_callout">ENTITY <b>structured_dimension_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.draughting_callout">draughting_callout</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.structured_dimension_callout.wr:wr1">WR1: SIZEOF (TYPEOF (SELF) *['AIC_DRAUGHTING_ELEMENTS.DATUM_FEATURE_CALLOUT','AIC_DRAUGHTING_ELEMENTS.DATUM_TARGET_CALLOUT','AIC_DRAUGHTING_ELEMENTS.GEOMETRICAL_TOLERANCE_CALLOUT','AIC_DRAUGHTING_ELEMENTS.LEADER_DIRECTED_CALLOUT','AIC_DRAUGHTING_ELEMENTS.PROJECTION_DIRECTED_CALLOUT','AIC_DRAUGHTING_ELEMENTS.DIMENSION_CURVE_DIRECTED_CALLOUT'])
+            = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.structured_dimension_callout.wr:wr2">WR2: SIZEOF (QUERY (ato &lt;* QUERY (con &lt;* SELF.contents |('AIC_DRAUGHTING_ELEMENTS.ANNOTATION_TEXT_OCCURRENCE' IN TYPEOF (con)))
+            | NOT (ato.name IN['dimension value', 'tolerance value', 'unit text','prefix text', 'suffix text']))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.structured_dimension_callout.wr:wr3">WR3: SIZEOF (QUERY (ato &lt;* QUERY (con &lt;* SELF.contents |('AIC_DRAUGHTING_ELEMENTS.ANNOTATION_TEXT_OCCURRENCE' IN TYPEOF (con)))
+            |(ato.name = 'dimension value'))) &gt;= 1;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.structured_dimension_callout.wr:wr4">WR4: SIZEOF (QUERY (dcr &lt;* USEDIN (SELF, 'DRAUGHTING_ELEMENT_SCHEMA.' +'DRAUGHTING_CALLOUT_RELATIONSHIP.' +'RELATING_DRAUGHTING_CALLOUT')
+            |('AIC_DRAUGHTING_ELEMENTS.' +'DIMENSION_CALLOUT_COMPONENT_RELATIONSHIP' IN TYPEOF (dcr)) AND(dcr.name = 'prefix'))) &lt;= 1;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.structured_dimension_callout.wr:wr5">WR5: SIZEOF (QUERY (dcr &lt;* USEDIN (SELF, 'DRAUGHTING_ELEMENT_SCHEMA.' +'DRAUGHTING_CALLOUT_RELATIONSHIP.' +'RELATING_DRAUGHTING_CALLOUT')
+            |('AIC_DRAUGHTING_ELEMENTS.' +'DIMENSION_CALLOUT_COMPONENT_RELATIONSHIP' IN TYPEOF (dcr)) AND(dcr.name = 'suffix'))) &lt;= 1;</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.structured_dimension_callout.wr:wr6">WR6: NOT((SIZEOF (QUERY (ato &lt;* QUERY (con &lt;* SELF.contents |('AIC_DRAUGHTING_ELEMENTS.ANNOTATION_TEXT_OCCURRENCE' IN TYPEOF(con)))
+            |(ato.name = 'prefix text'))) &gt; 0)) OR(SIZEOF (QUERY (dcr &lt;* USEDIN (SELF, 'DRAUGHTING_ELEMENT_SCHEMA.' +'DRAUGHTING_CALLOUT_RELATIONSHIP.'
+            +'RELATING_DRAUGHTING_CALLOUT') |('AIC_DRAUGHTING_ELEMENTS.' +'DIMENSION_CALLOUT_COMPONENT_RELATIONSHIP' IN TYPEOF (dcr))
+            AND(dcr.name = 'prefix'))) = 1);</A><br>
+         &nbsp;&nbsp;<A NAME="aic_draughting_elements.structured_dimension_callout.wr:wr7">WR7: NOT(SIZEOF (QUERY (ato &lt;* QUERY (con &lt;* SELF.contents |('AIC_DRAUGHTING_ELEMENTS.ANNOTATION_TEXT_OCCURRENCE' IN TYPEOF(con)))
+            |(ato.name = 'suffix text'))) &gt; 0) OR(SIZEOF (QUERY (dcr &lt;* USEDIN (SELF, 'DRAUGHTING_ELEMENT_SCHEMA.' +'DRAUGHTING_CALLOUT_RELATIONSHIP.'
+            +'RELATING_DRAUGHTING_CALLOUT') |('AIC_DRAUGHTING_ELEMENTS.' +'DIMENSION_CALLOUT_COMPONENT_RELATIONSHIP' IN TYPEOF (dcr))
+            AND(dcr.name = 'suffix'))) = 1);</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;aic_draughting_elements<br></code></body>
+</HTML>

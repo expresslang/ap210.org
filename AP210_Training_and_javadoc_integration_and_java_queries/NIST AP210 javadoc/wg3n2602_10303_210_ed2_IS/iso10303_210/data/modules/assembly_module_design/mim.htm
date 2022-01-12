@@ -1,0 +1,56 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Assembly_module_design_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Assembly_module_design_mim</h2><code><br><br><a name="assembly_module_design_mim">SCHEMA <b>Assembly_module_design_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/altered_package/sys/e_exp_mim.htm#altered_package_mim">Altered_package_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1601<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/assembly_module_usage_view/sys/e_exp_mim.htm#assembly_module_usage_view_mim">Assembly_module_usage_view_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1642<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/bare_die/sys/e_exp_mim.htm#bare_die_mim">Bare_die_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1650<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/physical_component_feature/sys/e_exp_mim.htm#physical_component_feature_mim">Physical_component_feature_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1721<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/layered_interconnect_simple_template/sys/e_exp_mim.htm#layered_interconnect_simple_template_mim">Layered_interconnect_simple_template_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1718<br><br></code><code><br><A NAME="assembly_module_design_mim.assembly_module_design_view">ENTITY <b>assembly_module_design_view</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#assembly_module_design_mim.layered_assembly_panel_design_view">layered_assembly_panel_design_view</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_module_design_mim.layered_assembly_module_design_view">layered_assembly_module_design_view</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_unit_usage_view/sys/e_exp_mim.htm#physical_unit_usage_view_mim.physical_unit">physical_unit</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_mim.bare_die_component">ENTITY <b>bare_die_component</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_mim.htm#physical_unit_design_view_mim.physical_component">physical_component</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_mim.component_mounting_feature">ENTITY <b>component_mounting_feature</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_component_feature/sys/e_exp_mim.htm#physical_component_feature_mim.physical_component_feature">physical_component_feature</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_mim.layered_assembly_module_design_view">ENTITY <b>layered_assembly_module_design_view</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#assembly_module_design_mim.assembly_module_design_view">assembly_module_design_view</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_mim.layered_assembly_panel_design_view">ENTITY <b>layered_assembly_panel_design_view</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#assembly_module_design_mim.assembly_module_design_view">assembly_module_design_view</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_mim.packaged_component">ENTITY <b>packaged_component</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_mim.htm#physical_unit_design_view_mim.physical_component">physical_component</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_mim.routed_interconnect_component">ENTITY <b>routed_interconnect_component</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.item_identified_representation_usage">item_identified_representation_usage</A>, <A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_mim.htm#physical_unit_design_view_mim.physical_component">physical_component</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_mim.routed_physical_component">ENTITY <b>routed_physical_component</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.item_identified_representation_usage">item_identified_representation_usage</A>, <A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_mim.htm#physical_unit_design_view_mim.physical_component">physical_component</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_mim.amd_physical_component_subtypes">SUBTYPE_CONSTRAINT <b>amd_physical_component_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_mim.htm#physical_unit_design_view_mim.physical_component">physical_component</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#assembly_module_design_mim.packaged_component">packaged_component</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_module_design_mim.routed_physical_component">routed_physical_component</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Assembly_module_design_mim<br></code></body>
+</HTML>

@@ -1,0 +1,78 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: product_concept_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: product_concept_schema</h2>
+      <p><i>Source : ISO 10303-44</i></p><code><br><br><a name="product_concept_schema">SCHEMA <b>product_concept_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/application_context_schema/application_context_schema.htm#application_context_schema">application_context_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/application_context_schema/application_context_schema.htm#application_context_schema.product_concept_context">product_concept_context</A>);
+         <br><br></code><code><br><A NAME="product_concept_schema.concept_feature_operator">ENTITY <b>concept_feature_operator</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.concept_feature_operator.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.concept_feature_operator.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_concept_schema.concept_feature_relationship">ENTITY <b>concept_feature_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.concept_feature_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.concept_feature_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.concept_feature_relationship.relating_product_concept_feature">relating_product_concept_feature : </A><A HREF="#product_concept_schema.product_concept_feature">product_concept_feature</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.concept_feature_relationship.related_product_concept_feature">related_product_concept_feature : </A><A HREF="#product_concept_schema.product_concept_feature">product_concept_feature</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_concept_schema.concept_feature_relationship_with_condition">ENTITY <b>concept_feature_relationship_with_condition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_concept_schema.concept_feature_relationship">concept_feature_relationship</A>);<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.concept_feature_relationship_with_condition.conditional_operator">conditional_operator : </A><A HREF="#product_concept_schema.concept_feature_operator">concept_feature_operator</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_concept_schema.conditional_concept_feature">ENTITY <b>conditional_concept_feature</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_concept_schema.product_concept_feature">product_concept_feature</A>);<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.conditional_concept_feature.condition">condition : </A><A HREF="#product_concept_schema.concept_feature_relationship_with_condition">concept_feature_relationship_with_condition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_concept_schema.product_concept">ENTITY <b>product_concept</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.product_concept.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.product_concept.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.product_concept.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.product_concept.market_context">market_context : </A><A HREF="../../../data/resources/application_context_schema/application_context_schema.htm#application_context_schema.product_concept_context">product_concept_context</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.product_concept.ur:ur1">UR1: </A>id;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_concept_schema.product_concept_feature">ENTITY <b>product_concept_feature</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.product_concept_feature.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.product_concept_feature.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.product_concept_feature.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_concept_schema.product_concept_feature_association">ENTITY <b>product_concept_feature_association</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.product_concept_feature_association.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.product_concept_feature_association.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.product_concept_feature_association.concept">concept : </A><A HREF="#product_concept_schema.product_concept">product_concept</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.product_concept_feature_association.feature">feature : </A><A HREF="#product_concept_schema.product_concept_feature">product_concept_feature</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_concept_schema.product_concept_relationship">ENTITY <b>product_concept_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.product_concept_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.product_concept_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.product_concept_relationship.relating_product_concept">relating_product_concept : </A><A HREF="#product_concept_schema.product_concept">product_concept</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_concept_schema.product_concept_relationship.related_product_concept">related_product_concept : </A><A HREF="#product_concept_schema.product_concept">product_concept</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;product_concept_schema<br></code></body>
+</HTML>

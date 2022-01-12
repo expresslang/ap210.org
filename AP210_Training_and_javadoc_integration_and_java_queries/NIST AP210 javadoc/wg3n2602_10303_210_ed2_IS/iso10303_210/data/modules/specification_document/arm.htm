@@ -1,0 +1,105 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Specification_document_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Specification_document_arm</h2><code><br><br><a name="specification_document_arm">SCHEMA <b>Specification_document_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/characteristic/sys/e_exp_arm.htm#characteristic_arm">Characteristic_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1654<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/configuration_item/sys/e_exp_arm.htm#configuration_item_arm">Configuration_item_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1056<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/tagged_text_representation/sys/e_exp_arm.htm#tagged_text_representation_arm">Tagged_text_representation_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1366<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm">Characterizable_object_arm</A>&nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1765<br>&nbsp;&nbsp;(<A HREF="../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm.bag_to_set">bag_to_set</A>);
+         <br><br></code><code><br><A NAME="specification_document_arm.sd_documented_element_select">TYPE </A><b>sd_documented_element_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/document_assignment/sys/e_exp_arm.htm#document_assignment_arm.documented_element_select">documented_element_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/configuration_item/sys/e_exp_arm.htm#configuration_item_arm.product_configuration">Product_configuration</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="specification_document_arm.design_specification">ENTITY <b>Design_specification</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (<A HREF="#specification_document_arm.interface_specification_document_definition">Interface_specification_document_definition</A>)<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#specification_document_arm.specification_definition">Specification_definition</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="specification_document_arm.design_specification.wr:wr1">WR1: NOT EXISTS(SELF\Product_view_definition.additional_characterization);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="specification_document_arm.fabrication_technology_specification">ENTITY <b>Fabrication_technology_specification</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#specification_document_arm.process_specification">Process_specification</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="specification_document_arm.interface_specification_document_definition">ENTITY <b>Interface_specification_document_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#specification_document_arm.design_specification">Design_specification</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="specification_document_arm.language_reference_manual">ENTITY <b>Language_reference_manual</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#specification_document_arm.specification_definition">Specification_definition</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="specification_document_arm.language_reference_manual.wr:wr1">WR1: NOT EXISTS(SELF\Product_view_definition.additional_characterization);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="specification_document_arm.material_specification">ENTITY <b>Material_specification</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#specification_document_arm.specification_definition">Specification_definition</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="specification_document_arm.material_specification.wr:wr1">WR1: NOT EXISTS(SELF\Product_view_definition.additional_characterization);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="specification_document_arm.partial_document_with_structured_text_representation_assignment">ENTITY <b>Partial_document_with_structured_text_representation_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/document_assignment/sys/e_exp_arm.htm#document_assignment_arm.partial_document_assignment">Partial_document_assignment</A>);<br>
+         &nbsp;&nbsp;<A NAME="specification_document_arm.partial_document_with_structured_text_representation_assignment.structured_portion">structured_portion : </A><A HREF="../../../data/modules/tagged_text_representation/sys/e_exp_arm.htm#tagged_text_representation_arm.string_representation_item_select">string_representation_item_select</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="specification_document_arm.partial_document_with_structured_text_representation_assignment.ur:ur1">UR1: </A>
+         SELF\<A HREF="../../../data/modules/document_assignment/sys/e_exp_arm.htm#document_assignment_arm.partial_document_assignment">Partial_document_assignment</A>.document_portion, 
+         SELF\<A HREF="../../../data/modules/document_assignment/sys/e_exp_arm.htm#document_assignment_arm.document_assignment">Document_assignment</A>.assigned_document;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="specification_document_arm.process_specification">ENTITY <b>Process_specification</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#specification_document_arm.specification_definition">Specification_definition</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="specification_document_arm.process_specification.wr:wr1">WR1: NOT EXISTS(SELF\Product_view_definition.additional_characterization);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="specification_document_arm.specification_allocation">ENTITY <b>Specification_allocation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/document_assignment/sys/e_exp_arm.htm#document_assignment_arm.document_assignment">Document_assignment</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/document_assignment/sys/e_exp_arm.htm#document_assignment_arm.document_assignment">Document_assignment</A>.assigned_document&nbsp;RENAMED&nbsp;<A NAME="specification_document_arm.specification_allocation.allocated_specification">allocated_specification : </A><A HREF="#specification_document_arm.specification_definition">Specification_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="specification_document_arm.specification_definition">ENTITY <b>Specification_definition</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#specification_document_arm.design_specification">Design_specification</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#specification_document_arm.process_specification">Process_specification</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#specification_document_arm.material_specification">Material_specification</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#specification_document_arm.test_specification">Test_specification</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#specification_document_arm.language_reference_manual">Language_reference_manual</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm.document_definition">Document_definition</A>);<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="specification_document_arm.specification_definition.source">source : </A>SET[0:?] OF <A HREF="../../../data/modules/person_organization_assignment/sys/e_exp_arm.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment">Organization_or_person_in_organization_assignment</A> := bag_to_set(QUERY(temp &lt;* USEDIN(SELF,'PERSON_ORGANIZATION_ASSIGNMENT_ARM.'+
+         'ORGANIZATION_OR_PERSON_IN_ORGANIZATION_ASSIGNMENT.ITEMS') |
+         (temp.role = 'document source') ));<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="specification_document_arm.specification_definition.wr:wr1">WR1: EXISTS (source) AND (SIZEOF(source) = 1);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="specification_document_arm.surface_finish_specification">ENTITY <b>Surface_finish_specification</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#specification_document_arm.material_specification">Material_specification</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="specification_document_arm.test_specification">ENTITY <b>Test_specification</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#specification_document_arm.specification_definition">Specification_definition</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="specification_document_arm.test_specification.wr:wr1">WR1: NOT EXISTS(SELF\Product_view_definition.additional_characterization);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="specification_document_arm.get_document_definition">FUNCTION <b>get_document_definition</b></A><br>&nbsp;(input : <A HREF="../../../data/modules/document_assignment/sys/e_exp_arm.htm#document_assignment_arm.documented_element_select">documented_element_select</A>; role : STRING; type_name : STRING) : SET[0:?] OF <A HREF="../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm.document_definition">Document_definition</A>;
+         </code><pre>LOCAL
+      dd : SET[0:?] OF Document_definition := [];  --this gives us access to the information base
+      da : SET[0:?] OF Document_assignment :=[];
+    END_LOCAL;
+    da := bag_to_set(QUERY(dr &lt;* USEDIN (input, 'DOCUMENT_ASSIGNMENT_ARM.'+
+	  'DOCUMENT_ASSIGNMENT.IS_ASSIGNED_TO') | (dr.role = role)));
+    -- iterate over da
+    REPEAT i := 1 to SIZEOF(da) by 1;
+      IF(type_name IN TYPEOF (da[i].assigned_document))THEN
+        dd := dd + da[i].assigned_document;
+      END_IF;
+    END_REPEAT;
+    RETURN(dd);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Specification_document_arm<br></code></body>
+</HTML>

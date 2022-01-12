@@ -1,0 +1,36 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Requirement_view_definition_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Requirement_view_definition_arm</h2><code><br><br><a name="requirement_view_definition_arm">SCHEMA <b>Requirement_view_definition_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/identification_assignment/sys/e_exp_arm.htm#identification_assignment_arm">Identification_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1021<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm">Product_view_definition_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1019<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/requirement_identification_and_version/sys/e_exp_arm.htm#requirement_identification_and_version_arm">Requirement_identification_and_version_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1140<br><br></code><code><br><A NAME="requirement_view_definition_arm.requirement_view_definition_identification_item">TYPE </A><b>requirement_view_definition_identification_item</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/identification_assignment/sys/e_exp_arm.htm#identification_assignment_arm.identification_item">identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#requirement_view_definition_arm.requirement_view_definition">Requirement_view_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="requirement_view_definition_arm.requirement_view_definition">ENTITY <b>Requirement_view_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>.<A NAME="requirement_view_definition_arm.requirement_view_definition.defined_version">defined_version : </A><A HREF="../../../data/modules/requirement_identification_and_version/sys/e_exp_arm.htm#requirement_identification_and_version_arm.requirement_version">Requirement_version</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Requirement_view_definition_arm<br></code></body>
+</HTML>

@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Packaged_component</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.585 Packaged_component</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Packaged_component is a type of <A
+CLASS="INTERNALREF"
+HREF="e_34.htm"
+>Assembly_component</A
+>. A Packaged_component may be a <A
+CLASS="INTERNALREF"
+HREF="e_577.htm"
+>Packaged_connector_component</A
+> or 
+additionally a <A
+CLASS="INTERNALREF"
+HREF="Routed_packaged_component.htm"
+>Routed_packaged_component</A
+>. A 
+Packaged_component is an instantiation of a <A
+CLASS="INTERNALREF"
+HREF="e_580.htm"
+>Packaged_part</A
+>
+at a given location within the context of a printed circuit assembly.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>access_mechanism</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>selected_package_alternate</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>usage_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.585.1 access_mechanism</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The access_mechanism is an inverse relationship that specifies that the existence of the Packaged_component is dependent on the 
+existence 
+of the <A
+CLASS="INTERNALREF"
+HREF="e_575.htm"
+>Packaged_component_join_terminal</A
+> that specifies the Packaged_component as its 
+associated_component. There shall be one or more Packaged_component_join_terminal for a 
+Packaged_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.585.2 selected_package_alternate</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The selected_package_alternate specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_8.htm"
+>Altered_package</A
+> for the Packaged_component. The selected_package_alternate need not 
+be specified for a particular Packaged_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.585.3 usage_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The usage_definition specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_580.htm"
+>Packaged_part</A
+> for the 
+Packaged_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>If selected_package_alternate exists, then the selected_package_alternate shall be in the role of used_package for the Packaged_part in the role of usage_definition for the Packaged_component.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY packaged_component
+  SUPERTYPE OF (packaged_connector_component)
+--tt tc1 wd11 modify
+  SUBTYPE OF (physical_component);
+    SELF\assembly_component.usage_definition : packaged_part;
+    selected_package_alternate               : OPTIONAL altered_package;
+  INVERSE
+    access_mechanism : SET [1:?] OF packaged_component_join_terminal FOR 
+                       associated_component;
+END_ENTITY; -- packaged_component
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

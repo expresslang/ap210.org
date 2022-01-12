@@ -1,0 +1,109 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Qualified_measure_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Qualified_measure_arm</h2><code><br><br><a name="qualified_measure_arm">SCHEMA <b>Qualified_measure_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm">Measure_representation_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1118<br><br></code><code><br>CONSTANT<br><A NAME="qualified_measure_arm.pre_defined_type_qualifiers"></A>
+         &nbsp;&nbsp;pre_defined_type_qualifiers : SET[0:?] OF STRING := <br>
+         &nbsp;&nbsp;&nbsp;['minimum',<br>
+         &nbsp;&nbsp;&nbsp;&nbsp; 'maximum',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'nominal',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp; 'specified',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp; 'typical',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp; 'calculated',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp; 'designed',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp; 'estimated',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'measured',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp; 'required',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp; 'set point',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'basic',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp; 'lower deviation',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp; 'upper deviation'];
+         <br>
+         END_CONSTANT;
+         <br></code><code><br><A NAME="qualified_measure_arm.value_qualifier">TYPE </A><b>value_qualifier</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#qualified_measure_arm.precision_qualifier">Precision_qualifier</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#qualified_measure_arm.type_qualifier">Type_qualifier</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#qualified_measure_arm.uncertainty_qualifier">Uncertainty_qualifier</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="qualified_measure_arm.expanded_uncertainty">ENTITY <b>Expanded_uncertainty</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#qualified_measure_arm.standard_uncertainty">Standard_uncertainty</A>);<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_arm.expanded_uncertainty.coverage_factor">coverage_factor : </A>REAL;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_arm.measure_qualification">ENTITY <b>Measure_qualification</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_arm.measure_qualification.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_arm.measure_qualification.description">description : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_arm.measure_qualification.qualified_measure">qualified_measure : </A><A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.value_with_unit">Value_with_unit</A>;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_arm.measure_qualification.qualifiers">qualifiers : </A>SET[1:?] OF <A HREF="#qualified_measure_arm.value_qualifier">value_qualifier</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_arm.measure_qualification.wr:wr1">WR1: NOT('MEASURE_REPRESENTATION_ARM.'+'NUMERICAL_ITEM_WITH_UNIT' IN TYPEOF(qualified_measure));</A><br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_arm.measure_qualification.wr:wr2">WR2: SIZEOF(QUERY(temp &lt;* qualifiers | 
+            'QUALIFIED_MEASURE_ARM.PRECISION_QUALIFIER' IN TYPEOF(temp))) &lt; 2;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_arm.pre_defined_type_qualifier">ENTITY <b>Pre_defined_type_qualifier</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#qualified_measure_arm.type_qualifier">Type_qualifier</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_arm.pre_defined_type_qualifier.wr:wr1">WR1: SELF\Type_qualifier.name IN pre_defined_type_qualifiers;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_arm.precision_qualifier">ENTITY <b>Precision_qualifier</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_arm.precision_qualifier.precision_value">precision_value : </A>INTEGER;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_arm.qualified_numerical_item_with_unit">ENTITY <b>Qualified_numerical_item_with_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>, <A HREF="#qualified_measure_arm.qualified_representation_item">Qualified_representation_item</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_arm.qualified_representation_item">ENTITY <b>Qualified_representation_item</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         <br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_item">Representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_arm.qualified_representation_item.qualifiers">qualifiers : </A>SET[1:?] OF <A HREF="#qualified_measure_arm.value_qualifier">value_qualifier</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_arm.qualified_representation_item.wr:wr1">WR1: SIZEOF(QUERY(temp &lt;* qualifiers | 
+            'QUALIFIED_MEASURE_ARM.PRECISION_QUALIFIER' 
+            IN TYPEOF(temp))) &lt; 2;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_arm.qualitative_uncertainty">ENTITY <b>Qualitative_uncertainty</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#qualified_measure_arm.uncertainty_qualifier">Uncertainty_qualifier</A>);<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_arm.qualitative_uncertainty.uncertainty_value">uncertainty_value : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_arm.standard_uncertainty">ENTITY <b>Standard_uncertainty</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (<A HREF="#qualified_measure_arm.expanded_uncertainty">Expanded_uncertainty</A>)<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#qualified_measure_arm.uncertainty_qualifier">Uncertainty_qualifier</A>);<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_arm.standard_uncertainty.uncertainty_value">uncertainty_value : </A>REAL;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_arm.type_qualifier">ENTITY <b>Type_qualifier</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(<A HREF="#qualified_measure_arm.pre_defined_type_qualifier">Pre_defined_type_qualifier</A>);<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_arm.type_qualifier.name">name : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_arm.uncertainty_qualifier">ENTITY <b>Uncertainty_qualifier</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#qualified_measure_arm.standard_uncertainty">Standard_uncertainty</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#qualified_measure_arm.qualitative_uncertainty">Qualitative_uncertainty</A>));<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_arm.uncertainty_qualifier.measure_name">measure_name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_arm.uncertainty_qualifier.description">description : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Qualified_measure_arm<br></code></body>
+</HTML>

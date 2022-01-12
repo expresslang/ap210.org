@@ -1,0 +1,807 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Elemental geometric shape">
+      <META name="DC.Dates" content="2009-06-11 10:36:26">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Elemental geometric shape">
+      <META name="DC.Subject" content="module, geometry, mapping, template instance, point, transformation">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6694">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5536">
+      <META name="SC4.version" content="5">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6563">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6564">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6565">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-06-11 10:36:26">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.52">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.14">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.15">
+      <TITLE>ISO/TS 10303-1004:2009 Elemental geometric shape</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Elemental geometric shape</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1004:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Elemental geometric shape</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Elemental_geometric_shape_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="elemental_geometric_shape_arm">
+            SCHEMA Elemental_geometric_shape_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm">Foundation_representation_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1006<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm">Identification_assignment_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1021<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Foundation_representation_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1006</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Identification_assignment_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1021</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="elemental_geometric_shape_arm.cartesian_transformation">4.2.1 cartesian_transformation</a>
+         &nbsp;&nbsp;<a href="../../elemental_geometric_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>cartesian_transformation</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#elemental_geometric_shape_arm.cartesian_transformation_2d">Cartesian_transformation_2d</A></b>
+         and
+         <b><A HREF="#elemental_geometric_shape_arm.cartesian_transformation_3d">Cartesian_transformation_3d</A></b>.
+         
+      </p>
+      	The <b>cartesian_transformation</b> type is a mechanism to refer to an instance of either a 2D or 3D cartesian transformation operator.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            cartesian_transformation =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#elemental_geometric_shape_arm.cartesian_transformation_2d">Cartesian_transformation_2d</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#elemental_geometric_shape_arm.cartesian_transformation_3d">Cartesian_transformation_3d</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="elemental_geometric_shape_arm.geometric_mapping_target">4.2.2 geometric_mapping_target</a>
+         &nbsp;&nbsp;<a href="../../elemental_geometric_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>geometric_mapping_target</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#elemental_geometric_shape_arm.axis_placement">Axis_placement</A></b>
+         and
+         <b><A HREF="#elemental_geometric_shape_arm.cartesian_transformation">cartesian_transformation</A></b>.
+         
+      </p>
+      	The <b>geometric_mapping_target</b> type is a mechanism to refer to an instance of 
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement"><b>Axis_placement</b></a>, 
+      	of 
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.cartesian_transformation_2d"><b>Cartesian_transformation_2d</b></a>
+      	or of 
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.cartesian_transformation_3d"><b>Cartesian_transformation_3d</b></a>. 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            geometric_mapping_target =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#elemental_geometric_shape_arm.cartesian_transformation">cartesian_transformation</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="elemental_geometric_shape_arm.axis_placement">4.3.1 Axis_placement</a>
+         &nbsp;&nbsp;<a href="../../elemental_geometric_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityaxis_placement"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	An <b>Axis_placement</b> is a type of 
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a>
+      	that defines a right-handed, 2D or 3D, coordinate system.
+      
+      <p>
+         	If the <b>Axis_placement</b> belongs to a 3D geometric space, the third direction of the coordinate system is defined 
+         	by the vector product of x-axis and y-axis.
+         
+      </p>
+      	An <b>Axis_placement</b> may be an
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement_2d"><b>Axis_placement_2d</b></a>
+      	or an
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement_3d"><b>Axis_placement_3d</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Axis_placement<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#elemental_geometric_shape_arm.axis_placement_2d">Axis_placement_2d</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#elemental_geometric_shape_arm.axis_placement_3d">Axis_placement_3d</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;origin : <A HREF="#elemental_geometric_shape_arm.cartesian_point">Cartesian_point</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;x_axis : <A HREF="#elemental_geometric_shape_arm.direction">Direction</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;y_axis : <A HREF="#elemental_geometric_shape_arm.direction">Direction</A>;<br>DERIVE<br>
+            &nbsp;&nbsp;dim : INTEGER := SIZEOF(origin.coordinates);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: dim &gt;1;<br> 
+            &nbsp;&nbsp;WR2: dim = SIZEOF(x_axis.coordinates);<br> 
+            &nbsp;&nbsp;WR3: dim = SIZEOF(y_axis.coordinates);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.axis_placement.origin">origin:
+               </a></b>
+         	the 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.cartesian_point"><b>Cartesian_point</b></a>
+         	that defines the position of the <b>Axis_placement</b> in the geometric space.
+         
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.axis_placement.x_axis">x_axis:
+               </a></b>
+         	the 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.direction"><b>Direction</b></a>
+         	that defines the first axis of the <b>Axis_placement</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.axis_placement.y_axis">y_axis:
+               </a></b>
+         	the 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.direction"><b>Direction</b></a>
+         	that defines the second axis of the <b>Axis_placement</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.axis_placement.dim">dim:
+               </a></b>
+         	the dimensionality of the <b>Axis_placement</b>. It is equal to the number of coordinates of the origin.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.axis_placement.wr:wr1">WR1:
+               </a></b>
+         	The dimensionality of the <b>Axis_placement</b> shall be greater than 1.
+         
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.axis_placement.wr:wr2">WR2:
+               </a></b>
+         	The number of coordinates of the x-axis shall be equal to the number of coordinates of the origin of the <b>Axis_placement</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.axis_placement.wr:wr3">WR3:
+               </a></b>
+         	The number of coordinates of the y-axis shall be equal to the number of coordinates of the origin of the <b>Axis_placement</b>.
+         
+      </p>
+      <p><u>Informal propositions:</u></p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.axis_placement.wr:ip1">IP1:
+               </a></b>
+         	The vector product of <b>x_axis</b> and <b>y_axis</b> shall not be a null vector.
+         
+      </p>
+      <h2><a name="elemental_geometric_shape_arm.axis_placement_2d">4.3.2 Axis_placement_2d</a>
+         &nbsp;&nbsp;<a href="../../elemental_geometric_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityaxis_placement_2d"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	An <b>Axis_placement_2d</b> is a type of
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement"><b>Axis_placement</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Axis_placement_2d<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="elemental_geometric_shape_arm.axis_placement_3d">4.3.3 Axis_placement_3d</a>
+         &nbsp;&nbsp;<a href="../../elemental_geometric_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityaxis_placement_3d"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	An <b>Axis_placement_3d</b> is a type of
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement"><b>Axis_placement</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Axis_placement_3d<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="elemental_geometric_shape_arm.axis_placement_mapping">4.3.4 Axis_placement_mapping</a>
+         &nbsp;&nbsp;<a href="../../elemental_geometric_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityaxis_placement_mapping"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	An <b>Axis_placement_mapping</b> is a geometric transformation defined by a source 
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement"><b>Axis_placement</b></a>
+      	and a target 
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement"><b>Axis_placement</b></a>
+      	that results from the transformation of the source one.
+      
+      <p>
+         	Both instances of 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement"><b>Axis_placement</b></a>
+         	shall have the same dimensionality.
+         
+      </p>
+      	
+      <p>The transformation shall be computed as the isometric transformation that maps:</p>
+      	
+      <ul>
+         		
+         <li>the origin of the source onto the origin of the target;</li>
+         		
+         <li>the <a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement.x_axis"><b>x_axis</b></a>
+            		
+            		 of the source onto the <a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement.x_axis"><b>x_axis</b></a>
+            		
+            		 of the target;
+         </li>
+         		
+         <li>the <a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement.y_axis"><b>y_axis</b></a>
+            		
+            		 of the source onto the <a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement.y_axis"><b>y_axis</b></a>
+            		
+            		 of the target.
+         </li>
+         	
+      </ul>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            By construction, the determinant of the transformation matrix equals one.</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Axis_placement_mapping;<br>
+            
+            
+            
+            &nbsp;&nbsp;source : <A HREF="#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;target : <A HREF="#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: source\Axis_placement.dim = target\Axis_placement.dim;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.axis_placement_mapping.source">source:
+               </a></b>
+         	the 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement"><b>Axis_placement</b></a>
+         	that plays the role of source in the transformation.
+         
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.axis_placement_mapping.target">target:
+               </a></b>
+         	the 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement"><b>Axis_placement</b></a>
+         	that plays the role of target in the transformation.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.axis_placement_mapping.wr:wr1">WR1:
+               </a></b>
+         	The source and the target shall have the same dimensionality.
+         
+      </p>
+      <h2><a name="elemental_geometric_shape_arm.cartesian_point">4.3.5 Cartesian_point</a>
+         &nbsp;&nbsp;<a href="../../elemental_geometric_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycartesian_point"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Cartesian_point</b> is a type of 
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a>
+      	that defines a point by a list of up to 3 cartesian coordinates.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Cartesian_point<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;coordinates : LIST[1:3] OF <A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.length_measure">length_measure</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.cartesian_point.coordinates">coordinates:
+               </a></b>
+         	the list of up to 3 length measure values that define the cartesian coordinates of the point.
+         
+      </p>
+      <h2><a name="elemental_geometric_shape_arm.cartesian_transformation_2d">4.3.6 Cartesian_transformation_2d</a>
+         &nbsp;&nbsp;<a href="../../elemental_geometric_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycartesian_transformation_2d"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Cartesian_transformation_2d</b> is a type of 
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a>.
+      	It is defined in a 2D geometric space by a 2*2 matrix and a cartesian point.
+      	
+      <p>Let be:</p>
+      	
+      <ul>
+         		
+         <li>M, the 2*2 multiplication matrix of the cartesian transformation;</li>
+         		
+         <li>A, the point of the cartesian transformation;</li>
+         		
+         <li>P, a point in the geometric space;</li>
+         		
+         <li>Q, the result of the application of the transformation to P.</li>
+         	
+      </ul>
+      	
+      <p>The coordinates of Q shall be obtained by the formula: Q = M*P + A</p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Cartesian_transformation_2d<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;multiplication_matrix : ARRAY[1:2] OF <A HREF="#elemental_geometric_shape_arm.direction">Direction</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;translation : <A HREF="#elemental_geometric_shape_arm.cartesian_point">Cartesian_point</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(multiplication_matrix[1]\Direction.coordinates)=2;<br> 
+            &nbsp;&nbsp;WR2: SIZEOF(multiplication_matrix[2]\Direction.coordinates)=2;<br> 
+            &nbsp;&nbsp;WR3: SIZEOF(translation.coordinates)=2;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.cartesian_transformation_2d.multiplication_matrix">multiplication_matrix:
+               </a></b>
+         	the array of two instances of 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.direction"><b>Direction</b></a>
+         	that defines the multiplication matrix of the transformation.
+         
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.cartesian_transformation_2d.translation">translation:
+               </a></b>
+         	the 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.cartesian_point"><b>Cartesian_point</b></a>
+         	that defines the position of the result of the application of the transformation to the origin of the geometric space.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.cartesian_transformation_2d.wr:wr1">WR1:
+               </a></b>
+         	The first element of the matrix shall refer to a 2-dimensional 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.direction"><b>Direction</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.cartesian_transformation_2d.wr:wr2">WR2:
+               </a></b>
+         	The second element of the matrix shall refer to a 3-dimensional 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.direction"><b>Direction</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.cartesian_transformation_2d.wr:wr3">WR3:
+               </a></b>
+         	The translation point shall have 2 coordinates.
+         
+      </p>
+      <h2><a name="elemental_geometric_shape_arm.cartesian_transformation_3d">4.3.7 Cartesian_transformation_3d</a>
+         &nbsp;&nbsp;<a href="../../elemental_geometric_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycartesian_transformation_3d"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Cartesian_transformation_3d</b> is a type of 
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a>
+      	that is a geometric transformation defined in a 3D geometric space by a 3*3 matrix and a cartesian point.
+      	
+      <p>Let be:</p>
+      	
+      <ul>
+         	
+         <li>M, the 3*3 multiplication matrix of the cartesian transformation;</li>
+         	
+         <li>A, the point of the cartesian transformation;</li>
+         	
+         <li>P, a point in the geometric space;</li>
+         	
+         <li>Q, the result of the application of the transformation to P.</li>
+         	
+      </ul>
+      	
+      <p>The coordinates of Q shall be obtained by the formula: Q = M*P + A</p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Cartesian_transformation_3d<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;multiplication_matrix : ARRAY[1:3] OF <A HREF="#elemental_geometric_shape_arm.direction">Direction</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;translation : <A HREF="#elemental_geometric_shape_arm.cartesian_point">Cartesian_point</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(multiplication_matrix[1]\Direction.coordinates)=3;<br> 
+            &nbsp;&nbsp;WR2: SIZEOF(multiplication_matrix[2]\Direction.coordinates)=3;<br> 
+            &nbsp;&nbsp;WR3: SIZEOF(multiplication_matrix[3]\Direction.coordinates)=3;<br> 
+            &nbsp;&nbsp;WR4: SIZEOF(translation.coordinates)=3;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.cartesian_transformation_3d.multiplication_matrix">multiplication_matrix:
+               </a></b>
+         	the array of three instances of 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.direction"><b>Direction</b></a>
+         	that defines the multiplication matrix of the transformation.
+         
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.cartesian_transformation_3d.translation">translation:
+               </a></b>
+         	the 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.cartesian_point"><b>Cartesian_point</b></a>
+         	that defines the position of the result of the application of the transformation to the origin of the geometric space.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.cartesian_transformation_3d.wr:wr1">WR1:
+               </a></b>
+         	The first element of the matrix shall refer to a 3-dimensional 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.direction"><b>Direction</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.cartesian_transformation_3d.wr:wr2">WR2:
+               </a></b>
+         	The second element of the matrix shall refer to a 3-dimensional  
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.direction"><b>Direction</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.cartesian_transformation_3d.wr:wr3">WR3:
+               </a></b>
+         	The third element of the matrix shall refer to a 3-dimensional  
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.direction"><b>Direction</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.cartesian_transformation_3d.wr:wr4">WR4:
+               </a></b>
+         	The translation point shall have 3 coordinates.
+         
+      </p>
+      <h2><a name="elemental_geometric_shape_arm.detailed_geometric_model_element">4.3.8 Detailed_geometric_model_element</a>
+         &nbsp;&nbsp;<a href="../../elemental_geometric_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydetailed_geometric_model_element"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Detailed_geometric_model_element</b> is a type of 
+      	<a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation_item"><b>Representation_item</b></a>.
+      	It identifies a geometric construct.
+      
+      <p>
+         	Only non abstract specializations of the <b>Detailed_geometric_model_element</b> entity data type can be instantiated.
+         
+      </p>
+      	A <b>Detailed_geometric_model_element</b> is either a
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.cartesian_point"><b>Cartesian_point</b></a>
+      	or a
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.direction"><b>Direction</b></a>
+      	or an
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement"><b>Axis_placement</b></a>
+      	or a
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.cartesian_transformation_2d"><b>Cartesian_transformation_2d</b></a>
+      	or a
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.cartesian_transformation_3d"><b>Cartesian_transformation_3d</b></a>
+      	or a specialization defined elsewhere.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Detailed_geometric_model_element<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#elemental_geometric_shape_arm.cartesian_point">Cartesian_point</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#elemental_geometric_shape_arm.direction">Direction</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#elemental_geometric_shape_arm.cartesian_transformation_2d">Cartesian_transformation_2d</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#elemental_geometric_shape_arm.cartesian_transformation_3d">Cartesian_transformation_3d</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation_item">Representation_item</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Informal propositions:</u></p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.detailed_geometric_model_element.wr:ip1">IP1:
+               </a></b>
+         	A <b>Detailed_geometric_model_element</b> shall be an item of a 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a>
+         	or serve to create an item of a 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.detailed_geometric_model_element.wr:ip2">IP2:
+               </a></b>
+         	The instances of 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a>
+         	that contain the <b>Detailed_geometric_model_element</b> shall all have the same space dimensionality.
+         
+      </p>
+      <h2><a name="elemental_geometric_shape_arm.direction">4.3.9 Direction</a>
+         &nbsp;&nbsp;<a href="../../elemental_geometric_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydirection"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Direction</b> is a type of 
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a>
+      	that defines a 2 or 3 dimensional vector.
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		A <b>Direction</b> is not located in a geometric space but is used in the definition of geometric entities like 
+            		<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement"><b>Axis_placement</b></a>.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Direction<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;coordinates : LIST[2:3] OF <A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.length_measure">length_measure</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.direction.coordinates">coordinates:
+               </a></b>the list of 2 or 3 length measure values that define the direction ratios of the <b>Direction</b>.
+      </p>
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		The coordinates of a <b>Direction</b> may not be normalised and the actual magnitudes
+            		of the components have no effect upon the direction being defined; only the ratios x:y:z or x:y are
+            		significant.
+            	</small></p>
+      <h2><a name="elemental_geometric_shape_arm.geometric_coordinate_space">4.3.10 Geometric_coordinate_space</a>
+         &nbsp;&nbsp;<a href="../../elemental_geometric_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitygeometric_coordinate_space"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Geometric_coordinate_space</b> is a type of 
+      	<a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.numerical_representation_context"><b>Numerical_representation_context</b></a>
+      	that defines a coordinate space where geometric elements can be defined. It is either two-dimensional or three-dimensional.
+      
+      
+      <p>
+         	There shall be at least two units specified for the <b>Geometric_coordinate_space</b>: one length unit and one plane angle unit.
+         
+      </p> 
+      
+      <p>
+         	The length unit applies to each coordinate direction.
+         
+      </p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The length unit millimetre and the angle unit radian are examples of units that may assigned to a <b>Geometric_coordinate_space</b>. 
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The origin for coordinate values is implicitly defined as being the cartesian point whose coordinates are all zero.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Geometric_coordinate_space<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.numerical_representation_context">Numerical_representation_context</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;dimension_count : INTEGER;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: dimension_count &gt;0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.geometric_coordinate_space.dimension_count">dimension_count:
+               </a></b>
+         	the dimensionality of the geometric space.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.geometric_coordinate_space.wr:wr1">WR1:
+               </a></b>
+         	The dimensionality shall be greater than zero.
+         
+      </p>
+      <h2><a name="elemental_geometric_shape_arm.geometric_model">4.3.11 Geometric_model</a>
+         &nbsp;&nbsp;<a href="../../elemental_geometric_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitygeometric_model"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Geometric_model</b> is a type of 
+      	<a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation"><b>Representation</b></a>
+      	dedicated to the description of geometric constructs.
+      
+      <p>
+         	The <b>Geometric_model</b> is founded in a 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_coordinate_space"><b>Geometric_coordinate_space</b></a>.
+         
+      </p>
+      
+      <p>
+         	The items of a <b>Geometric_model</b> are instances of 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Geometric_model<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation">Representation</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;version_id : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;model_extent : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.length_measure">length_measure</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation">Representation</A>.context_of_items : <A HREF="#elemental_geometric_shape_arm.geometric_coordinate_space">Geometric_coordinate_space</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation">Representation</A>.items : SET[1:?] OF <A HREF="#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.geometric_model.version_id">version_id:
+               </a></b>
+         	the text that specifies the version identifier of the <b>Geometric_model</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.geometric_model.model_extent">model_extent:
+               </a></b>
+         	the 
+         	<a href="../../../modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.length_measure"><b>length_measure</b></a>
+             that specifies the radius of a sphere that encloses all elements of the geometric model.
+             The centre of the sphere is located at the origin of the 
+             <a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_coordinate_space"><b>Geometric_coordinate_space</b></a>
+             of the <b>Geometric_model</b>. 
+         
+      </p>
+      <p>The value of this attribute need not be specified.
+          
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.geometric_model.context_of_items">context_of_items:
+               </a></b>
+         	the 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_coordinate_space"><b>Geometric_coordinate_space</b></a>
+         	in which the <b>Geometric_model</b> is defined.  
+         
+      </p>
+      <p class="expressdescription"><b><a name="elemental_geometric_shape_arm.geometric_model.items">items:
+               </a></b>
+         	the instances of 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a>
+         	that are included in the <b>Geometric_model</b>.  
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Elemental_geometric_shape_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

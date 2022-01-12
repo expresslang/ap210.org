@@ -1,0 +1,507 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Functional specification">
+      <META name="DC.Dates" content="2009-05-04 09:11:16">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Functional specification">
+      <META name="DC.Subject" content="module, functional specification, behavioural specification, signal, signal specification, test bench">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6383">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5655">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-04 09:11:16">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.42">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.46">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.45">
+      <TITLE>ISO/TS 10303-1679:2009 Functional specification</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Functional specification</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1679:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Functional specification</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Functional_specification_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="functional_specification_arm">
+            SCHEMA Functional_specification_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/signal/sys/4_info_reqs.htm#signal_arm">Signal_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1745<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm">Network_functional_design_view_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1704<br><br></code></p>
+      <p><code>
+            REFERENCE FROM 
+            <A HREF="../../../../data/modules/specification_document/sys/4_info_reqs.htm#specification_document_arm">Specification_document_arm</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1747<br>&nbsp;&nbsp;(<A HREF="../../../../data/modules/specification_document/sys/4_info_reqs.htm#specification_document_arm.get_document_definition">get_document_definition</A>);
+            <br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Signal_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1745</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Network_functional_design_view_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1704</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Specification_document_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1747</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="functional_specification_arm.fs_documented_element_select">4.2.1 fs_documented_element_select</a>
+         &nbsp;&nbsp;<a href="../../functional_specification/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>fs_documented_element_select</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/document_assignment/sys/4_info_reqs.htm#document_assignment_arm.documented_element_select">documented_element_select</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#functional_specification_arm.signal_specification">Signal_specification</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            fs_documented_element_select =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/document_assignment/sys/4_info_reqs.htm#document_assignment_arm.documented_element_select">documented_element_select</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#functional_specification_arm.signal_specification">Signal_specification</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="functional_specification_arm.fs_external_identification_item">4.2.2 fs_external_identification_item</a>
+         &nbsp;&nbsp;<a href="../../functional_specification/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>fs_external_identification_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_identification_item">external_identification_item</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#functional_specification_arm.functional_specification">Functional_specification</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            fs_external_identification_item =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_identification_item">external_identification_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#functional_specification_arm.functional_specification">Functional_specification</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="functional_specification_arm.fs_node_or_terminal">4.2.3 fs_node_or_terminal</a>
+         &nbsp;&nbsp;<a href="../../functional_specification/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>fs_node_or_terminal</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_node_definition">Functional_unit_network_node_definition</A></b>
+         and
+         <b><A HREF="../../../../data/modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal">Functional_unit_terminal</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            fs_node_or_terminal =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_node_definition">Functional_unit_network_node_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal">Functional_unit_terminal</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="functional_specification_arm.functional_specification">4.3.1 Functional_specification</a>
+         &nbsp;&nbsp;<a href="../../functional_specification/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityfunctional_specification"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         
+          A <b>Functional_specification</b> is the information that characterizes the 
+         behaviour of a <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit"><b>Functional_unit</b></a> under controlled 
+         circumstances using stimulus-response test methods. Detailed properties of the relationship between the 
+         reference and characterizing signals define the behaviour. 
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            The evaluation or categorization of this relationship is not standardized in this document.
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Functional_specification;<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_definition : <A HREF="#functional_specification_arm.functional_specification_definition">Functional_specification_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;reference_signal : SET[1:?] OF <A HREF="#functional_specification_arm.signal_specification">Signal_specification</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;characterizing_functional_unit : <A HREF="../../../../data/modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit">Functional_unit</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;characterizing_signal : SET[1:?] OF <A HREF="#functional_specification_arm.signal_specification">Signal_specification</A>;<br>INVERSE<br>
+            &nbsp;&nbsp;characteristic_category : <A HREF="../../../../data/modules/external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_source_identification">External_source_identification</A> FOR item;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: characterizing_functional_unit.composed_network = associated_definition;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="functional_specification_arm.functional_specification.associated_definition">associated_definition:
+               </a></b>
+         specifies a role of the <a href="../../../modules/functional_specification/sys/4_info_reqs.htm#functional_specification_arm.functional_specification_definition"><b>Functional_specification_definition</b></a> for the <b>Functional_specification</b>.  The <b>associated_definition</b> is an aggregation of all the <b>Functional_specification</b> with which it is associated.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_specification_arm.functional_specification.reference_signal">reference_signal:
+               </a></b>
+         specifies the reference or stimulus <a href="../../../modules/functional_specification/sys/4_info_reqs.htm#functional_specification_arm.signal_specification"><b>Signal_specification</b></a> for the <b>Functional_specification</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_specification_arm.functional_specification.characterizing_functional_unit">characterizing_functional_unit:
+               </a></b>
+         specifies the <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit"><b>Functional_unit</b></a> for the <b>Functional_specification</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_specification_arm.functional_specification.characterizing_signal">characterizing_signal:
+               </a></b>
+         specifies the response <a href="../../../modules/functional_specification/sys/4_info_reqs.htm#functional_specification_arm.signal_specification"><b>Signal_specification</b></a> for the <b>Functional_specification</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_specification_arm.functional_specification.characteristic_category">characteristic_category:
+               </a></b>
+         	specifies an inverse relationship that specifies that the existence of the  <b>Functional_specification</b> 
+         	is dependent on the existence of the 
+         	<a href="../../../modules/external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_source_identification"><b>External_source_identification</b></a> 
+         	that specifies the <b>Functional_specification</b>
+         	as its 
+         	<a href="../../../modules/external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_source_identification.item"><b>item</b></a>. 
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="functional_specification_arm.functional_specification.wr:wr1">WR1:
+               </a></b>
+         The <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit.composed_network"><b>composed_network</b></a> attribute of the  <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit"><b>Functional_unit</b></a> shall be <b>associated_definition</b> for the <b>characterizing_functional_unit</b>.
+         
+      </p>
+      <h2><a name="functional_specification_arm.functional_specification_definition">4.3.2 Functional_specification_definition</a>
+         &nbsp;&nbsp;<a href="../../functional_specification/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityfunctional_specification_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      A <b>Functional_specification_definition</b> is a type of <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_definition"><b>Functional_unit_network_definition</b></a>. A 
+      <b>Functional_specification_definition</b> is an aggregation of <a href="../../../modules/functional_specification/sys/4_info_reqs.htm#functional_specification_arm.functional_specification"><b>Functional_specification</b></a> in addition to the 
+      network definition that is used as the measurement context for the <a href="../../../modules/functional_specification/sys/4_info_reqs.htm#functional_specification_arm.functional_specification"><b>Functional_specification</b></a>. 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Functional_specification_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_definition">Functional_unit_network_definition</A>);<br>INVERSE<br>
+            &nbsp;&nbsp;composing_specification : SET[1:?] OF <A HREF="#functional_specification_arm.functional_specification">Functional_specification</A> FOR associated_definition;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="functional_specification_arm.functional_specification_definition.composing_specification">composing_specification:
+               </a></b>
+         specifies an inverse relationship that specifies that the existence of the <b>Functional_specification_definition</b> 
+         is dependent on the existence of the  <a href="../../../modules/functional_specification/sys/4_info_reqs.htm#functional_specification_arm.functional_specification"><b>Functional_specification</b></a> that specifies the 
+         <b>Functional_specification_definition</b> as its <a href="../../../modules/functional_specification/sys/4_info_reqs.htm#functional_specification_arm.functional_specification.associated_definition"><b>associated_definition</b></a>.  There shall be one or more  <a href="../../../modules/functional_specification/sys/4_info_reqs.htm#functional_specification_arm.functional_specification"><b>Functional_specification</b></a> for a 
+         <b>Functional_specification_definition</b>.
+         
+      </p>
+      <h2><a name="functional_specification_arm.signal_specification">4.3.3 Signal_specification</a>
+         &nbsp;&nbsp;<a href="../../functional_specification/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitysignal_specification"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Signal_specification</b> is a bounded behavioural characteristic as measured in a controlled environment.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Signal_specification;<br>
+            
+            
+            
+            &nbsp;&nbsp;signal_access_mechanism : <A HREF="#functional_specification_arm.fs_node_or_terminal">fs_node_or_terminal</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;reference_access_mechanism : 
+            OPTIONAL 
+            <A HREF="#functional_specification_arm.fs_node_or_terminal">fs_node_or_terminal</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;minimum_characteristic : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/signal/sys/4_info_reqs.htm#signal_arm.signal_property">Signal_property</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;maximum_characteristic : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/signal/sys/4_info_reqs.htm#signal_arm.signal_property">Signal_property</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;characterization_network : <A HREF="../../../../data/modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_definition">Functional_unit_network_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;nominal_characteristic : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/signal/sys/4_info_reqs.htm#signal_arm.signal_property">Signal_property</A>;<br>DERIVE<br>
+            &nbsp;&nbsp;measurement_condition : SET[1:1] OF <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.document_definition">Document_definition</A> := get_document_definition(SELF, 'measurement condition', 
+            			'SPECIFICATION_DOCUMENT_ARM.TEST_SPECIFICATION');<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: EXISTS (minimum_characteristic) OR
+            EXISTS (maximum_characteristic) OR
+            EXISTS (nominal_characteristic);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="functional_specification_arm.signal_specification.signal_access_mechanism">signal_access_mechanism:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/functional_specification/sys/4_info_reqs.htm#functional_specification_arm.fs_node_or_terminal"><b>fs_node_or_terminal</b></a> 
+         	for the <b>Signal_specification</b>.
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_specification_arm.signal_specification.reference_access_mechanism">reference_access_mechanism:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal"><b>Functional_unit_terminal</b></a> 
+         	on the 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit"><b>Functional_unit</b></a> 
+         	being characterized by this <b>Signal_specification</b>. The value of this attribute need not be specified. 
+         	The purpose of the <b>reference_access_mechanism</b> is to provide a reference facility for measurements.  
+         
+      </p>
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            	The <b>reference_access_mechanism</b> need not be supplied for evaluation of non-causal systems such as s- or 
+            	z-plane characterized control system elements or digital elements. There is no assumption in this part of ISO 10303 
+            	that <b>reference_access_mechanism</b> is related to any standard reference node, for example, "0" in certain 
+            	continuous system simulators. Example names of the terminal specified by <b>reference_access_mechanism</b> 
+            	include Ground, Analogue ground, Digital ground, Trigger in, Gate out.
+            	</small></p>
+      <p class="expressdescription"><b><a name="functional_specification_arm.signal_specification.minimum_characteristic">minimum_characteristic:
+               </a></b>
+         	specifies the lower bound for the valid range of the <a href="../../../modules/signal/sys/4_info_reqs.htm#signal_arm.signal_property"><b>Signal_property</b></a> for the 
+         	<b>Signal_specification</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_specification_arm.signal_specification.maximum_characteristic">maximum_characteristic:
+               </a></b>
+         	specifies the upper bound for the valid range of the <a href="../../../modules/signal/sys/4_info_reqs.htm#signal_arm.signal_property"><b>Signal_property</b></a> for the 
+         	<b>Signal_specification</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_specification_arm.signal_specification.characterization_network">characterization_network:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_definition"><b>Functional_unit_network_definition</b></a> 
+         	for this <b>Signal_specification</b>. 
+         	In this part of ISO 10303, the <b>characterization_network</b> shall include all 
+         	required simulated stimulus sources and measurement sensors.
+         	
+      </p>
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            	Examples of <b>characterization_network</b> types include test bench (VHDL), test fixture, test circuit.
+            	</small></p>
+      <p class="expressdescription"><b><a name="functional_specification_arm.signal_specification.nominal_characteristic">nominal_characteristic:
+               </a></b>
+         	specifies the nominal bound for the valid range of the <a href="../../../modules/signal/sys/4_info_reqs.htm#signal_arm.signal_property"><b>Signal_property</b></a> for the 
+         	<b>Signal_specification</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_specification_arm.signal_specification.measurement_condition">measurement_condition:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/specification_document/sys/4_info_reqs.htm#specification_document_arm.test_specification"><b>Test_specification</b></a> 
+         	under which the measurements are valid, including allowed ranges for 
+         	stimulus conditions, for the <b>Signal_specification</b>.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            	The <b>measurement_condition</b> may specify data using text or graphics.
+            	</small></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="functional_specification_arm.signal_specification.wr:wr1">WR1:
+               </a></b>
+         	At least one of attributes <b>minimum_characteristic</b> or <b>maximum_characteristic</b>, or <b>nominal_characteristic</b> shall be set.
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Functional_specification_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

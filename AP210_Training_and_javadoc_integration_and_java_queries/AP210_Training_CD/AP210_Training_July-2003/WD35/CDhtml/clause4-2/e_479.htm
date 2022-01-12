@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Join_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.479 Join_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Join_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Join_relationship is either an <A
+CLASS="INTERNALREF"
+HREF="e_476.htm"
+>Inter_stratum_join_relationship</A
+> or an <A
+CLASS="INTERNALREF"
+HREF="e_477.htm"
+>Intra_stratum_join_relationship</A
+>.  A Join_relationship identifies a strict subset of the <A
+CLASS="INTERNALREF"
+HREF="e_499.htm"
+>Layer_connection_point</A
+> identified by <A
+CLASS="INTERNALREF"
+HREF="e_660.htm"
+>Physical_network</A
+> topology.  This subset is then inherited by both types of Join_relationship to ensure topological integrity.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_layout</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>network_topology</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>points_to_be_connected</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.479.1 associated_layout</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_layout specifies the <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+> that is the design in which the Join_relationship is contained.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.479.2 network_topology</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The network_topology is an inverse relationship that specifies that the existence of the Join_relationship is dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_660.htm"
+>Physical_network</A
+> that specifies the Join_relationship as its interconnect_module_network_topology.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.479.3 points_to_be_connected</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The points_to_be_connected specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_499.htm"
+>Layer_connection_point</A
+> for the Join_relationship. There shall be at least two 
+Layer_connection_point in a Join_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY join_relationship
+  ABSTRACT SUPERTYPE OF (ONEOF (inter_stratum_join_relationship,
+      intra_stratum_join_relationship,
+      unrouted_join_relationship))
+  SUBTYPE OF (managed_design_object);
+   associated_layout : interconnect_module;
+  INVERSE
+    network_topology : physical_network FOR 
+                       interconnect_module_network_topology_element;
+END_ENTITY; -- join_relationship
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

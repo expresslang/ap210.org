@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Tolerance_zone_opposing_boundary_set</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.926 Tolerance_zone_opposing_boundary_set</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Tolerance_zone_opposing_boundary_set is a type of <A
+CLASS="INTERNALREF"
+HREF="e_915.htm"
+>Tolerance_zone_boundary</A
+> that consists of a set of two 
+like boundary members that are separated by a constant distance. A Tolerance_zone_opposing_boundary_set is either a <A
+CLASS="INTERNALREF"
+HREF="e_923.htm"
+>Tolerance_zone_explicit_opposing_boundary_set</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_925.htm"
+>Tolerance_zone_implicit_opposing_boundary_set</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>size_characteristic</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.926.1 size_characteristic</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The size_characteristic is an inverse relationship that specifies that the existence of the Tolerance_zone_opposing_boundary_set is 
+dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_569.htm"
+>Opposing_boundary_set_size_characteristic</A
+> that specifies the 
+Tolerance_zone_opposing_boundary_set as its sized_boundary_set.
+<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Two opposing planes comprise the Tolerance_zone_boundary_set that is defined when a <A
+CLASS="INTERNALREF"
+HREF="e_386.htm"
+>Flatness_tolerance</A
+> is applied to the top 
+surface of a printed circuit board. The size_characteristic specifies the separation between the two opposing planes.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY tolerance_zone_opposing_boundary_set
+  ABSTRACT SUPERTYPE OF (ONEOF (
+      tolerance_zone_explicit_opposing_boundary_set,
+      tolerance_zone_implicit_opposing_boundary_set))
+  SUBTYPE OF (tolerance_zone_boundary);
+  INVERSE
+    size_characteristic : opposing_boundary_set_size_characteristic FOR 
+                          sized_boundary_set;
+END_ENTITY; -- tolerance_zone_opposing_boundary_set
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,1917 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Dimension tolerance">
+      <META name="DC.Dates" content="2009-06-11 09:36:07">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Dimension tolerance">
+      <META name="DC.Subject" content="module, dimension, tolerance, angular, location, linear, plus, minus, limit, fit">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6675">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N3275">
+      <META name="SC4.version" content="3">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N2988">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N2989">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N2990">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-06-11 09:36:07">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.52">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.21">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.11">
+      <TITLE>ISO/TS 10303-1050:2009 Dimension tolerance</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Dimension tolerance</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1050:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <h2><a name="mapping">5.1 Mapping specification</a></h2><a name="mappings"></a><p>
+         In the following, "Application element" designates any entity data
+         type defined in Clause <a href="4_info_reqs.htm">4</a>, any of its 
+         explicit attributes and any subtype constraint. 
+         "MIM element" designates any entity data type defined in 
+         Clause <a href="5_mim.htm#mim_express">5.2</a> or imported with a USE FROM
+         statement, from another EXPRESS schema, any of its 
+         attributes and any subtype constraint defined in Clause <a href="5_mim.htm#mim_express">5.2</a> or imported with a USE FROM
+         statement.
+         
+      </p>
+      <p>
+         This clause contains the mapping specification that defines how each 
+         application element of this part of ISO 10303 (see Clause <a href="4_info_reqs.htm">4</a>) maps to one
+         or more MIM elements (see Clause <a href="5_mim.htm#mim_express">5.2</a>).
+         
+      </p>
+      <p>
+         The mapping for each application element is specified in a separate subclause below. 
+         The mapping specification of an attribute of an ARM entity is a subclause of the clause that contains the mapping specification
+         of this entity.
+         Each mapping specification subclause contains up to five elements.
+         
+      </p>
+      <p><b>Title:</b>
+         The clause title contains:
+      </p>
+      <ul>
+         <li>the name of the considered ARM entity or subtype constraint, or </li>
+         <li>the name of the considered ARM entity atribute when this attribute refers to a type that is not an entity data type or a SELECT
+            type that contains or may contain entity data types, or
+         </li>
+         <li>a composite expression, &lt;attribute name&gt; to &lt;referred type&gt;, when this attribute refers to a type that is not an entity data
+            type or a SELECT type that contains or may contain entity data types.
+         </li>
+      </ul>
+      <p><b>MIM element:</b> 
+         This section contains, depending on the considered application element:
+      </p>
+      <ul>
+         <li>the name of one or more MIM entity data types;</li>
+         <li>the name of a MIM entity attribute, presented with the syntax &lt;entity name&gt;.&lt;attribute name&gt;, when the considered ARM attribute
+            refers to a type that is not an entity data type or a SELECT type that contains or may contain entity data types;
+         </li>
+         <li>the term PATH, when the considered ARM entity attribute refers to an entity data type or to a SELECT type that contains or
+            may contain entity data types;
+         </li>
+         <li>the term IDENTICAL MAPPING, when both application objects
+            involved in an application assertion map to the same instance of a MIM entity data type;
+         </li>
+         <li>the syntax /SUPERTYPE(&lt;supertype name&gt;)/, when the considered ARM entity is mapped as its supertype;</li>
+         <li>one or more constructs /SUBTYPE(&lt;subtype name&gt;)/, when the mapping of the considered ARM entity is the union of the mapping
+            of its subtypes.
+         </li>
+      </ul>
+      <p>
+         When the mapping of an application element involves more than one MIM element, each of these MIM elements is 
+         presented on a separate line in the mapping specification, enclosed between parentheses or brackets. 
+         
+      </p>
+      <p><b>Source:</b> This section contains:
+      </p>
+      <ul>
+         <li>the ISO standard number and part number in which the
+            MIM element is defined, for those MIM elements that are defined in a common
+            resource document;
+         </li>
+         <li>the ISO standard number and
+            part number of this part of ISO 10303, for those MIM elements that are defined in the MIM schema of this part.
+         </li>
+      </ul>
+      <p>
+         		This section is omitted when the keywords PATH or IDENTICAL MAPPING are used in the MIM element section.
+         
+      </p>
+      <p><b>Rules:</b> 
+         This section contains the name of one or more global rules that apply to the
+         population of the MIM entity data types listed in the MIM element section or
+         in the reference path. When no rule applies, this section is omitted.
+         		
+      </p>
+      <p>A reference to a
+         global rule may be followed by a reference to the subclause in
+         which the rule is defined.
+         
+      </p>
+      <p><b>Constraint:</b> 
+         This section contains the name of one or more subtype constraints that apply to the
+         population of the MIM entity data types listed in the MIM element section or
+         in the reference path. When no subtype constraint applies, this section is omitted.
+         
+      </p>
+      <p>
+         A reference to a subtype constraint may be followed by a reference to the subclause in
+         which the subtype constraint is defined.
+         
+      </p>
+      <p><b>Reference path:</b> This section contains:
+      </p>
+      <ul>
+         <li>the reference path to its supertypes in the common resources, 
+            for each MIM element created within this part of ISO 10303; 
+            
+         </li>
+         <li>
+            the specification of the relationships between MIM elements, when the mapping of an application element requires to relate
+            instances of several
+            MIM entity data types. In such a case, each line in the reference path
+            documents the role of a MIM element relative to the referring MIM
+            element or to the next referred MIM element. 
+            		
+         </li>
+      </ul>
+      <p>For the expression of reference paths and of the
+         constraints between MIM elements, the following notational conventions
+         apply:
+         
+      </p>
+      <table cellspacing="6">
+         <tbody>
+            <tr valign="top">
+               <td valign="top">[]</td>
+               <td valign="top">
+                  enclosed section constrains multiple MIM elements or
+                  sections of the reference path are required to satisfy an
+                  information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">()</td>
+               <td valign="top">
+                  enclosed section constrains multiple MIM elements or
+                  sections of the reference path are identified as alternatives
+                  within the mapping to satisfy an information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">{}</td>
+               <td valign="top">
+                  enclosed section constrains the reference path to satisfy
+                  an information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;&gt;</td>
+               <td valign="top">
+                  enclosed section constrains at one or more required
+                  reference path;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">||</td>
+               <td valign="top">enclosed section constrains the supertype entity;</td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">-&gt;</td>
+               <td valign="top">
+                  the attribute, whose name precedes the -&gt; symbol, references the entity or select type whose name follows the -&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;-</td>
+               <td valign="top">
+                  the entity or select type, whose name precedes the &lt;- symbol, is referenced by the entity attribute whose name follows the
+                  &lt;- symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">[i]</td>
+               <td valign="top">
+                  the attribute, whose name precedes the [i] symbol, is an aggregate; any element of that aggregate is referred to;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">[n]</td>
+               <td valign="top">
+                  the attribute, whose name precedes the [n] symbol, is an ordered aggregate; member n of that aggregate is referred to;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">=&gt;</td>
+               <td valign="top">
+                  the entity, whose name precedes the =&gt; symbol, is a supertype of the entity whose name follows the =&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;=</td>
+               <td valign="top">
+                  the entity, whose name precedes the &lt;= symbol, is a subtype of the entity whose name follows the &lt;= symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">=</td>
+               <td valign="top">
+                  the string, select, or enumeration type is constrained to a choice or value;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">\</td>
+               <td valign="top">
+                  the reference path expression continues on the next line;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">*</td>
+               <td valign="top">
+                  one or more instances of the relationship entity data type may be assembled in a
+                  relationship tree structure. The path between the relationship entity and the related entities, is enclosed with braces;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">--</td>
+               <td valign="top">
+                  the text following is a comment or introduces a clause reference;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">*&gt;</td>
+               <td valign="top">
+                  the select or enumeration type, whose name precedes the *&gt; symbol, is
+                  extended into the select or enumeration type whose name follows the *&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;*</td>
+               <td valign="top">
+                  the select or enumeration type, whose name precedes the &lt;* symbol, is an
+                  extension of the select or enumeration type whose name follows the &lt;* symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top" nowrap="t">!{}</td>
+               <td valign="top">
+                  section enclosed by {} indicates a negative constraint placed on the mapping.
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      The definition and use of mapping templates is not supported in the
+      present version of the application modules. However, use of predefined
+      templates /SUBTYPE/ and /SUPERTYPE/ is supported. 
+      
+      <h2><a name="aeentitydocument_assignment">5.1.1 </a><a href="../../document_assignment/sys/4_info_reqs.htm#document_assignment_arm.document_assignment">Document_assignment</a></h2>
+      <p>
+         This application object,  
+         <a href="../../document_assignment/sys/4_info_reqs.htm#document_assignment_arm.document_assignment">Document_assignment</a>, is defined in the module
+         <a href="../../document_assignment/sys/4_info_reqs.htm#document_assignment_arm.document_assignment">document_assignment</a>.
+         This mapping section extends the 
+         <a href="../../document_assignment/sys/5_mapping.htm#aeentitydocument_assignment"> mapping of Document_assignment</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentitydocument_assignmentaaattributeis_assigned_toassertion_toexternally_defined_size_dimension"></a>5.1.1.1 <a href="../../document_assignment/sys/4_info_reqs.htm#document_assignment_arm.document_assignment">Document_assignment</a>
+         to <A HREF="../../../../data/modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.externally_defined_size_dimension">Externally_defined_size_dimension</A>
+         
+         (as <a href="../../document_assignment/sys/4_info_reqs.htm#document_assignment_arm.document_assignment.is_assigned_to">is_assigned_to</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;
+               If the assignment is not a partial document assignment.
+             
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_document_reference<br>{applied_document_reference &lt;=<br>document_reference<br>document_reference.assigned_document -&gt;<br>document<br>document.description = 'external size dimension specification' }<br>applied_document_reference.items[i] -&gt;<br>document_reference_item<br>document_reference_item *&gt; <br>dimension_tolerance_document_reference_item<br>dimension_tolerance_document_reference_item = externally_defined_dimension_definition<br>externally_defined_dimension_definition<br>       
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;
+               If the assignment is a partial document assignment.
+             
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_document_usage_constraint_assignment<br>{applied_document_usage_constraint_assignment &lt;=<br>document_usage_constraint_assignment<br>document_usage_constraint_assignment.assigned_document_usage -&gt;<br>document_usage_constraint<br>document_usage_constraint.source -&gt;<br>document<br>document.description = 'external size dimension specification' }<br>applied_document_usage_constraint_assignment.items[i] -&gt;<br>document_reference_item<br>document_reference_item *&gt; <br>dimension_tolerance_document_reference_item<br>dimension_tolerance_document_reference_item  = externally_defined_dimension_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityangular_location_dimension">5.1.2 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.angular_location_dimension">Angular_location_dimension</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>angular_location</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+      </table>
+      <h2><a name="aeentityangular_location_dimensionaaattributeorientationassertion_toaxis_placement"></a>5.1.2.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.angular_location_dimension">Angular_location_dimension</a>
+         to <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.angular_location_dimension.orientation">orientation</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>angular_location &lt;=<br>dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_definition = shape_aspect_relationship<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition &lt;-<br>property_definition_representation.definition<br><br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br><br>representation.items[i] -&gt;<br>{representation_item<br>representation_item.name = 'orientation'}<br>representation_item =&gt;<br>geometric_representation_item =&gt;<br>placement =&gt;<br><br>(axis2_placement_2d)<br>(axis2_placement_3d)<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityangular_size_dimension">5.1.3 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.angular_size_dimension">Angular_size_dimension</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>angular_size</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+      </table>
+      <h2><a name="aeentityangular_size_dimensionaaattributefull"></a>5.1.3.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.angular_size_dimension.full">full</a></h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If the angle is established between the two sides of the angular element.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>representation_item.name</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-43</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(angular_size &lt;= <br>dimensional_size<br>dimensional_characteristic = dimensional_size<br>dimensional_characteristic &lt;- <br>dimensional_characteristic_representation.dimension <br>dimensional_characteristic_representation <br>dimensional_characteristic_representation.representation -&gt; <br>shape_dimension_representation &lt;= <br>shape_representation &lt;=  <br>representation  <br>representation.items[i]  -&gt;<br>representation_item<br>{representation_item.name = 'full angle'})
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If the angle is established between the bisector line and the angular element.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>representation_item.name</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-43</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(angular_size &lt;= <br>dimensional_size<br>dimensional_characteristic = dimensional_size<br>dimensional_characteristic &lt;- <br>dimensional_characteristic_representation.dimension <br>dimensional_characteristic_representation <br>dimensional_characteristic_representation.representation -&gt; <br>shape_dimension_representation &lt;= <br>shape_representation &lt;=  <br>representation  <br>representation.items[i]  -&gt;<br>representation_item<br>{representation_item.name = 'half angle'})
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityangular_size_dimensionaaattributemajor_angle"></a>5.1.3.2 <a href="./4_info_reqs.htm#dimension_tolerance_arm.angular_size_dimension.major_angle">major_angle</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>angular_size.angle_selection</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycurved_distance_dimension">5.1.4 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.curved_distance_dimension">Curved_distance_dimension</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>dimensional_location_with_path</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycurved_distance_dimensionaaattributeused_pathassertion_tomeasurement_path"></a>5.1.4.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.curved_distance_dimension">Curved_distance_dimension</a>
+         to <A HREF="../../../../data/modules/basic_curve/sys/4_info_reqs.htm#basic_curve_arm.measurement_path">Measurement_path</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.curved_distance_dimension.used_path">used_path</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location_with_path <br>dimensional_location_with_path.path -&gt; <br>shape_aspect <br>shape_definition = shape_aspect <br>characterized_definition = shape_definition <br>characterized_definition &lt;- <br>property_definition.definition <br>property_definition <br>represented_definition = property_definition <br>represented_definition &lt;- <br>property_definition_representation.definition <br>property_definition_representation <br>property_definition_representation.used_representation -&gt; <br>representation
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycurved_size_dimension">5.1.5 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.curved_size_dimension">Curved_size_dimension</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>dimensional_size</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{dimensional_size<br>dimensional_size.name = 'curve length'}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydiameter_size_dimension">5.1.6 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.diameter_size_dimension">Diameter_size_dimension</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>dimensional_size</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{dimensional_size<br>dimensional_size.name = 'diameter'}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydimension_value_with_limitation">5.1.7 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.dimension_value_with_limitation">Dimension_value_with_limitation</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>plus_minus_tolerance</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydimension_value_with_limitationaaattributedefined_byassertion_tolimits_and_fits"></a>5.1.7.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.dimension_value_with_limitation">Dimension_value_with_limitation</a>
+         to <A HREF="../../../../data/modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.limits_and_fits">Limits_and_fits</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.dimension_value_with_limitation.defined_by">defined_by</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>plus_minus_tolerance <br>plus_minus_tolerance.range -&gt; <br>tolerance_method_definition<br>tolerance_method_definition = limits_and_fits <br>limits_and_fits
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydimension_value_with_limitationaaattributelimited_valueassertion_tonumerical_item_with_unit"></a>5.1.7.2 <a href="./4_info_reqs.htm#dimension_tolerance_arm.dimension_value_with_limitation">Dimension_value_with_limitation</a>
+         to <A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.dimension_value_with_limitation.limited_value">limited_value</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;The limited value is a size.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(plus_minus_tolerance<br>plus_minus_tolerance.toleranced_dimension -&gt;<br>dimensional_characteristic<br>dimensional_characteristic = dimensional_size<br>dimensional_size<br>dimensional_characteristic = dimensional_size<br>dimensional_characteristic &lt;-<br>dimensional_characteristic_representation.dimension<br>dimensional_characteristic_representation<br>dimensional_characteristic_representation.representation -&gt;<br>shape_dimension_representation &lt;=<br>shape_representation &lt;=<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>measure_representation_item)
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;The limited value is a location.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(plus_minus_tolerance<br>plus_minus_tolerance.toleranced_dimension -&gt;<br>dimensional_characteristic<br>dimensional_characteristic = dimensional_location<br>dimensional_location<br>dimensional_characteristic = dimensional_location<br>dimensional_characteristic &lt;-<br>dimensional_characteristic_representation.dimension<br>dimensional_characteristic_representation<br>dimensional_characteristic_representation.representation -&gt;<br>shape_dimension_representation &lt;=<br>shape_representation &lt;=<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>measure_representation_item)
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydimension_value_with_limitationaaattributedefined_byassertion_toplus_minus_bounds"></a>5.1.7.3 <a href="./4_info_reqs.htm#dimension_tolerance_arm.dimension_value_with_limitation">Dimension_value_with_limitation</a>
+         to <A HREF="../../../../data/modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.plus_minus_bounds">Plus_minus_bounds</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.dimension_value_with_limitation.defined_by">defined_by</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>plus_minus_tolerance <br>plus_minus_tolerance.range -&gt; <br>tolerance_method_definition<br>tolerance_method_definition = tolerance_value <br>tolerance_value
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityexternally_defined_size_dimension">5.1.8 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.externally_defined_size_dimension">Externally_defined_size_dimension</a></h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp; If no measurement_path is specified
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>(externally_defined_dimension_definition)</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1050</td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If a measurement_path is specified
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>([externally_defined_dimension_definition]<br>[dimensional_size_with_path])
+            </td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1050<br>ISO 10303-47
+            </td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>externally_defined_dimension_definition &lt;=<br>externally_defined_item<br>{ externally_defined_item.item_id -&gt; <br>source_item<br>source_item = 'external size dimension'}<br>{ externally_defined_item.source -&gt; <br>external_source<br>external_source.source_id -&gt;<br>source_item<br>source_item = 'external size dimension specification' }<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityexternally_defined_size_dimensionaaattributename"></a>5.1.8.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.externally_defined_size_dimension.name">name</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>dimensional_size.name</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>externally_defined_dimension_definition &lt;=<br>dimensional_size<br>dimensional_size.name<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityexternally_defined_size_dimensionaaattributeused_pathassertion_tomeasurement_path"></a>5.1.8.2 <a href="./4_info_reqs.htm#dimension_tolerance_arm.externally_defined_size_dimension">Externally_defined_size_dimension</a>
+         to <A HREF="../../../../data/modules/basic_curve/sys/4_info_reqs.htm#basic_curve_arm.measurement_path">Measurement_path</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.externally_defined_size_dimension.used_path">used_path</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>externally_defined_dimension_definition &lt;=<br>dimensional_size =&gt;<br>dimensional_size_with_path <br>dimensional_size_with_path.path -&gt; <br>shape_aspect <br>shape_definition = shape_aspect <br>characterized_definition = shape_definition <br>characterized_definition &lt;- <br>property_definition.definition <br>property_definition <br>represented_definition = property_definition <br>represented_definition &lt;- <br>property_definition_representation.definition <br>property_definition_representation <br>property_definition_representation.used_representation -&gt; <br>representation
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitygeometric_dimension">5.1.9 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.geometric_dimension">Geometric_dimension</a></h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If the <b>Geometric_dimension</b> is a <b>Location_dimension</b><p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>(dimensional_location)</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If the <b>Geometric_dimension</b> is a <b>Size_dimension</b><p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>(dimensional_size)</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+      </table>
+      <h2><a name="aeentitygeometric_dimensionaaattributedimension_valueassertion_todimension_value_with_limitation"></a>5.1.9.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.geometric_dimension">Geometric_dimension</a>
+         to <A HREF="../../../../data/modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.dimension_value_with_limitation">Dimension_value_with_limitation</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.geometric_dimension.dimension_value">dimension_value</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If the <b>Geometric_dimension</b> is a <b>Location_dimension</b><p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_location <br>dimensional_characteristic = dimensional_location<br>dimensional_characteristic &lt;-<br>plus_minus_tolerance.toleranced_dimension<br>plus_minus_tolerance)
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If the <b>Geometric_dimension</b> is a <b>Size_dimension</b><p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_size <br>dimensional_characteristic = dimensional_size<br>dimensional_characteristic &lt;-<br>plus_minus_tolerance.toleranced_dimension<br>plus_minus_tolerance)
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitygeometric_dimensionaaattributedimension_valueassertion_tonumerical_item_with_unit"></a>5.1.9.2 <a href="./4_info_reqs.htm#dimension_tolerance_arm.geometric_dimension">Geometric_dimension</a>
+         to <A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.geometric_dimension.dimension_value">dimension_value</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If the <b>Geometric_dimension</b> is a <b>Location_dimension</b><p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_location <br>dimensional_characteristic = dimensional_location<br>dimensional_characteristic &lt;- <br>dimensional_characteristic_representation.dimension <br>dimensional_characteristic_representation <br>dimensional_characteristic_representation.representation -&gt; <br>shape_dimension_representation &lt;= <br>shape_representation &lt;=  <br>representation  <br>representation.items[i] -&gt; <br>representation_item =&gt; <br>measure_representation_item) <br></td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If the <b>Geometric_dimension</b> is a <b>Size_dimension</b><p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_size <br>dimensional_characteristic = dimensional_size<br>dimensional_characteristic &lt;- <br>dimensional_characteristic_representation.dimension <br>dimensional_characteristic_representation <br>dimensional_characteristic_representation.representation -&gt; <br>shape_dimension_representation &lt;= <br>shape_representation &lt;=  <br>representation  <br>representation.items[i] -&gt; <br>representation_item =&gt; <br>measure_representation_item) <br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitygeometric_dimensionaaattributedimension_valueassertion_tovalue_limit"></a>5.1.9.3 <a href="./4_info_reqs.htm#dimension_tolerance_arm.geometric_dimension">Geometric_dimension</a>
+         to <A HREF="../../../../data/modules/extended_measure_representation/sys/4_info_reqs.htm#extended_measure_representation_arm.value_limit">Value_limit</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.geometric_dimension.dimension_value">dimension_value</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If the <b>Geometric_dimension</b> is a <b>Location_dimension</b><p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_location <br>dimensional_characteristic = dimensional_location<br>dimensional_characteristic &lt;- <br>dimensional_characteristic_representation.dimension <br>dimensional_characteristic_representation <br>dimensional_characteristic_representation.representation -&gt; <br>shape_dimension_representation &lt;= <br>shape_representation &lt;=  <br>representation  <br>representation.items[i] -&gt; <br>representation_item =&gt; <br>measure_representation_item) <br></td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If the <b>Geometric_dimension</b> is a <b>Size_dimension</b><p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_size <br>dimensional_characteristic = dimensional_size<br>dimensional_characteristic &lt;- <br>dimensional_characteristic_representation.dimension <br>dimensional_characteristic_representation <br>dimensional_characteristic_representation.representation -&gt; <br>shape_dimension_representation &lt;= <br>shape_representation &lt;=  <br>representation  <br>representation.items[i] -&gt; <br>representation_item =&gt; <br>measure_representation_item) <br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitygeometric_dimensionaaattributedimension_valueassertion_totolerance_range"></a>5.1.9.4 <a href="./4_info_reqs.htm#dimension_tolerance_arm.geometric_dimension">Geometric_dimension</a>
+         to <A HREF="../../../../data/modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.tolerance_range">Tolerance_range</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.geometric_dimension.dimension_value">dimension_value</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If the <b>Geometric_dimension</b> is a <b>Location_dimension</b><p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_location <br>dimensional_characteristic = dimensional_location<br>dimensional_characteristic &lt;- <br>dimensional_characteristic_representation.dimension <br>dimensional_characteristic_representation <br>dimensional_characteristic_representation.representation -&gt; <br>shape_dimension_representation) <br></td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If the <b>Geometric_dimension</b> is a <b>Size_dimension</b><p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_size <br>dimensional_characteristic = dimensional_size<br>dimensional_characteristic &lt;- <br>dimensional_characteristic_representation.dimension <br>dimensional_characteristic_representation <br>dimensional_characteristic_representation.representation -&gt; <br>shape_dimension_representation) <br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitygeometric_dimensionaaattributeid"></a>5.1.9.5 <a href="./4_info_reqs.htm#dimension_tolerance_arm.geometric_dimension.id">id</a></h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If the <b>Geometric_dimension</b> is a <b>Location_dimension</b><p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>(shape_aspect_relationship.name)</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-41</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_location &lt;= <br>shape_aspect_relationship <br>shape_aspect_relationship.name)  <br></td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If the <b>Geometric_dimension</b> is a <b>Size_dimension</b><p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>(identification_assignment.assigned_id)</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-41</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_size identification_item = dimensional_size <br>identification_item &lt;- <br>applied_identification_assignment.items[i] <br>applied_identification_assignment &lt;= <br>identification_assignment <br>{identification_assignment.role -&gt; <br>identification_role <br>identification_role.name = 'size id'} <br>identification_assignment.assigned_id)
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitygeometric_dimensionaaattributenotes"></a>5.1.9.6 <a href="./4_info_reqs.htm#dimension_tolerance_arm.geometric_dimension.notes">notes</a></h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If the <b>Geometric_dimension</b> is a <b>Location_dimension</b><p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>descriptive_representation_item.description</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-45</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_location <br>dimensional_characteristic = dimensional_location<br>dimensional_characteristic &lt;- <br>dimensional_characteristic_representation.dimension <br>dimensional_characteristic_representation <br>dimensional_characteristic_representation.representation -&gt; <br>shape_dimension_representation &lt;= <br>shape_representation &lt;=  <br>representation  <br>representation.items[i] -&gt; <br>representation_item <br>{representation_item.name = 'dimensional note'} <br>representation_item =&gt; <br>descriptive_representation_item<br>{(descriptive_representation_item.description)<br>(descriptive_representation_item.description = 'auxiliary')<br>(descriptive_representation_item.description = 'theoretical')}) <br></td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If the <b>Geometric_dimension</b> is a <b>Size_dimension</b><p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>descriptive_representation_item.description</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-41</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_size <br>dimensional_characteristic = dimensional_size<br>dimensional_characteristic &lt;- <br>dimensional_characteristic_representation.dimension <br>dimensional_characteristic_representation <br>dimensional_characteristic_representation.representation -&gt; <br>shape_dimension_representation &lt;= <br>shape_representation &lt;=  <br>representation  <br>representation.items[i] -&gt; <br>representation_item <br>{representation_item.name = 'dimensional note'} <br>representation_item =&gt; <br>descriptive_representation_item<br>{( descriptive_representation_item.description)<br>(descriptive_representation_item.description = 'auxiliary')<br>(descriptive_representation_item.description = 'theoretical')}) <br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityheight_size_dimension">5.1.10 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.height_size_dimension">Height_size_dimension</a></h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp; If no measurement_path is specified
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>(dimensional_size)</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{dimensional_size<br>dimensional_size.name = 'height'}
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If a measurement_path is specified
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>(dimensional_size_with_path)</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{dimensional_size_with_path &lt;=<br>dimensional_size<br>dimensional_size.name = 'height'}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityheight_size_dimensionaaattributeused_pathassertion_tomeasurement_path"></a>5.1.10.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.height_size_dimension">Height_size_dimension</a>
+         to <A HREF="../../../../data/modules/basic_curve/sys/4_info_reqs.htm#basic_curve_arm.measurement_path">Measurement_path</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.height_size_dimension.used_path">used_path</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_size_with_path <br>dimensional_size_with_path.path -&gt; <br>shape_aspect <br>shape_definition = shape_aspect <br>characterized_definition = shape_definition <br>characterized_definition &lt;- <br>property_definition.definition <br>property_definition <br>represented_definition = property_definition <br>represented_definition &lt;- <br>property_definition_representation.definition <br>property_definition_representation <br>property_definition_representation.used_representation -&gt; <br>representation
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylength_size_dimension">5.1.11 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.length_size_dimension">Length_size_dimension</a></h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp; If no measurement_path is specified
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>(dimensional_size)</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{dimensional_size<br>dimensional_size.name = 'length'}
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If a measurement_path is specified
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>(dimensional_size_with_path)</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{dimensional_size_with_path &lt;=<br>dimensional_size<br>dimensional_size.name = 'length'}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylength_size_dimensionaaattributeused_pathassertion_tomeasurement_path"></a>5.1.11.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.length_size_dimension">Length_size_dimension</a>
+         to <A HREF="../../../../data/modules/basic_curve/sys/4_info_reqs.htm#basic_curve_arm.measurement_path">Measurement_path</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.length_size_dimension.used_path">used_path</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_size_with_path <br>dimensional_size_with_path.path -&gt; <br>shape_aspect <br>shape_definition = shape_aspect <br>characterized_definition = shape_definition <br>characterized_definition &lt;- <br>property_definition.definition <br>property_definition <br>represented_definition = property_definition <br>represented_definition &lt;- <br>property_definition_representation.definition <br>property_definition_representation <br>property_definition_representation.used_representation -&gt; <br>representation
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylimits_and_fits">5.1.12 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.limits_and_fits">Limits_and_fits</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>limits_and_fits</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylimits_and_fitsaaattributedeviation"></a>5.1.12.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.limits_and_fits.deviation">deviation</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>limits_and_fits.form_variance</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylimits_and_fitsaaattributefitting_type"></a>5.1.12.2 <a href="./4_info_reqs.htm#dimension_tolerance_arm.limits_and_fits.fitting_type">fitting_type</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>limits_and_fits.zone_variance</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylimits_and_fitsaaattributegrade"></a>5.1.12.3 <a href="./4_info_reqs.htm#dimension_tolerance_arm.limits_and_fits.grade">grade</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>limits_and_fits.grade</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylinear_distance_dimension">5.1.13 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.linear_distance_dimension">Linear_distance_dimension</a></h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If  directed is 'false'.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>(dimensional_location)</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_location &lt;=<br>shape_aspect_relationship<br>{shape_aspect_relationship.name = 'linear distance'})
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If the directed is 'true'.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>(directed_dimensional_location)</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1050</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(directed_dimensional_location &lt;= dimensional_location &lt;=<br>shape_aspect_relationship<br>{shape_aspect_relationship.name = 'linear distance'})
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylinear_distance_dimensionaaattributeorientationassertion_toaxis_placement"></a>5.1.13.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.linear_distance_dimension">Linear_distance_dimension</a>
+         to <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.linear_distance_dimension.orientation">orientation</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_definition = shape_aspect_relationship<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition &lt;-<br>property_definition_representation.definition<br><br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br><br>representation.items[i] -&gt;<br>{representation_item<br>representation_item.name = 'orientation'}<br>representation_item =&gt;<br>geometric_representation_item =&gt;<br>placement =&gt;<br><br>(axis2_placement_2d)<br>(axis2_placement_3d)<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimension">5.1.14 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a></h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If the directed attribute is 'false'
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>(dimensional_location)</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If the directed attribute is 'true'
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>(directed_dimensional_location)</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1050</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>({directed_dimensional_location &lt;= <br>dimensional_location})<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributedirected"></a>5.1.14.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.directed">directed</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>IDENTICAL MAPPING</td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributeoriginassertion_toelement_with_dimension_select"></a>5.1.14.2 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.element_with_dimension_select">element_with_dimension_select</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.origin">origin</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;= <br>  shape_aspect_relationship
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributeoriginassertion_toplaced_element_select"></a>5.1.14.3 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.placed_element_select">placed_element_select</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.origin">origin</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;= <br>shape_aspect_relationship <br>shape_aspect_relationship.relating_shape_aspect
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributeoriginassertion_toshape_element"></a>5.1.14.4 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element">Shape_element</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.origin">origin</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_location &lt;= <br>shape_aspect_relationship <br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect)
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributeoriginassertion_toderived_geometry"></a>5.1.14.5 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/derived_shape_element/sys/4_info_reqs.htm#derived_shape_element_arm.derived_geometry">Derived_geometry</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.origin">origin</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect =&gt;<br>derived_shape_aspect<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributeoriginassertion_toconstructive_element_select"></a>5.1.14.6 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/construction_geometry/sys/4_info_reqs.htm#construction_geometry_arm.constructive_element_select">constructive_element_select</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.origin">origin</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect<br>shape_definition = shape_aspect<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>represented_definition = property_definition<br>represented_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item <br><br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributeoriginassertion_tocurve"></a>5.1.14.7 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.curve">Curve</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.origin">origin</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect<br>shape_definition = shape_aspect<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>represented_definition = property_definition<br>represented_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>geometric_representation_item =&gt;<br>curve<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributeoriginassertion_topoint_on_curve"></a>5.1.14.8 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.point_on_curve">Point_on_curve</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.origin">origin</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect<br>shape_definition = shape_aspect<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>represented_definition = property_definition<br>represented_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>geometric_representation_item =&gt;<br>point  =&gt;<br>point_on_curve<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributeoriginassertion_topoint_on_surface"></a>5.1.14.9 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.point_on_surface">Point_on_surface</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.origin">origin</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If the point is defined from the evaluation of the surface function for a given parameter pair.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect<br>shape_definition = shape_aspect<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>represented_definition = property_definition<br>represented_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>geometric_representation_item =&gt;<br>point =&gt;<br>point_on_surface)<br></td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If the Point_on_surface identifies a point where a curve on the surface collapses.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect<br>shape_definition = shape_aspect<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>represented_definition = property_definition<br>represented_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>geometric_representation_item =&gt;<br>point =&gt;<br>degenerate_pcurve)<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributeoriginassertion_tosurface"></a>5.1.14.10 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.surface">Surface</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.origin">origin</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If no orientation is specified for the Surface.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect<br>shape_definition = shape_aspect<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>represented_definition = property_definition<br>represented_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>geometric_representation_item =&gt;<br>surface<br></td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If an orientation is specified for the Surface.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect<br>shape_definition = shape_aspect<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>represented_definition = property_definition<br>represented_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>geometric_representation_item =&gt;<br>surface =&gt;<br>oriented_surface<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributetargetassertion_toplaced_element_select"></a>5.1.14.11 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.placed_element_select">placed_element_select</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.target">target</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;= <br>shape_aspect_relationship <br>shape_aspect_relationship.related_shape_aspect
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributetargetassertion_toelement_with_dimension_select"></a>5.1.14.12 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.element_with_dimension_select">element_with_dimension_select</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.target">target</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;= <br>  shape_aspect_relationship<br>  shape_aspect_relationship.related_shape_aspect
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributetargetassertion_toshape_element"></a>5.1.14.13 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element">Shape_element</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.target">target</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;= <br>shape_aspect_relationship <br>shape_aspect_relationship.related_shape_aspect -&gt;<br>shape_aspect
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributetargetassertion_toderived_geometry"></a>5.1.14.14 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/derived_shape_element/sys/4_info_reqs.htm#derived_shape_element_arm.derived_geometry">Derived_geometry</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.target">target</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.related_shape_aspect -&gt;<br>shape_aspect =&gt;<br>derived_shape_aspect<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributetargetassertion_toconstructive_element_select"></a>5.1.14.15 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/construction_geometry/sys/4_info_reqs.htm#construction_geometry_arm.constructive_element_select">constructive_element_select</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.target">target</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.related_shape_aspect -&gt;<br>shape_aspect<br>shape_definition = shape_aspect<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>represented_definition = property_definition<br>represented_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item<br><br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributetargetassertion_tocurve"></a>5.1.14.16 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.curve">Curve</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.target">target</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.related_shape_aspect -&gt;<br>shape_aspect<br>shape_definition = shape_aspect<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>represented_definition = property_definition<br>represented_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>geometric_representation_item =&gt;<br>curve<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributetargetassertion_topoint_on_curve"></a>5.1.14.17 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.point_on_curve">Point_on_curve</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.target">target</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.related_shape_aspect -&gt;<br>shape_aspect<br>shape_definition = shape_aspect<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>represented_definition = property_definition<br>represented_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>geometric_representation_item =&gt;<br>point =&gt;<br>point_on_curve<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributetargetassertion_topoint_on_surface"></a>5.1.14.18 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.point_on_surface">Point_on_surface</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.target">target</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If the point is defined from the evaluation of the surface function for a given parameter pair.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.related_shape_aspect -&gt;<br>shape_aspect<br>shape_definition = shape_aspect<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>represented_definition = property_definition<br>represented_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>geometric_representation_item =&gt;<br>point =&gt;<br>point_on_surface)<br></td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If the Point_on_surface identifies a point where a curve on the surface collapses.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.related_shape_aspect -&gt;<br>shape_aspect<br>shape_definition = shape_aspect<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>represented_definition = property_definition<br>represented_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>geometric_representation_item =&gt;<br>point =&gt;<br>degenerate_pcurve)<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributetargetassertion_tosurface"></a>5.1.14.19 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension">Location_dimension</a>
+         to <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.surface">Surface</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.target">target</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If no orientation is specified for the Surface.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.related_shape_aspect -&gt;<br>shape_aspect<br>shape_definition = shape_aspect<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>represented_definition = property_definition<br>represented_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>geometric_representation_item =&gt;<br>surface<br></td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If an orientation is specified for the Surface.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.related_shape_aspect -&gt;<br>shape_aspect<br>shape_definition = shape_aspect<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>represented_definition = property_definition<br>represented_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>geometric_representation_item =&gt;<br>surface =&gt;<br>oriented_surface<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocation_dimensionaaattributedescription"></a>5.1.14.20 <a href="./4_info_reqs.htm#dimension_tolerance_arm.location_dimension.description">description</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>shape_aspect_relationship.description</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_location &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.description<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityplus_minus_bounds">5.1.15 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.plus_minus_bounds">Plus_minus_bounds</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>tolerance_value</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+      </table>
+      <h2><a name="aeentityplus_minus_boundsaaattributelower_boundassertion_tovalue_with_unit"></a>5.1.15.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.plus_minus_bounds">Plus_minus_bounds</a>
+         to <A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.value_with_unit">Value_with_unit</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.plus_minus_bounds.lower_bound">lower_bound</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>tolerance_value<br>tolerance_value.lower_bound -&gt;<br>measure_with_unit
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityplus_minus_boundsaaattributesignificant_digits"></a>5.1.15.2 <a href="./4_info_reqs.htm#dimension_tolerance_arm.plus_minus_bounds.significant_digits">significant_digits</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>precision_qualifier.precision_value</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-45</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>[tolerance_value<br>tolerance_value.lower_bound -&gt;<br>measure_with_unit &lt;-]<br>[tolerance_value<br>tolerance_value.upper_bound -&gt;<br>measure_with_unit &lt;-]<br>measure_qualification.qualified_measure<br>measure_qualification<br>measure_qualification.qualifiers[i] -&gt;<br>value_qualifier<br>value_qualifier = precision_qualifier<br>precision_qualifier<br>precision_qualifier.precision_value
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityplus_minus_boundsaaattributeupper_boundassertion_tovalue_with_unit"></a>5.1.15.3 <a href="./4_info_reqs.htm#dimension_tolerance_arm.plus_minus_bounds">Plus_minus_bounds</a>
+         to <A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.value_with_unit">Value_with_unit</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.plus_minus_bounds.upper_bound">upper_bound</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>tolerance_value<br>tolerance_value.upper_bound -&gt;<br>measure_with_unit
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityplus_minus_boundsaaattributevalue_determination"></a>5.1.15.4 <a href="./4_info_reqs.htm#dimension_tolerance_arm.plus_minus_bounds.value_determination">value_determination</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>type_qualifier.name</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-45</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>tolerance_value<br>[tolerance_value.lower_bound -&gt;]<br>[tolerance_value.upper_bound -&gt;] <br>measure_with_unit &lt;- <br>measure_qualification.qualified_measure measure_qualification <br>measure_qualification.qualifiers[i] -&gt; <br>value_qualifier value_qualifier = type_qualifier type_qualifier <br>type_qualifier.name<br>{(type_qualifier.name)<br>(type_qualifier.name = 'required')<br>(type_qualifier.name = 'designed')<br>(type_qualifier.name = 'calculated')<br>(type_qualifier.name = 'measured')<br>(type_qualifier.name = 'estimated')}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityradial_size_dimension">5.1.16 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.radial_size_dimension">Radial_size_dimension</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>dimensional_size</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{dimensional_size<br>dimensional_size.name = 'radius'}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityradial_size_dimensionaaattributeradius_type"></a>5.1.16.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.radial_size_dimension.radius_type">radius_type</a></h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;if the centre of the radius is located.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>descriptive_representation_item.description</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>10303-45</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_size <br>dimensional_characteristic = dimensional_size<br>dimensional_characteristic &lt;-<br>dimensional_characteristic_representation.dimension<br>dimensional_characteristic_representation<br>dimensional_characteristic_representation.representation -&gt;<br>shape_dimension_representation &lt;=<br>shape_representation &lt;=<br>representation<br>{representation.items[i] -&gt;<br>representation_item<br>representation_item.name = 'radius type'}<br>representation_item =&gt;<br>descriptive_representation_item<br>{descriptive_representation_item.description = 'centred'})<br></td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;if the radius is located by its end points.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>descriptive_representation_item.description</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>10303-45</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_size <br>dimensional_characteristic = dimensional_size<br>dimensional_characteristic &lt;-<br>dimensional_characteristic_representation.dimension<br>dimensional_characteristic_representation<br>dimensional_characteristic_representation.representation -&gt;<br>shape_dimension_representation &lt;=<br>shape_representation &lt;=<br>representation<br>{representation.items[i] -&gt;<br>representation_item<br>representation_item.name = 'radius type'}<br>representation_item =&gt;<br>descriptive_representation_item<br>{descriptive_representation_item.description = 'adjoining'})<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitysize_dimension">5.1.17 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.size_dimension">Size_dimension</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>dimensional_size</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+      </table>
+      <h2><a name="aeentitysize_dimensionaaattributeis_applied_toassertion_toelement_with_dimension_select"></a>5.1.17.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.size_dimension">Size_dimension</a>
+         to <A HREF="../../../../data/modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.element_with_dimension_select">element_with_dimension_select</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.size_dimension.is_applied_to">is_applied_to</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>dimensional_size.applies_to</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_size <br>dimensional_size.applies_to
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitysize_dimensionaaattributeis_applied_toassertion_toshape_element"></a>5.1.17.2 <a href="./4_info_reqs.htm#dimension_tolerance_arm.size_dimension">Size_dimension</a>
+         to <A HREF="../../../../data/modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element">Shape_element</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.size_dimension.is_applied_to">is_applied_to</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_size <br>dimensional_size.applies_to -&gt;<br>shape_aspect
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitysize_dimensionaaattributeenvelope_principle"></a>5.1.17.3 <a href="./4_info_reqs.htm#dimension_tolerance_arm.size_dimension.envelope_principle">envelope_principle</a></h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If the envelope principle applies.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>representation.name</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_size<br>dimensional_characteristic = dimensional_size<br>dimensional_characteristic &lt;-<br>dimensional_characteristic_representation.dimension<br>dimensional_characteristic_representation<br>dimensional_characteristic_representation.representation -&gt;<br>shape_dimension_representation &lt;=<br>shape_representation &lt;=<br>representation<br>representation.name<br>{representation.name = 'envelope tolerance'}<br></td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If the envelope principle does not apply, the envelope_principle attribute is not reflected in the MIM.
+      <p></p>
+      <h2><a name="aeentitythickness_size_dimension">5.1.18 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.thickness_size_dimension">Thickness_size_dimension</a></h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If no measurement_path is specified
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>dimensional_size</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{dimensional_size<br>dimensional_size.name = 'thickness size'}
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If a measurement_path is specified
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>dimensional_size_with_path</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(dimensional_size_with_path &lt;= <br>dimensional_size)<br>{dimensional_size.name = 'thickness size'}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitythickness_size_dimensionaaattributeused_pathassertion_tomeasurement_path"></a>5.1.18.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.thickness_size_dimension">Thickness_size_dimension</a>
+         to <A HREF="../../../../data/modules/basic_curve/sys/4_info_reqs.htm#basic_curve_arm.measurement_path">Measurement_path</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.thickness_size_dimension.used_path">used_path</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_size_with_path <br>dimensional_size_with_path.path -&gt; <br>shape_aspect <br>shape_definition = shape_aspect <br>characterized_definition = shape_definition <br>characterized_definition &lt;- <br>property_definition.definition <br>property_definition <br>represented_definition = property_definition <br>represented_definition &lt;- <br>property_definition_representation.definition <br>property_definition_representation <br>property_definition_representation.used_representation -&gt; <br>representation
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitytolerance_range">5.1.19 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.tolerance_range">Tolerance_range</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>shape_dimension_representation</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+      </table>
+      <h2><a name="aeentitytolerance_rangeaaattributelower_rangeassertion_tonumerical_item_with_unit"></a>5.1.19.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.tolerance_range">Tolerance_range</a>
+         to <A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.tolerance_range.lower_range">lower_range</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>shape_dimension_representation &lt;=<br>shape_representation &lt;=<br>representation<br>representation.items[i] -&gt;<br>{representation_item<br>representation_item.name = 'lower range'}<br>representation_item =&gt;<br>measure_representation_item
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitytolerance_rangeaaattributesignificant_digits"></a>5.1.19.2 <a href="./4_info_reqs.htm#dimension_tolerance_arm.tolerance_range.significant_digits">significant_digits</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>precision_qualifier.precision_value</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-45</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>shape_dimension_representation &lt;=<br>shape_representation &lt;=<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>measure_representation_item &lt;=<br>measure_with_unit &lt;-<br>measure_qualification.qualified_measure<br>measure_qualification<br>measure_qualification.qualifiers[1] -&gt;<br>value_qualifier = precision_qualifier<br>precision_qualifier<br>precision_qualifier.precision_value
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitytolerance_rangeaaattributeupper_rangeassertion_tonumerical_item_with_unit"></a>5.1.19.3 <a href="./4_info_reqs.htm#dimension_tolerance_arm.tolerance_range">Tolerance_range</a>
+         to <A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.tolerance_range.upper_range">upper_range</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>shape_dimension_representation &lt;=<br>shape_representation &lt;=<br>representation<br>representation.items[i] -&gt;<br>{representation_item<br>representation_item.name = 'upper range'}<br>representation_item =&gt;<br>measure_representation_item
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitywidth_size_dimension">5.1.20 </a><a href="./4_info_reqs.htm#dimension_tolerance_arm.width_size_dimension">Width_size_dimension</a></h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp; If no measurement_path is specified
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>(dimensional_size)</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{dimensional_size<br>dimensional_size.name = 'width'}
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If a measurement_path is specified
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>(dimensional_size_with_path)</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-47</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{dimensional_size_with_path &lt;=<br>dimensional_size<br>dimensional_size.name = 'width'}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitywidth_size_dimensionaaattributeused_pathassertion_tomeasurement_path"></a>5.1.20.1 <a href="./4_info_reqs.htm#dimension_tolerance_arm.width_size_dimension">Width_size_dimension</a>
+         to <A HREF="../../../../data/modules/basic_curve/sys/4_info_reqs.htm#basic_curve_arm.measurement_path">Measurement_path</A>
+         
+         (as <a href="./4_info_reqs.htm#dimension_tolerance_arm.width_size_dimension.used_path">used_path</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimensional_size_with_path <br>dimensional_size_with_path.path -&gt; <br>shape_aspect <br>shape_definition = shape_aspect <br>characterized_definition = shape_definition <br>characterized_definition &lt;- <br>property_definition.definition <br>property_definition <br>represented_definition = property_definition <br>represented_definition &lt;- <br>property_definition_representation.definition <br>property_definition_representation <br>property_definition_representation.used_representation -&gt; <br>representation
+            </td>
+         </tr>
+      </table><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

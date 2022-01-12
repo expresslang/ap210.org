@@ -1,0 +1,100 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Assembly_physical_interface_requirement_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Assembly_physical_interface_requirement_arm</h2><code><br><br><a name="assembly_physical_interface_requirement_arm">SCHEMA <b>Assembly_physical_interface_requirement_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/assembly_functional_interface_requirement/sys/e_exp_arm.htm#assembly_functional_interface_requirement_arm">Assembly_functional_interface_requirement_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1635<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/layered_3d_shape/sys/e_exp_arm.htm#layered_3d_shape_arm">Layered_3d_shape_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1694<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/printed_physical_layout_template/sys/e_exp_arm.htm#printed_physical_layout_template_arm">Printed_physical_layout_template_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1737<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/modules/requirement_decomposition/sys/e_exp_arm.htm#requirement_decomposition_arm">Requirement_decomposition_arm</A>&nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1740<br>&nbsp;&nbsp;(<A HREF="../../../data/modules/requirement_decomposition/sys/e_exp_arm.htm#requirement_decomposition_arm.get_rvd">get_rvd</A>);
+         <br><br></code><code><br><A NAME="assembly_physical_interface_requirement_arm.apir_requirement_assignment_item">TYPE </A><b>apir_requirement_assignment_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/requirement_assignment/sys/e_exp_arm.htm#requirement_assignment_arm.requirement_assignment_item">requirement_assignment_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#assembly_physical_interface_requirement_arm.mating_connector_termination">Mating_connector_termination</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_physical_interface_requirement_arm.termination_constraint">Termination_constraint</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="assembly_physical_interface_requirement_arm.mating_connector_definition_select">TYPE </A><b>mating_connector_definition_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/packaged_part_black_box_model/sys/e_exp_arm.htm#packaged_part_black_box_model_arm.packaged_part_terminal">Packaged_part_terminal</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/printed_physical_layout_template/sys/e_exp_arm.htm#printed_physical_layout_template_arm.printed_part_template_terminal">Printed_part_template_terminal</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="assembly_physical_interface_requirement_arm.three_dimensional_shape">TYPE </A><b>three_dimensional_shape</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/advanced_boundary_representation/sys/e_exp_arm.htm#advanced_boundary_representation_arm.advanced_brep_shape_representation">Advanced_brep_shape_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/curve_swept_solid/sys/e_exp_arm.htm#curve_swept_solid_arm.curve_swept_solid">Curve_swept_solid</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/geometrically_bounded_surface/sys/e_exp_arm.htm#geometrically_bounded_surface_arm.geometrically_bounded_surface_shape_representation">Geometrically_bounded_surface_shape_representation</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="assembly_physical_interface_requirement_arm.interface_requirement">ENTITY <b>Interface_requirement</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/requirement_decomposition/sys/e_exp_arm.htm#requirement_decomposition_arm.predefined_requirement_view_definition">Predefined_requirement_view_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.interface_requirement.interface_to_next_higher_assembly">interface_to_next_higher_assembly : </A>
+         OPTIONAL 
+         <A HREF="#assembly_physical_interface_requirement_arm.next_higher_assembly_interface_requirement">Next_higher_assembly_interface_requirement</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.interface_requirement.reference_protocol">reference_protocol : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/assembly_functional_interface_requirement/sys/e_exp_arm.htm#assembly_functional_interface_requirement_arm.protocol_physical_layer_definition">Protocol_physical_layer_definition</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.interface_requirement.wr:wr1">WR1: SELF\Product_view_definition.initial_context.life_cycle_stage = 'design';</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_physical_interface_requirement_arm.mating_connector_placement_relationship">ENTITY <b>Mating_connector_placement_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.mating_connector_placement_relationship.placed_connector">placed_connector : </A><A HREF="#assembly_physical_interface_requirement_arm.mating_connector_usage">Mating_connector_usage</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.mating_connector_placement_relationship.interface_context">interface_context : </A><A HREF="#assembly_physical_interface_requirement_arm.next_higher_assembly_interface_requirement">Next_higher_assembly_interface_requirement</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.mating_connector_placement_relationship.connector_placement">connector_placement : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_physical_interface_requirement_arm.mating_connector_termination">ENTITY <b>Mating_connector_termination</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.mating_connector_termination.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.mating_connector_termination.definition">definition : </A><A HREF="#assembly_physical_interface_requirement_arm.mating_connector_definition_select">mating_connector_definition_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.mating_connector_termination.accessed_connector">accessed_connector : </A><A HREF="#assembly_physical_interface_requirement_arm.mating_connector_usage">Mating_connector_usage</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.mating_connector_termination.signal_definition">signal_definition : </A>SET[0:?] OF <A HREF="../../../data/modules/requirement_view_definition/sys/e_exp_arm.htm#requirement_view_definition_arm.requirement_view_definition">Requirement_view_definition</A> := get_rvd(SELF, 'signal definition');<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.mating_connector_termination.ur:ur1">UR1: </A>definition, accessed_connector;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.mating_connector_termination.wr:wr1">WR1: (SIZEOF(signal_definition) &lt;= 1);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_physical_interface_requirement_arm.mating_connector_usage">ENTITY <b>Mating_connector_usage</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.mating_connector_usage.definition">definition : </A><A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.mating_connector_usage.reference_designation">reference_designation : </A>
+         OPTIONAL 
+         STRING;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.mating_connector_usage.placement_context">placement_context : </A><A HREF="#assembly_physical_interface_requirement_arm.mating_connector_placement_relationship">Mating_connector_placement_relationship</A> FOR placed_connector;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_physical_interface_requirement_arm.next_higher_assembly_interface_requirement">ENTITY <b>Next_higher_assembly_interface_requirement</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.next_higher_assembly_interface_requirement.shape">shape : </A><A HREF="#assembly_physical_interface_requirement_arm.three_dimensional_shape">three_dimensional_shape</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.next_higher_assembly_interface_requirement.version_of_next_higher_assembly">version_of_next_higher_assembly : </A><A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_physical_interface_requirement_arm.protocol_requirement_allocation_to_part_terminal">ENTITY <b>Protocol_requirement_allocation_to_part_terminal</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/requirement_assignment/sys/e_exp_arm.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/requirement_assignment/sys/e_exp_arm.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</A>.<A NAME="assembly_physical_interface_requirement_arm.protocol_requirement_allocation_to_part_terminal.assigned_to">assigned_to : </A><A HREF="../../../data/modules/functional_assignment_to_part/sys/e_exp_arm.htm#functional_assignment_to_part_arm.part_terminal">Part_terminal</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.protocol_requirement_allocation_to_part_terminal.protocol_signal">protocol_signal : </A><A HREF="../../../data/modules/functional_usage_view/sys/e_exp_arm.htm#functional_usage_view_arm.functional_unit_usage_view_terminal_definition">Functional_unit_usage_view_terminal_definition</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/requirement_assignment/sys/e_exp_arm.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</A>.assigned_requirement&nbsp;RENAMED&nbsp;<A NAME="assembly_physical_interface_requirement_arm.protocol_requirement_allocation_to_part_terminal.assigned_requirement_property">assigned_requirement_property : </A><A HREF="#assembly_physical_interface_requirement_arm.interface_requirement">Interface_requirement</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.protocol_requirement_allocation_to_part_terminal.wr:wr1">WR1: EXISTS(assigned_requirement_property\Interface_requirement.reference_protocol);</A><br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.protocol_requirement_allocation_to_part_terminal.wr:wr2">WR2: protocol_signal IN assigned_requirement_property\Interface_requirement.reference_protocol.host_functional_definition\Functional_unit_usage_view.access_mechanism;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_physical_interface_requirement_arm.termination_constraint">ENTITY <b>Termination_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/requirement_decomposition/sys/e_exp_arm.htm#requirement_decomposition_arm.constraint_occurrence">Constraint_occurrence</A>);<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.termination_constraint.constrained_termination">constrained_termination : </A>SET[2:?] OF <A HREF="#assembly_physical_interface_requirement_arm.mating_connector_termination">Mating_connector_termination</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.termination_constraint.termination_usage_constraint">termination_usage_constraint : </A>SET[0:?] OF <A HREF="../../../data/modules/requirement_view_definition/sys/e_exp_arm.htm#requirement_view_definition_arm.requirement_view_definition">Requirement_view_definition</A> := get_rvd(SELF, 'termination usage constraint');<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_physical_interface_requirement_arm.termination_constraint.wr:wr1">WR1: (SIZEOF(termination_usage_constraint) &lt;= 1);</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Assembly_physical_interface_requirement_arm<br></code></body>
+</HTML>

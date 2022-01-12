@@ -1,0 +1,194 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Requirement_decomposition_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Requirement_decomposition_arm</h2><code><br><br><a name="requirement_decomposition_arm">SCHEMA <b>Requirement_decomposition_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/conductivity_material_aspects/sys/e_exp_arm.htm#conductivity_material_aspects_arm">Conductivity_material_aspects_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1756<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm">Elemental_geometric_shape_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1004<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/functional_specification/sys/e_exp_arm.htm#functional_specification_arm">Functional_specification_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1679<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/production_rule/sys/e_exp_arm.htm#production_rule_arm">Production_rule_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1739<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/requirement_view_definition_relationship/sys/e_exp_arm.htm#requirement_view_definition_relationship_arm">Requirement_view_definition_relationship_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1142<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/modules/specification_document/sys/e_exp_arm.htm#specification_document_arm">Specification_document_arm</A>&nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1747<br>&nbsp;&nbsp;(<A HREF="../../../data/modules/specification_document/sys/e_exp_arm.htm#specification_document_arm.get_document_definition">get_document_definition</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm">Characterizable_object_arm</A>&nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1765<br>&nbsp;&nbsp;(<A HREF="../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm.bag_to_set">bag_to_set</A>);
+         <br><br></code><code><br><A NAME="requirement_decomposition_arm.characteristic_select">TYPE </A><b>characteristic_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/basic_data_representation/sys/e_exp_arm.htm#basic_data_representation_arm.boolean_representation_item">Boolean_representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/characteristic/sys/e_exp_arm.htm#characteristic_arm.characteristic">characteristic</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/basic_data_representation/sys/e_exp_arm.htm#basic_data_representation_arm.date_time_representation_item">Date_time_representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/basic_data_representation/sys/e_exp_arm.htm#basic_data_representation_arm.integer_representation_item">Integer_representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/basic_data_representation/sys/e_exp_arm.htm#basic_data_representation_arm.logical_representation_item">Logical_representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.property_value_representation">Property_value_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/basic_data_representation/sys/e_exp_arm.htm#basic_data_representation_arm.rational_representation_item">Rational_representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/basic_data_representation/sys/e_exp_arm.htm#basic_data_representation_arm.real_representation_item">Real_representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/basic_data_representation/sys/e_exp_arm.htm#basic_data_representation_arm.sequence_representation_item">Sequence_representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/basic_data_representation/sys/e_exp_arm.htm#basic_data_representation_arm.set_representation_item">Set_representation_item</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="requirement_decomposition_arm.material_conductivity_classification">TYPE </A><b>material_conductivity_classification</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (conductive,<br>&nbsp;&nbsp;&nbsp;&nbsp;resistive,<br>&nbsp;&nbsp;&nbsp;&nbsp;semi_conductive,<br>&nbsp;&nbsp;&nbsp;&nbsp;non_conductive);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="requirement_decomposition_arm.rd_documented_element_select">TYPE </A><b>rd_documented_element_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/document_assignment/sys/e_exp_arm.htm#document_assignment_arm.documented_element_select">documented_element_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#requirement_decomposition_arm.predefined_requirement_view_definition">Predefined_requirement_view_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="requirement_decomposition_arm.rd_material_item_select">TYPE </A><b>rd_material_item_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/generic_material_aspects/sys/e_exp_arm.htm#generic_material_aspects_arm.material_item_select">material_item_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#requirement_decomposition_arm.predefined_requirement_view_definition">Predefined_requirement_view_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="requirement_decomposition_arm.rd_property_assignment_select">TYPE </A><b>rd_property_assignment_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/property_assignment/sys/e_exp_arm.htm#property_assignment_arm.property_assignment_select">property_assignment_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/requirement_view_definition/sys/e_exp_arm.htm#requirement_view_definition_arm.requirement_view_definition">Requirement_view_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="requirement_decomposition_arm.rd_requirement_assignment_item">TYPE </A><b>rd_requirement_assignment_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/requirement_assignment/sys/e_exp_arm.htm#requirement_assignment_arm.requirement_assignment_item">requirement_assignment_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/group/sys/e_exp_arm.htm#group_arm.group">Group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/group/sys/e_exp_arm.htm#group_arm.group_relationship">Group_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="requirement_decomposition_arm.relationship_operation">TYPE </A><b>relationship_operation</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (and_operation,<br>&nbsp;&nbsp;&nbsp;&nbsp;or_operation);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="requirement_decomposition_arm.constraint_occurrence">ENTITY <b>Constraint_occurrence</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (<A HREF="#requirement_decomposition_arm.view_based_constraint_occurrence">View_based_constraint_occurrence</A>)<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#requirement_decomposition_arm.predefined_requirement_view_definition">Predefined_requirement_view_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.constraint_occurrence.logical_relation">logical_relation : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/production_rule/sys/e_exp_arm.htm#production_rule_arm.complex_clause">Complex_clause</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.constraint_occurrence.wr:wr1">WR1: (('REQUIREMENT_DECOMPOSITION_ARM.' + 'VIEW_BASED_CONSTRAINT_OCCURRENCE') IN TYPEOF(SELF)) OR EXISTS(logical_relation);</A><br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.constraint_occurrence.wr:wr2">WR2: NOT EXISTS(SELF\Product_view_definition.id);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="requirement_decomposition_arm.design_characteristic_occurrence">ENTITY <b>Design_characteristic_occurrence</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#requirement_decomposition_arm.predefined_requirement_view_definition">Predefined_requirement_view_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="requirement_decomposition_arm.material_electrical_conductivity_requirement">ENTITY <b>Material_electrical_conductivity_requirement</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#requirement_decomposition_arm.predefined_requirement_view_definition">Predefined_requirement_view_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.material_electrical_conductivity_requirement.electrical_conductivity_characteristic">electrical_conductivity_characteristic : </A><A HREF="#requirement_decomposition_arm.material_conductivity_classification">material_conductivity_classification</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="requirement_decomposition_arm.operational_requirement_relationship">ENTITY <b>Operational_requirement_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/property_assignment/sys/e_exp_arm.htm#property_assignment_arm.assigned_property">Assigned_property</A>, <A HREF="../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.relating_view&nbsp;RENAMED&nbsp;<A NAME="requirement_decomposition_arm.operational_requirement_relationship.operand_1">operand_1 : </A><A HREF="../../../data/modules/requirement_view_definition/sys/e_exp_arm.htm#requirement_view_definition_arm.requirement_view_definition">Requirement_view_definition</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.related_view&nbsp;RENAMED&nbsp;<A NAME="requirement_decomposition_arm.operational_requirement_relationship.operand_2">operand_2 : </A><A HREF="../../../data/modules/requirement_view_definition/sys/e_exp_arm.htm#requirement_view_definition_arm.requirement_view_definition">Requirement_view_definition</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/property_assignment/sys/e_exp_arm.htm#property_assignment_arm.assigned_property">Assigned_property</A>.described_element&nbsp;RENAMED&nbsp;<A NAME="requirement_decomposition_arm.operational_requirement_relationship.result">result : </A><A HREF="../../../data/modules/requirement_view_definition/sys/e_exp_arm.htm#requirement_view_definition_arm.requirement_view_definition">Requirement_view_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.operational_requirement_relationship.relationship_type">relationship_type : </A><A HREF="#requirement_decomposition_arm.relationship_operation">relationship_operation</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.operational_requirement_relationship.wr:wr1">WR1: operand_1 :&lt;&gt;: operand_2;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="requirement_decomposition_arm.predefined_requirement_view_definition">ENTITY <b>Predefined_requirement_view_definition</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#requirement_decomposition_arm.constraint_occurrence">Constraint_occurrence</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#requirement_decomposition_arm.design_characteristic_occurrence">Design_characteristic_occurrence</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/requirement_view_definition/sys/e_exp_arm.htm#requirement_view_definition_arm.requirement_view_definition">Requirement_view_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.predefined_requirement_view_definition.required_analytical_representation">required_analytical_representation : </A>
+         OPTIONAL 
+         SET[1:?] OF <A HREF="../../../data/modules/analytical_model/sys/e_exp_arm.htm#analytical_model_arm.analytical_model_application">Analytical_model_application</A>;<br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.predefined_requirement_view_definition.required_functional_specification">required_functional_specification : </A>
+         OPTIONAL 
+         SET[1:?] OF <A HREF="../../../data/modules/functional_specification/sys/e_exp_arm.htm#functional_specification_arm.functional_specification">Functional_specification</A>;<br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.predefined_requirement_view_definition.required_characteristic">required_characteristic : </A>
+         OPTIONAL 
+         <A HREF="#requirement_decomposition_arm.characteristic_select">characteristic_select</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.predefined_requirement_view_definition.requirement_specification">requirement_specification : </A>SET[1:?] OF <A HREF="../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm.document_definition">Document_definition</A> := get_document_definition(SELF, 'requirement specification', 
+         			'SPECIFICATION_DOCUMENT_ARM.SPECIFICATION_DEFINITION');<br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.predefined_requirement_view_definition.reference_clause">reference_clause : </A>SET[0:1] OF <A HREF="../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm.document_definition">Document_definition</A> := get_document_definition(SELF, 'reference clause', 
+         			'SPECIFICATION_DOCUMENT_ARM.DOCUMENT_DEFINITION');<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.predefined_requirement_view_definition.required_material">required_material : </A>SET[0:1] OF <A HREF="../../../data/modules/generic_material_aspects/sys/e_exp_arm.htm#generic_material_aspects_arm.material_identification">Material_identification</A> FOR items;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.predefined_requirement_view_definition.wr:wr1">WR1: NOT (SIZEOF(required_material) = 1) OR
+            ('CONDUCTIVITY_MATERIAL_ASPECTS_ARM.'+ 'MATERIAL_IDENTIFICATION_WITH_CONDUCTIVITY_CLASSIFICATION' IN TYPEOF (required_material));</A><br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.predefined_requirement_view_definition.wr:wr2">WR2: SELF\Product_view_definition.initial_context.application_domain IN 
+            ['mechanical', 'thermal', 'electromechancial', 'electromagnetic compatibility', 'electrical'];</A><br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.predefined_requirement_view_definition.wr:wr3">WR3: SELF\Product_view_definition.initial_context.life_cycle_stage in ['design', 'qualify', 'inspect', 'test'];</A><br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.predefined_requirement_view_definition.wr:wr4">WR4: NOT EXISTS(SELF\Product_view_definition.name);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="requirement_decomposition_arm.shape_and_view_based_constraint_occurrence">ENTITY <b>Shape_and_view_based_constraint_occurrence</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#requirement_decomposition_arm.view_based_constraint_occurrence">View_based_constraint_occurrence</A>);<br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.shape_and_view_based_constraint_occurrence.constraining_shape">constraining_shape : </A>SET[1:?] OF <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.shape_and_view_based_constraint_occurrence.wr:wr1">WR1: valid_constraining_shape(constraining_shape,
+            SELF\View_based_constraint_occurrence.constraining_part);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="requirement_decomposition_arm.view_based_constraint_occurrence">ENTITY <b>View_based_constraint_occurrence</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (<A HREF="#requirement_decomposition_arm.shape_and_view_based_constraint_occurrence">Shape_and_view_based_constraint_occurrence</A>)<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#requirement_decomposition_arm.constraint_occurrence">Constraint_occurrence</A>);<br>
+         &nbsp;&nbsp;<A NAME="requirement_decomposition_arm.view_based_constraint_occurrence.constraining_part">constraining_part : </A><A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="requirement_decomposition_arm.get_rvd">FUNCTION <b>get_rvd</b></A><br>&nbsp;(input : <A HREF="../../../data/modules/requirement_assignment/sys/e_exp_arm.htm#requirement_assignment_arm.requirement_assignment_item">requirement_assignment_item</A>; id : STRING) : SET[0:?] OF <A HREF="../../../data/modules/requirement_view_definition/sys/e_exp_arm.htm#requirement_view_definition_arm.requirement_view_definition">Requirement_view_definition</A>;
+         </code><pre>LOCAL
+	rvd : SET[0:?] OF Requirement_view_definition := [];  --this gives us access to the information base
+	ra : SET[0:?] OF Requirement_assignment :=[];
+END_LOCAL;
+	ra := bag_to_set((QUERY(rai &lt;* USEDIN (input, 'REQUIREMENT_ASSIGNMENT_ARM.'+
+	'REQUIREMENT_ASSIGNMENT.ASSIGNED_TO') | (rai.id = id))));
+
+	-- iterate over ra
+	REPEAT i := 1 to SIZEOF(ra) by 1;
+		rvd := rvd + ra[i].assigned_requirement;
+	END_REPEAT;
+
+	RETURN(rvd);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="requirement_decomposition_arm.valid_constraining_shape">FUNCTION <b>valid_constraining_shape</b></A><br>&nbsp;(sd : SET[0:?] OF <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>; eepd : <A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>) : BOOLEAN;
+         </code><pre>RETURN(TRUE);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Requirement_decomposition_arm<br></code></body>
+</HTML>

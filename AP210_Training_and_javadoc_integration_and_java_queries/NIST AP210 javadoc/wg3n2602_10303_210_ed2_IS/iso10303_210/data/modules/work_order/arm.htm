@@ -1,0 +1,30 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Work_order_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Work_order_arm</h2><code><br><br><a name="work_order_arm">SCHEMA <b>Work_order_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/activity/sys/e_exp_arm.htm#activity_arm">Activity_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1047<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/work_request/sys/e_exp_arm.htm#work_request_arm">Work_request_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1042<br><br></code><code><br><A NAME="work_order_arm.directed_activity">ENTITY <b>Directed_activity</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/activity/sys/e_exp_arm.htm#activity_arm.activity">Activity</A>);<br>
+         &nbsp;&nbsp;<A NAME="work_order_arm.directed_activity.directive">directive : </A><A HREF="#work_order_arm.work_order">Work_order</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="work_order_arm.work_order">ENTITY <b>Work_order</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="work_order_arm.work_order.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="work_order_arm.work_order.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="work_order_arm.work_order.in_response_to">in_response_to : </A>SET[0:?] OF <A HREF="../../../data/modules/work_request/sys/e_exp_arm.htm#work_request_arm.work_request">Work_request</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Work_order_arm<br></code></body>
+</HTML>

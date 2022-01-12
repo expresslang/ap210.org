@@ -1,0 +1,71 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Product_as_individual_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Product_as_individual_arm</h2><code><br><br><a name="product_as_individual_arm">SCHEMA <b>Product_as_individual_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/identification_assignment/sys/e_exp_arm.htm#identification_assignment_arm">Identification_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1021<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm">Product_identification_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1017<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm">Product_version_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1018<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm">Product_view_definition_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1019<br><br></code><code><br><A NAME="product_as_individual_arm.product_as_individual_identification_item">TYPE </A><b>product_as_individual_identification_item</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/identification_assignment/sys/e_exp_arm.htm#identification_assignment_arm.identification_item">identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#product_as_individual_arm.product_as_individual">Product_as_individual</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#product_as_individual_arm.product_as_individual_version">Product_as_individual_version</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#product_as_individual_arm.product_as_individual_view">Product_as_individual_view</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="product_as_individual_arm.product_as_individual">ENTITY <b>Product_as_individual</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_as_individual_arm.product_as_individual_version">ENTITY <b>Product_as_individual_version</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#product_as_individual_arm.product_as_planned">Product_as_planned</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#product_as_individual_arm.product_as_realized">Product_as_realized</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>.<A NAME="product_as_individual_arm.product_as_individual_version.of_product">of_product : </A><A HREF="#product_as_individual_arm.product_as_individual">Product_as_individual</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_as_individual_arm.product_as_individual_view">ENTITY <b>Product_as_individual_view</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>.<A NAME="product_as_individual_arm.product_as_individual_view.defined_version">defined_version : </A><A HREF="#product_as_individual_arm.product_as_individual_version">Product_as_individual_version</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_as_individual_arm.product_as_planned">ENTITY <b>Product_as_planned</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_as_individual_arm.product_as_individual_version">Product_as_individual_version</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_as_individual_arm.product_as_realized">ENTITY <b>Product_as_realized</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_as_individual_arm.product_as_individual_version">Product_as_individual_version</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_as_individual_arm.product_design_to_individual">ENTITY <b>Product_design_to_individual</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_as_individual_arm.product_design_to_individual.product_design">product_design : </A><A HREF="../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_as_individual_arm.product_design_to_individual.individual_product">individual_product : </A><A HREF="#product_as_individual_arm.product_as_individual">Product_as_individual</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_as_individual_arm.product_design_version_to_individual">ENTITY <b>Product_design_version_to_individual</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_as_individual_arm.product_design_version_to_individual.product_design_version">product_design_version : </A><A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_as_individual_arm.product_design_version_to_individual.individual_product">individual_product : </A><A HREF="#product_as_individual_arm.product_as_individual_version">Product_as_individual_version</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_as_individual_arm.product_design_view_to_individual">ENTITY <b>Product_design_view_to_individual</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_as_individual_arm.product_design_view_to_individual.product_as_individual_view">product_as_individual_view : </A><A HREF="#product_as_individual_arm.product_as_individual_view">Product_as_individual_view</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_as_individual_arm.product_design_view_to_individual.product_view_definition">product_view_definition : </A><A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_as_individual_arm.product_planned_to_realized">ENTITY <b>Product_planned_to_realized</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_as_individual_arm.product_planned_to_realized.planned_product">planned_product : </A><A HREF="#product_as_individual_arm.product_as_planned">Product_as_planned</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_as_individual_arm.product_planned_to_realized.realized_product">realized_product : </A><A HREF="#product_as_individual_arm.product_as_realized">Product_as_realized</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Product_as_individual_arm<br></code></body>
+</HTML>

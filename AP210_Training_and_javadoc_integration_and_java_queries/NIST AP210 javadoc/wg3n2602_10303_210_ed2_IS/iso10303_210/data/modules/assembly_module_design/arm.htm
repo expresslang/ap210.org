@@ -1,0 +1,142 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Assembly_module_design_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Assembly_module_design_arm</h2><code><br><br><a name="assembly_module_design_arm">SCHEMA <b>Assembly_module_design_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/altered_package/sys/e_exp_arm.htm#altered_package_arm">Altered_package_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1601<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/assembly_module_usage_view/sys/e_exp_arm.htm#assembly_module_usage_view_arm">Assembly_module_usage_view_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1642<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/bare_die/sys/e_exp_arm.htm#bare_die_arm">Bare_die_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1650<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/physical_component_feature/sys/e_exp_arm.htm#physical_component_feature_arm">Physical_component_feature_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1721<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/layered_interconnect_simple_template/sys/e_exp_arm.htm#layered_interconnect_simple_template_arm">Layered_interconnect_simple_template_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1718<br><br></code><code><br><A NAME="assembly_module_design_arm.assembled_feature_select">TYPE </A><b>assembled_feature_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#assembly_module_design_arm.bare_die_component_terminal">Bare_die_component_terminal</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_module_design_arm.component_mounting_feature">Component_mounting_feature</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_module_design_arm.packaged_component_join_terminal">Packaged_component_join_terminal</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="assembly_module_design_arm.assembly_module_or_assembly_group_component">TYPE </A><b>assembly_module_or_assembly_group_component</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#assembly_module_design_arm.assembly_module_design_view">Assembly_module_design_view</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="assembly_module_design_arm.assembly_connection_zone_position_relationship">ENTITY <b>Assembly_connection_zone_position_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.assembly_connection_zone_position_relationship.associating_design_view_shape">associating_design_view_shape : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.assembly_connection_zone_position_relationship.associated_usage">associated_usage : </A><A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_arm.htm#physical_unit_design_view_arm.connection_zone_in_design_view">Connection_zone_in_design_view</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.assembly_connection_zone_position_relationship.associated_connection_zone_shape_definition">associated_connection_zone_shape_definition : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.assembly_connection_zone_position_relationship.associated_usage_placement">associated_usage_placement : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.assembly_connection_zone_position_relationship.associating_design_view">associating_design_view : </A><A HREF="#assembly_module_design_arm.assembly_module_design_view">Assembly_module_design_view</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.assembly_module_design_view">ENTITY <b>Assembly_module_design_view</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#assembly_module_design_arm.layered_assembly_panel_design_view">Layered_assembly_panel_design_view</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_module_design_arm.layered_assembly_module_design_view">Layered_assembly_module_design_view</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/item_definition_structure/sys/e_exp_arm.htm#item_definition_structure_arm.assembly_definition">Assembly_definition</A>, <A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_arm.htm#physical_unit_design_view_arm.part_design_view">Part_design_view</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.assembly_module_design_view.wr:wr1">WR1: NOT EXISTS(SELF\Product_view_definition.additional_characterization);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.bare_die_component">ENTITY <b>Bare_die_component</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_arm.htm#physical_unit_design_view_arm.physical_component">Physical_component</A>, <A HREF="../../../data/modules/generic_product_occurrence/sys/e_exp_arm.htm#generic_product_occurrence_arm.single_instance">Single_instance</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/generic_product_occurrence/sys/e_exp_arm.htm#generic_product_occurrence_arm.definition_based_product_occurrence">Definition_based_product_occurrence</A>.<A NAME="assembly_module_design_arm.bare_die_component.derived_from">derived_from : </A><A HREF="../../../data/modules/bare_die/sys/e_exp_arm.htm#bare_die_arm.bare_die">Bare_die</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.bare_die_component.wr:wr1">WR1: NOT EXISTS(SELF\Product_view_definition.name);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.bare_die_component_terminal">ENTITY <b>Bare_die_component_terminal</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_component_feature/sys/e_exp_arm.htm#physical_component_feature_arm.physical_component_terminal">Physical_component_terminal</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/component_feature/sys/e_exp_arm.htm#component_feature_arm.component_feature">Component_feature</A>.<A NAME="assembly_module_design_arm.bare_die_component_terminal.definition">definition : </A><A HREF="../../../data/modules/bare_die/sys/e_exp_arm.htm#bare_die_arm.bare_die_terminal">Bare_die_terminal</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/component_feature/sys/e_exp_arm.htm#component_feature_arm.component_feature">Component_feature</A>.<A NAME="assembly_module_design_arm.bare_die_component_terminal.associated_component">associated_component : </A><A HREF="#assembly_module_design_arm.bare_die_component">Bare_die_component</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.bare_die_component_terminal.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.component_external_reference">ENTITY <b>Component_external_reference</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.component_external_reference.design_owner">design_owner : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.component_external_reference.part_number">part_number : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.component_external_reference.revision_code">revision_code : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.component_external_reference.product_definition_id">product_definition_id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.component_external_reference.reference_designation">reference_designation : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.component_feature_external_reference">ENTITY <b>Component_feature_external_reference</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.component_feature_external_reference.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.component_feature_external_reference.associated_component">associated_component : </A><A HREF="#assembly_module_design_arm.component_external_reference">Component_external_reference</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.component_feature_external_reference.ur:ur1">UR1: </A>associated_component, name;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.component_mounting_clearance_relationship">ENTITY <b>Component_mounting_clearance_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.component_mounting_clearance_relationship.feature_relationship">feature_relationship : </A><A HREF="../../../data/modules/component_feature/sys/e_exp_arm.htm#component_feature_arm.component_feature_relationship">Component_feature_relationship</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.component_mounting_clearance_relationship.mounting_clearance">mounting_clearance : </A><A HREF="../../../data/modules/characteristic/sys/e_exp_arm.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.component_mounting_feature">ENTITY <b>Component_mounting_feature</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_component_feature/sys/e_exp_arm.htm#physical_component_feature_arm.physical_component_feature">Physical_component_feature</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/component_feature/sys/e_exp_arm.htm#component_feature_arm.component_feature">Component_feature</A>.<A NAME="assembly_module_design_arm.component_mounting_feature.definition">definition : </A><A HREF="../../../data/modules/part_feature_function/sys/e_exp_arm.htm#part_feature_function_arm.part_mounting_feature">Part_mounting_feature</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.component_overlap_relationship">ENTITY <b>Component_overlap_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.component_overlap_relationship.previously_placed_component">previously_placed_component : </A><A HREF="../../../data/modules/assembly_structure/sys/e_exp_arm.htm#assembly_structure_arm.next_assembly_usage">Next_assembly_usage</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.component_overlap_relationship.current_component">current_component : </A><A HREF="../../../data/modules/assembly_structure/sys/e_exp_arm.htm#assembly_structure_arm.next_assembly_usage">Next_assembly_usage</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.component_overlap_relationship.added_clearance">added_clearance : </A><A HREF="../../../data/modules/characteristic/sys/e_exp_arm.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.layered_assembly_module_design_view">ENTITY <b>Layered_assembly_module_design_view</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#assembly_module_design_arm.assembly_module_design_view">Assembly_module_design_view</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_arm.htm#physical_unit_design_view_arm.part_design_view">Part_design_view</A>.<A NAME="assembly_module_design_arm.layered_assembly_module_design_view.usage_view">usage_view : </A><A HREF="../../../data/modules/assembly_module_usage_view/sys/e_exp_arm.htm#assembly_module_usage_view_arm.layered_assembly_module_usage_view">Layered_assembly_module_usage_view</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.layered_assembly_panel_design_view">ENTITY <b>Layered_assembly_panel_design_view</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#assembly_module_design_arm.assembly_module_design_view">Assembly_module_design_view</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.minimally_defined_component_terminal">ENTITY <b>Minimally_defined_component_terminal</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_component_feature/sys/e_exp_arm.htm#physical_component_feature_arm.physical_component_terminal">Physical_component_terminal</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/component_feature/sys/e_exp_arm.htm#component_feature_arm.component_feature">Component_feature</A>.<A NAME="assembly_module_design_arm.minimally_defined_component_terminal.definition">definition : </A><A HREF="../../../data/modules/part_external_reference/sys/e_exp_arm.htm#part_external_reference_arm.part_terminal_external_reference">Part_terminal_external_reference</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.minimally_defined_component_terminal.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.movable_packaged_component_join_terminal">ENTITY <b>Movable_packaged_component_join_terminal</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#assembly_module_design_arm.packaged_component_join_terminal">Packaged_component_join_terminal</A>);<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.movable_packaged_component_join_terminal.wire_terminal_length">wire_terminal_length : </A><A HREF="../../../data/modules/characteristic/sys/e_exp_arm.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.movable_packaged_component_join_terminal.wr:wr1">WR1: SIZEOF(QUERY(pt &lt;* SELF\Component_feature.definition\Packaged_part_terminal.terminal_of_package | 
+            NOT('PACKAGE_ARM.WIRE_TERMINAL' IN TYPEOF (pt)))) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.packaged_component">ENTITY <b>Packaged_component</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_arm.htm#physical_unit_design_view_arm.physical_component">Physical_component</A>, <A HREF="../../../data/modules/generic_product_occurrence/sys/e_exp_arm.htm#generic_product_occurrence_arm.single_instance">Single_instance</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/generic_product_occurrence/sys/e_exp_arm.htm#generic_product_occurrence_arm.definition_based_product_occurrence">Definition_based_product_occurrence</A>.<A NAME="assembly_module_design_arm.packaged_component.derived_from">derived_from : </A><A HREF="../../../data/modules/packaged_part_black_box_model/sys/e_exp_arm.htm#packaged_part_black_box_model_arm.packaged_part">Packaged_part</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.packaged_component.selected_package_alternate">selected_package_alternate : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/altered_package/sys/e_exp_arm.htm#altered_package_arm.altered_package">Altered_package</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.packaged_component.access_mechanism">access_mechanism : </A>SET[1:?] OF <A HREF="#assembly_module_design_arm.packaged_component_join_terminal">Packaged_component_join_terminal</A> FOR associated_component;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.packaged_component_join_terminal">ENTITY <b>Packaged_component_join_terminal</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_component_feature/sys/e_exp_arm.htm#physical_component_feature_arm.physical_component_terminal">Physical_component_terminal</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/component_feature/sys/e_exp_arm.htm#component_feature_arm.component_feature">Component_feature</A>.<A NAME="assembly_module_design_arm.packaged_component_join_terminal.definition">definition : </A><A HREF="../../../data/modules/packaged_part_black_box_model/sys/e_exp_arm.htm#packaged_part_black_box_model_arm.packaged_part_join_terminal">Packaged_part_join_terminal</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/component_feature/sys/e_exp_arm.htm#component_feature_arm.component_feature">Component_feature</A>.<A NAME="assembly_module_design_arm.packaged_component_join_terminal.associated_component">associated_component : </A><A HREF="#assembly_module_design_arm.packaged_component">Packaged_component</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.packaged_component_join_terminal.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.routed_interconnect_component">ENTITY <b>Routed_interconnect_component</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_arm.htm#physical_unit_design_view_arm.physical_component">Physical_component</A>);<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.routed_interconnect_component.routed_centreline_shape">routed_centreline_shape : </A><A HREF="../../../data/modules/constructive_solid_geometry_2d/sys/e_exp_arm.htm#constructive_solid_geometry_2d_arm.path_area_with_parameters">Path_area_with_parameters</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.routed_interconnect_component.wr:wr1">WR1: NOT EXISTS(SELF\Product_view_definition.name);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.routed_physical_component">ENTITY <b>Routed_physical_component</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_arm.htm#physical_unit_design_view_arm.physical_component">Physical_component</A>);<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_design_arm.routed_physical_component.routed_centreline_shape">routed_centreline_shape : </A><A HREF="../../../data/modules/constructive_solid_geometry_2d/sys/e_exp_arm.htm#constructive_solid_geometry_2d_arm.path_area_with_parameters">Path_area_with_parameters</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_design_arm.amd_physical_component_terminal_subtypes">SUBTYPE_CONSTRAINT <b>amd_physical_component_terminal_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/modules/physical_component_feature/sys/e_exp_arm.htm#physical_component_feature_arm.physical_component_terminal">Physical_component_terminal</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#assembly_module_design_arm.bare_die_component_terminal">Bare_die_component_terminal</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_module_design_arm.minimally_defined_component_terminal">Minimally_defined_component_terminal</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_module_design_arm.packaged_component_join_terminal">Packaged_component_join_terminal</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br><A NAME="assembly_module_design_arm.physical_component_subtypes">SUBTYPE_CONSTRAINT <b>physical_component_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_arm.htm#physical_unit_design_view_arm.physical_component">Physical_component</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#assembly_module_design_arm.bare_die_component">Bare_die_component</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_module_design_arm.packaged_component">Packaged_component</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_module_design_arm.routed_interconnect_component">Routed_interconnect_component</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_module_design_arm.routed_physical_component">Routed_physical_component</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Assembly_module_design_arm<br></code></body>
+</HTML>

@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Default_component_termination_passage_definition</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.249 Default_component_termination_passage_definition</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Default_component_termination_passage_definition is a type of <A
+CLASS="INTERNALREF"
+HREF="e_638.htm"
+>Passage_technology</A
+> that defines a default passage based on characteristics of the associated <A
+CLASS="INTERNALREF"
+HREF="e_634.htm"
+>Part_terminal</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>deposition_material</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>maximum_allowed_component_terminal_extent</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>minimum_allowed_component_terminal_extent</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>minimum_as_finished_deposition_thickness</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>minimum_as_finished_passage_extent</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.249.1 deposition_material</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The deposition_material specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_318.htm"
+>Ee_material</A
+> for the 
+Default_component_termination_passage_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.249.2 maximum_allowed_component_terminal_extent</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The maximum_allowed_component_terminal_extent specifies one role of the <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> for the 
+Default_component_termination_passage_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.249.3 minimum_allowed_component_terminal_extent</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The minimum_allowed_component_terminal_extent specifies one role of the <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> for the 
+Default_component_termination_passage_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.249.4 minimum_as_finished_deposition_thickness</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The minimum_as_finished_deposition_thickness specifies one role of the <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> for the 
+Default_component_termination_passage_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.249.5 minimum_as_finished_passage_extent</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The minimum_as_finished_passage_extent specifies one role of the <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> for the Default_component_termination_passage_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The passage deposition material shall be conductive.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY default_component_termination_passage_definition
+  SUBTYPE OF (passage_technology);
+    minimum_allowed_component_terminal_extent                        : length_data_element;
+    maximum_allowed_component_terminal_extent                        : length_data_element;
+    SELF\passage_technology.deposition_material                      : ee_material;
+    SELF\passage_technology.minimum_as_finished_deposition_thickness : length_data_element;
+    SELF\passage_technology.minimum_as_finished_passage_extent       : length_data_element;
+END_ENTITY; -- default_component_termination_passage_definition
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

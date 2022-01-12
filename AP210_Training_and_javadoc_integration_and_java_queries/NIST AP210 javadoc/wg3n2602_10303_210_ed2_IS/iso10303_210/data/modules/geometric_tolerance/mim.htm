@@ -1,0 +1,161 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Geometric_tolerance_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Geometric_tolerance_mim</h2><code><br><br><a name="geometric_tolerance_mim">SCHEMA <b>Geometric_tolerance_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/aic_geometric_tolerances/aic_geometric_tolerances.htm#aic_geometric_tolerances">aic_geometric_tolerances</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO 10303-519<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/derived_shape_element/sys/e_exp_mim.htm#derived_shape_element_mim">Derived_shape_element_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1130<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_mim.htm#elemental_geometric_shape_mim">Elemental_geometric_shape_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1004<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/measure_representation/sys/e_exp_mim.htm#measure_representation_mim">Measure_representation_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1118<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema">product_property_representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation">property_definition_representation</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.shape_representation">shape_representation</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema">qualified_measure_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-45<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.measure_qualification">measure_qualification</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.precision_qualifier">precision_qualifier</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.type_qualifier">type_qualifier</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.value_qualifier">value_qualifier</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/shape_aspect_definition_schema/shape_aspect_definition_schema.htm#shape_aspect_definition_schema">shape_aspect_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-47<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/shape_aspect_definition_schema/shape_aspect_definition_schema.htm#shape_aspect_definition_schema.datum_target">datum_target</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_mim.htm#shape_property_assignment_mim">Shape_property_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1032<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/value_with_unit/sys/e_exp_mim.htm#value_with_unit_mim">Value_with_unit_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1054<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.bag_to_set">bag_to_set</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.type_check_function">type_check_function</A>);
+         <br><br></code><code><br><A NAME="geometric_tolerance_mim.placed_datum_target_feature">ENTITY <b>placed_datum_target_feature</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/shape_aspect_definition_schema/shape_aspect_definition_schema.htm#shape_aspect_definition_schema.datum_target">datum_target</A>);<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_mim.placed_datum_target_feature.representation_associations">representation_associations : </A>SET[0:?] OF <A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation">property_definition_representation</A> := get_shape_aspect_property_definition_representations(SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_mim.placed_datum_target_feature.wr:wr1">WR1: SELF.description IN ['point','line','rectangle','circle', 'circular line'];</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_mim.placed_datum_target_feature.wr:wr2">WR2: SIZEOF (QUERY (pdr &lt;* representation_associations | 'GEOMETRIC_TOLERANCE_MIM.SHAPE_REPRESENTATION_WITH_PARAMETERS' IN
+            TYPEOF (pdr.used_representation) )) = 1;</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_mim.placed_datum_target_feature.wr:wr3">WR3: valid_datum_target_parameters(SELF);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_mim.shape_representation_with_parameters">ENTITY <b>shape_representation_with_parameters</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.shape_representation">shape_representation</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_mim.shape_representation_with_parameters.wr:wr1">WR1: SIZEOF( QUERY( i &lt;* SELF.items | SIZEOF(['GEOMETRY_SCHEMA.PLACEMENT', 'GEOMETRIC_TOLERANCE_MIM.MEASURE_REPRESENTATION_ITEM',
+            'GEOMETRIC_TOLERANCE_MIM.DESCRIPTIVE_REPRESENTATION_ITEM'] * TYPEOF(i)) = 1 )) = SIZEOF(SELF.items);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_mim.subtype_exclusiveness_geometric_tolerance">RULE&nbsp;<b>subtype_exclusiveness_geometric_tolerance</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/resources/shape_tolerance_schema/shape_tolerance_schema.htm#shape_tolerance_schema.geometric_tolerance">geometric_tolerance</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_mim.subtype_exclusiveness_geometric_tolerance.wr:wr1">WR1: SIZEOF(QUERY (gt &lt;* geometric_tolerance | NOT (type_check_function(gt, ['GEOMETRIC_TOLERANCE_MIM.ANGULARITY_TOLERANCE',
+            'GEOMETRIC_TOLERANCE_MIM.CIRCULAR_RUNOUT_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.COAXIALITY_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.CONCENTRICITY_TOLERANCE',
+            'GEOMETRIC_TOLERANCE_MIM.CYLINDRICITY_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.FLATNESS_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.LINE_PROFILE_TOLERANCE',
+            'GEOMETRIC_TOLERANCE_MIM.PARALLELISM_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.PERPENDICULARITY_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.POSITION_TOLERANCE',
+            'GEOMETRIC_TOLERANCE_MIM.ROUNDNESS_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.STRAIGHTNESS_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.SURFACE_PROFILE_TOLERANCE',
+            'GEOMETRIC_TOLERANCE_MIM.SYMMETRY_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.TOTAL_RUNOUT_TOLERANCE'] , 3)))) = 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="geometric_tolerance_mim.subtype_mandatory_geometric_tolerance">RULE&nbsp;<b>subtype_mandatory_geometric_tolerance</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/resources/shape_tolerance_schema/shape_tolerance_schema.htm#shape_tolerance_schema.geometric_tolerance">geometric_tolerance</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_mim.subtype_mandatory_geometric_tolerance.wr:wr1">WR1: SIZEOF(QUERY (gt &lt;* geometric_tolerance | NOT (type_check_function(gt, ['GEOMETRIC_TOLERANCE_MIM.ANGULARITY_TOLERANCE',
+            'GEOMETRIC_TOLERANCE_MIM.CIRCULAR_RUNOUT_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.COAXIALITY_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.CONCENTRICITY_TOLERANCE',
+            'GEOMETRIC_TOLERANCE_MIM.CYLINDRICITY_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.FLATNESS_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.LINE_PROFILE_TOLERANCE',
+            'GEOMETRIC_TOLERANCE_MIM.PARALLELISM_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.PERPENDICULARITY_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.POSITION_TOLERANCE',
+            'GEOMETRIC_TOLERANCE_MIM.ROUNDNESS_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.STRAIGHTNESS_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.SURFACE_PROFILE_TOLERANCE',
+            'GEOMETRIC_TOLERANCE_MIM.SYMMETRY_TOLERANCE', 'GEOMETRIC_TOLERANCE_MIM.TOTAL_RUNOUT_TOLERANCE'] , 0)))) = 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="geometric_tolerance_mim.get_shape_aspect_property_definition_representations">FUNCTION <b>get_shape_aspect_property_definition_representations</b></A><br>&nbsp;(s_a_instance : <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>) : SET[0:?] OF <A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation">property_definition_representation</A>;
+         </code><pre>LOCAL
+pd_set : SET OF property_definition := [];
+pdr_set : SET OF property_definition_representation := [] ;
+END_LOCAL;
+pd_set := bag_to_set(USEDIN(s_a_instance, 'PRODUCT_PROPERTY_DEFINITION_SCHEMA.PROPERTY_DEFINITION.DEFINITION'));
+IF (SIZEOF(pd_set) &lt; 1) THEN
+RETURN (pdr_set);
+END_IF;
+REPEAT i := 1 TO HIINDEX(pd_set);
+pdr_set := pdr_set + (QUERY(pdr &lt;* USEDIN(pd_set[i], 'PRODUCT_PROPERTY_REPRESENTATION_SCHEMA.' + 'PROPERTY_DEFINITION_REPRESENTATION.' + 'DEFINITION') |
+'PRODUCT_PROPERTY_REPRESENTATION_SCHEMA.SHAPE_DEFINITION_REPRESENTATION' IN TYPEOF(pdr)));
+END_REPEAT;
+RETURN (pdr_set);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="geometric_tolerance_mim.valid_datum_target_parameters">FUNCTION <b>valid_datum_target_parameters</b></A><br>&nbsp;(pdf : <A HREF="../../../data/modules/geometric_tolerance/sys/e_exp_mim.htm#geometric_tolerance_mim.placed_datum_target_feature">placed_datum_target_feature</A>) : BOOLEAN;
+         </code><pre>LOCAL
+
+rep_set : SET OF representation := [] ;
+
+parameter_representations: SET OF representation;
+END_LOCAL;
+
+
+REPEAT i := 1 TO HIINDEX(pdf.representation_associations);
+rep_set := rep_set + pdf.representation_associations[i].used_representation;
+END_REPEAT;
+ 
+parameter_representations := QUERY(rep &lt;* rep_set |
+('GEOMETRIC_TOLERANCE_MIM.SHAPE_REPRESENTATION_WITH_PARAMETERS' IN
+TYPEOF(rep)));
+
+
+IF (SIZEOF( QUERY( srwp &lt;* parameter_representations |
+          (SIZEOF( QUERY( i &lt;* srwp.items |
+          (i.name='orientation') AND
+          ('GEOMETRY_SCHEMA.PLACEMENT' IN TYPEOF(i)))) = 1))) &lt;&gt; 1) THEN
+   RETURN(FALSE);
+END_IF;
+
+CASE pdf\shape_aspect.description OF
+'point': RETURN(SIZEOF(QUERY( srwp &lt;* parameter_representations |
+              (SIZEOF(srwp.items) = 1))) = 1);
+
+'circle': RETURN((SIZEOF( QUERY( srwp &lt;* parameter_representations |
+              (SIZEOF(srwp.items) = 2))) = 1) AND
+             (SIZEOF( QUERY( srwp &lt;* parameter_representations |
+              (SIZEOF( QUERY( i &lt;* srwp.items |
+                (i.name='target diameter') AND
+                (SIZEOF(['GEOMETRIC_TOLERANCE_MIM.MEASURE_REPRESENTATION_ITEM',
+		   'GEOMETRIC_TOLERANCE_MIM.LENGTH_MEASURE_WITH_UNIT']*TYPEOF(i)
+                 ) = 2) )) = 1))) = 1));
+
+'line': RETURN(SIZEOF( QUERY( srwp &lt;* parameter_representations |
+              (SIZEOF( QUERY( i &lt;* srwp.items |
+                (i.name='target length') AND
+                (SIZEOF(['GEOMETRIC_TOLERANCE_MIM.MEASURE_REPRESENTATION_ITEM',
+		'GEOMETRIC_TOLERANCE_MIM.LENGTH_MEASURE_WITH_UNIT']*TYPEOF(i)
+                 ) = 2) )) = 1))) = 1);
+
+'rectangle': RETURN((SIZEOF( QUERY( srwp &lt;* parameter_representations |
+              (SIZEOF(srwp.items)= 3))) = 1) AND
+             (SIZEOF( QUERY( srwp &lt;* parameter_representations |
+              (SIZEOF( QUERY( i &lt;* srwp.items |
+                (i.name='target length') AND
+                (SIZEOF(['GEOMETRIC_TOLERANCE_MIM.MEASURE_REPRESENTATION_ITEM',
+		'GEOMETRIC_TOLERANCE_MIM.LENGTH_MEASURE_WITH_UNIT']*TYPEOF(i)
+                 ) = 2))) = 1))) = 1) AND
+              (SIZEOF( QUERY( srwp &lt;* parameter_representations |
+               (SIZEOF( QUERY( i &lt;* srwp.items |
+                 (i.name='target width') AND
+                 (SIZEOF(['GEOMETRIC_TOLERANCE_MIM.MEASURE_REPRESENTATION_ITEM',
+ 		'GEOMETRIC_TOLERANCE_MIM.LENGTH_MEASURE_WITH_UNIT']*TYPEOF(i)
+                  ) = 2))) = 1) )) = 1));
+OTHERWISE : RETURN(FALSE);
+END_CASE;</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Geometric_tolerance_mim<br></code></body>
+</HTML>

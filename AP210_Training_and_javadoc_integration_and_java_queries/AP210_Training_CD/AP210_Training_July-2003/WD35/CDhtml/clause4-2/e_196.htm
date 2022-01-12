@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Contract</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.196 Contract</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+>A Contract is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.  A Contract is the identification of
+certain enterprise data related to a formal agreement between two business entities that is useful for managing product data. <DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: This part of ISO 10303 does not support the exchange of the contents of a contract.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>contractor</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>contract_approval</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>contract_date</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>contract_number</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.196.1 contractor</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The contractor specifies either the <A
+CLASS="INTERNALREF"
+HREF="e_647.htm"
+>Person_and_organization</A
+> or the <A
+CLASS="INTERNALREF"
+HREF="e_570.htm"
+>Organization</A
+> performing work under the scope of the Contract. The contractor need not be specified for a particular Contract.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.196.2 contract_approval</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The contract_approval specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_314.htm"
+>Ee_approval</A
+> for the 
+Contract.  The contract_approval is optional and need not be supplied.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.196.3 contract_date</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The contract_date specifies either the <A
+CLASS="INTERNALREF"
+HREF="e_212.htm"
+>Date</A
+> or the <A
+CLASS="INTERNALREF"
+HREF="e_213.htm"
+>Date_and_time</A
+> for the Contract. The contract_date is optional and need not be supplied.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.196.4 contract_number</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The contract_number specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_339.htm"
+>Ee_text</A
+> for the identifier of the 
+Contract.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The contract_number shall be unique within a population of Contracts.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY contract
+  SUBTYPE OF (managed_design_object);
+    contractor        : OPTIONAL person_organization;
+    contract_number   : ee_text;
+    contract_approval : OPTIONAL ee_approval;
+    contract_date     : OPTIONAL date_or_date_and_time;
+  UNIQUE
+    ur1 : contract_number;
+END_ENTITY; -- contract
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

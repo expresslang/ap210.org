@@ -1,0 +1,1478 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Document management">
+      <META name="DC.Dates" content="2009-06-10 07:09:39">
+      <META name="DC.Published" content="">
+      <META name="DC.Contributor" content="Bodington, Rob">
+      <META name="DC.Creator" content="Bodington, Rob">
+      <META name="DC.Description" content="The application module Document management">
+      <META name="DC.Subject" content="module, document management, file management">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6119">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N3036">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6603">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6604">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6605">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-06-10 07:09:39">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.47">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.13">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.10">
+      <TITLE>ISO/TS 10303-1290:2009 Document management</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Document management</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1290:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <h2><a name="mapping">5.1 Mapping specification</a></h2><a name="mappings"></a><p>
+         In the following, "Application element" designates any entity data
+         type defined in Clause <a href="4_info_reqs.htm">4</a>, any of its 
+         explicit attributes and any subtype constraint. 
+         "MIM element" designates any entity data type defined in 
+         Clause <a href="5_mim.htm#mim_express">5.2</a> or imported with a USE FROM
+         statement, from another EXPRESS schema, any of its 
+         attributes and any subtype constraint defined in Clause <a href="5_mim.htm#mim_express">5.2</a> or imported with a USE FROM
+         statement.
+         
+      </p>
+      <p>
+         This clause contains the mapping specification that defines how each 
+         application element of this part of ISO 10303 (see Clause <a href="4_info_reqs.htm">4</a>) maps to one
+         or more MIM elements (see Clause <a href="5_mim.htm#mim_express">5.2</a>).
+         
+      </p>
+      <p>
+         The mapping for each application element is specified in a separate subclause below. 
+         The mapping specification of an attribute of an ARM entity is a subclause of the clause that contains the mapping specification
+         of this entity.
+         Each mapping specification subclause contains up to five elements.
+         
+      </p>
+      <p><b>Title:</b>
+         The clause title contains:
+      </p>
+      <ul>
+         <li>the name of the considered ARM entity or subtype constraint, or </li>
+         <li>the name of the considered ARM entity atribute when this attribute refers to a type that is not an entity data type or a SELECT
+            type that contains or may contain entity data types, or
+         </li>
+         <li>a composite expression, &lt;attribute name&gt; to &lt;referred type&gt;, when this attribute refers to a type that is not an entity data
+            type or a SELECT type that contains or may contain entity data types.
+         </li>
+      </ul>
+      <p><b>MIM element:</b> 
+         This section contains, depending on the considered application element:
+      </p>
+      <ul>
+         <li>the name of one or more MIM entity data types;</li>
+         <li>the name of a MIM entity attribute, presented with the syntax &lt;entity name&gt;.&lt;attribute name&gt;, when the considered ARM attribute
+            refers to a type that is not an entity data type or a SELECT type that contains or may contain entity data types;
+         </li>
+         <li>the term PATH, when the considered ARM entity attribute refers to an entity data type or to a SELECT type that contains or
+            may contain entity data types;
+         </li>
+         <li>the term IDENTICAL MAPPING, when both application objects
+            involved in an application assertion map to the same instance of a MIM entity data type;
+         </li>
+         <li>the syntax /SUPERTYPE(&lt;supertype name&gt;)/, when the considered ARM entity is mapped as its supertype;</li>
+         <li>one or more constructs /SUBTYPE(&lt;subtype name&gt;)/, when the mapping of the considered ARM entity is the union of the mapping
+            of its subtypes.
+         </li>
+      </ul>
+      <p>
+         When the mapping of an application element involves more than one MIM element, each of these MIM elements is 
+         presented on a separate line in the mapping specification, enclosed between parentheses or brackets. 
+         
+      </p>
+      <p><b>Source:</b> This section contains:
+      </p>
+      <ul>
+         <li>the ISO standard number and part number in which the
+            MIM element is defined, for those MIM elements that are defined in a common
+            resource document;
+         </li>
+         <li>the ISO standard number and
+            part number of this part of ISO 10303, for those MIM elements that are defined in the MIM schema of this part.
+         </li>
+      </ul>
+      <p>
+         		This section is omitted when the keywords PATH or IDENTICAL MAPPING are used in the MIM element section.
+         
+      </p>
+      <p><b>Rules:</b> 
+         This section contains the name of one or more global rules that apply to the
+         population of the MIM entity data types listed in the MIM element section or
+         in the reference path. When no rule applies, this section is omitted.
+         		
+      </p>
+      <p>A reference to a
+         global rule may be followed by a reference to the subclause in
+         which the rule is defined.
+         
+      </p>
+      <p><b>Constraint:</b> 
+         This section contains the name of one or more subtype constraints that apply to the
+         population of the MIM entity data types listed in the MIM element section or
+         in the reference path. When no subtype constraint applies, this section is omitted.
+         
+      </p>
+      <p>
+         A reference to a subtype constraint may be followed by a reference to the subclause in
+         which the subtype constraint is defined.
+         
+      </p>
+      <p><b>Reference path:</b> This section contains:
+      </p>
+      <ul>
+         <li>the reference path to its supertypes in the common resources, 
+            for each MIM element created within this part of ISO 10303; 
+            
+         </li>
+         <li>
+            the specification of the relationships between MIM elements, when the mapping of an application element requires to relate
+            instances of several
+            MIM entity data types. In such a case, each line in the reference path
+            documents the role of a MIM element relative to the referring MIM
+            element or to the next referred MIM element. 
+            		
+         </li>
+      </ul>
+      <p>For the expression of reference paths and of the
+         constraints between MIM elements, the following notational conventions
+         apply:
+         
+      </p>
+      <table cellspacing="6">
+         <tbody>
+            <tr valign="top">
+               <td valign="top">[]</td>
+               <td valign="top">
+                  enclosed section constrains multiple MIM elements or
+                  sections of the reference path are required to satisfy an
+                  information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">()</td>
+               <td valign="top">
+                  enclosed section constrains multiple MIM elements or
+                  sections of the reference path are identified as alternatives
+                  within the mapping to satisfy an information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">{}</td>
+               <td valign="top">
+                  enclosed section constrains the reference path to satisfy
+                  an information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;&gt;</td>
+               <td valign="top">
+                  enclosed section constrains at one or more required
+                  reference path;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">||</td>
+               <td valign="top">enclosed section constrains the supertype entity;</td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">-&gt;</td>
+               <td valign="top">
+                  the attribute, whose name precedes the -&gt; symbol, references the entity or select type whose name follows the -&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;-</td>
+               <td valign="top">
+                  the entity or select type, whose name precedes the &lt;- symbol, is referenced by the entity attribute whose name follows the
+                  &lt;- symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">[i]</td>
+               <td valign="top">
+                  the attribute, whose name precedes the [i] symbol, is an aggregate; any element of that aggregate is referred to;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">[n]</td>
+               <td valign="top">
+                  the attribute, whose name precedes the [n] symbol, is an ordered aggregate; member n of that aggregate is referred to;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">=&gt;</td>
+               <td valign="top">
+                  the entity, whose name precedes the =&gt; symbol, is a supertype of the entity whose name follows the =&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;=</td>
+               <td valign="top">
+                  the entity, whose name precedes the &lt;= symbol, is a subtype of the entity whose name follows the &lt;= symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">=</td>
+               <td valign="top">
+                  the string, select, or enumeration type is constrained to a choice or value;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">\</td>
+               <td valign="top">
+                  the reference path expression continues on the next line;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">*</td>
+               <td valign="top">
+                  one or more instances of the relationship entity data type may be assembled in a
+                  relationship tree structure. The path between the relationship entity and the related entities, is enclosed with braces;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">--</td>
+               <td valign="top">
+                  the text following is a comment or introduces a clause reference;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">*&gt;</td>
+               <td valign="top">
+                  the select or enumeration type, whose name precedes the *&gt; symbol, is
+                  extended into the select or enumeration type whose name follows the *&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;*</td>
+               <td valign="top">
+                  the select or enumeration type, whose name precedes the &lt;* symbol, is an
+                  extension of the select or enumeration type whose name follows the &lt;* symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top" nowrap="t">!{}</td>
+               <td valign="top">
+                  section enclosed by {} indicates a negative constraint placed on the mapping.
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      The definition and use of mapping templates is not supported in the
+      present version of the application modules. However, use of predefined
+      templates /SUBTYPE/ and /SUPERTYPE/ is supported. 
+      
+      <h2><a name="aeentityalias_identification">5.1.1 </a><a href="../../alias_identification/sys/4_info_reqs.htm#alias_identification_arm.alias_identification">Alias_identification</a></h2>
+      <p>
+         This application object,  
+         <a href="../../alias_identification/sys/4_info_reqs.htm#alias_identification_arm.alias_identification">Alias_identification</a>, is defined in the module
+         <a href="../../alias_identification/sys/4_info_reqs.htm#alias_identification_arm.alias_identification">alias_identification</a>.
+         This mapping section extends the 
+         <a href="../../alias_identification/sys/5_mapping.htm#aeentityalias_identification"> mapping of Alias_identification</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      This section specifies the mapping of the entity 
+      <a href="../../alias_identification/sys/4_info_reqs.htm#alias_identification_arm.alias_identification">Alias_identification</a>
+      for the case where it maps onto the resource entity 
+      .    
+      Depending on the extensions of the Select
+      
+      
+      
+      type 
+      alias_identification_item,
+      this mapping may be superseded in the application modules that define these extensions. 
+      
+      <p></p>
+      <p></p>
+      <h2><a name="aeentityalias_identificationaaattributeitemsassertion_todigital_document_definition"></a>5.1.1.1 <a href="../../alias_identification/sys/4_info_reqs.htm#alias_identification_arm.alias_identification">Alias_identification</a>
+         to <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.digital_document_definition">Digital_document_definition</A>
+         
+         (as <a href="../../alias_identification/sys/4_info_reqs.htm#alias_identification_arm.alias_identification.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_identification_assignment.items[i] -&gt;<br>						identification_item<br>						identification_item *&gt; aliasable_item<br>aliasable_item<br>         aliasable_item *&gt; dm_aliasable_item<br>         dm_aliasable_item<br>         dm_aliasable_item = product_definition
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityalias_identificationaaattributeitemsassertion_todigital_file"></a>5.1.1.2 <a href="../../alias_identification/sys/4_info_reqs.htm#alias_identification_arm.alias_identification">Alias_identification</a>
+         to <A HREF="../../../../data/modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.digital_file">Digital_file</A>
+         
+         (as <a href="../../alias_identification/sys/4_info_reqs.htm#alias_identification_arm.alias_identification.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_identification_assignment.items[i] -&gt;<br>						identification_item<br>						identification_item *&gt; aliasable_item<br>aliasable_item<br>         aliasable_item *&gt; dm_aliasable_item<br>         dm_aliasable_item<br>         dm_aliasable_item = document_file
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityalias_identificationaaattributeitemsassertion_todocument"></a>5.1.1.3 <a href="../../alias_identification/sys/4_info_reqs.htm#alias_identification_arm.alias_identification">Alias_identification</a>
+         to <A HREF="../../../../data/modules/document_and_version_identification/sys/4_info_reqs.htm#document_and_version_identification_arm.document">Document</A>
+         
+         (as <a href="../../alias_identification/sys/4_info_reqs.htm#alias_identification_arm.alias_identification.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_identification_assignment.items[i] -&gt;<br>						identification_item<br>						identification_item *&gt; aliasable_item<br>aliasable_item<br>         aliasable_item *&gt; dm_aliasable_item<br>         dm_aliasable_item<br>         dm_aliasable_item = product
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityalias_identificationaaattributeitemsassertion_todocument_version"></a>5.1.1.4 <a href="../../alias_identification/sys/4_info_reqs.htm#alias_identification_arm.alias_identification">Alias_identification</a>
+         to <A HREF="../../../../data/modules/document_and_version_identification/sys/4_info_reqs.htm#document_and_version_identification_arm.document_version">Document_version</A>
+         
+         (as <a href="../../alias_identification/sys/4_info_reqs.htm#alias_identification_arm.alias_identification.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_identification_assignment.items[i] -&gt;<br>						identification_item<br>						identification_item *&gt; aliasable_item<br>aliasable_item<br>         aliasable_item *&gt; dm_aliasable_item<br>         dm_aliasable_item<br>         dm_aliasable_item = product_definition_formation
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityalias_identificationaaattributeitemsassertion_tohardcopy"></a>5.1.1.5 <a href="../../alias_identification/sys/4_info_reqs.htm#alias_identification_arm.alias_identification">Alias_identification</a>
+         to <A HREF="../../../../data/modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.hardcopy">Hardcopy</A>
+         
+         (as <a href="../../alias_identification/sys/4_info_reqs.htm#alias_identification_arm.alias_identification.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_identification_assignment.items[i] -&gt;<br>						identification_item<br>						identification_item *&gt; aliasable_item<br>aliasable_item<br>         aliasable_item *&gt; dm_aliasable_item<br>         dm_aliasable_item<br>         dm_aliasable_item = document_file
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityalias_identificationaaattributeitemsassertion_tophysical_document_definition"></a>5.1.1.6 <a href="../../alias_identification/sys/4_info_reqs.htm#alias_identification_arm.alias_identification">Alias_identification</a>
+         to <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.physical_document_definition">Physical_document_definition</A>
+         
+         (as <a href="../../alias_identification/sys/4_info_reqs.htm#alias_identification_arm.alias_identification.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_identification_assignment.items[i] -&gt;<br>						identification_item<br>						identification_item *&gt; aliasable_item<br>aliasable_item<br>         aliasable_item *&gt; dm_aliasable_item<br>         dm_aliasable_item<br>         dm_aliasable_item = product_definition
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityapproval_assignment">5.1.2 </a><a href="../../approval/sys/4_info_reqs.htm#approval_arm.approval_assignment">Approval_assignment</a></h2>
+      <p>
+         This application object,  
+         <a href="../../approval/sys/4_info_reqs.htm#approval_arm.approval_assignment">Approval_assignment</a>, is defined in the module
+         <a href="../../approval/sys/4_info_reqs.htm#approval_arm.approval_assignment">approval</a>.
+         This mapping section extends the 
+         <a href="../../approval/sys/5_mapping.htm#aeentityapproval_assignment"> mapping of Approval_assignment</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentityapproval_assignmentaaattributeitemsassertion_todocument_version"></a>5.1.2.1 <a href="../../approval/sys/4_info_reqs.htm#approval_arm.approval_assignment">Approval_assignment</a>
+         to <A HREF="../../../../data/modules/document_and_version_identification/sys/4_info_reqs.htm#document_and_version_identification_arm.document_version">Document_version</A>
+         
+         (as <a href="../../approval/sys/4_info_reqs.htm#approval_arm.approval_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_approval_assignment.items[i] -&gt; approval_item<br>mri_approval_item *&gt; dm_approval_item <br>         dm_approval_item = product_definition_formation<br>         {product_definition_formation.of_product -&gt;<br>         product<br>         product &lt;-<br>         product_related_product_category.products[i]<br>         product_related_product_category &lt;=<br>         product_category<br>         product_category.name='document' }
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityapproval_assignmentaaattributeitemsassertion_todigital_document_definition"></a>5.1.2.2 <a href="../../approval/sys/4_info_reqs.htm#approval_arm.approval_assignment">Approval_assignment</a>
+         to <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.digital_document_definition">Digital_document_definition</A>
+         
+         (as <a href="../../approval/sys/4_info_reqs.htm#approval_arm.approval_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_approval_assignment.items[i] -&gt; approval_item<br>mri_approval_item *&gt; dm_approval_item <br>         dm_approval_item = product_definition<br>         {product_definition.frame_of_reference -&gt;<br>         product_definition_context &lt;=<br>         application_context_element<br>         application_context_element.name = 'digital document definition'}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityapproval_assignmentaaattributeitemsassertion_tophysical_document_definition"></a>5.1.2.3 <a href="../../approval/sys/4_info_reqs.htm#approval_arm.approval_assignment">Approval_assignment</a>
+         to <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.physical_document_definition">Physical_document_definition</A>
+         
+         (as <a href="../../approval/sys/4_info_reqs.htm#approval_arm.approval_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_approval_assignment.items[i] -&gt; approval_item<br>mri_approval_item *&gt; dm_approval_item <br>         dm_approval_item = product_definition<br>         {product_definition.frame_of_reference -&gt;<br>         product_definition_context &lt;=<br>         application_context_element<br>         application_context_element.name = 'physical document definition'}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityapproval_assignmentaaattributeitemsassertion_todocument_definition_relationship"></a>5.1.2.4 <a href="../../approval/sys/4_info_reqs.htm#approval_arm.approval_assignment">Approval_assignment</a>
+         to <A HREF="../../../../data/modules/document_structure/sys/4_info_reqs.htm#document_structure_arm.document_definition_relationship">Document_definition_relationship</A>
+         
+         (as <a href="../../approval/sys/4_info_reqs.htm#approval_arm.approval_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_approval_assignment.items[i] -&gt; approval_item<br>mri_approval_item *&gt; dm_approval_item <br>         dm_approval_item = product_definition_relationship
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityattribute_translation_assignment">5.1.3 </a><a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment">Attribute_translation_assignment</a></h2>
+      <p>
+         This application object,  
+         <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment">Attribute_translation_assignment</a>, is defined in the module
+         <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment">multi_linguism</a>.
+         This mapping section extends the 
+         <a href="../../multi_linguism/sys/5_mapping.htm#aeentityattribute_translation_assignment"> mapping of Attribute_translation_assignment</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentityattribute_translation_assignmentaaattributeconsidered_instanceassertion_todigital_document_definition"></a>5.1.3.1 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment">Attribute_translation_assignment</a>
+         to <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.digital_document_definition">Digital_document_definition</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>multi_language_attribute_assignment.items[i] -&gt; multi_language_attribute_item<br>mri_attribute_language_item *&gt; dm_attribute_language_item<br>         dm_attribute_language_item = product_definition<br>         {product_definition.frame_of_reference -&gt;<br>         product_definition_context &lt;=<br>         application_context_element<br>         (application_context_element.name = 'digital document definition')}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityattribute_translation_assignmentaaattributeconsidered_instanceassertion_todocument"></a>5.1.3.2 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment">Attribute_translation_assignment</a>
+         to <A HREF="../../../../data/modules/document_and_version_identification/sys/4_info_reqs.htm#document_and_version_identification_arm.document">Document</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>multi_language_attribute_assignment.items[i] -&gt; multi_language_attribute_item<br>mri_attribute_language_item *&gt; dm_attribute_language_item<br>         dm_attribute_language_item = product<br>         {product &lt;-<br>         product_related_product_category.products<br>         product_related_product_category &lt;=<br>         product_category<br>         product_category.name='document'}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityattribute_translation_assignmentaaattributeconsidered_instanceassertion_todocument_assignment"></a>5.1.3.3 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment">Attribute_translation_assignment</a>
+         to <A HREF="../../../../data/modules/document_assignment/sys/4_info_reqs.htm#document_assignment_arm.document_assignment">Document_assignment</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;
+                 If the assignment is not a partial document assignment.
+               
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>mri_attribute_language_item *&gt; dm_attribute_language_item<br>           dm_attribute_language_item = applied_document_reference <br>         
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;
+                 If the assignment is a partial document assignment.
+               
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>mri_attribute_language_item *&gt; dm_attribute_language_item<br>           dm_attribute_language_item = applied_document_usage_constraint_assignment<br>         
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityattribute_translation_assignmentaaattributeconsidered_instanceassertion_todocument_definition_relationship"></a>5.1.3.4 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment">Attribute_translation_assignment</a>
+         to <A HREF="../../../../data/modules/document_structure/sys/4_info_reqs.htm#document_structure_arm.document_definition_relationship">Document_definition_relationship</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>multi_language_attribute_assignment.items[i] -&gt; multi_language_attribute_item<br>mri_attribute_language_item *&gt; dm_attribute_language_item<br>         dm_attribute_language_item = product_definition_relationship
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityattribute_translation_assignmentaaattributeconsidered_instanceassertion_todocument_version"></a>5.1.3.5 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment">Attribute_translation_assignment</a>
+         to <A HREF="../../../../data/modules/document_and_version_identification/sys/4_info_reqs.htm#document_and_version_identification_arm.document_version">Document_version</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>multi_language_attribute_assignment.items[i] -&gt; multi_language_attribute_item<br>mri_attribute_language_item *&gt; dm_attribute_language_item<br>         dm_attribute_language_item = product_definition_formation<br>           {product_definition_formation.of_product -&gt;<br>           product<br>           product &lt;-<br>           product_related_product_category.products[i]<br>           product_related_product_category &lt;=<br>           product_category<br>           product_category.name='document' }
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityattribute_translation_assignmentaaattributeconsidered_instanceassertion_toexternal_item_identification"></a>5.1.3.6 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment">Attribute_translation_assignment</a>
+         to <A HREF="../../../../data/modules/external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_item_identification">External_item_identification</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>multi_language_attribute_assignment.items[i] -&gt; multi_language_attribute_item<br>mri_attribute_language_item *&gt; dm_attribute_language_item<br>         dm_attribute_language_item = applied_external_identification_assignment
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityattribute_translation_assignmentaaattributeconsidered_instanceassertion_toexternal_source_identification"></a>5.1.3.7 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment">Attribute_translation_assignment</a>
+         to <A HREF="../../../../data/modules/external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_source_identification">External_source_identification</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>multi_language_attribute_assignment.items[i] -&gt; multi_language_attribute_item<br>mri_attribute_language_item *&gt; dm_attribute_language_item<br>         dm_attribute_language_item = applied_external_identification_assignment
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityattribute_translation_assignmentaaattributeconsidered_instanceassertion_tofile_relationship"></a>5.1.3.8 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment">Attribute_translation_assignment</a>
+         to <A HREF="../../../../data/modules/document_structure/sys/4_info_reqs.htm#document_structure_arm.file_relationship">File_relationship</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>multi_language_attribute_assignment.items[i] -&gt; multi_language_attribute_item<br>mri_attribute_language_item *&gt; dm_attribute_language_item<br>         dm_attribute_language_item = document_relationship
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityattribute_translation_assignmentaaattributeconsidered_instanceassertion_tophysical_document_definition"></a>5.1.3.9 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment">Attribute_translation_assignment</a>
+         to <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.physical_document_definition">Physical_document_definition</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.attribute_translation_assignment.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>multi_language_attribute_assignment.items[i] -&gt; multi_language_attribute_item<br>mri_attribute_language_item *&gt; dm_attribute_language_item<br>         dm_attribute_language_item = product_definition<br>         {product_definition.frame_of_reference -&gt;<br>         product_definition_context &lt;=<br>         application_context_element<br>         (application_context_element.name = 'physical document definition')}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycontract_assignment">5.1.4 </a><a href="../../contract/sys/4_info_reqs.htm#contract_arm.contract_assignment">Contract_assignment</a></h2>
+      <p>
+         This application object,  
+         <a href="../../contract/sys/4_info_reqs.htm#contract_arm.contract_assignment">Contract_assignment</a>, is defined in the module
+         <a href="../../contract/sys/4_info_reqs.htm#contract_arm.contract_assignment">contract</a>.
+         This mapping section extends the 
+         <a href="../../contract/sys/5_mapping.htm#aeentitycontract_assignment"> mapping of Contract_assignment</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentitycontract_assignmentaaattributeitemsassertion_todocument_version"></a>5.1.4.1 <a href="../../contract/sys/4_info_reqs.htm#contract_arm.contract_assignment">Contract_assignment</a>
+         to <A HREF="../../../../data/modules/document_and_version_identification/sys/4_info_reqs.htm#document_and_version_identification_arm.document_version">Document_version</A>
+         
+         (as <a href="../../contract/sys/4_info_reqs.htm#contract_arm.contract_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_contract_assignment.items[i] -&gt; contract_item<br>contract_item *&gt; dm_contract_item <br>         dm_contract_item = product_definition_formation<br>         {product_definition_formation.of_product -&gt;<br>         product<br>         product &lt;-<br>         product_related_product_category.products[i]<br>         product_related_product_category &lt;=<br>         product_category<br>         product_category.name='document' }
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydate_or_date_time_assignment">5.1.5 </a><a href="../../date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm.date_or_date_time_assignment">Date_or_date_time_assignment</a></h2>
+      <p>
+         This application object,  
+         <a href="../../date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm.date_or_date_time_assignment">Date_or_date_time_assignment</a>, is defined in the module
+         <a href="../../date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm.date_or_date_time_assignment">date_time_assignment</a>.
+         This mapping section extends the 
+         <a href="../../date_time_assignment/sys/5_mapping.htm#aeentitydate_or_date_time_assignment"> mapping of Date_or_date_time_assignment</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentitydate_or_date_time_assignmentaaattributeitemsassertion_todigital_document_definition"></a>5.1.5.1 <a href="../../date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm.date_or_date_time_assignment">Date_or_date_time_assignment</a>
+         to <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.digital_document_definition">Digital_document_definition</A>
+         
+         (as <a href="../../date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm.date_or_date_time_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;if the assigned_date is a Calendar_date
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(date_assignment=&gt;<br>					 applied_date_assignment<br>					 applied_date_assignment.items[i] -&gt; date_item<br>mri_date_item *&gt; dm_date_item<br>           dm_date_item = product_definition<br>           {product_definition.frame_of_reference -&gt;<br>           product_definition_context &lt;=<br>           application_context_element<br>           application_context_element.name = 'digital document definition'})
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;if the assigned_date is a Date_time
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(date_and_time_assignment=&gt;<br>			 		 applied_date_and_time_assignment<br>					 applied_date_and_time_assignment.items[i] -&gt; date_and_time_item<br>mri_date_and_time_item *&gt; dm_date_and_time_item<br>           dm_date_and_time_item = product_definition<br>           {product_definition.frame_of_reference -&gt;<br>           product_definition_context &lt;=<br>           application_context_element<br>           application_context_element.name = 'digital document definition'})
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydate_or_date_time_assignmentaaattributeitemsassertion_todigital_file"></a>5.1.5.2 <a href="../../date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm.date_or_date_time_assignment">Date_or_date_time_assignment</a>
+         to <A HREF="../../../../data/modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.digital_file">Digital_file</A>
+         
+         (as <a href="../../date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm.date_or_date_time_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;if the assigned_date is a Calendar_date
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(date_assignment=&gt;<br>					 applied_date_assignment<br>					 applied_date_assignment.items[i] -&gt; date_item<br>mri_date_item *&gt; dm_date_item<br>           dm_date_item = document_file <br>           document_file &lt;=<br>           [document<br>           {document &lt;- document_representation_type.represented_document<br>           document_representation_type.name = 'digital'}]<br>           [characterized_object])
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;if the assigned_date is a Date_time
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(date_and_time_assignment=&gt;<br>			 		 applied_date_and_time_assignment<br>					 applied_date_and_time_assignment.items[i] -&gt; date_and_time_item<br>mri_date_and_time_item *&gt; dm_date_and_time_item<br>           dm_date_and_time_item = document_file <br>           document_file &lt;=<br>           [document<br>           {document &lt;- document_representation_type.represented_document<br>           document_representation_type.name = 'digital'}]<br>           [characterized_object])
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydate_or_date_time_assignmentaaattributeitemsassertion_tohardcopy"></a>5.1.5.3 <a href="../../date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm.date_or_date_time_assignment">Date_or_date_time_assignment</a>
+         to <A HREF="../../../../data/modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.hardcopy">Hardcopy</A>
+         
+         (as <a href="../../date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm.date_or_date_time_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;if the assigned_date is a Calendar_date
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(date_assignment=&gt;<br>					 applied_date_assignment<br>					 applied_date_assignment.items[i] -&gt; date_item<br>mri_date_item *&gt; dm_date_item<br>           dm_date_item = document_file<br>           document_file &lt;=<br>           [document<br>           {document &lt;- document_representation_type.represented_document<br>           document_representation_type.name = 'physical'}]<br>           [characterized_object])
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;if the assigned_date is a Date_time
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(date_and_time_assignment=&gt;<br>			 		 applied_date_and_time_assignment<br>					 applied_date_and_time_assignment.items[i] -&gt; date_and_time_item<br>mri_date_and_time_item *&gt; dm_date_and_time_item<br>           dm_date_and_time_item = document_file<br>           document_file &lt;=<br>           [document<br>           {document &lt;- document_representation_type.represented_document<br>           document_representation_type.name = 'physical'}]<br>           [characterized_object])
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydate_or_date_time_assignmentaaattributeitemsassertion_todocument_definition_relationship"></a>5.1.5.4 <a href="../../date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm.date_or_date_time_assignment">Date_or_date_time_assignment</a>
+         to <A HREF="../../../../data/modules/document_structure/sys/4_info_reqs.htm#document_structure_arm.document_definition_relationship">Document_definition_relationship</A>
+         
+         (as <a href="../../date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm.date_or_date_time_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;if the assigned_date is a Calendar_date
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(date_assignment=&gt;<br>					 applied_date_assignment<br>					 applied_date_assignment.items[i] -&gt; date_item<br>mri_date_item *&gt; dm_date_item<br>           dm_date_item = product_definition_relationship)
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;if the assigned_date is a Date_time
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(date_and_time_assignment=&gt;<br>			 		 applied_date_and_time_assignment<br>					 applied_date_and_time_assignment.items[i] -&gt; date_and_time_item<br>mri_date_and_time_item *&gt; dm_date_and_time_item<br>           dm_date_and_time_item = product_definition_relationship)
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydate_or_date_time_assignmentaaattributeitemsassertion_todocument_version"></a>5.1.5.5 <a href="../../date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm.date_or_date_time_assignment">Date_or_date_time_assignment</a>
+         to <A HREF="../../../../data/modules/document_and_version_identification/sys/4_info_reqs.htm#document_and_version_identification_arm.document_version">Document_version</A>
+         
+         (as <a href="../../date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm.date_or_date_time_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;if the assigned_date is a Calendar_date
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(date_assignment=&gt;<br>					 applied_date_assignment<br>					 applied_date_assignment.items[i] -&gt; date_item<br>mri_date_item *&gt; dm_date_item<br>           dm_date_item = product_definition_formation<br>           {product_definition_formation.of_product -&gt;<br>           product<br>           product &lt;-<br>           product_related_product_category.products[i]<br>           product_related_product_category &lt;=<br>           product_category<br>           product_category.name='document' })
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;if the assigned_date is a Date_time
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(date_and_time_assignment=&gt;<br>			 		 applied_date_and_time_assignment<br>					 applied_date_and_time_assignment.items[i] -&gt; date_and_time_item<br>mri_date_and_time_item *&gt; dm_date_and_time_item<br>           dm_date_and_time_item = product_definition_formation<br>           {product_definition_formation.of_product -&gt;<br>           product<br>           product &lt;-<br>           product_related_product_category.products[i]<br>           product_related_product_category &lt;=<br>           product_category<br>           product_category.name='document' })
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydate_or_date_time_assignmentaaattributeitemsassertion_tophysical_document_definition"></a>5.1.5.6 <a href="../../date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm.date_or_date_time_assignment">Date_or_date_time_assignment</a>
+         to <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.physical_document_definition">Physical_document_definition</A>
+         
+         (as <a href="../../date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm.date_or_date_time_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;if the assigned_date is a Calendar_date
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(date_assignment=&gt;<br>					 applied_date_assignment<br>					 applied_date_assignment.items[i] -&gt; date_item<br>mri_date_item *&gt; dm_date_item<br>           dm_date_item = product_definition<br>           {product_definition.frame_of_reference -&gt;<br>           product_definition_context &lt;=<br>           application_context_element<br>           application_context_element.name = 'physical document definition'})
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;if the assigned_date is a Date_time
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(date_and_time_assignment=&gt;<br>			 		 applied_date_and_time_assignment<br>					 applied_date_and_time_assignment.items[i] -&gt; date_and_time_item<br>mri_date_and_time_item *&gt; dm_date_and_time_item<br>           dm_date_and_time_item = product_definition<br>           {product_definition.frame_of_reference -&gt;<br>           product_definition_context &lt;=<br>           application_context_element<br>           application_context_element.name = 'physical document definition'})
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityidentification_assignment">5.1.6 </a><a href="../../identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment">Identification_assignment</a></h2>
+      <p>
+         This application object,  
+         <a href="../../identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment">Identification_assignment</a>, is defined in the module
+         <a href="../../identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment">identification_assignment</a>.
+         This mapping section extends the 
+         <a href="../../identification_assignment/sys/5_mapping.htm#aeentityidentification_assignment"> mapping of Identification_assignment</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentityidentification_assignmentaaattributeitemsassertion_todigital_file"></a>5.1.6.1 <a href="../../identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment">Identification_assignment</a>
+         to <A HREF="../../../../data/modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.digital_file">Digital_file</A>
+         
+         (as <a href="../../identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;
+                The mapping for when the identification is not an alias identification.
+              
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_identification_assignment<br>          applied_identification_assignment &lt;= <br>          identification_assignment<br>          identification_assignment.role -&gt; identification_role<br>          applied_identification_assignment.items[i] -&gt; <br>          mri_identification_item  *&gt; dm_identification_item<br>          dm_identification_item = document_file<br>          document_file &lt;=<br>          [document<br>          {document &lt;- document_representation_type.represented_document<br>          document_representation_type.name = 'digital'}]<br>          [characterized_object]<br>        
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;
+                The mapping for when the identification is an alias identification.
+              
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>[applied_identification_assignment<br>          {applied_identification_assignment &lt;= <br>          identification_assignment<br>          identification_assignment.role -&gt; identification_role<br>          {(identification_role.name='alias')}}<br>          applied_identification_assignment.items[i] -&gt; <br>          mri_identification_item  *&gt; dm_identification_item<br>          dm_identification_item = document_file<br>          document_file &lt;=<br>          [document<br>          {document &lt;- document_representation_type.represented_document<br>          document_representation_type.name = 'digital'}]<br>          [characterized_object]]<br>          [aliasable_item *&gt; dm_aliasable_item<br>          dm_identification_item = document_file<br>          document_file &lt;=<br>          [document<br>          {document &lt;- document_representation_type.represented_document<br>          document_representation_type.name = 'digital'}]<br>          [characterized_object]]<br>        
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityidentification_assignmentaaattributeitemsassertion_todocument"></a>5.1.6.2 <a href="../../identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment">Identification_assignment</a>
+         to <A HREF="../../../../data/modules/document_and_version_identification/sys/4_info_reqs.htm#document_and_version_identification_arm.document">Document</A>
+         
+         (as <a href="../../identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;
+                 The mapping for when the identification is not an alias identification.
+               
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_identification_assignment<br>           applied_identification_assignment &lt;= <br>           identification_assignment<br>           identification_assignment.role -&gt; identification_role<br>           applied_identification_assignment.items[i] -&gt; <br>           mri_identification_item  *&gt; dm_identification_item<br>           dm_identification_item = product<br>           {product &lt;-<br>           product_related_product_category.products<br>           product_related_product_category &lt;=<br>           product_category<br>           product_category.name='document'}<br>         
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;
+                 The mapping for when the identification is an alias identification.
+               
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>[applied_identification_assignment<br>           {applied_identification_assignment &lt;= <br>           identification_assignment<br>           identification_assignment.role -&gt; identification_role<br>           {(identification_role.name='alias')}}<br>           applied_identification_assignment.items[i] -&gt; <br>           mri_identification_item  *&gt; dm_identification_item<br>           dm_identification_item = product<br>           {product &lt;-<br>           product_related_product_category.products<br>           product_related_product_category &lt;=<br>           product_category<br>           product_category.name='document'}]<br>           [aliasable_item *&gt; dm_aliasable_item<br>           dm_identification_item = product<br>           {product &lt;-<br>           product_related_product_category.products<br>           product_related_product_category &lt;=<br>           product_category<br>           product_category.name='document'}]<br>         
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityidentification_assignmentaaattributeitemsassertion_todigital_document_definition"></a>5.1.6.3 <a href="../../identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment">Identification_assignment</a>
+         to <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.digital_document_definition">Digital_document_definition</A>
+         
+         (as <a href="../../identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;
+                 The mapping for when the identification is not an alias identification.
+               
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_identification_assignment<br>           applied_identification_assignment &lt;= <br>           identification_assignment<br>           identification_assignment.role -&gt; identification_role<br>           applied_identification_assignment.items[i] -&gt; <br>           mri_identification_item  *&gt; dm_identification_item<br>           dm_identification_item = product_definition<br>           {product_definition.frame_of_reference -&gt;<br>           product_definition_context &lt;=<br>           application_context_element<br>           application_context_element.name = 'digital document definition'}<br>         
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;
+                 The mapping for when the identification is an alias identification.
+               
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>[applied_identification_assignment<br>           {applied_identification_assignment &lt;= <br>           identification_assignment<br>           identification_assignment.role -&gt; identification_role<br>           {(identification_role.name='alias')}}<br>           applied_identification_assignment.items[i] -&gt; <br>           mri_identification_item  *&gt; dm_identification_item<br>           dm_identification_item = product_definition<br>           {product_definition.frame_of_reference -&gt;<br>           product_definition_context &lt;=<br>           application_context_element<br>           application_context_element.name = 'digital document definition'}]<br>           [aliasable_item *&gt; dm_aliasable_item<br>           dm_identification_item = product_definition<br>           {product_definition.frame_of_reference -&gt;<br>           product_definition_context &lt;=<br>           application_context_element<br>           application_context_element.name = 'digital document definition'}]<br>         
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityidentification_assignmentaaattributeitemsassertion_tophysical_document_definition"></a>5.1.6.4 <a href="../../identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment">Identification_assignment</a>
+         to <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.physical_document_definition">Physical_document_definition</A>
+         
+         (as <a href="../../identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;
+                 The mapping for when the identification is not an alias identification.
+               
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_identification_assignment<br>           applied_identification_assignment &lt;= <br>           identification_assignment<br>           identification_assignment.role -&gt; identification_role<br>           applied_identification_assignment.items[i] -&gt; <br>           mri_identification_item  *&gt; dm_identification_item<br>           dm_identification_item = product_definition<br>           {product_definition.frame_of_reference -&gt;<br>           product_definition_context &lt;=<br>           application_context_element<br>           application_context_element.name = 'physical document definition'}<br>         
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;
+                 The mapping for when the identification is an alias identification.
+               
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>[applied_identification_assignment<br>           {applied_identification_assignment &lt;= <br>           identification_assignment<br>           identification_assignment.role -&gt; identification_role<br>           {(identification_role.name='alias')}}<br>           applied_identification_assignment.items[i] -&gt; <br>           mri_identification_item  *&gt; dm_identification_item<br>           dm_identification_item = product_definition<br>           {product_definition.frame_of_reference -&gt;<br>           product_definition_context &lt;=<br>           application_context_element<br>           application_context_element.name = 'physical document definition'}]<br>           [aliasable_item *&gt; dm_aliasable_item<br>           dm_identification_item = product_definition<br>           {product_definition.frame_of_reference -&gt;<br>           product_definition_context &lt;=<br>           application_context_element<br>           application_context_element.name = 'physical document definition'}]<br>         
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityidentification_assignmentaaattributeitemsassertion_todocument_version"></a>5.1.6.5 <a href="../../identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment">Identification_assignment</a>
+         to <A HREF="../../../../data/modules/document_and_version_identification/sys/4_info_reqs.htm#document_and_version_identification_arm.document_version">Document_version</A>
+         
+         (as <a href="../../identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;
+                 The mapping for when the identification is not an alias identification.
+               
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_identification_assignment<br>           applied_identification_assignment &lt;= <br>           identification_assignment<br>           identification_assignment.role -&gt; identification_role<br>           applied_identification_assignment.items[i] -&gt; <br>           mri_identification_item  *&gt; dm_identification_item<br>           dm_identification_item = product_definition_formation<br>           {product_definition_formation.of_product -&gt;<br>           product<br>           product &lt;-<br>           product_related_product_category.products[i]<br>           product_related_product_category &lt;=<br>           product_category<br>           product_category.name='document' }<br>         
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;
+                 The mapping for when the identification is an alias identification.
+               
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>[applied_identification_assignment<br>           {applied_identification_assignment &lt;= <br>           identification_assignment<br>           identification_assignment.role -&gt; identification_role<br>           {(identification_role.name='alias')}}<br>           applied_identification_assignment.items[i] -&gt; <br>           mri_identification_item  *&gt; dm_identification_item<br>           dm_identification_item =  product_definition_formation<br>           {product_definition_formation.of_product -&gt;<br>           product<br>           product &lt;-<br>           product_related_product_category.products[i]<br>           product_related_product_category &lt;=<br>           product_category<br>           product_category.name='document' }]<br>           [aliasable_item *&gt; dm_aliasable_item<br>           dm_identification_item =  product_definition_formation<br>           {product_definition_formation.of_product -&gt;<br>           product<br>           product &lt;-<br>           product_related_product_category.products[i]<br>           product_related_product_category &lt;=<br>           product_category<br>           product_category.name='document' }]<br>         
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityidentification_assignmentaaattributeitemsassertion_tohardcopy"></a>5.1.6.6 <a href="../../identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment">Identification_assignment</a>
+         to <A HREF="../../../../data/modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.hardcopy">Hardcopy</A>
+         
+         (as <a href="../../identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;
+                 The mapping for when the identification is not an alias identification.
+               
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_identification_assignment<br>           applied_identification_assignment &lt;= <br>           identification_assignment<br>           identification_assignment.role -&gt; identification_role<br>           applied_identification_assignment.items[i] -&gt; <br>           mri_identification_item  *&gt; dm_identification_item<br>           dm_identification_item = document_file<br>           document_file &lt;=<br>           [document<br>            {document &lt;- document_representation_type.represented_document<br>            document_representation_type.name = 'physical'}]<br>           [characterized_object]<br>         
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;
+                 The mapping for when the identification is an alias identification.
+               
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>[applied_identification_assignment<br>           {applied_identification_assignment &lt;= <br>           identification_assignment<br>           identification_assignment.role -&gt; identification_role<br>           {(identification_role.name='alias')}}<br>           applied_identification_assignment.items[i] -&gt; <br>           mri_identification_item  *&gt; dm_identification_item<br>           dm_identification_item = document_file<br>           document_file &lt;=<br>           [document<br>            {document &lt;- document_representation_type.represented_document<br>            document_representation_type.name = 'physical'}]<br>           [characterized_object]]<br>           [aliasable_item *&gt; dm_aliasable_item<br>           dm_identification_item = document_file<br>           document_file &lt;=<br>           [document<br>            {document &lt;- document_representation_type.represented_document<br>            document_representation_type.name = 'physical'}]<br>           [characterized_object]]<br>         
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityorganization_or_person_in_organization_assignment">5.1.7 </a><a href="../../person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment">Organization_or_person_in_organization_assignment</a></h2>
+      <p>
+         This application object,  
+         <a href="../../person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment">Organization_or_person_in_organization_assignment</a>, is defined in the module
+         <a href="../../person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment">person_organization_assignment</a>.
+         This mapping section extends the 
+         <a href="../../person_organization_assignment/sys/5_mapping.htm#aeentityorganization_or_person_in_organization_assignment"> mapping of Organization_or_person_in_organization_assignment</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentityorganization_or_person_in_organization_assignmentaaattributeitemsassertion_todigital_file"></a>5.1.7.1 <a href="../../person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment">Organization_or_person_in_organization_assignment</a>
+         to <A HREF="../../../../data/modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.digital_file">Digital_file</A>
+         
+         (as <a href="../../person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;if assigned_entity is an Organization
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(applied_organization_assignment.items[i] -&gt; organization_item<br>mri_organization_item *&gt; dm_organization_item <br>           dm_organization_item = document_file<br>           document_file &lt;=<br>           [document<br>           {document &lt;- document_representation_type.represented_document<br>           document_representation_type.name = 'digital'}]<br>           [characterized_object])
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;if assigned_entity is a Person_in_organization
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(applied_person_and_organization_assignment.items[i] -&gt; person_and_organization_item<br>mri_person_and_organization_item *&gt; dm_person_and_organization_item <br>           dm_person_and_organization_item = document_file<br>           document_file &lt;=<br>           [document<br>           {document &lt;- document_representation_type.represented_document<br>           document_representation_type.name = 'digital'}]<br>           [characterized_object])
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityorganization_or_person_in_organization_assignmentaaattributeitemsassertion_todocument"></a>5.1.7.2 <a href="../../person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment">Organization_or_person_in_organization_assignment</a>
+         to <A HREF="../../../../data/modules/document_and_version_identification/sys/4_info_reqs.htm#document_and_version_identification_arm.document">Document</A>
+         
+         (as <a href="../../person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;if assigned_entity is an Organization
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(applied_organization_assignment.items[i] -&gt; organization_item<br>mri_organization_item *&gt; dm_organization_item <br>           dm_organization_item = product<br>           {product &lt;-<br>           product_related_product_category.products<br>           product_related_product_category &lt;=<br>           product_category<br>           product_category.name='document'})
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;if assigned_entity is a Person_in_organization
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(applied_person_and_organization_assignment.items[i] -&gt; person_and_organization_item<br>mri_person_and_organization_item *&gt; dm_person_and_organization_item <br>           dm_person_and_organization_item = product<br>           {product &lt;-<br>           product_related_product_category.products<br>           product_related_product_category &lt;=<br>           product_category<br>           product_category.name='document'})
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityorganization_or_person_in_organization_assignmentaaattributeitemsassertion_todigital_document_definition"></a>5.1.7.3 <a href="../../person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment">Organization_or_person_in_organization_assignment</a>
+         to <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.digital_document_definition">Digital_document_definition</A>
+         
+         (as <a href="../../person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;if assigned_entity is an Organization
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(applied_organization_assignment.items[i] -&gt; organization_item<br>mri_organization_item *&gt; dm_organization_item <br>           dm_organization_item = product_definition<br>           {product_definition.frame_of_reference -&gt;<br>           product_definition_context &lt;=<br>           application_context_element<br>           application_context_element.name = 'digital document definition'})
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;if assigned_entity is a Person_in_organization
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(applied_person_and_organization_assignment.items[i] -&gt; person_and_organization_item<br>mri_person_and_organization_item *&gt; dm_person_and_organization_item <br>           dm_person_and_organization_item = product_definition<br>           {product_definition.frame_of_reference -&gt;<br>           product_definition_context &lt;=<br>           application_context_element<br>           application_context_element.name = 'digital document definition'})
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityorganization_or_person_in_organization_assignmentaaattributeitemsassertion_tophysical_document_definition"></a>5.1.7.4 <a href="../../person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment">Organization_or_person_in_organization_assignment</a>
+         to <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.physical_document_definition">Physical_document_definition</A>
+         
+         (as <a href="../../person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;if assigned_entity is an Organization
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(applied_organization_assignment.items[i] -&gt; organization_item<br>mri_organization_item *&gt; dm_organization_item <br>           dm_organization_item = product_definition<br>           {product_definition.frame_of_reference -&gt;<br>           product_definition_context &lt;=<br>           application_context_element<br>           application_context_element.name = 'physical document definition'})
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;if assigned_entity is a Person_in_organization
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(applied_person_and_organization_assignment.items[i] -&gt; person_and_organization_item<br>mri_person_and_organization_item *&gt; dm_person_and_organization_item <br>           dm_person_and_organization_item = product_definition<br>           {product_definition.frame_of_reference -&gt;<br>           product_definition_context &lt;=<br>           application_context_element<br>           application_context_element.name = 'physical document definition'})
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityorganization_or_person_in_organization_assignmentaaattributeitemsassertion_todocument_version"></a>5.1.7.5 <a href="../../person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment">Organization_or_person_in_organization_assignment</a>
+         to <A HREF="../../../../data/modules/document_and_version_identification/sys/4_info_reqs.htm#document_and_version_identification_arm.document_version">Document_version</A>
+         
+         (as <a href="../../person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;if assigned_entity is an Organization
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(applied_organization_assignment.items[i] -&gt; organization_item<br>mri_organization_item *&gt; dm_organization_item <br>           dm_organization_item = product_definition_formation<br>           {product_definition_formation.of_product -&gt;<br>           product<br>           product &lt;-<br>           product_related_product_category.products[i]<br>           product_related_product_category &lt;=<br>           product_category<br>           product_category.name='document' })
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;if assigned_entity is a Person_in_organization
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(applied_person_and_organization_assignment.items[i] -&gt; person_and_organization_item<br>mri_person_and_organization_item *&gt; dm_person_and_organization_item <br>           dm_person_and_organization_item = product_definition_formation<br>           {product_definition_formation.of_product -&gt;<br>           product<br>           product &lt;-<br>           product_related_product_category.products[i]<br>           product_related_product_category &lt;=<br>           product_category<br>           product_category.name='document' })
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityorganization_or_person_in_organization_assignmentaaattributeitemsassertion_tohardcopy"></a>5.1.7.6 <a href="../../person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment">Organization_or_person_in_organization_assignment</a>
+         to <A HREF="../../../../data/modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.hardcopy">Hardcopy</A>
+         
+         (as <a href="../../person_organization_assignment/sys/4_info_reqs.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;if assigned_entity is an Organization
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(applied_organization_assignment.items[i] -&gt; organization_item<br>mri_organization_item *&gt; dm_organization_item <br>           dm_organization_item = document_file<br>           document_file &lt;=<br>           [document<br>           {document &lt;- document_representation_type.represented_document<br>           document_representation_type.name = 'physical'}]<br>           [characterized_object])
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;if assigned_entity is a Person_in_organization
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(applied_person_and_organization_assignment.items[i] -&gt; person_and_organization_item<br>mri_person_and_organization_item *&gt; dm_person_and_organization_item <br>           dm_person_and_organization_item = document_file<br>           document_file &lt;=<br>           [document<br>           {document &lt;- document_representation_type.represented_document<br>           document_representation_type.name = 'physical'}]<br>           [characterized_object])
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitysecurity_classification_assignment">5.1.8 </a><a href="../../security_classification/sys/4_info_reqs.htm#security_classification_arm.security_classification_assignment">Security_classification_assignment</a></h2>
+      <p>
+         This application object,  
+         <a href="../../security_classification/sys/4_info_reqs.htm#security_classification_arm.security_classification_assignment">Security_classification_assignment</a>, is defined in the module
+         <a href="../../security_classification/sys/4_info_reqs.htm#security_classification_arm.security_classification_assignment">security_classification</a>.
+         This mapping section extends the 
+         <a href="../../security_classification/sys/5_mapping.htm#aeentitysecurity_classification_assignment"> mapping of Security_classification_assignment</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentitysecurity_classification_assignmentaaattributeitemsassertion_todigital_file"></a>5.1.8.1 <a href="../../security_classification/sys/4_info_reqs.htm#security_classification_arm.security_classification_assignment">Security_classification_assignment</a>
+         to <A HREF="../../../../data/modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.digital_file">Digital_file</A>
+         
+         (as <a href="../../security_classification/sys/4_info_reqs.htm#security_classification_arm.security_classification_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_security_classification_assignment.items [i] -&gt;<br>		     security_classification_item&nbsp;*&gt; dm_security_classification_item<br>         dm_security_classification_item = document_file<br>         document_file &lt;=<br>         [document<br>         {document &lt;- document_representation_type.represented_document<br>         document_representation_type.name = 'digital'}]<br>         [characterized_object]
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitysecurity_classification_assignmentaaattributeitemsassertion_todigital_document_definition"></a>5.1.8.2 <a href="../../security_classification/sys/4_info_reqs.htm#security_classification_arm.security_classification_assignment">Security_classification_assignment</a>
+         to <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.digital_document_definition">Digital_document_definition</A>
+         
+         (as <a href="../../security_classification/sys/4_info_reqs.htm#security_classification_arm.security_classification_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_security_classification_assignment.items [i] -&gt;<br>		     security_classification_item&nbsp;*&gt; dm_security_classification_item<br>         dm_security_classification_item = product_definition<br>         {product_definition.frame_of_reference -&gt;<br>         product_definition_context &lt;=<br>         application_context_element<br>         application_context_element.name = 'digital document definition'}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitysecurity_classification_assignmentaaattributeitemsassertion_tophysical_document_definition"></a>5.1.8.3 <a href="../../security_classification/sys/4_info_reqs.htm#security_classification_arm.security_classification_assignment">Security_classification_assignment</a>
+         to <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.physical_document_definition">Physical_document_definition</A>
+         
+         (as <a href="../../security_classification/sys/4_info_reqs.htm#security_classification_arm.security_classification_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_security_classification_assignment.items [i] -&gt;<br>		     security_classification_item&nbsp;*&gt; dm_security_classification_item<br>         dm_security_classification_item = product_definition<br>         {product_definition.frame_of_reference -&gt;<br>         product_definition_context &lt;=<br>         application_context_element<br>         application_context_element.name = 'physical document definition'}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitysecurity_classification_assignmentaaattributeitemsassertion_todocument"></a>5.1.8.4 <a href="../../security_classification/sys/4_info_reqs.htm#security_classification_arm.security_classification_assignment">Security_classification_assignment</a>
+         to <A HREF="../../../../data/modules/document_and_version_identification/sys/4_info_reqs.htm#document_and_version_identification_arm.document">Document</A>
+         
+         (as <a href="../../security_classification/sys/4_info_reqs.htm#security_classification_arm.security_classification_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_security_classification_assignment.items [i] -&gt;<br>		     security_classification_item&nbsp;*&gt; dm_security_classification_item<br>         dm_security_classification_item = product<br>         {product &lt;-<br>         product_related_product_category.products<br>         product_related_product_category &lt;=<br>         product_category<br>         product_category.name='document'}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitysecurity_classification_assignmentaaattributeitemsassertion_todocument_version"></a>5.1.8.5 <a href="../../security_classification/sys/4_info_reqs.htm#security_classification_arm.security_classification_assignment">Security_classification_assignment</a>
+         to <A HREF="../../../../data/modules/document_and_version_identification/sys/4_info_reqs.htm#document_and_version_identification_arm.document_version">Document_version</A>
+         
+         (as <a href="../../security_classification/sys/4_info_reqs.htm#security_classification_arm.security_classification_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_security_classification_assignment.items [i] -&gt;<br>		     security_classification_item&nbsp;*&gt; dm_security_classification_item<br>         dm_security_classification_item = product_definition_formation<br>         {product_definition_formation.of_product -&gt;<br>         product<br>         product &lt;-<br>         product_related_product_category.products[i]<br>         product_related_product_category &lt;=<br>         product_category<br>         product_category.name='document' }
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitysecurity_classification_assignmentaaattributeitemsassertion_tohardcopy"></a>5.1.8.6 <a href="../../security_classification/sys/4_info_reqs.htm#security_classification_arm.security_classification_assignment">Security_classification_assignment</a>
+         to <A HREF="../../../../data/modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.hardcopy">Hardcopy</A>
+         
+         (as <a href="../../security_classification/sys/4_info_reqs.htm#security_classification_arm.security_classification_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_security_classification_assignment.items [i] -&gt;<br>		     security_classification_item&nbsp;*&gt; dm_security_classification_item<br>         dm_security_classification_item = document_file<br>         document_file &lt;=<br>         [document<br>         {document &lt;- document_representation_type.represented_document<br>         document_representation_type.name = 'physical'}]<br>         [characterized_object]
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylanguage_indication">5.1.9 </a><a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication">Language_indication</a></h2>
+      <p>
+         This application object,  
+         <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication">Language_indication</a>, is defined in the module
+         <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication">multi_linguism</a>.
+         This mapping section extends the 
+         <a href="../../multi_linguism/sys/5_mapping.htm#aeentitylanguage_indication"> mapping of Language_indication</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentitylanguage_indicationaaattributeconsidered_instanceassertion_todocument"></a>5.1.9.1 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication">Language_indication</a>
+         to <A HREF="../../../../data/modules/document_and_version_identification/sys/4_info_reqs.htm#document_and_version_identification_arm.document">Document</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>attribute_language_assignment.items[i] -&gt; attribute_language_item<br>mri_attribute_language_item *&gt; dm_attribute_language_item<br>         dm_attribute_language_item = product<br>         {product &lt;-<br>         product_related_product_category.products<br>         product_related_product_category &lt;=<br>         product_category<br>         product_category.name='document'}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylanguage_indicationaaattributeconsidered_instanceassertion_todocument_assignment"></a>5.1.9.2 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication">Language_indication</a>
+         to <A HREF="../../../../data/modules/document_assignment/sys/4_info_reqs.htm#document_assignment_arm.document_assignment">Document_assignment</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;
+                 If the assignment is not a partial document assignment.
+               
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>mri_attribute_language_item *&gt; dm_attribute_language_item<br>           dm_attribute_language_item = applied_document_reference <br>         
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;
+                 If the assignment is a partial document assignment.
+               
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>mri_attribute_language_item *&gt; dm_attribute_language_item<br>           dm_attribute_language_item = applied_document_usage_constraint_assignment<br>         
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylanguage_indicationaaattributeconsidered_instanceassertion_todigital_document_definition"></a>5.1.9.3 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication">Language_indication</a>
+         to <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.digital_document_definition">Digital_document_definition</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>attribute_language_assignment.items[i] -&gt; attribute_language_item<br>mri_attribute_language_item *&gt; dm_attribute_language_item<br>         dm_attribute_language_item = product_definition<br>         {product_definition.frame_of_reference -&gt;<br>         product_definition_context &lt;=<br>         application_context_element<br>         application_context_element.name = 'digital document definition'}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylanguage_indicationaaattributeconsidered_instanceassertion_tophysical_document_definition"></a>5.1.9.4 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication">Language_indication</a>
+         to <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.physical_document_definition">Physical_document_definition</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>attribute_language_assignment.items[i] -&gt; attribute_language_item<br>mri_attribute_language_item *&gt; dm_attribute_language_item<br>         dm_attribute_language_item = product_definition<br>         {product_definition.frame_of_reference -&gt;<br>         product_definition_context &lt;=<br>         application_context_element<br>         application_context_element.name = 'physical document definition'}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylanguage_indicationaaattributeconsidered_instanceassertion_todocument_definition_relationship"></a>5.1.9.5 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication">Language_indication</a>
+         to <A HREF="../../../../data/modules/document_structure/sys/4_info_reqs.htm#document_structure_arm.document_definition_relationship">Document_definition_relationship</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>attribute_language_assignment.items[i] -&gt; attribute_language_item<br>mri_attribute_language_item *&gt; dm_attribute_language_item<br>         dm_attribute_language_item = product_definition_relationship
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylanguage_indicationaaattributeconsidered_instanceassertion_todocument_version"></a>5.1.9.6 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication">Language_indication</a>
+         to <A HREF="../../../../data/modules/document_and_version_identification/sys/4_info_reqs.htm#document_and_version_identification_arm.document_version">Document_version</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>attribute_language_assignment.items[i] -&gt; attribute_language_item<br>mri_attribute_language_item *&gt; dm_attribute_language_item<br>         dm_attribute_language_item = product_definition_formation<br>           {product_definition_formation.of_product -&gt;<br>           product<br>           product &lt;-<br>           product_related_product_category.products[i]<br>           product_related_product_category &lt;=<br>           product_category<br>           product_category.name='document' }
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylanguage_indicationaaattributeconsidered_instanceassertion_toexternal_item_identification"></a>5.1.9.7 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication">Language_indication</a>
+         to <A HREF="../../../../data/modules/external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_item_identification">External_item_identification</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>attribute_language_assignment.items[i] -&gt; attribute_language_item<br>mri_attribute_language_item *&gt; dm_attribute_language_item<br>         dm_attribute_language_item = applied_external_identification_assignment
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylanguage_indicationaaattributeconsidered_instanceassertion_toexternal_source_identification"></a>5.1.9.8 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication">Language_indication</a>
+         to <A HREF="../../../../data/modules/external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_source_identification">External_source_identification</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>attribute_language_assignment.items[i] -&gt; attribute_language_item<br>mri_attribute_language_item *&gt; dm_attribute_language_item<br>         dm_attribute_language_item = applied_external_identification_assignment
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylanguage_indicationaaattributeconsidered_instanceassertion_tofile_relationship"></a>5.1.9.9 <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication">Language_indication</a>
+         to <A HREF="../../../../data/modules/document_structure/sys/4_info_reqs.htm#document_structure_arm.file_relationship">File_relationship</A>
+         
+         (as <a href="../../multi_linguism/sys/4_info_reqs.htm#multi_linguism_arm.language_indication.considered_instance">considered_instance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>attribute_language_assignment.items[i] -&gt; attribute_language_item<br>mri_attribute_language_item *&gt; dm_attribute_language_item<br>         dm_attribute_language_item = document_relationship
+            </td>
+         </tr>
+      </table><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

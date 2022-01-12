@@ -1,0 +1,1165 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Specification control">
+      <META name="DC.Dates" content="2009-06-11 09:31:16">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Specification control">
+      <META name="DC.Subject" content="module, diversity, diversity management, product variant, product family">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6672">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5499">
+      <META name="SC4.version" content="3">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6563">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6564">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6565">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-06-11 09:31:16">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.31">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.19">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.12">
+      <TITLE>ISO/TS 10303-1112:2009 Specification control</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Specification control</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1112:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.4 ARM function definition</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#rules">5.2.3 MIM rule definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/f_guide.htm">
+                     F Application module implementation and usage guide</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Specification control</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Specification_control_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="specification_control_arm">
+            SCHEMA Specification_control_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm">Alternative_solution_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1109<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/part_collection/sys/4_info_reqs.htm#part_collection_arm">Part_collection_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1115<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/product_placement/sys/4_info_reqs.htm#product_placement_arm">Product_placement_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1343<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/requirement_identification_and_version/sys/4_info_reqs.htm#requirement_identification_and_version_arm">Requirement_identification_and_version_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1140<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/specification_based_configuration/sys/4_info_reqs.htm#specification_based_configuration_arm">Specification_based_configuration_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1108<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Alternative_solution_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1109</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Part_collection_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1115</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Product_placement_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1343</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Requirement_identification_and_version_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1140</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Specification_based_configuration_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1108</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="specification_control_arm.breakdown_element_select">4.2.1 breakdown_element_select</a>
+         &nbsp;&nbsp;<a href="../../specification_control/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>breakdown_element_select</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/functional_breakdown/sys/4_info_reqs.htm#functional_breakdown_arm.functional_element_definition">Functional_element_definition</A></b>
+         and
+         <b><A HREF="../../../../data/modules/physical_breakdown/sys/4_info_reqs.htm#physical_breakdown_arm.physical_element_definition">Physical_element_definition</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            breakdown_element_select =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/functional_breakdown/sys/4_info_reqs.htm#functional_breakdown_arm.functional_element_definition">Functional_element_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/physical_breakdown/sys/4_info_reqs.htm#physical_breakdown_arm.physical_element_definition">Physical_element_definition</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="specification_control_arm.constraint_context_select">4.2.2 constraint_context_select</a>
+         &nbsp;&nbsp;<a href="../../specification_control/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>constraint_context_select</b> type allows for the designation of the data 
+         
+         type
+         <b><A HREF="../../../../data/modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class">Product_class</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            constraint_context_select =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class">Product_class</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="specification_control_arm.effectivity_specification_for_replacement">4.2.3 effectivity_specification_for_replacement</a>
+         &nbsp;&nbsp;<a href="../../specification_control/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>effectivity_specification_for_replacement</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/effectivity_application/sys/4_info_reqs.htm#effectivity_application_arm.effectivity_item">effectivity_item</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#specification_control_arm.replaced_usage_relationship">Replaced_usage_relationship</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            effectivity_specification_for_replacement =
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/effectivity_application/sys/4_info_reqs.htm#effectivity_application_arm.effectivity_item">effectivity_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#specification_control_arm.replaced_usage_relationship">Replaced_usage_relationship</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="specification_control_arm.instance_usage_context_select">4.2.4 instance_usage_context_select</a>
+         &nbsp;&nbsp;<a href="../../specification_control/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>instance_usage_context_select</b> type is an
+         extensible list of alternate data types
+         that allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/part_collection/sys/4_info_reqs.htm#part_collection_arm.collected_item_association">Collected_item_association</A></b>
+         and
+         <b><A HREF="../../../../data/modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.solution_element">Solution_element</A></b>.
+         
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;
+            The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.                 
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            instance_usage_context_select =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/part_collection/sys/4_info_reqs.htm#part_collection_arm.collected_item_association">Collected_item_association</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.solution_element">Solution_element</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="specification_control_arm.sc_configured_element">4.2.5 sc_configured_element</a>
+         &nbsp;&nbsp;<a href="../../specification_control/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>sc_configured_element</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/specification_based_configuration/sys/4_info_reqs.htm#specification_based_configuration_arm.configured_item_select">configured_item_select</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="../../../../data/modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.alternative_solution">Alternative_solution</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            sc_configured_element =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/specification_based_configuration/sys/4_info_reqs.htm#specification_based_configuration_arm.configured_item_select">configured_item_select</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.alternative_solution">Alternative_solution</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="specification_control_arm.breakdown_node_relationship">4.3.1 Breakdown_node_relationship</a>
+         &nbsp;&nbsp;<a href="../../specification_control/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitybreakdown_node_relationship"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      A <b>Breakdown_node_relationship</b> is a relationship between an alternative solution or a definition of a breakdown element and a definition of a breakdown
+      element.
+      
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Breakdown_node_relationship;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;relating : <A HREF="../../../../data/modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select">complex_product_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;related : <A HREF="#specification_control_arm.breakdown_element_select">breakdown_element_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;relation_type : STRING;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: (NOT (relation_type IN ['functionality', 'realization'])) OR
+            	    (TYPEOF(related) &lt;&gt; TYPEOF(relating));<br> 
+            &nbsp;&nbsp;WR2: (NOT (relation_type IN ['decomposition', 'specialization', 'occurrence'])) OR
+            	    (aggregate1_in_aggregate2(TYPEOF(related),TYPEOF(relating)) OR aggregate1_in_aggregate2(TYPEOF(relating),TYPEOF(related))
+            );<br> 
+            &nbsp;&nbsp;WR3: (NOT (relation_type IN ['occurrence'])) OR 
+            	    ('SPECIFICATION_CONTROL_ARM.PHYSICAL_ELEMENT_DEFINITION' IN TYPEOF(relating));<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="specification_control_arm.breakdown_node_relationship.description">description:
+               </a></b>
+         
+         a text that provides further information about the relationship. The value of this attribute need not be specified.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.breakdown_node_relationship.relating">relating:
+               </a></b>
+         
+         the instance of an entity type listed in 
+         
+         <a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select </b></a>
+         
+          type that is related.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.breakdown_node_relationship.related">related:
+               </a></b>
+         
+         the instance of an entity type listed in 
+         
+         <a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.breakdown_element_select"><b>breakdown_element_select</b></a>
+         
+          type that is related.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.breakdown_node_relationship.relation_type">relation_type:
+               </a></b>the text that specifies the meaning of the relationship.
+      </p>
+      <p>Where applicable, the following values shall be used:</p>
+      <ul>
+         			
+         <li>'decomposition': The related 
+            			<a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.breakdown_element_select"><b>breakdown_element_select</b></a>
+            			is one of potentially more components of the relating&gt; 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select</b></a>.
+            			This relation type shall only be used for 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select</b></a> 
+            			and 
+            			<a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.breakdown_element_select"><b>breakdown_element_select</b></a> 
+            			of the same type; 
+            			
+            <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+                  
+                  				This case is identical to the functionality of
+                  				<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_element_usage"><b>Breakdown_element_usage</b></a> 
+                  				that should be used preferably
+                  			</small></p>
+            
+            
+         </li>
+         			
+         <li>'functionality': The related 
+            			<a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.breakdown_element_select"><b>breakdown_element_select</b></a> 
+            			is an element of the functional structure of the relating 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select</b></a>. 
+            			This relation type shall only be used with a 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select</b></a> 
+            			of type 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.alternative_solution"><b>Alternative_solution</b></a> 
+            			or 
+            			<a href="../../../modules/physical_breakdown/sys/4_info_reqs.htm#physical_breakdown_arm.physical_element_definition"><b>Physical_element_definition</b></a> 
+            			and with a 
+            			<a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.breakdown_element_select"><b>breakdown_element_select</b></a> 
+            			of type 
+            			<a href="../../../modules/functional_breakdown/sys/4_info_reqs.htm#functional_breakdown_arm.functional_element_definition"><b>Functional_element_definition</b></a>;
+            
+            
+            <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+                  The functional element 'heat dissipation' may be considered as one of the functionalities to be fulfilled by any technical
+                  solution for the physical element 'braking system'.
+                  
+                  </small></p>
+            			
+         </li>
+         			
+         <li>'occurrence': The related 
+            			<a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.breakdown_element_select"><b>breakdown_element_select</b></a> 
+            			is an occurrence defined by the relating 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select</b></a>.
+            			This relation type shall only be used if related 
+            			<a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.breakdown_element_select"><b>breakdown_element_select</b></a> 
+            			is of type physical element; 
+            
+            
+         </li>
+         			
+         <li>'realization': The related 
+            			<a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.breakdown_element_select"><b>breakdown_element_select</b></a> 
+            			is a means for fulfilling, either partially or fully, the requirements identified with the relating 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select</b></a>. 
+            			This relation type shall be used only when the 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select</b></a> 
+            			and the 
+            			<a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.breakdown_element_select"><b>breakdown_element_select</b></a> 
+            			are of different types ;
+            			
+            <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+                  
+                  				This case is identical to the functionality of
+                  				<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_element_realization"><b>Breakdown_element_realization</b></a> 
+                  				that should be used preferably.
+                  			</small></p>
+            
+            
+            <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+                  The physical element 'braking system' may be considered as a means to realize the functional element 'braking'.
+                  
+                  </small></p>
+            			
+         </li>
+         			
+         <li>'specialization': The related 
+            			<a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.breakdown_element_select"><b>breakdown_element_select</b></a> 
+            			fulfils the requirements of the relating 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select</b></a>
+            			in a more specific way than defined for the relating 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select</b></a>.
+            			This relation type shall only be used for 
+            			<a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.breakdown_element_select"><b>breakdown_element_select</b></a> 
+            			and 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select</b></a> 
+            			of the same type. 
+            
+            
+         </li>
+         		
+      </ul>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="specification_control_arm.breakdown_node_relationship.wr:wr1">WR1:
+               </a></b>
+         	If the <b>relation_type</b> is  'functionality' or 'realization', the <b>related</b> and <b>relating</b> shall be of different types.
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.breakdown_node_relationship.wr:wr2">WR2:
+               </a></b>
+         	If the <b>relation_type</b> is 'decomposition', 'specialization' or 'occurrence', 
+         	the <b>related</b> and <b>relating</b> shall be of same type or types where one is a subtype of the other.
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.breakdown_node_relationship.wr:wr3">WR3:
+               </a></b>
+         	If the <b>relation_type</b> is 'occurrence', the <b>relating</b> shall be a 
+         	<a href="../../../modules/physical_breakdown/sys/4_info_reqs.htm#physical_breakdown_arm.physical_element_definition"><b>Physical_element_definition</b></a>.
+         
+      </p>
+      <h2><a name="specification_control_arm.class_breakdown_association">4.3.2 Class_breakdown_association</a>
+         &nbsp;&nbsp;<a href="../../specification_control/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityclass_breakdown_association"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      A <b>Class_breakdown_association</b> is an association of a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> with a breakdown element.
+      
+      
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            A <b>Class_breakdown_association</b> may associate a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> with the top node of a generic decomposition of products of that product class.</small></p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Class_breakdown_association;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;considered_class : <A HREF="../../../../data/modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class">Product_class</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;breakdown_element : <A HREF="#specification_control_arm.breakdown_element_select">breakdown_element_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;relation_type : STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="specification_control_arm.class_breakdown_association.description">description:
+               </a></b>
+         
+         a text that provides further information about the association. The value of this attribute need not be specified.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.class_breakdown_association.considered_class">considered_class:
+               </a></b>
+         
+         the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> that is considered.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.class_breakdown_association.breakdown_element">breakdown_element:
+               </a></b>
+         
+         the <a href="../../../modules/functional_breakdown/sys/4_info_reqs.htm#functional_breakdown_arm.functional_element_definition"><b>Functional_element_definition</b></a> or the <a href="../../../modules/physical_breakdown/sys/4_info_reqs.htm#physical_breakdown_arm.physical_element_definition"><b>Physical_element_definition</b></a> that is associated.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.class_breakdown_association.relation_type">relation_type:
+               </a></b>the text that specifies the meaning of the association.
+      </p>
+      <p>Where applicable, the following values shall be used:</p>
+      <ul>
+         			
+         <li>'functionality': The related functional element is an element of the functional structure of the relating <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>. 
+            
+            This relation type shall only be used if the related object is a <a href="../../../modules/functional_breakdown/sys/4_info_reqs.htm#functional_breakdown_arm.functional_element_definition"><b>Functional_element_definition</b></a>; 
+            
+            
+         </li>
+         			
+         <li>'realization': The related physical element fulfils, partially or fully, the requirements identified with the relating <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>. 
+            
+            This relation type shall only be used if the related object is a <a href="../../../modules/physical_breakdown/sys/4_info_reqs.htm#physical_breakdown_arm.physical_element_definition"><b>Physical_element_definition</b></a>. 
+            
+            
+         </li>
+         		
+      </ul>
+      <h2><a name="specification_control_arm.complex_node_relationship">4.3.3 Complex_node_relationship</a>
+         &nbsp;&nbsp;<a href="../../specification_control/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycomplex_node_relationship"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Complex_node_relationship</b> is a relationship between two instances of the same kind of entities listed in 
+      	<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select </b></a> 
+      	type.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Complex_node_relationship;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;relating : <A HREF="../../../../data/modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select">complex_product_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;related : <A HREF="../../../../data/modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select">complex_product_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;relation_type : STRING;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: (aggregate1_in_aggregate2(TYPEOF(related),TYPEOF(relating)) OR aggregate1_in_aggregate2(TYPEOF(relating),TYPEOF(related))
+            );<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="specification_control_arm.complex_node_relationship.description">description:
+               </a></b>
+         	a text that provides further information about the relationship. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.complex_node_relationship.relating">relating:
+               </a></b>
+         	the first instance of an entity type listed in 
+         	<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select </b></a>
+         	type that is related.
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.complex_node_relationship.related">related:
+               </a></b>
+         	the second instance of an entity type listed in 
+         	<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select </b></a>
+         	type that is related.
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.complex_node_relationship.relation_type">relation_type:
+               </a></b>the text that specifies the meaning of the relationship.
+      </p>
+      <p>Where applicable, the following values shall be used:</p>
+      <ul>
+         			
+         <li>'derivation': the related 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select </b></a> 
+            			is derived from the relating 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select </b></a>. 
+            
+            
+            <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+                  The relationship does not imply inheritance of any kind between the application objects that are related.
+                  
+                  </small></p>
+            			
+         </li>
+         			
+         <li>'replacement': the related 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select </b></a> 
+            			is used in place of the relating 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select </b></a>.
+            
+            
+         </li>
+         			
+         <li>'version hierarchy': the related 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select </b></a> 
+            			is a sub version of the relating 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select </b></a>. 
+            
+            
+            
+            
+            <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+                  'version hierarchy' is used, whenever a revision of one particular version is prepared, for example 'version 1.1'.
+                  
+                  </small></p>
+            			
+         </li>
+         			
+         <li>'version sequence': the relating 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select </b></a> 
+            			is the preceding version and the related 
+            			<a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select </b></a> 
+            			is the following version. 
+            
+            
+            <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+                  The relationship does not imply inheritance of any kind between the application objects that are related.
+                  
+                  </small></p>
+            				
+            <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+                  'version sequence' is used, whenever a new version is prepared, for example 'version 1.0' is the preceding version of 'version
+                  2.0'.
+                  
+                  </small></p>
+            			
+         </li>
+         		
+      </ul>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="specification_control_arm.complex_node_relationship.wr:wr1">WR1:
+               </a></b>
+         	The type of the <b>relating</b> shall either be the same or a specialization of the type of the <b>related</b>, or, 
+         	the type of the <b>related</b> shall either be the same or a specialization of the type of the <b>relating</b>.
+         
+      </p>
+      <h2><a name="specification_control_arm.design_constraint_association">4.3.4 Design_constraint_association</a>
+         &nbsp;&nbsp;<a href="../../specification_control/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydesign_constraint_association"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      A <b>Design_constraint_association </b> is an association between a design constraint and a breakdown element or alternative solution whose design is impacted by
+      the design constraint.
+      
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Design_constraint_association;<br>
+            
+            
+            
+            &nbsp;&nbsp;name : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;constrained_object : <A HREF="../../../../data/modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select">complex_product_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;constraint_definition : <A HREF="#specification_control_arm.design_constraint_definition">Design_constraint_definition</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="specification_control_arm.design_constraint_association.name">name:
+               </a></b>
+         
+         a text by which the association may be referred to. The value of this attribute need not be specified.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.design_constraint_association.constrained_object">constrained_object:
+               </a></b>
+         
+         the instance of an entity type listed in 
+         
+         <a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.complex_product_select"><b>complex_product_select </b></a>
+         
+          type, whose design is constrained by the associated design constraint.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.design_constraint_association.constraint_definition">constraint_definition:
+               </a></b>
+         
+         the <a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.design_constraint_context_association"><b>Design_constraint_context_association</b></a> that is associated.
+         
+         
+      </p>
+      <h2><a name="specification_control_arm.design_constraint_context_association">4.3.5 Design_constraint_context_association</a>
+         &nbsp;&nbsp;<a href="../../specification_control/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydesign_constraint_context_association"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>A <b>Design_constraint_context_association</b> is the association of a design constraint with the context where this constraint is valid.
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            A design constraint about ergonomy of driving devices may be specified in the context of the design of a new product class
+            of cars.</small></p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Design_constraint_context_association;<br>
+            
+            
+            
+            &nbsp;&nbsp;constraint_definition : <A HREF="#specification_control_arm.design_constraint_definition">Design_constraint_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;constraint_context : <A HREF="#specification_control_arm.constraint_context_select">constraint_context_select</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="specification_control_arm.design_constraint_context_association.constraint_definition">constraint_definition:
+               </a></b>
+         
+         the <a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.design_constraint_context_association"><b>Design_constraint_context_association</b></a> that is considered.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.design_constraint_context_association.constraint_context">constraint_context:
+               </a></b>
+         
+         the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> for which the design constraint shall be considered.
+         
+         
+      </p>
+      <h2><a name="specification_control_arm.design_constraint_definition">4.3.6 Design_constraint_definition</a>
+         &nbsp;&nbsp;<a href="../../specification_control/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydesign_constraint_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      		
+      <p>A <b>Design_constraint_definition</b> is a type of <a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>Product_view_definition</b></a> that specifies a definition of a version of requirement that impacts the design of some physical or functional elements.
+      </p>
+      		
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            In the present context, design of a functional or physical element means design of parts that realize or fulfills the functional
+            or organic requirement.</small></p>
+      		
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            Ergonomic information like 'hip point' or 'forward driver vision' as well as 'door opening control lines', 'shipping critical
+            dimensions', or 'stone throw zone' are examples of design constraint.
+            
+            </small></p>
+      		
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            The standard diameter of soft drink cans is a constraint for designing the hole of a cup holder in a car.
+            
+            </small></p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Design_constraint_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>.defined_version : <A HREF="../../../../data/modules/requirement_identification_and_version/sys/4_info_reqs.htm#requirement_identification_and_version_arm.requirement_version">Requirement_version</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="specification_control_arm.design_constraint_definition.defined_version">defined_version:
+               </a></b>
+         	a definition of a 
+         	<a href="../../../modules/requirement_identification_and_version/sys/4_info_reqs.htm#requirement_identification_and_version_arm.requirement_version"><b>Requirement_version</b></a>.
+         
+      </p>
+      <h2><a name="specification_control_arm.design_constraint_relationship">4.3.7 Design_constraint_relationship</a>
+         &nbsp;&nbsp;<a href="../../specification_control/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydesign_constraint_relationship"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      A <b>Design_constraint_relationship</b> is a type of <a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship"><b>View_definition_relationship</b></a> that relates two design constraints.
+      
+      
+      <p>Where applicable, the inherited "relation type" attribute shall take the following values:
+         
+         
+      </p>
+      		
+      <ul>
+         			
+         <li>'decomposition': the related "Design constraint definition" is a component of the relating "Design constraint definition";</li>
+         			
+         <li>'precedence': the related "Design constraint definition" has higher priority than the relating "Design constraint definition".</li>
+         		
+      </ul>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Design_constraint_relationship<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.relating_view : <A HREF="#specification_control_arm.design_constraint_definition">Design_constraint_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.related_view : <A HREF="#specification_control_arm.design_constraint_definition">Design_constraint_definition</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="specification_control_arm.design_constraint_relationship.relating_view">relating_view:
+               </a></b>
+         
+         the first design constraint that is related.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.design_constraint_relationship.related_view">related_view:
+               </a></b>
+         
+         the second design constraint that is related.
+         
+         
+      </p>
+      <h2><a name="specification_control_arm.part_function_association">4.3.8 Part_function_association</a>
+         &nbsp;&nbsp;<a href="../../specification_control/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_function_association"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Part_function_association</b> is a type of 
+      	<a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship"><b>View_definition_relationship</b></a> 
+      	that relates a functional element with a definition of a version of a part that realizes this functionality.
+      	
+      <p>Where applicable, the inherited 
+         	<a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship.relation_type"><b>relation_type</b></a> 
+         	attribute shall take the following values:
+         	
+      </p>
+      		
+      <ul>
+         			
+         <li>'realization': the 
+            			<a href="../../../modules/functional_breakdown/sys/4_info_reqs.htm#functional_breakdown_arm.functional_element_definition"><b>Functional_element_definition</b></a> 
+            			identifies the primary function of the part; 
+            			
+         </li>
+         			
+         <li>'additional functionality': the 
+            			<a href="../../../modules/functional_breakdown/sys/4_info_reqs.htm#functional_breakdown_arm.functional_element_definition"><b>Functional_element_definition</b></a> 
+            			identifies an additional function of the part represented with the 
+            			<a href="../../../modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition"><b>Part_view_definition</b></a>. 
+            			This 
+            			<a href="../../../modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition"><b>Part_view_definition</b></a> 
+            			shall also be referred to by a <b>Part_function_association</b> with association type 'realization'. 
+            			
+         </li>
+         		
+      </ul>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_function_association<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.relating_view : <A HREF="../../../../data/modules/functional_breakdown/sys/4_info_reqs.htm#functional_breakdown_arm.functional_element_definition">Functional_element_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.related_view : <A HREF="../../../../data/modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="specification_control_arm.part_function_association.relating_view">relating_view:
+               </a></b>
+         
+         the <a href="../../../modules/functional_breakdown/sys/4_info_reqs.htm#functional_breakdown_arm.functional_element_definition"><b>Functional_element_definition</b></a> that specifies a definition of the realized functionality.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.part_function_association.related_view">related_view:
+               </a></b>
+         
+         the <a href="../../../modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition"><b>Part_view_definition</b></a> that identifies the definition of the part the provides the functionality.
+         
+         
+      </p>
+      <h2><a name="specification_control_arm.part_occurrence_relationship">4.3.9 Part_occurrence_relationship</a>
+         &nbsp;&nbsp;<a href="../../specification_control/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_occurrence_relationship"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Part_occurrence_relationship</b> is a type of 
+      <a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship"><b>View_definition_relationship</b></a> 
+      that relates two part occurrences.
+      
+      <p>Where applicable, the inherited 
+         <a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship.relation_type"><b>relation_type</b></a> 
+         attribute shall take the following values:
+         
+         
+      </p>
+      		
+      <ul>
+         			
+         <li>'usage replacement': this value shall characterize instances of 
+            			<a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.replaced_usage_relationship"><b>Replaced_usage_relationship</b></a>;
+            			
+         </li>
+         			
+         <li>'same time machining': both part occurrences result from the same manufacturing operation.</li>
+         		
+      </ul>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_occurrence_relationship<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.relating_view : <A HREF="../../../../data/modules/product_occurrence/sys/4_info_reqs.htm#product_occurrence_arm.part_occurrence_select">part_occurrence_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.related_view : <A HREF="../../../../data/modules/product_occurrence/sys/4_info_reqs.htm#product_occurrence_arm.part_occurrence_select">part_occurrence_select</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="specification_control_arm.part_occurrence_relationship.relating_view">relating_view:
+               </a></b>
+         
+         the first part occurrence that is related.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.part_occurrence_relationship.related_view">related_view:
+               </a></b>
+         
+         the second part occurrence that is related.
+         
+         
+      </p>
+      <h2><a name="specification_control_arm.replaced_usage_relationship">4.3.10 Replaced_usage_relationship</a>
+         &nbsp;&nbsp;<a href="../../specification_control/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityreplaced_usage_relationship"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Replaced_usage_relationship</b> is a type of 
+      	<a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.part_occurrence_relationship"><b>Part_occurrence_relationship</b></a> 
+      	that specifies that the part occurrence referred to as 
+      	<a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.part_occurrence_relationship.relating_view"><b>relating_view</b></a> 
+      	is replaced by the 
+      	part occurrence identified as 
+      	<a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.part_occurrence_relationship.related_view"><b>related_view</b></a>. 
+      	
+      <p>This replacement is specified in the context of a part collection or of an alternative solution.
+         	Both part occurrences shall be elements of this part collection or of this alternative solution.
+         	
+      </p>
+      	
+      <p>Each <b>Replaced_usage_relationship</b> shall be referenced by an 
+         	<a href="../../../modules/effectivity_application/sys/4_info_reqs.htm#effectivity_application_arm.effectivity_assignment"><b>Effectivity_assignment</b></a> 
+         	that defines the validity of the replacement.
+         
+         
+      </p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Replaced_usage_relationship<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#specification_control_arm.part_occurrence_relationship">Part_occurrence_relationship</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;usage_context : <A HREF="#specification_control_arm.instance_usage_context_select">instance_usage_context_select</A>;<br>DERIVE<br>
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.relation_type : STRING := 'usage replacement';<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="specification_control_arm.replaced_usage_relationship.usage_context">usage_context:
+               </a></b>
+         
+         the instance of <a href="../../../modules/part_collection/sys/4_info_reqs.htm#part_collection_arm.collected_item_association"><b>Collected_item_association</b></a> or of <a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.solution_element"><b>Solution_element</b></a> that identifies a context in which the relating part occurrence is considered and where the replacement applies.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.replaced_usage_relationship.relation_type">relation_type:
+               </a></b>
+         
+         in this specialization of 
+         
+         <a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.part_occurrence_relationship"><b>Part_occurrence_relationship</b></a>
+         
+         , the "relation type" is assigned the value 'usage replacement'.
+         
+         
+      </p>
+      <h2><a name="specification_control_arm.specification_category_breakdown_influence">4.3.11 Specification_category_breakdown_influence</a>
+         &nbsp;&nbsp;<a href="../../specification_control/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityspecification_category_breakdown_influence"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      A <b>Specification_category_breakdown_influence</b> is an association with a specification category the members of which influence, in the context of a particular <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>, 
+      
+      the design of the solutions and parts realizing a breakdown element.
+      
+      
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            For cars, the specification category containing the target markets, influences the design of the realization of the function
+            Driving, as the driving side may vary.</small></p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Specification_category_breakdown_influence;<br>
+            
+            
+            
+            &nbsp;&nbsp;influencing_category : <A HREF="../../../../data/modules/product_class/sys/4_info_reqs.htm#product_class_arm.class_category_association">Class_category_association</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;influenced_breakdown_node : <A HREF="#specification_control_arm.breakdown_element_select">breakdown_element_select</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="specification_control_arm.specification_category_breakdown_influence.influencing_category">influencing_category:
+               </a></b>
+         
+         the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.class_category_association"><b>Class_category_association</b></a> that identifies the influencing <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> and the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> in which this influence is considered.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.specification_category_breakdown_influence.influenced_breakdown_node">influenced_breakdown_node:
+               </a></b>
+         
+         the instance of an entity listed in <a href="../../../modules/specification_control/sys/4_info_reqs.htm#specification_control_arm.breakdown_element_select"><b>breakdown_element_select</b></a>, the design of the solutions of which is influenced.
+         
+         
+      </p>
+      <h2><a name="functions">4.4 ARM function definition</a></h2>
+      <p>
+         This subclause specifies the ARM function for 
+         this module. The ARM function and definition is
+         specified below.
+         
+      </p>
+      <h2><A NAME="specification_control_arm.aggregate1_in_aggregate2">4.4.1 aggregate1_in_aggregate2</A></h2>
+      
+      The <b>aggregate1_in_aggregate2</b> function evaluates if the agg1 aggregate is included in the agg2 aggregate.
+      
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION aggregate1_in_aggregate2&nbsp;(agg1 : AGGREGATE OF GENERIC; agg2 : AGGREGATE OF GENERIC) :LOGICAL;
+         </code><pre>RETURN(SIZEOF(QUERY (ele &lt;* agg1 | VALUE_IN(agg2, ele)))= SIZEOF(agg1));</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="specification_control_arm.aggregate1_in_aggregate2.agg1">agg1:
+               </a></b>
+         
+         the aggregate whose inclusion in the agg2 aggregate is evaluated.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="specification_control_arm.aggregate1_in_aggregate2.agg2">agg2:
+               </a></b>
+         
+         the aggregate that may or not contain agg1.
+         
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Specification_control_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

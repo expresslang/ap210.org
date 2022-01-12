@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Owned_design_object</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.570 Owned_design_object</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Owned_design_object is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.  
+An Owned_design_object identifies the Managed_design_object which participates in the <A
+CLASS="INTERNALREF"
+HREF="Owned_assignment.htm"
+>Owned_assignment</A
+>.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The purpose of Owned_design_object is identify the single authority ownership of design aspects.  The typical use is to negotiate between the owners of the different design aspects.  If there are multiple joint owners, then the Frozen_design_object is more appropriate since that uses Ee_approval which supports multiple signatures. </DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY owned_design_object
+  SUBTYPE OF (managed_design_object);
+INVERSE
+  owner : owner_assignment for owned_item;
+END_ENTITY; -- owned_design_object
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>
