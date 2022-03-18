@@ -35,6 +35,13 @@
    *   and should return a list of item IDs to be shown.
    *   This can be used in search functionality: callers can implement a search widget
    *   that binds `updateItems()` to search query changes.
+   *
+   *   On initialization, `updateItems()` is called with the initial item ID list.
+   *
+   * - `getVisibleElements()`: returns a list of DOM elements shown in item window.
+   *
+   * - `getItemIDs()`: returns full list of item IDs that can be shown by scrolling.
+   *   May include more or fewer than initial item IDs, if e.g. parents were expanded/collapsed.
    */
   function createWindowedListing (
     initialItemIDs,
@@ -63,7 +70,7 @@
 
     // Keep the first child as template
     const firstItem = scrollView.children[0];
-    const itemHeight = firstItem.offsetHeight;
+    const itemHeight = firstItem.offsetHeight;  // Measure it, too
     const templateItem = firstItem.cloneNode(true);
 
     // Clear scroll view and add a height-forcing div
@@ -90,13 +97,23 @@
     scrollView.addEventListener('scroll', handleScrollDebounced);
 
 
-    // Window refresh
-
+    // DOM element representing the window of currently visible items.
     let itemWindow = null;
 
-    // Call it in the beginning
+    // Update items to initial list; also refreshes the window.
     updateItems((() => initialItemIDs), true);
 
+    /**
+     * Updates the list of all items, even those not in the window.
+     *
+     * This can be used in cases like expanding items that contain children
+     * (children will be inserted in the list),
+     * or when applying filters.
+     *
+     * - `updaterFunc` will receive the current list of items and must receive the new one.
+     * - The `resetExpanded` flag will collapse any previously expanded items in the beginning.
+     * - For nested items, any missing parents will be implicitly added and expanded.
+     */
     async function updateItems(updaterFunc, resetExpanded) {
       if (resetExpanded === true) {
         expandedItems = {};
@@ -180,6 +197,16 @@
       }
     }
 
+    /**
+     * Updates DOM to show elements that should be visible in scrollable viewport.
+     * Must be called whenever visible items may have changed, which is two cases:
+     *
+     * - The underlying list of items has changed
+     *   (filters applied, parent expanded or collapsed, item deleted/added).
+     *   See `updateItems()`.
+     *
+     * - Scrolling occurred.
+     */
     async function refreshItemWindow() {
       heightExpander.style.height = `${itemCount * itemHeight}px`;
 
