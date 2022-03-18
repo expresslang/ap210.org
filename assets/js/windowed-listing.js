@@ -3,7 +3,7 @@
   /**
    * Sets up a windowed listing, given `itemIDs` (list of strings) and `scrollView`.
    *
-   * Items may have hierarchy, by having item IDs that contain forward slashes (`/`).
+   * Items may have hierarchy, which is represented in item IDs with forward slashes (`/`).
    *
    * `itemIDs` should contain a list of items (their IDs) to be shown initially.
    * Normally it would be a list of top-level item IDs.
@@ -17,16 +17,17 @@
    * Created item’s DOM element will have `itemID` data attribute set appropriately.
    *
    * Calls `await isExpandable(itemID: string)` when an item is being constructed.
-   * If provided and returns true, the item can be expanded.
+   * If provided and returns true for given item ID, that item can be expanded by the user.
    *
    * Calls `await getItemLabel(itemID: string)` when an item is being constructed.
-   * If not provided or returns a falsey value, raw item ID will be shown.
+   * The function is supposed to return a DOM node.
+   * If the function is not provided or returns a falsey value, raw item ID will be shown.
    *
    * Calls `await getItemChildren(itemID: string)` when an item is expanded.
    * The result should return a list of item IDs to show underneath the expanded item.
    *
-   * Calls `onSelectItem(itemID: string, item: Node)` with selected item’s DOM element,
-   * letting the user to adjust DOM as needed.
+   * Calls `onSelectItem(itemID: string, item: Node)` with selected item,
+   * letting the user adjust DOM, remember selected item ID, etc.
    *
    * Returns an object that represents windowed listing API. The API includes:
    * 
