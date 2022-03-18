@@ -1,0 +1,38 @@
+---
+title: Deliverables
+layout: docs
+extra_scripts:
+  # The following two scripts are needed to make the file listing widget work:
+  - src: /assets/js/windowed-listing.js
+  - src: /assets/js/file-browser.js
+---
+:page-liquid:
+
+// Start file listing widget.
+// This is a special snippet that loads data for deliverable search
+
+{% listfiles deliverables deliverables/**/* %}
+
+++++
+<div class="file-browser-with-preview" data-file-browser="true">
+  <input placeholder="Search…" data-file-search="yes" class="file-browser-search" />
+  <div class="file-listing" data-file-list="deliverables">
+    <div class="file-list-item deliverable">
+      <span>Loading {{ deliverables|size }} items…</span>
+    </div>
+  </div>
+  <div class="file-preview" data-file-preview="true" data-file-path-prefix="{{ site.url }}/">
+    <span style="font-weight: normal">Select a file on the left…</span>
+  </div>
+</div>
+
+<script>
+  window.deliverables = [
+    {% for file in deliverables %}
+      "{{ file }}"{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+</script>
+++++
+
+// End file listing widget.
