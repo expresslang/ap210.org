@@ -30,51 +30,62 @@
       throw new Error("Unable to obtain file list or preview container");
     }
 
-    const itemPaths = window[fileListContainer.dataset.fileList];
+    const allItemPaths = window[fileListContainer.dataset.fileList];
 
-    if (!itemPaths) {
+    if (!allItemPaths) {
       throw new Error("Unable to obtain item paths");
     }
 
-    const itemsAsObject = itemPaths.
-      map(path => ({ [path]: true })).
-      reduce((prev, curr) => ({ ...prev, ...curr }), {});
+    // This is unnecessarily involved, but may be useful
+    // if we need an hierarchical structure to access items later.
+    // const allItemPathsAsObject = allItemPaths.
+    //   map(path => ({ [path]: true })).
+    //   reduce((prev, curr) => ({ ...prev, ...curr }), {});
+    // const allItemsAsHierarchy = unflattenObject(allItemPathsAsObject);
+    // const topLevelItemPaths = Object.keys(allItemsAsHierarchy);
 
-    const itemsAsHierarchicalObject = unflattenObject(itemsAsObject);
-
-    const topLevelItems = Object.keys(itemsAsHierarchicalObject);
-
-    let initialItems, initialSelectedItem;
+    let initialItemPaths, initiallySelectedItemPath;
     try {
-      initialItems = JSON.parse(window.localStorage.getItem('initial-items'));
-      const missingItem = initialItems.find(ii => itemPaths.find(ip => ip === ii || ip.startsWith(`${ii}/`)) < 0);
+      initialItemPaths = JSON.parse(window.localStorage.getItem('initial-items'));
+      // Abort loading if previously stored item list somehow contains an item that no longer exists
+      const missingItem = initialItemPaths.
+        find(iip => allItemPaths.find(ip => ip === iip || ip.startsWith(`${iip}/`)) < 0);
       if (missingItem) {
-        throw new Error(`Invalid initial items stored (${missingItem})`);
+        throw new Error(`Invalid initial items stored (${missingItem} does not exist)`);
       }
-      initialSelectedItem = window.localStorage.getItem('selected-item');
+      // Or if selected item path is not found
+      initiallySelectedItemPath = window.localStorage.getItem('selected-item');
+      if (initiallySelectedItemPath && allItemPaths.indexOf(initiallySelectedItemPath) < 0) {
+        throw new Error(`Invalid selected item stored (${initiallySelectedItemPath} does not exist)`);
+      }
     } catch (e) {
-      initialItems = topLevelItems;
-      initialSelectedItem = null;
+      // If no item state to load, only top-level items initially
+      initialItemPaths = allItemPaths.
+        map(i => i.split('/')[0]).
+        filter(function deduplicate(itemID, idx, self) {
+          return idx === self.indexOf(itemID);
+        });
+      initiallySelectedItemPath = null;
       window.localStorage.removeItem('initial-items');
       window.localStorage.removeItem('selected-item');
-      console.error("Error loading stored data", e);
+      console.error("Error loading stored data, reverting to default", e);
     }
 
     const listing = window.createWindowedListing(
-      initialItems,
+      initialItemPaths,
       fileListContainer,
-      initialSelectedItem,
+      initiallySelectedItemPath,
       onSelectItem,
       getItemLabel,
-      getItemChildren,
-      isExpandable,
+      getSubpaths,
+      isDirectory,
     );
 
     const filePreview = initFilePreview(previewContainer);
 
-    async function onSelectItem(itemPath, item) {
+    async function onSelectItem(itemPath, itemEl) {
       listing.getVisibleElements().map(element => element.classList.remove('selected'));
-      item.classList.add('selected');
+      itemEl.classList.add('selected');
       window.localStorage.setItem('selected-item', itemPath);
 
       // If shown items are a result of search, do not update stored state
@@ -82,37 +93,37 @@
         window.localStorage.setItem('initial-items', JSON.stringify(listing.getItemIDs()));
       }
 
-      if (await isExpandable(itemPath)) {
+      if (await isDirectory(itemPath)) {
       } else {
         filePreview.setPath(itemPath);
       }
     }
 
-    async function getItemLabel(itemID) {
+    async function getItemLabel(itemPath) {
       const el = document.createElement('span');
-      if (await isExpandable(itemID)) {
+      if (await isDirectory(itemPath)) {
         el.classList.add('directory');
       } else {
         el.classList.add('file');
       }
-      const parts = itemID.split('/');
+      const parts = itemPath.split('/');
       el.textContent = parts[parts.length - 1];
       return el;
     }
 
-    /* Returns true if there is at least one child item for given item ID. */
-    async function isExpandable(itemID) {
-      if (itemPaths.find(path => path.startsWith(`${itemID}/`))) {
+    /** Returns true if there is at least one child item for given item ID. */
+    async function isDirectory(itemPath) {
+      if (allItemPaths.find(path => path.startsWith(`${itemPath}/`))) {
         return true;
       }
       return false;
     }
 
-    /* Returns a list of immediate child IDs. */
-    async function getItemChildren(itemID) {
-      const slashCount = (itemID.match(/\//ig) || []).length;
-      return itemPaths.filter(path =>
-        path.startsWith(`${itemID}/`) &&
+    /** Returns a list of immediate child IDs. */
+    async function getSubpaths(itemPath) {
+      const slashCount = (itemPath.match(/\//ig) || []).length;
+      return allItemPaths.filter(path =>
+        path.startsWith(`${itemPath}/`) &&
         ((path.match(/\//ig) || []).length === slashCount + 1));
     }
 
@@ -123,6 +134,8 @@
     let itemIDsPreSearch = null;
 
     if (search) {
+
+      // Try to load previous search, if any
       const initialSearchString = window.localStorage.getItem('search-string');
       if (initialSearchString) {
         search.value = initialSearchString;
@@ -143,7 +156,7 @@
             itemIDsPreSearch = listing.getItemIDs();
           }
           listing.updateItems(
-            (() => itemPaths.filter(i => itemPathMatchesSearch(i, searchString))),
+            (() => allItemPaths.filter(i => itemPathMatchesSearch(i, searchString))),
             true);
         } else {
           if (itemIDsPreSearch) {
@@ -153,7 +166,9 @@
         }
       }
 
-      search.addEventListener('keyup', function _handleSearch(evt) { handleSearch(evt.currentTarget.value) });
+      search.addEventListener('keyup', function _handleSearch(evt) {
+        handleSearch(evt.currentTarget.value);
+      });
     }
   }
 
