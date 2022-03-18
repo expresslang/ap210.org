@@ -1,27 +1,22 @@
 name: build
 
 on:
-  push:
-    branches:
-      - 'main'
-      - 'master'
   pull_request:
 
 jobs:
   build:
     name: Build site
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ap210-org
-
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '14'
-          cache: 'yarn'
-      - run: yarn install
-      - name: Build site
-        run: |
-          yarn build
+    - uses: actions/checkout@v2
+
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '2.7.5'
+        bundler-cache: true
+
+    - name: Build site
+      env:
+        JEKYLL_ENV: production
+      run: |
+        make _site
