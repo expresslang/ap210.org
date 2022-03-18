@@ -25,9 +25,6 @@
    * Calls `await getItemChildren(itemID: string)` when an item is expanded.
    * The result should return a list of item IDs to show underneath the expanded item.
    *
-   * Calls `onWindowChange(items: Node[])` with the list of DOM elements in view
-   * whenever a list of items within the window changes.
-   *
    * Calls `onSelectItem(itemID: string, item: Node)` with selected item’s DOM element,
    * letting the user to adjust DOM as needed.
    *
@@ -47,7 +44,6 @@
     getItemLabel,
     getItemChildren,
     isExpandable,
-    onWindowChange,
   ) {
     const DEBOUNCE_SCROLL_MS = 50;
     const EXTRA_ITEMS_BEFORE = 10;
