@@ -4,7 +4,7 @@ all: _site
 
 clean:
 	bundle exec jekyll clean
-	rm -rf _site _software/*/.git _software/*/docs _software/*/_*_repo parent-hub
+	rm -rf _site _software/*/.git _software/*/docs _software/*/_*_repo
 
 bundle:
 	bundle
