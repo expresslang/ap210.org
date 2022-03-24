@@ -53,12 +53,27 @@ Make sure you have the installed:
 Key sections are documentation pages (the largest) and news/blog posts.
 Apart from that there can be other standalone pages.
 
+.. note::
+
+   You will be authoring site source using **AsciiDoc syntax**.
+   With AsciiDoc, your write plain text, and the result is rendered as HTML on the public site later.
+   Check out https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+   for a quick reference.
+   AsciiDoc is contained in `.adoc` files.
+
+   Most site source files (`.adoc` and otherwise) have _frontmatter_
+   at the beginning, inbetween the `---` delimiters—that frontmatter.
+   That frontmatter must specify the correct layout (see below)
+   and your page’s title.
+   After the frontmatter block, normal content (AsciiDoc, HTML, etc.) begins.
+
 ==== Documentation
 
-Documentation lives under the /docs/ directory.
+Documentation lives under the `/docs/` directory.
+All documentation source pages therein must specify `layout: docs` in frontmatter.
 
 The structure of the directory is reflected in the structure of URLs.
-For example, file /docs/section-1/test-page.adoc will be available under ap210.org/docs/section-1/test-page/.
+For example, file `/docs/section-1/test-page.adoc` will be available under `ap210.org/docs/section-1/test-page/`.
 
 ===== Navigation sidebar
 
@@ -66,17 +81,26 @@ Documentation requires manual update when you add pages, retitle them
 or move them around.
 
 Navigation across the docs lives _separately from documentation files_:
-you can find it under /_layouts/docs.html.
+you can find it under `/_layouts/docs.html`.
 
-The YAML frontmatter of the file (between `---` delimiters`) contains
-`navigation` key, under which documentation structure is described.
+The YAML frontmatter of that file (between `---` delimiters`) contains
+a key `navigation`, under which documentation structure is described.
 The sidebar is generated from this structure.
 
 ===== The Deliverables page
 
+That page (currently `/docs/section-1/deliverables.adoc`)
+is a special in that it contains code that initializes a _deliverable browser_.
+Regarding that page, feel free to add text before
+
 ==== Posts
 
+Blog/news roll posts reside under `/_posts/` directory.
+See the existing post for frontmatter example.
+
 ==== Other pages
+
+(Section to be completed.)
 
 == Previewing site locally
 
