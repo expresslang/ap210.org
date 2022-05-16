@@ -1,0 +1,44 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Group_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Group_arm</h2><code><br><br><a name="group_arm">SCHEMA <b>Group_arm</b>;</a><br><br></code><code><br><A NAME="group_arm.groupable_item">TYPE </A><b>groupable_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="group_arm.groupable_item.wr:wr1">WR1: NOT ('GROUP_ARM.GROUP' IN TYPEOF(SELF));</A><br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="group_arm.group">ENTITY <b>Group</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="group_arm.group.id">id : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="group_arm.group.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="group_arm.group.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="group_arm.group.elements">elements : </A>SET[0:?] OF <A HREF="#group_arm.groupable_item">groupable_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="group_arm.group.membership_meaning">membership_meaning : </A>
+         OPTIONAL 
+         STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="group_arm.group_relationship">ENTITY <b>Group_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="group_arm.group_relationship.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="group_arm.group_relationship.relation_type">relation_type : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="group_arm.group_relationship.relating_group">relating_group : </A><A HREF="#group_arm.group">Group</A>;<br>
+         &nbsp;&nbsp;<A NAME="group_arm.group_relationship.related_group">related_group : </A><A HREF="#group_arm.group">Group</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Group_arm<br></code></body>
+</HTML>

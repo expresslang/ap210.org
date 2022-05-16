@@ -1,0 +1,136 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Editing">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="enabled" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DLL">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="File" type="xs:string" minOccurs="0" />
+                <xs:element name="Date" type="xs:string" minOccurs="0" />
+                <xs:element name="IsRelative" type="xs:boolean" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="StepFile">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="File" type="xs:string" minOccurs="0" />
+                <xs:element name="Date" type="xs:string" minOccurs="0" />
+                <xs:element name="IsRelative" type="xs:boolean" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="TYPE">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ID" type="xs:int" minOccurs="0" />
+                <xs:element name="SCHEMA" type="xs:string" minOccurs="0" />
+                <xs:element name="ENTITY" type="xs:string" minOccurs="0" />
+                <xs:element name="ALIAS" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ATTRIBUTE">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ID" type="xs:int" minOccurs="0" />
+                <xs:element name="NAME" type="xs:string" minOccurs="0" />
+                <xs:element name="ALIAS" type="xs:string" minOccurs="0" />
+                <xs:element name="SHOW" type="xs:boolean" minOccurs="0" />
+                <xs:element name="TYPE" type="xs:int" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="ALIAS">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="File" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Page">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="PageNo" type="xs:int" minOccurs="0" />
+                <xs:element name="PageName" type="xs:string" minOccurs="0" />
+                <xs:element name="FileName" type="xs:string" minOccurs="0" />
+                <xs:element name="Binary" type="xs:string" minOccurs="0" />
+                <xs:element name="Visible" type="xs:boolean" minOccurs="0" />
+                <xs:element name="Style" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Prefs">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="PageNo" type="xs:int" minOccurs="0" />
+                <xs:element name="BackColor" type="xs:int" minOccurs="0" />
+                <xs:element name="ForeColor" type="xs:int" minOccurs="0" />
+                <xs:element name="GridColor" type="xs:int" minOccurs="0" />
+                <xs:element name="ShowGrid" type="xs:boolean" minOccurs="0" />
+                <xs:element name="SnapToGrid" type="xs:boolean" minOccurs="0" />
+                <xs:element name="Style" msdata:DataType="AddFlow5Lib.GridStyleConstants, Interop.AddFlow5Lib, Version=5.4.0.0, Culture=neutral, PublicKeyToken=null" type="xs:anyType" minOccurs="0" />
+                <xs:element name="xGrid" type="xs:int" minOccurs="0" />
+                <xs:element name="yGrid" type="xs:int" minOccurs="0" />
+                <xs:element name="Zoom" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1">
+        <xs:selector xpath=".//TYPE" />
+        <xs:field xpath="ID" />
+      </xs:unique>
+      <xs:keyref name="Relation" refer="Constraint1">
+        <xs:selector xpath=".//ATTRIBUTE" />
+        <xs:field xpath="TYPE" />
+      </xs:keyref>
+    </xs:element>
+  </xs:schema>
+  <Editing>
+    <enabled>True</enabled>
+  </Editing>
+  <DLL>
+    <File>..\..\test\prog_mim_ls_1_52_july_28.dll</File>
+    <Date>2013-07-26 14:21:51Z</Date>
+    <IsRelative>true</IsRelative>
+  </DLL>
+  <StepFile>
+    <File>mim_lf_1_52_july_28_debugger_on.p21</File>
+    <Date>2013-07-26 14:27:29Z</Date>
+    <IsRelative>true</IsRelative>
+  </StepFile>
+  <ALIAS>
+    <File>mim_lf_1_52_july_28_debugger_on.iea</File>
+  </ALIAS>
+  <Page>
+    <PageNo>1</PageNo>
+    <PageName>Page1</PageName>
+    <FileName>mim_lf_1_52_july_28_debugger_on.ies0</FileName>
+    <Binary>04-00-05-00-02-00-00-00-01-00-00-00-00-00-00-00-00-00-B0-E5-45-00-20-23-45-00-60-10-45-00-40-7B-44-01-01-01-01-01-01-AE-01-01-01-01-00-00-00-00-01-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00-01-00-07-00-00-00-00-00-05-00-00-00-02-00-00-00-FF-FF-FF-00-80-80-80-00-00-00-00-00-09-41-43-54-49-4F-4E-20-23-31-02-23-31-00-02-23-31-00-00-00-00-00-00-00-00-00-00-00-00-00-48-00-00-FF-FF-E1-00-01-00-04-52-E3-0B-91-8F-CE-11-9D-E3-00-AA-00-4B-B8-51-6C-74-00-00-76-01-00-00-42-4D-76-01-00-00-00-00-00-00-36-00-00-00-28-00-00-00-0A-00-00-00-0A-00-00-00-01-00-18-00-00-00-00-00-40-01-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-00-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-00-00-00-00-00-01-00-03-52-E3-0B-91-8F-CE-11-9D-E3-00-AA-00-4B-B8-51-01-00-00-00-BC-02-44-42-01-00-06-54-61-68-6F-6D-61-00-01-00-00-00-00-08-3B-46-00-90-1C-45-00-60-10-45-00-40-7B-44-01-01-01-01-01-01-A7-01-01-01-01-00-00-00-00-01-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00-01-00-07-00-00-00-00-00-05-00-00-00-02-00-00-00-FF-FF-FF-00-80-80-80-00-00-00-00-00-10-41-43-54-49-4F-4E-5F-4D-45-54-48-4F-44-20-23-32-02-23-32-00-02-23-32-00-00-00-00-00-00-00-00-00-00-00-00-00-48-00-00-FF-FF-E1-00-01-00-04-52-E3-0B-91-8F-CE-11-9D-E3-00-AA-00-4B-B8-51-6C-74-00-00-76-01-00-00-42-4D-76-01-00-00-00-00-00-00-36-00-00-00-28-00-00-00-0A-00-00-00-0A-00-00-00-01-00-18-00-00-00-00-00-40-01-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-00-00-00-00-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-00-00-00-00-00-00-00-00-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-FF-00-00-00-00-00-01-00-03-52-E3-0B-91-8F-CE-11-9D-E3-00-AA-00-4B-B8-51-01-00-00-00-BC-02-44-42-01-00-06-54-61-68-6F-6D-61-01-02-00-00-00-01-00-00-00-02-00-00-00-01-01-00-00-00-00-00-00-00-01-01-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-01-00-00-00-00-00-00-00-01-00-00-00-00-00-00-00-00-00-0D-63-68-6F-73-65-6E-5F-6D-65-74-68-6F-64-0D-63-68-6F-73-65-6E-5F-6D-65-74-68-6F-64-00-00-00-00-00-00-00-00-01-00-03-52-E3-0B-91-8F-CE-11-9D-E3-00-AA-00-4B-B8-51-01-00-00-00-90-01-44-42-01-00-05-41-72-69-61-6C-02-00-00-00-00-F0-16-46-00-30-40-45-00-08-3B-46-00-70-3C</Binary>
+    <Visible>true</Visible>
+    <Style>InstancePage</Style>
+  </Page>
+  <Prefs>
+    <PageNo>1</PageNo>
+    <BackColor>16777215</BackColor>
+    <ForeColor>0</ForeColor>
+    <GridColor>11119017</GridColor>
+    <ShowGrid>true</ShowGrid>
+    <SnapToGrid>true</SnapToGrid>
+    <Style>0</Style>
+    <xGrid>210</xGrid>
+    <yGrid>100</yGrid>
+    <Zoom>100</Zoom>
+  </Prefs>
+</NewDataSet>

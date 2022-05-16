@@ -1,0 +1,1347 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Footprint definition">
+      <META name="DC.Dates" content="2009-05-04 09:10:05">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Footprint definition">
+      <META name="DC.Subject" content="module, footprint, breakout, package, padstack, footprint breakout">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6377">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5604">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-04 09:10:05">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.32">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.18">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.8">
+      <TITLE>ISO/TS 10303-1646:2009 Footprint definition</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Footprint definition</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1646:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.2 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.3 ARM subtype constraint definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.4 ARM function definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.1 MIM entity definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#subtype_constraints">5.2.2 MIM subtype constraint definition</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Footprint definition</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Footprint_definition_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="footprint_definition_arm">
+            SCHEMA Footprint_definition_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm">Layered_interconnect_complex_template_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1716<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/package/sys/4_info_reqs.htm#package_arm">Package_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1707<br><br></code></p>
+      <p><code>
+            REFERENCE FROM 
+            <A HREF="../../../../data/modules/characterizable_object/sys/4_info_reqs.htm#characterizable_object_arm">Characterizable_object_arm</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1765<br>&nbsp;&nbsp;(<A HREF="../../../../data/modules/characterizable_object/sys/4_info_reqs.htm#characterizable_object_arm.bag_to_set">bag_to_set</A>);
+            <br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Layered_interconnect_complex_template_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1716</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Package_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1707</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Characterizable_object_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1765</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="entities">4.2 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="footprint_definition_arm.breakout_footprint_definition">4.2.1 Breakout_footprint_definition</a>
+         &nbsp;&nbsp;<a href="../../footprint_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitybreakout_footprint_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Breakout_footprint_definition</b> is a type of 
+      	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.generic_footprint_definition"><b>Generic_footprint_definition</b></a> provided to support re-use of patterns necessary to 
+      	adapt a footprint to a design layout. A <b>Breakout_footprint_definition</b> specifies the footprint being adapted as well as the adaptation 
+      	pattern.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Breakout_footprint_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#footprint_definition_arm.generic_footprint_definition">Generic_footprint_definition</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;reference_footprint : <A HREF="#footprint_definition_arm.footprint_definition">Footprint_definition</A>;<br>INVERSE<br>
+            &nbsp;&nbsp;breakout_traces : SET[1:?] OF <A HREF="#footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition">Stratum_feature_template_location_in_breakout_footprint_definition</A> FOR assembly;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF\Multi_stratum_structured_template.location = reference_footprint\Multi_stratum_structured_template.location;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.breakout_footprint_definition.reference_footprint">reference_footprint:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a>
+         	for the <b>Breakout_footprint_definition</b>. 
+         	The <b>reference_footprint</b>
+         		is the footprint being adapted to a design layout by the <b>Breakout_footprint_definition</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.breakout_footprint_definition.breakout_traces">breakout_traces:
+               </a></b>
+         	specifies an inverse relationship that specifies that the existence of the <b>Breakout_footprint_definition</b> is dependent on the existence of the  
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition"><b>Stratum_feature_template_location_in_breakout_footprint_definition</b></a> 
+         	that specifies the <b>Breakout_footprint_definition</b> as its 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition.assembly"><b>assembly</b></a>.  
+         	There shall be one or more  
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition"><b>Stratum_feature_template_location_in_breakout_footprint_definition</b></a> 
+         	for a <b>Breakout_footprint_definition</b>. The <b>breakout_traces</b> are the adaptation pattern components. Each component overlaps with a 
+         	<a href="../../../modules/land/sys/4_info_reqs.htm#land_arm.land"><b>Land</b></a> instance in the <b>reference_footprint</b> when the <b>Breakout_footprint_definition</b> is instantiated 
+         	and the geometry rendered in a design layout.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.breakout_footprint_definition.wr:wr1">WR1:
+               </a></b>
+         	The 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template.location"><b>location</b></a>
+         	of <b>Breakout_footprint_definition</b> shall be same as location of its <b>reference_footprint</b>.
+         
+      </p>
+      <p><u>Informal propositions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.breakout_footprint_definition.wr:ip1">IP1:
+               </a></b>
+         	The domain of the geometry of the <b>Breakout_footprint_definition</b> shall be the same domain as that of the <b>reference_footprint</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.breakout_footprint_definition.wr:ip2">IP2:
+               </a></b>
+         	Each member of <b>breakout_traces</b> shall have a domain that overlaps with a 
+         	<a href="../../../modules/land/sys/4_info_reqs.htm#land_arm.land"><b>Land</b></a> 
+         	in the <b>reference_footprint</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.breakout_footprint_definition.wr:ip3">IP3:
+               </a></b>
+         	Each member of <b>breakout_traces</b> shall have a domain that overlaps with a 
+         	<a href="../../../modules/land/sys/4_info_reqs.htm#land_arm.land"><b>Land</b></a> 
+         	in the 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.generic_footprint_definition.padstacks"><b>padstack</b></a>
+         	inherited from 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.generic_footprint_definition"><b>Generic_footprint_definition</b></a>.
+         	
+         
+      </p>
+      <h2><a name="footprint_definition_arm.breakout_footprint_definition_shape_model">4.2.2 Breakout_footprint_definition_shape_model</a>
+         &nbsp;&nbsp;<a href="../../footprint_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitybreakout_footprint_definition_shape_model"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Breakout_footprint_definition_shape_model</b> is a type of
+      	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model"><b>Structured_template_planar_shape_model</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Breakout_footprint_definition_shape_model<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model">Structured_template_planar_shape_model</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model">Structured_template_planar_shape_model</A>.shape_characterized_definition : SET[1:1] OF <A HREF="#footprint_definition_arm.breakout_footprint_definition">Breakout_footprint_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;reference_shape : <A HREF="#footprint_definition_arm.footprint_definition_shape_model">Footprint_definition_shape_model</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: reference_shape.shape_characterized_definition[1] :=: shape_characterized_definition[1].reference_footprint;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.breakout_footprint_definition_shape_model.shape_characterized_definition">shape_characterized_definition:
+               </a></b>
+         	specifies the role of the
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.breakout_footprint_definition"><b>Breakout_footprint_definition</b></a>
+         	for the <b>Breakout_footprint_definition_shape_model</b>. There shall exist exactly one 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.breakout_footprint_definition"><b>Breakout_footprint_definition</b></a>
+         	for the <b>Breakout_footprint_definition_shape_model</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.breakout_footprint_definition_shape_model.reference_shape">reference_shape:
+               </a></b>
+         	specifies the role of the
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition_shape_model"><b>Footprint_definition_shape_model</b></a>
+         	for the <b>Breakout_footprint_definition_shape_model</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.breakout_footprint_definition_shape_model.wr:wr1">WR1:
+               </a></b>
+         The footprint referenced by <a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition_shape_model.shape_characterized_definition"><b>shape_characterized_definition</b></a>
+         of <b>reference_shape</b> shall be same footprint as that referenced by
+         <a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.breakout_footprint_definition.reference_footprint"><b>reference_footprint</b></a>
+         of <a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.breakout_footprint_definition_shape_model.shape_characterized_definition"><b>shape_characterized_definition</b></a>
+         of <b>Breakout_footprint_definition_shape_model</b>.
+         
+      </p>
+      <h2><a name="footprint_definition_arm.footprint_definition">4.2.3 Footprint_definition</a>
+         &nbsp;&nbsp;<a href="../../footprint_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityfootprint_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Footprint_definition</b> is a type of 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.generic_footprint_definition"><b>Generic_footprint_definition</b></a>.  A <b>Footprint_definition</b> is an explicit
+         	geometric pattern that when realized in a manufactured interconnect substrate provides an interface to a discrete component
+         when
+         	the substrate and the component are combined in an assembly. The specific properties
+         	required in a manufacturing process for the end product help determine properties of the pattern.
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+             A <b>Footprint_definition</b> uses generic categories when referencing layers and does not contain design specific layer sequences.</small></p>
+      
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+            	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#figure_lpt4">Figure 1</a> illustrates two categories of integrated circuit footprints.  
+            	The parameters shown in the illustration could be conveyed using geometric annotation data supported by ISO 10303-1051, but
+            that annotation is optional since this part of ISO 10303 supports explicit geometry data.
+            	</small></p>
+      	<br><br><a name="figure_lpt4"></a><div align="center"><IMG src="../lpt_4.gif" border="0" alt="Figure 1&nbsp;&#8212;&nbsp;&nbsp;Typical integrated circuit footprint definition"></div><br><div align="center"><b>Figure 1&nbsp;&#8212;&nbsp;&nbsp;Typical integrated circuit footprint definition</b></div><br>
+      	
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            
+            	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#figure_lpt5">Figure 2</a> illustrates two categories of simple footprints.  
+            	</small></p>
+      	<br><br><a name="figure_lpt5"></a><div align="center"><IMG src="../lpt_5.gif" border="0" alt="Figure 2&nbsp;&#8212;&nbsp;&nbsp;Typical chip component footprint definition"></div><br><div align="center"><b>Figure 2&nbsp;&#8212;&nbsp;&nbsp;Typical chip component footprint definition</b></div><br>
+      	
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Footprint_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#footprint_definition_arm.generic_footprint_definition">Generic_footprint_definition</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;reference_package : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_usage_view">Part_usage_view</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF (QUERY(shape &lt;* SELF\Structured_template.shapes |
+            NOT ('LAYERED_INTERCONNECT_COMPLEX_TEMPLATE_ARM.FOOTPRINT_DEFINITION_SHAPE_MODEL' IN TYPEOF(shape))
+            )) = 0;<br> 
+            &nbsp;&nbsp;WR2: SIZEOF (QUERY(tlist &lt;* SELF\Structured_template.templates |
+            ('FOOTPRINT_DEFINITION_ARM.FOOTPRINT_DEFINITION' IN TYPEOF(tlist.template))
+            )) = 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition.reference_package">reference_package:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_usage_view"><b>Part_usage_view</b></a> 
+         	for the <b>Footprint_definition</b>. The <b>reference_package</b> supports the case where traceability is desired to the originating interface
+         	requirement.  The existence of this attribute does not limit the application of a <b>Footprint_definition</b> to support other components.
+         	A <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_usage_view"><b>Part_usage_view</b></a> 
+         	is specified to support the general case, rather than the typical case of 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>.
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition.wr:wr1">WR1:
+               </a></b>
+         All <a href="../../../modules/part_template_shape_with_parameters/sys/4_info_reqs.htm#part_template_shape_with_parameters_arm.geometric_template.shapes"><b>shapes</b></a>
+         of <b>Footprint_definition</b> shall be of type
+         <a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition_shape_model"><b>Footprint_definition_shape_model</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition.wr:wr2">WR2:
+               </a></b>
+         	The <b>Footprint_definition</b> shall not be composed of other <b>Footprint_definitions</b>.
+         
+      </p>
+      <h2><a name="footprint_definition_arm.footprint_definition_shape_model">4.2.4 Footprint_definition_shape_model</a>
+         &nbsp;&nbsp;<a href="../../footprint_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityfootprint_definition_shape_model"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Footprint_definition_shape_model</b> is a type of 
+      	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model"><b>Structured_template_planar_shape_model</b></a>. 
+      	A <b>Footprint_definition_shape_model</b> is the planar shape of a 
+      	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a>.
+      	A <b>Footprint_definition_shape_model</b> may reference either a shape of a 
+      	<a href="../../../modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition"><b>Part_view_definition</b></a> 
+      	or a shape of a 
+      	<a href="../../../modules/printed_physical_layout_template/sys/4_info_reqs.htm#printed_physical_layout_template_arm.printed_part_template"><b>Printed_part_template</b></a> 
+      	as a causal shape, with which the <b>Footprint_definition_shape_model</b> is to be compatible.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Footprint_definition_shape_model<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model">Structured_template_planar_shape_model</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model">Structured_template_planar_shape_model</A>.shape_characterized_definition : SET[1:1] OF <A HREF="#footprint_definition_arm.footprint_definition">Footprint_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;reference_shape : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/shape_parameters/sys/4_info_reqs.htm#shape_parameters_arm.physical_unit_shape_model_select">physical_unit_shape_model_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;reference_seating_plane_placement : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship">Usage_concept_usage_relationship</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: NOT (SIZEOF(['PHYSICAL_UNIT_3D_SHAPE_ARM.PHYSICAL_UNIT_3D_SHAPE_MODEL',
+            'PHYSICAL_UNIT_2D_SHAPE_ARM.PHYSICAL_UNIT_PLANAR_SHAPE_MODEL'] * TYPEOF(reference_shape)) = 1) OR 
+            NOT ('PHYSICAL_UNIT_USAGE_VIEW_ARM.PART_USAGE_VIEW' IN TYPEOF(reference_shape\Physical_unit_shape_model.shape_characterized_definition))
+            OR
+            NOT ('LAYERED_INTERCONNECT_COMPLEX_TEMPLATE_ARM.FOOTPRINT_DEFINITION' IN TYPEOF(shape_characterized_definition[1])) OR   
+            
+            (shape_characterized_definition[1]\Footprint_definition.reference_package :=: reference_shape\Physical_unit_shape_model.shape_characterized_definition);<br> 
+            &nbsp;&nbsp;WR2: NOT (SIZEOF(['PHYSICAL_UNIT_3D_SHAPE_ARM.PHYSICAL_UNIT_3D_SHAPE_MODEL',
+            'PHYSICAL_UNIT_2D_SHAPE_ARM.PHYSICAL_UNIT_PLANAR_SHAPE_MODEL'] * TYPEOF(reference_shape)) = 1) OR 
+            ('PHYSICAL_UNIT_USAGE_VIEW_ARM.PART_USAGE_VIEW' IN TYPEOF(reference_shape\Physical_unit_shape_model.shape_characterized_definition));<br> 
+            &nbsp;&nbsp;WR3: NOT EXISTS(SELF\Representation.description);<br> 
+            &nbsp;&nbsp;WR4: NOT EXISTS(reference_shape) OR EXISTS(shape_characterized_definition[1]\Footprint_definition.reference_package);<br> 
+            &nbsp;&nbsp;WR5: NOT EXISTS(reference_seating_plane_placement) OR EXISTS(reference_shape);<br> 
+            &nbsp;&nbsp;WR6: NOT EXISTS(reference_seating_plane_placement) OR ('PACKAGE_ARM.PACKAGE' IN TYPEOF(shape_characterized_definition[1]\Footprint_definition.reference_package));<br> 
+            &nbsp;&nbsp;WR7: NOT EXISTS(reference_seating_plane_placement) OR ('NON_FEATURE_SHAPE_ELEMENT_ARM.SEATING_PLANE' IN 
+            TYPEOF(reference_seating_plane_placement\Usage_concept_usage_relationship.associated_usage));<br> 
+            &nbsp;&nbsp;WR8: NOT EXISTS(reference_seating_plane_placement) OR 
+            ((reference_seating_plane_placement\Usage_concept_usage_relationship.associating_usage_shape\Usage_view_level_non_feature_shape_model.model_shape)
+            =
+            reference_shape);<br> 
+            &nbsp;&nbsp;WR9: NOT EXISTS(reference_seating_plane_placement) OR 
+            ((reference_seating_plane_placement\Usage_concept_usage_relationship.associated_usage\Non_feature_shape_element.scope) =
+            shape_characterized_definition[1]\Footprint_definition.reference_package);<br> 
+            &nbsp;&nbsp;WR10: NOT EXISTS(reference_seating_plane_placement) OR ('PHYSICAL_UNIT_3D_SHAPE_ARM.PHYSICAL_UNIT_3D_SHAPE_MODEL' IN 
+            TYPEOF(reference_seating_plane_placement\Usage_concept_usage_relationship.associating_usage_shape\Usage_view_level_non_feature_shape_model.model_shape));<br> 
+            &nbsp;&nbsp;WR11: NOT (EXISTS(reference_seating_plane_placement) AND ('PHYSICAL_UNIT_2D_SHAPE_ARM.PHYSICAL_UNIT_PLANAR_SHAPE_MODEL' IN
+            TYPEOF(reference_shape)));<br> 
+            &nbsp;&nbsp;WR12: NOT ('PHYSICAL_UNIT_2D_SHAPE_ARM.PHYSICAL_UNIT_PLANAR_SHAPE_MODEL' IN TYPEOF(reference_shape)) OR
+            (SELF\Geometric_model.context_of_items = reference_shape\Geometric_model.context_of_items);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition_shape_model.shape_characterized_definition">shape_characterized_definition:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a> 
+         	for the <b>Footprint_definition_shape_model</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition_shape_model.reference_shape">reference_shape:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/shape_parameters/sys/4_info_reqs.htm#shape_parameters_arm.physical_unit_shape_model_select"><b>physical_unit_shape_model_select</b></a> 
+         	for the <b>Footprint_definition_shape_model</b>.
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition_shape_model.reference_seating_plane_placement">reference_seating_plane_placement:
+               </a></b>
+         	specifies the role of the
+         	<a href="../../../modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship"><b>Usage_concept_usage_relationship</b></a> 
+         	for the <b>Footprint_definition_shape_model</b>.
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition_shape_model.wr:wr1">WR1:
+               </a></b>
+         	If the <b>reference_shape</b> is a 
+         	<a href="../../../modules/physical_unit_3d_shape/sys/4_info_reqs.htm#physical_unit_3d_shape_arm.physical_unit_3d_shape_model"><b>Physical_unit_3d_shape_model</b></a> 
+         	or is a 
+         	<a href="../../../modules/physical_unit_2d_shape/sys/4_info_reqs.htm#physical_unit_2d_shape_arm.physical_unit_planar_shape_model"><b>Physical_unit_planar_shape_model</b></a> 
+         	and if the
+         	<a href="../../../modules/physical_unit_shape_with_parameters/sys/4_info_reqs.htm#physical_unit_shape_with_parameters_arm.physical_unit_shape_model.shape_characterized_definition"><b>shape_characterized_definition</b></a> 
+         	attribute of <b>reference_shape</b> references a
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_usage_view"><b>Part_usage_view</b></a> 
+         	and if <b>shape_characterized_definition</b> is a
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a>, 
+         	then that 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_usage_view"><b>Part_usage_view</b></a> 
+         	shall also be referenced by the
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition.reference_package"><b>reference_package</b></a> 
+         	attribute of the <b>shape_characterized_definition</b>.	
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition_shape_model.wr:wr2">WR2:
+               </a></b>
+         	If the <b>reference_shape</b> is a 
+         	<a href="../../../modules/physical_unit_3d_shape/sys/4_info_reqs.htm#physical_unit_3d_shape_arm.physical_unit_3d_shape_model"><b>Physical_unit_3d_shape_model</b></a> or a  
+         	<a href="../../../modules/physical_unit_2d_shape/sys/4_info_reqs.htm#physical_unit_2d_shape_arm.physical_unit_planar_shape_model"><b>Physical_unit_planar_shape_model</b></a>, 
+         	then only a  <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_usage_view"><b>Part_usage_view</b></a> 
+         	shall be referenced by the <b>reference_shape</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition_shape_model.wr:wr3">WR3:
+               </a></b>
+         	The
+         	<a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation.description"><b>description</b></a>
+         	shall not be populated.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition_shape_model.wr:wr4">WR4:
+               </a></b>
+         	If <b>reference_shape</b> is provided then the 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition.reference_package"><b>reference_package</b></a> 
+         	shall be provided for the associated 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition_shape_model.wr:wr5">WR5:
+               </a></b>
+         	If <b>reference_seating_plane_placement</b> is provided then <b>reference_shape</b> shall be provided.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition_shape_model.wr:wr6">WR6:
+               </a></b>
+         	If <b>reference_seating_plane_placement</b> is provided then the
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition.reference_package"><b>reference_package</b></a> 
+         	for the associated 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a> 
+         	shall be a 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition_shape_model.wr:wr7">WR7:
+               </a></b>
+         	If <b>reference_seating_plane_placement</b> is provided then the
+         	<a href="../../../modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship.associated_usage"><b>associated_usage</b></a> 
+         	for the placement shall be a 
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.seating_plane"><b>Seating_plane</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition_shape_model.wr:wr8">WR8:
+               </a></b>
+         	If <b>reference_seating_plane_placement</b> is provided then the geometric model the 
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.seating_plane"><b>Seating_plane</b></a> 
+         	shape is placed in shall specify the <b>reference_shape</b> as it's
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.usage_view_level_non_feature_shape_model.model_shape"><b>model_shape</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition_shape_model.wr:wr9">WR9:
+               </a></b>
+         	If <b>reference_seating_plane_placement</b> is provided then the scope of the geometric model the 
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.seating_plane"><b>Seating_plane</b></a> 
+         	shape is placed in shall be the
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition.reference_package"><b>reference_package</b></a> 
+         	of the associated 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition_shape_model.wr:wr10">WR10:
+               </a></b>
+         	If <b>reference_seating_plane_placement</b> is provided then the relevant model shape shall be a 3 dimensional model.	
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition_shape_model.wr:wr11">WR11:
+               </a></b>
+         	The <b>reference_seating_plane_placement</b> shall not be provided for a member of
+         	<b>Footprint_definition_shape_model</b> when the <b>reference_shape</b> is a two dimensional model.
+         	The <b>reference_shape</b> shall not be a two dimensional model when the
+         	<b>reference_seating_plane_placement</b> is provided.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.footprint_definition_shape_model.wr:wr12">WR12:
+               </a></b>
+         	If the <b>reference_shape</b> is a two dimensional model then the context of
+         	that model shall be the context of this model.
+         
+      </p>
+      <h2><a name="footprint_definition_arm.generic_footprint_definition">4.2.5 Generic_footprint_definition</a>
+         &nbsp;&nbsp;<a href="../../footprint_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitygeneric_footprint_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Generic_footprint_definition</b> is a type of 
+      	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template"><b>Multi_stratum_structured_template</b></a>.
+      	A <b>Generic_footprint_definition</b> is either a 
+      	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a>
+      	or a 
+      	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.breakout_footprint_definition"><b>Breakout_footprint_definition</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Generic_footprint_definition<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#footprint_definition_arm.footprint_definition">Footprint_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#footprint_definition_arm.breakout_footprint_definition">Breakout_footprint_definition</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template">Multi_stratum_structured_template</A>);<br>DERIVE<br>
+            &nbsp;&nbsp;padstack_based_location : <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement">template_arrangement</A> := get_template_arrangement(padstacks);<br>
+            &nbsp;&nbsp;padstacks : SET[1:?] OF <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A> := QUERY(tlict &lt;* SELF\Structured_template.templates |
+            ('LAYERED_INTERCONNECT_COMPLEX_TEMPLATE_ARM.PADSTACK_DEFINITION' IN TYPEOF(tlict.template)));<br>
+            &nbsp;&nbsp;single_stratum_components : SET[0:?] OF <A HREF="../../../../data/modules/layered_interconnect_simple_template/sys/4_info_reqs.htm#layered_interconnect_simple_template_arm.single_stratum_template">Single_stratum_template</A> := fd_get_single_stratum_components(SELF\Structured_template.templates);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(QUERY(ps &lt;* SELF\Structured_template.templates | (ps\Template_location_in_structured_template.template\Multi_stratum_structured_template.location
+            &lt;&gt; SELF\Multi_stratum_structured_template.location)
+            AND (ps\Template_location_in_structured_template.template\Multi_stratum_structured_template.location &lt;&gt; template_arrangement.symmetrical)))
+            = 0;<br> 
+            &nbsp;&nbsp;WR2: ((SELF\Multi_stratum_structured_template.location = template_arrangement.top) AND (SELF\Product_view_definition.initial_context\View_definition_context.description
+            = 'top')) OR 
+            (NOT (SELF\Multi_stratum_structured_template.location = template_arrangement.top) AND NOT (SELF\Product_view_definition.initial_context\View_definition_context.description
+            = 'top'));<br> 
+            &nbsp;&nbsp;WR3: ((SELF\Multi_stratum_structured_template.location = template_arrangement.bottom) AND (SELF\Product_view_definition.initial_context\View_definition_context.description
+            = 'bottom')) OR 
+            (NOT (SELF\Multi_stratum_structured_template.location = template_arrangement.bottom) AND NOT (SELF\Product_view_definition.initial_context\View_definition_context.description
+            = 'bottom'));<br> 
+            &nbsp;&nbsp;WR4: ((SELF\Multi_stratum_structured_template.location = template_arrangement.symmetrical) AND (SELF\Product_view_definition.initial_context\View_definition_context.description
+            = 'symmetrical')) OR 
+            (NOT (SELF\Multi_stratum_structured_template.location = template_arrangement.symmetrical) AND NOT (SELF\Product_view_definition.initial_context\View_definition_context.description
+            = 'symmetrical'));<br> 
+            &nbsp;&nbsp;WR5: ((SELF\Multi_stratum_structured_template.location = template_arrangement.swappable) AND (SELF\Product_view_definition.initial_context\View_definition_context.description
+            = 'swappable')) OR 
+            (NOT (SELF\Multi_stratum_structured_template.location = template_arrangement.swappable) AND NOT (SELF\Product_view_definition.initial_context\View_definition_context.description
+            = 'swappable'));<br> 
+            &nbsp;&nbsp;WR6: NOT (SIZEOF(single_stratum_components) = 0) OR (SELF\Multi_stratum_structured_template.location = padstack_based_location);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.generic_footprint_definition.padstack_based_location">padstack_based_location:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement"><b>template_arrangement</b></a> 
+         	that is evaluated using function 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.get_template_arrangement"><b>get_template_arrangement</b></a> 
+         	with <b>padstacks</b> as an argument.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.generic_footprint_definition.padstacks">padstacks:
+               </a></b>
+         	specifies the role of 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a> 
+         	for the <b>Generic_footprint_definition</b>. 
+         	There shall be at least one 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a> 
+         	provided.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.generic_footprint_definition.single_stratum_components">single_stratum_components:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/layered_interconnect_simple_template/sys/4_info_reqs.htm#layered_interconnect_simple_template_arm.single_stratum_template"><b>Single_stratum_template</b></a>
+         	for the <b>Generic_footprint_definition</b>. 
+         	The 
+         	<a href="../../../modules/layered_interconnect_simple_template/sys/4_info_reqs.htm#layered_interconnect_simple_template_arm.single_stratum_template"><b>Single_stratum_templates</b></a> 
+         	are optional and need not be provided for the <b>Generic_footprint_definition</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.generic_footprint_definition.wr:wr1">WR1:
+               </a></b>
+         The <a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template.location"><b>location</b></a>
+         of <a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template"><b>Multi_stratum_structured_templates</b></a>
+         composing <b>Generic_footprint_definition</b> shall be either <a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.symmetrical"><b>symmetrical</b></a>
+         or same as one of <b>Generic_footprint_definition</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.generic_footprint_definition.wr:wr2">WR2:
+               </a></b>
+         The 
+         <a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template.location"><b>location</b></a> 
+         shall be <a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.top"><b>top</b></a> if and only if the padstack location is <a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.top"><b>top</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.generic_footprint_definition.wr:wr3">WR3:
+               </a></b>
+         The 
+         <a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template.location"><b>location</b></a> 
+         shall be <a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.bottom"><b>bottom</b></a> if and only if the padstack location is <a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.bottom"><b>bottom</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.generic_footprint_definition.wr:wr4">WR4:
+               </a></b>
+         The 
+         <a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template.location"><b>location</b></a>
+         shall be <a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.symmetrical"><b>symmetrical</b></a> if and only if the padstack location is <a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.symmetrical"><b>symmetrical</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.generic_footprint_definition.wr:wr5">WR5:
+               </a></b>
+         	The 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template.location"><b>location</b></a> 
+         	shall be 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.swappable"><b>swappable</b></a> 
+         	if and only if the padstack location is 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.swappable"><b>swappable</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.generic_footprint_definition.wr:wr6">WR6:
+               </a></b>
+         	If there are no <b>single_stratum_components</b>, then the 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template.location"><b>location</b></a> 
+         	inherited from the 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template"><b>Multi_stratum_structured_template</b></a> 
+         	shall be equal to the calculated 
+         	<b>padstack_based_location</b>. 
+         	
+         
+      </p>
+      <h2><a name="footprint_definition_arm.package_footprint_relationship_definition">4.2.6 Package_footprint_relationship_definition</a>
+         &nbsp;&nbsp;<a href="../../footprint_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypackage_footprint_relationship_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Package_footprint_relationship_definition</b> is a type of
+      	<a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>Product_view_definition</b></a>
+      	provided to explicitly define the geometric relationship between a planar shape of a 
+      	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a> 
+      	and a planar shape of a 
+      	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>.
+      	The 
+      	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.package_footprint_relationship_definition"><b>Package_footprint_relationship_definition</b></a> 
+      	allows an application to archive and exchange many to many relationships between 
+      	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a> 
+      	and 
+      	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a> 
+      	models. 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Package_footprint_relationship_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br>DERIVE<br>
+            &nbsp;&nbsp;associated_model : SET[1:1] OF <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A> := fd_get_amodel(SELF);<br>
+            &nbsp;&nbsp;related_models : SET[2:2] OF <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A> := fd_get_rmodels(related_elements);<br>
+            &nbsp;&nbsp;related_transforms : SET[2:2] OF <A HREF="../../../../data/modules/contextual_shape_positioning/sys/4_info_reqs.htm#contextual_shape_positioning_arm.geometric_model_relationship_with_transformation">Geometric_model_relationship_with_transformation</A> := fd_get_transforms(associated_model, related_models);<br>INVERSE<br>
+            &nbsp;&nbsp;related_elements : SET[2:2] OF <A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A> FOR related_view;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(QUERY(re &lt;* related_elements | 
+            ('PACKAGE_ARM.PACKAGE' IN TYPEOF(re\View_definition_relationship.relating_view))
+            )) = 1;<br> 
+            &nbsp;&nbsp;WR2: SIZEOF(QUERY(re &lt;* related_elements | 
+            ('FOOTPRINT_DEFINITION_ARM.FOOTPRINT_DEFINITION' IN TYPEOF(re\View_definition_relationship.relating_view))
+            )) = 1;<br> 
+            &nbsp;&nbsp;WR3: SIZEOF(related_models) = 2;<br> 
+            &nbsp;&nbsp;WR4: SIZEOF(associated_model) = 1;<br> 
+            &nbsp;&nbsp;WR5: SIZEOF(QUERY(rm &lt;* related_models |
+            ('PHYSICAL_UNIT_2D_SHAPE_ARM.PHYSICAL_UNIT_PLANAR_SHAPE_MODEL' IN TYPEOF(rm))
+            )) = 1;<br> 
+            &nbsp;&nbsp;WR6: SIZEOF(QUERY(rm &lt;* related_models |
+            ('FOOTPRINT_DEFINITION_ARM.FOOTPRINT_DEFINITION_SHAPE_MODEL' IN TYPEOF(rm))
+            )) = 1;<br> 
+            &nbsp;&nbsp;WR7: 'LAYERED_2D_SHAPE_ARM.PLANAR_SHAPE_MODEL' IN TYPEOF(associated_model[1]);<br> 
+            &nbsp;&nbsp;WR8: SIZEOF(related_transforms) = 2;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.package_footprint_relationship_definition.associated_model">associated_model:
+               </a></b>
+         	specifies a 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a> 
+         	that is establishing a common context in which the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>
+         	model and the 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a> 
+         	model are related.  
+         	Each of the two models is independently transformed into the <b>associated_model</b>, 
+         	with the role of the transforms being to establish the formal relationship.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.package_footprint_relationship_definition.related_models">related_models:
+               </a></b>
+         	specifies two 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_models</b></a>, 
+         	one of which is a planar model for a 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>, 
+         	and the other is a planar model for a 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a>.  
+         	The models are individually associated to the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a> 
+         	and 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a> 
+         	related to the 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.package_footprint_relationship_definition"><b>Package_footprint_relationship_definition</b></a> 
+         	by <b>related_elements</b> through a 
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_description_association"><b>Shape_description_association</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.package_footprint_relationship_definition.related_transforms">related_transforms:
+               </a></b>
+         	specifies two 
+         	<a href="../../../modules/contextual_shape_positioning/sys/4_info_reqs.htm#contextual_shape_positioning_arm.geometric_model_relationship_with_transformation"><b>Geometric_model_relationship_with_transformation</b></a> 
+         	that individually specify the transformation matrix that locates a 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a> 
+         	model or a 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a> 
+         	model in the <b>associated_model</b>.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		Taken together, the <b>related_transforms</b> specifies the geometric relationship between geometric elements in a 
+            		<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a> 
+            		model to geometric elements in a 
+            		<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a> 
+            		model.
+            	</small></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.package_footprint_relationship_definition.related_elements">related_elements:
+               </a></b>
+         	is an inverse attribute that specifies that the  
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.package_footprint_relationship_definition"><b>Package_footprint_relationship_definition</b></a> 
+         	is existence dependent on two members of 
+         	<a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship"><b>View_definition_relationship</b></a>.  
+         	One member of 
+         	<a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship"><b>View_definition_relationship</b></a> 
+         	references a
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>. 
+         	The other member references a 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a>.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The direction of the related and relating attributes differs from an assembly relationship since a 
+            		<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.package_footprint_relationship_definition"><b>Package_footprint_relationship_definition</b></a> 
+            		is not an assembly.
+            	</small></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.package_footprint_relationship_definition.wr:wr1">WR1:
+               </a></b>
+         	At least one member of 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a> 
+         	shall be included in <b>related_elements</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.package_footprint_relationship_definition.wr:wr2">WR2:
+               </a></b>
+         	At least one member of 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a> 
+         	shall be included in <b>related_elements</b>.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		WR1 with WR2 and the population constraint on <b>related_elements</b> ensure that there is one 
+            		<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a> 
+            		and one
+            		<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a> 
+            		related to a member of 
+            		<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.package_footprint_relationship_definition"><b>Package_footprint_relationship_definition</b></a>.
+            	</small></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.package_footprint_relationship_definition.wr:wr3">WR3:
+               </a></b>
+         	There shall be exactly two models related to the 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.package_footprint_relationship_definition"><b>Package_footprint_relationship_definition</b></a> 
+         	model.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.package_footprint_relationship_definition.wr:wr4">WR4:
+               </a></b>
+         	There shall be exactly one <b>associated_model</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.package_footprint_relationship_definition.wr:wr5">WR5:
+               </a></b>
+         	One of the <b>related_models</b> shall be a 
+         	<a href="../../../modules/physical_unit_2d_shape/sys/4_info_reqs.htm#physical_unit_2d_shape_arm.physical_unit_planar_shape_model"><b>Physical_unit_planar_shape_model</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.package_footprint_relationship_definition.wr:wr6">WR6:
+               </a></b>
+         	One of the <b>related_models</b> shall be a 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition_shape_model"><b>Footprint_definition_shape_model</b></a>.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		WR3, WR5, WR6 together ensure that there are the correct type of models in <b>related_models</b>.
+            	</small></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.package_footprint_relationship_definition.wr:wr7">WR7:
+               </a></b>
+         	The <b>associated_model</b> shall have a dimensionality of 2.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.package_footprint_relationship_definition.wr:wr8">WR8:
+               </a></b>
+         	There shall exist exactly two <b>related_transforms</b>.
+         
+      </p>
+      <h2><a name="footprint_definition_arm.part_feature_based_template_location">4.2.7 Part_feature_based_template_location</a>
+         &nbsp;&nbsp;<a href="../../footprint_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_feature_based_template_location"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Part_feature_based_template_location</b> is a type of
+      	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a>
+      	that supports the case that properties of a specific element of a 
+      	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a> 
+      	are dependent on properties of a specific 
+      	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_feature_based_template_location<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;reference_feature : <A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>;<br>DERIVE<br>
+            &nbsp;&nbsp;all_reference_feature : SET[1:?] OF <A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A> := bag_to_set(USEDIN
+            (SELF\Template_location_in_structured_template.assembly,
+            'LAYERED_INTERCONNECT_COMPLEX_TEMPLATE_ARM.TEMPLATE_LOCATION_IN_STRUCTURED_TEMPLATE.ASSEMBLY'));<br>
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>.reference_designation : STRING := reference_feature\Shape_element.element_name;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(QUERY( arf &lt;* all_reference_feature | NOT(reference_feature.associated_definition :=: arf.associated_definition)))
+            = 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.part_feature_based_template_location.reference_feature">reference_feature:
+               </a></b>
+         	specifies the role of one
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>
+         	for the <b>Part_feature_based_template_location</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.part_feature_based_template_location.all_reference_feature">all_reference_feature:
+               </a></b>
+         	specifies the role of a set of
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>
+         	for the <b>Part_feature_based_template_location</b>. The set <b>all_reference_feature</b> contains all the 	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>
+         	that would be valid references for a member of <b>Part_feature_based_template_location</b> that reference a specific 
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a>.
+         	There shall exist at least one
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>
+         	for the <b>Part_feature_based_template_location</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.part_feature_based_template_location.reference_designation">reference_designation:
+               </a></b>
+         	an attribute inherited from the 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a>
+         	shall be redeclared as a string 
+         	for the <b>Part_feature_based_template_location</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.part_feature_based_template_location.wr:wr1">WR1:
+               </a></b>
+         	Each member of <b>all_reference_feature</b> shall reference the same 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_usage_view"><b>Part_usage_view</b></a> 
+         	as 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.associated_definition"><b>associated_definition</b></a>  
+         	that is referenced by the <b>reference_feature</b>.
+         
+      </p>
+      <h2><a name="footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition">4.2.8 Stratum_feature_template_location_in_breakout_footprint_definition</a>
+         &nbsp;&nbsp;<a href="../../footprint_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitystratum_feature_template_location_in_breakout_footprint_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Stratum_feature_template_location_in_breakout_footprint_definition</b> is a type of
+      	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.stratum_specific_template_location"><b>Stratum_specific_template_location</b></a>
+      	that also provides an explicit map between a padstack location in a <a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.breakout_footprint_definition"><b>Breakout_footprint_definition</b></a>
+      	and the source requirement padstack location in a <a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.footprint_definition"><b>Footprint_definition</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Stratum_feature_template_location_in_breakout_footprint_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.stratum_specific_template_location">Stratum_specific_template_location</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>.assembly : <A HREF="#footprint_definition_arm.breakout_footprint_definition">Breakout_footprint_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>.template : <A HREF="../../../../data/modules/layered_interconnect_simple_template/sys/4_info_reqs.htm#layered_interconnect_simple_template_arm.stratum_feature_template">Stratum_feature_template</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;original_padstack : <A HREF="#footprint_definition_arm.part_feature_based_template_location">Part_feature_based_template_location</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;breakout_padstack : <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: original_padstack.assembly :=: assembly.reference_footprint;<br> 
+            &nbsp;&nbsp;WR2: breakout_padstack.assembly :=: assembly;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition.assembly">assembly:
+               </a></b>
+         	specifies the role of the
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.breakout_footprint_definition"><b>Breakout_footprint_definition</b></a>
+         	for the <b>Stratum_feature_template_location_in_breakout_footprint_definition</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition.template">template:
+               </a></b>
+         	specifies the role of the
+         	<a href="../../../modules/layered_interconnect_simple_template/sys/4_info_reqs.htm#layered_interconnect_simple_template_arm.stratum_feature_template"><b>Stratum_feature_template</b></a>
+         	for the <b>Stratum_feature_template_location_in_breakout_footprint_definition</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition.original_padstack">original_padstack:
+               </a></b>
+         	specifies the role of the
+         	<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.part_feature_based_template_location"><b>Part_feature_based_template_location</b></a>
+         	for the <b>Stratum_feature_template_location_in_breakout_footprint_definition</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition.breakout_padstack">breakout_padstack:
+               </a></b>
+         	specifies the role of the
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a>
+         	for the <b>Stratum_feature_template_location_in_breakout_footprint_definition</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition.wr:wr1">WR1:
+               </a></b>
+         	The <b>original_padstack</b>.<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template.assembly"><b>assembly</b></a> 
+         	shall be the same member as
+         	<b>assembly</b>.<a href="../../../modules/footprint_definition/sys/4_info_reqs.htm#footprint_definition_arm.breakout_footprint_definition.reference_footprint"><b>reference_footprint</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition.wr:wr2">WR2:
+               </a></b>
+         	The <b>breakout_padstack</b>.<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template.assembly"><b>assembly</b></a>
+         	shall be the same member as <b>assembly</b>.
+         
+      </p>
+      <h2><a name="subtype_constraints">4.3 ARM subtype constraint definitions</a></h2>
+      <p>
+         This subclause specifies the ARM
+         subtype constraints for 
+         this module. Each subtype constraint places constraints on the
+         possible super-type / subtype instantiations.
+         The ARM subtype constraints and definitions are
+         specified below.
+         
+      </p>
+      <h2><A NAME="footprint_definition_arm.structured_template_planar_shape_model_subtypes">4.3.1 structured_template_planar_shape_model_subtypes</A>
+         &nbsp;&nbsp;<a href="../../footprint_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#scconstraintstructured_template_planar_shape_model_subtypes"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         The
+         <b>structured_template_planar_shape_model_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model">Structured_template_planar_shape_model</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="footprint_definition_arm.structured_template_planar_shape_model_subtypes">SUBTYPE_CONSTRAINT structured_template_planar_shape_model_subtypes</A> FOR <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model">Structured_template_planar_shape_model</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#footprint_definition_arm.breakout_footprint_definition_shape_model">Breakout_footprint_definition_shape_model</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#footprint_definition_arm.footprint_definition_shape_model">Footprint_definition_shape_model</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p>
+      <h2><A NAME="footprint_definition_arm.multi_stratum_structured_template_subtypes">4.3.2 multi_stratum_structured_template_subtypes</A>
+         &nbsp;&nbsp;<a href="../../footprint_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#scconstraintmulti_stratum_structured_template_subtypes"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         The
+         <b>multi_stratum_structured_template_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template">Multi_stratum_structured_template</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="footprint_definition_arm.multi_stratum_structured_template_subtypes">SUBTYPE_CONSTRAINT multi_stratum_structured_template_subtypes</A> FOR <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template">Multi_stratum_structured_template</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.padstack_definition">Padstack_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#footprint_definition_arm.generic_footprint_definition">Generic_footprint_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_special_symbol_template">Multi_stratum_special_symbol_template</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p>
+      <h2><a name="functions">4.4 ARM function definitions</a></h2>
+      <p>
+         This subclause specifies the ARM functions for 
+         this module. The ARM functions and definitions are
+         specified below.
+         
+      </p>
+      <h2><A NAME="footprint_definition_arm.fd_get_amodel">4.4.1 fd_get_amodel</A></h2>
+      	The <b>fd_get_amodel</b> function returns the set of 
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a> 
+      	that are related to the <b>input</b> by a 
+      	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_description_association"><b>Shape_description_association</b></a> 
+      	through
+      	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.item_shape"><b>Item_shape</b></a>.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION fd_get_amodel&nbsp;(input : <A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>) :SET[0:?] OF <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>;
+         </code><pre>LOCAL
+      gm : SET OF Geometric_model := [];
+      is : SET OF Item_shape := [];
+      sda : SET OF Shape_description_association := [];      
+    END_LOCAL;
+    
+    is := bag_to_set(USEDIN(input,'SHAPE_PROPERTY_ASSIGNMENT_ARM.ITEM_SHAPE.DESCRIBED_ELEMENT'));
+
+    IF (SIZEOF(is) &gt;= 0) THEN
+      REPEAT i := 1 TO HIINDEX(is);
+      sda := sda + bag_to_set(USEDIN(input,'SHAPE_PROPERTY_ASSIGNMENT_ARM.SHAPE_DESCRIPTION_ASSOCIATION.REPRESENTED_CHARACTERISTIC'));
+      END_REPEAT;
+     IF (SIZEOF(sda) &gt;= 0) THEN
+       REPEAT i := 1 TO HIINDEX(sda);
+       gm := gm + sda[i]\Shape_description_association.representation;
+       END_REPEAT;    
+       RETURN (gm);
+     END_IF;
+    END_IF;
+    RETURN(?);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.fd_get_amodel.input">input:
+               </a></b>
+         	the specified
+         	<a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>Product_view_definition</b></a>.
+         
+      </p>
+      <h2><A NAME="footprint_definition_arm.fd_get_components">4.4.2 fd_get_components</A></h2>
+      	The <b>fd_get_components</b> function returns the set of 
+      	<a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>Product_view_definitions</b></a>
+      	that are referenced by the 
+      	<a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship.relating_view"><b>relating_view</b></a> 
+      	attribute of the <b>input</b>.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION fd_get_components&nbsp;(input : SET[2:2] OF <A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>) :SET[0:?] OF <A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>;
+         </code><pre>LOCAL
+      pvd : SET OF Product_view_definition := [];
+    END_LOCAL;
+    REPEAT i := 1 TO HIINDEX(input);
+      pvd := pvd + input[i]\View_definition_relationship.relating_view;
+    END_REPEAT;
+    RETURN (pvd);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.fd_get_components.input">input:
+               </a></b>
+         	the specified set of 
+         	<a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship"><b>View_definition_relationships</b></a>
+         
+      </p>
+      <h2><A NAME="footprint_definition_arm.fd_get_rmodels">4.4.3 fd_get_rmodels</A></h2>
+      	The <b>fd_get_rmodels</b> function returns the set of 
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_models</b></a> 
+      	that are related to the 
+      	<a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>Product_view_definitions</b></a> 
+      	that are related by the <b>input</b> set.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION fd_get_rmodels&nbsp;(input : SET[2:2] OF <A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>) :SET[0:?] OF <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>;
+         </code><pre>LOCAL
+      gm : SET OF Geometric_model := [];
+      pvd : SET OF Product_view_definition := [];
+    END_LOCAL;
+      pvd := fd_get_components(input);
+    IF (SIZEOF(pvd) &gt;= 0) THEN      
+      REPEAT i := 1 TO HIINDEX(pvd);
+        gm := gm + fd_get_amodel(pvd[i]);
+      END_REPEAT;
+      RETURN (gm);
+    END_IF;
+    RETURN(?);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.fd_get_rmodels.input">input:
+               </a></b>
+         	the specified set of 
+         	<a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship"><b>View_definition_relationship</b></a>.
+         
+      </p>
+      <h2><A NAME="footprint_definition_arm.fd_get_single_stratum_components">4.4.4 fd_get_single_stratum_components</A></h2>
+      	The <b>fd_get_single_stratum_components</b> function returns the set of
+      	<a href="../../../modules/layered_interconnect_simple_template/sys/4_info_reqs.htm#layered_interconnect_simple_template_arm.single_stratum_template"><b>Single_stratum_template</b></a> 
+      	that are in the role of template for the <b>input</b>.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION fd_get_single_stratum_components&nbsp;(input : SET[0:?] OF <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>) :SET[0:?] OF <A HREF="../../../../data/modules/layered_interconnect_simple_template/sys/4_info_reqs.htm#layered_interconnect_simple_template_arm.single_stratum_template">Single_stratum_template</A>;
+         </code><pre>LOCAL
+      sst : SET OF Single_stratum_template := [];
+    END_LOCAL;
+    REPEAT i := 1 TO HIINDEX(input);
+      IF ('LAYERED_INTERCONNECT_SIMPLE_TEMPLATE_ARM.SINGLE_STRATUM_TEMPLATE' IN TYPEOF(input[i]\Template_location_in_structured_template.template))
+      THEN      
+        sst := sst + input[i]\Template_location_in_structured_template.template;
+      END_IF;
+    END_REPEAT;
+    RETURN (sst);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.fd_get_single_stratum_components.input">input:
+               </a></b>
+         	the specified set of 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a>.
+         
+      </p>
+      <h2><A NAME="footprint_definition_arm.fd_get_transforms">4.4.5 fd_get_transforms</A></h2>
+      	The <b>fd_get_transforms</b> function returns the set of 
+      	<a href="../../../modules/contextual_shape_positioning/sys/4_info_reqs.htm#contextual_shape_positioning_arm.geometric_model_relationship_with_transformation"><b>Geometric_model_relationship_with_transformation</b></a> 
+      	that transform the elements of <b>input2</b> to the domain of <b>input1</b>.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION fd_get_transforms&nbsp;(input1 : SET[1:1] OF <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>; input2 : SET[2:2] OF <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>) :SET[0:?] OF <A HREF="../../../../data/modules/contextual_shape_positioning/sys/4_info_reqs.htm#contextual_shape_positioning_arm.geometric_model_relationship_with_transformation">Geometric_model_relationship_with_transformation</A>;
+         </code><pre>LOCAL
+      gmrwt : SET OF Geometric_model_relationship_with_transformation := [];
+    END_LOCAL;
+    gmrwt := bag_to_set(USEDIN(input1[1],'EXTENDED_BASIC_GEOMETRY_ARM.GEOMETRIC_MODEL_RELATIONSHIP.REP_1'));
+    REPEAT i := 1 TO HIINDEX(gmrwt);
+      IF NOT
+        ((gmrwt[i]\Geometric_model_relationship.rep_2 IN input2)
+         AND
+        ('EXTENDED_BASIC_GEOMETRY_ARM.GEOMETRIC_MODEL_RELATIONSHIP_WITH_TRANSFORMATION' IN TYPEOF(gmrwt[i])))
+      THEN
+       RETURN(?);
+      END_IF;
+    END_REPEAT;
+    RETURN(gmrwt);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.fd_get_transforms.input1">input1:
+               </a></b>
+         	the specified set of 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_models</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.fd_get_transforms.input2">input2:
+               </a></b>
+         	the specified set of 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_models</b></a>.
+         
+      </p>
+      <h2><A NAME="footprint_definition_arm.get_template_arrangement">4.4.6 get_template_arrangement</A></h2>
+      	The <b>get_template_arrangement</b> function gets the 
+      	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement"><b>template_arrangement</b></a>
+      	value that is consistent with all
+      	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a>
+      	specified by <b>input</b>.
+      
+      <p>
+         	It returns 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.top"><b>top</b></a>
+         	if there is at least one 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a>
+         	specified in <b>input</b> that has 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template.location"><b>location</b></a>
+         	of 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a>
+         	set to 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.top"><b>top</b></a>
+         	and there are no 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a>
+         	specified in 
+         	<b>input</b> that have 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template.location"><b>location</b></a>
+         	of 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a>
+         	set to 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.bottom"><b>bottom</b></a>.
+         
+      </p>
+      
+      <p>
+         	It returns 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.bottom"><b>bottom</b></a>
+         	if there is at least one 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a>
+         	specified in <b>input</b> that has 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template.location"><b>location</b></a>
+         	of 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a>
+         	set to 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.bottom"><b>bottom</b></a>
+         	and there are no 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a>
+         	specified in <b>input</b> that have 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template.location"><b>location</b></a>
+         	of 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a>
+         	set to 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.top"><b>top</b></a>.
+         
+      </p>
+      
+      <p>
+         	It returns 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.symmetrical"><b>symmetrical</b></a>
+         	if there is at least one 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a>
+         	specified in <b>input</b> that has 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template.location"><b>location</b></a>
+         	of 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a>
+         	set to 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.symmetrical"><b>symmetrical</b></a>
+         	and there are no 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Padstack_location_in_footprint_definition</b></a>
+         	specified in <b>input</b> that have 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template.location"><b>location</b></a>
+         	of 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Template_location_in_structured_template</b></a>
+         	set to 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.top"><b>top</b></a> 
+         	or
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement.bottom"><b>bottom</b></a>.
+         
+      </p>
+      
+      <p>
+         	It returns Undefined otherwise.
+         
+      </p>
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION get_template_arrangement&nbsp;(input : SET[0:?] OF <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>) :<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_arrangement">template_arrangement</A>;
+         </code><pre>LOCAL
+      tlist          : SET OF Template_location_in_structured_template := 
+        (QUERY(inx &lt;* input | ('LAYERED_INTERCONNECT_COMPLEX_TEMPLATE_ARM.MULTI_STRATUM_STRUCTURED_TEMPLATE' IN TYPEOF(inx.template))));
+      pabt           : BAG OF STRING := [];
+      pabb           : BAG OF STRING := [];
+      pabsymmetrical : BAG OF STRING := [];
+      pabswappable   : BAG OF STRING := [];
+    END_LOCAL;
+
+    REPEAT i := 1 TO SIZEOF(tlist) BY 1;
+      IF (tlist[i].template\Multi_stratum_structured_template.location = template_arrangement.top) THEN
+        pabt := pabt + 'top';
+      END_IF;
+      IF (tlist[i].template\Multi_stratum_structured_template.location = template_arrangement.bottom) THEN
+        pabb := pabb + 'bottom';
+      END_IF;
+      IF (tlist[i].template\Multi_stratum_structured_template.location = template_arrangement.symmetrical) THEN
+        pabsymmetrical := pabsymmetrical + 'symmetrical';
+      END_IF;
+      IF (tlist[i].template\Multi_stratum_structured_template.location = template_arrangement.swappable) THEN
+        pabswappable := pabswappable + 'swappable';
+      END_IF;
+    END_REPEAT;
+    IF ((SIZEOF(pabt) &gt; 0) AND (SIZEOF(pabb) = 0)) THEN
+      RETURN(template_arrangement.top);
+    END_IF;
+    IF ((SIZEOF(pabb) &gt; 0) AND (SIZEOF(pabt) = 0)) THEN
+      RETURN(template_arrangement.bottom);
+    END_IF;
+    IF ((SIZEOF(pabb) = 0) AND (SIZEOF(pabt) = 0) AND (SIZEOF(pabsymmetrical) &gt; 0)) THEN
+      RETURN(template_arrangement.symmetrical);
+    END_IF;
+    IF ((SIZEOF(pabb) = 0) AND (SIZEOF(pabt) = 0) AND (SIZEOF(pabsymmetrical) = 0) AND (SIZEOF(pabswappable) &gt; 0)) THEN
+      RETURN(template_arrangement.swappable);
+    END_IF;
+    RETURN(?);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="footprint_definition_arm.get_template_arrangement.input">input:
+               </a></b>
+         	the specified set of 
+         	<a href="../../../modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template"><b>Padstack_location_in_footprint_definitions</b></a>.
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Footprint_definition_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

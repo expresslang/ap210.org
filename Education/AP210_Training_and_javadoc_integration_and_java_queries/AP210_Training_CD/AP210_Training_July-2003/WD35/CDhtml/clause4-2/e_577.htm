@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Packaged_connector_component</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.588 Packaged_connector_component</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Packaged_connector_component is a type of <A
+CLASS="INTERNALREF"
+HREF="e_574.htm"
+>Packaged_component</A
+> that is an occurrence of a <A
+CLASS="INTERNALREF"
+HREF="e_576.htm"
+>Packaged_connector</A
+>.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>pcc</SPAN
+> illustrates a member of Packaged_connector_component that is a socket.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>interface_access_mechanism</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>usage_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.588.1 interface_access_mechanism</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The interface_access_mechanism is an inverse relationship that specifies that the existence of the Packaged_connector_component is 
+dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_578.htm"
+>Packaged_connector_component_interface_terminal</A
+> that specifies the 
+Packaged_connector_component as its associated_component. There shall be one or more Packaged_connector_component_interface_terminal for a Packaged_connector_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.588.2 usage_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The usage_definition specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_576.htm"
+>Packaged_connector</A
+> for the Packaged_connector_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY packaged_connector_component
+--tt tc1 wd9 modified
+  SUBTYPE OF (interface_component, packaged_component);
+    SELF\assembly_component.usage_definition : packaged_connector;
+  INVERSE
+    interface_access_mechanism : SET [1:?] OF 
+                                 packaged_connector_component_interface_terminal FOR 
+                                 associated_component;
+END_ENTITY; -- packaged_connector_component
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

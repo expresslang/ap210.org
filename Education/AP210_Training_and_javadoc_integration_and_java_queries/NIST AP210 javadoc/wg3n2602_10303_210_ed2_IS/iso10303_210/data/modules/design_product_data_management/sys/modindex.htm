@@ -1,0 +1,605 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Design product data management">
+      <META name="DC.Dates" content="2009-04-30 12:12:10">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Design product data management">
+      <META name="DC.Subject" content="module, product data management, approval, identification, test select">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6230">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5346">
+      <META name="SC4.version" content="3">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6563">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6564">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6565">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-04-30 12:12:10">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.41">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.20">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.21">
+      <TITLE>ISO/TS 10303-1628:2009 Design product data management</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Design product data management</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1628:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#rules">4.3 ARM rule definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <h2>
+         Index
+         
+      </h2>
+      <div>Activity_method_assignment_arm</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM interface
+         <a href="4_info_reqs.htm#interfaces">4.1</a></div>
+      <div>Activity_method_assignment_mim</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>Affected_items_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentityaffected_items_assignment">5.1.3</a></div>
+      <div>Applied_activity_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentityapplied_activity_assignment">5.1.4</a></div>
+      <div>Applied_activity_method_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentityapplied_activity_method_assignment">5.1.1</a></div>
+      <div>Applied_information_usage_right</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentityapplied_information_usage_right">5.1.2</a></div>
+      <div>Approval_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentityapproval_assignment">5.1.5</a></div>
+      <div>Attribute_classification</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentityattribute_classification">5.1.6</a></div>
+      <div>Attribute_classification_arm</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM interface
+         <a href="4_info_reqs.htm#interfaces">4.1</a></div>
+      <div>Attribute_classification_mim</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>Attribute_translation_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentityattribute_translation_assignment">5.1.7</a></div>
+      <div>Certification_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentitycertification_assignment">5.1.8</a></div>
+      <div>Classification_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentityclassification_assignment">5.1.9</a></div>
+      <div>Classification_with_attributes_arm</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM interface
+         <a href="4_info_reqs.htm#interfaces">4.1</a></div>
+      <div>Classification_with_attributes_mim</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>Contract_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentitycontract_assignment">5.1.10</a></div>
+      <div>contract_schema</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>Date_or_date_time_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentitydate_or_date_time_assignment">5.1.11</a></div>
+      <div>design_action_method_items</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_action_method_items">5.2.1.1</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg2.htm">D.2</a></div>
+      <div>design_activity_method_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_activity_method_item">4.2.1</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg2.htm">C.2</a></div>
+      <div>design_approval_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_approval_item">4.2.2</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg2.htm">C.2</a></div>
+      <div>design_pdm_action_request_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_action_request_item">5.2.1.2</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg2.htm">D.2</a></div>
+      <div>design_pdm_affected_item_select</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_affected_item_select">4.2.3</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg2.htm">C.2</a></div>
+      <div>design_pdm_approval_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_approval_item">5.2.1.3</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg2.htm">D.2</a></div>
+      <div>design_pdm_assigned_name_select</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_assigned_name_select">4.2.4</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg2.htm">C.2</a></div>
+      <div>design_pdm_attribute_classification_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_attribute_classification_item">5.2.1.4</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg8.htm">D.8</a></div>
+      <div>design_pdm_attribute_language_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_attribute_language_item">5.2.1.5</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg9.htm">D.9</a></div>
+      <div>design_pdm_certification_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_certification_item">4.2.5</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg3.htm">C.3</a></div>
+      <div>design_pdm_certification_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_certification_item">5.2.1.6</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg3.htm">D.3</a></div>
+      <div>design_pdm_classification_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_classification_item">4.2.6</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg5.htm">C.5</a></div>
+      <div>design_pdm_classification_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_classification_item">5.2.1.7</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg3.htm">D.3</a></div>
+      <div>design_pdm_classified_attribute_select</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_classified_attribute_select">4.2.7</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg6.htm">C.6</a></div>
+      <div>design_pdm_contract_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_contract_item">4.2.8</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg3.htm">C.3</a></div>
+      <div>design_pdm_contract_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_contract_item">5.2.1.8</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg3.htm">D.3</a></div>
+      <div>design_pdm_date_and_time_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_date_and_time_item">5.2.1.9</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg3.htm">D.3</a></div>
+      <div>design_pdm_date_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_date_item">5.2.1.10</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg4.htm">D.4</a></div>
+      <div>design_pdm_date_or_date_time_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_date_or_date_time_item">4.2.9</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg3.htm">C.3</a></div>
+      <div>design_pdm_document_reference_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_document_reference_item">5.2.1.11</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg4.htm">D.4</a></div>
+      <div>design_pdm_documented_element_select</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_documented_element_select">4.2.10</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg3.htm">C.3</a></div>
+      <div>design_pdm_groupable_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_groupable_item">4.2.11</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg7.htm">C.7</a></div>
+      <div>design_pdm_groupable_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_groupable_item">5.2.1.12</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg5.htm">D.5</a></div>
+      <div>design_pdm_identification_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_identification_item">4.2.12</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg4.htm">C.4</a></div>
+      <div>design_pdm_identification_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_identification_item">5.2.1.13</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg5.htm">D.5</a></div>
+      <div>design_pdm_information_usage_right_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_information_usage_right_item">4.2.13</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg7.htm">C.7</a></div>
+      <div>design_pdm_ir_usage_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_ir_usage_item">5.2.1.14</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg7.htm">D.7</a></div>
+      <div>design_pdm_material_item_select</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_material_item_select">4.2.14</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg7.htm">C.7</a></div>
+      <div>design_pdm_multi_language_attribute_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_multi_language_attribute_item">5.2.1.15</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg9.htm">D.9</a></div>
+      <div>design_pdm_name_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_name_item">5.2.1.16</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg5.htm">D.5</a></div>
+      <div>design_pdm_organization_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_organization_item">5.2.1.17</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg6.htm">D.6</a></div>
+      <div>design_pdm_organization_or_person_in_organization_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_organization_or_person_in_organization_item">4.2.15</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg4.htm">C.4</a></div>
+      <div>design_pdm_person_and_organization_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_person_and_organization_item">5.2.1.18</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg6.htm">D.6</a></div>
+      <div>design_pdm_requirement_assigned_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_requirement_assigned_item">5.2.1.19</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg6.htm">D.6</a></div>
+      <div>design_pdm_requirement_assignment_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_requirement_assignment_item">4.2.16</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg4.htm">C.4</a></div>
+      <div>design_pdm_requirement_source_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_requirement_source_item">4.2.17</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg5.htm">C.5</a></div>
+      <div>design_pdm_requirement_source_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_requirement_source_item">5.2.1.20</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg7.htm">D.7</a></div>
+      <div>design_pdm_security_classification_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_security_classification_item">4.2.18</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg5.htm">C.5</a></div>
+      <div>design_pdm_security_classification_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.design_pdm_security_classification_item">5.2.1.21</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg7.htm">D.7</a></div>
+      <div>design_pdm_string_select</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.design_pdm_string_select">4.2.19</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM EXPRESS-G
+         <a href="../../design_product_data_management/armexpg7.htm">C.7</a></div>
+      <div>Document_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentitydocument_assignment">5.1.12</a></div>
+      <div>document_schema</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>Effectivity_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentityeffectivity_assignment">5.1.13</a></div>
+      <div>Event_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentityevent_assignment">5.1.14</a></div>
+      <div>Generic_material_aspects_arm</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM interface
+         <a href="4_info_reqs.htm#interfaces">4.1</a></div>
+      <div>Generic_material_aspects_mim</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>Group</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentitygroup">5.1.15</a></div>
+      <div>Identification_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentityidentification_assignment">5.1.16</a></div>
+      <div>Information_rights_arm</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM interface
+         <a href="4_info_reqs.htm#interfaces">4.1</a></div>
+      <div>Information_rights_mim</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>Item_definition_structure_arm</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM interface
+         <a href="4_info_reqs.htm#interfaces">4.1</a></div>
+      <div>Item_definition_structure_mim</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>Language_indication</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentitylanguage_indication">5.1.17</a></div>
+      <div>Material_identification</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentitymaterial_identification">5.1.18</a></div>
+      <div>material_property_definition_schema</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>Name_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentityname_assignment">5.1.19</a></div>
+      <div>Organization_or_person_in_organization_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentityorganization_or_person_in_organization_assignment">5.1.20</a></div>
+      <div>Pre_defined_product_data_management_specializations_arm</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM interface
+         <a href="4_info_reqs.htm#interfaces">4.1</a></div>
+      <div>Pre_defined_product_data_management_specializations_mim</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>Product_data_management_arm</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM interface
+         <a href="4_info_reqs.htm#interfaces">4.1</a></div>
+      <div>Product_data_management_mim</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>product_definition_schema</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>product_occurrence_usage</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.product_occurrence_usage">4.3.1</a></div>
+      <div>product_structure_schema</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>Project_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentityproject_assignment">5.1.21</a></div>
+      <div>promissory_usage_in_product_model_assigned_item</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM object definition
+         <a href="5_mim.htm#design_product_data_management_mim.promissory_usage_in_product_model_assigned_item">5.2.1.22</a></div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM EXPRESS-G
+         <a href="../../design_product_data_management/mimexpg6.htm">D.6</a></div>
+      <div>representation_schema</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>Requirement_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentityrequirement_assignment">5.1.22</a></div>
+      <div>Requirement_assignment_arm</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM interface
+         <a href="4_info_reqs.htm#interfaces">4.1</a></div>
+      <div>Requirement_assignment_mim</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>Requirement_source</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentityrequirement_source">5.1.23</a></div>
+      <div>Requirement_view_definition_relationship_arm</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM interface
+         <a href="4_info_reqs.htm#interfaces">4.1</a></div>
+      <div>Requirement_view_definition_relationship_mim</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>Security_classification_assignment</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;mapping specification
+         <a href="5_mapping.htm#aeentitysecurity_classification_assignment">5.1.24</a></div>
+      <div>Specification_control_arm</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM interface
+         <a href="4_info_reqs.htm#interfaces">4.1</a></div>
+      <div>Specification_control_mim</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>Test_select_product_arm</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM interface
+         <a href="4_info_reqs.htm#interfaces">4.1</a></div>
+      <div>Test_select_product_mim</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;MIM interface
+         <a href="5_mim.htm#mim_express">5.2</a></div>
+      <div>unique_document_id</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.unique_document_id">4.3.2</a></div>
+      <div>unique_part_id</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.unique_part_id">4.3.3</a></div>
+      <div>unique_product_version_id</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.unique_product_version_id">4.3.4</a></div>
+      <div>unique_product_view_definition_id</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.unique_product_view_definition_id">4.3.5</a></div>
+      <div>unique_requirement_id</div>
+      <div>
+         &nbsp;&nbsp;&nbsp;ARM object definition
+         <a href="4_info_reqs.htm#design_product_data_management_arm.unique_requirement_id">4.3.6</a></div><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

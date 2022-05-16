@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Assembly_alternate_product</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.32 Assembly_alternate_product</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+An Assembly_alternate_product is a type of <A
+CLASS="INTERNALREF"
+HREF="e_12.htm"
+>Alternate_select_product</A
+> where the alternate is valid only for a particular design.  The alternate is valid for all instances of the defining_base_product inherited from Alternate_select_product within that design.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: In specifying the components to be used in an assembly, it is a
+fairly common practice to stipulate that any usage of a given
+component (as referenced by a part number, for example) in that
+assembly may be replaced by some other specified 
+component.  Each of those other components is then
+an Assembly_alternate_product for the specified component
+(defining_base_product) for that assembly.  The
+Assembly_alternate_product supports only this assembly-level
+alternate:  i.e., it only refers to components that can serve as
+alternates for any usage of the specified component (the
+defining_base_product) in that assembly.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>basis_context</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.32.1 basis_context</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The basis_context specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_667.htm"
+>Physical_unit_design_view</A
+> for the Assembly_alternate_product.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY assembly_alternate_product
+  SUBTYPE OF (alternate_select_product);
+    basis_context : physical_unit_design_view;
+END_ENTITY; -- assembly_alternate_product
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

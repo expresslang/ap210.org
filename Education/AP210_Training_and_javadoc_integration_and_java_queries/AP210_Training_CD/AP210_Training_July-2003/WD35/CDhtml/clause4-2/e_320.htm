@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Ee_product_category</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.320 Ee_product_category</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+>An Ee_product_category is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. An Ee_product_category is a class in a class hierarchy for the purpose of categorizing products according to their characteristics.  An Ee_product_category may be an <A
+CLASS="INTERNALREF"
+HREF="e_326.htm"
+>Ee_product_related_product_category</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>category_parameter</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>category_specific_values</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>description</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>name</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>reference_document</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.320.1 category_parameter</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The category_parameter specifies the <A
+CLASS="INTERNALREF"
+HREF="e_549.htm"
+>Model_parameter</A
+> assigned to this Ee_product_category for categorization purposes.  All sub-categories of this Ee_product_category shall inherit the category_parameter.  There shall be one or more Model_parameter for an Ee_product_category. </DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.320.2 category_specific_values</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The category_specific_values specifies the <A
+CLASS="INTERNALREF"
+HREF="e_603.htm"
+>Parameter_assignment</A
+> that assigns a specific value to a specific <A
+CLASS="INTERNALREF"
+HREF="e_549.htm"
+>Model_parameter</A
+> for this Ee_product_category.  All sub-categories of this Ee_product_category shall inherit the category_specific_values.  There shall be one or more Parameter_assignment for an Ee_product_category.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.320.3 description</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The description specifies one role of a string for the Ee_product_category.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.320.4 name</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The name specifies the string for the identifier for the Ee_product_category.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.320.5 reference_document</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The reference_document specifies the <A
+CLASS="INTERNALREF"
+HREF="e_316.htm"
+>Ee_document</A
+> that is the reference for the Ee_product_category.
+The reference_document establishes the scope for the name.  All Ee_product_category names defined in this standard shall use this standard as the reference_document.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The use of reference_document allows organizations to resolve name clashes between Ee_product_category instances.</DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: This standard pre-defines the name 'assembly' while an organization might use 'PWA' for that purpose.
+The inclusion of the reference_document permits both to be in a product category tree and pointing to the same products.
+An application conformant to this standard looking for pre-defined names would use the reference_document as a filter and ignore 'PWA'.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The name in combination with the reference_document shall be unique within a population of Ee_product_categories within an enterprise.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>Each category_specific_value shall be assigned to one member of Model_parameter that is in the role of category_parameter in a higher level category of this Ee_product_category.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>All Ee_product_category names defined in this standard shall use this standard as the reference_document.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY ee_product_category
+  SUPERTYPE OF (ee_product_related_product_category)
+  SUBTYPE OF (managed_design_object);
+    category_parameter       : OPTIONAL SET [1:?] OF model_parameter;
+    category_specific_values : OPTIONAL SET [1:?] OF parameter_assignment;
+    description              : OPTIONAL ee_name;
+    name                     : ee_name;
+    reference_document       : ee_document;
+UNIQUE
+  ur1: name, reference_document;
+END_ENTITY; -- ee_product_category
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,52 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Interconnect_module_usage_view_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Interconnect_module_usage_view_mim</h2><code><br><br><a name="interconnect_module_usage_view_mim">SCHEMA <b>Interconnect_module_usage_view_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/extended_geometric_tolerance/sys/e_exp_mim.htm#extended_geometric_tolerance_mim">Extended_geometric_tolerance_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1666<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/functional_assignment_to_part/sys/e_exp_mim.htm#functional_assignment_to_part_mim">Functional_assignment_to_part_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1674<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/functional_usage_view/sys/e_exp_mim.htm#functional_usage_view_mim">Functional_usage_view_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1705<br><br></code><code><br><A NAME="interconnect_module_usage_view_mim.interconnect_module_cutout_segment_surface">ENTITY <b>interconnect_module_cutout_segment_surface</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>, <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.<A NAME="interconnect_module_usage_view_mim.interconnect_module_cutout_segment_surface.relating_shape_aspect">relating_shape_aspect : </A><A HREF="../../../data/modules/extended_geometric_tolerance/sys/e_exp_mim.htm#extended_geometric_tolerance_mim.edge_segment_vertex">edge_segment_vertex</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.<A NAME="interconnect_module_usage_view_mim.interconnect_module_cutout_segment_surface.related_shape_aspect">related_shape_aspect : </A><A HREF="../../../data/modules/extended_geometric_tolerance/sys/e_exp_mim.htm#extended_geometric_tolerance_mim.edge_segment_vertex">edge_segment_vertex</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="interconnect_module_usage_view_mim.interconnect_module_cutout_segment_surface.wr:wr1">WR1: SELF\shape_aspect_relationship.relating_shape_aspect :&lt;&gt;:
+            SELF\shape_aspect_relationship.related_shape_aspect;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="interconnect_module_usage_view_mim.interconnect_module_edge_segment_surface">ENTITY <b>interconnect_module_edge_segment_surface</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>, <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.<A NAME="interconnect_module_usage_view_mim.interconnect_module_edge_segment_surface.relating_shape_aspect">relating_shape_aspect : </A><A HREF="../../../data/modules/extended_geometric_tolerance/sys/e_exp_mim.htm#extended_geometric_tolerance_mim.edge_segment_vertex">edge_segment_vertex</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.<A NAME="interconnect_module_usage_view_mim.interconnect_module_edge_segment_surface.related_shape_aspect">related_shape_aspect : </A><A HREF="../../../data/modules/extended_geometric_tolerance/sys/e_exp_mim.htm#extended_geometric_tolerance_mim.edge_segment_vertex">edge_segment_vertex</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="interconnect_module_usage_view_mim.interconnect_module_edge_segment_surface.wr:wr1">WR1: SELF\shape_aspect_relationship.relating_shape_aspect :&lt;&gt;:
+            SELF\shape_aspect_relationship.related_shape_aspect;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="interconnect_module_usage_view_mim.interconnect_module_interface_terminal">ENTITY <b>interconnect_module_interface_terminal</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#interconnect_module_usage_view_mim.interconnect_module_terminal">interconnect_module_terminal</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="interconnect_module_usage_view_mim.interconnect_module_terminal">ENTITY <b>interconnect_module_terminal</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (<A HREF="#interconnect_module_usage_view_mim.interconnect_module_interface_terminal">interconnect_module_interface_terminal</A>)<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="interconnect_module_usage_view_mim.interconnect_module_usage_view">ENTITY <b>interconnect_module_usage_view</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (<A HREF="#interconnect_module_usage_view_mim.layered_interconnect_module_usage_view">layered_interconnect_module_usage_view</A>)<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_unit_usage_view/sys/e_exp_mim.htm#physical_unit_usage_view_mim.physical_unit">physical_unit</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="interconnect_module_usage_view_mim.layered_interconnect_module_usage_view">ENTITY <b>layered_interconnect_module_usage_view</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#interconnect_module_usage_view_mim.interconnect_module_usage_view">interconnect_module_usage_view</A>);<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Interconnect_module_usage_view_mim<br></code></body>
+</HTML>

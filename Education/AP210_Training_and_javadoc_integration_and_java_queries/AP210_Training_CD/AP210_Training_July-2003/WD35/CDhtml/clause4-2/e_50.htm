@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Assembly_module_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.50 Assembly_module_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+An Assembly_module_terminal is a type of <A
+CLASS="INTERNALREF"
+HREF="e_634.htm"
+>Part_terminal</A
+>. 
+An Assembly_module_terminal may be a <A
+CLASS="INTERNALREF"
+HREF="e_640.htm"
+>Pca_terminal</A
+>.  An Assembly_module_terminal may be associated with an instance of <A
+CLASS="INTERNALREF"
+HREF="e_52.htm"
+>Assembly_module_usage_view_connector_relationship</A
+> to specify connector level interface definition for an assembly.  This association is maintained in the usage view.  If available, the terminal_connection_zone shall be supplied. <DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The Assembly_module_terminal supports multi-level design, analysis, and verification
+in a multi-discipline environment.  Explicit description of 
+assembly_module_terminals allows connectivity requirements to be explicitly
+stated and interference requirements to be identified early in the
+design and development cycle.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>feature_shape</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>reference_terminal</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>related_connector</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>terminal_connection_zone</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.50.1 associated_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_definition specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_51.htm"
+>Assembly_module_usage_view</A
+> for the Assembly_module_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.50.2 feature_shape</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The feature_shape specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="Feature_shape_occurrence.htm"
+>Feature_shape_occurrence</A
+> for the Assembly_module_terminal. There shall be one or more Feature_shape_occurrence for an Assembly_module_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.50.3 reference_terminal</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The reference_terminal specifies a <A
+CLASS="INTERNALREF"
+HREF="e_581.htm"
+>Packaged_part_interface_terminal</A
+>  for the Assembly_module_terminal.  A reference_terminal need not be specified for a Package_part_interface_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.50.4 related_connector</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The related_connector specifies an <A
+CLASS="INTERNALREF"
+HREF="e_52.htm"
+>Assembly_module_usage_view_connector_relationship</A
+>  for the Assembly_module_terminal.  A related_connector need not be specified for a Package_part_interface_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.50.5 terminal_connection_zone</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The terminal_connection_zone specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_185.htm"
+>Connection_zone</A
+> for the Assembly_module_terminal. There may be more than one Connection_zone for an Assembly_module_terminal.  The terminal_connection_zone is optional and need not be supplied.  If the data is available in the source system, it shall be supplied.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The <A
+CLASS="INTERNALREF"
+HREF="Feature_shape_occurrence.htm"
+>Feature_shape_occurrence</A
+> specified by the terminal or mounting feature may be the same Feature_shape_occurrence that is specified by the associated <A
+CLASS="INTERNALREF"
+HREF="e_185.htm"
+>Connection_zone</A
+>. In this case the whole terminal is the Connection_zone.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="INFORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Informal constraints:</P
+><DIV
+CLASS="INFORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>IP1: </SPAN
+>If a related_connector is specified, the position,shape, and orientation of the Assembly_module_terminal shall be overriden by the reference_terminal position, shape, and orientation.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY assembly_module_terminal
+  SUPERTYPE OF ((ONEOF(
+      assembly_module_interface_terminal, 
+      assembly_module_join_terminal)) 
+     ANDOR (pca_terminal))
+  SUBTYPE OF (part_terminal);
+    SELF\part_feature.associated_definition : assembly_module_usage_view;
+    reference_terminal                      : 
+	OPTIONAL packaged_part_interface_terminal; 
+    related_connector                       : 
+	OPTIONAL assembly_module_usage_view_connector_relationship;
+    terminal_connection_zone                : OPTIONAL SET [1:?] OF connection_zone;
+INVERSE
+    SELF\part_feature.feature_shape         : SET [1:?] OF usage_concept_usage_relationship FOR
+    associated_usage;
+END_ENTITY; -- assembly_module_terminal
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

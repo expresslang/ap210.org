@@ -1,0 +1,40 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Product_placement_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Product_placement_arm</h2><code><br><br><a name="product_placement_arm">SCHEMA <b>Product_placement_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/contextual_shape_positioning/sys/e_exp_arm.htm#contextual_shape_positioning_arm">Contextual_shape_positioning_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1027<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/physical_breakdown/sys/e_exp_arm.htm#physical_breakdown_arm">Physical_breakdown_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1215<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_occurrence/sys/e_exp_arm.htm#product_occurrence_arm">Product_occurrence_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1063<br><br></code><code><br><A NAME="product_placement_arm.occurrence_placement">ENTITY <b>Occurrence_placement</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#product_placement_arm.part_occurrence_placement">Part_occurrence_placement</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#product_placement_arm.physical_element_placement">Physical_element_placement</A>));<br>
+         &nbsp;&nbsp;<A NAME="product_placement_arm.occurrence_placement.reference_physical_element">reference_physical_element : </A><A HREF="../../../data/modules/physical_breakdown/sys/e_exp_arm.htm#physical_breakdown_arm.physical_element_definition">Physical_element_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_placement_arm.occurrence_placement.reference_geometric_space">reference_geometric_space : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_placement_arm.occurrence_placement.positioned_representation">positioned_representation : </A><A HREF="../../../data/modules/contextual_shape_positioning/sys/e_exp_arm.htm#contextual_shape_positioning_arm.template_instance">template_instance</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_placement_arm.part_occurrence_placement">ENTITY <b>Part_occurrence_placement</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_placement_arm.occurrence_placement">Occurrence_placement</A>);<br>
+         &nbsp;&nbsp;<A NAME="product_placement_arm.part_occurrence_placement.placed_part_occurrence">placed_part_occurrence : </A><A HREF="../../../data/modules/generic_product_occurrence/sys/e_exp_arm.htm#generic_product_occurrence_arm.single_instance">Single_instance</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_placement_arm.physical_element_placement">ENTITY <b>Physical_element_placement</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_placement_arm.occurrence_placement">Occurrence_placement</A>);<br>
+         &nbsp;&nbsp;<A NAME="product_placement_arm.physical_element_placement.placed_physical_element">placed_physical_element : </A><A HREF="../../../data/modules/physical_breakdown/sys/e_exp_arm.htm#physical_breakdown_arm.physical_element_definition">Physical_element_definition</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_placement_arm.physical_element_placement.wr:wr1">WR1: placed_physical_element\Product_view_definition.defined_version :&lt;&gt;: 
+            	SELF\Occurrence_placement.reference_physical_element\Product_view_definition.defined_version;</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Product_placement_arm<br></code></body>
+</HTML>

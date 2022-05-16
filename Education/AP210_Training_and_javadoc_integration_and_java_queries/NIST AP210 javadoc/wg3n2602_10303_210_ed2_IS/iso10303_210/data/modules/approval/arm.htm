@@ -1,0 +1,66 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Approval_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Approval_arm</h2><code><br><br><a name="approval_arm">SCHEMA <b>Approval_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/date_time_assignment/sys/e_exp_arm.htm#date_time_assignment_arm">Date_time_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1014<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/person_organization/sys/e_exp_arm.htm#person_organization_arm">Person_organization_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1011<br><br></code><code><br><A NAME="approval_arm.approval_item">TYPE </A><b>approval_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="approval_arm.approval">ENTITY <b>Approval</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_arm.approval.status">status : </A><A HREF="#approval_arm.approval_status">Approval_status</A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_arm.approval.purpose">purpose : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="approval_arm.approval.planned_date">planned_date : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/date_time/sys/e_exp_arm.htm#date_time_arm.date_or_date_time_select">date_or_date_time_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_arm.approval.actual_date">actual_date : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/date_time/sys/e_exp_arm.htm#date_time_arm.date_or_date_time_select">date_or_date_time_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="approval_arm.approval_assignment">ENTITY <b>Approval_assignment</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_arm.approval_assignment.assigned_approval">assigned_approval : </A><A HREF="#approval_arm.approval">Approval</A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_arm.approval_assignment.items">items : </A>SET[1:?] OF <A HREF="#approval_arm.approval_item">approval_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_arm.approval_assignment.role">role : </A>
+         OPTIONAL 
+         STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="approval_arm.approval_relationship">ENTITY <b>Approval_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_arm.approval_relationship.relation_type">relation_type : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="approval_arm.approval_relationship.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="approval_arm.approval_relationship.relating_approval">relating_approval : </A><A HREF="#approval_arm.approval">Approval</A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_arm.approval_relationship.related_approval">related_approval : </A><A HREF="#approval_arm.approval">Approval</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="approval_arm.approval_status">ENTITY <b>Approval_status</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_arm.approval_status.status_name">status_name : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="approval_arm.approving_person_organization">ENTITY <b>Approving_person_organization</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_arm.approving_person_organization.person_organization">person_organization : </A><A HREF="../../../data/modules/person_organization/sys/e_exp_arm.htm#person_organization_arm.organization_or_person_in_organization_select">organization_or_person_in_organization_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_arm.approving_person_organization.approval_date">approval_date : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/date_time/sys/e_exp_arm.htm#date_time_arm.date_or_date_time_select">date_or_date_time_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_arm.approving_person_organization.authorized_approval">authorized_approval : </A><A HREF="#approval_arm.approval">Approval</A>;<br>
+         &nbsp;&nbsp;<A NAME="approval_arm.approving_person_organization.role">role : </A>
+         OPTIONAL 
+         STRING;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Approval_arm<br></code></body>
+</HTML>

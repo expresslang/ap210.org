@@ -1,0 +1,68 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Document_properties_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Document_properties_arm</h2><code><br><br><a name="document_properties_arm">SCHEMA <b>Document_properties_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm">Document_definition_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1123<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/file_identification/sys/e_exp_arm.htm#file_identification_arm">File_identification_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1127<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm">Foundation_representation_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1006<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm">Measure_representation_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1118<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/property_assignment/sys/e_exp_arm.htm#property_assignment_arm">Property_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1030<br><br></code><code><br><A NAME="document_properties_arm.descriptive_or_numerical">TYPE </A><b>descriptive_or_numerical</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#document_properties_arm.descriptive_document_property">Descriptive_document_property</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#document_properties_arm.numerical_document_property">Numerical_document_property</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="document_properties_arm.document_property_item">TYPE </A><b>document_property_item</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/property_assignment/sys/e_exp_arm.htm#property_assignment_arm.property_assignment_select">property_assignment_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm.document_definition">Document_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/file_identification/sys/e_exp_arm.htm#file_identification_arm.file">File</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="document_properties_arm.assigned_document_property">ENTITY <b>Assigned_document_property</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/property_assignment/sys/e_exp_arm.htm#property_assignment_arm.assigned_property">Assigned_property</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/property_assignment/sys/e_exp_arm.htm#property_assignment_arm.assigned_property">Assigned_property</A>.<A NAME="document_properties_arm.assigned_document_property.described_element">described_element : </A><A HREF="#document_properties_arm.document_property_item">document_property_item</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/property_assignment/sys/e_exp_arm.htm#property_assignment_arm.assigned_property">Assigned_property</A>.<A NAME="document_properties_arm.assigned_document_property.name">name : </A>STRING := 'document property';<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="document_properties_arm.assigned_document_property.wr:wr1">WR1: SIZEOF(['DOCUMENT_PROPERTIES_ARM.DOCUMENT_DEFINITION', 'DOCUMENT_PROPERTIES_ARM.FILE']*TYPEOF(SELF\Assigned_property.described_element))
+            = 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="document_properties_arm.descriptive_document_property">ENTITY <b>Descriptive_document_property</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.string_representation_item">String_representation_item</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="document_properties_arm.descriptive_document_property.valued_characteristic">valued_characteristic : </A>SET[1:1] OF <A HREF="#document_properties_arm.document_property_representation">Document_property_representation</A> FOR items;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="document_properties_arm.document_property_representation">ENTITY <b>Document_property_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>.<A NAME="document_properties_arm.document_property_representation.items">items : </A>SET[1:?] OF <A HREF="#document_properties_arm.descriptive_or_numerical">descriptive_or_numerical</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="document_properties_arm.document_property_representation.wr:wr1">WR1: SIZEOF(QUERY( pr &lt;* USEDIN(SELF, 'PROPERTY_ASSIGNMENT_ARM.PROPERTY_DEFINITION_REPRESENTATION.REP') | 'DOCUMENT_PROPERTIES_ARM.ASSIGNED_PROPERTY'
+            IN TYPEOF (pr\Property_representation.property)))&gt; 0;</A><br>
+         &nbsp;&nbsp;<A NAME="document_properties_arm.document_property_representation.wr:wr2">WR2: SELF\Representation.context_of_items.kind = 'document parameters';</A><br>
+         &nbsp;&nbsp;<A NAME="document_properties_arm.document_property_representation.wr:wr3">WR3: SIZEOF(QUERY(it1 &lt;* SELF\Representation.items | SIZEOF(QUERY(it2 &lt;* SELF\Representation.items | it1.name = it2.name))
+            &gt; 1 ))= 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="document_properties_arm.numerical_document_property">ENTITY <b>Numerical_document_property</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="document_properties_arm.numerical_document_property.valued_characteristic">valued_characteristic : </A>SET[1:1] OF <A HREF="#document_properties_arm.document_property_representation">Document_property_representation</A> FOR items;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Document_properties_arm<br></code></body>
+</HTML>

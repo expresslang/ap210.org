@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Printed_part_cross_section_template</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.728 Printed_part_cross_section_template</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Printed_part_cross_section_template is a type of <A
+CLASS="INTERNALREF"
+HREF="e_730.htm"
+>Printed_part_template</A
+> that describes a cross sectional view of a Printed_part_template.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>ppcst</SPAN
+> illustrates parameters, cross-sectional geometry, and materials needed to describe different transmission lines and related media.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: An example of Printed_part_cross_section_template is the two-dimensional shape based model in figure  <SPAN
+CLASS="INTERNALREF"
+>ppcst</SPAN
+> for a 
+regular transmission line structure. The cross sectional shape of the structure is invariant along the path of 
+the center line of the structure. These structures include the definition of conductive Stratum_feature cross 
+sections and the placement and location of dielectric Stratum in the Stratum_sequence. The width of each 
+Stratum_feature is included.</DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>maximum_width</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>minimum_width</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>transmission_line_model</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.728.1 maximum_width</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The maximum_width specifies the maximum overall lateral <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> dimension through all the material of the 
+Printed_part_cross_section_template.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.728.2 minimum_width</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The minimum_width specifies the minimum overall lateral <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> dimension through all the material of the 
+Printed_part_cross_section_template.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.728.3 transmission_line_model</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The transmission_line_model specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_14.htm"
+>Analytical_model</A
+> for the Printed_part_cross_section_template.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>There shall be more than one terminal provided for a Printed_part_cross_section_template.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY printed_part_cross_section_template
+  SUBTYPE OF (part_template);
+--tt tc1wd2 correction
+    horizontal_material_link: OPTIONAL SET [1:?] OF 
+                             printed_part_template_material_link;
+    vertical_material_link : OPTIONAL SET [1:?] OF 
+                             printed_part_template_material_link;
+    transmission_line_model : analytical_model;
+    maximum_transmission_line_characteristic : OPTIONAL SET [1:?] OF 
+                                               analytical_representation;
+    minimum_transmission_line_characteristic : OPTIONAL SET [1:?] OF 
+                                               analytical_representation;
+    maximum_width           : length_data_element;
+    minimum_width           : length_data_element;
+    start_vertex            : edge_segment_vertex;
+    end_vertex              : edge_segment_vertex;
+INVERSE
+    using_terminal :  SET [1:?] OF printed_part_cross_section_template_terminal FOR
+    cross_section_definition;
+WHERE
+ WR1: SIZEOF( QUERY ( hml &#60;* horizontal_material_link | 
+      NOT (hml.precedent_material\shape_element.name in ['right']))) = 0;
+ WR2: SIZEOF( QUERY ( hml &#60;* horizontal_material_link | 
+      NOT (hml.subsequent_material\shape_element.name in ['left']))) = 0;
+ WR3: SIZEOF( QUERY ( hml &#60;* vertical_material_link | 
+     NOT (hml.precedent_material\shape_element.name in ['bottom']))) = 0;
+ WR4: SIZEOF( QUERY ( hml &#60;* vertical_material_link | 
+        NOT (hml.precedent_material\shape_element.name in ['top']))) = 0;
+ WR5: horizontal_material_link :&#60;&#62;: vertical_material_link;
+ WR6: start_vertex :&#60;&#62;: end_vertex;
+END_ENTITY; -- printed_part_cross_section_template
+
+--tt tc1 wd8 modified
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

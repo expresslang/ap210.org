@@ -1,0 +1,44 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Physical_node_requirement_to_implementing_component_allocation_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Physical_node_requirement_to_implementing_component_allocation_mim</h2><code><br><br><a name="physical_node_requirement_to_implementing_component_allocation_mim">SCHEMA <b>Physical_node_requirement_to_implementing_component_allocation_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/assembly_module_with_packaged_connector_component/sys/e_exp_mim.htm#assembly_module_with_packaged_connector_component_mim">Assembly_module_with_packaged_connector_component_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1645<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/assembly_technology/sys/e_exp_mim.htm#assembly_technology_mim">Assembly_technology_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1649<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/physical_connectivity_definition/sys/e_exp_mim.htm#physical_connectivity_definition_mim">Physical_connectivity_definition_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1755<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema">product_property_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.acyclic_shape_aspect_relationship">acyclic_shape_aspect_relationship</A>);
+         <br><br></code><code><br><A NAME="physical_node_requirement_to_implementing_component_allocation_mim.assembly_to_part_connectivity_structure_allocation">ENTITY <b>assembly_to_part_connectivity_structure_allocation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>, <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.related_shape_aspect&nbsp;RENAMED&nbsp;<A NAME="physical_node_requirement_to_implementing_component_allocation_mim.assembly_to_part_connectivity_structure_allocation.assembly_element">assembly_element : </A><A HREF="../../../data/modules/physical_connectivity_definition/sys/e_exp_mim.htm#physical_connectivity_definition_mim.physical_connectivity_element">physical_connectivity_element</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.relating_shape_aspect&nbsp;RENAMED&nbsp;<A NAME="physical_node_requirement_to_implementing_component_allocation_mim.assembly_to_part_connectivity_structure_allocation.part_element">part_element : </A><A HREF="../../../data/modules/functional_assignment_to_part/sys/e_exp_mim.htm#functional_assignment_to_part_mim.part_connected_terminals_element">part_connected_terminals_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="physical_node_requirement_to_implementing_component_allocation_mim.physical_node_branch_requirement_to_implementing_component_allocation">ENTITY <b>physical_node_branch_requirement_to_implementing_component_allocation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>, <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.related_shape_aspect&nbsp;RENAMED&nbsp;<A NAME="physical_node_requirement_to_implementing_component_allocation_mim.physical_node_branch_requirement_to_implementing_component_allocation.physical_node_branch_requirement">physical_node_branch_requirement : </A><A HREF="../../../data/modules/physical_connectivity_definition/sys/e_exp_mim.htm#physical_connectivity_definition_mim.physical_connectivity_element">physical_connectivity_element</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>.of_shape&nbsp;RENAMED&nbsp;<A NAME="physical_node_requirement_to_implementing_component_allocation_mim.physical_node_branch_requirement_to_implementing_component_allocation.implementation_component">implementation_component : </A><A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_mim.htm#physical_unit_design_view_mim.assembly_component">assembly_component</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.relating_shape_aspect&nbsp;RENAMED&nbsp;<A NAME="physical_node_requirement_to_implementing_component_allocation_mim.physical_node_branch_requirement_to_implementing_component_allocation.part_element">part_element : </A><A HREF="../../../data/modules/functional_assignment_to_part/sys/e_exp_mim.htm#functional_assignment_to_part_mim.part_connected_terminals_element">part_connected_terminals_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="physical_node_requirement_to_implementing_component_allocation_mim.physical_node_requirement_to_implementing_component_allocation">ENTITY <b>physical_node_requirement_to_implementing_component_allocation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>, <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.<A NAME="physical_node_requirement_to_implementing_component_allocation_mim.physical_node_requirement_to_implementing_component_allocation.relating_shape_aspect">relating_shape_aspect : </A><A HREF="../../../data/modules/physical_connectivity_definition/sys/e_exp_mim.htm#physical_connectivity_definition_mim.physical_connectivity_definition">physical_connectivity_definition</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="physical_node_requirement_to_implementing_component_allocation_mim.physical_node_requirement_to_implementing_component_allocation.wr:wr1">WR1: acyclic_shape_aspect_relationship(SELF,
+            [SELF\shape_aspect_relationship.related_shape_aspect],
+            'PHYSICAL_NODE_REQUIREMENT_TO_IMPLEMENTING_COMPONENT_ALLOCATION_MIM.'+
+            'PHYSICAL_NODE_REQUIREMENT_TO_IMPLEMENTING_COMPONENT_ALLOCATION');</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Physical_node_requirement_to_implementing_component_allocation_mim<br></code></body>
+</HTML>

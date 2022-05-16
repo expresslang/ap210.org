@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Footprint_occurrence_sub_assembly_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.391 Footprint_occurrence_sub_assembly_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+>A Footprint_occurrence_sub_assembly_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Footprint_occurrence_sub_assembly_relationship is an association that specifies a 
+subassembly constraint among two or more <A
+CLASS="INTERNALREF"
+HREF="e_490.htm"
+>Land</A
+> that is aggregated into an <A
+CLASS="INTERNALREF"
+HREF="e_390.htm"
+>Footprint_occurrence</A
+>.  A Footprint_occurrence_sub_assembly_relationship does not directly reference the Application Object that is the definition for the Land.  Instead, it uses an indexing mechanism provided by terminal_location and sub_assembly_refence_designation to locate the padstack in the Footprint_definition and the land template location in that Padstack_definition.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: A Land may participate in a Footprint_occurrence.  In that case, there is no need to populate a separate Assembly_composition_relationship between the Land and the Pcb, since the Assembly_composition_relationship between the Footprint_occurrence and the Pcb establishes the required association.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>related_component</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>relating_component</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.391.1 terminal_location</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The terminal_location specifies the string which is the identifier for the Padstack_location_in_footprint which this Footprint_occurrence_sub_assembly_relationship references in the context of the definition of the relating_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.391.2 sub_assembly_reference_designation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The sub_assembly_reference_designation specifies the string which is the identifier for the Land in the context of the Padstack_definition specified by the definition of the relating_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.391.3 related_component</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The related_component specifies the dependent <A
+CLASS="INTERNALREF"
+HREF="e_490.htm"
+>Land</A
+> for the Footprint_occurrence_sub_assembly_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.391.4 relating_component</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The relating_component specifies the independent <A
+CLASS="INTERNALREF"
+HREF="e_390.htm"
+>Footprint_occurrence</A
+> which is the aggregation of two or more <A
+CLASS="INTERNALREF"
+HREF="e_34.htm"
+>Assembly_component</A
+>
+specified by 
+related_component. </DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of relating_component, terminal_location, and sub_assembly_reference_designation shall be unique in a population of Footprint_occurrence_sub_assembly_relationship.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY footprint_occurrence_sub_assembly_relationship
+  SUBTYPE OF (managed_design_object);
+    related_component : laminate_component;
+    relating_component : footprint_occurrence;
+    sub_assembly_reference_designation : string;
+    terminal_location : string;
+UNIQUE
+  UR1: sub_assembly_reference_designation, 
+       relating_component, 
+       terminal_location;
+END_ENTITY; -- footprint_occurrence_sub_assembly_relationship
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

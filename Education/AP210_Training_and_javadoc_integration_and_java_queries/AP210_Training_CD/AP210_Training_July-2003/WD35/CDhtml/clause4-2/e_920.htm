@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Tolerance_zone_definition</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.920 Tolerance_zone_definition</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Tolerance_zone_definition is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Tolerance_zone_definition may be a one 
+of <A
+CLASS="INTERNALREF"
+HREF="e_182.htm"
+>Conical_tolerance_zone_definition</A
+>, <A
+CLASS="INTERNALREF"
+HREF="e_752.htm"
+>Projected_tolerance_zone_definition</A
+>, <A
+CLASS="INTERNALREF"
+HREF="e_796.htm"
+>Runout_tolerance_zone_definition_with_specified_angle</A
+>, 
+or <A
+CLASS="INTERNALREF"
+HREF="e_921.htm"
+>Tolerance_zone_definition_with_per_unit_size_specification</A
+>. Additionally, a Tolerance_zone_definition may be a <A
+CLASS="INTERNALREF"
+HREF="e_922.htm"
+>Tolerance_zone_definition_with_specified_orientation</A
+>. A Tolerance_zone_definition is a definition that characterizes a <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>boundary_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>defined_tolerance_zone</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>form</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.920.1 boundary_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The boundary_definition specify the <A
+CLASS="INTERNALREF"
+HREF="e_916.htm"
+>Tolerance_zone_boundary_definition</A
+> that defines the limits of the <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> for the Tolerance_zone_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.920.2 defined_tolerance_zone</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The defined_tolerance_zone specifies the <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> that is characterized by the 
+Tolerance_zone_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.920.3 form</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The form specifies the <A
+CLASS="INTERNALREF"
+HREF="e_924.htm"
+>Tolerance_zone_form</A
+> that characterizes the form of the specified <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+>. The form need not be specified for a particular Tolerance_zone_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>If the Tolerance_zone_form is specified, the Tolerance_zone specified as the characterized_tolerance_zone of the 
+Tolerance_zone_form that is specified as the form shall be the same instance of Tolerance_zone as specified as the 
+defined_tolerance_zone.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The Tolerance_zone_boundary specified as the defined_zone_boundary of the Tolerance_zone_boundary_definition that is specified 
+as the boundary_definition shall be the same instances of Tolerance_zone_boundary as specified as the zone_boundary of the 
+Tolerance_zone specified as the defined_tolerance_zone.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR3: </SPAN
+>If the Tolerance_zone_definition is not a Conical_tolerance_zone_definition, the Tolerance_zone_definition shall be specified as the 
+tolerance_zone_or_boundary_definition by exactly one Geometric_tolerance.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY tolerance_zone_definition
+  SUPERTYPE OF (ONEOF (projected_tolerance_zone_definition,
+      runout_tolerance_zone_definition_with_specified_angle,
+      tolerance_zone_definition_with_per_unit_size_specification,
+      conical_tolerance_zone_definition,
+      tolerance_zone_definition_with_specified_orientation))
+  SUBTYPE OF (managed_design_object);
+    defined_tolerance_zone : tolerance_zone;
+    boundary_definition    : tolerance_zone_boundary_definition;
+    form                   : OPTIONAL tolerance_zone_form;
+END_ENTITY; -- tolerance_zone_definition
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

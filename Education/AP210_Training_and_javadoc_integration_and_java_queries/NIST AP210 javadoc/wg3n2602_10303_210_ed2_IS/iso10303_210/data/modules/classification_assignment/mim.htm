@@ -1,0 +1,32 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Classification_assignment_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Classification_assignment_mim</h2><code><br><br><a name="classification_assignment_mim">SCHEMA <b>Classification_assignment_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/class/sys/e_exp_mim.htm#class_mim">Class_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1070<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema">management_resources_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.classification_assignment">classification_assignment</A>);
+         <br><br></code><code><br><A NAME="classification_assignment_mim.classification_item">TYPE </A><b>classification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="classification_assignment_mim.applied_classification_assignment">ENTITY <b>applied_classification_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.classification_assignment">classification_assignment</A>);<br>
+         &nbsp;&nbsp;<A NAME="classification_assignment_mim.applied_classification_assignment.items">items : </A>SET[1:?] OF <A HREF="#classification_assignment_mim.classification_item">classification_item</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Classification_assignment_mim<br></code></body>
+</HTML>

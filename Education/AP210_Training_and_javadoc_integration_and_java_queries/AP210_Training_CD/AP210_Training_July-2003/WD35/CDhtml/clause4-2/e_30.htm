@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Assembled_with_bonding</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.30 Assembled_with_bonding</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+An Assembled_with_bonding is a type of <A
+CLASS="INTERNALREF"
+HREF="e_41.htm"
+>Assembly_joint</A
+>
+that establishes the joint by bonding.  Bonding requires use of material that may change state during the bonding process to form a permanent or semi-permanent joint.  In this context, a permanent or semi-permanent joint means that repair of the affected part of the assembly would require destruction and replacement of the bond material.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The Assembled_with_bonding object relates two assembly features that are 
+bonded and the Assembly_bond_definition that specifies the category of the 
+bond, its shape, its material, and its name.</DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>awb</SPAN
+> illustrates the concept of the joint category described herein and the roles of the related application objects.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>bond_assembly_position</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>default_bond_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.30.1 bond_assembly_position</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The bond_assembly_position is an inverse relationship that specifies that the Assembled_with_bonding shall be referenced by no more than one Bond_assembly_position as its bond.  The bond_assembly_position need not be specified for a particular Assembled_with_bonding.  The position is provided to identify shape placement for analysis.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.30.2 default_bond_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The default_bond_definition specifies the <A
+CLASS="INTERNALREF"
+HREF="e_33.htm"
+>Assembly_bond_definition</A
+> used by the Assembled_with_bonding process to form a join.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: A type of bond material is solder.
+A type of component feature is a component terminal.</DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The members of Part_feature utilized by Assembled_with_bonding that are inherited from Assembly_joint shall be the same members of Part_feature specified inclusively by Assembly_bond_definition bonded_feature_1 and bonded_feature_2.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY assembled_with_bonding
+  SUBTYPE OF (assembly_joint);
+    default_bond_definition : assembly_bond_definition;
+  INVERSE
+    bond_assembly_position : SET [0:1] OF bond_assembly_position FOR bond;
+--tt tc1 wd8 added
+WHERE
+  WR1: SELF\assembly_joint.assembly_features_1.definition :=: 
+                                default_bond_definition.bonded_feature_1;
+  WR2: SELF\assembly_joint.assembly_features_2.definition :=: 
+                                default_bond_definition.bonded_feature_2;
+END_ENTITY; -- assembled_with_bonding
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

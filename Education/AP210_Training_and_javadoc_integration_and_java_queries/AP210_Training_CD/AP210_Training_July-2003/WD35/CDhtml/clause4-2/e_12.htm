@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Alternate_select_product</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.12 Alternate_select_product</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Alternate_select_product is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. An Alternate_select_product is one of an <A
+CLASS="INTERNALREF"
+HREF="e_11.htm"
+>Alternate_product</A
+>, an <A
+CLASS="INTERNALREF"
+HREF="e_32.htm"
+>Assembly_alternate_product</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_897.htm"
+>Test_select_product</A
+>. An Alternate_select_product specifies interchangeability relations at the product level.  Form, fit and function evaluation by an enterprise is used to inform the decision to establish the relationship.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>authorizing_agreement</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>defined_alternate_product</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>defining_base_product</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.12.1 authorizing_agreement</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The authorizing_agreement specifies the <A
+CLASS="INTERNALREF"
+HREF="e_196.htm"
+>Contract</A
+> under which the <A
+CLASS="INTERNALREF"
+HREF="e_319.htm"
+>Ee_product</A
+> was 
+designed and procured for the 
+Alternate_select_product. 
+The authorizing_agreement need not be specified for a particular Alternate_select_product.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.12.2 defined_alternate_product</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The defined_alternate_product specifies one role of the <A
+CLASS="INTERNALREF"
+HREF="e_319.htm"
+>Ee_product</A
+> for the Alternate_select_product. 
+There shall be one or more Ee_product for the Alternate_select_product.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.12.3 defining_base_product</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The defining_base_product specifies one role of the <A
+CLASS="INTERNALREF"
+HREF="e_319.htm"
+>Ee_product</A
+> for the Alternate_select_product.  The defining_base_product is the reference with respect to form, fit, and function.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY alternate_select_product
+  ABSTRACT SUPERTYPE OF (ONEOF (assembly_alternate_product,
+      test_select_product,alternate_product))
+  SUBTYPE OF (managed_design_object);
+    defined_alternate_product : SET [1:?] OF ee_product;
+    defining_base_product     : ee_product;
+    authorizing_agreement     : OPTIONAL contract;
+END_ENTITY; -- alternate_select_product
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

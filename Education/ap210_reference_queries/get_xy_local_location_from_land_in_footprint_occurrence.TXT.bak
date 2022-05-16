@@ -1,0 +1,47 @@
+FUNCTION get_xy_local_location_from_land_in_footprint_occurrence(
+  input : land) : padstack_location_in_footprint_definition_transform;
+--input is specific land
+--output is the padstack_location_in_footprint_definition_transform that contains the (local to the footprint_definition)
+--land template placement.
+--don't forget that this return value has to be transformed additionally by the placement of the footprint_occurrence itself
+--in the design view.!!!!
+--
+--
+--example usage: get_xy_local_location_from_land_in_footprint_occurrence(#2200,(#300,#304,#305,...,#310,#311))
+--returns (#304,#305,#306)
+
+--initialize variables
+    LOCAL
+    from_stratum : stratum := input1.usage_definition.of_passage_technology.as_finished_inter_stratum_extent.from_stratum;
+    from_stratum_surface : BAG OF stratum_surface := QUERY(ss <* from_stratum.of_surface | ss.name = stratum_surface_designation.secondary_surface);
+--we are going from the bottom of the from stratum to the top of the to stratum    
+      to_stratum : stratum := input1.usage_definition.of_passage_technology.as_finished_inter_stratum_extent.to_stratum;
+    to_stratum_surface : BAG OF stratum_surface := QUERY(ss <* from_stratum.of_surface | ss.name = stratum_surface_designation.primary_surface);
+
+--get the adjacent_stratum_surface_definition that reference the from_stratum
+      ss : BAG OF stratum_surface := [];
+      j : INTEGER := 0;
+      assd : BAG OF adjacent_stratum_surface_definition := [];
+      assdb : BAG OF adjacent_stratum_surface_definition := [];
+    END_LOCAL;
+
+--build the bag down from the 'from'
+    REPEAT i := 1 TO SIZEOF(input2) BY 1 WHILE (input2[i].subsequent_surface <> to_stratum_surface[1]);
+      assd := assd + input2[i];
+      j := i;
+    END_REPEAT;
+--add one more since we want the assd pointing to the to_stratum
+--in the Java code you will use a list but I don't have time to research inserting an element in a list.
+     assd := assd + input2[j + 1];
+
+--repeat but go backwards now
+    REPEAT i := SIZEOF(assd) TO 1 BY -1 WHILE (assd[i].precedent_surface <> from_stratum_surface[1]);
+      assdb := assdb + assdb[i];
+      j := i;
+    END_REPEAT;
+--add one more since we want the assd pointing to the from_stratum
+--in the Java code you will use a list but I don't have time to research inserting an element in a list.
+     assdb := assdb + assd[j - 1];
+
+    RETURN(assdb);
+END_FUNCTION; -- get_xy_local_location_from_land_in_footprint_occurrence

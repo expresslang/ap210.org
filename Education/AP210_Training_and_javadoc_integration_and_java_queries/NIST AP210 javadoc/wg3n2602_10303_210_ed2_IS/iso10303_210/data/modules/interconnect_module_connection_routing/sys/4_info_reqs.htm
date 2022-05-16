@@ -1,0 +1,703 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Interconnect module connection routing">
+      <META name="DC.Dates" content="2009-05-27 11:06:20">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Interconnect module connection routing">
+      <META name="DC.Subject" content="module, layout, electrical, electronic, autoroute, route, connection, network, node, connection point, vertex, junction">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6392">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5661">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-27 11:06:20">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.62">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.57">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.51">
+      <TITLE>ISO/TS 10303-1684:2009 Interconnect module connection routing</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Interconnect module connection routing</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1684:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definition</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Interconnect module connection routing</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Interconnect_module_connection_routing_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="interconnect_module_connection_routing_arm">
+            SCHEMA Interconnect_module_connection_routing_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/fabrication_joint/sys/4_info_reqs.htm#fabrication_joint_arm">Fabrication_joint_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1668<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/interconnect_module_with_macros/sys/4_info_reqs.htm#interconnect_module_with_macros_arm">Interconnect_module_with_macros_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1687<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Fabrication_joint_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1668</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Interconnect_module_with_macros_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1687</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>, <a href="../armexpg2.htm">C.2</a>and <a href="../armexpg3.htm">C.3</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="interconnect_module_connection_routing_arm.imcr_requirement_assignment_item">4.2.1 imcr_requirement_assignment_item</a>
+         &nbsp;&nbsp;<a href="../../interconnect_module_connection_routing/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>imcr_requirement_assignment_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment_item">requirement_assignment_item</A></b> type. 
+         
+         It adds the data 
+         
+         types
+         <b><A HREF="#interconnect_module_connection_routing_arm.dielectric_crossover_area">Dielectric_crossover_area</A></b>
+         and
+         <b><A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature_conductive_join">Stratum_feature_conductive_join</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            imcr_requirement_assignment_item =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment_item">requirement_assignment_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#interconnect_module_connection_routing_arm.dielectric_crossover_area">Dielectric_crossover_area</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature_conductive_join">Stratum_feature_conductive_join</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="interconnect_module_connection_routing_arm.imcr_termination_or_junction">4.2.2 imcr_termination_or_junction</a>
+         &nbsp;&nbsp;<a href="../../interconnect_module_connection_routing/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>imcr_termination_or_junction</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.termination_or_junction">termination_or_junction</A></b> type. 
+         
+         It adds the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.explicitly_located_layer_connection_point">Explicitly_located_layer_connection_point</A></b>
+         and
+         <b><A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_join_relationship">Inter_stratum_join_relationship</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            imcr_termination_or_junction =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.termination_or_junction">termination_or_junction</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.explicitly_located_layer_connection_point">Explicitly_located_layer_connection_point</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_join_relationship">Inter_stratum_join_relationship</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="interconnect_module_connection_routing_arm.map_link">4.2.3 map_link</a>
+         &nbsp;&nbsp;<a href="../../interconnect_module_connection_routing/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>map_link</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.conductive_interconnect_element_terminal_link">Conductive_interconnect_element_terminal_link</A></b>
+         and
+         <b><A HREF="../../../../data/modules/fabrication_joint/sys/4_info_reqs.htm#fabrication_joint_arm.passage_terminal_based_fabrication_joint_link">Passage_terminal_based_fabrication_joint_link</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            map_link =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.conductive_interconnect_element_terminal_link">Conductive_interconnect_element_terminal_link</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/fabrication_joint/sys/4_info_reqs.htm#fabrication_joint_arm.passage_terminal_based_fabrication_joint_link">Passage_terminal_based_fabrication_joint_link</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="interconnect_module_connection_routing_arm.trace_junction_or_via">4.2.4 trace_junction_or_via</a>
+         &nbsp;&nbsp;<a href="../../interconnect_module_connection_routing/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>trace_junction_or_via</b> type is an
+         extensible list of alternate data types
+         that allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.explicitly_located_layer_connection_point">Explicitly_located_layer_connection_point</A></b>
+         and
+         <b><A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_join_relationship">Inter_stratum_join_relationship</A></b>.
+         
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;
+            The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.                 
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            trace_junction_or_via =
+            
+            EXTENSIBLE
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.explicitly_located_layer_connection_point">Explicitly_located_layer_connection_point</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_join_relationship">Inter_stratum_join_relationship</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="interconnect_module_connection_routing_arm.dielectric_crossover_area">4.3.1 Dielectric_crossover_area</a>
+         &nbsp;&nbsp;<a href="../../interconnect_module_connection_routing/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydielectric_crossover_area"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Dielectric_crossover_area</b> is a relationship that relates one 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature"><b>Stratum_feature</b></a> 
+      	with another that results in the creation of a dielectric crossover feature in a dielectric 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Dielectric_crossover_area;<br>
+            
+            
+            
+            &nbsp;&nbsp;relating_concept : <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature">Stratum_feature</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;related_concept : <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature">Stratum_feature</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;resulting_dielectric_crossover : <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature">Stratum_feature</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;resulting_shape : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>;<br>INVERSE<br>
+            &nbsp;&nbsp;technology_requirement : SET[1:?] OF <A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</A> FOR assigned_to;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_module_connection_routing_arm.dielectric_crossover_area.relating_concept">relating_concept:
+               </a></b>
+         	one of the instances of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature"><b>Stratum_feature</b></a>  
+         	that is part of the relationship. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_module_connection_routing_arm.dielectric_crossover_area.related_concept">related_concept:
+               </a></b>
+         	the other instance of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature"><b>Stratum_feature</b></a>  
+         	that is part of the relationship. If one element of the relationship is dependent up on the other, this attribute shall be
+         the dependent one. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_module_connection_routing_arm.dielectric_crossover_area.resulting_dielectric_crossover">resulting_dielectric_crossover:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature"><b>Stratum_feature</b></a> 
+         	in a stratum of dielectric material for the <b>Dielectric_crossover_area</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_module_connection_routing_arm.dielectric_crossover_area.resulting_shape">resulting_shape:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a>  
+         	for the <b>Dielectric_crossover_area</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_module_connection_routing_arm.dielectric_crossover_area.technology_requirement">technology_requirement:
+               </a></b>
+         	specifies an inverse relationship that specifies that the existence of the  <b>Dielectric_crossover_area</b> 
+         	is dependent on the existence of the 
+         	<a href="../../../modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment"><b>Requirement_assignment</b></a> 
+         	that specifies the <b>Dielectric_crossover_area</b>
+         	as its 
+         	<a href="../../../modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment.assigned_to"><b>assigned_to</b></a>. 
+         	There shall be one or more  
+         	<a href="../../../modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment"><b>Requirement_assignments</b></a>
+         	for a particular <b>Dielectric_crossover_area</b>.
+         
+      </p>
+      <h2><a name="interconnect_module_connection_routing_arm.direct_stratum_component_join_implementation">4.3.2 Direct_stratum_component_join_implementation</a>
+         &nbsp;&nbsp;<a href="../../interconnect_module_connection_routing/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydirect_stratum_component_join_implementation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Direct_stratum_component_join_implementation</b> is a means to implement a connection between a feature on a stratum and an  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.embedded_physical_component_terminal"><b>Embedded_physical_component_terminal</b></a>, where the  <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a> 
+         	and the  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.embedded_physical_component_terminal"><b>Embedded_physical_component_terminal</b></a>
+         	are in intimate physical contact.  The effect is to associate the  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.embedded_physical_component_terminal"><b>Embedded_physical_component_terminal</b></a> 
+         	with the  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layer_connection_point"><b>Layer_connection_point</b></a>.  
+         	This
+         	is required since an embedded component is not a  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a> 
+         	or  
+         	<a href="../../../modules/layered_interconnect_module_with_printed_component_design/sys/4_info_reqs.htm#layered_interconnect_module_with_printed_component_design_arm.printed_component"><b>Printed_component</b></a> 
+         	and consequently a  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layer_connection_point"><b>Layer_connection_point</b></a> 
+         	cannot directly reference an embedded component as a  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layer_connection_point.resident_design_layer_stratum"><b>resident_design_layer_stratum</b></a>.
+         	In order to be valid, the <b>implementing_joint</b> must reference a member of 
+         	<b>topological_requirement</b>.<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_embedded_physical_component_join_relationship.terminal_to_be_connected"><b>terminal_to_be_connected</b></a>,
+         	and at least one member of 
+         	<b>topological_requirement</b>.<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_embedded_physical_component_join_relationship.point_to_be_connected"><b>point_to_be_connected</b></a> 
+         	must be related to 
+         	<b>implementing_joint</b>.<a href="../../../modules/fabrication_joint/sys/4_info_reqs.htm#fabrication_joint_arm.fabrication_joint.fabrication_feature_1"><b>fabrication_feature_1</b></a>
+         	or 
+         	<b>implementing_joint</b>.<a href="../../../modules/fabrication_joint/sys/4_info_reqs.htm#fabrication_joint_arm.fabrication_joint.fabrication_feature_2"><b>fabrication_feature_2</b></a>.
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		A <b>Direct_stratum_component_join_implementation</b> may implement a connection to more than one  
+            		<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a>.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		The joint shall reference exactly one terminal of SELF inherited from  
+            		<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.plated_inter_stratum_feature"><b>Plated_inter_stratum_feature</b></a>; 
+            		a member of 
+            		<b>topological_requirement</b>.<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_embedded_physical_component_join_relationship.point_to_be_connected"><b>point_to_be_connected</b></a> 
+            		shall be associated with an  
+            		<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_join_relationship"><b>Inter_stratum_join_relationship</b></a> 
+            		or with an 
+            		<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.intra_stratum_join_relationship"><b>Intra_stratum_join_relationship</b></a> 
+            		in order to complete the  
+            		<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.generic_physical_network"><b>Generic_physical_network</b></a>.
+            		Actually, the above is a rule, not a note.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Direct_stratum_component_join_implementation;<br>
+            
+            
+            
+            &nbsp;&nbsp;implementing_joint : <A HREF="../../../../data/modules/fabrication_joint/sys/4_info_reqs.htm#fabrication_joint_arm.fabrication_joint">Fabrication_joint</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;topological_requirement : <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_embedded_physical_component_join_relationship">Stratum_embedded_physical_component_join_relationship</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_module_connection_routing_arm.direct_stratum_component_join_implementation.implementing_joint">implementing_joint:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/fabrication_joint/sys/4_info_reqs.htm#fabrication_joint_arm.fabrication_joint"><b>Fabrication_joint</b></a> 
+         	for the <b>Direct_stratum_component_join_implementation</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_module_connection_routing_arm.direct_stratum_component_join_implementation.topological_requirement">topological_requirement:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_embedded_physical_component_join_relationship"><b>Stratum_embedded_physical_component_join_relationship</b></a> 
+         	for the <b>Direct_stratum_component_join_implementation</b>.
+         
+      </p>
+      <h2><a name="interconnect_module_connection_routing_arm.indirect_stratum_component_join_implementation">4.3.3 Indirect_stratum_component_join_implementation</a>
+         &nbsp;&nbsp;<a href="../../interconnect_module_connection_routing/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityindirect_stratum_component_join_implementation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	An <b>Indirect_stratum_component_join_implementation</b> is a type of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.plated_inter_stratum_feature"><b>Plated_inter_stratum_feature</b></a>.
+         	An <b>Indirect_stratum_component_join_implementation</b> implements a connection between a feature on a stratum and an 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.embedded_physical_component_terminal"><b>Embedded_physical_component_terminal</b></a> 
+         	where the  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a> 
+         	and the  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.embedded_physical_component_terminal"><b>Embedded_physical_component_terminal</b></a> 
+         	are not in intimate physical contact and the connection is made using a  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.plated_inter_stratum_feature"><b>Plated_inter_stratum_feature</b></a>.  
+         	The effect is to associate the  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.embedded_physical_component_terminal"><b>Embedded_physical_component_terminal</b></a> 
+         	with the 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layer_connection_point"><b>Layer_connection_point</b></a>.  
+         	This is required since an embedded component is not a  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a> 
+         	and consequently a  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layer_connection_point"><b>Layer_connection_point</b></a> 
+         	cannot directly reference an embedded component as a 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layer_connection_point.resident_design_layer_stratum"><b>resident_design_layer_stratum</b></a>. In order to be valid, the <b>implementing_joint</b> must reference a member of 
+         	<b>indirect_topological_requirement</b>.<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_embedded_physical_component_join_relationship.terminal_to_be_connected"><b>terminal_to_be_connected</b></a>, 
+         	and at least one member of 
+         	<b>indirect_topological_requirement</b>.<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_embedded_physical_component_join_relationship.point_to_be_connected"><b>point_to_be_connected</b></a> 
+         	must be related to 
+         	<b>implementing_joint</b>.<a href="../../../modules/fabrication_joint/sys/4_info_reqs.htm#fabrication_joint_arm.fabrication_joint.fabrication_feature_1"><b>fabrication_feature_1</b></a> 
+         	or 
+         	<b>implementing_joint</b>.<a href="../../../modules/fabrication_joint/sys/4_info_reqs.htm#fabrication_joint_arm.fabrication_joint.fabrication_feature_2"><b>fabrication_feature_2</b></a>.
+         	The joint shall reference exactly one terminal of SELF inherited from  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.plated_inter_stratum_feature"><b>Plated_inter_stratum_feature</b></a>; 
+         	a member of 
+         	<b>indirect_topological_requirement</b>.<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_embedded_physical_component_join_relationship.point_to_be_connected"><b>point_to_be_connected</b></a> 
+         	shall be associated with an  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_join_relationship"><b>Inter_stratum_join_relationship</b></a> 
+         	or with an 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.intra_stratum_join_relationship"><b>Intra_stratum_join_relationship</b></a> 
+         	in order to complete the  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.generic_physical_network"><b>Generic_physical_network</b></a>.
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		An <b>Indirect_stratum_component_join_implementation</b> may implement a connection to more than one  
+            		<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a>.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		It is possible for a complex instance to be a member of this Application Object and to be a member of  
+            		<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.physical_network_supporting_inter_stratum_feature"><b>Physical_network_supporting_inter_stratum_feature</b></a>.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		An example of a complex instance would be a case where the  
+            		<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.embedded_physical_component_terminal"><b>Embedded_physical_component_terminal</b></a> 
+            		is on the terminus of a multi-layer Via.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            		The last statement in the description is a formal rule.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Indirect_stratum_component_join_implementation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.plated_inter_stratum_feature">Plated_inter_stratum_feature</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;indirect_topological_requirement : <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_embedded_physical_component_join_relationship">Stratum_embedded_physical_component_join_relationship</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;implementing_joint : <A HREF="../../../../data/modules/fabrication_joint/sys/4_info_reqs.htm#fabrication_joint_arm.fabrication_joint">Fabrication_joint</A>;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: indirect_topological_requirement, implementing_joint;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_module_connection_routing_arm.indirect_stratum_component_join_implementation.indirect_topological_requirement">indirect_topological_requirement:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_embedded_physical_component_join_relationship"><b>Stratum_embedded_physical_component_join_relationship</b></a> 
+         	for the <b>Indirect_stratum_component_join_implementation</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_module_connection_routing_arm.indirect_stratum_component_join_implementation.implementing_joint">implementing_joint:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/fabrication_joint/sys/4_info_reqs.htm#fabrication_joint_arm.fabrication_joint"><b>Fabrication_joint</b></a> 
+         	for the <b>Indirect_stratum_component_join_implementation</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_module_connection_routing_arm.indirect_stratum_component_join_implementation.ur:ur1">UR1:
+               </a></b>
+         	The combination of <b>indirect_topological_requirement</b> and <b>implementing_joint</b> shall be unique within a population of 
+         	<b>Indirect_stratum_component_join_implementation</b>.
+         
+      </p>
+      <h2><a name="interconnect_module_connection_routing_arm.junction_vertex_allocation">4.3.4 Junction_vertex_allocation</a>
+         &nbsp;&nbsp;<a href="../../interconnect_module_connection_routing/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityjunction_vertex_allocation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      
+      A <b>Junction_vertex_allocation</b> is the relationship that specifies one or more 
+      <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layer_connection_point"><b>Layer_connection_point</b></a> 
+      to which a 
+      <a href="../../../modules/physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.topological_junction"><b>Topological_junction</b></a> 
+      is mapped during the layout routing process.
+      A <b>Junction_vertex_allocation</b> is the result of an assignment process by a designer or a layout routing process that defines the location of 
+      <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_join_relationship"><b>Inter_stratum_join_relationship</b></a> 
+      or 
+      <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.explicitly_located_layer_connection_point"><b>Explicitly_located_layer_connection_point</b></a>.  A <b>Junction_vertex_allocation</b> maps a node of a  
+      <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.generic_physical_network"><b>Generic_physical_network</b></a> 
+      which may be only partially ordered into a network description which is highly ordered using a tree.  
+      A <b>Junction_vertex_allocation</b> associates two 
+      <a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>product_view_definitions</b></a>, 
+      one an  
+      <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.interconnect_module_design_view"><b>Interconnect_module_design_view</b></a> 
+      and the other a  
+      <a href="../../../modules/physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.physical_unit_network_definition"><b>Physical_unit_network_definition</b></a>.  
+      The  
+      <a href="../../../modules/physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.physical_unit_network_definition"><b>Physical_unit_network_definition</b></a> 
+      may be populated for the express purpose of representing the tree structure of the  
+      <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.generic_physical_network"><b>Generic_physical_network</b></a> 
+      in the  
+      <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.interconnect_module_design_view"><b>Interconnect_module_design_view</b></a>,
+       and therefore the version of the design would be the same for both.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Junction_vertex_allocation;<br>
+            
+            
+            
+            &nbsp;&nbsp;implementation_point : <A HREF="#interconnect_module_connection_routing_arm.trace_junction_or_via">trace_junction_or_via</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;required_vertex : <A HREF="../../../../data/modules/functional_assignment_to_part/sys/4_info_reqs.htm#functional_assignment_to_part_arm.part_connected_terminals_topological_junction">Part_connected_terminals_topological_junction</A>;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: required_vertex;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_module_connection_routing_arm.junction_vertex_allocation.implementation_point">implementation_point:
+               </a></b>
+         specifies the <a href="../../../modules/interconnect_module_connection_routing/sys/4_info_reqs.htm#interconnect_module_connection_routing_arm.trace_junction_or_via"><b>trace_junction_or_via</b></a> for the <b>Junction_vertex_allocation</b>.
+         The <b>implementation_point</b> specifies either the 
+         <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_join_relationship"><b>Inter_stratum_join_relationship</b></a> 
+         or 
+         <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.explicitly_located_layer_connection_point"><b>Explicitly_located_layer_connection_point</b></a> 
+         that, individually, maps the requirement that a junction participates in a connectivity onto points on conducting 
+         <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a> 
+         for the <b>Junction_vertex_allocation</b>.
+         
+         
+      </p>
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            This construct allows the <b>Junction_vertex_allocation</b> to consider an  <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_join_relationship"><b>Inter_stratum_join_relationship</b></a> to be a vertex.
+            </small></p>
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            The <b>Junction_vertex_allocation</b> allows for the specification of the location of the connections between physical traces and connected areas.  It is common
+            practice for the point where a trace, via, pad, etc., connects with other features to be specified by the designer interactively
+            during layout.  This location may be constrained for fabrication, layout, or signal integrity purposes.  The <b>Junction_vertex_allocation</b> specifies these relationships.
+            </small></p>
+      <p class="expressdescription"><b><a name="interconnect_module_connection_routing_arm.junction_vertex_allocation.required_vertex">required_vertex:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/functional_assignment_to_part/sys/4_info_reqs.htm#functional_assignment_to_part_arm.part_connected_terminals_topological_junction"><b>Part_connected_terminals_topological_junction</b></a>, 
+         	as a vertex of a 
+         	<a href="../../../modules/physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.physical_connectivity_definition"><b>Physical_connectivity_definition</b></a>, 
+         	that is to be mapped to an <b>implementation_point</b> by the <b>Junction_vertex_allocation</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_module_connection_routing_arm.junction_vertex_allocation.ur:ur1">UR1:
+               </a></b>
+         The <b>required_vertex</b> shall be unique within a population of <b>Junction_vertex_allocation</b>s.
+         
+      </p>
+      <h2><a name="interconnect_module_connection_routing_arm.physical_connectivity_abstraction_map">4.3.5 Physical_connectivity_abstraction_map</a>
+         &nbsp;&nbsp;<a href="../../interconnect_module_connection_routing/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityphysical_connectivity_abstraction_map"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Physical_connectivity_abstraction_map</b> is a mapping between an element of a tree structure in a name space based context and an equivalent element in a geometric
+      context.  The element in the name space based context is <a href="../../../modules/physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.physical_connectivity_element"><b>Physical_connectivity_element</b></a>.  The element in the geometric context is either a <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.conductive_interconnect_element_terminal_link"><b>Conductive_interconnect_element_terminal_link</b></a> or a 
+      <a href="../../../modules/fabrication_joint/sys/4_info_reqs.htm#fabrication_joint_arm.passage_terminal_based_fabrication_joint_link"><b>Passage_terminal_based_fabrication_joint_link</b></a>.  The mapping allows a one to one equivalence to be built between the two contexts for simulation or routing purposes.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Physical_connectivity_abstraction_map;<br>
+            
+            
+            
+            &nbsp;&nbsp;name_space_context_based_definition : <A HREF="../../../../data/modules/functional_assignment_to_part/sys/4_info_reqs.htm#functional_assignment_to_part_arm.part_connected_terminals_element">Part_connected_terminals_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;geometric_context_based_definition : <A HREF="#interconnect_module_connection_routing_arm.map_link">map_link</A>;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: name_space_context_based_definition, geometric_context_based_definition;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_module_connection_routing_arm.physical_connectivity_abstraction_map.name_space_context_based_definition">name_space_context_based_definition:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/functional_assignment_to_part/sys/4_info_reqs.htm#functional_assignment_to_part_arm.part_connected_terminals_element"><b>Part_connected_terminals_element</b></a> 
+         	for the <b>Physical_connectivity_abstraction_map</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="interconnect_module_connection_routing_arm.physical_connectivity_abstraction_map.geometric_context_based_definition">geometric_context_based_definition:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/interconnect_module_connection_routing/sys/4_info_reqs.htm#interconnect_module_connection_routing_arm.map_link"><b>map_link</b></a> 
+         	for the <b>Physical_connectivity_abstraction_map</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="interconnect_module_connection_routing_arm.physical_connectivity_abstraction_map.ur:ur1">UR1:
+               </a></b>
+         	The combination of <b>geometric_context_based_definition</b> and 
+         	<b>name_space_context_based_definition</b> shall be unique within a population of 
+         	<b>Physical_connectivity_abstraction_map</b>s.
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Interconnect_module_connection_routing_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

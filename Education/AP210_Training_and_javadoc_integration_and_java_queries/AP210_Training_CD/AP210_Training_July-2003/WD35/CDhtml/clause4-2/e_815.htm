@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Shape_element_locating_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.815 Shape_element_locating_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Shape_element_locating_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A 
+Shape_element_locating_relationship is the association between two <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> in which the associated 
+Shape_elements are located in relation to each other. </DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>located_shape_element</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>locating_shape_element</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.815.1 located_shape_element</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The located_shape_element specifies the <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> that is located in relation to the Shape_element 
+specified by the locating_shape_element for the Shape_element_locating_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.815.2 locating_shape_element</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The locating_shape_element specifies the <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> in relation to which the Shape_element specified by 
+the located_shape_element is located for the Shape_element_locating_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of located and locating Shape_elements shall be unique within a population of Shape_element_locating_relationship. That is, the same 
+Shape_elements shall not be located relative to each other more than once.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The Shape_element specified by the located_shape_element shall not be the same Shape_element specified by the 
+locating_shape_element.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The Shape_element_locating_relationship shall be specified as either the located_elements by a Dimensional_location or as the boundary_separation by a Dimensional_size_based_on_opposing_boundaries.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY shape_element_locating_relationship
+  SUBTYPE OF (managed_design_object);
+    locating_shape_element : shape_element;
+    located_shape_element  : shape_element;
+  UNIQUE
+    ur1 : located_shape_element, locating_shape_element;
+END_ENTITY; -- shape_element_locating_relationship
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

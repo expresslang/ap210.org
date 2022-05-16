@@ -1,0 +1,59 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Draughting_annotation_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Draughting_annotation_arm</h2><code><br><br><a name="draughting_annotation_arm">SCHEMA <b>Draughting_annotation_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/draughting_element/sys/e_exp_arm.htm#draughting_element_arm">Draughting_element_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1310<br><br></code><code><br><A NAME="draughting_annotation_arm.da_draughting_callout_content_select">TYPE </A><b>da_draughting_callout_content_select</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/draughting_element/sys/e_exp_arm.htm#draughting_element_arm.draughting_callout_content_select">draughting_callout_content_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#draughting_annotation_arm.annotation_subfigure">Annotation_subfigure</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_annotation_arm.annotation_symbol">Annotation_symbol</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="draughting_annotation_arm.symbol_definition_select">TYPE </A><b>symbol_definition_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#draughting_annotation_arm.dimension_symbol">Dimension_symbol</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_annotation_arm.general_symbol">General_symbol</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_annotation_arm.geometric_tolerance_symbol">Geometric_tolerance_symbol</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/curve_appearance/sys/e_exp_arm.htm#curve_appearance_arm.marker">Marker</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_annotation_arm.surface_condition_symbol">Surface_condition_symbol</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/curve_appearance/sys/e_exp_arm.htm#curve_appearance_arm.terminator">Terminator</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="draughting_annotation_arm.annotation_subfigure">ENTITY <b>Annotation_subfigure</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.annotation_element">Annotation_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_annotation_arm.annotation_symbol">ENTITY <b>Annotation_symbol</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.annotation_element">Annotation_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_annotation_arm.annotation_symbol.symbol_definition">symbol_definition : </A><A HREF="#draughting_annotation_arm.symbol_definition_select">symbol_definition_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_annotation_arm.dimension_curve_terminator">ENTITY <b>Dimension_curve_terminator</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_annotation_arm.terminator_symbol">Terminator_symbol</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_annotation_arm.dimension_symbol">ENTITY <b>Dimension_symbol</b></A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_annotation_arm.draughting_annotation_occurrence">ENTITY <b>Draughting_annotation_occurrence</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_annotation_arm.general_symbol">ENTITY <b>General_symbol</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_annotation_arm.geometric_tolerance_symbol">ENTITY <b>Geometric_tolerance_symbol</b></A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_annotation_arm.surface_condition_symbol">ENTITY <b>Surface_condition_symbol</b></A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_annotation_arm.terminator_symbol">ENTITY <b>Terminator_symbol</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_annotation_arm.annotation_symbol">Annotation_symbol</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_annotation_arm.alternate_annotation_elements">SUBTYPE_CONSTRAINT <b>alternate_annotation_elements</b></A>&nbsp;FOR <A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.annotation_element">Annotation_element</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#draughting_annotation_arm.annotation_subfigure">Annotation_subfigure</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_annotation_arm.annotation_symbol">Annotation_symbol</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/draughting_element/sys/e_exp_arm.htm#draughting_element_arm.fill_area">Fill_area</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Draughting_annotation_arm<br></code></body>
+</HTML>

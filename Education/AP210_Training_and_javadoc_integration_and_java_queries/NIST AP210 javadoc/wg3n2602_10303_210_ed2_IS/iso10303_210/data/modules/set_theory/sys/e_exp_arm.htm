@@ -1,0 +1,142 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Set theory">
+      <META name="DC.Dates" content="2004-11-29 20:56:38">
+      <META name="DC.Published" content="2004-12-01">
+      <META name="DC.Contributor" content="Leal , David">
+      <META name="DC.Creator" content="Bodington, Rob">
+      <META name="DC.Description" content="The application module Set theory">
+      <META name="DC.Subject" content="module, set theory, class, specialisation, subset, superset, powerset, union, intersection, complement">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N3165">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N2296">
+      <META name="SC4.version" content="1">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N3203">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N3204">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N3205">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2004-11-29 20:56:38">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.28">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.7">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.7">
+      <TITLE>ISO/TS 10303-1210:2004 Set theory</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Set theory</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1210:2004(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARM</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.2 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="annexe-arm-express"></A></H2><code>
+         (*<br>ISO TC184/SC4/WG12&nbsp;N3166 - ISO/TS&nbsp;10303-1210 Set theory - EXPRESS ARM<br>Supersedes 
+         ISO TC184/SC4/WG12&nbsp;N2297<br>*)
+         </code><br><code><br><br><a name="set_theory_arm">SCHEMA <b>Set_theory_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/class/sys/e_exp_arm.htm#class_arm">Class_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1070<br><br></code><code><br><A NAME="set_theory_arm.complement">ENTITY <b>Complement</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.complement.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.complement.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.complement.description">description : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.complement.set_1">set_1 : </A><A HREF="../../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.complement.set_2">set_2 : </A><A HREF="../../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.complement.universe">universe : </A><A HREF="../../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_arm.intersection">ENTITY <b>Intersection</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.intersection.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.intersection.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.intersection.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.intersection.operand">operand : </A>SET[2:?] OF <A HREF="../../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.intersection.resultant">resultant : </A><A HREF="../../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_arm.power_set">ENTITY <b>Power_set</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.power_set.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.power_set.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.power_set.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.power_set.base">base : </A><A HREF="../../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.power_set.derived">derived : </A><A HREF="../../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_arm.proper_subset">ENTITY <b>Proper_subset</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.proper_subset.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.proper_subset.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.proper_subset.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.proper_subset.subset">subset : </A><A HREF="../../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.proper_subset.superset">superset : </A><A HREF="../../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_arm.same_membership">ENTITY <b>Same_membership</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.same_membership.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.same_membership.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.same_membership.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.same_membership.set_1">set_1 : </A><A HREF="../../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.same_membership.set_2">set_2 : </A><A HREF="../../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_arm.subset">ENTITY <b>Subset</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.subset.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.subset.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.subset.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.subset.subset">subset : </A><A HREF="../../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.subset.superset">superset : </A><A HREF="../../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="set_theory_arm.union">ENTITY <b>Union</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.union.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.union.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.union.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.union.operand">operand : </A>SET[2:?] OF <A HREF="../../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         &nbsp;&nbsp;<A NAME="set_theory_arm.union.resultant">resultant : </A><A HREF="../../../../data/modules/class/sys/e_exp_arm.htm#class_arm.class">Class</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Set_theory_arm<br></code><br><br><p>&copy; ISO 2004 &#8212; All rights reserved</p>
+   </body>
+</HTML>

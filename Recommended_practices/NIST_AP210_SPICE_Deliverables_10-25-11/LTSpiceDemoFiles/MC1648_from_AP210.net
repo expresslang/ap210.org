@@ -1,0 +1,38 @@
+* LTSpiceIV Netlist Generated from AP210 file: MC1648.stp
+C1 AGC 0 0.1µ
+C2 Bias 0 0.1µ
+C3 Tank Bias 10p
+D1 AGC N007 DD
+D2 N011 0 DD
+D3 Bias N011 DD
+L1 Tank Bias 1µ
+Q1 Vcc1 N001 OUT 0 NP
+Q11 N004 Bias N008 0 NP
+Q2 N001 N004 N005 0 NP
+Q3 Vcc1 N003 N005 0 NP
+Q4 N003 Tank N010 0 NP
+Q5 AGC N010 N012 0 NP
+Q6 Vcc1 Tank N006 0 NP
+Q7 Tank Bias N006 0 NP
+Q8 N009 N007 0 0 NP
+Q9 Vcc1 N002 N004 0 NP
+R1 OUT 0 300
+R10 N002 N004 2k
+R11 Vcc1 N002 2k
+R12 Vcc1 Bias 1k
+R13 Vcc1 AGC 25k
+R2 Vcc1 N001 400
+R3 N005 0 1k
+R4 Vcc1 N003 2k
+R5 N010 0 1k
+R6 N012 0 600
+R7 N007 0 25k
+R8 N006 N009 200
+R9 N008 0 1k
+V1 Vcc1 0 5
+.model DD D(Cjo=5p Rs=20 )
+.model NP NPN(Bf=150 Cjc=3p Cje=3p Rb=10 )
+* Appended dot commands extracted from input file.
+.tran 0 1.9m 0 1u startup
+.backanno
+.end

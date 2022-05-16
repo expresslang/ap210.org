@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Rule_set</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.792 Rule_set</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Rule_set is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. 
+A Rule_set may be a <A
+CLASS="INTERNALREF"
+HREF="e_793.htm"
+>Rule_set_group</A
+>. A Rule_set is an 
+association among <A
+CLASS="INTERNALREF"
+HREF="Ee_rule.htm"
+>Ee_rule</A
+> with <A
+CLASS="INTERNALREF"
+HREF="e_789.htm"
+>Rule_priority</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>identifier</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>purpose</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>rule_priority_member</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.792.1 identifier</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The identifier specifies the human-interpretable identification for the Rule_set.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.792.2 purpose</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The purpose specifies the human-interpretable string for the purpose for the Rule_set.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.792.3 rule_priority_member</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The rule_priority_member specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_789.htm"
+>Rule_priority</A
+> for the 
+Rule_set. There shall be one or more Rule_priority for the Rule_set.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The identifier shall be unique within a population of Rule_sets.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY rule_set
+  SUPERTYPE OF (rule_set_group)
+  SUBTYPE OF (managed_design_object);
+    rule_priority_member : SET [1:?] OF rule_priority;
+    identifier           : STRING;
+    purpose              : STRING;
+  UNIQUE
+    ur1 : identifier;
+END_ENTITY; -- rule_set
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

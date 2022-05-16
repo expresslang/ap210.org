@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Part_feature_make_from_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.610 Part_feature_make_from_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Part_feature_make_from_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_make_from</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>reusable_feature</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>resultant_feature</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.610.1 associated_make_from</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_make_from specifies an <A
+CLASS="INTERNALREF"
+HREF="e_353.htm"
+>Engineering_make_from</A
+> for the Part_feature_make_from_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.610.2 reusable_feature</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The reusable_feature specifies a <A
+CLASS="INTERNALREF"
+HREF="e_613.htm"
+>Part_feature</A
+> for the Part_feature_make_from_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.610.3 resultant_feature</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The resultant_feature specifies a <A
+CLASS="INTERNALREF"
+HREF="e_613.htm"
+>Part_feature</A
+> for the Part_feature_make_from_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of reusable_feature and resultant_feature shall be unique within a population of Part_feature_make_from_relationship.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The reusable_feature shall not be the resultant_feature within a population of Part_feature_make_from_relationship.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The Physical_unit_usage_view referenced by the reusable_feature shall not be the Physical_unit_usage_view referenced by the resultant_feature within a population of Part_feature_make_from_relationship.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY part_feature_make_from_relationship
+  SUBTYPE OF (managed_design_object);
+    associated_make_from : engineering_make_from;
+       reusable_feature  : part_feature;
+       resultant_feature : part_feature;
+UNIQUE
+  ur1: reusable_feature, resultant_feature;
+WHERE
+  wr1: reusable_feature :&#60;&#62;: resultant_feature;
+  wr2: reusable_feature.associated_definition :&#60;&#62;: 
+          resultant_feature.associated_definition;
+END_ENTITY; -- part_feature_make_from_relationship 
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

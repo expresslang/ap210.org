@@ -1,0 +1,41 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Associative_draughting_elements_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Associative_draughting_elements_mim</h2>
+      <p><i>Source : </i></p><code><br><br><a name="associative_draughting_elements_mim">SCHEMA <b>Associative_draughting_elements_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_mim.htm#shape_property_assignment_mim">Shape_property_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1032<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/draughting_element/sys/e_exp_mim.htm#draughting_element_mim">Draughting_element_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1310<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/aic_associative_draughting_elements/aic_associative_draughting_elements.htm#aic_associative_draughting_elements">aic_associative_draughting_elements</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO 10303-520<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/draughting_dimension_schema/draughting_dimension_schema.htm#draughting_dimension_schema">draughting_dimension_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-101<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/draughting_dimension_schema/draughting_dimension_schema.htm#draughting_dimension_schema.dimension_callout">dimension_callout</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema">product_property_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_definition">shape_definition</A>);
+         <br><br></code><code><br><A NAME="associative_draughting_elements_mim.draughting_model_item_association_select">TYPE </A><b>draughting_model_item_association_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_occurrence">annotation_occurrence</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.draughting_callout">draughting_callout</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="associative_draughting_elements_mim.draughting_model_item_association">ENTITY <b>draughting_model_item_association</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.item_identified_representation_usage">item_identified_representation_usage</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.item_identified_representation_usage">item_identified_representation_usage</A>.<A NAME="associative_draughting_elements_mim.draughting_model_item_association.definition">definition : </A><A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_definition">shape_definition</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.item_identified_representation_usage">item_identified_representation_usage</A>.<A NAME="associative_draughting_elements_mim.draughting_model_item_association.used_representation">used_representation : </A><A HREF="../../../data/resources/aic_associative_draughting_elements/aic_associative_draughting_elements.htm#aic_associative_draughting_elements.draughting_model">draughting_model</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.item_identified_representation_usage">item_identified_representation_usage</A>.<A NAME="associative_draughting_elements_mim.draughting_model_item_association.identified_item">identified_item : </A><A HREF="#associative_draughting_elements_mim.draughting_model_item_association_select">draughting_model_item_association_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Associative_draughting_elements_mim<br></code></body>
+</HTML>

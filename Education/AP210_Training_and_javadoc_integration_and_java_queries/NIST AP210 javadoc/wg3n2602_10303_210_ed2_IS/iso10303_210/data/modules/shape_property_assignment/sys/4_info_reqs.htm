@@ -1,0 +1,874 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Shape property assignment">
+      <META name="DC.Dates" content="2009-05-19 12:20:00">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Shape property assignment">
+      <META name="DC.Subject" content="application, module, shape, shape aspect, shape dependent property">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6257">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5493">
+      <META name="SC4.version" content="4">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6563">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6564">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6565">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-19 12:20:00">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.48">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.27">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.18">
+      <TITLE>ISO/TS 10303-1032:2009 Shape property assignment</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Shape property assignment</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1032:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.4 ARM function definition</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definition</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definition</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Shape property assignment</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Shape_property_assignment_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="shape_property_assignment_arm">
+            SCHEMA Shape_property_assignment_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm">Assembly_structure_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1026<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/characterizable_object/sys/4_info_reqs.htm#characterizable_object_arm">Characterizable_object_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1765<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/external_model/sys/4_info_reqs.htm#external_model_arm">External_model_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1033<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm">Product_view_definition_relationship_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1041<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Assembly_structure_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1026</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Characterizable_object_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1765</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>External_model_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1033</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Product_view_definition_relationship_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1041</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="shape_property_assignment_arm.described_element_select">4.2.1 described_element_select</a>
+         &nbsp;&nbsp;<a href="../../shape_property_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>described_element_select</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.product_occurrence_definition_relationship">Product_occurrence_definition_relationship</A></b>
+         and
+         <b><A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_usage">View_definition_usage</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            described_element_select =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.product_occurrence_definition_relationship">Product_occurrence_definition_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_usage">View_definition_usage</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="shape_property_assignment_arm.geometric_item_specific_usage_select">4.2.2 geometric_item_specific_usage_select</a>
+         &nbsp;&nbsp;<a href="../../shape_property_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>geometric_item_specific_usage_select</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#shape_property_assignment_arm.shape_element">Shape_element</A></b>
+         and
+         <b><A HREF="#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            geometric_item_specific_usage_select =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#shape_property_assignment_arm.shape_element">Shape_element</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="shape_property_assignment_arm.shape_dependent_select">4.2.3 shape_dependent_select</a>
+         &nbsp;&nbsp;<a href="../../shape_property_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>shape_dependent_select</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#shape_property_assignment_arm.item_shape">Item_shape</A></b>
+         and
+         <b><A HREF="#shape_property_assignment_arm.shape_element">Shape_element</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            shape_dependent_select =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#shape_property_assignment_arm.item_shape">Item_shape</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#shape_property_assignment_arm.shape_element">Shape_element</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="shape_property_assignment_arm.shape_model">4.2.4 shape_model</a>
+         &nbsp;&nbsp;<a href="../../shape_property_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>shape_model</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/external_model/sys/4_info_reqs.htm#external_model_arm.external_geometric_model">External_geometric_model</A></b>
+         and
+         <b><A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            shape_model =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/external_model/sys/4_info_reqs.htm#external_model_arm.external_geometric_model">External_geometric_model</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="shape_property_assignment_arm.shape_select">4.2.5 shape_select</a>
+         &nbsp;&nbsp;<a href="../../shape_property_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>shape_select</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#shape_property_assignment_arm.item_shape">Item_shape</A></b>, <b><A HREF="#shape_property_assignment_arm.shape_element">Shape_element</A></b>
+         
+         and
+         
+         <b><A HREF="#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            shape_select =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#shape_property_assignment_arm.item_shape">Item_shape</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#shape_property_assignment_arm.shape_element">Shape_element</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="shape_property_assignment_arm.shapeable_item">4.2.6 shapeable_item</a>
+         &nbsp;&nbsp;<a href="../../shape_property_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>shapeable_item</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/characterizable_object/sys/4_info_reqs.htm#characterizable_object_arm.characterizable_object">Characterizable_object</A></b>, <b><A HREF="../../../../data/modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.product_occurrence_definition_relationship">Product_occurrence_definition_relationship</A></b>, <b><A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A></b>
+         
+         and
+         
+         <b><A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_usage">View_definition_usage</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            shapeable_item =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/characterizable_object/sys/4_info_reqs.htm#characterizable_object_arm.characterizable_object">Characterizable_object</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.product_occurrence_definition_relationship">Product_occurrence_definition_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_usage">View_definition_usage</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="shape_property_assignment_arm.contextual_item_shape">4.3.1 Contextual_item_shape</a>
+         &nbsp;&nbsp;<a href="../../shape_property_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycontextual_item_shape"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Contextual_item_shape</b> is a type of <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.item_shape"><b>Item_shape</b></a>
+      
+      that identifies the shape of a product version in the context of its use in another product version.
+      
+      <p>The product version whose contextual shape is identified, is the product version associated with the <a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship.related_view"><b>related_view</b></a>
+         
+          of the <a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_usage"><b>View_definition_usage</b></a>.
+         
+      </p>
+      
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            Flexible part may have several shapes, each associated with a particular occurrence of the part in assemblies.
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Contextual_item_shape<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_property_assignment_arm.item_shape">Item_shape</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.item_shape">Item_shape</A>.described_element : <A HREF="#shape_property_assignment_arm.described_element_select">described_element_select</A>;<br>DERIVE<br>
+            &nbsp;&nbsp;shaped_product : <A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A> := spa_get_definition(SELF);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.contextual_item_shape.described_element">described_element:
+               </a></b>
+         the <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.described_element_select"><b>described_element_select</b></a>
+         
+          that identifies the using product version and the used product version.
+         
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.contextual_item_shape.shaped_product">shaped_product:
+               </a></b>
+         the <a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>Product_view_definition</b></a>
+         
+          that identifies the definition of the product version whose shape is considered.
+         
+      </p>
+      <h2><a name="shape_property_assignment_arm.geometric_item_specific_usage">4.3.2 Geometric_item_specific_usage</a>
+         &nbsp;&nbsp;<a href="../../shape_property_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitygeometric_item_specific_usage"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Geometric_item_specific_usage</b> is an identification of a 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a> 
+         	within a 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a>
+         	or a 
+         	<a href="../../../modules/external_model/sys/4_info_reqs.htm#external_model_arm.external_geometric_model"><b>External_geometric_model</b></a> 
+         	as being the element that describes a
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element"><b>Shape_element</b></a> 
+         	or 
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element_relationship"><b>Shape_element_relationship</b></a> 
+         	of an 
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.item_shape"><b>Item_shape</b></a> 
+         	that is described by the
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a> 
+         	or a 
+         	<a href="../../../modules/external_model/sys/4_info_reqs.htm#external_model_arm.external_geometric_model"><b>External_geometric_model</b></a>.
+         
+      </p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		In an application protocol, an instance of 
+            		<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a>
+            		describes the 
+            		<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.item_shape"><b>Item_shape</b></a> 
+            		of a product. 
+            		One element of the
+            		<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a> 
+            		- a 
+            		<a href="../../../modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.curve"><b>Curve</b></a> 
+            		- represents the boundary of a hole that is
+            		a 
+            		<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element"><b>Shape_element</b></a> 
+            		in the product. 
+            		This entity data type may be used to state that the curve describes the hole, in the context of the entire
+            		<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a> 
+            		describing the shape of the product.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Geometric_item_specific_usage;<br>
+            
+            
+            
+            &nbsp;&nbsp;name : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;definition : <A HREF="#shape_property_assignment_arm.geometric_item_specific_usage_select">geometric_item_specific_usage_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;identified_item : <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;used_model : <A HREF="#shape_property_assignment_arm.shape_model">shape_model</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.geometric_item_specific_usage.name">name:
+               </a></b>
+         	specifies a STRING value.
+         
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.geometric_item_specific_usage.description">description:
+               </a></b>
+         	specifies additional information about the <b>Geometric_item_specific_usage</b>.
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.geometric_item_specific_usage.definition">definition:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element"><b>Shape_element</b></a>
+         	for the <b>Geometric_item_specific_usage</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.geometric_item_specific_usage.identified_item">identified_item:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a>
+         	for the <b>Geometric_item_specific_usage</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.geometric_item_specific_usage.used_model">used_model:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_model"><b>shape_model</b></a>
+         	for the <b>Geometric_item_specific_usage</b>.
+         
+      </p>
+      <h2><a name="shape_property_assignment_arm.item_shape">4.3.3 Item_shape</a>
+         &nbsp;&nbsp;<a href="../../shape_property_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityitem_shape"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	An <b>Item_shape</b> is the shape of <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shapeable_item"><b>shapeable_item</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Item_shape;<br>
+            
+            
+            
+            &nbsp;&nbsp;id : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;described_element : <A HREF="#shape_property_assignment_arm.shapeable_item">shapeable_item</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.item_shape.id">id:
+               </a></b>
+         the text that provides further an identifier for the <b>Item_shape</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.item_shape.description">description:
+               </a></b>
+         the text that provides further information about the property. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.item_shape.described_element">described_element:
+               </a></b>
+         the <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shapeable_item"><b>shapeable_item</b></a>
+         
+          whose shape is identified.
+         
+      </p>
+      <h2><a name="shape_property_assignment_arm.shape_dependent_property_representation">4.3.4 Shape_dependent_property_representation</a>
+         &nbsp;&nbsp;<a href="../../shape_property_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityshape_dependent_property_representation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Shape_dependent_property_representation</b> is the representation of a characteristic derived from or imposed to an <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.item_shape"><b>Item_shape</b></a>
+      
+       or a <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element"><b>Shape_element</b></a>.
+      
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+            The centre of mass is an example of shape dependent property, of a shape, that can be represented by a cartesian point.
+            </small></p>
+      
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            
+            The area and the volumes are examples of characteristic that can be represented by a measure value with unit.
+            </small></p>
+      
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            A <b>Shape_dependent_property_representation</b> is independent of the representations of the shape.
+            </small></p> 
+      
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            The present version of this application module does not enable to represent whether the characteristics has been imposed or
+            was derived.
+            It is expected that a future version will add this capability.
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Shape_dependent_property_representation;<br>
+            
+            
+            
+            &nbsp;&nbsp;characteristic_type : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;described_element : <A HREF="#shape_property_assignment_arm.shape_dependent_select">shape_dependent_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;property_representation : <A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation">Representation</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_dependent_property_representation.characteristic_type">characteristic_type:
+               </a></b>
+         the string that specifies the type of the characteristic that is
+         represented.
+                   
+      </p>
+      <p>Where applicable, the following values shall be used:</p>
+      <ul>
+               
+         <li>'centre of mass': the characteristic is the centre of the mass of the <b>described_element</b>, evaluated or required independently of any representation of the <b>described_element</b>;
+         </li>
+         
+         <li>'centroid': the characteristic is the centre of mass of a body as
+            evaluated from a geometric representation of the <b>described_element</b>;
+            
+            <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+                  
+                  An instance of <a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation_relationship"><b>Representation_relationship</b></a>
+                  
+                   may be used to relate the <b>characteristic_type</b> with the <a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a>
+                  
+                   from which the centroid was computed.
+                  </small></p>
+            
+         </li> 
+         
+         
+         <li>'moment of inertia': the characteristic is the 3*3 matrix of inertia of the  <b>described_element</b>;
+         </li>
+               
+         <li>'surface area': the characteristic is the extent of the surface of the <b>described_element</b>;
+         </li>
+               
+         <li>'volume': the characteristic is the volume of the <b>described_element</b>.
+         </li> 
+         
+      </ul>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_dependent_property_representation.description">description:
+               </a></b>
+         the text that provides further information about the <b>Shape_dependent_property_representation</b>.   The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_dependent_property_representation.described_element">described_element:
+               </a></b>
+         the <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.item_shape"><b>Item_shape</b></a>
+         
+          or the <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element"><b>Shape_element</b></a>
+         
+          from which the characteristic has been derived or imposed.  
+         
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_dependent_property_representation.property_representation">property_representation:
+               </a></b>
+         the <a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation"><b>Representation</b></a>
+          that contains the items that express the characteristic.
+           
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            Depending on the  <b>characteristic_type</b>, the <b>described_element</b>  may need to be a <a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a>.</small></p>
+      <h2><a name="shape_property_assignment_arm.shape_description_association">4.3.5 Shape_description_association</a>
+         &nbsp;&nbsp;<a href="../../shape_property_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityshape_description_association"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Shape_description_association</b> is an association a geometric representation with a shape characteristic.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Shape_description_association;<br>
+            
+            
+            
+            &nbsp;&nbsp;represented_characteristic : <A HREF="#shape_property_assignment_arm.shape_select">shape_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;representation : <A HREF="#shape_property_assignment_arm.shape_model">shape_model</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;role : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_description_association.represented_characteristic">represented_characteristic:
+               </a></b>
+         the instance of an element of <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_select"><b>shape_select</b></a>
+          that is represented.
+          
+      </p>
+      <p>In case the <b>represented_characteristic</b> is a <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element_relationship"><b>Shape_element_relationship</b></a>, the represented characteristic is the related <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element"><b>Shape_element</b></a>
+         
+         in the context of its relating <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element"><b>Shape_element</b></a>.
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_description_association.representation">representation:
+               </a></b>
+         the <a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a>
+         
+          that provides the representation.
+         
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_description_association.role">role:
+               </a></b>
+         the string that specifies the role of the representation with respect to
+         the property. The value of this attribute need not be specified.
+              
+      </p>
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            'simplified representation', 'idealized representation' are examples of role.</small></p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_description_association.description">description:
+               </a></b>
+         the text that provides further information about the <b>Shape_description_association</b>. The value of this attribute need not be specified.
+             
+      </p>
+      <h2><a name="shape_property_assignment_arm.shape_element">4.3.6 Shape_element</a>
+         &nbsp;&nbsp;<a href="../../shape_property_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityshape_element"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Shape_element</b> is a portion of a shape.
+      
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            The threaded portion of the shape of a bolt may be represented as a <b>Shape_element</b>, so that other properties, such as surface finish, may be associated with it.
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Shape_element;<br>
+            
+            
+            
+            &nbsp;&nbsp;id : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;element_name : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;containing_shape : <A HREF="#shape_property_assignment_arm.item_shape">Item_shape</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: EXISTS(element_name) OR (TYPEOF(SELF\Shape_element) &lt;&gt; TYPEOF(SELF));<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_element.id">id:
+               </a></b>
+         the identifier that distiguishes the <b>Shape_element</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_element.element_name">element_name:
+               </a></b>
+         the name of the <b>Shape_element</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_element.description">description:
+               </a></b>
+         the text that provides further information about the <b>Shape_element</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_element.containing_shape">containing_shape:
+               </a></b>
+         the <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.item_shape"><b>Item_shape</b></a> that the <b>Shape_element</b> is a part of.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_element.wr:wr1">WR1:
+               </a></b>
+         If SELF is exact instance of <b>Shape_element</b>, then <b>element_name</b>
+         shall be provided.
+         
+      </p>
+      <h2><a name="shape_property_assignment_arm.shape_element_relationship">4.3.7 Shape_element_relationship</a>
+         &nbsp;&nbsp;<a href="../../shape_property_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityshape_element_relationship"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Shape_element_relationship</b> is a relationship between two instances of <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element"><b>Shape_element</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Shape_element_relationship;<br>
+            
+            
+            
+            &nbsp;&nbsp;relation_type : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;relating : <A HREF="#shape_property_assignment_arm.shape_element">Shape_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;related : <A HREF="#shape_property_assignment_arm.shape_element">Shape_element</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: EXISTS(relation_type) OR (TYPEOF(SELF\Shape_element_relationship) &lt;&gt; TYPEOF(SELF));<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_element_relationship.relation_type">relation_type:
+               </a></b>
+         the string that specifies the type of the relationship. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_element_relationship.description">description:
+               </a></b>
+         the text that provides further information about the <b>Shape_element_relationship</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_element_relationship.relating">relating:
+               </a></b>
+         one of the  instances of <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element"><b>Shape_element</b></a>  that takes part in the relationship.
+         .
+         
+      </p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_element_relationship.related">related:
+               </a></b>
+         the other  instance of <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element"><b>Shape_element</b></a> that takes part in the relationship.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.shape_element_relationship.wr:wr1">WR1:
+               </a></b>
+         If SELF is exact instance of <b>Shape_element_relationship</b>, then <b>relation_type</b>
+         shall be provided.
+         
+      </p>
+      <h2><a name="functions">4.4 ARM function definition</a></h2>
+      <p>
+         This subclause specifies the ARM function for 
+         this module. The ARM function and definition is
+         specified below.
+         
+      </p>
+      <h2><A NAME="shape_property_assignment_arm.spa_get_definition">4.4.1 spa_get_definition</A></h2>
+      	The <b>spa_get_definition</b> function returns the 
+      	<a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>Product_view_definition</b></a> 
+      	that is the 
+      	related view 
+      	for either the 
+      	<a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_usage"><b>View_definition_usage</b></a> 
+      	or the 
+      	<a href="../../../modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.product_occurrence_definition_relationship"><b>Product_occurrence_definition_relationship</b></a> 
+      	that is in the role of
+      	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.contextual_item_shape.described_element"><b>described_element</b></a> 
+      	for the member of 
+      	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.contextual_item_shape"><b>Contextual_item_shape</b></a> 
+      	input to the function.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION spa_get_definition&nbsp;(input : <A HREF="#shape_property_assignment_arm.contextual_item_shape">Contextual_item_shape</A>) :<A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>;
+         </code><pre>IF ('PRODUCT_VIEW_DEFINITION_RELATIONSHIP_ARM.VIEW_DEFINITION_USAGE'
+      IN TYPEOF(input\Item_shape.described_element))
+      THEN
+        RETURN(input\Item_shape.described_element\View_definition_relationship.related_view);
+    END_IF;
+    IF ('ASSEMBLY_STRUCTURE_ARM.PRODUCT_OCCURRENCE_DEFINITION_RELATIONSHIP' IN
+        TYPEOF(input\Item_shape.described_element))
+      THEN
+        RETURN(input\Item_shape.described_element\Product_occurrence_definition_relationship.related_view);
+    END_IF;    
+    RETURN(?);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="shape_property_assignment_arm.spa_get_definition.input">input:
+               </a></b>
+         	the specified
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.contextual_item_shape"><b>Contextual_item_shape</b></a>.
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Shape_property_assignment_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

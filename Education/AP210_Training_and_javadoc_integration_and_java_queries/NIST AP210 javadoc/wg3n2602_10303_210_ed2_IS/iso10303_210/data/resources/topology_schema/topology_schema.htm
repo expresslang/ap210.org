@@ -1,0 +1,585 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: topology_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: topology_schema</h2>
+      <p><i>Source : ISO 10303-42</i></p><code><br><br><a name="topology_schema">SCHEMA <b>topology_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema">geometry_schema</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO 10303-42<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>);
+         <br><br></code><code><br>CONSTANT<br><A NAME="topology_schema.dummy_tri"></A>
+         &nbsp;&nbsp;dummy_tri : LOGICAL := representation_item('')|| topological_representation_item();
+         <br>
+         END_CONSTANT;
+         <br></code><code><br><A NAME="topology_schema.list_of_reversible_topology_item">TYPE </A><b>list_of_reversible_topology_item</b> =
+         LIST[0:?] OF <A HREF="#topology_schema.reversible_topology_item">reversible_topology_item</A>;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="topology_schema.reversible_topology">TYPE </A><b>reversible_topology</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#topology_schema.list_of_reversible_topology_item">list_of_reversible_topology_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.reversible_topology_item">reversible_topology_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.set_of_reversible_topology_item">set_of_reversible_topology_item</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="topology_schema.reversible_topology_item">TYPE </A><b>reversible_topology_item</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#topology_schema.closed_shell">closed_shell</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.edge">edge</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.face">face</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.face_bound">face_bound</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.open_shell">open_shell</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.path">path</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="topology_schema.set_of_reversible_topology_item">TYPE </A><b>set_of_reversible_topology_item</b> =
+         SET[0:?] OF <A HREF="#topology_schema.reversible_topology_item">reversible_topology_item</A>;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="topology_schema.shell">TYPE </A><b>shell</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#topology_schema.closed_shell">closed_shell</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.open_shell">open_shell</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.vertex_shell">vertex_shell</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.wire_shell">wire_shell</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="topology_schema.closed_shell">ENTITY <b>closed_shell</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.connected_face_set">connected_face_set</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.connected_edge_set">ENTITY <b>connected_edge_set</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.topological_representation_item">topological_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.connected_edge_set.ces_edges">ces_edges : </A>SET[1:?] OF <A HREF="#topology_schema.edge">edge</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.connected_face_set">ENTITY <b>connected_face_set</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#topology_schema.closed_shell">closed_shell</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.open_shell">open_shell</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.topological_representation_item">topological_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.connected_face_set.cfs_faces">cfs_faces : </A>SET[1:?] OF <A HREF="#topology_schema.face">face</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.connected_face_sub_set">ENTITY <b>connected_face_sub_set</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.connected_face_set">connected_face_set</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.connected_face_sub_set.parent_face_set">parent_face_set : </A><A HREF="#topology_schema.connected_face_set">connected_face_set</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.edge">ENTITY <b>edge</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#topology_schema.edge_curve">edge_curve</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.oriented_edge">oriented_edge</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.subedge">subedge</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.topological_representation_item">topological_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.edge.edge_start">edge_start : </A><A HREF="#topology_schema.vertex">vertex</A>;<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.edge.edge_end">edge_end : </A><A HREF="#topology_schema.vertex">vertex</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.edge_curve">ENTITY <b>edge_curve</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.edge">edge</A>, <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.edge_curve.edge_geometry">edge_geometry : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.curve">curve</A>;<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.edge_curve.same_sense">same_sense : </A>BOOLEAN;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.edge_loop">ENTITY <b>edge_loop</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.loop">loop</A>, <A HREF="#topology_schema.path">path</A>);<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.edge_loop.ne">ne : </A>INTEGER := SIZEOF(path.edge_list);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.edge_loop.wr:wr1">WR1: (path.edge_list[1].edge_start) :=: (SELF\path.edge_list[ne].edge_end);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.face">ENTITY <b>face</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#topology_schema.face_surface">face_surface</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.subface">subface</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.oriented_face">oriented_face</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.topological_representation_item">topological_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.face.bounds">bounds : </A>SET[1:?] OF <A HREF="#topology_schema.face_bound">face_bound</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.face.wr:wr1">WR1: NOT (mixed_loop_type_set(list_to_set(list_face_loops(SELF))));</A><br>
+         &nbsp;&nbsp;<A NAME="topology_schema.face.wr:wr2">WR2: SIZEOF(QUERY(temp &lt;* bounds | 'TOPOLOGY_SCHEMA.FACE_OUTER_BOUND' IN TYPEOF(temp))) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.face_bound">ENTITY <b>face_bound</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.topological_representation_item">topological_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.face_bound.bound">bound : </A><A HREF="#topology_schema.loop">loop</A>;<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.face_bound.orientation">orientation : </A>BOOLEAN;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.face_outer_bound">ENTITY <b>face_outer_bound</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.face_bound">face_bound</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.face_surface">ENTITY <b>face_surface</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.face">face</A>, <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.face_surface.face_geometry">face_geometry : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface">surface</A>;<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.face_surface.same_sense">same_sense : </A>BOOLEAN;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.face_surface.wr:wr1">WR1: NOT ('GEOMETRY_SCHEMA.ORIENTED_SURFACE' IN TYPEOF(face_geometry));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.loop">ENTITY <b>loop</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#topology_schema.vertex_loop">vertex_loop</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.edge_loop">edge_loop</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.poly_loop">poly_loop</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.topological_representation_item">topological_representation_item</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.open_path">ENTITY <b>open_path</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.path">path</A>);<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.open_path.ne">ne : </A>INTEGER := SIZEOF(path.edge_list);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.open_path.wr:wr1">WR1: (path.edge_list[1].edge_element.edge_start) :&lt;&gt;: (SELF\path.edge_list[ne].edge_element.edge_end);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.open_shell">ENTITY <b>open_shell</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.connected_face_set">connected_face_set</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.oriented_closed_shell">ENTITY <b>oriented_closed_shell</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.closed_shell">closed_shell</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_closed_shell.closed_shell_element">closed_shell_element : </A><A HREF="#topology_schema.closed_shell">closed_shell</A>;<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_closed_shell.orientation">orientation : </A>BOOLEAN;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_closed_shell.connected_face_set.cfs_faces">connected_face_set.cfs_faces : </A>SET[1:?] OF <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.face">face</A> := conditional_reverse(SELF.orientation, SELF.closed_shell_element.cfs_faces);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_closed_shell.wr:wr1">WR1: NOT ('TOPOLOGY_SCHEMA.ORIENTED_CLOSED_SHELL' IN TYPEOF (SELF.closed_shell_element));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.oriented_edge">ENTITY <b>oriented_edge</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.edge">edge</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_edge.edge_element">edge_element : </A><A HREF="#topology_schema.edge">edge</A>;<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_edge.orientation">orientation : </A>BOOLEAN;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_edge.edge.edge_start">edge.edge_start : </A><A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.vertex">vertex</A> := boolean_choose (SELF.orientation, SELF.edge_element.edge_start, SELF.edge_element.edge_end);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_edge.edge.edge_end">edge.edge_end : </A><A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.vertex">vertex</A> := boolean_choose (SELF.orientation, SELF.edge_element.edge_end, SELF.edge_element.edge_start);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_edge.wr:wr1">WR1: NOT ('TOPOLOGY_SCHEMA.ORIENTED_EDGE' IN TYPEOF (SELF.edge_element));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.oriented_face">ENTITY <b>oriented_face</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.face">face</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_face.face_element">face_element : </A><A HREF="#topology_schema.face">face</A>;<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_face.orientation">orientation : </A>BOOLEAN;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_face.face.bounds">face.bounds : </A>SET[1:?] OF <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.face_bound">face_bound</A> := conditional_reverse(SELF.orientation,SELF.face_element.bounds);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_face.wr:wr1">WR1: NOT ('TOPOLOGY_SCHEMA.ORIENTED_FACE' IN TYPEOF (SELF.face_element));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.oriented_open_shell">ENTITY <b>oriented_open_shell</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.open_shell">open_shell</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_open_shell.open_shell_element">open_shell_element : </A><A HREF="#topology_schema.open_shell">open_shell</A>;<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_open_shell.orientation">orientation : </A>BOOLEAN;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_open_shell.connected_face_set.cfs_faces">connected_face_set.cfs_faces : </A>SET[1:?] OF <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.face">face</A> := conditional_reverse(SELF.orientation, SELF.open_shell_element.cfs_faces);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_open_shell.wr:wr1">WR1: NOT ('TOPOLOGY_SCHEMA.ORIENTED_OPEN_SHELL' IN TYPEOF (SELF.open_shell_element));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.oriented_path">ENTITY <b>oriented_path</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.path">path</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_path.path_element">path_element : </A><A HREF="#topology_schema.path">path</A>;<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_path.orientation">orientation : </A>BOOLEAN;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_path.path.edge_list">path.edge_list : </A>LIST[1:?] OF 
+         UNIQUE
+         <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.oriented_edge">oriented_edge</A> := conditional_reverse(SELF.orientation, SELF.path_element.edge_list);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.oriented_path.wr:wr1">WR1: NOT ('TOPOLOGY_SCHEMA.ORIENTED_PATH' IN TYPEOF (SELF.path_element));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.path">ENTITY <b>path</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#topology_schema.open_path">open_path</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.edge_loop">edge_loop</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.oriented_path">oriented_path</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.topological_representation_item">topological_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.path.edge_list">edge_list : </A>LIST[1:?] OF 
+         UNIQUE
+         <A HREF="#topology_schema.oriented_edge">oriented_edge</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.path.wr:wr1">WR1: path_head_to_tail(SELF);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.poly_loop">ENTITY <b>poly_loop</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>, <A HREF="#topology_schema.loop">loop</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.poly_loop.polygon">polygon : </A>LIST[3:?] OF 
+         UNIQUE
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.cartesian_point">cartesian_point</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.seam_edge">ENTITY <b>seam_edge</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.oriented_edge">oriented_edge</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.seam_edge.pcurve_reference">pcurve_reference : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.pcurve">pcurve</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.seam_edge.wr:wr1">WR1: ('TOPOLOGY_SCHEMA.EDGE_CURVE' IN TYPEOF (edge_element)) AND ('TOPOLOGY_SCHEMA.SEAM_CURVE' IN TYPEOF (edge_element\edge_curve.edge_geometry));</A><br>
+         &nbsp;&nbsp;<A NAME="topology_schema.seam_edge.wr:wr2">WR2: pcurve_reference IN edge_element\edge_curve.edge_geometry\ surface_curve.associated_geometry;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.subedge">ENTITY <b>subedge</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.edge">edge</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.subedge.parent_edge">parent_edge : </A><A HREF="#topology_schema.edge">edge</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.subface">ENTITY <b>subface</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.face">face</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.subface.parent_face">parent_face : </A><A HREF="#topology_schema.face">face</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.subface.wr:wr1">WR1: NOT (mixed_loop_type_set(list_to_set(list_face_loops(SELF)) + list_to_set(list_face_loops(parent_face))));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.topological_representation_item">ENTITY <b>topological_representation_item</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#topology_schema.vertex">vertex</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.edge">edge</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.face_bound">face_bound</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.face">face</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.vertex_shell">vertex_shell</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.wire_shell">wire_shell</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.connected_edge_set">connected_edge_set</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.connected_face_set">connected_face_set</A>, (<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#topology_schema.loop">loop</A><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ANDOR&nbsp;<A HREF="#topology_schema.path">path</A>)))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.vertex">ENTITY <b>vertex</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.topological_representation_item">topological_representation_item</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.vertex_loop">ENTITY <b>vertex_loop</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.loop">loop</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.vertex_loop.loop_vertex">loop_vertex : </A><A HREF="#topology_schema.vertex">vertex</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.vertex_point">ENTITY <b>vertex_point</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>, <A HREF="#topology_schema.vertex">vertex</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.vertex_point.vertex_geometry">vertex_geometry : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.point">point</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.vertex_shell">ENTITY <b>vertex_shell</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.topological_representation_item">topological_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.vertex_shell.vertex_shell_extent">vertex_shell_extent : </A><A HREF="#topology_schema.vertex_loop">vertex_loop</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.wire_shell">ENTITY <b>wire_shell</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#topology_schema.topological_representation_item">topological_representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.wire_shell.wire_shell_extent">wire_shell_extent : </A>SET[1:?] OF <A HREF="#topology_schema.loop">loop</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="topology_schema.wire_shell.wr:wr1">WR1: NOT mixed_loop_type_set(wire_shell_extent);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="topology_schema.boolean_choose">FUNCTION <b>boolean_choose</b></A><br>&nbsp;(b : BOOLEAN; choice1 : GENERIC : item; choice2 : GENERIC : item) : GENERIC : item;
+         </code><pre>
+IF b THEN
+RETURN (choice1);
+ELSE
+RETURN (choice2);
+END_IF;      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.closed_shell_reversed">FUNCTION <b>closed_shell_reversed</b></A><br>&nbsp;(a_shell : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.closed_shell">closed_shell</A>) : <A HREF="#topology_schema.oriented_closed_shell">oriented_closed_shell</A>;
+         </code><pre>
+LOCAL
+the_reverse : oriented_closed_shell;
+END_LOCAL;
+IF ('TOPOLOGY_SCHEMA.ORIENTED_CLOSED_SHELL' IN TYPEOF (a_shell)) THEN
+the_reverse := dummy_tri ||
+connected_face_set (
+a_shell\connected_face_set.cfs_faces) ||
+closed_shell () || oriented_closed_shell(
+a_shell\oriented_closed_shell.closed_shell_element,
+NOT(a_shell\oriented_closed_shell.orientation));
+ELSE
+the_reverse := dummy_tri ||
+connected_face_set (
+a_shell\connected_face_set.cfs_faces) ||
+closed_shell () || oriented_closed_shell (a_shell, FALSE);
+END_IF;
+RETURN (the_reverse);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.conditional_reverse">FUNCTION <b>conditional_reverse</b></A><br>&nbsp;(p : BOOLEAN; an_item : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.reversible_topology">reversible_topology</A>) : <A HREF="#topology_schema.reversible_topology">reversible_topology</A>;
+         </code><pre>
+IF p THEN
+RETURN (an_item);
+ELSE
+RETURN (topology_reversed (an_item));
+END_IF;      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.edge_curve_pcurves">FUNCTION <b>edge_curve_pcurves</b></A><br>&nbsp;(an_edge : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.edge_curve">edge_curve</A>; the_surface_curves : SET OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface_curve">surface_curve</A>) : SET OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.pcurve">pcurve</A>;
+         </code><pre>
+LOCAL
+a_curve : curve;
+result : SET OF pcurve;
+the_geometry : LIST[1:2] OF pcurve_or_surface;
+END_LOCAL;
+a_curve := an_edge.edge_geometry;
+result := [];
+IF 'GEOMETRY_SCHEMA.PCURVE' IN TYPEOF(a_curve) THEN
+result := result + a_curve;
+ELSE
+IF 'GEOMETRY_SCHEMA.SURFACE_CURVE' IN TYPEOF(a_curve) THEN
+the_geometry := a_curve\surface_curve.associated_geometry;
+REPEAT k := 1 TO SIZEOF(the_geometry);
+IF 'GEOMETRY_SCHEMA.PCURVE' IN TYPEOF (the_geometry[k])
+THEN
+result := result + the_geometry[k];
+END_IF;
+END_REPEAT;
+ELSE
+REPEAT j := 1 TO SIZEOF(the_surface_curves);
+the_geometry := the_surface_curves[j].associated_geometry;
+IF the_surface_curves[j].curve_3d :=: a_curve
+THEN
+REPEAT k := 1 TO SIZEOF(the_geometry);
+IF 'GEOMETRY_SCHEMA.PCURVE' IN TYPEOF (the_geometry[k])
+THEN
+result := result + the_geometry[k];
+END_IF;
+END_REPEAT;
+END_IF;
+END_REPEAT;
+END_IF;
+END_IF;
+
+RETURN (RESULT);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.edge_reversed">FUNCTION <b>edge_reversed</b></A><br>&nbsp;(an_edge : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.edge">edge</A>) : <A HREF="#topology_schema.oriented_edge">oriented_edge</A>;
+         </code><pre>
+LOCAL
+the_reverse : oriented_edge;
+END_LOCAL;
+
+IF ('TOPOLOGY_SCHEMA.ORIENTED_EDGE' IN TYPEOF (an_edge)) THEN
+the_reverse := dummy_tri ||
+edge(an_edge.edge_end, an_edge.edge_start) ||
+oriented_edge(an_edge\oriented_edge.edge_element,
+NOT (an_edge\oriented_edge.orientation)) ;
+ELSE
+the_reverse := dummy_tri ||
+edge(an_edge.edge_end, an_edge.edge_start) ||
+oriented_edge(an_edge, FALSE);
+END_IF;
+RETURN (the_reverse);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.face_bound_reversed">FUNCTION <b>face_bound_reversed</b></A><br>&nbsp;(a_face_bound : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.face_bound">face_bound</A>) : <A HREF="#topology_schema.face_bound">face_bound</A>;
+         </code><pre>
+LOCAL
+the_reverse : face_bound ;
+END_LOCAL;
+IF ('TOPOLOGY_SCHEMA.FACE_OUTER_BOUND' IN TYPEOF (a_face_bound)) THEN
+the_reverse := dummy_tri ||
+face_bound(a_face_bound\face_bound.bound,
+NOT (a_face_bound\face_bound.orientation))
+|| face_outer_bound() ;
+ELSE
+the_reverse := dummy_tri ||
+face_bound(a_face_bound.bound, NOT(a_face_bound.orientation));
+END_IF;
+RETURN (the_reverse);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.face_reversed">FUNCTION <b>face_reversed</b></A><br>&nbsp;(a_face : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.face">face</A>) : <A HREF="#topology_schema.oriented_face">oriented_face</A>;
+         </code><pre>
+LOCAL
+the_reverse : oriented_face ;
+END_LOCAL;
+IF ('TOPOLOGY_SCHEMA.ORIENTED_FACE' IN TYPEOF (a_face)) THEN
+the_reverse := dummy_tri ||
+face(set_of_topology_reversed(a_face.bounds)) ||
+oriented_face(a_face\oriented_face.face_element,
+NOT (a_face\oriented_face.orientation)) ;
+ELSE
+the_reverse := dummy_tri ||
+face(set_of_topology_reversed(a_face.bounds)) ||
+oriented_face(a_face, FALSE) ;
+END_IF;
+RETURN (the_reverse);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.list_face_loops">FUNCTION <b>list_face_loops</b></A><br>&nbsp;(f : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.face">face</A>) : LIST[0:?] OF <A HREF="#topology_schema.loop">loop</A>;
+         </code><pre>
+LOCAL
+loops : LIST[0:?] OF loop := [];
+END_LOCAL;
+
+REPEAT i := 1 TO SIZEOF(f.bounds);
+loops := loops +(f.bounds[i].bound);
+END_REPEAT;
+
+RETURN(loops);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.list_loop_edges">FUNCTION <b>list_loop_edges</b></A><br>&nbsp;(l : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.loop">loop</A>) : LIST[0:?] OF <A HREF="#topology_schema.edge">edge</A>;
+         </code><pre>
+LOCAL
+edges : LIST[0:?] OF edge := [];
+END_LOCAL;
+
+IF 'TOPOLOGY_SCHEMA.EDGE_LOOP' IN TYPEOF(l) THEN
+REPEAT i := 1 TO SIZEOF(l\path.edge_list);
+edges := edges + (l\path.edge_list[i].edge_element);
+END_REPEAT;
+END_IF;
+
+RETURN(edges);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.list_of_topology_reversed">FUNCTION <b>list_of_topology_reversed</b></A><br>&nbsp;(a_list : LIST OF st_of_reversible_topology_item) : LIST OF st_of_reversible_topology_item;
+         </code><pre>
+LOCAL
+the_reverse : list_of_reversible_topology_item;
+END_LOCAL;
+
+the_reverse := [];
+REPEAT i := 1 TO SIZEOF (a_list);
+the_reverse := topology_reversed (a_list [i]) + the_reverse;
+END_REPEAT;
+
+RETURN (the_reverse);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.list_shell_edges">FUNCTION <b>list_shell_edges</b></A><br>&nbsp;(s : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.shell">shell</A>) : LIST[0:?] OF <A HREF="#topology_schema.edge">edge</A>;
+         </code><pre>
+LOCAL
+edges : LIST[0:?] OF edge := [];
+END_LOCAL;
+
+REPEAT i := 1 TO SIZEOF(list_shell_loops(s));
+edges := edges + list_loop_edges(list_shell_loops(s)[i]);
+END_REPEAT;
+
+RETURN(edges);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.list_shell_faces">FUNCTION <b>list_shell_faces</b></A><br>&nbsp;(s : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.shell">shell</A>) : LIST[0:?] OF <A HREF="#topology_schema.face">face</A>;
+         </code><pre>
+LOCAL
+faces : LIST[0:?] OF face := [];
+END_LOCAL;
+
+IF ('TOPOLOGY_SCHEMA.CLOSED_SHELL' IN TYPEOF(s)) OR
+('TOPOLOGY_SCHEMA.OPEN_SHELL' IN TYPEOF(s)) THEN
+REPEAT i := 1 TO SIZEOF(s\connected_face_set.cfs_faces);
+faces := faces + s\connected_face_set.cfs_faces[i];
+END_REPEAT;
+END_IF;
+
+RETURN(faces);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.list_shell_loops">FUNCTION <b>list_shell_loops</b></A><br>&nbsp;(s : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.shell">shell</A>) : LIST[0:?] OF <A HREF="#topology_schema.loop">loop</A>;
+         </code><pre>
+LOCAL
+loops : LIST[0:?] OF loop := [];
+END_LOCAL;
+
+IF 'TOPOLOGY_SCHEMA.VERTEX_SHELL' IN TYPEOF(s) THEN
+loops := loops + s.vertex_shell_extent;
+END_IF;
+
+IF 'TOPOLOGY_SCHEMA.WIRE_SHELL' IN TYPEOF(s) THEN
+REPEAT i := 1 TO SIZEOF(s.wire_shell_extent);
+loops := loops + s.wire_shell_extent[i];
+END_REPEAT;
+END_IF;
+
+IF ('TOPOLOGY_SCHEMA.OPEN_SHELL' IN TYPEOF(s)) OR
+('TOPOLOGY_SCHEMA.CLOSED_SHELL' IN TYPEOF(s)) THEN
+REPEAT i := 1 TO SIZEOF(s.cfs_faces);
+loops := loops + list_face_loops(s.cfs_faces[i]);
+END_REPEAT;
+END_IF;
+
+RETURN(loops);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.list_to_set">FUNCTION <b>list_to_set</b></A><br>&nbsp;(l : LIST[0:?] OF GENERIC) : SET OF GENERIC;
+         </code><pre>
+LOCAL
+s : SET OF GENERIC:T := [];
+END_LOCAL;
+
+REPEAT i := 1 TO SIZEOF(l);
+s := s + l[i];
+END_REPEAT;
+
+RETURN(s);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.mixed_loop_type_set">FUNCTION <b>mixed_loop_type_set</b></A><br>&nbsp;(l : SET[0:?] OF <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.loop">loop</A>) : LOGICAL;
+         </code><pre>
+LOCAL
+poly_loop_type: LOGICAL;
+END_LOCAL;
+IF(SIZEOF(l) &lt;= 1) THEN
+RETURN(FALSE);
+END_IF;
+poly_loop_type := ('TOPOLOGY_SCHEMA.POLY_LOOP' IN TYPEOF(l[1]));
+REPEAT i := 2 TO SIZEOF(l);
+IF(('TOPOLOGY_SCHEMA.POLY_LOOP' IN TYPEOF(l[i])) &lt;&gt; poly_loop_type)
+THEN
+RETURN(TRUE);
+END_IF;
+END_REPEAT;
+RETURN(FALSE);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.open_shell_reversed">FUNCTION <b>open_shell_reversed</b></A><br>&nbsp;(a_shell : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.open_shell">open_shell</A>) : <A HREF="#topology_schema.oriented_open_shell">oriented_open_shell</A>;
+         </code><pre>
+LOCAL
+the_reverse : oriented_open_shell;
+END_LOCAL;
+IF ('TOPOLOGY_SCHEMA.ORIENTED_OPEN_SHELL' IN TYPEOF (a_shell)) THEN
+the_reverse := dummy_tri ||
+connected_face_set (
+a_shell\connected_face_set.cfs_faces) ||
+open_shell () || oriented_open_shell(
+a_shell\oriented_open_shell.open_shell_element,
+(NOT (a_shell\oriented_open_shell.orientation)));
+ELSE
+the_reverse := dummy_tri ||
+connected_face_set (
+a_shell\connected_face_set.cfs_faces) ||
+open_shell () || oriented_open_shell (a_shell, FALSE);
+END_IF;
+RETURN (the_reverse);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.path_head_to_tail">FUNCTION <b>path_head_to_tail</b></A><br>&nbsp;(a_path : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.path">path</A>) : LOGICAL;
+         </code><pre>
+LOCAL
+n : INTEGER;
+p : LOGICAL := TRUE;
+END_LOCAL;
+
+n := SIZEOF (a_path.edge_list);
+REPEAT i := 2 TO n;
+p := p AND (a_path.edge_list[i-1].edge_end :=:
+a_path.edge_list[i].edge_start);
+END_REPEAT;
+
+RETURN (p);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.path_reversed">FUNCTION <b>path_reversed</b></A><br>&nbsp;(a_path : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.path">path</A>) : <A HREF="#topology_schema.oriented_path">oriented_path</A>;
+         </code><pre>
+LOCAL
+the_reverse : oriented_path ;
+END_LOCAL;
+IF ('TOPOLOGY_SCHEMA.ORIENTED_PATH' IN TYPEOF (a_path)) THEN
+the_reverse := dummy_tri ||
+path(list_of_topology_reversed (a_path.edge_list)) ||
+oriented_path(a_path\oriented_path.path_element,
+NOT(a_path\oriented_path.orientation)) ;
+ELSE
+the_reverse := dummy_tri ||
+path(list_of_topology_reversed (a_path.edge_list)) ||
+oriented_path(a_path, FALSE);
+END_IF;
+
+RETURN (the_reverse);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.set_of_topology_reversed">FUNCTION <b>set_of_topology_reversed</b></A><br>&nbsp;(a_set : SET OF t_of_reversible_topology_item) : SET OF t_of_reversible_topology_item;
+         </code><pre>
+LOCAL
+the_reverse : set_of_reversible_topology_item;
+END_LOCAL;
+
+the_reverse := [];
+REPEAT i := 1 TO SIZEOF (a_set);
+the_reverse := the_reverse + topology_reversed (a_set [i]);
+END_REPEAT;
+
+RETURN (the_reverse);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.shell_reversed">FUNCTION <b>shell_reversed</b></A><br>&nbsp;(a_shell : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.shell">shell</A>) : <A HREF="#topology_schema.shell">shell</A>;
+         </code><pre>
+IF ('TOPOLOGY_SCHEMA.OPEN_SHELL' IN TYPEOF (a_shell)) THEN
+RETURN (open_shell_reversed (a_shell));
+ELSE
+IF ('TOPOLOGY_SCHEMA.CLOSED_SHELL' IN TYPEOF (a_shell)) THEN
+RETURN (closed_shell_reversed (a_shell));
+ELSE
+RETURN (?);
+END_IF;
+END_IF;      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.topology_reversed">FUNCTION <b>topology_reversed</b></A><br>&nbsp;(an_item : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.reversible_topology">reversible_topology</A>) : <A HREF="#topology_schema.reversible_topology">reversible_topology</A>;
+         </code><pre>
+IF ('TOPOLOGY_SCHEMA.EDGE' IN TYPEOF (an_item)) THEN
+RETURN (edge_reversed (an_item));
+END_IF;
+
+IF ('TOPOLOGY_SCHEMA.PATH' IN TYPEOF (an_item)) THEN
+RETURN (path_reversed (an_item));
+END_IF;
+
+IF ('TOPOLOGY_SCHEMA.FACE_BOUND' IN TYPEOF (an_item)) THEN
+RETURN (face_bound_reversed (an_item));
+END_IF;
+
+IF ('TOPOLOGY_SCHEMA.FACE' IN TYPEOF (an_item)) THEN
+RETURN (face_reversed (an_item));
+END_IF;
+
+IF ('TOPOLOGY_SCHEMA.SHELL' IN TYPEOF (an_item)) THEN
+RETURN (shell_reversed (an_item));
+END_IF;
+
+IF ('SET' IN TYPEOF (an_item)) THEN
+RETURN (set_of_topology_reversed (an_item));
+END_IF;
+
+IF ('LIST' IN TYPEOF (an_item)) THEN
+RETURN (list_of_topology_reversed (an_item));
+END_IF;
+
+RETURN (?);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="topology_schema.vertex_point_pcurves">FUNCTION <b>vertex_point_pcurves</b></A><br>&nbsp;(a_vertex : <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.vertex_point">vertex_point</A>; the_degenerates : SET OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.evaluated_degenerate_pcurve">evaluated_degenerate_pcurve</A>) : SET OF <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.degenerate_pcurve">degenerate_pcurve</A>;
+         </code><pre>
+LOCAL
+a_point : point;
+result : SET OF degenerate_pcurve;
+END_LOCAL;
+a_point := a_vertex.vertex_geometry;
+result := [];
+IF 'GEOMETRY_SCHEMA.DEGENERATE_PCURVE' IN TYPEOF(a_point) THEN
+result := result + a_point;
+ELSE
+REPEAT j := 1 TO SIZEOF(the_degenerates);
+IF (the_degenerates[j].equivalent_point :=: a_point) THEN
+result := result + the_degenerates[j];
+END_IF;
+END_REPEAT;
+END_IF;
+
+RETURN (RESULT);      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;topology_schema<br></code></body>
+</HTML>

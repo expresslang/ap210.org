@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Fill_area_style_tile</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.380 Fill_area_style_tile</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Fill_area_style_tile is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Fill_area_style_tile is the definition of the tile for a <A
+CLASS="INTERNALREF"
+HREF="e_380.htm"
+>Fill_area_style</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>tile</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>tiling_pattern</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>tiling_scale</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.380.1 tile</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The tile specifies either an <A
+CLASS="INTERNALREF"
+HREF="e_365.htm"
+>Externally_defined_tile</A
+>,
+ a <A
+CLASS="INTERNALREF"
+HREF="e_383.htm"
+>Fill_area_style_tile_curve_with_style</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_384.htm"
+>Fill_area_style_tile_solid_region</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_385.htm"
+>Fill_area_style_tile_symbol_with_style</A
+> for the Fill_area_style_tile.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.380.2 tiling_pattern</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The tiling_pattern specifies two <A
+CLASS="INTERNALREF"
+HREF="e_946.htm"
+>Vector</A
+> for the Fill_area_style_tile. 
+There shall be exactly two Vector for a Fill_area_style_tile.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.380.3 tiling_scale</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The tiling_scale specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="Positive_ratio_measure.htm"
+>Positive_ratio_measure</A
+> for a Fill_area_style_tile.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY fill_area_style_tile
+  SUBTYPE OF (managed_design_object);
+--tt tc1 wd11 modified
+   first_direction_repeat_factor : vector;
+--tt tc1 wd11 added 
+   second_direction_repeat_factor : vector;
+    tile           : fill_area_style_tile_shape_select;
+    tiling_scale   : positive_ratio_measure;
+END_ENTITY; -- fill_area_style_tile
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

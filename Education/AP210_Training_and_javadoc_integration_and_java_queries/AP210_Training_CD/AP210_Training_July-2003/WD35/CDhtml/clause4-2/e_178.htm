@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Conical_tolerance_zone_boundary</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.178 Conical_tolerance_zone_boundary</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Conical_tolerance_zone_boundary is a type of <A
+CLASS="INTERNALREF"
+HREF="e_915.htm"
+>Tolerance_zone_boundary</A
+> that is conical in form. The shape of the Conical_tolerance_zone_boundary is defined by a frustum the size of which is specified at the surfaces that define the ends of the frustum.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>boundary_and_surface_relationships</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.178.1 boundary_and_surface_relationships</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The boundary_and_surface_relationships is an inverse relationship that specifies that the existence of the 
+Conical_tolerance_zone_boundary is dependent on the existence of two <A
+CLASS="INTERNALREF"
+HREF="e_179.htm"
+>Conical_tolerance_zone_boundary_and_surface_relationship</A
+>
+that specify the Conical_tolerance_zone_boundary as their sized_tolerance_zone_boundary. There shall be exactly two 
+Conical_tolerance_zone_boundary_and_surface_relationship for a Conical_tolerance_zone_boundary.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY conical_tolerance_zone_boundary
+  SUBTYPE OF (tolerance_zone_boundary);
+  INVERSE
+    boundary_and_surface_relationships : SET [2:2] OF 
+	conical_tolerance_zone_boundary_and_surface_relationship FOR 
+	sized_tolerance_zone_boundary;
+END_ENTITY; -- conical_tolerance_zone_boundary
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

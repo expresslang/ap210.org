@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Datum_target</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.240 Datum_target</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Datum_target is a type of <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+> that is used to define one or more <A
+CLASS="INTERNALREF"
+HREF="e_241.htm"
+>Datum_target_set</A
+>.
+<DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>Typically datum targets are used when it is not appropriate to specify an entire surface as a <A
+CLASS="INTERNALREF"
+HREF="e_226.htm"
+>Datum_feature</A
+>.</LI
+><LI
+CLASS="NOTEINGROUP"
+>The definition of datum target is given in 3.4 of ISO 5459.</LI
+></OL
+></DIV
+>&#13;</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>datum_target_usages </LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.240.1 datum_target_usages</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The datum_target_usages is an inverse relationship that specifies that the existence of the Datum_target is dependent on the existence 
+of the <A
+CLASS="INTERNALREF"
+HREF="e_242.htm"
+>Datum_target_usage_in_datum_target_set_relationship</A
+>
+that specifies the Datum_target as its used_datum_target. There shall be one or more Datum_target_usage_in_datum_target_set_relationship 
+for the Datum_target.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY datum_target
+  SUBTYPE OF (physical_feature_or_part_template);
+  INVERSE
+    datum_target_usages : SET [1:?] OF 
+                          datum_target_usage_in_datum_target_set_relationship FOR 
+                          used_datum_target;
+END_ENTITY; -- datum_target
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

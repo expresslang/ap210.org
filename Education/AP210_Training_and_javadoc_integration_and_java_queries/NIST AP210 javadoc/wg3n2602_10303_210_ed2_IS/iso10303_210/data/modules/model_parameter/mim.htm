@@ -1,0 +1,111 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Model_parameter_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Model_parameter_mim</h2><code><br><br><a name="model_parameter_mim">SCHEMA <b>Model_parameter_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/activity_method_assignment/sys/e_exp_mim.htm#activity_method_assignment_mim">Activity_method_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1249<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/characteristic/sys/e_exp_mim.htm#characteristic_mim">Characteristic_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1654<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/classification_with_attributes/sys/e_exp_mim.htm#classification_with_attributes_mim">Classification_with_attributes_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1111<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/independent_property_representation/sys/e_exp_mim.htm#independent_property_representation_mim">Independent_property_representation_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1038<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/group/sys/e_exp_mim.htm#group_mim">Group_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1113<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema">product_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category">product_related_product_category</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema">product_property_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_definition">characterized_definition</A>);
+         <br><br></code><code><br><A NAME="model_parameter_mim.mp_action_method_items">TYPE </A><b>mp_action_method_items</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/activity_method_assignment/sys/e_exp_mim.htm#activity_method_assignment_mim.action_method_items">action_method_items</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#model_parameter_mim.test_method_based_parameter_assignment">test_method_based_parameter_assignment</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="model_parameter_mim.mp_document_reference_item">TYPE </A><b>mp_document_reference_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/document_assignment/sys/e_exp_mim.htm#document_assignment_mim.document_reference_item">document_reference_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#model_parameter_mim.model_parameter">model_parameter</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="model_parameter_mim.mp_groupable_item">TYPE </A><b>mp_groupable_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/group/sys/e_exp_mim.htm#group_mim.groupable_item">groupable_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group_relationship">group_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="model_parameter_mim.category_model_parameter">ENTITY <b>category_model_parameter</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#model_parameter_mim.model_parameter">model_parameter</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_mim.default_value_property_definition_representation">ENTITY <b>default_value_property_definition_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation">property_definition_representation</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_mim.model_parameter">ENTITY <b>model_parameter</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property">general_property</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_mim.model_parameter_with_unit">ENTITY <b>model_parameter_with_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#model_parameter_mim.model_parameter">model_parameter</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_mim.model_parameter_with_unit.wr:wr1">WR1: NOT ('MODEL_PARAMETER_MIM.SCHEMA_BASED_MODEL_PARAMETER' IN TYPEOF(SELF));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_mim.parameter_assignment">ENTITY <b>parameter_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation">property_definition_representation</A>, <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_mim.parameter_assignment_override">ENTITY <b>parameter_assignment_override</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>, <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>.<A NAME="model_parameter_mim.parameter_assignment_override.rep_1">rep_1 : </A><A HREF="#model_parameter_mim.parameter_assignment">parameter_assignment</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>.<A NAME="model_parameter_mim.parameter_assignment_override.rep_2">rep_2 : </A><A HREF="#model_parameter_mim.parameter_assignment">parameter_assignment</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_mim.parameter_assignment_override.ur:ur1">UR1: </A>rep_1, rep_2;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_mim.parameter_assignment_override.wr:wr1">WR1: SELF\representation_relationship.rep_1 &lt;&gt; SELF\representation_relationship.rep_2;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_mim.product_specific_parameter_value_assignment">ENTITY <b>product_specific_parameter_value_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>, <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category">product_related_product_category</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_mim.schema_based_model_parameter">ENTITY <b>schema_based_model_parameter</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#model_parameter_mim.model_parameter">model_parameter</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_mim.test_method_based_parameter_assignment">ENTITY <b>test_method_based_parameter_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#model_parameter_mim.parameter_assignment">parameter_assignment</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_mim.valid_range_property_definition_representation">ENTITY <b>valid_range_property_definition_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation">property_definition_representation</A>);<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Model_parameter_mim<br></code></body>
+</HTML>

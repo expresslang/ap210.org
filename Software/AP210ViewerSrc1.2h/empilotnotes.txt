@@ -1,0 +1,50 @@
+READY
+Note the EMPilot file has some components without height or locations defined.
+See empilot.txt and empilot.jpg for the details.
+
+READY
+The EMpilot and the ITI translators represent the component height differently.
+The EMpilot representation_item has a name of "maximum body clearance about seating plane".
+The ITI representation_item has a name of "maximum height about seating plane".
+The correct name is "maximum height above seating plane".
+The rational for this is that the ARM attribute maximum_height_above_seating_plane NOT optional.  Given a planar interconnect_module the two attributes should have the same value.
+
+See getPackagedComponentHeight() for an implementation that supports both.
+
+In the product_definition_relationship with a name of "used package" in the EMpilot translator
+the packaged_part is referenced by the related_product_definition attribute, in the ITI
+translator the package_part is referenced by the relating_product_definition.
+As the mapping for packaged_part to package (as used_package) below shows the ITI implementation is correct.
+
+(packaged_part <=)
+(externally_defined_packaged_part <=
+externally_defined_physical_unit <=)
+(library_defined_packaged_part <=
+library_defined_physical_unit <=
+externally_defined_physical_unit <=)
+physical_unit <=
+product_definition <-
+product_definition_relationship.relating_product_definition
+{product_definition_relationship
+product_definition_relationship.name = `used package'}
+product_definition_relationship
+product_definition_relationship.related_product_definition ->
+{product_definition
+product_definition.frame_of_reference ->
+product_definition_context <=
+application_context_element
+application_context_element.name = `physical design usage'}
+product_definition =>
+physical_unit =>
+package
+
+See getPackagedComponentPackage() for an implementation that supports both.
+
+The ITI interconnect implementation is quite different then the empilots
+and doesn't follow the recommended practices.
+This results in the following.
+
+The interconnect physical_units are different check out CAP210ViewerDoc::OnOpenDocument.
+The board outline shape reps are different checkout GetBoardOutlineShapeRep and
+GetRockwellBoardOutlineShapeRep. To be expected at this point.
+

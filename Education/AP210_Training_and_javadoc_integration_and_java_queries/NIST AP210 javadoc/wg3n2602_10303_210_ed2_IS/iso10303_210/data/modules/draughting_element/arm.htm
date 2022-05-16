@@ -1,0 +1,103 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Draughting_element_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Draughting_element_arm</h2><code><br><br><a name="draughting_element_arm">SCHEMA <b>Draughting_element_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm">Associative_text_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1132<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/curve_appearance/sys/e_exp_arm.htm#curve_appearance_arm">Curve_appearance_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1003<br><br></code><code><br><A NAME="draughting_element_arm.annotation_plane_element">TYPE </A><b>annotation_plane_element</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#draughting_element_arm.draughting_callout">Draughting_callout</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/appearance_assignment/sys/e_exp_arm.htm#appearance_assignment_arm.styled_element">Styled_element</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="draughting_element_arm.de_appearance_select">TYPE </A><b>de_appearance_select</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/appearance_assignment/sys/e_exp_arm.htm#appearance_assignment_arm.appearance_select">appearance_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/styled_curve/sys/e_exp_arm.htm#styled_curve_arm.curve_appearance">Curve_appearance</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/curve_appearance/sys/e_exp_arm.htm#curve_appearance_arm.point_appearance">Point_appearance</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.text_style">Text_style</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="draughting_element_arm.draughting_callout_content_select">TYPE </A><b>draughting_callout_content_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#draughting_element_arm.generic_annotation_curve">Generic_annotation_curve</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.text">Text</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="draughting_element_arm.plane_or_planar_box">TYPE </A><b>plane_or_planar_box</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/appearance_assignment/sys/e_exp_arm.htm#appearance_assignment_arm.planar_box">Planar_box</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/basic_geometry/sys/e_exp_arm.htm#basic_geometry_arm.plane">Plane</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="draughting_element_arm.annotation_fill_area">ENTITY <b>Annotation_fill_area</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_arm.annotation_fill_area.boundaries">boundaries : </A>SET[1:?] OF <A HREF="../../../data/modules/basic_geometry/sys/e_exp_arm.htm#basic_geometry_arm.curve">Curve</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_arm.annotation_plane">ENTITY <b>Annotation_plane</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.annotation_element">Annotation_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_arm.annotation_plane.elements">elements : </A>
+         OPTIONAL 
+         SET[1:?] OF <A HREF="#draughting_element_arm.annotation_plane_element">annotation_plane_element</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/appearance_assignment/sys/e_exp_arm.htm#appearance_assignment_arm.styled_element">Styled_element</A>.<A NAME="draughting_element_arm.annotation_plane.element">element : </A><A HREF="#draughting_element_arm.plane_or_planar_box">plane_or_planar_box</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_arm.dimension_curve">ENTITY <b>Dimension_curve</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.annotation_curve">Annotation_curve</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_arm.dimension_curve.terminator">terminator : </A>SET[0:2] OF <A HREF="../../../data/modules/curve_appearance/sys/e_exp_arm.htm#curve_appearance_arm.terminator">Terminator</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_arm.dimension_curve_directed_callout">ENTITY <b>Dimension_curve_directed_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_arm.draughting_callout">Draughting_callout</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_arm.dimension_curve_directed_callout.dimension_curve">dimension_curve : </A><A HREF="#draughting_element_arm.dimension_curve">Dimension_curve</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_arm.dimension_curve_directed_callout.wr:wr1">WR1: dimension_curve IN SELF\Draughting_callout.contents;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_arm.draughting_callout">ENTITY <b>Draughting_callout</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#draughting_element_arm.dimension_curve_directed_callout">Dimension_curve_directed_callout</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_element_arm.leader_directed_callout">Leader_directed_callout</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_element_arm.projection_directed_callout">Projection_directed_callout</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_item">Representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_arm.draughting_callout.contents">contents : </A>LIST[1:?] OF <A HREF="#draughting_element_arm.draughting_callout_content_select">draughting_callout_content_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_arm.fill_area">ENTITY <b>Fill_area</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.annotation_element">Annotation_element</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/appearance_assignment/sys/e_exp_arm.htm#appearance_assignment_arm.styled_element">Styled_element</A>.<A NAME="draughting_element_arm.fill_area.element">element : </A><A HREF="#draughting_element_arm.annotation_fill_area">Annotation_fill_area</A>;<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_arm.fill_area.reference_point">reference_point : </A><A HREF="../../../data/modules/basic_geometry/sys/e_exp_arm.htm#basic_geometry_arm.point_select">point_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_arm.generic_annotation_curve">ENTITY <b>Generic_annotation_curve</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.annotation_curve">Annotation_curve</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_arm.leader">ENTITY <b>Leader</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.annotation_curve">Annotation_curve</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_arm.leader_directed_callout">ENTITY <b>Leader_directed_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_arm.draughting_callout">Draughting_callout</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_arm.leader_directed_callout.leader">leader : </A><A HREF="#draughting_element_arm.leader">Leader</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_arm.leader_directed_callout.wr:wr1">WR1: leader IN SELF\Draughting_callout.contents;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_arm.projection_curve">ENTITY <b>Projection_curve</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.annotation_curve">Annotation_curve</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_arm.projection_directed_callout">ENTITY <b>Projection_directed_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_arm.draughting_callout">Draughting_callout</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_arm.projection_directed_callout.projection_curve">projection_curve : </A><A HREF="#draughting_element_arm.projection_curve">Projection_curve</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_arm.projection_directed_callout.wr:wr1">WR1: projection_curve IN SELF\Draughting_callout.contents;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_arm.annotation_curve_subtypes">SUBTYPE_CONSTRAINT <b>annotation_curve_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.annotation_curve">Annotation_curve</A>;<br>
+         &nbsp;&nbsp;(ONEOF&nbsp;(<A HREF="#draughting_element_arm.leader">Leader</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_element_arm.projection_curve">Projection_curve</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_element_arm.dimension_curve">Dimension_curve</A>)<br>&nbsp;&nbsp;ANDOR&nbsp;<A HREF="#draughting_element_arm.generic_annotation_curve">Generic_annotation_curve</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Draughting_element_arm<br></code></body>
+</HTML>

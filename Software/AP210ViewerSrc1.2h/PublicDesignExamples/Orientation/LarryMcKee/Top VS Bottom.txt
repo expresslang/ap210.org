@@ -1,0 +1,96 @@
+From: 	larrym@us.ibm.com[SMTP:larrym@us.ibm.com]
+Sent: 	Friday, June 02, 2000 1:22 PM
+To: 	trthurma@cacd.rockwell.com; krcline@collins.rockwell.com; michael.keenan@pss.boeing.com
+Cc: 	jgdeloof@aol.com; waterbug@epims1.gsfc.nasa.gov
+Subject: 	Top VS Bottom
+
+<<File: test2.brd>> <<File: test2.lib>> <<File: test2.step>> <<File: top.bmp>> <<File: bottom.bmp>> <<File: test2.brd>> 
+
+
+
+
+
+Folks,
+        Wrong IDF Board file. The one here is it.
+
+
+
+Larry McKee
+IBM/PDES, Inc.
+5300 International Blvd.
+North Charleston, SC 29418
+Phone: 843-760-3336
+FAX: 843-760-3349
+email: larrym@us.ibm.com
+VM: LMCKEE at PKMFGVM4
+
+
+---------------------- Forwarded by Larry McKee/Charleston/IBM on
+06/02/2000 04:14 PM ---------------------------
+
+To:        trthurma@cacd.rockwell.com@internet,
+krcline@collins.rockwell.com, michael.keenan@pss.boeing.com
+cc:        jgdeloof@aol.com@Internet, waterbug@epims1.gsfc.nasa.gov @
+INTERNET
+From:        Larry McKee/Charleston/IBM@IBMUS
+Subject:        Top VS Bottom
+
+
+Tom, Kevin and Mike,
+        Tom explained there have been some discussions of IDF vs 210
+orientation issues. Tom asked me to create an IDF file with a component
+instanced along a constant X line where the first instance has a 0 degree
+angle, the second has a 10 degree angle and the third has a 30 degree
+angle. The component should be instanced on both the top and bottom of the
+board. Attached are: the IDF board file, the IDF library file, a 203 file
+created from these, a picture of the top of the board from AutoCAD and a
+picture of the bottom of the board from AutoCAD. The last two pictures
+result from the import of the 203 file.
+        The MCAD vendors have decided en-mass to reject CTO3D as a method
+of placing anything other than mirrored geometry. Most 99.9% do not support
+mirrored geometry at all (they reinstance it). This is still a matter of
+discussion.
+        The 203 file here uses A2P3D and CDSR to instance components. This
+should not matter as the information is similar. The MCAD vendors do not
+like to mix CTO and A2P since the vectors are different. For CTO, the first
+vector is the inherent X direction. For A2P, it is the inherent Z
+direction. It is too easy to screw this up.
+        One thing I noted in the ITI Mentor translator files I saw (not
+sure if they are the latest) is that the A2P instances assumed the first
+direction was X. This is not the case. It is Z. This will cause holes in
+the board to be sideways (viewed edge on) when looking at the board from
+the top or bottom. I mentioned this to Paul Monson and he said he would
+look into it.
+        For the issue here (flipping geometry for the bottom of the board
+vs the top), the CTO is
+
+#181=CARTESIAN_TRANSFORMATION_OPERATOR_2D('','','',$,$,#611,$);
+
+for the top and
+
+#181=CARTESIAN_TRANSFORMATION_OPERATOR_2D('','','',#451,#452,#611,$);
+#451=DIRECTION('',(1.,0.));
+#451=DIRECTION('',(0.,-1.));
+#611=CARTESIAN_POINT('',(0.,0.));
+
+for the bottom.
+
+
+
+
+Larry McKee
+IBM/PDES, Inc.
+5300 International Blvd.
+North Charleston, SC 29418
+Phone: 843-760-3336
+FAX: 843-760-3349
+email: larrym@us.ibm.com
+VM: LMCKEE at PKMFGVM4
+
+
+(See attached file: test2.brd)
+(See attached file: test2.lib)
+(See attached file: test2.step)
+(See attached file: top.bmp)
+(See attached file: bottom.bmp)
+(See attached file: test2.brd)

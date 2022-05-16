@@ -1,0 +1,220 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Geometric_tolerance_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Geometric_tolerance_arm</h2><code><br><br><a name="geometric_tolerance_arm">SCHEMA <b>Geometric_tolerance_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/derived_shape_element/sys/e_exp_arm.htm#derived_shape_element_arm">Derived_shape_element_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1130<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm">Elemental_geometric_shape_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1004<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm">Measure_representation_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1118<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm">Shape_property_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1032<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm">Value_with_unit_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1054<br><br></code><code><br><A NAME="geometric_tolerance_arm.angularity_tolerance">ENTITY <b>Angularity_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.angularity_tolerance.reference_datum">reference_datum : </A>SET[1:2] OF <A HREF="#geometric_tolerance_arm.datum_reference">Datum_reference</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.circular_runout_tolerance">ENTITY <b>Circular_runout_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.circular_runout_tolerance.angle">angle : </A>
+         OPTIONAL 
+         REAL;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.circular_runout_tolerance.reference_datum">reference_datum : </A>SET[1:2] OF <A HREF="#geometric_tolerance_arm.datum_reference">Datum_reference</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.coaxiality_tolerance">ENTITY <b>Coaxiality_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.coaxiality_tolerance.reference_datum">reference_datum : </A>SET[1:2] OF <A HREF="#geometric_tolerance_arm.datum_reference">Datum_reference</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.common_datum">ENTITY <b>Common_datum</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.datum">Datum</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.common_datum.made_up_by">made_up_by : </A>SET[2:?] OF <A HREF="#geometric_tolerance_arm.single_datum">Single_datum</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.concentricity_tolerance">ENTITY <b>Concentricity_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.concentricity_tolerance.reference_datum">reference_datum : </A>SET[1:2] OF <A HREF="#geometric_tolerance_arm.datum_reference">Datum_reference</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.cylindricity_tolerance">ENTITY <b>Cylindricity_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.datum">ENTITY <b>Datum</b></A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.datum_defined_by_derived_shape">ENTITY <b>Datum_defined_by_derived_shape</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/derived_shape_element/sys/e_exp_arm.htm#derived_shape_element_arm.derived_geometry">Derived_geometry</A>, <A HREF="#geometric_tolerance_arm.single_datum">Single_datum</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.datum_defined_by_feature">ENTITY <b>Datum_defined_by_feature</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.single_datum">Single_datum</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.datum_defined_by_feature.defined_by">defined_by : </A><A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element">Shape_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.datum_defined_by_targets">ENTITY <b>Datum_defined_by_targets</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.single_datum">Single_datum</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.datum_defined_by_targets.defined_by">defined_by : </A>SET[1:?] OF <A HREF="#geometric_tolerance_arm.datum_target">Datum_target</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.datum_defined_by_targets.rule_description">rule_description : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.datum_reference">ENTITY <b>Datum_reference</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.datum_reference.precedence">precedence : </A>INTEGER;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.datum_reference.referenced_datum">referenced_datum : </A><A HREF="#geometric_tolerance_arm.datum">Datum</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.datum_target">ENTITY <b>Datum_target</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.datum_target.id">id : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.flatness_tolerance">ENTITY <b>Flatness_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.geometric_tolerance">ENTITY <b>Geometric_tolerance</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#geometric_tolerance_arm.angularity_tolerance">Angularity_tolerance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.circular_runout_tolerance">Circular_runout_tolerance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.coaxiality_tolerance">Coaxiality_tolerance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.concentricity_tolerance">Concentricity_tolerance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.cylindricity_tolerance">Cylindricity_tolerance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.flatness_tolerance">Flatness_tolerance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.line_profile_tolerance">Line_profile_tolerance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.parallelism_tolerance">Parallelism_tolerance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.perpendicularity_tolerance">Perpendicularity_tolerance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.position_tolerance">Position_tolerance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.roundness_tolerance">Roundness_tolerance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.straightness_tolerance">Straightness_tolerance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.surface_profile_tolerance">Surface_profile_tolerance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.symmetry_tolerance">Symmetry_tolerance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.total_runout_tolerance">Total_runout_tolerance</A>));<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.geometric_tolerance.name">name : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.geometric_tolerance.applied_to">applied_to : </A><A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element">Shape_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.geometric_tolerance.modification">modification : </A>
+         OPTIONAL 
+         <A HREF="#geometric_tolerance_arm.tolerance_condition">Tolerance_condition</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.geometric_tolerance.qualifying_note">qualifying_note : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.geometric_tolerance.segment_size">segment_size : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.value_with_unit">Value_with_unit</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.geometric_tolerance.significant_digits">significant_digits : </A>
+         OPTIONAL 
+         INTEGER;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.geometric_tolerance.tolerance_value">tolerance_value : </A><A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.value_with_unit">Value_with_unit</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.geometric_tolerance.value_determination">value_determination : </A>
+         OPTIONAL 
+         STRING;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.geometric_tolerance.wr:wr1">WR1: (NOT (EXISTS(segment_size))) OR 
+            ('GEOMETRIC_TOLERANCE_ARM.LENGTH_MEASURE' IN TYPEOF(segment_size.value_component));</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.geometric_tolerance.wr:wr2">WR2: (NOT (EXISTS(tolerance_value))) OR 
+            ('GEOMETRIC_TOLERANCE_ARM.LENGTH_MEASURE' IN TYPEOF(tolerance_value.value_component));</A><br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.geometric_tolerance.wr:wr3">WR3: (NOT (EXISTS(significant_digits))) OR 
+            (significant_digits &gt; 0);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.geometric_tolerance_relationship">ENTITY <b>Geometric_tolerance_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.geometric_tolerance_relationship.relation_type">relation_type : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.geometric_tolerance_relationship.relating">relating : </A><A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.geometric_tolerance_relationship.related">related : </A><A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.line_profile_tolerance">ENTITY <b>Line_profile_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.line_profile_tolerance.affected_plane">affected_plane : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.line_profile_tolerance.reference_datum">reference_datum : </A>SET[0:3] OF <A HREF="#geometric_tolerance_arm.datum_reference">Datum_reference</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.parallelism_tolerance">ENTITY <b>Parallelism_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.parallelism_tolerance.affected_plane">affected_plane : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.parallelism_tolerance.reference_datum">reference_datum : </A>SET[1:2] OF <A HREF="#geometric_tolerance_arm.datum_reference">Datum_reference</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.perpendicularity_tolerance">ENTITY <b>Perpendicularity_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.perpendicularity_tolerance.affected_plane">affected_plane : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.perpendicularity_tolerance.reference_datum">reference_datum : </A>SET[1:3] OF <A HREF="#geometric_tolerance_arm.datum_reference">Datum_reference</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.placed_target">ENTITY <b>Placed_target</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#geometric_tolerance_arm.target_circle">Target_circle</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.target_point">Target_point</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.target_rectangle">Target_rectangle</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#geometric_tolerance_arm.target_straight_line">Target_straight_line</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.datum_target">Datum_target</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.placed_target.defined_in">defined_in : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_coordinate_space">Geometric_coordinate_space</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.placed_target.parameter_reference">parameter_reference : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.position_tolerance">ENTITY <b>Position_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.position_tolerance.affected_plane">affected_plane : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.position_tolerance.reference_datum">reference_datum : </A>SET[0:3] OF <A HREF="#geometric_tolerance_arm.datum_reference">Datum_reference</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.projection">ENTITY <b>Projection</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.tolerance_zone_definition">Tolerance_zone_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.projection.projection_end">projection_end : </A><A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element">Shape_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.projection.projection_length">projection_length : </A><A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.value_with_unit">Value_with_unit</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.roundness_tolerance">ENTITY <b>Roundness_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.single_datum">ENTITY <b>Single_datum</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.datum">Datum</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.single_datum.datum_name">datum_name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.single_datum.modification">modification : </A>
+         OPTIONAL 
+         <A HREF="#geometric_tolerance_arm.tolerance_condition">Tolerance_condition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.straightness_tolerance">ENTITY <b>Straightness_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.straightness_tolerance.affected_plane">affected_plane : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.surface_profile_tolerance">ENTITY <b>Surface_profile_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.surface_profile_tolerance.reference_datum">reference_datum : </A>SET[0:3] OF <A HREF="#geometric_tolerance_arm.datum_reference">Datum_reference</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.symmetry_tolerance">ENTITY <b>Symmetry_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.symmetry_tolerance.affected_plane">affected_plane : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.symmetry_tolerance.reference_datum">reference_datum : </A>SET[1:3] OF <A HREF="#geometric_tolerance_arm.datum_reference">Datum_reference</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.target_area">ENTITY <b>Target_area</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.datum_target">Datum_target</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.target_circle">ENTITY <b>Target_circle</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.placed_target">Placed_target</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.target_circle.diameter">diameter : </A><A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.target_point">ENTITY <b>Target_point</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.placed_target">Placed_target</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.target_rectangle">ENTITY <b>Target_rectangle</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.placed_target">Placed_target</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.target_rectangle.target_length">target_length : </A><A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.target_rectangle.target_width">target_width : </A><A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.target_straight_line">ENTITY <b>Target_straight_line</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.placed_target">Placed_target</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.target_straight_line.target_length">target_length : </A><A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.tolerance_condition">ENTITY <b>Tolerance_condition</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.tolerance_condition.condition">condition : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.tolerance_zone">ENTITY <b>Tolerance_zone</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.tolerance_zone.form_type">form_type : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.tolerance_zone.zone_for">zone_for : </A>SET[1:?] OF <A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.tolerance_zone_definition">ENTITY <b>Tolerance_zone_definition</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.tolerance_zone_definition.defining">defining : </A><A HREF="#geometric_tolerance_arm.tolerance_zone">Tolerance_zone</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.tolerance_zone_definition.first_element">first_element : </A><A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element">Shape_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.tolerance_zone_definition.second_element">second_element : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element">Shape_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="geometric_tolerance_arm.total_runout_tolerance">ENTITY <b>Total_runout_tolerance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#geometric_tolerance_arm.geometric_tolerance">Geometric_tolerance</A>);<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.total_runout_tolerance.angle">angle : </A>REAL;<br>
+         &nbsp;&nbsp;<A NAME="geometric_tolerance_arm.total_runout_tolerance.reference_datum">reference_datum : </A>SET[1:2] OF <A HREF="#geometric_tolerance_arm.datum_reference">Datum_reference</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Geometric_tolerance_arm<br></code></body>
+</HTML>

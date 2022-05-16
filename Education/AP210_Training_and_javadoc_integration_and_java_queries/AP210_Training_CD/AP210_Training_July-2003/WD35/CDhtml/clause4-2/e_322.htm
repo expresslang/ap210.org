@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Ee_product_configuration</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.322 Ee_product_configuration</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Ee_product_configuration is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. An Ee_product_configuration is the association of a product version with a model name that 
+enterprise marketing provides to a customer.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>configuration_manager</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>item_id</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>model_of_product</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>phase_of_product</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>product_configuration_approval</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>satisfying_product</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.322.1 configuration_manager</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The configuration_manager specifies either the <A
+CLASS="INTERNALREF"
+HREF="e_570.htm"
+>Organization</A
+>
+or the <A
+CLASS="INTERNALREF"
+HREF="e_647.htm"
+>Person_and_organization</A
+> that manages the 
+Ee_product_configuration.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.322.2 item_id</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The item_id specifies the identification of an Ee_product_configuration.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.322.3 model_of_product</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The model_of_product specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_325.htm"
+>Ee_product_model</A
+>
+for the Ee_product_configuration.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.322.4 phase_of_product</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The phase_of_product specifies the string that defines the life cycle phase of the 
+Ee_product_configuration.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Examples of phase_of_product include "Preliminary design", "Prototype", "Released for Production", 
+"Obsolete for New Manufacture", and"Retired".</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.322.5 product_configuration_approval</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The product_configuration_approval specifies the <A
+CLASS="INTERNALREF"
+HREF="e_314.htm"
+>Ee_approval</A
+> that is associated with the Ee_product_configuration.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.322.6 satisfying_product</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The satisfying_product specifies the <A
+CLASS="INTERNALREF"
+HREF="e_328.htm"
+>Ee_product_version</A
+>
+that has been selected to satisfy a real or perceived customer need for the Ee_product_configuration. The satisfying_product need not be specified for a particular Ee_product_configuration.
+There may be more than one Ee_product_version for an Ee_product_configuration.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: In some enterprises the marketing department selects product model nomenclature independent of the existence of actual product 
+versions to satisfy the marketing requirements. This object permits the enterprise to explicitly manage the relationship between model 
+nomenclature and the product version.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of item_id and satisfying_product shall be unique within a population of Ee_product_configurations.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY ee_product_configuration
+  SUBTYPE OF (managed_design_object);
+    satisfying_product             : OPTIONAL SET [1:?] OF ee_product_version;
+    configuration_manager          : person_organization;
+    item_id                        : STRING;
+    product_configuration_approval : ee_approval;
+    model_of_product               : ee_product_model;
+    phase_of_product               : STRING;
+  UNIQUE
+    ur1 : item_id, satisfying_product;
+END_ENTITY; -- ee_product_configuration
+
+--tt tc1 wd9 modified
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

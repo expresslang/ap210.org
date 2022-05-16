@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Interconnect_module_macro_component</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.455 Interconnect_module_macro_component</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Interconnect_module_macro_component is a type of <A
+CLASS="INTERNALREF"
+HREF="e_34.htm"
+>Assembly_component</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>access_mechanisms</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>usage_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>usage_view_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.455.1 access_mechanisms</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The access_mechanisms is an inverse relationship that specifies that the existence of the Interconnect_module_macro_component is dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_438.htm"
+>Interconnect_module_component_terminal</A
+> that specifies the Interconnect_module_macro_component as its associated_component. There shall be two or more Interconnect_module_component_terminal for an Interconnect_module_macro_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.455.2 usage_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The usage_definition specifies the role of an <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+> for the Interconnect_module_macro_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.455.3 usage_view_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The usage_view_definition is a derived role of an <A
+CLASS="INTERNALREF"
+HREF="e_458.htm"
+>Interconnect_module_usage_view</A
+> which specifies the specifies the Assembly_module_usage_view that is identified via the path SELF\assembly_component.usage_definition\physical_unit_design_view.usage_view.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The <A
+CLASS="INTERNALREF"
+HREF="e_458.htm"
+>Interconnect_module_usage_view</A
+> referenced by the usage_view_definition shall be the same Interconnect_module_usage_view referenced by the associated_definition which is referenced by the definition which is referenced by the access_mechanisms.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY interconnect_module_macro_component
+--tt tc1 wd9 modified 
+  SUBTYPE OF (interconnect_module_component);
+--tt tc1 wd9 modified 
+    design_definition : interconnect_module;
+INVERSE
+    join_access_mechanisms : SET [1:?] OF
+                        interconnect_module_macro_component_join_terminal FOR
+                        associated_component;
+WHERE
+ WR1: SIZEOF (QUERY( immcjt &#60;* join_access_mechanisms |
+              immcjt\component_feature.definition\part_feature.associated_definition :&#60;&#62;: 
+                   design_definition\physical_unit_design_view.usage_view)) = 0;
+END_ENTITY; -- interconnect_module_macro_component
+
+--tt tc1 wd9 added
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

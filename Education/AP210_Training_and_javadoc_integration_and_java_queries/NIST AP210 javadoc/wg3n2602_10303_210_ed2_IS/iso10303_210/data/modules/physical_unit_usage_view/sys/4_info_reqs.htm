@@ -1,0 +1,1251 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Physical unit usage view">
+      <META name="DC.Dates" content="2009-05-04 10:03:21">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Physical unit usage view">
+      <META name="DC.Subject" content="module, part, usage, feature, template, shape, connection zone">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6524">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5790">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-04 10:03:21">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.77">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.75">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.55">
+      <TITLE>ISO/TS 10303-1732:2009 Physical unit usage view</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Physical unit usage view</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1732:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.4 ARM function definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#rules">4.5 ARM rule definition</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Physical unit usage view</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Physical_unit_usage_view_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="physical_unit_usage_view_arm">
+            SCHEMA Physical_unit_usage_view_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/analytical_model/sys/4_info_reqs.htm#analytical_model_arm">Analytical_model_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1603<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm">Feature_and_connection_zone_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1671<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/item_definition_structure/sys/4_info_reqs.htm#item_definition_structure_arm">Item_definition_structure_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1345<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm">Part_feature_location_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1714<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm">Requirement_assignment_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1233<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/shape_composition/sys/4_info_reqs.htm#shape_composition_arm">Shape_composition_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1742<br><br></code></p>
+      <p><code>
+            REFERENCE FROM 
+            <A HREF="../../../../data/modules/characterizable_object/sys/4_info_reqs.htm#characterizable_object_arm">Characterizable_object_arm</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1765<br>&nbsp;&nbsp;(<A HREF="../../../../data/modules/characterizable_object/sys/4_info_reqs.htm#characterizable_object_arm.bag_to_set">bag_to_set</A>);
+            <br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Analytical_model_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1603</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Feature_and_connection_zone_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1671</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Item_definition_structure_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1345</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Part_feature_location_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1714</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Requirement_assignment_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1233</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Shape_composition_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1742</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Characterizable_object_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1765</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>, <a href="../armexpg2.htm">C.2</a>and <a href="../armexpg3.htm">C.3</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="physical_unit_usage_view_arm.material_state_change_enumeration">4.2.1 material_state_change_enumeration</a>
+         &nbsp;&nbsp;<a href="../../physical_unit_usage_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      A <b>material_state_change_enumeration</b> lists the material state change.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            material_state_change_enumeration =
+            
+            ENUMERATION
+            
+            OF
+            <br>
+            &nbsp;&nbsp; 
+            (material_addition,<br>&nbsp;&nbsp;&nbsp;&nbsp;material_removal);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <p><u>Enumerated item definitions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.material_state_change_enumeration.material_addition">material_addition:
+               </a></b>
+         specifies material state change is due to addition;
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.material_state_change_enumeration.material_removal">material_removal:
+               </a></b>
+         specifies material state change is due to removal;
+         
+      </p>
+      <h2><a name="physical_unit_usage_view_arm.physical_unit">4.2.2 physical_unit</a>
+         &nbsp;&nbsp;<a href="../../physical_unit_usage_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>physical_unit</b> type is an
+         extensible list of alternate data types
+         that allows for the designation of the data 
+         
+         type
+         <b><A HREF="#physical_unit_usage_view_arm.part_usage_view">Part_usage_view</A></b>.
+         
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;
+            The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.                 
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            physical_unit =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#physical_unit_usage_view_arm.part_usage_view">Part_usage_view</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="physical_unit_usage_view_arm.puuv_documented_element_select">4.2.3 puuv_documented_element_select</a>
+         &nbsp;&nbsp;<a href="../../physical_unit_usage_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>puuv_documented_element_select</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/document_assignment/sys/4_info_reqs.htm#document_assignment_arm.documented_element_select">documented_element_select</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#physical_unit_usage_view_arm.part_feature">Part_feature</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            puuv_documented_element_select =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/document_assignment/sys/4_info_reqs.htm#document_assignment_arm.documented_element_select">documented_element_select</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#physical_unit_usage_view_arm.part_feature">Part_feature</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="physical_unit_usage_view_arm.puuv_groupable_item">4.2.4 puuv_groupable_item</a>
+         &nbsp;&nbsp;<a href="../../physical_unit_usage_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>puuv_groupable_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/group/sys/4_info_reqs.htm#group_arm.groupable_item">groupable_item</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#physical_unit_usage_view_arm.part_feature">Part_feature</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            puuv_groupable_item =
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/group/sys/4_info_reqs.htm#group_arm.groupable_item">groupable_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#physical_unit_usage_view_arm.part_feature">Part_feature</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="physical_unit_usage_view_arm.puuv_requirement_assignment_item">4.2.5 puuv_requirement_assignment_item</a>
+         &nbsp;&nbsp;<a href="../../physical_unit_usage_view/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>puuv_requirement_assignment_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment_item">requirement_assignment_item</A></b> type. 
+         
+         It adds the data 
+         
+         types
+         <b><A HREF="#physical_unit_usage_view_arm.part_feature">Part_feature</A></b>
+         and
+         <b><A HREF="../../../../data/modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            puuv_requirement_assignment_item =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment_item">requirement_assignment_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#physical_unit_usage_view_arm.part_feature">Part_feature</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="physical_unit_usage_view_arm.puuv_usage_concept">4.2.6 puuv_usage_concept</a>
+         &nbsp;&nbsp;<a href="../../physical_unit_usage_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>puuv_usage_concept</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept">usage_concept</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#physical_unit_usage_view_arm.part_feature">Part_feature</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            puuv_usage_concept =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept">usage_concept</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#physical_unit_usage_view_arm.part_feature">Part_feature</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="physical_unit_usage_view_arm.connection_zone_in_usage_view">4.3.1 Connection_zone_in_usage_view</a>
+         &nbsp;&nbsp;<a href="../../physical_unit_usage_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityconnection_zone_in_usage_view"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         A	 <b>Connection_zone_in_usage_view</b> is a type of 
+         <a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone"><b>Connection_zone</b></a>
+         	that is in the context of a <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_usage_view"><b>Part_usage_view</b></a>.
+         	A <b>Connection_zone_in_usage_view</b> is included in a usage view definition to provide an explicit geometric model of the
+         	limited areas in the domain of a terminal that are allowed for a valid connection.  If the usage view definition
+         	contains no limitations on the connection area of the terminals associated with the usage view definition this Application
+         Object shall
+         	not be provided. 	
+         	
+      </p>
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            	In some less detailed usage views, the entire point domain for features designated as terminals is considered to be available
+            for connection and the 
+            	<b>Connection_zone_in_usage_view</b> is redundant.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            	In the case where the connection area is necessary, the application shall be carefully reviewed to determine the necessity
+            for design instances of the connection area as in most cases,
+            	simply using the connection area as a constraint on the allowed location of a joint is sufficient.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            	The level of detail included in a usage view definition may be classified by a user defined classification system which is
+            supported by this part of
+            	ISO 10303 but this part of ISO 10303
+            	does not predefine a classification system for usage view definition detail level.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Connection_zone_in_usage_view<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone">Connection_zone</A>);<br>DERIVE<br>
+            &nbsp;&nbsp;associated_definition : <A HREF="#physical_unit_usage_view_arm.part_usage_view">Part_usage_view</A> := containing_shape.described_element;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: NOT EXISTS(SELF\Shape_element.element_name);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.connection_zone_in_usage_view.associated_definition">associated_definition:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_usage_view"><b>Part_usage_view</b></a> 
+         	for the <b>Connection_zone_in_usage_view</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.connection_zone_in_usage_view.wr:wr1">WR1:
+               </a></b>
+         	The
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element.element_name"><b>element_name</b></a> 
+         	shall not be populated.
+         
+      </p>
+      <h2><a name="physical_unit_usage_view_arm.connection_zone_map_identification">4.3.2 Connection_zone_map_identification</a>
+         &nbsp;&nbsp;<a href="../../physical_unit_usage_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityconnection_zone_map_identification"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+       A 
+      <b>Connection_zone_map_identification</b> is a means to specify the causal geometric relationship between a reference  <a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone"><b>Connection_zone</b></a> associated with a 
+       <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminal</b></a> and a mapped  <a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone"><b>Connection_zone</b></a> associated with a template interface terminal.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Connection_zone_map_identification;<br>
+            
+            
+            
+            &nbsp;&nbsp;reference_connection_zone_shape : <A HREF="#physical_unit_usage_view_arm.usage_view_connection_zone_terminal_shape_relationship">Usage_view_connection_zone_terminal_shape_relationship</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;mapped_connection_zone_shape : <A HREF="#physical_unit_usage_view_arm.usage_view_connection_zone_terminal_shape_relationship">Usage_view_connection_zone_terminal_shape_relationship</A>;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: reference_connection_zone_shape, mapped_connection_zone_shape;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: reference_connection_zone_shape &lt;&gt; mapped_connection_zone_shape;<br> 
+            &nbsp;&nbsp;WR2: reference_connection_zone_shape.associated_connection_zone_shape_definition &lt;&gt; mapped_connection_zone_shape.associated_connection_zone_shape_definition;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.connection_zone_map_identification.reference_connection_zone_shape">reference_connection_zone_shape:
+               </a></b>
+         specifies one role of the <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.usage_view_connection_zone_terminal_shape_relationship"><b>Usage_view_connection_zone_terminal_shape_relationship</b></a> for 
+         the <b>Connection_zone_map_identification</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.connection_zone_map_identification.mapped_connection_zone_shape">mapped_connection_zone_shape:
+               </a></b>
+         specifies one role of the <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.usage_view_connection_zone_terminal_shape_relationship"><b>Usage_view_connection_zone_terminal_shape_relationship</b></a> for 
+         the <b>Connection_zone_map_identification</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.connection_zone_map_identification.ur:ur1">UR1:
+               </a></b>
+         The combination of <b>reference_connection_zone_shape</b> and <b>mapped_connection_zone_shape</b> shall be unique within a population of 
+         <b>Connection_zone_map_identifications</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.connection_zone_map_identification.wr:wr1">WR1:
+               </a></b>
+         The <b>reference_connection_zone_shape</b> shall not be the <b>mapped_connection_zone_shape</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.connection_zone_map_identification.wr:wr2">WR2:
+               </a></b>
+         The <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.usage_view_connection_zone_terminal_shape_relationship.associated_connection_zone_shape_definition"><b>associated_connection_zone_shape_definition</b></a> of
+         <b>reference_connection_zone_shape</b> shall not be the <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.usage_view_connection_zone_terminal_shape_relationship.associated_connection_zone_shape_definition"><b>associated_connection_zone_shape_definition</b></a> of
+         <b>mapped_connection_zone_shape</b>.
+         
+      </p>
+      <h2><a name="physical_unit_usage_view_arm.derived_part_view_definition_relationship">4.3.3 Derived_part_view_definition_relationship</a>
+         &nbsp;&nbsp;<a href="../../physical_unit_usage_view/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityderived_part_view_definition_relationship"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Derived_part_view_definition_relationship</b> is a type of
+      	<a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship"><b>View_definition_relationship</b></a>.
+      	A <b>Derived_part_view_definition_relationship</b> is a relationship that relates two 
+      	<a href="../../../modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition"><b>Part_view_definitions</b></a>,
+      	where one is the master, and the other a derivation of the Master.  The 
+      	<a href="../../../modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition"><b>Part_view_definition</b></a>
+      	in the role of <b>relating_view</b> is the Master.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Derived_part_view_definition_relationship<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.relating_view : <A HREF="../../../../data/modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.related_view : <A HREF="../../../../data/modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(get_derived_shape_element(SELF\View_definition_relationship.related_view)) &gt; 0;<br> 
+            &nbsp;&nbsp;WR2: SIZEOF(QUERY(gdrse &lt;* get_derived_shape_element(SELF\View_definition_relationship.related_view) |
+            (SIZEOF(QUERY(se &lt;* gdrse.derived_from |
+            SELF\View_definition_relationship.relating_view &lt;&gt; se.containing_shape.described_element
+            )) = 0)
+            )) = SIZEOF(get_derived_shape_element(SELF\View_definition_relationship.related_view));<br> 
+            &nbsp;&nbsp;WR3: NOT EXISTS(SELF\View_definition_relationship.relation_type);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.derived_part_view_definition_relationship.relating_view">relating_view:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship"><b>View_definition_relationship</b></a>
+         	shall be redeclared as the
+         	<a href="../../../modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition"><b>Part_view_definition</b></a>
+         	for the <b>Derived_part_view_definition_relationship</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.derived_part_view_definition_relationship.related_view">related_view:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship"><b>View_definition_relationship</b></a>
+         	shall be redeclared as the
+         	<a href="../../../modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition"><b>Part_view_definition</b></a>
+         	for the <b>Derived_part_view_definition_relationship</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.derived_part_view_definition_relationship.wr:wr1">WR1:
+               </a></b>
+         There shall be at least one <a href="../../../modules/derived_shape_element/sys/4_info_reqs.htm#derived_shape_element_arm.derived_shape_element"><b>Derived_shape_element</b></a>
+         provided for <a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship.related_view"><b>related_view</b></a>.	
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.derived_part_view_definition_relationship.wr:wr2">WR2:
+               </a></b>
+         	Each 
+         	<a href="../../../modules/derived_shape_element/sys/4_info_reqs.htm#derived_shape_element_arm.derived_shape_element"><b>Derived_shape_element</b></a> 
+         	that references the <b>Derived_part_view_definition_relationship</b>.<b>related_view</b> shall reference one or more 
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element"><b>Shape_element</b></a> 
+         	that reference the <b>Derived_part_view_definition_relationship</b>.<b>relating_view</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.derived_part_view_definition_relationship.wr:wr3">WR3:
+               </a></b>
+         	The
+         	<a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship.relation_type"><b>relation_type</b></a>
+         	shall not be populated.
+         
+      </p>
+      <h2><a name="physical_unit_usage_view_arm.part_feature">4.3.4 Part_feature</a>
+         &nbsp;&nbsp;<a href="../../physical_unit_usage_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Part_feature</b> is a type of 
+         	<a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.shape_feature"><b>Shape_feature</b></a>
+         	that is in the context of a <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_usage_view"><b>Part_usage_view</b></a>.
+         	A <b>Part_feature</b> may be distinguished by it's shape or distinguished by it's location and orientation or
+         	distinguished by it's identifier.
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		A <b>Part_feature</b> is a distinctive aspect of a part that partially supports the choice of that part
+            		in the design.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		A <b>Part_feature</b> inherits a unique constraint from 
+            		<a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.shape_feature"><b>Shape_feature</b></a>
+                   that maintains uniqueness of the identifier of a feature within a view.  In some cases, only the
+            		uniqueness of that feature is what distinguishes it from other features.  In those cases,
+            		the uniqueness constraint effectively creates a one to one and onto mapping between the location
+            		of the feature model in the geometric model of the part and the feature identifier.  This mapping
+            		allows applications that do not use geometric models to be assured of model integrity.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            		This part of ISO 10303 does not support identification of a part feature within the context of a part
+            		by it's shape classification.  ISO 10303-1707 provides predefined shape classification for part features
+            		in a limited context, but the shape classification does not override feature identification
+            		support provided by this part of ISO 10303.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		One ball in a Ball Grid Array style part may be distinguishable from other balls in the array only by it's location in the
+            		case that a geometric model is provided.  In the case that a geometric model is not provided,
+            		it may be distinguished only by it's unique identifier 
+            		<a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.shape_feature.element_name"><b>element_name</b></a>
+            		inherited from
+            		<a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.shape_feature"><b>Shape_feature</b></a>
+            		in the context of the part view.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.shape_feature">Shape_feature</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element">Shape_element</A>.containing_shape RENAMED associated_definition : <A HREF="#physical_unit_usage_view_arm.part_usage_view">Part_usage_view</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;material_state_change : 
+            OPTIONAL 
+            <A HREF="#physical_unit_usage_view_arm.material_state_change_enumeration">material_state_change_enumeration</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;precedent_feature : 
+            OPTIONAL 
+            <A HREF="#physical_unit_usage_view_arm.part_feature">Part_feature</A>;<br>INVERSE<br>
+            &nbsp;&nbsp;feature_shape : SET[0:?] OF <A HREF="../../../../data/modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship">Usage_concept_usage_relationship</A> FOR associated_usage;<br>
+            &nbsp;&nbsp;subsequent_feature : SET[0:1] OF <A HREF="#physical_unit_usage_view_arm.part_feature">Part_feature</A> FOR precedent_feature;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: NOT EXISTS(precedent_feature) OR
+            (NOT (SIZEOF(subsequent_feature) = 1) OR
+            (acyclic_part_feature_precedence_relationship(SELF,
+            [subsequent_feature[1]],
+            'PHYSICAL_UNIT_USAGE_VIEW_ARM.PART_FEATURE')));<br> 
+            &nbsp;&nbsp;WR2: NOT EXISTS(SELF\Shape_element.description);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature.associated_definition">associated_definition:
+               </a></b>
+         	specifies the <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_usage_view"><b>Part_usage_view</b></a> for the targeted <b>Part_feature</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature.material_state_change">material_state_change:
+               </a></b>
+         	specifies the <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.material_state_change_enumeration"><b>material_state_change_enumeration</b></a> for the <b>Part_feature</b>. 
+         	The value of this attribute need not be specified. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature.precedent_feature">precedent_feature:
+               </a></b>
+         	specifies a role of the <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> for the <b>Part_feature</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature.feature_shape">feature_shape:
+               </a></b>
+         	an inverse relationship that specifies that the existence of the <b>Part_feature</b> is dependent on the existence of the
+         	<a href="../../../modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship"><b>Usage_concept_usage_relationship</b></a>
+         	that specifies the <b>Part_feature</b> as its
+         	<a href="../../../modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship.associated_usage"><b>associated_usage</b></a>.
+         	There shall be zero or more  
+         	<a href="../../../modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship"><b>Usage_concept_usage_relationships</b></a> 
+         	for a <b>Part_feature</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature.subsequent_feature">subsequent_feature:
+               </a></b>
+         	an inverse relationship that specifies that the existence of the <b>Part_feature</b> is dependent on the existence of the
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>
+         	that specifies the <b>Part_feature</b> as its
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.subsequent_feature"><b>subsequent_feature</b></a>.
+         	There shall be zero or one  
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> for a <b>Part_feature</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature.wr:wr1">WR1:
+               </a></b>
+         	If <b>precedent_feature</b> exists then <b>Part_feature</b> shall not participate either
+         	directly or indirectly in a cyclic relationship by means of <b>precedent_feature</b>
+         	and <b>subsequent_feature</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature.wr:wr2">WR2:
+               </a></b>
+         	The
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element.description"><b>description</b></a>
+         	shall not be populated.
+         
+      </p>
+      <p><u>Informal propositions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature.wr:ip1">IP1:
+               </a></b>
+         The graph of <b>precedent_feature</b> shall not be cyclic.
+         
+      </p>
+      <h2><a name="physical_unit_usage_view_arm.part_feature_make_from_relationship">4.3.5 Part_feature_make_from_relationship</a>
+         &nbsp;&nbsp;<a href="../../physical_unit_usage_view/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_feature_make_from_relationship"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Part_feature_make_from_relationship</b> is a type of 
+      	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element_relationship"><b>Shape_element_relationship</b></a>.
+      	A <b>Part_feature_make_from_relationship</b> associates two 
+      	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>, 
+      	one of which has been reused from an existing made from part.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_feature_make_from_relationship<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_make_from : <A HREF="../../../../data/modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>.relating RENAMED reusable_feature : <A HREF="#physical_unit_usage_view_arm.part_feature">Part_feature</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>.related RENAMED resultant_feature : <A HREF="#physical_unit_usage_view_arm.part_feature">Part_feature</A>;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: reusable_feature, resultant_feature;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: reusable_feature :&lt;&gt;: resultant_feature;<br> 
+            &nbsp;&nbsp;WR2: reusable_feature.associated_definition :&lt;&gt;: resultant_feature.associated_definition;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature_make_from_relationship.associated_make_from">associated_make_from:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/product_view_definition_relationship/sys/4_info_reqs.htm#product_view_definition_relationship_arm.view_definition_relationship"><b>View_definition_relationship</b></a> 
+         	for the <b>Part_feature_make_from_relationship</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature_make_from_relationship.reusable_feature">reusable_feature:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element_relationship"><b>Shape_element_relationship</b></a>
+         	shall be redeclared as the  
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> 
+         	for the <b>Part_feature_make_from_relationship</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature_make_from_relationship.resultant_feature">resultant_feature:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element_relationship"><b>Shape_element_relationship</b></a>
+         	shall be redeclared as the 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> 
+         	for the <b>Part_feature_make_from_relationship</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature_make_from_relationship.ur:ur1">UR1:
+               </a></b>
+         The combination of <b>reusable_feature</b> and <b>resultant_feature</b> 
+         shall be unique within a population of <b>Part_feature_make_from_relationships</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature_make_from_relationship.wr:wr1">WR1:
+               </a></b>
+         	The <b>reusable_feature</b> shall not be the <b>resultant_feature</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature_make_from_relationship.wr:wr2">WR2:
+               </a></b>
+         	The  <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_usage_view"><b>Part_usage_view</b></a> 
+         	referenced by the <b>reusable_feature</b> shall not be the  
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_usage_view"><b>Part_usage_view</b></a> 
+         	referenced by the <b>resultant_feature</b> within a population of <b>Part_feature_make_from_relationship</b>.
+         
+      </p>
+      <h2><a name="physical_unit_usage_view_arm.part_feature_template_definition">4.3.6 Part_feature_template_definition</a>
+         &nbsp;&nbsp;<a href="../../physical_unit_usage_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_feature_template_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Part_feature_template_definition</b> is a type of 
+         	<a href="../../../modules/shape_feature/sys/4_info_reqs.htm#shape_feature_arm.shape_feature_definition"><b>Shape_feature_definition</b></a>.  
+         	A <b>Part_feature_template_definition</b> is 
+         	a template for one or more feature of one or more part.  The properties are provided by the 
+         	<a href="../../../modules/classification_assignment/sys/4_info_reqs.htm#classification_assignment_arm.classification_assignment"><b>Classification_assignment</b></a> 
+         	on the  
+         	<a href="../../../modules/characterizable_object/sys/4_info_reqs.htm#characterizable_object_arm.characterizable_object"><b>Characterizable_object</b></a>  
+         	supertype.
+         
+      </p>
+      
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            A <b>Part_feature_template_definition</b> is not interpreted as a view of a product.
+            </small></p>
+      
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            	A "J lead" 
+            	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminal</b></a> 
+            	may be defined once using <b>Part_feature_template_definition</b> and re-used many times.
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_feature_template_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.feature_definition_with_connection_area">Feature_definition_with_connection_area</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;id : STRING;<br>DERIVE<br>
+            &nbsp;&nbsp;surface_conditions : SET[0:?] OF <A HREF="../../../../data/modules/surface_conditions/sys/4_info_reqs.htm#surface_conditions_arm.surface_condition">Surface_condition</A> := bag_to_set(USEDIN(SELF\Shape_feature_definition.of_shape,'SURFACE_CONDITIONS_ARM.SURFACE_CONDITION_ASSOCIATION.DESCRIBED_ELEMENT'));<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: id;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature_template_definition.id">id:
+               </a></b>
+         	the identifier that distinquishes the <b>Part_feature_template_definition</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature_template_definition.surface_conditions">surface_conditions:
+               </a></b>
+         	specifies a set of 
+         	<a href="../../../modules/surface_conditions/sys/4_info_reqs.htm#surface_conditions_arm.surface_condition"><b>Surface_conditions</b></a>
+         	that may be applied to the <b>Part_feature_template_definition</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature_template_definition.ur:ur1">UR1:
+               </a></b>
+         	The <b>id</b> shall be unique within a population of <b>Part_feature_template_definitions</b>.
+         
+      </p>
+      <h2><a name="physical_unit_usage_view_arm.part_feature_template_shape_model">4.3.7 Part_feature_template_shape_model</a>
+         &nbsp;&nbsp;<a href="../../physical_unit_usage_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_feature_template_shape_model"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Part_feature_template_shape_model</b> is a type of 
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a>.
+      	A <b>Part_feature_template_shape_model</b> is the shape of a 
+      	<a href="../../../modules/part_template/sys/4_info_reqs.htm#part_template_arm.template_definition"><b>Template_definition</b></a> or of a 
+          <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature_template_definition"><b>Part_feature_template_definition</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_feature_template_shape_model<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: NOT (SIZEOF(USEDIN(SELF, '')) &gt; 1) OR 
+            (SIZEOF(QUERY(foo &lt;* USEDIN(SELF,'') | 
+            NOT(SIZEOF(['PHYSICAL_UNIT_USAGE_VIEW_ARM.USAGE_CONCEPT_USAGE_RELATIONSHIP',
+            'PHYSICAL_UNIT_USAGE_VIEW_ARM.SHAPE_DESCRIPTION_ASSOCIATION'] * TYPEOF(foo))= 1)
+            )) 
+            = 0);<br> 
+            &nbsp;&nbsp;WR2: NOT EXISTS(SELF\Representation.description);<br> 
+            &nbsp;&nbsp;WR3: ((SIZEOF(USEDIN(SELF,
+            'SHAPE_PROPERTY_ASSIGNMENT_ARM.SHAPE_DESCRIPTION_ASSOCIATION.REPRESENTATION'))=0) OR
+            (SIZEOF(QUERY(sda &lt;* USEDIN(SELF,
+            'SHAPE_PROPERTY_ASSIGNMENT_ARM.SHAPE_DESCRIPTION_ASSOCIATION.REPRESENTATION') | 
+            NOT (('SHAPE_PROPERTY_ASSIGNMENT_ARM.' +'ITEM_SHAPE' IN
+            TYPEOF(sda.represented_characteristic)) AND 
+            ('PHYSICAL_UNIT_USAGE_VIEW_ARM.' +'PART_FEATURE_TEMPLATE_DEFINITION' IN
+            TYPEOF(sda.represented_characteristic.described_element)))
+            )) = 0));<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature_template_shape_model.wr:wr1">WR1:
+               </a></b>	The <b>Part_feature_template_shape_model</b> shall only be referenced by 
+         	<a href="../../../modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship"><b>Usage_concept_usage_relationship</b></a> or by 
+             <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_description_association"><b>Shape_description_association</b></a>.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            The reference to <b>Part_feature_template_shape_model</b> by a member of 
+                <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_description_association"><b>Shape_description_association</b></a>
+            is accomplished by the 
+            	<a href="../../../modules/shape_feature/sys/4_info_reqs.htm#shape_feature_arm.shape_feature_definition.feature_model"><b>feature_model</b></a>
+            	attribute inherited by
+            	that member of
+                <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_description_association"><b>Shape_description_association</b></a>
+            	from the
+            	<a href="../../../modules/shape_feature/sys/4_info_reqs.htm#shape_feature_arm.shape_feature_definition"><b>Shape_feature_definition</b></a> supertype.	  
+            </small></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature_template_shape_model.wr:wr2">WR2:
+               </a></b>
+         	The
+         	<a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation.description"><b>description</b></a>
+         	shall not be populated.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_feature_template_shape_model.wr:wr3">WR3:
+               </a></b>
+         The <b>Part_feature_template_shape_model</b> shall not be used in role of <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_description_association.representation"><b>representation</b></a>
+         by any <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_description_association"><b>Shape_description_association</b></a>.
+         
+      </p>
+      <h2><a name="physical_unit_usage_view_arm.part_usage_view">4.3.8 Part_usage_view</a>
+         &nbsp;&nbsp;<a href="../../physical_unit_usage_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_usage_view"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Part_usage_view</b> is a type of 
+      	<a href="../../../modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition"><b>Part_view_definition</b></a> 
+      	and a type of 
+      	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.item_shape"><b>Item_shape</b></a>. 
+      	A <b>Part_usage_view</b> specifies sufficient detail to allow the application of a part in an assembly 
+      	but without sufficient detail to permit reproduction of the  
+      	part.
+      	The version attribute inherited from  
+      	<a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>Product_view_definition</b></a> 
+      	need not reference the same product version referenced by the design view that 
+      	references this view in the role of usage view.  
+      	Support is provided for explicitly modeling connectors to be represented in the usage view so as to 
+      	take advantage of common geometric modeling patterns.
+      	Only a member of <a href="../../../modules/assembly_module_with_packaged_connector_component/sys/4_info_reqs.htm#assembly_module_with_packaged_connector_component_arm.packaged_connector_component"><b>Packaged_connector_component</b></a> 
+      		may be associated as a component in a <b>Part_usage_view</b>, 
+      		and then only in the  
+      		<a href="../../../modules/assembly_module_usage_view/sys/4_info_reqs.htm#assembly_module_usage_view_arm.assembly_module_usage_view"><b>Assembly_module_usage_view</b></a> and  
+      		<a href="../../../modules/cable/sys/4_info_reqs.htm#cable_arm.cable_usage_view"><b>Cable_usage_view</b></a>.
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		The product information provided in this part of ISO 10303 for a <b>Part_usage_view</b> is much less than that necessary to 
+            		design, manufacture, or verify its performance by extracting data from the product model structure.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+                  It is the responsibility of the design organization to create and maintain the mapping between the usage view and the
+            design view.  As the design evolves to meet the requirements, the design view will reference different versions than the usage
+            view.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            		The usage view and design view of product may have two instances of a connector with perhaps differing levels of detail.
+            		In this case, the design organization may wish to keep track of the relationship between the connector in the usage view
+            and the connector in the design view by populating a member of <a href="../../../modules/physical_unit_design_view/sys/4_info_reqs.htm#physical_unit_design_view_arm.component_to_physical_usage_view_assignment"><b>Component_to_physical_usage_view_assignment</b></a>for each connector in the usage view.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_4">NOTE&nbsp;4</a>&nbsp;&nbsp;
+            
+            		In a drawing based exchange, an interface control drawing would contain the same information found in a usage view.  Industry
+            standards describing the information represented by interface control drawings could migrate to computer interpetable standards
+            exchange using this standard.
+            	</small></p>
+      
+      <p class="note"><small><a name="note_5">NOTE&nbsp;5</a>&nbsp;&nbsp;
+            
+            	Terminals are defined only in the usage view of an item in this part of ISO 10303.
+            </small></p>
+      
+      <p class="note"><small><a name="note_6">NOTE&nbsp;6</a>&nbsp;&nbsp;
+            
+            	Functional block diagrams for <b>Part_usage_view</b> that are model based and thus computer interpretable may be provided by using the Functional assignment to part module, 
+            	ISO 10303-1674.
+            </small></p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		Examples of information provided in a <b>Part_usage_view</b> include outline shape, simplified connector models and location and orientation of those models, terminal identification,
+            package orientation features, mounting features, interface models, pin mapping.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_usage_view<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.item_shape">Item_shape</A>, <A HREF="../../../../data/modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>);<br>DERIVE<br>
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.item_shape">Item_shape</A>.described_element : <A HREF="../../../../data/modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shapeable_item">shapeable_item</A> := SELF;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.part_usage_view.described_element">described_element:
+               </a></b>
+         	an attribute evaluates to this <b>Part_usage_view</b>.
+         
+      </p>
+      <h2><a name="physical_unit_usage_view_arm.usage_view_connection_zone_terminal_shape_relationship">4.3.9 Usage_view_connection_zone_terminal_shape_relationship</a>
+         &nbsp;&nbsp;<a href="../../physical_unit_usage_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityusage_view_connection_zone_terminal_shape_relationship"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Usage_view_connection_zone_terminal_shape_relationship</b> is a means to position and orient the geometric model of a  
+      	<a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone"><b>Connection_zone</b></a> 
+      	into the model of a feature using a transformation.  
+      	The interpretation of the <b>associated_connection_zone_shape_definition</b> 
+      	shall be that it shall be a shape representation for the 
+      	<a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone"><b>Connection_zone</b></a> 
+      	in the role of <b>associated_usage</b>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Usage_view_connection_zone_terminal_shape_relationship;<br>
+            
+            
+            
+            &nbsp;&nbsp;associating_terminal_shape : <A HREF="#physical_unit_usage_view_arm.part_feature_template_shape_model">Part_feature_template_shape_model</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_usage : <A HREF="#physical_unit_usage_view_arm.connection_zone_in_usage_view">Connection_zone_in_usage_view</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_connection_zone_shape_definition : <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_usage_placement : <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: associating_terminal_shape :&lt;&gt;: associated_connection_zone_shape_definition;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.usage_view_connection_zone_terminal_shape_relationship.associating_terminal_shape">associating_terminal_shape:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature_template_shape_model"><b>Part_feature_template_shape_model</b></a> 
+         	that is the model shape for the <b>Usage_view_connection_zone_terminal_shape_relationship</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.usage_view_connection_zone_terminal_shape_relationship.associated_usage">associated_usage:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.connection_zone_in_usage_view"><b>Connection_zone_in_usage_view</b></a> 
+         	that is the target item for the <b>Usage_view_connection_zone_terminal_shape_relationship</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.usage_view_connection_zone_terminal_shape_relationship.associated_connection_zone_shape_definition">associated_connection_zone_shape_definition:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a> 
+         	that is the source shape for the <b>Usage_view_connection_zone_terminal_shape_relationship</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.usage_view_connection_zone_terminal_shape_relationship.associated_usage_placement">associated_usage_placement:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement"><b>Axis_placement</b></a> 
+         	that is the target in the coordinate system of the model for the <b>Usage_view_connection_zone_terminal_shape_relationship</b>, 
+         	including any transformation required.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.usage_view_connection_zone_terminal_shape_relationship.wr:wr1">WR1:
+               </a></b>
+         	The <b>associating_terminal_shape</b> shall not be the <b>associated_connection_zone_shape_definition</b>.
+         
+      </p>
+      <h2><a name="functions">4.4 ARM function definitions</a></h2>
+      <p>
+         This subclause specifies the ARM functions for 
+         this module. The ARM functions and definitions are
+         specified below.
+         
+      </p>
+      <h2><A NAME="physical_unit_usage_view_arm.acyclic_part_feature_precedence_relationship">4.4.1 acyclic_part_feature_precedence_relationship</A></h2>
+      	The <b>acyclic_part_feature_precedence_relationship</b> function determines whether 
+      	the graph of instances of the Application Object type 
+      	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> 
+      	that contains relation as one of its links contains a cycle.  
+      	This function may be used to evaluate 
+      	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> 
+      	or any of it's subtypes.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION acyclic_part_feature_precedence_relationship&nbsp;(relation : <A HREF="#physical_unit_usage_view_arm.part_feature">Part_feature</A>; relatives : SET[1:?] OF <A HREF="#physical_unit_usage_view_arm.part_feature">Part_feature</A>; specific_relation : STRING) :BOOLEAN;
+         </code><pre>LOCAL
+      x : SET OF Part_feature;
+    END_LOCAL;
+
+    IF relation.precedent_feature IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+      x := QUERY(pd &lt;* bag_to_set(USEDIN(relation.precedent_feature,
+        'PHYSICAL_UNIT_USAGE_VIEW_ARM.' + 'PART_FEATURE.' +
+        'SUBSEQUENT_FEATURE')) | specific_relation IN TYPEOF(pd));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_part_feature_precedence_relationship(x[i], relatives +
+        relation.precedent_feature, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.acyclic_part_feature_precedence_relationship.relation">relation:
+               </a></b>
+         	the specified 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.acyclic_part_feature_precedence_relationship.relatives">relatives:
+               </a></b>
+         	the specified set of
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_features</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.acyclic_part_feature_precedence_relationship.specific_relation">specific_relation:
+               </a></b>
+         	the specified string.
+         
+      </p>
+      <h2><A NAME="physical_unit_usage_view_arm.get_derived_shape_element">4.4.2 get_derived_shape_element</A></h2>
+      	A <b>get_derived_shape_element</b> function returns the set of 
+      	<a href="../../../modules/derived_shape_element/sys/4_info_reqs.htm#derived_shape_element_arm.derived_shape_element"><b>Derived_shape_element</b></a> 
+      	that reference the 
+      	<a href="../../../modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition"><b>Part_view_definition</b></a> 
+      	passed to the function as <b>input</b>.
+      	
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION get_derived_shape_element&nbsp;(input : <A HREF="../../../../data/modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>) :SET[0:?] OF <A HREF="../../../../data/modules/derived_shape_element/sys/4_info_reqs.htm#derived_shape_element_arm.derived_shape_element">Derived_shape_element</A>;
+         </code><pre>LOCAL
+      is : SET OF Item_shape := bag_to_set(USEDIN(input, 'SHAPE_PROPERTY_ASSIGNMENT_ARM.ITEM_SHAPE.DESCRIBED_ELEMENT'));
+      se : SET OF Shape_element := [];
+    END_LOCAL; 
+    REPEAT i := 1 to SIZEOF(is) by 1;
+      se  := se + bag_to_set(USEDIN(is[i], 'SHAPE_PROPERTY_ASSIGNMENT_ARM.SHAPE_ELEMENT.CONTAINING_SHAPE'));
+    END_REPEAT;  
+    RETURN(QUERY(dse &lt;* se | 'DERIVED_SHAPE_ELEMENT_ARM.DERIVED_SHAPE_ELEMENT' IN TYPEOF(se)));</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.get_derived_shape_element.input">input:
+               </a></b>
+         	the specified 
+         	<a href="../../../modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition"><b>Part_view_definition</b></a>.
+         
+      </p>
+      <h2><a name="rules">4.5 ARM rule definition</a></h2>
+      <p>
+         This subclause specifies the ARM rule for 
+         this module. The ARM rule and definition is
+         specified below.
+         
+      </p>
+      <h2><A NAME="physical_unit_usage_view_arm.unique_assembly_component_relationship">4.5.1 unique_assembly_component_relationship</A></h2>
+      	A <b>unique_assembly_component_relationship</b> rule constrains the population of 
+      	<a href="../../../modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.assembly_component_relationship"><b>Assembly_component_relationship</b></a>  
+      	so that there is no more than one member of 
+      	<a href="../../../modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.assembly_component_relationship"><b>Assembly_component_relationship</b></a>  
+      	with a given combination of 
+      	<a href="../../../modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.product_occurrence_definition_relationship.relating_view"><b>relating_view</b></a>, 
+      	<a href="../../../modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.product_occurrence_definition_relationship.relating_view"><b>relating_view</b></a>
+      	attributes.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         RULE unique_assembly_component_relationship FOR
+         <br>
+         
+         (<A HREF="../../../../data/modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.assembly_component_relationship">Assembly_component_relationship</A>);<br></code><pre>LOCAL
+     gee : SET OF Product_view_definition := [];
+     gei : SET OF Product_view_definition := [];
+   END_LOCAL;
+   REPEAT i := 1 to SIZEOF(Assembly_component_relationship) by 1;
+     gee  := gee + Assembly_component_relationship[i]\Product_occurrence_definition_relationship.related_view;
+     gei  := gei + Assembly_component_relationship[i]\Product_occurrence_definition_relationship.relating_view;
+   END_REPEAT;</pre><code>WHERE<br> 
+         &nbsp;&nbsp;WR1: SIZEOF(gee) = SIZEOF(gei);<br>
+         END_RULE;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b>Assembly_component_relationship : </b>
+         
+         the set of all instances of 
+         <A HREF="../../../../data/modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.assembly_component_relationship">Assembly_component_relationship</A>.
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="physical_unit_usage_view_arm.unique_assembly_component_relationship.wr:wr1">WR1:
+               </a></b>
+         	There shall be no more than one 
+         	<a href="../../../modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.assembly_component_relationship"><b>Assembly_component_relationship</b></a> 
+         	with a given combination of 
+         	<a href="../../../modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.product_occurrence_definition_relationship.relating_view"><b>relating_view</b></a>, 
+         	<a href="../../../modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.product_occurrence_definition_relationship.relating_view"><b>relating_view</b></a> 
+         	attributes.
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Physical_unit_usage_view_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Adjacent_stratum_surface_embedded_component_surface_definition</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.4 Adjacent_stratum_surface_embedded_component_surface_definition</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Adjacent_stratum_surface_embedded_component_surface_definition is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. An Adjacent_stratum_surface_embedded_component_surface_definition is a link in a sequence of stratum surfaces that result in 
+the completed design.  This link is not to another Stratum_surface but is instead to a surface of an Embedded_component.
+There may be multiple Adjacent_stratum_surface_embedded_component_surface_definition that reference the same stratum surface in the case where <A
+CLASS="INTERNALREF"
+HREF="e_845.htm"
+>Stratum</A
+> are laterally adjacent.  The use of Adjacent_stratum_surface_embedded_component_surface_definition in combination with the position in 2D space of the Embedded_component within the interconnect is sufficient to uniquely identify the 3D location of the Embedded_component. </DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>name</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>precedent_item</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>subsequent_item</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.4.1 name</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The name specifies the string for the human-interpretable identifier for the Adjacent_stratum_surface_embedded_component_surface_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.4.2 precedent_item</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The precedent_item specifies the previous <A
+CLASS="INTERNALREF"
+HREF="e_868.htm"
+>Stratum_surface</A
+> or the <A
+CLASS="INTERNALREF"
+HREF="e_118.htm"
+>Component_feature</A
+> for the Adjacent_stratum_surface_embedded_component_surface_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.4.3 subsequent_item</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The subsequent_item specifies the previous <A
+CLASS="INTERNALREF"
+HREF="e_868.htm"
+>Stratum_surface</A
+> or the <A
+CLASS="INTERNALREF"
+HREF="e_118.htm"
+>Component_feature</A
+> for the Adjacent_stratum_surface_embedded_component_surface_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The name shall be unique with a population of Adjacent_stratum_surface_embedded_component_surface_definition.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR2: </SPAN
+>The combination of the precedent_item and the subsequent_item shall be unique within a population of Adjacent_stratum_surface_embedded_component_surface_definition.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The precedent_item shall be a secondary surface of a Stratum if the item is a Stratum_surface.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The subsequent_item shall be a primary surface of a Stratum if the item is a Stratum_surface.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY adjacent_stratum_surface_embedded_component_surface_definition
+SUBTYPE OF (managed_design_object);
+             name : STRING;
+   precedent_item : component_feature_or_stratum_surface;
+   subsequent_item: component_feature_or_stratum_surface;
+UNIQUE
+    ur1 : name;
+    ur2 : precedent_item, subsequent_item;
+WHERE
+  WR1: TYPEOF(precedent_item) &#60;&#62; TYPEOF(subsequent_item);
+  WR2: NOT ('AP210_ARM.DATUM_FEATURE_USAGE_IN_DATUM_RELATIONSHIP' IN TYPEOF(SELF));
+  WR3: precedent_item &#60;&#62; subsequent_item;
+  WR4: NOT('AP210_ARM.COMPONENT_FEATURE' IN TYPEOF(precedent_item)) OR
+            (SIZEOF(['AP210_ARM.BARE_DIE_SURFACE',
+                     'AP210_ARM.PACKAGE_BODY_SURFACE'] *
+              TYPEOF(precedent_item.definition)) = 1);
+  WR5: NOT('AP210_ARM.COMPONENT_FEATURE' IN TYPEOF(subsequent_item)) OR
+              (SIZEOF(['AP210_ARM.BARE_DIE_SURFACE',
+                       'AP210_ARM.PACKAGE_BODY_SURFACE'] *
+                TYPEOF(subsequent_item.definition)) = 1);
+END_ENTITY; -- adjacent_stratum_surface_embedded_component_surface_definition
+
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>signal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><TABLE
+CLASS="UOFMAPPINGSUBTBL"
+BORDER="1"
+><CAPTION
+><A
+NAME="60495"
+></A
+>Table 93 - Mapping table for signal UoF</CAPTION
+><THEAD
+CLASS="MAPPINGSUBTBLCOLUMNS"
+><TR
+><TH
+>Application element</TH
+><TH
+>AIM element</TH
+><TH
+>Source</TH
+><TH
+>Reference path</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="60504"
+></A
+>CHARACTERISTIC_DATA_SET</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>data_set_representation_item</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>data_set_representation_item &#60;=<BR>compound_representation_item<BR>{compound_representation_item<BR>compound_representation_item.item_element -&#62;<BR>compound_item_definition = set_representation_item}<BR>compound_representation_item &#60;=<BR>representation_item<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="60517"
+></A
+>CHARACTERISTIC_DATA_TABLE</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>table_representation_item</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>table_representation_item &#60;=<BR>compound_representation_item<BR>{compound_representation_item<BR>compound_representation_item.item_element -&#62;<BR>compound_item_definition = list_representation_item}<BR>compound_representation_item &#60;=<BR>representation_item<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="60530"
+></A
+>COMPOSITE_SIGNAL_PROPERTY</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>property_definition</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>{property_definition<BR>property_definition.name = `composite signal property'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="60538"
+></A
+>COMPOSITE_SIGNAL_PROPERTY_RELATIONSHIP</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>composite_signal_property_relationship</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>{[composite_signal_property_relationship &#60;=<BR>property_definition_relationship]<BR>[composite_signal_property_relationship &#60;=<BR>property_definition]}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>composite_signal_property_relationship&nbsp;to<BR>composite_signal_property<BR>(as composition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>composite_signal_property_relationship &#60;=<BR>property_definition_relationship<BR>property_definition_relationship.relating_property_definition -&#62;<BR>property_definition<BR>{property_definition<BR>property_definition.name = `composite signal property'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>composite_signal_property_relationship&nbsp;to<BR>external_definition<BR>(as aggregation_operation)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>composite_signal_property_relationship &#60;=<BR>property_definition<BR>property_definition.definition -&#62;<BR>characterized_definition<BR>characterized_definition = characterized_object<BR>{characterized_object<BR>characterized_object.description = `aggregate operation'}<BR>characterized_object =&#62;<BR>external_definition<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>composite_signal_property_relationship&nbsp;to<BR>signal_property<BR>(as signal_property_structural_element)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>property_definition_relationship<BR>property_definition_relationship.related_property_definition -&#62;<BR>property_definition<BR>{property_definition<BR>property_definition.name = `signal property'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="60582"
+></A
+>SIGNAL</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>signal</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>signal &#60;=<BR>characterized_object<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>signal&nbsp;to<BR>external_definition<BR>(as signal_category)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>signal<BR>document_assigned_item = signal<BR>document_assigned_item &#60;-<BR>applied_document_reference.items[i]<BR>applied_document_reference &#60;=<BR>document_reference<BR>{document_reference<BR>document_reference.source = `signal category'}<BR>document_reference.assigned_document -&#62;<BR>document &#60;-<BR>document_usage_constraint.source<BR>document_usage_constraint<BR>{document_usage_constraint<BR>document_usage_constraint.subject_element = `signal category'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="60609"
+></A
+>SIGNAL_PROPERTY</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>property_definition</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>{(property_definition<BR>property_definition.name = `signal property')<BR>(property_definition<BR>property_definition.name = `composite signal property')}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>signal_property&nbsp;to<BR>external_definition<BR>(as signal_property_category)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>property_definition<BR>(property_definition.definition -&#62;<BR>characterized_definition<BR>characterized_definition = characterized_object<BR>characterized_object =&#62;<BR>signal<BR>{signal<BR>classification_assigned_item = signal<BR>classification_assigned_item &#60;-<BR>applied_classification_assignment.items[i]<BR>applied_classification_assignment &#60;=<BR>group_assignment<BR>group_assignment.assigned_group -&#62;<BR>group<BR>{group.description = `signal property category'}<BR>group =&#62;<BR>signal_category})<BR>(document_assigned_item = property_definition<BR>document_assigned_item &#60;-<BR>applied_document_reference.items[i]<BR>applied_document_reference &#60;=<BR>document_reference<BR>document_reference.assigned_document -&#62;<BR>document &#60;-<BR>document_usage_constraint.source<BR>document_usage_constraint<BR>{document_usage_constraint<BR>document_usage_constraint.subject_element = `signal property category'})<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>signal_property&nbsp;to<BR>characteristic_data_table<BR>(as signal_property_representation)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>property_definition &#60;-<BR>property_definition_representation.definition<BR>property_definition_representation<BR>property_definition_representation.used_representation -&#62;<BR>representation<BR>representation.items[i] -&#62;<BR>representation_item =&#62;<BR>compound_representation_item =&#62;<BR>table_representation_item<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>signal_property&nbsp;to<BR>signal<BR>(as characterized_signal)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>property_definition<BR>property_definition.definition -&#62;<BR>characterized_definition<BR>characterized_definition = characterized_object<BR>characterized_object =&#62;<BR>signal<BR></TD
+></TR
+></TBODY
+></TABLE
+></BODY
+></HTML
+>

@@ -1,0 +1,63 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: File_identification_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: File_identification_mim</h2><code><br><br><a name="file_identification_mim">SCHEMA <b>File_identification_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/identification_assignment/sys/e_exp_mim.htm#identification_assignment_mim">Identification_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1021<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_mim.htm#external_item_identification_assignment_mim">External_item_identification_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1128<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema">document_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema.document">document</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema.document_representation_type">document_representation_type</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema">product_property_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>);
+         <br><br></code><code><br><A NAME="file_identification_mim.file_identification_item">TYPE </A><b>file_identification_item</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/identification_assignment/sys/e_exp_mim.htm#identification_assignment_mim.identification_item">identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#file_identification_mim.document_file">document_file</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="file_identification_mim.file_location_select">TYPE </A><b>file_location_select</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_mim.htm#external_item_identification_assignment_mim.external_identification_item">external_identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#file_identification_mim.document_file">document_file</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="file_identification_mim.file_version_item">TYPE </A><b>file_version_item</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/identification_assignment/sys/e_exp_mim.htm#identification_assignment_mim.versionable_item">versionable_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#file_identification_mim.document_file">document_file</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="file_identification_mim.document_file">ENTITY <b>document_file</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>, <A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema.document">document</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="file_identification_mim.document_file.wr:wr1">WR1: SELF\characterized_object.name = '';</A><br>
+         &nbsp;&nbsp;<A NAME="file_identification_mim.document_file.wr:wr2">WR2: NOT EXISTS(SELF\characterized_object.description);</A><br>
+         &nbsp;&nbsp;<A NAME="file_identification_mim.document_file.wr:wr3">WR3: SIZEOF( QUERY( drt &lt;* SELF\document.representation_types |               drt.name IN ['digital','physical'])) = 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;File_identification_mim<br></code></body>
+</HTML>

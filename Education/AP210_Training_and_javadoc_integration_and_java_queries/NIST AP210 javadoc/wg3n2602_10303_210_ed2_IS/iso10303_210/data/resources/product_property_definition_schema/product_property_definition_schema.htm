@@ -1,0 +1,209 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: product_property_definition_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: product_property_definition_schema</h2>
+      <p><i>Source : ISO 10303-41</i></p><code><br><br><a name="product_property_definition_schema">SCHEMA <b>product_property_definition_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema">basic_attribute_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.get_id_value">get_id_value</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.id_attribute">id_attribute</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/process_property_schema/process_property_schema.htm#process_property_schema">process_property_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-49<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/process_property_schema/process_property_schema.htm#process_property_schema.action_property">action_property</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/process_property_schema/process_property_schema.htm#process_property_schema.resource_property">resource_property</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema">product_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.bag_to_set">bag_to_set</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>);
+         <br><br></code><code><br><A NAME="product_property_definition_schema.characterized_definition">TYPE </A><b>characterized_definition</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#product_property_definition_schema.characterized_object">characterized_object</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#product_property_definition_schema.characterized_product_definition">characterized_product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#product_property_definition_schema.shape_definition">shape_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="product_property_definition_schema.characterized_product_definition">TYPE </A><b>characterized_product_definition</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="product_property_definition_schema.derived_property_select">TYPE </A><b>derived_property_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/process_property_schema/process_property_schema.htm#process_property_schema.action_property">action_property</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#product_property_definition_schema.property_definition">property_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/process_property_schema/process_property_schema.htm#process_property_schema.resource_property">resource_property</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="product_property_definition_schema.shape_definition">TYPE </A><b>shape_definition</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#product_property_definition_schema.product_definition_shape">product_definition_shape</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#product_property_definition_schema.shape_aspect">shape_aspect</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="product_property_definition_schema.characterized_object">ENTITY <b>characterized_object</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.characterized_object.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.characterized_object.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_property_definition_schema.characterized_object_relationship">ENTITY <b>characterized_object_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.characterized_object_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.characterized_object_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.characterized_object_relationship.relating_object">relating_object : </A><A HREF="#product_property_definition_schema.characterized_object">characterized_object</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.characterized_object_relationship.related_object">related_object : </A><A HREF="#product_property_definition_schema.characterized_object">characterized_object</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_property_definition_schema.general_property">ENTITY <b>general_property</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.general_property.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.general_property.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.general_property.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_property_definition_schema.general_property_association">ENTITY <b>general_property_association</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.general_property_association.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.general_property_association.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.general_property_association.base_definition">base_definition : </A><A HREF="#product_property_definition_schema.general_property">general_property</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.general_property_association.derived_definition">derived_definition : </A><A HREF="#product_property_definition_schema.derived_property_select">derived_property_select</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.general_property_association.wr:wr1">WR1: SIZEOF( USEDIN( derived_definition, 'PRODUCT_PROPERTY_DEFINITION_SCHEMA.' + 'GENERAL_PROPERTY_ASSOCIATION.' + 'DERIVED_DEFINITION'))
+            = 1;</A><br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.general_property_association.wr:wr2">WR2: derived_definition.name = base_definition.name;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_property_definition_schema.general_property_relationship">ENTITY <b>general_property_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.general_property_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.general_property_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.general_property_relationship.relating_property">relating_property : </A><A HREF="#product_property_definition_schema.general_property">general_property</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.general_property_relationship.related_property">related_property : </A><A HREF="#product_property_definition_schema.general_property">general_property</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_property_definition_schema.product_definition_shape">ENTITY <b>product_definition_shape</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_property_definition_schema.property_definition">property_definition</A>);<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.product_definition_shape.ur:ur1">UR1: </A>
+         SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>.definition;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.product_definition_shape.wr:wr1">WR1: SIZEOF (['PRODUCT_PROPERTY_DEFINITION_SCHEMA.CHARACTERIZED_PRODUCT_DEFINITION', 'PRODUCT_PROPERTY_DEFINITION_SCHEMA.CHARACTERIZED_OBJECT']
+            *TYPEOF (SELF\property_definition.definition))&gt;0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_property_definition_schema.property_definition">ENTITY <b>property_definition</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.property_definition.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.property_definition.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.property_definition.definition">definition : </A><A HREF="#product_property_definition_schema.characterized_definition">characterized_definition</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.property_definition.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A> := get_id_value (SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.property_definition.wr:wr1">WR1: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'ID_ATTRIBUTE.IDENTIFIED_ITEM')) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_property_definition_schema.shape_aspect">ENTITY <b>shape_aspect</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.shape_aspect.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.shape_aspect.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.shape_aspect.of_shape">of_shape : </A><A HREF="#product_property_definition_schema.product_definition_shape">product_definition_shape</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.shape_aspect.product_definitional">product_definitional : </A>LOGICAL;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.shape_aspect.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A> := get_id_value (SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.shape_aspect.wr:wr1">WR1: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'ID_ATTRIBUTE.IDENTIFIED_ITEM')) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_property_definition_schema.shape_aspect_relationship">ENTITY <b>shape_aspect_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.shape_aspect_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.shape_aspect_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.shape_aspect_relationship.relating_shape_aspect">relating_shape_aspect : </A><A HREF="#product_property_definition_schema.shape_aspect">shape_aspect</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.shape_aspect_relationship.related_shape_aspect">related_shape_aspect : </A><A HREF="#product_property_definition_schema.shape_aspect">shape_aspect</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.shape_aspect_relationship.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A> := get_id_value (SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_property_definition_schema.shape_aspect_relationship.wr:wr1">WR1: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'ID_ATTRIBUTE.IDENTIFIED_ITEM')) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_property_definition_schema.acyclic_characterized_object_relationship">FUNCTION <b>acyclic_characterized_object_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object_relationship">characterized_object_relationship</A>; relatives : SET[1:?] OF <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>
+  LOCAL
+      x : SET OF characterized_object_relationship;
+    END_LOCAL;
+
+    IF relation.relating_object IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(ca &lt;* bag_to_set(USEDIN(relation.relating_object, 'PRODUCT_PROPERTY_DEFINITION_SCHEMA.' + 'CHARACTERIZED_OBJECT_RELATIONSHIP.' + 'RELATED_OBJECT')) | specific_relation IN TYPEOF(ca));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_characterized_object_relationship(x[i], relatives + relation.relating_object, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+RETURN (TRUE);
+			</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="product_property_definition_schema.acyclic_general_property_relationship">FUNCTION <b>acyclic_general_property_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property_relationship">general_property_relationship</A>; relatives : SET[1:?] OF <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property">general_property</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>
+  LOCAL
+      x : SET OF general_property_relationship;
+    END_LOCAL;
+
+    IF relation.relating_property IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(genp &lt;* bag_to_set(USEDIN(relation.relating_property, 'PRODUCT_PROPERTY_DEFINITION_SCHEMA.' + 'GENERAL_PROPERTY_RELATIONSHIP.' + 'RELATED_PROPERTY')) | specific_relation IN TYPEOF(genp));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_general_property_relationship(x[i], relatives + relation.relating_property, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);
+		      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="product_property_definition_schema.acyclic_shape_aspect_relationship">FUNCTION <b>acyclic_shape_aspect_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>; relatives : SET[1:?] OF <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>
+ LOCAL
+      x : SET OF shape_aspect_relationship;
+    END_LOCAL;
+
+    IF relation.relating_shape_aspect IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(sa &lt;* bag_to_set(USEDIN(relation.relating_shape_aspect, 'PRODUCT_PROPERTY_DEFINITION_SCHEMA.' + 'SHAPE_ASPECT_RELATIONSHIP.' + 'RELATED_SHAPE_ASPECT')) | specific_relation IN TYPEOF(sa));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_shape_aspect_relationship(x[i], relatives + relation.relating_shape_aspect, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);
+			</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="product_property_definition_schema.get_shape_aspects">FUNCTION <b>get_shape_aspects</b></A><br>&nbsp;(c_def_instance : <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_definition">characterized_definition</A>) : SET OF <A HREF="#product_property_definition_schema.shape_aspect">shape_aspect</A>;
+         </code><pre>
+  LOCAL
+      pd_set : SET OF product_definition_shape := [];
+      pdr_set : SET OF shape_aspect := [];
+    END_LOCAL;
+
+    pd_set := bag_to_set(QUERY(pd &lt;* USEDIN(c_def_instance, 'PRODUCT_PROPERTY_DEFINITION_SCHEMA.PROPERTY_DEFINITION.DEFINITION') | 'PRODUCT_PROPERTY_DEFINITION_SCHEMA.PRODUCT_DEFINITION_SHAPE' IN TYPEOF(pd)));
+    IF (SIZEOF(pd_set) &lt; 1) THEN
+      RETURN (pdr_set);
+    END_IF;
+    REPEAT i := 1 TO HIINDEX(pd_set);
+      pdr_set := pdr_set + bag_to_set(USEDIN(pd_set[i], 'PRODUCT_PROPERTY_DEFINITION_SCHEMA.SHAPE_ASPECT.OF_SHAPE'));
+    END_REPEAT;
+    RETURN (pdr_set);
+			</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;product_property_definition_schema<br></code></body>
+</HTML>

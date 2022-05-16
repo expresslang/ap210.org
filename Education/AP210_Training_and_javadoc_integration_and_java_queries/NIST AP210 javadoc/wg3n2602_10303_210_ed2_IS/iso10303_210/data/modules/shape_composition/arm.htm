@@ -1,0 +1,53 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Shape_composition_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Shape_composition_arm</h2><code><br><br><a name="shape_composition_arm">SCHEMA <b>Shape_composition_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm">Shape_property_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1032<br><br></code><code><br><A NAME="shape_composition_arm.composite_group_shape_element">ENTITY <b>Composite_group_shape_element</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_composition_arm.composite_shape_element">Composite_shape_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_composition_arm.composite_shape_element">ENTITY <b>Composite_shape_element</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#shape_composition_arm.composite_group_shape_element">Composite_group_shape_element</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#shape_composition_arm.composite_unit_shape_element">Composite_unit_shape_element</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element">Shape_element</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="shape_composition_arm.composite_shape_element.composing_relationships">composing_relationships : </A>SET[2:?] OF <A HREF="#shape_composition_arm.shape_element_composing_relationship">Shape_element_composing_relationship</A> FOR relating;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_composition_arm.composite_unit_shape_element">ENTITY <b>Composite_unit_shape_element</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_composition_arm.composite_shape_element">Composite_shape_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_composition_arm.shape_element_boundary_relationship">ENTITY <b>Shape_element_boundary_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_composition_arm.shape_element_boundary_relationship.wr:wr1">WR1: NOT EXISTS (SELF\Shape_element_relationship.relation_type);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_composition_arm.shape_element_composing_relationship">ENTITY <b>Shape_element_composing_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_composition_arm.shape_element_constituent_relationship">Shape_element_constituent_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>.<A NAME="shape_composition_arm.shape_element_composing_relationship.relating">relating : </A><A HREF="#shape_composition_arm.composite_shape_element">Composite_shape_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_composition_arm.shape_element_constituent_relationship">ENTITY <b>Shape_element_constituent_relationship</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (<A HREF="#shape_composition_arm.shape_element_composing_relationship">Shape_element_composing_relationship</A>)<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>);<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="shape_composition_arm.shape_element_constituent_relationship.ur:ur1">UR1: </A>
+         SELF\<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>.related, 
+         SELF\<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>.relating;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_composition_arm.shape_element_constituent_relationship.wr:wr1">WR1: SELF\Shape_element_relationship.related &lt;&gt; SELF\Shape_element_relationship.relating;</A><br>
+         &nbsp;&nbsp;<A NAME="shape_composition_arm.shape_element_constituent_relationship.wr:wr2">WR2: NOT EXISTS (SELF\Shape_element_relationship.relation_type);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_composition_arm.shape_element_locating_relationship">ENTITY <b>Shape_element_locating_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_composition_arm.shape_element_constituent_relationship">Shape_element_constituent_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>.relating&nbsp;RENAMED&nbsp;<A NAME="shape_composition_arm.shape_element_locating_relationship.locating_shape_element">locating_shape_element : </A><A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element">Shape_element</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>.related&nbsp;RENAMED&nbsp;<A NAME="shape_composition_arm.shape_element_locating_relationship.located_shape_element">located_shape_element : </A><A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element">Shape_element</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="shape_composition_arm.shape_element_locating_relationship.ur:ur1">UR1: </A>located_shape_element, locating_shape_element;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Shape_composition_arm<br></code></body>
+</HTML>

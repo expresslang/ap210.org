@@ -1,0 +1,53 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Stratum_non_planar_shape_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Stratum_non_planar_shape_arm</h2><code><br><br><a name="stratum_non_planar_shape_arm">SCHEMA <b>Stratum_non_planar_shape_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/layered_interconnect_module_design/sys/e_exp_arm.htm#layered_interconnect_module_design_arm">Layered_interconnect_module_design_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1698<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/manifold_surface/sys/e_exp_arm.htm#manifold_surface_arm">Manifold_surface_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1509<br><br></code><code><br><A NAME="stratum_non_planar_shape_arm.stratum_surface_shape_model_select">TYPE </A><b>stratum_surface_shape_model_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#stratum_non_planar_shape_arm.stratum_average_surface_shape_model">Stratum_average_surface_shape_model</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#stratum_non_planar_shape_arm.stratum_surface_shape_model">Stratum_surface_shape_model</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="stratum_non_planar_shape_arm.stratum_average_surface_shape_model">ENTITY <b>Stratum_average_surface_shape_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/manifold_surface/sys/e_exp_arm.htm#manifold_surface_arm.manifold_surface_shape_representation">Manifold_surface_shape_representation</A>);<br>
+         &nbsp;&nbsp;<A NAME="stratum_non_planar_shape_arm.stratum_average_surface_shape_model.of_surface">of_surface : </A><A HREF="../../../data/modules/layered_interconnect_module_design/sys/e_exp_arm.htm#layered_interconnect_module_design_arm.stratum_average_surface">Stratum_average_surface</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="stratum_non_planar_shape_arm.stratum_average_surface_shape_model.ur:ur1">UR1: </A>of_surface;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="stratum_non_planar_shape_arm.stratum_average_surface_shape_model.wr:wr1">WR1: NOT EXISTS(SELF\Representation.name);</A><br>
+         &nbsp;&nbsp;<A NAME="stratum_non_planar_shape_arm.stratum_average_surface_shape_model.wr:wr2">WR2: NOT EXISTS(SELF\Representation.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="stratum_non_planar_shape_arm.stratum_feature_non_planar_2d_shape_model">ENTITY <b>Stratum_feature_non_planar_2d_shape_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/manifold_surface/sys/e_exp_arm.htm#manifold_surface_arm.manifold_surface_shape_representation">Manifold_surface_shape_representation</A>);<br>
+         &nbsp;&nbsp;<A NAME="stratum_non_planar_shape_arm.stratum_feature_non_planar_2d_shape_model.shape_characterized_component">shape_characterized_component : </A><A HREF="../../../data/modules/layered_interconnect_module_design/sys/e_exp_arm.htm#layered_interconnect_module_design_arm.stratum_feature">Stratum_feature</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="stratum_non_planar_shape_arm.stratum_feature_non_planar_2d_shape_model.wr:wr1">WR1: NOT EXISTS(SELF\Representation.name);</A><br>
+         &nbsp;&nbsp;<A NAME="stratum_non_planar_shape_arm.stratum_feature_non_planar_2d_shape_model.wr:wr2">WR2: NOT EXISTS(SELF\Representation.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="stratum_non_planar_shape_arm.stratum_feature_shape_stratum_average_surface_shape_relationship">ENTITY <b>Stratum_feature_shape_stratum_average_surface_shape_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="stratum_non_planar_shape_arm.stratum_feature_shape_stratum_average_surface_shape_relationship.of_stratum_feature_shape">of_stratum_feature_shape : </A><A HREF="#stratum_non_planar_shape_arm.stratum_feature_non_planar_2d_shape_model">Stratum_feature_non_planar_2d_shape_model</A>;<br>
+         &nbsp;&nbsp;<A NAME="stratum_non_planar_shape_arm.stratum_feature_shape_stratum_average_surface_shape_relationship.of_stratum_average_surface_shape">of_stratum_average_surface_shape : </A><A HREF="#stratum_non_planar_shape_arm.stratum_average_surface_shape_model">Stratum_average_surface_shape_model</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="stratum_non_planar_shape_arm.stratum_feature_shape_stratum_surface_shape_relationship">ENTITY <b>Stratum_feature_shape_stratum_surface_shape_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="stratum_non_planar_shape_arm.stratum_feature_shape_stratum_surface_shape_relationship.of_stratum_feature_shape">of_stratum_feature_shape : </A><A HREF="#stratum_non_planar_shape_arm.stratum_feature_non_planar_2d_shape_model">Stratum_feature_non_planar_2d_shape_model</A>;<br>
+         &nbsp;&nbsp;<A NAME="stratum_non_planar_shape_arm.stratum_feature_shape_stratum_surface_shape_relationship.of_stratum_surface_shape">of_stratum_surface_shape : </A><A HREF="#stratum_non_planar_shape_arm.stratum_surface_shape_model">Stratum_surface_shape_model</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="stratum_non_planar_shape_arm.stratum_surface_shape_model">ENTITY <b>Stratum_surface_shape_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/manifold_surface/sys/e_exp_arm.htm#manifold_surface_arm.manifold_surface_shape_representation">Manifold_surface_shape_representation</A>);<br>
+         &nbsp;&nbsp;<A NAME="stratum_non_planar_shape_arm.stratum_surface_shape_model.of_surface">of_surface : </A><A HREF="../../../data/modules/layered_interconnect_module_design/sys/e_exp_arm.htm#layered_interconnect_module_design_arm.stratum_surface">Stratum_surface</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="stratum_non_planar_shape_arm.stratum_surface_shape_model.ur:ur1">UR1: </A>of_surface;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="stratum_non_planar_shape_arm.stratum_surface_shape_model.wr:wr1">WR1: NOT EXISTS(SELF\Representation.name);</A><br>
+         &nbsp;&nbsp;<A NAME="stratum_non_planar_shape_arm.stratum_surface_shape_model.wr:wr2">WR2: NOT EXISTS(SELF\Representation.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Stratum_non_planar_shape_arm<br></code></body>
+</HTML>

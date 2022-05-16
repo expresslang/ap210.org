@@ -1,0 +1,276 @@
+/* get component specific information */ 
+A2P_LOC = getPackagedComponentLocation(AP210Model, nauo);
+
+// get the transformation matrix
+ExtractGeometry::getTransformationMatrix(m, Model, A2P_LOC, unit);
+
+/*
+ * Function getComponentPackagedLocation
+ *
+ * Given a NEXT_ASSEMBLY_USAGE_OCCURRENCE return its COMPONENT_LOCATION.
+ * If the PRODUCT_DEFINITION_SHAPE can't be found for the 
+ * NEXT_ASSEMBLY_USAGE_OCCURRENCE it indicates that the component
+ * has not been placed. 
+ *
+ * Part21 Example:
+ *   #4750=NEXT_ASSEMBLY_USAGE_OCCURRENCE('','','',#103,#4736,'C1');
+ *   #4751=PRODUCT_DEFINITION_SHAPE('','',#4750);
+ *   #4764=PROPERTY_DEFINITION_REPRESENTATION(#4751,#4761);
+ *   #4761=COMPONENT_LOCATION('',(#4753,#4754,#4758,#4760),#4752);
+ *
+ */
+SdaiAppInstance getPackagedComponentLocation(SdaiModel AP210Model, SdaiAppInstance nauo) {
+   static SdaiEntity PDS = sdaiGetEntity(AP210Model,
+                                         "product_definition_shape");
+   static SdaiAttr PDS_DEF = sdaiGetAttrDefinition(PDS,
+                                                   "definition");
+
+   static SdaiEntity PDR = sdaiGetEntity(AP210Model,
+                                         "property_definition_representation");
+   static SdaiAttr PDR_DEF= sdaiGetAttrDefinition(PDR,
+                                                  "definition");
+   static SdaiAttr PDR_USED_REP = sdaiGetAttrDefinition(PDR,
+                                                        "used_representation");
+   SdaiAppInstance pds = sdaiNULL;     // product_definition_shape
+   SdaiAppInstance pdr = sdaiNULL;     // property_definition_representation
+   SdaiAppInstance A2P_LOC = sdaiNULL; // component_location
+
+#ifdef VERBOSE
+TRACE0("In getPackagedComponentLocation()\r\n");
+#endif
+   if ((pds = _sdaiFindSingleSubTypeInstanceUsedIn(nauo, PDS, PDS_DEF)) 
+           != sdaiNULL) {
+#ifdef VERBOSE
+TRACE("Found pds: %s \r\n", _sdaiGetPart21Description(pds));
+#endif
+      pdr = _sdaiFindSingleSubTypeInstanceUsedIn(pds, PDR, PDR_DEF);
+#ifdef VERBOSE
+TRACE("Found pdr: %s \r\n", _sdaiGetPart21Description(pdr));
+#endif
+      sdaiGetAttr(pdr, PDR_USED_REP, sdaiINSTANCE, &A2P_LOC);
+#ifdef VERBOSE
+TRACE("Found A2P_LOC: %s \r\n", _sdaiGetPart21Description(A2P_LOC));
+#endif
+      }
+   return(A2P_LOC);
+   }
+
+int ExtractGeometry::getTransformationMatrix(double m[16],
+                                 SdaiModel AP210Model,
+                                 SdaiAppInstance A2P_LOC,
+                                 SdaiAppInstance unit) {
+   int result = 0;
+   // Initialize to identify matrix.
+
+   _glIdentityMatrixd(m);
+
+   // reset
+   Initialize();
+
+   if (A2P_LOC != sdaiNULL) {
+      if (unit != sdaiNULL) {
+         Factor = getUnitConversionFactor(AP210Model, unit, &Factor);
+         }
+      ExtractOffset(AP210Model, A2P_LOC);
+      }
+   result = 1;
+
+   m[0] = U11;
+   m[1] = U21;
+   m[4] = U12;
+   m[5] = U22;
+
+   m[12] = DeltaX;
+   m[13] = DeltaY;
+#ifdef VERBOSE
+TRACE("In ExtractGeometry::getTransformationMatrix()\r\n");
+TRACE("U11: %f, rotation: %f, %f degrees\r\n", U11, acos(U11),  360*(acos(U11)/(2*M_PI)));
+TRACE("U21: %f, rotation: %f, %f degrees\r\n", U21, asin(U21),  360*(asin(U21)/(2*M_PI)));
+TRACE("U12: %f, rotation: %f, %f degrees\r\n", U12, asin(-U12), 360*(asin(-U12)/(2*M_PI)));
+TRACE("U22: %f, rotation: %f, %f degrees\r\n", U22, acos(U22),  360*(acos(U22)/(2*M_PI)));
+_glTraceMatrixd(m);
+#endif
+   return result;
+   }
+
+/* 
+ * Given a conversion_based_unit or si_unit return a conversion factor to 
+ * convert to inches.
+ *
+ * From the input information the conversion to meters can be made
+ * this is then converted to inches.
+ *
+ * This routine handles the both of the following conditions:
+ *   A conversion based unit
+ *   #1317=(CONVERSION_BASED_UNIT('INCH',#1313)LENGTH_UNIT()NAMED_UNIT(#1312));
+ *   #1313=LENGTH_MEASURE_WITH_UNIT(LENGTH_MEASURE(2.540000),#1311);
+ *   #1311=(LENGTH_UNIT()NAMED_UNIT(*)SI_UNIT(.CENTI.,.METRE.));
+ *
+ *   An SI based unit
+ *   #46006=(LENGTH_UNIT()NAMED_UNIT(*)SI_UNIT(.MILLI.,.METRE.));
+ */
+double getUnitConversionFactor(SdaiModel AP210Model, SdaiAppInstance unit, double *factor) {
+   static SdaiEntity CBU = sdaiGetEntity(AP210Model, "conversion_based_unit");
+   static SdaiAttr CBU_NM = sdaiGetAttrDefinition(CBU, "name");
+   static SdaiAttr CBU_CF = sdaiGetAttrDefinition(CBU, "conversion_factor");
+
+   static SdaiEntity MWU = sdaiGetEntity(AP210Model, "measure_with_unit");
+   static SdaiAttr MWU_VC = sdaiGetAttrDefinition(MWU, "value_component");
+   static SdaiAttr MWU_UC = sdaiGetAttrDefinition(MWU, "unit_component");
+
+   static SdaiEntity SU = sdaiGetEntity(AP210Model, "si_unit");
+   static SdaiAttr SU_P = sdaiGetAttrDefinition(SU, "prefix");
+   static SdaiAttr SU_NM = sdaiGetAttrDefinition(SU, "name");
+
+   SdaiEnum sinm;
+   SdaiEnum pre;
+
+   SdaiString nm;
+   SdaiAppInstance cf;
+   SdaiAppInstance uc = sdaiNULL;
+   if (unit != sdaiNULL) {
+      if (sdaiIsKindOf(unit, CBU)) {
+         sdaiGetAttr(unit, CBU_NM, sdaiSTRING, &nm);
+         sdaiGetAttr(unit, CBU_CF, sdaiINSTANCE, &cf);
+
+         if (cf != sdaiNULL) {
+            // get the factor specifed for the specified prefix and the si unit metre
+            sdaiGetAttr(cf, MWU_VC, sdaiREAL, factor);
+            sdaiGetAttr(cf, MWU_UC, sdaiINSTANCE, &uc);
+            }
+         }
+      else if (sdaiIsKindOf(unit, SU)) {
+         uc = unit;
+         *factor = 1.0;
+         }
+      else {
+         TRACE("ERROR: Unexpected unit type %s\r\n", _sdaiGetPart21Description(unit));
+         }
+      if (uc != sdaiNULL) {
+         sdaiGetAttr(uc, SU_P, sdaiENUM, &pre);
+         sdaiGetAttr(uc, SU_NM, sdaiENUM, &sinm);
+         if (strcmp(sinm, "metre")) {
+            TRACE("ERROR: Unexpected SI length unit of '%s' expected 'metre'\n", sinm);
+            }
+         // get the conversion factor for the specified prefix 
+         // and apply it to the metre value. 
+         *factor = *factor * getPrefixConversionFactor(pre);
+         }
+      else {
+         TRACE("ERROR no unit found %s\n", _sdaiGetPart21Description(unit));
+	      }
+      }
+   else {
+      TRACE("ERROR no unit defined\r\n");
+      }
+   // Convert to meters to inches.
+   *factor = *factor * 39.370;
+
+   // A value of zero for the factor is unrealistic make is one.
+   if (*factor == 0.0) {
+      *factor = 1.0;
+      }
+   return *factor;
+   }
+void ExtractGeometry::ExtractOffset(SdaiModel AP210Model, SdaiAppInstance A2P_LOC) {
+   // assuming that A2P_LOC.context_of_items.coordinate_space_dimension is 2.
+   static SdaiEntity cro_2d_entity = sdaiGetEntity(AP210Model, "cartesian_transformation_operator_2d");
+   static SdaiAttr role = sdaiGetAttrDefinition(cro_2d_entity, "local_origin");
+   static SdaiAttr axis1attr = sdaiGetAttrDefinition(cro_2d_entity, "axis1");
+   static SdaiAttr axis2attr = sdaiGetAttrDefinition(cro_2d_entity, "axis2");
+
+   static SdaiAttr coordinates = sdaiGetAttrDefinitionBN(AP210, "cartesian_point", "coordinates");
+   static SdaiAttr direction_ratios = sdaiGetAttrDefinitionBN(AP210, "direction", "direction_ratios");
+   SdaiAppInstance unit = sdaiNULL;
+   SdaiAppInstance cro_2d;
+   SdaiAppInstance offset;
+   SdaiAggr coords;
+   SdaiAppInstance axis1 = sdaiNULL;
+   SdaiAppInstance axis2 = sdaiNULL;
+   SdaiAggr ratios;
+   double factor = 1.0; // coordinate location unit conversion factor.
+
+#ifdef VERBOSE
+TRACE0("In ExtractGeometry::ExtractOffset()\r\n");
+TRACE("For %s\n", _sdaiGetPart21Description(A2P_LOC));
+#endif
+   if ((unit = getRepresentationLengthUnit(AP210Model, A2P_LOC)) != sdaiNULL) {
+      factor = getUnitConversionFactor(AP210Model, unit, &factor); 
+      }
+   else {
+      TRACE("ERROR: No units defined for %s\n",
+             _sdaiGetPart21Description(A2P_LOC));
+      } 
+#ifdef VERBOSE
+TRACE("unit: %s\n", _sdaiGetPart21Description(unit));
+TRACE("factor: %f\n", factor);
+#endif
+
+   cro_2d = _sdaiGetSingleRepresentationItemOfType(A2P_LOC, cro_2d_entity);
+#ifdef VERBOSE
+TRACE("cro_2d: %s\n", _sdaiGetPart21Description(cro_2d));
+#endif
+
+   if (cro_2d != sdaiNULL) {
+      sdaiGetAttr(cro_2d, role, sdaiINSTANCE, &offset);
+
+      // Get the coordinates LIST
+      sdaiGetAttr(offset, coordinates, sdaiAGGR, &coords);
+
+      sdaiGetAggrByIndex(coords, 0, sdaiREAL, &DeltaX);
+      sdaiGetAggrByIndex(coords, 1, sdaiREAL, &DeltaY);
+      DeltaX = DeltaX * factor;
+      DeltaY = DeltaY * factor;
+
+      // Get the rotation LIST and populate the
+      // transformation matrix.
+      // Reference: base_axis function part42 when
+      //            axis1 and axis2 are available.
+      // Axis1
+      sdaiGetAttr(cro_2d, axis1attr, sdaiINSTANCE, &axis1);
+      if (axis1 != sdaiNULL) {
+#ifdef VERBOSE
+TRACE("axis1: %s\n", _sdaiGetPart21Description(axis1));
+#endif
+         sdaiGetAttr(axis1, direction_ratios, sdaiAGGR, &ratios);
+
+         sdaiGetAggrByIndex(ratios, 0, sdaiREAL, &U11);
+         sdaiGetAggrByIndex(ratios, 1, sdaiREAL, &U21);
+         }
+      else {
+         TRACE("WARNING: axis1 not present in %s\r\n", 
+                _sdaiGetPart21Description(cro_2d));
+         }
+      // Axis2
+      sdaiGetAttr(cro_2d, axis2attr, sdaiINSTANCE, &axis2);
+      if (axis2 != sdaiNULL) {
+#ifdef VERBOSE
+TRACE("axis2: %s\n", _sdaiGetPart21Description(axis2));
+#endif
+         sdaiGetAttr(axis2, direction_ratios, sdaiAGGR, &ratios);
+
+         sdaiGetAggrByIndex(ratios, 0, sdaiREAL, &U12);
+         sdaiGetAggrByIndex(ratios, 1, sdaiREAL, &U22);
+#ifdef VERBOSE
+TRACE("Read U12: %g, U22: %g\r\n", U12, U22);
+#endif
+         }
+      else {
+         // The second axis maynot be provided in a 2D
+         // system it needs to be created.
+     
+         // take radian measure of U11 and add PI/2 to 
+         // it.
+         double angle = acos(U11)+(M_PI/2.0);
+         U12 = cos(angle);
+         U22 = sin(angle);
+#ifdef VERBOSE
+TRACE("CALCULATED angle: %f, U12: %f, U22: %f\r\n", angle, U12, U22);
+#endif
+         }
+      }
+   else {
+      TRACE("WARNING: No cartesian_transformation_operator_2d found for:\r\n         %s.\r\n", 
+            _sdaiGetPart21Description(A2P_LOC));
+      }
+   }

@@ -1,0 +1,93 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: configuration_management_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: configuration_management_schema</h2>
+      <p><i>Source : ISO 10303-44</i></p><code><br><br><a name="configuration_management_schema">SCHEMA <b>configuration_management_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/effectivity_schema/effectivity_schema.htm#effectivity_schema">effectivity_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/effectivity_schema/effectivity_schema.htm#effectivity_schema.effectivity">effectivity</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema">product_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation">product_definition_formation</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_effectivity">product_definition_effectivity</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema">product_structure_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-44<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.product_definition_usage">product_definition_usage</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema">product_concept_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-44<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept">product_concept</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept_feature_association">product_concept_feature_association</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema">basic_attribute_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.get_description_value">get_description_value</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.get_name_value">get_name_value</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.bag_to_set">bag_to_set</A>);
+         <br><br></code><code><br><A NAME="configuration_management_schema.configuration_design_item">TYPE </A><b>configuration_design_item</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation">product_definition_formation</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="configuration_management_schema.configurable_item">ENTITY <b>configurable_item</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#configuration_management_schema.configuration_item">configuration_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configurable_item.item_concept_feature">item_concept_feature : </A>SET[1:?] OF <A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept_feature_association">product_concept_feature_association</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="configuration_management_schema.configuration_design">ENTITY <b>configuration_design</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_design.configuration">configuration : </A><A HREF="#configuration_management_schema.configuration_item">configuration_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_design.design">design : </A><A HREF="#configuration_management_schema.configuration_design_item">configuration_design_item</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_design.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A> := get_name_value (SELF);<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_design.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A> := get_description_value (SELF);<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_design.ur:ur1">UR1: </A>configuration, design;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_design.wr:wr1">WR1: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' +
+            'NAME_ATTRIBUTE.NAMED_ITEM')) &lt;= 1;</A><br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_design.wr:wr2">WR2: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' +
+            'DESCRIPTION_ATTRIBUTE.DESCRIBED_ITEM')) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="configuration_management_schema.configuration_effectivity">ENTITY <b>configuration_effectivity</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_effectivity">product_definition_effectivity</A>);<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_effectivity.configuration">configuration : </A><A HREF="#configuration_management_schema.configuration_design">configuration_design</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_effectivity.ur:ur1">UR1: </A>configuration, SELF\product_definition_effectivity.usage, SELF\effectivity.id;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_effectivity.wr:wr1">WR1: 'PRODUCT_STRUCTURE_SCHEMA.PRODUCT_DEFINITION_USAGE' IN
+            TYPEOF (SELF\product_definition_effectivity.usage);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="configuration_management_schema.configuration_item">ENTITY <b>configuration_item</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_item.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_item.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_item.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_item.item_concept">item_concept : </A><A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept">product_concept</A>;<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_item.purpose">purpose : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="configuration_management_schema.configuration_item_relationship">ENTITY <b>configuration_item_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_item_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_item_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_item_relationship.relating_configuration_item">relating_configuration_item : </A><A HREF="#configuration_management_schema.configuration_item">configuration_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="configuration_management_schema.configuration_item_relationship.related_configuration_item">related_configuration_item : </A><A HREF="#configuration_management_schema.configuration_item">configuration_item</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;configuration_management_schema<br></code></body>
+</HTML>

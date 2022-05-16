@@ -1,0 +1,38 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Activity_method_assignment_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Activity_method_assignment_arm</h2><code><br><br><a name="activity_method_assignment_arm">SCHEMA <b>Activity_method_assignment_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/activity_method/sys/e_exp_arm.htm#activity_method_arm">Activity_method_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1049<br><br></code><code><br><A NAME="activity_method_assignment_arm.activity_method_item">TYPE </A><b>activity_method_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="activity_method_assignment_arm.activity_method_relationship">ENTITY <b>Activity_method_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="activity_method_assignment_arm.activity_method_relationship.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="activity_method_assignment_arm.activity_method_relationship.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="activity_method_assignment_arm.activity_method_relationship.relating_method">relating_method : </A><A HREF="../../../data/modules/activity_method/sys/e_exp_arm.htm#activity_method_arm.activity_method">Activity_method</A>;<br>
+         &nbsp;&nbsp;<A NAME="activity_method_assignment_arm.activity_method_relationship.related_method">related_method : </A><A HREF="../../../data/modules/activity_method/sys/e_exp_arm.htm#activity_method_arm.activity_method">Activity_method</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="activity_method_assignment_arm.applied_activity_method_assignment">ENTITY <b>Applied_activity_method_assignment</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="activity_method_assignment_arm.applied_activity_method_assignment.assigned_activity_method">assigned_activity_method : </A><A HREF="../../../data/modules/activity_method/sys/e_exp_arm.htm#activity_method_arm.activity_method">Activity_method</A>;<br>
+         &nbsp;&nbsp;<A NAME="activity_method_assignment_arm.applied_activity_method_assignment.items">items : </A>SET[1:?] OF <A HREF="#activity_method_assignment_arm.activity_method_item">activity_method_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="activity_method_assignment_arm.applied_activity_method_assignment.role">role : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Activity_method_assignment_arm<br></code></body>
+</HTML>

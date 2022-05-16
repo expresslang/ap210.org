@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Printed_part_template_material_link</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.736 Printed_part_template_material_link</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Printed_part_template_material_link is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>precedent_material</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>subsequent_material</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.736.1 precedent_material</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The precedent_material specifies a <A
+CLASS="INTERNALREF"
+HREF="e_888.htm"
+>Template_material_cross_section_boundary</A
+> for the Printed_part_template_material_link.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.736.2 subsequent_material</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The subsequent_material specifies a <A
+CLASS="INTERNALREF"
+HREF="e_888.htm"
+>Template_material_cross_section_boundary</A
+> for the Printed_part_template_material_link.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of precedent_material and subsequent_material shall be unique within a population of Printed_part_template_material_link.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The precedent_material shall not be the subsequent_material within a population of Printed_part_template_material_link.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The name attribute inherited from <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> for the precedent_material shall be one of "bottom" or "right" within a population of Template_material_cross_section_boundary.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR3: </SPAN
+>The name attribute inherited from <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> for the subsequent_material shall be one "top" or "left" within a population of Template_material_cross_section_boundary.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY printed_part_template_material_link
+  SUBTYPE OF (managed_design_object);
+    precedent_material : template_material_cross_section_boundary;
+    subsequent_material : template_material_cross_section_boundary;
+UNIQUE
+  ur1: precedent_material, subsequent_material;
+WHERE
+ wr1: precedent_material :&#60;&#62;: subsequent_material;
+--tt tc1 wd8 added
+ wr2: precedent_material\shape_element.name in ['bottom', 'right'];
+ wr3: subsequent_material\shape_element.name in ['top', 'left'];
+END_ENTITY; -- printed_part_template_material_link
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

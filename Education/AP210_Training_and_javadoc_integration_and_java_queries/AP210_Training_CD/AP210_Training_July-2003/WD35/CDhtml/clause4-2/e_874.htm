@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Structured_text</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.874 Structured_text</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Structured_text is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Structured_text is a portion of an <A
+CLASS="INTERNALREF"
+HREF="e_316.htm"
+>Ee_document</A
+> that may have identifiable relations between itself and other portions of the Ee_document.  Those relations are a container relationship in which the Structured_text is "contained in" an Ee_document, or a sequential relationship in which the Structured_text may be in a specific sequence of Structured_text within an Ee_document.  Structured_text may be composed of other instances of Structured_text or Ee_text as content, in a tree structure.  A Structured_text shall be acyclic.  The Structured_text should at least provide content at the lowest level of the structure. <DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: This part of ISO 10303 is exchanging the content of a document, not its presentation format.</DIV
+><DIV
+CLASS="EXAMPLEGROUP"
+><P
+>EXAMPLES:</P
+><OL
+><LI
+CLASS="EXAMPLEINGROUP"
+>An example of Structured_text is an extract from an Ee_document in SGML, in which each portion of the Ee_document has a known structure.</LI
+><LI
+CLASS="EXAMPLEINGROUP"
+>Structured_text objects can be chapters, titles, paragraphs, sentences or structured markup.</LI
+></OL
+></DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>content_markup</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>plain_text_content</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>precedent_structured_text</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>structured_text_content</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.874.1 content_markup</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The content_markup specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_367.htm"
+>External_definition</A
+> for the Structured_text. 
+The content_markup identifies the computer interpretable element type of the content.  Plain text shall be a string encoded according to clause 7.3.3 of ISO 10303-21.  Plain text shall be identified by the following contents of the External_definitiion referenced by content_markup: code is "text markup tag", code_value is "plain text", reference_document is "ISO 10303-210".</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.874.2 plain_text_content</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The plain_text_content specifies the role of the Ee_text for the Structured_text. 
+The plain_text_content need not be provided for the Structured_text.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Plain_text_content would only not be provided if there was a need to specify lower level markup within the current markup.  </DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.874.3 precedent_structured_text</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The precedent_structured_text specifies the role of the Structured_text for the Structured_text.  This role is appropriate when both Structured_text are helping to compose a higher level Structured_text or are referenced by an <A
+CLASS="INTERNALREF"
+HREF="e_316.htm"
+>Ee_document</A
+>.  The precedent_structured_text need not be provided for a Structured_text. <DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Precedent_structured_text is provided to ensure the correct sequencing of text contents.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.874.4 structured_text_content</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The structured_text_content specifies the role of the Structured_text for the Structured_text. 
+There may be one or more entries in the structured_text_content for a particular Structured_text.  The structured_text_content need not be provided for the Structured_text.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Structured_text_content would only not be provided if there was no need to specify lower level markup within the current markup or if plain_text_content were provided.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY structured_text
+  SUBTYPE OF (managed_design_object);
+    content_markup            : external_definition;
+    plain_text_content        : OPTIONAL ee_text;
+    precedent_structured_text : OPTIONAL structured_text;
+    structured_text_content   : OPTIONAL SET [1:?] OF structured_text;
+END_ENTITY; -- structured_text
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Angular_size_dimension</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.25 Angular_size_dimension</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+An Angular_size_dimension is a type of <A
+CLASS="INTERNALREF"
+HREF="e_294.htm"
+>Dimensional_size</A
+> that characterizes the 
+angularity of a <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+>. If the Angular_size_dimension is a <A
+CLASS="INTERNALREF"
+HREF="e_827.htm"
+>Single_boundary_dimension</A
+>, the Angular_size_dimension specifies the angle formed by the 
+characterized Shape_element. If the Angular_size_dimension is a <A
+CLASS="INTERNALREF"
+HREF="e_295.htm"
+>Dimensional_size_based_on_opposing_boundaries</A
+>, the Angular_size_dimension specifies the 
+angle formed by two Shape_elements that make up the characterized Shape_element.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>half_angle</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>major_angle</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.25.1 half_angle</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The half_angle specifies the boolean value that indicates whether the full angle is being characterized by the Angular_size_dimension, or whether the angle that is being characterized is the angle between the characterized <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> and a centre line or centre plane of the characterized Shape_element. A value of TRUE indicates that the angle between the Shape_element and a centre line or centre plane is being characterized. A value of FALSE indicates that the full angle is being characterized.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.25.2 major_angle</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The major_angle specifies the angle to which the Angular_size_dimension is applied. A value of LARGE indicates that it is the larger of the angles formed by the characterized <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+>. A value of SMALL indicates that it is the smaller of the angles formed by the characterized Shape_element. A value of EQUAL indicates that it may be either of the angles formed by the characterized Shape_element, since they are defined to be equal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The dimension_type shall be "angular".<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The attribute dimension_type is declared in the Dimensional_characteristic entity of which this entity is a subtype.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY angular_size_dimension
+  SUBTYPE OF (dimensional_size);
+    half_angle  : BOOLEAN;
+    major_angle : angle_relator;
+END_ENTITY; -- angular_size_dimension
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

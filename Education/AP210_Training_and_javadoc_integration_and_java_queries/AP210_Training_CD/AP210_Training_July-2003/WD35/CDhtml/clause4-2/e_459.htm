@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Interfaced_group_component</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.473 Interfaced_group_component</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Interfaced_group_component is a type of <A
+CLASS="INTERNALREF"
+HREF="e_40.htm"
+>Assembly_group_component</A
+>. An Interfaced_group_component includes one or more <A
+CLASS="INTERNALREF"
+HREF="e_462.htm"
+>Interface_component</A
+> that interfaces a subset of that group of 
+components to the assembly.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: A component and a socket are both assigned to an Interfaced_group_component.  The socket interfaces the other component to the assembly.  Both the component and the socket are separately referenced and placed in the assembly.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>group_interface_component</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.473.1 group_interface_component</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The group_interface_component specifies the <A
+CLASS="INTERNALREF"
+HREF="e_462.htm"
+>Interface_component</A
+> that interfaces the 
+Interfaced_group_component to the assembly. There shall be one or more Interface_component for an Interfaced_group_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY interfaced_group_component
+  SUBTYPE OF (assembly_group_component);
+    group_interface_component : SET [1:?] OF interface_component;
+END_ENTITY; -- interfaced_group_component
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

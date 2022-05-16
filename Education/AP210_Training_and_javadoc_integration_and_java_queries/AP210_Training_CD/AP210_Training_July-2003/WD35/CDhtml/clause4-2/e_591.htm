@@ -1,0 +1,367 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Package_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.581 Package_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Package_terminal is a type of <A
+CLASS="INTERNALREF"
+HREF="e_613.htm"
+>Part_feature</A
+>.
+A Package_terminal may be one or more of a <A
+CLASS="INTERNALREF"
+HREF="e_427.htm"
+>Guided_wave_terminal</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_10.htm"
+>Altered_package_terminal</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_963.htm"
+>Wire_terminal</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_718.htm"
+>Primary_reference_terminal</A
+>.
+When the case or package body is used as a terminal then Package_terminal shall be populated to specify the feature of the <A
+CLASS="INTERNALREF"
+HREF="e_584.htm"
+>Package_body</A
+> that serves that purpose.
+The Package_terminal shall be in a sequence, with the initial member being Primary_reference_terminal, and each member that is not a Primary_reference_terminal shall reference a previous member in the sequence using the precedent_feature attribute inherited from Part_feature.  The seating_plane_zone shall not exist if the seating_plane_intersection attribute is 'does not intersect'.  The seating_plane_intersection attribute shall not be 'does not intersect' if the seating_plane_zone attribute exists.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The Seating_plane referenced indirectly by this terminal may be in the role of interface_plane for the Package referenced by associaed_definition.</DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>pt</SPAN
+> illustrates a cutaway view of a terminal and shows the characteristics related to a terminal.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>external_connection_zone</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>feature_shape</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>internal_connecton_zone</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>seating_plane_intersection</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>maximum_terminal_diametrical_extent</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>minimum_terminal_diametrical_extent</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>model_representation</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>terminal_characteristic</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>terminal_core_material</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>terminal_surface_material</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.581.1 associated_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_definition specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_573.htm"
+>Package</A
+> for the 
+Package_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.581.2 external_connection_zone</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The external_connection_zone specifies the <A
+CLASS="INTERNALREF"
+HREF="e_185.htm"
+>Connection_zone</A
+> on the outside surface of the Package_terminal. There may be more than one Connection_zone for a Package_terminal.  The external_connection_zone is optional and need not be supplied if the source system does not contain the data.  If the source system contains the data, then the external_connection_zone shall be supplied.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The <A
+CLASS="INTERNALREF"
+HREF="Feature_shape_occurrence.htm"
+>Feature_shape_occurrence</A
+> specified by the terminal or mounting feature may be the same Feature_shape_occurrence that is specified by the associated <A
+CLASS="INTERNALREF"
+HREF="e_185.htm"
+>Connection_zone</A
+>.  In this case the whole terminal is the Connection_zone.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.581.3 feature_shape</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The feature_shape specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="Feature_shape_occurrence.htm"
+>Feature_shape_occurrence</A
+> for the Package_terminal. There shall be one or more Feature_shape_occurrence for the Package_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.581.4 internal_connection_zone</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The internal_connection_zone_specifies the <A
+CLASS="INTERNALREF"
+HREF="e_185.htm"
+>Connection_zone</A
+> on the inside portion of the Package_terminal.  There may be more than one Connection_zone in the role of internal_connection_zone.  The internal_connection_zone need not be specified for a particular Package_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.581.5 seating_plane_intersection</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The seating_plane_intersection specifies whether or not the shape of the Package_terminal intersects the shape of the seating plane to within the tolerance of the geometric context.  The values allowed for the attribute are 'surface_intersection', 'through_intersection', 'does_not_intersect'.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Not all terminals need to intersect the seating plane.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.581.6 maximum_terminal_diametrical_extent</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The maximum_terminal_diametrical_extent specifies the  <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> that represents the maximum allowed diameter of a Package_terminal. The Length_data_element need not be specified for a Package_terminal.
+The Length_data_element is the diameter of a circle that circumscribes the cross-sectional shape of the terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.581.7 minimum_terminal_diametrical_extent</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The minimum_terminal_diametrical_extent specifies the  <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> that represents the minimum allowed diameter of a Package_terminal. The Length_data_element need not be specified for a Package_terminal.
+The Length_data_element is the diameter of a circle that circumscribes the cross-sectional shape of the terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.581.8 model_representation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The model_representation specifies the <A
+CLASS="INTERNALREF"
+HREF="e_22.htm"
+>Analytical_representation</A
+> that embodies the analysis characteristics identified as 
+terminal_characteristics. The model_representation need not be specified for a particular 
+Package_terminal. There may be more than one Analytical_representation for a Package_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.581.9 terminal_characteristic</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The terminal_characteristic specifies the <A
+CLASS="INTERNALREF"
+HREF="e_98.htm"
+>Characteristic</A
+> of the 
+Package_terminal. The terminal_characteristic need not be specified for a particular Package_terminal. 
+There may be more than one Characteristic for a Package_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.581.10 terminal_core_material</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The terminal_core_material specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_531.htm"
+>Material_definition</A
+> for the Package_terminal core material.  The terminal_core_material is optional and need not be supplied.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.581.11 terminal_surface_material</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The terminal_surface_material specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_531.htm"
+>Material_definition</A
+> for the outer surface of the Package_terminal surface 
+material.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The Package instance specified by associated_definition shall have a cartesian coordinate system frame of 
+reference.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY package_terminal
+  SUPERTYPE OF (((altered_package_terminal ANDOR guided_wave_terminal) 
+      ANDOR wire_terminal) ANDOR primary_reference_terminal)
+  SUBTYPE OF (part_feature);
+    SELF\part_feature.associated_definition : package;
+    external_connection_zone                : OPTIONAL SET [1:?] OF connection_zone;
+    internal_connection_zone                : OPTIONAL SET [1:?] OF connection_zone;
+    seating_plane_intersection              : seating_plane_intersection_type;
+    terminal_surface_material               : material_definition;
+    model_representation                    : OPTIONAL SET [1:?] OF 
+                                              analytical_representation;
+    terminal_characteristic                 : OPTIONAL SET [1:?] OF characteristic;
+    terminal_core_material                  : OPTIONAL material_definition;
+    minimum_terminal_diametrical_extent     : OPTIONAL length_data_element;
+    maximum_terminal_diametrical_extent     : OPTIONAL length_data_element;
+    seating_plane_zone                      : 
+                       OPTIONAL connection_zone_interface_plane_relationship;
+DERIVE
+    mates_with_substrate : BOOLEAN := (EXISTS(seating_plane_zone)) AND 
+      (associated_definition.package_seating_plane :=:
+       seating_plane_zone.interface_plane);
+INVERSE
+    SELF\part_feature.feature_shape         : SET [1:?] OF usage_concept_usage_relationship FOR
+    associated_usage;
+WHERE
+ WR1: NOT(EXISTS(seating_plane_zone)) OR
+      (SIZEOF(QUERY( cz &#60;* external_connection_zone |
+      (seating_plane_zone.derived_zone = cz)
+      )) = 1);
+ WR2: NOT(EXISTS(seating_plane_zone)) OR
+      (SIZEOF(QUERY( cz &#60;* external_connection_zone |
+      (seating_plane_zone.mating_zone = cz)
+      )) = 1);
+ WR3: NOT(EXISTS(seating_plane_zone)) OR
+      ((associated_definition.package_seating_plane :=:
+       seating_plane_zone.interface_plane) OR
+      (associated_definition.interface_plane[1] :=:
+       seating_plane_zone.interface_plane));
+ WR4: NOT(EXISTS(seating_plane_zone)) OR
+         ((seating_plane_intersection = surface_intersection) OR
+          (seating_plane_intersection = through_intersection));
+ WR5: NOT((seating_plane_intersection = does_not_intersect) AND
+      (EXISTS(seating_plane_zone)));
+END_ENTITY; -- package_terminal
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

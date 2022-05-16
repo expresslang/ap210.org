@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Design_intent_modification</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.267 Design_intent_modification</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Design_intent_modification is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Design_intent_modification may be one of <A
+CLASS="INTERNALREF"
+HREF="e_528.htm"
+>Material_addition_feature</A
+>, <A
+CLASS="INTERNALREF"
+HREF="e_533.htm"
+>Material_removal_feature</A
+>, or <A
+CLASS="INTERNALREF"
+HREF="e_536.htm"
+>Material_shape_modification</A
+>. A 
+Design_intent_modification provides capabilities to archive design intent along with constraint based modifications so that if a constraint 
+is removed the original design intent, or a part thereof, may be restored.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: This example shows how this part of ISO 10303 may be used to exchange or archive design intent for the case of a power plane where there is penetration of the power plane by other signals. Figure  <SPAN
+CLASS="INTERNALREF"
+>dim1</SPAN
+> is the original design intent for Power Plane 1 that is captured in a member of <A
+CLASS="INTERNALREF"
+HREF="e_184.htm"
+>Connected_filled_area</A
+>(#1).
+Figure  <SPAN
+CLASS="INTERNALREF"
+>dim2</SPAN
+> is the original design intent for Power Plane 2 that is captured in a member of Connected_filled_area (#2).
+Figure  <SPAN
+CLASS="INTERNALREF"
+>dim3</SPAN
+> is the original design intent for <A
+CLASS="INTERNALREF"
+HREF="e_823.htm"
+>Signal</A
+> 3 that is captured in a member of <A
+CLASS="INTERNALREF"
+HREF="e_176.htm"
+>Conductor</A
+>(#3).
+In order to accomplish the embedding of Power Plane 2 into Power Plane 1 and in order to accomplish the embedding of Signal 3 into the result of the previous embedding, a sequence is followed. In order to meet requirements, constraints must be satisfied regarding 
+spacing of conductive areas. These constraints are specified by the <A
+CLASS="INTERNALREF"
+HREF="e_330.htm"
+>Ee_requirement_occurrence</A
+>. Note that the following method is 
+based on the relative priority of the signal and the two power planes. This example assumes that the conductor has the highest priority for area, followed by Power Plane 2 followed by Power Plane 1 which has the lowest priority.
+
+Step 1: Create three "design intent" Stratum_features as above. Note that these features are a permanent part of the design.
+
+Step 2: Create a member of Material_removal_stratum_feature_template (see figure  <SPAN
+CLASS="INTERNALREF"
+>dim4</SPAN
+>) for the spacing requirement 
+to be met between Power Plane 2 and Power Plane 1. This template shape is dependent on the voltage between Power Plane 2 and 
+Power Plane 1. The distance between the outer extent of Power Plane 2 and the outer extent of the template shape is explicitly stated 
+in the electrical_isolation_spacing_requirement between the Power Plane 2 and Power Plane 1. Populate member of 
+Electrical_isolation_material_removal_structure to capture the stated relationships and properties. For further reference in this example, 
+this member will be called 1.
+
+Step 3: Create a Material_removal_stratum_feature_template (see figure  <SPAN
+CLASS="INTERNALREF"
+>dim5</SPAN
+>) for the spacing requirement to be
+met between Signal 3 and Power Plane 1. This template shape is 
+dependent on the voltage between Signal 3 and Power Plane 1. The distance between the outer extent of Signal 3 and the outer extent 
+of the template shape is explicitly stated in the electrical_isolation_spacing_requirement between the Signal 3 and Power Plane 1. 
+Populate a member of Electrical_isolation_material_removal_structure to capture the stated relationships and properties. For further 
+reference in the example, this member will be called 2.
+
+Step 4: Create a Material_removal_stratum_feature_template (see figure  <SPAN
+CLASS="INTERNALREF"
+>dim6</SPAN
+>) for the spacing requirement to be 
+met between Signal 3 and Power Plane 2. This template shape is dependent on the voltage between Signal 3 and Power Plane 2. The 
+distance between the outer extent of Signal 3 and the outer extent of the template shape is explicitly stated in the 
+electrical_isolation_spacing_requirement between the Signal 3 and Power Plane 2. Populate a member of 
+Electrical_isolation_material_removal_structure to capture the stated relationships and properties. For further reference in the example, 
+this member will be called 3. As a summary at this point, all the design intent shapes are defined; all the electrical isolation 
+shapes are defined.
+
+See figure  <SPAN
+CLASS="INTERNALREF"
+>dim7</SPAN
+> for the result achieved by a processor in conformance with this part of ISO 10303, in support of a CAD application, or in support of a manufacturing application.
+Since Signal 3 has a higher priority than Power Plane 2, the precedent_modification attribute specifies Electrical_isolation_material_removal_structure #1 and the 
+subsequent_modification specifies Electrical_isolation_material_removal_structure #2</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>design_intent</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>modification_causal_item</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.267.1 design_intent</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The design_intent specifies the <A
+CLASS="INTERNALREF"
+HREF="e_851.htm"
+>Stratum_feature</A
+> that is 
+changed by the Design_intent_modification.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.267.2 modification_causal_item</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The modification_causal_item specifies one of either an <A
+CLASS="INTERNALREF"
+HREF="e_34.htm"
+>Assembly_component</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_117.htm"
+>Component_external_reference</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_118.htm"
+>Component_feature</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_119.htm"
+>Component_feature_external_reference</A
+>, or one of an <A
+CLASS="INTERNALREF"
+HREF="e_330.htm"
+>Ee_requirement_occurrence</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_845.htm"
+>Stratum</A
+>,
+or one of an <A
+CLASS="INTERNALREF"
+HREF="e_471.htm"
+>Inter_stratum_feature</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_483.htm"
+>Laminate_component</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_851.htm"
+>Stratum_feature</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_868.htm"
+>Stratum_surface</A
+> that is the cause of the Design_intent_modification.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>A processor reading an exchange file based on this part of ISO 10303 shall interpret the lack of member of Design_intent_modification_sequence as meaning that 
+there are no conflicting members of Electrical_isolation_material_removal_structure in the exchange file, and that they may be applied in any sequence.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY design_intent_modification
+  SUPERTYPE OF (ONEOF (material_removal_feature,
+      material_addition_feature,material_shape_modification))
+  SUBTYPE OF (managed_design_object);
+    design_intent            : stratum_feature;
+    modification_causal_item : restriction_basis_item;
+END_ENTITY; -- design_intent_modification
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Non_functional_land</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.562 Non_functional_land</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Non_functional_land is a type of <A
+CLASS="INTERNALREF"
+HREF="e_862.htm"
+>Stratum_feature_template_component</A
+> whose implementing <A
+CLASS="INTERNALREF"
+HREF="e_851.htm"
+>Stratum_feature</A
+> is not also being composed by other instances of <A
+CLASS="INTERNALREF"
+HREF="e_483.htm"
+>Laminate_component</A
+>.
+A Non_functional_land may be one of a <A
+CLASS="INTERNALREF"
+HREF="e_145.htm"
+>Component_termination_passage_and_contact_size_dependent_non_functional_land</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_147.htm"
+>Component_termination_passage_dependent_non_functional_land</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_195.htm"
+>Contact_size_dependent_non_functional_land</A
+>, an <A
+CLASS="INTERNALREF"
+HREF="e_940.htm"
+>Unsupported_passage_dependent_non_functional_land</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_949.htm"
+>Via_and_contact_size_dependent_non_functional_land</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_951.htm"
+>Via_dependent_non_functional_land</A
+>. </DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>access_mechanism</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>alternate_land_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>usage_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.562.1 access_mechanism</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The access_mechanism is an inverse relationship that specifies that the existence of the Non_functional_land is dependent on the 
+existence of the <A
+CLASS="INTERNALREF"
+HREF="e_565.htm"
+>Non_functional_land_join_terminal</A
+> that specifies the Non_functional_land as its 
+associated_component. There shall be one or more Non_functional_land_join_terminal for a Non_functional_land.  The access_mechanism is only provided for support of plated passages within the lateral geometric boundary of the Non_functional_land and.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.562.2 alternate_land_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The alternate_land_definition specifies one role of the <A
+CLASS="INTERNALREF"
+HREF="e_493.htm"
+>Land_physical_template</A
+> for the Non_functional_land. The alternate_land_definition need 
+not be specified for a particular Non_functional_land.  An alternate_land_definition overrides the usage_definition if it is provided.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.562.3 usage_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The usage_definition specifies one role of the <A
+CLASS="INTERNALREF"
+HREF="e_493.htm"
+>Land_physical_template</A
+> for the Non_functional_land.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>There shall be no direct connection to a Conductive_interconnect_element from a member of Non_functional_land.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The stratum_feature specified by SELF\stratum_feature_template_component.stratum_feature_implementation shall not be in the role of stratum_feature_implementation for any other stratum_feature_template_component.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY non_functional_land
+  SUPERTYPE OF (ONEOF (via_dependent_non_functional_land,
+      component_termination_passage_dependent_non_functional_land,
+      contact_size_dependent_non_functional_land,
+	component_termination_passage_and_contact_size_dependent_non_functional_land,
+      unsupported_passage_dependent_non_functional_land,
+      via_and_contact_size_dependent_non_functional_land))
+  SUBTYPE OF (stratum_feature_template_component);
+    alternate_land_definition                : OPTIONAL land_physical_template;
+    SELF\assembly_component.usage_definition : land_physical_template;
+  INVERSE
+    access_mechanism           : SET [1:?] OF
+                                 non_functional_land_join_terminal FOR 
+                                 associated_component;
+END_ENTITY; -- non_functional_land
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

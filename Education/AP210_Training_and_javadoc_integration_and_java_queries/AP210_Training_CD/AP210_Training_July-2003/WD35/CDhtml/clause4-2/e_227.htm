@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Datum_feature_material_condition_property</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.227 Datum_feature_material_condition_property</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Datum_feature_material_condition_property is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Datum_feature_material_condition_property is a specification of a material condition property that defines the manner in which <A
+CLASS="INTERNALREF"
+HREF="e_425.htm"
+>Geometric_tolerance_with_referenced_datum_system</A
+> requirements are dependent on the produced size of a <A
+CLASS="INTERNALREF"
+HREF="e_226.htm"
+>Datum_feature</A
+> of the <A
+CLASS="INTERNALREF"
+HREF="e_236.htm"
+>Datum_system</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>applied_to</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>datum_system_conditions_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>name</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.227.1 applied_to</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The applied_to specifies the <A
+CLASS="INTERNALREF"
+HREF="e_230.htm"
+>Datum_feature_usage_in_datum_system_relationship</A
+> that identifies the usage of 
+a <A
+CLASS="INTERNALREF"
+HREF="e_226.htm"
+>Datum_feature</A
+> in a <A
+CLASS="INTERNALREF"
+HREF="e_236.htm"
+>Datum_system</A
+> and to which the material condition property is 
+applied.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.227.2 datum_system_conditions_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The datum_system_conditions_definition is an inverse relationship that specifies that the existence of the 
+Datum_feature_material_condition_property 
+depends on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_239.htm"
+>Datum_system_defining_conditions_with_material_conditions</A
+> that specifies 
+the Datum_feature_material_condition_property 
+as its applied_material_condition_properties.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.227.3 name</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The name specifies the type of the applied material condition property,
+either "least_material_requirement" or "maximum_material_principle" for the
+Datum_feature_material_condition_property.<DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>The application of the maximum material principle to a <A
+CLASS="INTERNALREF"
+HREF="e_214.htm"
+>Datum</A
+> feature is described in 4.3 ISO 2692.</LI
+><LI
+CLASS="NOTEINGROUP"
+>The application of the least material requirement to a Datum feature is described in clause 3 of ISO 2692-Amendment 1.</LI
+></OL
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY datum_feature_material_condition_property
+  SUBTYPE OF (managed_design_object);
+    applied_to : datum_feature_usage_in_datum_system_relationship;
+    name       : material_condition_property_names;
+  INVERSE
+    datum_system_conditions_definition : 
+	datum_system_defining_conditions_with_material_conditions FOR 
+	applied_material_condition_properties;
+END_ENTITY; -- datum_feature_material_condition_property
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

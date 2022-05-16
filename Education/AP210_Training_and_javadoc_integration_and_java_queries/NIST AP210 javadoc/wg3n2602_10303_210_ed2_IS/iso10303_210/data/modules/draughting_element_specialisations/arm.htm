@@ -1,0 +1,131 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Draughting_element_specialisations_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Draughting_element_specialisations_arm</h2><code><br><br><a name="draughting_element_specialisations_arm">SCHEMA <b>Draughting_element_specialisations_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/draughting_element/sys/e_exp_arm.htm#draughting_element_arm">Draughting_element_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1310<br><br></code><code><br><A NAME="draughting_element_specialisations_arm.chained_or_parallel">TYPE </A><b>chained_or_parallel</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (chained,<br>&nbsp;&nbsp;&nbsp;&nbsp;parallel);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="draughting_element_specialisations_arm.dimension_callout_select">TYPE </A><b>dimension_callout_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.text">Text</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="draughting_element_specialisations_arm.dimension_type">TYPE </A><b>dimension_type</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (angular,<br>&nbsp;&nbsp;&nbsp;&nbsp;curve,<br>&nbsp;&nbsp;&nbsp;&nbsp;diameter,<br>&nbsp;&nbsp;&nbsp;&nbsp;leader_directed,<br>&nbsp;&nbsp;&nbsp;&nbsp;linear,<br>&nbsp;&nbsp;&nbsp;&nbsp;ordinate,<br>&nbsp;&nbsp;&nbsp;&nbsp;radius);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="draughting_element_specialisations_arm.primary_or_secondary">TYPE </A><b>primary_or_secondary</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (primary,<br>&nbsp;&nbsp;&nbsp;&nbsp;secondary);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="draughting_element_specialisations_arm.datum_feature_callout">ENTITY <b>Datum_feature_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_specialisations_arm.draughting_element">Draughting_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_specialisations_arm.datum_target_callout">ENTITY <b>Datum_target_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_specialisations_arm.draughting_element">Draughting_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_specialisations_arm.dimension">ENTITY <b>Dimension</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(<A HREF="#draughting_element_specialisations_arm.dimension_callout">Dimension_callout</A><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ANDOR&nbsp;<A HREF="#draughting_element_specialisations_arm.dimension_value">Dimension_value</A>)<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_specialisations_arm.draughting_element">Draughting_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension.id">id : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_specialisations_arm.dimension_callout">ENTITY <b>Dimension_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_specialisations_arm.dimension">Dimension</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_callout.callout_element">callout_element : </A>SET[1:?] OF <A HREF="#draughting_element_specialisations_arm.dimension_callout_select">dimension_callout_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_callout.dimension_type">dimension_type : </A>SET[1:?] OF <A HREF="#draughting_element_specialisations_arm.dimension_type">dimension_type</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_specialisations_arm.dimension_callout_relationship">ENTITY <b>Dimension_callout_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_callout_relationship.relating_draughting_callout">relating_draughting_callout : </A><A HREF="#draughting_element_specialisations_arm.dimension_callout">Dimension_callout</A>;<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_callout_relationship.related_draughting_callout">related_draughting_callout : </A><A HREF="#draughting_element_specialisations_arm.dimension_value">Dimension_value</A>;<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_callout_relationship.relation_type">relation_type : </A><A HREF="#draughting_element_specialisations_arm.primary_or_secondary">primary_or_secondary</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_specialisations_arm.dimension_prefix">ENTITY <b>Dimension_prefix</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_specialisations_arm.draughting_element">Draughting_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_prefix.prefix">prefix : </A><A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.dimension_text">Dimension_text</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_prefix.parent">parent : </A><A HREF="#draughting_element_specialisations_arm.structured_dimension_callout">Structured_dimension_callout</A> FOR prefix;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_prefix.wr:wr1">WR1: prefix IN SELF\Draughting_callout.contents;</A><br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_prefix.wr:wr2">WR2: prefix\Representation_item.name = 'prefix text';</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_specialisations_arm.dimension_sequence_pair">ENTITY <b>Dimension_sequence_pair</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_sequence_pair.allignment">allignment : </A><A HREF="#draughting_element_specialisations_arm.chained_or_parallel">chained_or_parallel</A>;<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_sequence_pair.predecessor">predecessor : </A><A HREF="#draughting_element_specialisations_arm.dimension_callout">Dimension_callout</A>;<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_sequence_pair.successor">successor : </A><A HREF="#draughting_element_specialisations_arm.dimension_callout">Dimension_callout</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_specialisations_arm.dimension_suffix">ENTITY <b>Dimension_suffix</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_specialisations_arm.draughting_element">Draughting_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_suffix.suffix">suffix : </A><A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.dimension_text">Dimension_text</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_suffix.parent">parent : </A><A HREF="#draughting_element_specialisations_arm.structured_dimension_callout">Structured_dimension_callout</A> FOR suffix;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_suffix.wr:wr1">WR1: suffix IN SELF\Draughting_callout.contents;</A><br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_suffix.wr:wr2">WR2: suffix\Representation_item.name = 'suffix text';</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_specialisations_arm.dimension_value">ENTITY <b>Dimension_value</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_specialisations_arm.dimension">Dimension</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_value.dimension_value">dimension_value : </A><A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.dimension_text">Dimension_text</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_value.wr:wr1">WR1: dimension_value IN SELF\Draughting_callout.contents;</A><br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.dimension_value.wr:wr2">WR2: dimension_value\Representation_item.name = 'dimension value';</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_specialisations_arm.draughting_element">ENTITY <b>Draughting_element</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#draughting_element_specialisations_arm.datum_feature_callout">Datum_feature_callout</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_element_specialisations_arm.datum_target_callout">Datum_target_callout</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_element_specialisations_arm.dimension">Dimension</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_element_specialisations_arm.dimension_prefix">Dimension_prefix</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_element_specialisations_arm.dimension_suffix">Dimension_suffix</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_element_specialisations_arm.geometric_tolerance_callout">Geometric_tolerance_callout</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#draughting_element_specialisations_arm.surface_condition_callout">Surface_condition_callout</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/draughting_element/sys/e_exp_arm.htm#draughting_element_arm.draughting_callout">Draughting_callout</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_specialisations_arm.geometric_tolerance_callout">ENTITY <b>Geometric_tolerance_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_specialisations_arm.draughting_element">Draughting_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_specialisations_arm.structured_dimension_callout">ENTITY <b>Structured_dimension_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_specialisations_arm.dimension_value">Dimension_value</A>);<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.structured_dimension_callout.prefix">prefix : </A>
+         OPTIONAL 
+         <A HREF="#draughting_element_specialisations_arm.dimension_prefix">Dimension_prefix</A>;<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.structured_dimension_callout.suffix">suffix : </A>
+         OPTIONAL 
+         <A HREF="#draughting_element_specialisations_arm.dimension_suffix">Dimension_suffix</A>;<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.structured_dimension_callout.tolerance_value">tolerance_value : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.dimension_text">Dimension_text</A>;<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.structured_dimension_callout.unit_text">unit_text : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/associative_text/sys/e_exp_arm.htm#associative_text_arm.dimension_text">Dimension_text</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.structured_dimension_callout.wr:wr1">WR1: tolerance_value IN SELF\Draughting_callout.contents;</A><br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.structured_dimension_callout.wr:wr2">WR2: NOT EXISTS(tolerance_value) OR (tolerance_value\Representation_item.name = 'tolerance value');</A><br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.structured_dimension_callout.wr:wr3">WR3: unit_text IN SELF\Draughting_callout.contents;</A><br>
+         &nbsp;&nbsp;<A NAME="draughting_element_specialisations_arm.structured_dimension_callout.wr:wr4">WR4: NOT EXISTS(unit_text) OR (unit_text\Representation_item.name = 'unit text');</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_element_specialisations_arm.surface_condition_callout">ENTITY <b>Surface_condition_callout</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#draughting_element_specialisations_arm.draughting_element">Draughting_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Draughting_element_specialisations_arm<br></code></body>
+</HTML>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Printed_part_template_link</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.734 Printed_part_template_link</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Printed_part_template_link is a type of <A
+CLASS="INTERNALREF"
+HREF="e_872.htm"
+>Stratum_technology_link</A
+>.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY printed_part_template_link
+ SUBTYPE OF (stratum_technology_link);
+   precedent_printed_part_template : printed_part_template;
+   subsequent_printed_part_template : printed_part_template;
+INVERSE
+  associated_printed_part_template : printed_part_template FOR
+       printed_part_template_stack;               
+WHERE
+ WR1: EXISTS(precedent_printed_part_template.
+                                        of_stratum_technology);
+ WR2: EXISTS(subsequent_printed_part_template.
+                                        of_stratum_technology);
+--tt tc1 wd9 modified 
+ WR3: precedent_printed_part_template.of_stratum_technology =
+      SELF\stratum_technology_link.precedent_stratum_technology;
+--tt tc1 wd9 modified 
+ WR4: subsequent_printed_part_template.of_stratum_technology =
+      SELF\stratum_technology_link.subsequent_stratum_technology;
+END_ENTITY; -- printed_part_template_link
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

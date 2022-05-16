@@ -1,0 +1,95 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Associative_text_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Associative_text_arm</h2><code><br><br><a name="associative_text_arm">SCHEMA <b>Associative_text_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/appearance_assignment/sys/e_exp_arm.htm#appearance_assignment_arm">Appearance_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1001<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/colour/sys/e_exp_arm.htm#colour_arm">Colour_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1002<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/text_appearance/sys/e_exp_arm.htm#text_appearance_arm">Text_appearance_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1136<br><br></code><code><br><A NAME="associative_text_arm.at_appearance_select">TYPE </A><b>at_appearance_select</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/appearance_assignment/sys/e_exp_arm.htm#appearance_assignment_arm.appearance_select">appearance_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#associative_text_arm.text_style">Text_style</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="associative_text_arm.text_or_composite_text">TYPE </A><b>text_or_composite_text</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#associative_text_arm.annotation_text">Annotation_text</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/text_appearance/sys/e_exp_arm.htm#text_appearance_arm.composite_presentable_text">Composite_presentable_text</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#associative_text_arm.defined_character_glyph">Defined_character_glyph</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/text_appearance/sys/e_exp_arm.htm#text_appearance_arm.text_literal">Text_literal</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="associative_text_arm.text_string_representation_item_select">TYPE </A><b>text_string_representation_item_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#associative_text_arm.annotation_text">Annotation_text</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/text_appearance/sys/e_exp_arm.htm#text_appearance_arm.composite_presentable_text">Composite_presentable_text</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/text_appearance/sys/e_exp_arm.htm#text_appearance_arm.text_literal">Text_literal</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="associative_text_arm.annotation_curve">ENTITY <b>Annotation_curve</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         <br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#associative_text_arm.annotation_element">Annotation_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="associative_text_arm.annotation_curve.annotation_curve_type">annotation_curve_type : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/appearance_assignment/sys/e_exp_arm.htm#appearance_assignment_arm.styled_element">Styled_element</A>.<A NAME="associative_text_arm.annotation_curve.element">element : </A><A HREF="../../../data/modules/basic_geometry/sys/e_exp_arm.htm#basic_geometry_arm.curve">Curve</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="associative_text_arm.annotation_element">ENTITY <b>Annotation_element</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#associative_text_arm.text">Text</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#associative_text_arm.annotation_curve">Annotation_curve</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>, <A HREF="../../../data/modules/appearance_assignment/sys/e_exp_arm.htm#appearance_assignment_arm.styled_element">Styled_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="associative_text_arm.annotation_text">ENTITY <b>Annotation_text</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="associative_text_arm.annotation_text.replicated_model">replicated_model : </A><A HREF="#associative_text_arm.text_string_representation">Text_string_representation</A>;<br>
+         &nbsp;&nbsp;<A NAME="associative_text_arm.annotation_text.source">source : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         &nbsp;&nbsp;<A NAME="associative_text_arm.annotation_text.target">target : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="associative_text_arm.defined_character_glyph">ENTITY <b>Defined_character_glyph</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="associative_text_arm.defined_character_glyph.placement">placement : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="associative_text_arm.dimension_text">ENTITY <b>Dimension_text</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#associative_text_arm.text">Text</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="associative_text_arm.dimension_text.wr:wr1">WR1: name IN ['dimension value', 'tolerance value', 'unit text', 'prefix text', 'suffix text'];</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="associative_text_arm.text">ENTITY <b>Text</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#associative_text_arm.annotation_element">Annotation_element</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/appearance_assignment/sys/e_exp_arm.htm#appearance_assignment_arm.styled_element">Styled_element</A>.element&nbsp;RENAMED&nbsp;<A NAME="associative_text_arm.text.text">text : </A><A HREF="#associative_text_arm.text_or_composite_text">text_or_composite_text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="associative_text_arm.text_string_representation">ENTITY <b>Text_string_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/appearance_assignment/sys/e_exp_arm.htm#appearance_assignment_arm.styled_model">Styled_model</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>.<A NAME="associative_text_arm.text_string_representation.items">items : </A>SET[1:1] OF <A HREF="#associative_text_arm.text_string_representation_item_select">text_string_representation_item_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="associative_text_arm.text_style">ENTITY <b>Text_style</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="associative_text_arm.text_style.font_size_scale">font_size_scale : </A>REAL;<br>
+         &nbsp;&nbsp;<A NAME="associative_text_arm.text_style.mirror_placement">mirror_placement : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         &nbsp;&nbsp;<A NAME="associative_text_arm.text_style.text_colour">text_colour : </A><A HREF="../../../data/modules/colour/sys/e_exp_arm.htm#colour_arm.colour">Colour</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Associative_text_arm<br></code></body>
+</HTML>

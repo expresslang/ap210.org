@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Ee_rule_definition</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.333 Ee_rule_definition</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+>An Ee_rule_definition is a type of <A
+CLASS="INTERNALREF"
+HREF="e_323.htm"
+>Ee_product_definition</A
+>. An Ee_rule_definition is a formal specification that defines a constraint by relating two elements based upon characteristics of a design, one as premise and one as 
+conclusion. The Ee_rule_definition is for one version of a rule only.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>conclusion</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>version</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>premise</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.333.1 conclusion</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The conclusion specifies the role of the ee_rule_conclusion_definition for the Ee_rule_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.333.2 defined_versioned_rule</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The version specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_337.htm"
+>Ee_rule_version</A
+> for the Ee_rule_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.333.3 premise</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The premise specifies the role of the ee_rule_premise_definition for the Ee_rule_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY ee_rule_definition
+  SUBTYPE OF (ee_product_definition);
+    SELF\ee_product_definition.version : ee_rule_version;
+ INVERSE
+     premise    : ee_rule_premise_definition FOR rule_definition;
+     conclusion : ee_rule_conclusion_definition FOR rule_definition;
+END_ENTITY; -- ee_rule_definition
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,64 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Specification_based_configuration_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Specification_based_configuration_mim</h2><code><br><br><a name="specification_based_configuration_mim">SCHEMA <b>Specification_based_configuration_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/effectivity_application/sys/e_exp_mim.htm#effectivity_application_mim">Effectivity_application_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1059<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_class/sys/e_exp_mim.htm#product_class_mim">Product_class_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1103<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema">management_resources_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.effectivity_context_assignment">effectivity_context_assignment</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema">product_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);
+         <br><br></code><code><br><A NAME="specification_based_configuration_mim.configured_effectivity_context_item">TYPE </A><b>configured_effectivity_context_item</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept_feature_association">product_concept_feature_association</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="specification_based_configuration_mim.configured_effectivity_item">TYPE </A><b>configured_effectivity_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="specification_based_configuration_mim.configured_effectivity_assignment">ENTITY <b>configured_effectivity_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.effectivity_assignment">effectivity_assignment</A>);<br>
+         &nbsp;&nbsp;<A NAME="specification_based_configuration_mim.configured_effectivity_assignment.items">items : </A>SET[1:?] OF <A HREF="#specification_based_configuration_mim.configured_effectivity_item">configured_effectivity_item</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="specification_based_configuration_mim.configured_effectivity_assignment.wr:wr1">WR1: (SIZEOF(['EFFECTIVITY_SCHEMA.EFFECTIVITY'] * TYPEOF(SELF.assigned_effectivity)) = 1) AND (SELF.assigned_effectivity.id
+            = 'configuration validity');</A><br>
+         &nbsp;&nbsp;<A NAME="specification_based_configuration_mim.configured_effectivity_assignment.wr:wr2">WR2: SIZEOF(SELF.items) = 1;</A><br>
+         &nbsp;&nbsp;<A NAME="specification_based_configuration_mim.configured_effectivity_assignment.wr:wr3">WR3: SIZEOF(QUERY(i &lt;* SELF.items | NOT ('PRODUCT_DEFINITION_SCHEMA.PRODUCT_DEFINITION' IN TYPEOF(i)) OR NOT (i\product_definition.frame_of_reference.name
+            IN ['conceptual definition','part occurrence', 'functional definition','alternative definition']))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="specification_based_configuration_mim.configured_effectivity_assignment.wr:wr4">WR4: SELF.role.name IN ['design', 'usage'];</A><br>
+         &nbsp;&nbsp;<A NAME="specification_based_configuration_mim.configured_effectivity_assignment.wr:wr5">WR5: (SELF.role.name &lt;&gt; 'design') OR (SIZEOF(QUERY(i &lt;* SELF.items | ('PRODUCT_DEFINITION_SCHEMA.PRODUCT_DEFINITION' IN TYPEOF(i))
+            AND (i\product_definition.frame_of_reference.name = 'part occurrence'))) = 0);</A><br>
+         &nbsp;&nbsp;<A NAME="specification_based_configuration_mim.configured_effectivity_assignment.wr:wr6">WR6: (SELF.role.name &lt;&gt; 'usage') OR (SIZEOF(QUERY(i &lt;* SELF.items | ('PRODUCT_DEFINITION_SCHEMA.PRODUCT_DEFINITION' IN TYPEOF(i))
+            AND (i\product_definition.frame_of_reference.name = 'conceptual definition'))) = 0);</A><br>
+         &nbsp;&nbsp;<A NAME="specification_based_configuration_mim.configured_effectivity_assignment.wr:wr7">WR7: SELF.role.description IN ['exception', 'inherited', 'local'];</A><br>
+         &nbsp;&nbsp;<A NAME="specification_based_configuration_mim.configured_effectivity_assignment.wr:wr8">WR8: SIZEOF(QUERY(x &lt;* USEDIN(SELF,'MANAGEMENT_RESOURCES_SCHEMA.' + 'EFFECTIVITY_CONTEXT_ASSIGNMENT.ASSIGNED_EFFECTIVITY_ASSIGNMENT')
+            | 'SPECIFICATION_BASED_CONFIGURATION_MIM.CONFIGURED_EFFECTIVITY_CONTEXT_ASSIGNMENT' IN TYPEOF(x))) = 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="specification_based_configuration_mim.configured_effectivity_context_assignment">ENTITY <b>configured_effectivity_context_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.effectivity_context_assignment">effectivity_context_assignment</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.effectivity_context_assignment">effectivity_context_assignment</A>.<A NAME="specification_based_configuration_mim.configured_effectivity_context_assignment.assigned_effectivity_assignment">assigned_effectivity_assignment : </A><A HREF="#specification_based_configuration_mim.configured_effectivity_assignment">configured_effectivity_assignment</A>;<br>
+         &nbsp;&nbsp;<A NAME="specification_based_configuration_mim.configured_effectivity_context_assignment.items">items : </A>SET[1:?] OF <A HREF="#specification_based_configuration_mim.configured_effectivity_context_item">configured_effectivity_context_item</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="specification_based_configuration_mim.configured_effectivity_context_assignment.wr:wr1">WR1: SIZEOF(SELF.items) = 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Specification_based_configuration_mim<br></code></body>
+</HTML>

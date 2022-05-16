@@ -1,0 +1,33 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Planned_characteristic_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Planned_characteristic_mim</h2><code><br><br><a name="planned_characteristic_mim">SCHEMA <b>Planned_characteristic_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/production_rule/sys/e_exp_mim.htm#production_rule_mim">Production_rule_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1739<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/requirement_assignment/sys/e_exp_mim.htm#requirement_assignment_mim">Requirement_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1233<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship_with_transformation">representation_relationship_with_transformation</A>);
+         <br><br></code><code><br><A NAME="planned_characteristic_mim.evaluated_characteristic">ENTITY <b>evaluated_characteristic</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>, <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>);<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="planned_characteristic_mim.evaluated_characteristic.ur:ur1">UR1: </A>
+         SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>.rep_1, 
+         SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>.rep_2;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="planned_characteristic_mim.evaluated_characteristic.wr:wr1">WR1: SELF\representation_relationship.rep_1 &lt;&gt; 
+            SELF\representation_relationship.rep_2;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="planned_characteristic_mim.evaluation_product_definition">ENTITY <b>evaluation_product_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Planned_characteristic_mim<br></code></body>
+</HTML>

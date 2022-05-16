@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Interconnect_component_join_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.439 Interconnect_component_join_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Interconnect_component_join_terminal is a type of <A
+CLASS="INTERNALREF"
+HREF="e_137.htm"
+>Component_terminal</A
+> that is some aspect of a generic <A
+CLASS="INTERNALREF"
+HREF="e_34.htm"
+>Assembly_component</A
+> participating in connectivity for a <A
+CLASS="INTERNALREF"
+HREF="e_639.htm"
+>Pca</A
+>.  This Interconnect_component_join_terminal is defined in-situ.<DIV
+CLASS="EXAMPLEGROUP"
+><P
+>EXAMPLES:</P
+><OL
+><LI
+CLASS="EXAMPLEINGROUP"
+>An example of an Interconnect_component_join_terminal is a mechanical conductive fastener that attaches a flexible wire lead lug to the pcb. Current flows through the fastener because it is part of the conduction 
+path for a signal.</LI
+><LI
+CLASS="EXAMPLEINGROUP"
+>A plain wire is considered to be a mechanical component as well. There is no <A
+CLASS="INTERNALREF"
+HREF="e_613.htm"
+>Part_feature</A
+> associated with it. This is the opposite end of the wire from that defined for the same wire in <A
+CLASS="INTERNALREF"
+HREF="e_431.htm"
+>Interconnect_component_interface_terminal</A
+>.</LI
+></OL
+></DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>connection</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>name</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.439.1 connection</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The connection specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_185.htm"
+>Connection_zone</A
+> for the Interconnect_component_join_terminal.  The connection is optional and need not be supplied if the source system does not contain the data.  If the source system contains the data, then the data shall be provided.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.439.2 name</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The name specifies the string for the human-interpretable identifier for this Interconnect_component_join_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the name and the inherited associated_component shall be unique within a population of Interconnect_component_join_terminal.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The shapes that describe the connection_zone specified by connections shall reside on one or more surfaces 
+of the assembly_component in the role of associated_component specified by the supertype Component_feature of this terminal.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>Interconnect_component_join_terminal shall participate in no more than one Assembly_joint.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY interconnect_component_join_terminal
+  SUBTYPE OF (physical_component_terminal);
+    connection : OPTIONAL connection_zone;
+  SELF\component_feature.associated_component : physical_component;
+  UNIQUE
+    ur1 : SELF\shape_element.name, 
+        SELF\component_feature.associated_component;
+END_ENTITY; -- interconnect_component_join_terminal
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

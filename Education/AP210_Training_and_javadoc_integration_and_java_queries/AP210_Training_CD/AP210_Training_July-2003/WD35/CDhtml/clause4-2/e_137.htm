@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Component_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.137 Component_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Component_terminal is a type of <A
+CLASS="INTERNALREF"
+HREF="e_118.htm"
+>Component_feature</A
+>. A Component_terminal is one of an <A
+CLASS="INTERNALREF"
+HREF="e_45.htm"
+>Assembly_module_component_terminal</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_62.htm"
+>Bare_die_component_terminal</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_149.htm"
+>Component_termination_passage_join_terminal</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_172.htm"
+>Conductive_interconnect_element_terminal</A
+>, an <A
+CLASS="INTERNALREF"
+HREF="e_432.htm"
+>Interconnect_component_join_terminal</A
+>, an <A
+CLASS="INTERNALREF"
+HREF="e_438.htm"
+>Interconnect_module_component_terminal</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_492.htm"
+>Land_join_terminal</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_565.htm"
+>Non_functional_land_join_terminal</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_575.htm"
+>Packaged_component_join_terminal</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_722.htm"
+>Printed_component_join_terminal</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_954.htm"
+>Via_terminal</A
+>. A 
+Component_terminal is the defined conductive shape for conductors from other components to access electrical functionality of the <A
+CLASS="INTERNALREF"
+HREF="e_34.htm"
+>Assembly_component</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>connected_node</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>global_swappable</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>local_swappable</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>node_implementation</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>swap_code</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.137.1 connected_node</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The connected_node is an inverse relationship that specifies the <A
+CLASS="INTERNALREF"
+HREF="e_652.htm"
+>Physical_connectivity_definition</A
+> that specifies the Component_terminal as its associated_terminals. There shall be no more 
+than one Physical_connectivity_definition for a Component_terminal. The connected_node need not be specified for a particular Component_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.137.2 global_swappable</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The global_swapable specifies a boolean value that indicates if the terminal can be exchanged within associated functional units of the same type.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.137.3 local_swappable</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The local_swappable specifies a boolean value that indicates if the terminal can be exchanged within the associated functional unit.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.137.4 node_implementation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The node_implementation is an inverse relationship that specifies the <A
+CLASS="INTERNALREF"
+HREF="e_660.htm"
+>Physical_network</A
+> that specifies the Component_terminal as its connectivity_requirement_element. There shall be no more 
+than one Physical_network for a Component_terminal. The node_implementation need not be specified for a particular Component_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.137.5 swap-code</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The swap_code specifies the string that is the type of exchange that is valid.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="INFORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Informal constraints:</P
+><DIV
+CLASS="INFORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>IP1: </SPAN
+>Each Component_terminal that is referenced by a Physical_connectivity_definition as an associated_terminal shall not also be in the design view of the implementation of that Physical_connectivity_definition.</DIV
+><DIV
+CLASS="INFORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>IP2: </SPAN
+>The node_implementation and the connected_node shall not both exist.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY component_terminal
+--tt tc1 wd12 modified
+  ABSTRACT SUPERTYPE OF (ONEOF (
+      physical_component_terminal,
+      laminate_component_join_terminal))
+  SUBTYPE OF (component_feature);
+    local_swappable  : OPTIONAL BOOLEAN;
+    global_swappable : OPTIONAL BOOLEAN;
+    swap_code        : OPTIONAL STRING;
+(* tt tc1 wd12 deleted INVERSE, moved to subtypes *)
+END_ENTITY; -- component_terminal
+
+--tt tc1 wd9 modified
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

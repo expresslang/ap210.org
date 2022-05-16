@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Tolerance_zone_definition_with_per_unit_size_specification</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.921 Tolerance_zone_definition_with_per_unit_size_specification</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Tolerance_zone_with_per_unit_size_specification is a type of <A
+CLASS="INTERNALREF"
+HREF="e_920.htm"
+>Tolerance_zone_definition</A
+> in which the extent 
+of the <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> is defined. A Tolerance_zone_with_per_unit_size_specification is used to define a 
+Tolerance_zone when the design requirements are such that abrupt variations in the toleranced <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> must be limited. In essence, the thickness, or the diameter, of the Tolerance_zone is defined by the <A
+CLASS="INTERNALREF"
+HREF="e_77.htm"
+>Boundary_size_characteristic</A
+> and the extent is defined by the <A
+CLASS="INTERNALREF"
+HREF="e_927.htm"
+>Tolerance_zone_per_unit_size_specification</A
+>. Each element of the 
+toleranced Shape_element that has the same extent as the Tolerance_zone must lie within the Tolerance_zone when the 
+Tolerance_zone is positioned coincident with the element.&#13;</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>per_unit_size_specification</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.921.1 per_unit_size_specification</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The per_unit_size_specification specifies the <A
+CLASS="INTERNALREF"
+HREF="e_927.htm"
+>Tolerance_zone_per_unit_size_specification</A
+> that defines the 
+extent of the specified <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> for the Tolerance_zone_definition_with_per_unit_size_specification.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: A Straightness_tolerance may be applied on a per unit basis such that every 100 mm length of a toleranced axis must lie within a 
+Tolerance_zone that is bounded by a cylindrical Tolerance_zone that is 3 mm in diameter.</DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The Tolerance_zone specified as the defined_tolerance_zone shall be the same instance of Tolerance_zone as specified as the 
+specified_tolerance_zone by the Tolerance_zone_per_unit_size_specification that is specified as the per_unit_size_specification.</DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The attribute defined_tolerance_zone is declared in the Tolerance_zone_definition entity of which this entity is a subtype.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The Geometric_tolerance that specifies the Tolerance_zone_definition_with_per_unit_size_specification as 
+the tolerance_zone_or_boundary_definition shall be one of Flatness_tolerance, Straightness_tolerance, 
+Angularity_tolerance, Parallelism_tolerance, or Perpendicularity_tolerance. </DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY tolerance_zone_definition_with_per_unit_size_specification
+  SUBTYPE OF (tolerance_zone_definition);
+    per_unit_size_specification : tolerance_zone_per_unit_size_specification;
+END_ENTITY; -- tolerance_zone_definition_with_per_unit_size_specification
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

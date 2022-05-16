@@ -1,0 +1,2207 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Package">
+      <META name="DC.Dates" content="2009-05-04 09:28:54">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Package">
+      <META name="DC.Subject" content="module, electrical component, electronic component, piece part, package, package properties, mounting technology, lead form, seating plane, terminal, connection zone, functional orientation, physical orientation, datum, package body, shape, shape properties, simulation, analysis">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6455">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5721">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-04 09:28:54">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.77">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.79">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.53">
+      <TITLE>ISO/TS 10303-1707:2009 Package</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Package</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1707:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.4 ARM subtype constraint definition</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.5 ARM function definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#subtype_constraints">5.2.3 MIM subtype constraint definition</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Package</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Package_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="package_arm">
+            SCHEMA Package_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/extended_geometric_tolerance/sys/4_info_reqs.htm#extended_geometric_tolerance_arm">Extended_geometric_tolerance_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1666<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/part_feature_function/sys/4_info_reqs.htm#part_feature_function_arm">Part_feature_function_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1712<br><br></code></p>
+      <p><code>
+            REFERENCE FROM 
+            <A HREF="../../../../data/modules/characterizable_object/sys/4_info_reqs.htm#characterizable_object_arm">Characterizable_object_arm</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1765<br>&nbsp;&nbsp;(<A HREF="../../../../data/modules/characterizable_object/sys/4_info_reqs.htm#characterizable_object_arm.bag_to_set">bag_to_set</A>);
+            <br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Extended_geometric_tolerance_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1666</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Part_feature_function_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1712</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Characterizable_object_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1765</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>, <a href="../armexpg2.htm">C.2</a>, <a href="../armexpg3.htm">C.3</a>and <a href="../armexpg4.htm">C.4</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="package_arm.interface_plane_or_seating_plane">4.2.1 interface_plane_or_seating_plane</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>interface_plane_or_seating_plane</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.interface_plane">Interface_plane</A></b>
+         and
+         <b><A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.seating_plane">Seating_plane</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            interface_plane_or_seating_plane =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.interface_plane">Interface_plane</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.seating_plane">Seating_plane</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="package_arm.mounting_technology_type">4.2.2 mounting_technology_type</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      A <b>mounting_technology_type</b> lists the type of the mounting technology.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            mounting_technology_type =
+            
+            EXTENSIBLE
+            
+            ENUMERATION
+            
+            OF
+            <br>
+            &nbsp;&nbsp; 
+            (surface_mount,<br>&nbsp;&nbsp;&nbsp;&nbsp;through_hole);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <p><u>Enumerated item definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.mounting_technology_type.surface_mount">surface_mount:
+               </a></b>
+         specifies that component is surface mount;
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.mounting_technology_type.through_hole">through_hole:
+               </a></b>
+         specifies that component is through hole.
+         
+      </p>
+      <h2><a name="package_arm.pa_ee_product_definition_with_annotation_elements">4.2.3 pa_ee_product_definition_with_annotation_elements</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>pa_ee_product_definition_with_annotation_elements</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.ee_product_definition_with_annotation_elements">ee_product_definition_with_annotation_elements</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#package_arm.package">Package</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            pa_ee_product_definition_with_annotation_elements =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.ee_product_definition_with_annotation_elements">ee_product_definition_with_annotation_elements</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#package_arm.package">Package</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="package_arm.pa_external_identification_item">4.2.4 pa_external_identification_item</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>pa_external_identification_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_identification_item">external_identification_item</A></b> type. 
+         
+         It adds the data 
+         
+         types
+         <b><A HREF="#package_arm.package">Package</A></b>
+         and
+         <b><A HREF="#package_arm.package_terminal_template_definition">Package_terminal_template_definition</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            pa_external_identification_item =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_identification_item">external_identification_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#package_arm.package">Package</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#package_arm.package_terminal_template_definition">Package_terminal_template_definition</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="package_arm.pa_material_item_select">4.2.5 pa_material_item_select</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>pa_material_item_select</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/generic_material_aspects/sys/4_info_reqs.htm#generic_material_aspects_arm.material_item_select">material_item_select</A></b> type. 
+         
+         It adds the data 
+         
+         types
+         <b><A HREF="#package_arm.package_body">Package_body</A></b>
+         and
+         <b><A HREF="#package_arm.package_terminal_template_definition">Package_terminal_template_definition</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            pa_material_item_select =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/generic_material_aspects/sys/4_info_reqs.htm#generic_material_aspects_arm.material_item_select">material_item_select</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#package_arm.package_body">Package_body</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#package_arm.package_terminal_template_definition">Package_terminal_template_definition</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="package_arm.predefined_lead_form">4.2.6 predefined_lead_form</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>	
+         A <b>predefined_lead_form</b> lists the predefined classification of the lead form provided by this part of
+         	ISO 10303.  The form refers to the form as provided by the supplier of the component.
+         
+      </p>
+      
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            	A externally provided classification scheme may be used to extend the lead form classification over that
+            	provided in this version of this part of ISO 10303.
+            </small></p>
+      
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            	An integral terminal form is flush with the body of the package surface.
+            </small></p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            	A straight lead that was altered to support orientation requirements would still be classified as a straight
+            	lead since the component manufacturer delived the component with straight leads.
+            </small></p>	
+      	
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            predefined_lead_form =
+            
+            EXTENSIBLE
+            
+            ENUMERATION
+            
+            OF
+            <br>
+            &nbsp;&nbsp; 
+            (gull_wing,<br>&nbsp;&nbsp;&nbsp;&nbsp;j_lead,<br>&nbsp;&nbsp;&nbsp;&nbsp;reversed_j_lead,<br>&nbsp;&nbsp;&nbsp;&nbsp;integral_terminal,<br>&nbsp;&nbsp;&nbsp;&nbsp;undefined,<br>&nbsp;&nbsp;&nbsp;&nbsp;ball,<br>&nbsp;&nbsp;&nbsp;&nbsp;straight);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <p><u>Enumerated item definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.predefined_lead_form.gull_wing">gull_wing:
+               </a></b>
+         specifies that the predefined form of the lead is gull wing;
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.predefined_lead_form.j_lead">j_lead:
+               </a></b>
+         specifies that the predefined form of the lead is j lead;
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.predefined_lead_form.reversed_j_lead">reversed_j_lead:
+               </a></b>
+         specifies that the predefined form of the lead is reversed j lead;
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.predefined_lead_form.integral_terminal">integral_terminal:
+               </a></b>
+         specifies that the predefined form of the lead is integral terminal;
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.predefined_lead_form.undefined">undefined:
+               </a></b>
+         specifies that the predefined form of the lead is undefined;
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.predefined_lead_form.ball">ball:
+               </a></b>
+         specifies that the predefined form of the lead is ball;
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.predefined_lead_form.straight">straight:
+               </a></b>
+         specifies that the predefined form of the lead is straight.
+         
+      </p>
+      <h2><a name="package_arm.seating_plane_intersection_type">4.2.7 seating_plane_intersection_type</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      A <b>seating_plane_intersection_type</b> lists the types of the intersection between a feature and
+      	a 	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.seating_plane"><b>Seating_plane</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            seating_plane_intersection_type =
+            
+            ENUMERATION
+            
+            OF
+            <br>
+            &nbsp;&nbsp; 
+            (surface_intersection,<br>&nbsp;&nbsp;&nbsp;&nbsp;through_intersection,<br>&nbsp;&nbsp;&nbsp;&nbsp;does_not_intersect);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <p><u>Enumerated item definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.seating_plane_intersection_type.surface_intersection">surface_intersection:
+               </a></b>
+         specifies that the surface of the feature indicated is congruent with the seating plane;
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.seating_plane_intersection_type.through_intersection">through_intersection:
+               </a></b>
+         specifies that the feature penetrates the seating plane;
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.seating_plane_intersection_type.does_not_intersect">does_not_intersect:
+               </a></b>
+         specifies that the feature does not intersect the seating plane.
+         
+      </p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="package_arm.connection_zone_in_part_feature_template_definition">4.3.1 Connection_zone_in_part_feature_template_definition</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityconnection_zone_in_part_feature_template_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Connection_zone_in_part_feature_template_definition</b> is a type of 
+         	<a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone"><b>Connection_zone</b></a> 
+         	in which the context is a 	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature_template_definition"><b>Part_feature_template_definition</b></a>.
+         	A <b>Connection_zone_in_part_feature_template_definition</b> is included in a template definition to provide an explicit geometric model of the
+         	limited areas in the domain of a terminal that are allowed for a valid connection.  If the template definition
+         	contains no limitations on the connection area of the terminals associated with the template this Application Object shall
+         	not be provided. 	
+         	
+      </p>
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            	In some less detailed templates, the entire point domain for features designated as terminals is considered to be available
+            for connection and the 
+            	<b>Connection_zone_in_part_feature_template_definition</b> is redundant.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            	In the case where the connection area is necessary, the application shall be carefully reviewed to determine the necessity
+            for design instances of the connection area as in most cases,
+            	simply using the connection area as a constraint on the allowed location of a joint is sufficient.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            	The level of detail included in a template definition may be classified by a user defined classification system which is
+            supported by this part of
+            	ISO 10303 but this part of ISO 10303
+            	does not predefine a classification system for template detail level.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Connection_zone_in_part_feature_template_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone">Connection_zone</A>);<br>DERIVE<br>
+            &nbsp;&nbsp;associated_definition : <A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature_template_definition">Part_feature_template_definition</A> := containing_shape.described_element;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: NOT EXISTS(SELF\Shape_element.element_name);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.connection_zone_in_part_feature_template_definition.associated_definition">associated_definition:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature_template_definition"><b>Part_feature_template_definition</b></a>
+         	for the <b>Connection_zone_in_part_feature_template_definition</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.connection_zone_in_part_feature_template_definition.wr:wr1">WR1:
+               </a></b>
+         	The
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element.element_name"><b>element_name</b></a>
+         	shall not be populated.
+         
+      </p>
+      <h2><a name="package_arm.connection_zone_package_interface_plane_relationship">4.3.2 Connection_zone_package_interface_plane_relationship</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityconnection_zone_package_interface_plane_relationship"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	
+      <p>
+         	A <b>Connection_zone_package_interface_plane_relationship</b> is a mechanism 
+         	to establish a derived relationship declaration between two connection areas
+         	using a common plane as the interface declaration.
+         	A <b>Connection_zone_package_interface_plane_relationship</b> 
+         	may be represented in a geometric context for the purpose of deriving a 2D or 3D 
+         	representation.
+         	
+      </p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		A common application of this is the case where there is a three dimensional model of a terminal where that
+            		terminal is cut by a seating plane and it is necessary to derive a two dimensional area of that terminal for layout purposes.
+            		In this case, the context for both connection areas would be the same terminal definition but
+            		one connection area would be three dimensional and the other connection area would be two 
+            		dimensional.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Connection_zone_package_interface_plane_relationship;<br>
+            
+            
+            
+            &nbsp;&nbsp;interface_plane : <A HREF="#package_arm.interface_plane_or_seating_plane">interface_plane_or_seating_plane</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;derived_zone : <A HREF="#package_arm.connection_zone_in_part_feature_template_definition">Connection_zone_in_part_feature_template_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;derived_zone_shape_class : STRING;<br>INVERSE<br>
+            &nbsp;&nbsp;associated_package_terminal : SET[0:1] OF <A HREF="#package_arm.package_terminal_template_definition">Package_terminal_template_definition</A> FOR seating_plane_zone;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: derived_zone_shape_class IN ['area','edge'];<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.connection_zone_package_interface_plane_relationship.interface_plane">interface_plane:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.interface_plane_or_seating_plane"><b>interface_plane_or_seating_plane</b></a> 
+         	for the  <b>Connection_zone_package_interface_plane_relationship</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.connection_zone_package_interface_plane_relationship.derived_zone">derived_zone:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.connection_zone_in_part_feature_template_definition"><b>Connection_zone_in_part_feature_template_definition</b></a> 
+         	for the <b>Connection_zone_package_interface_plane_relationship</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.connection_zone_package_interface_plane_relationship.derived_zone_shape_class">derived_zone_shape_class:
+               </a></b>
+         	specifies the text that describes the  <b>Connection_zone_package_interface_plane_relationship</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.connection_zone_package_interface_plane_relationship.associated_package_terminal">associated_package_terminal:
+               </a></b>
+         	an inverse relationship that specifies that the existence of the <b>Connection_zone_package_interface_plane_relationship</b> 
+         	is dependent on the the existence of the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal_template_definition"><b>Package_terminal_template_definition</b></a> 
+         	that specifies the <b>Connection_zone_package_interface_plane_relationship</b> as its 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal_template_definition.seating_plane_zone"><b>seating_plane_zone</b></a>. 
+         	There shall be no more than one  
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal_template_definition"><b>Package_terminal_template_definition</b></a> 
+         	for a  <b>Connection_zone_package_interface_plane_relationship</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.connection_zone_package_interface_plane_relationship.wr:wr1">WR1:
+               </a></b>
+         	The <b>derived_zone_shape_class</b> will be 'area' or 'edge'.
+         
+      </p>
+      <h2><a name="package_arm.guided_wave_terminal">4.3.3 Guided_wave_terminal</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityguided_wave_terminal"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Guided_wave_terminal</b> is a type of <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminal</b></a>
+         that is explicitly included for the purpose of providing access to the functionality of a <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part"><b>Packaged_part</b></a> using 
+         guided waves.
+         
+         
+      </p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		A Fiber-optic terminal is considered to be a <b>Guided_wave_terminal</b> in this part of ISO 10303
+            		because the signal is launched from the end surface of the terminal.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Guided_wave_terminal<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#package_arm.package_terminal">Package_terminal</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="package_arm.package">4.3.4 Package</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypackage"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         A <b>Package</b> is a type of a <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_usage_view"><b>Part_usage_view</b></a>. 
+         A <b>Package</b> describes a subset of the physical properties of a component relevant to use of that component in an assembly.
+         Some items are mandatory for any instance of a Package, some items are used for assuring proper orientation and some items
+         
+         are used for analysis.
+         A <b>Package</b> includes no more than one package body and one or more package terminals.
+         A <b>Package</b> includes a seating plane when a mounting technology is specified.
+         
+      </p>
+      
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+            <a href="../../../modules/package/sys/4_info_reqs.htm#figure_pacax">Figures 1</a> through <a href="../../../modules/package/sys/4_info_reqs.htm#figure_pacto">2</a> illustrate types of <b>Package</b>s and parameters related to Geometric Dimensioning and Tolerancing supported by this part of ISO 10303.  ISO 10303-202 would
+            be used in conjunction with this part of ISO 10303 to define the exchange of the presentation information (i.e., the drawings).
+             This part of ISO 10303 supports the direct application to application exchange of the parametric data illustrated in the
+            drawings.
+            </small></p>
+      <br><br><a name="figure_pacax"></a><div align="center"><IMG src="../pacax.gif" border="0" alt="Figure 1&nbsp;&#8212;&nbsp;&nbsp;Axial lead"></div><br><div align="center"><b>Figure 1&nbsp;&#8212;&nbsp;&nbsp;Axial lead</b></div><br>
+      <br><br><a name="figure_pacto"></a><div align="center"><IMG src="../pacto.gif" border="0" alt="Figure 2&nbsp;&#8212;&nbsp;&nbsp;T099"></div><br><div align="center"><b>Figure 2&nbsp;&#8212;&nbsp;&nbsp;T099</b></div><br>
+      
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            
+            <a href="../../../modules/package/sys/4_info_reqs.htm#figure_pof7">
+               Figures 3</a> through <a href="../../../modules/package/sys/4_info_reqs.htm#figure_pof1">4</a> 
+            	illustrate parameters and features related to <b>Package</b> orientation for assembly purposes supported by this part of ISO 10303.  
+            	ISO 10303-202 would be used in conjunction with this part of ISO 10303 to define the exchange of the presentation information
+            
+            	(i.e., the drawings).
+            </small></p>
+      <br><br><a name="figure_pof7"></a><div align="center"><IMG src="../pof7.gif" border="0" alt="Figure 3&nbsp;&#8212;&nbsp;&nbsp;Twenty pin orientation features"></div><br><div align="center"><b>Figure 3&nbsp;&#8212;&nbsp;&nbsp;Twenty pin orientation features</b></div><br>
+      <br><br><a name="figure_pof1"></a><div align="center"><IMG src="../pof1.gif" border="0" alt="Figure 4&nbsp;&#8212;&nbsp;&nbsp;&#xA;  and   for discrete devices"></div><br><div align="center"><b>Figure 4&nbsp;&#8212;&nbsp;&nbsp;
+            	  and   for discrete devices</b></div><br>
+      
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            	The location of the <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_reference_terminal"><b>Primary_reference_terminal</b></a> as illustrated
+            	in <a href="../../../modules/package/sys/4_info_reqs.htm#figure_pof1">Figure 4</a> is not constrained by electrical functionality
+            	unless there are visually identifiable features that indicate polarity or orientation requirements.  The top row in the Figure
+            	illustrates three situations where there are no visual features indicating requirements
+            	and the selection is arbitrary.  The polarized part in the second row in the
+            	Figure illustrates a case where there is a visual feature indicating a functional orientation requirement due to the nature
+            of the part.
+            </small></p>	
+      
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            When used for a  <a href="../../../modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part"><b>Packaged_part</b></a> "white box model", 
+            the <a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.part_device"><b>Part_device</b></a> 
+            is installed in the <b>Package</b> and an electrical connection is defined between each terminal on the installed  
+            <a href="../../../modules/packaged_part_white_box_model/sys/4_info_reqs.htm#packaged_part_white_box_model_arm.part_device"><b>Part_device</b></a> and one or more terminals on the <b>Package</b>.
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Package<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_usage_view">Part_usage_view</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;mounting_technology : 
+            OPTIONAL 
+            <A HREF="#package_arm.mounting_technology_type">mounting_technology_type</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;maximum_seating_plane_installation_offset : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;nominal_mounting_lead_pitch : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;nominal_mounting_lead_span : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;maximum_body_height_above_seating_plane : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;maximum_body_height_below_seating_plane : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;body_clearance_above_seating_plane : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;body_clearance_below_seating_plane : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;maximum_lead_length_below_seating_plane : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;least_lead_length_below_seating_plane : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>DERIVE<br>
+            &nbsp;&nbsp;maximum_package_total_vertical_extent : <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A> := max_data_element(
+            											add_data_element(maximum_body_height_above_seating_plane,maximum_body_height_below_seating_plane),
+            											    add_data_element(maximum_body_height_above_seating_plane,maximum_lead_length_below_seating_plane));<br>
+            &nbsp;&nbsp;cutout_required : LOGICAL := (maximum_body_height_below_seating_plane\Value_with_unit.value_component &gt; 0.0);<br>
+            &nbsp;&nbsp;maximum_installed_height : <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A> := add_data_element(maximum_body_height_above_seating_plane,maximum_seating_plane_installation_offset);<br>
+            &nbsp;&nbsp;one_orientation_feature : LOGICAL := (SIZEOF(orientation_feature) = 1);<br>
+            &nbsp;&nbsp;two_orientation_features : LOGICAL := (SIZEOF(orientation_feature) = 2);<br>
+            &nbsp;&nbsp;three_orientation_features : LOGICAL := (SIZEOF(orientation_feature) = 3);<br>
+            &nbsp;&nbsp;package_seating_plane : SET[0:?] OF <A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.seating_plane">Seating_plane</A> := bag_to_set(QUERY(nfse &lt;* USEDIN(SELF, 'NON_FEATURE_SHAPE_ELEMENT_ARM.NON_FEATURE_SHAPE_ELEMENT.SCOPE')|
+            'NON_FEATURE_SHAPE_ELEMENT_ARM.SEATING_PLANE' IN TYPEOF(nfse)));<br>
+            &nbsp;&nbsp;interface_plane : SET[0:?] OF <A HREF="../../../../data/modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.interface_plane">Interface_plane</A> := bag_to_set(QUERY(nfse &lt;* USEDIN(SELF, 'NON_FEATURE_SHAPE_ELEMENT_ARM.NON_FEATURE_SHAPE_ELEMENT.SCOPE')|
+            'NON_FEATURE_SHAPE_ELEMENT_ARM.INTERFACE_PLANE' IN TYPEOF(nfse)));<br>INVERSE<br>
+            &nbsp;&nbsp;body : SET[0:1] OF <A HREF="#package_arm.package_body">Package_body</A> FOR associated_definition;<br>
+            &nbsp;&nbsp;package_accesses : SET[0:?] OF <A HREF="#package_arm.package_terminal">Package_terminal</A> FOR associated_definition;<br>
+            &nbsp;&nbsp;package_polarity_indication : SET[0:1] OF <A HREF="#package_arm.polarity_indication_feature">Polarity_indication_feature</A> FOR associated_definition;<br>
+            &nbsp;&nbsp;orientation_feature : SET[0:3] OF <A HREF="#package_arm.package_orientation_feature">Package_orientation_feature</A> FOR associated_definition;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: NOT (mounting_technology = surface_mount) OR (NOT (EXISTS(maximum_lead_length_below_seating_plane) OR EXISTS(least_lead_length_below_seating_plane)));<br> 
+            &nbsp;&nbsp;WR2: NOT (EXISTS(maximum_lead_length_below_seating_plane)) OR (maximum_lead_length_below_seating_plane\Value_with_unit.value_component
+            &gt; 0.0);<br> 
+            &nbsp;&nbsp;WR3: NOT (EXISTS(least_lead_length_below_seating_plane)) OR (least_lead_length_below_seating_plane\Value_with_unit.value_component
+            &gt; 0.0);<br> 
+            &nbsp;&nbsp;WR4: NOT EXISTS(mounting_technology) OR (SIZEOF(package_seating_plane) = 1);<br> 
+            &nbsp;&nbsp;WR5: SIZEOF(QUERY(pa &lt;* package_accesses | 'PACKAGE_ARM.PRIMARY_REFERENCE_TERMINAL' IN TYPEOF(pa))) = 1;<br> 
+            &nbsp;&nbsp;WR6: SIZEOF(QUERY(nt &lt;* package_accesses |
+            	                      EXISTS(nt\Part_feature.precedent_feature)
+            	               )) = (SIZEOF(package_accesses) - 1);<br> 
+            &nbsp;&nbsp;WR7: SIZEOF(QUERY(nt &lt;* package_accesses |
+            	                     (SIZEOF(nt\Part_feature.subsequent_feature) = 1)
+            	               )) = (SIZEOF(package_accesses) - 1);<br> 
+            &nbsp;&nbsp;WR8: NOT one_orientation_feature    OR ('PACKAGE_ARM.PRIMARY_ORIENTATION_FEATURE' IN TYPEOF(orientation_feature[1]));<br> 
+            &nbsp;&nbsp;WR9: NOT two_orientation_features   OR ((SIZEOF(QUERY(orf &lt;* orientation_feature |
+            ('PACKAGE_ARM.PRIMARY_ORIENTATION_FEATURE' IN TYPEOF(orf)))) = 1) AND
+            (SIZEOF(QUERY(orf &lt;* orientation_feature |
+            ('PACKAGE_ARM.SECONDARY_ORIENTATION_FEATURE' IN TYPEOF(orf)))) = 1));<br> 
+            &nbsp;&nbsp;WR10: NOT three_orientation_features OR ((SIZEOF(QUERY(orf &lt;* orientation_feature |
+            ('PACKAGE_ARM.PRIMARY_ORIENTATION_FEATURE' IN TYPEOF(orf)))) = 1) AND
+            (SIZEOF(QUERY(orf &lt;* orientation_feature |
+            ('PACKAGE_ARM.SECONDARY_ORIENTATION_FEATURE' IN TYPEOF(orf)))) = 1) AND
+            (SIZEOF(QUERY(orf &lt;* orientation_feature |
+            ('PACKAGE_ARM.TERTIARY_ORIENTATION_FEATURE' IN TYPEOF(orf)))) = 1));<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.package.mounting_technology">mounting_technology:
+               </a></b>
+         specifies a value of <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.mounting_technology_type"><b>mounting_technology_type</b></a> for the <b>Package</b>. The <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.mounting_technology_type"><b>Surface_mount</b></a> indicates that the <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminals</b></a> have a  <a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone"><b>Connection_zone</b></a> that is congruent with the <b>package_seating_plane</b> and <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.mounting_technology_type"><b>through_hole</b></a> indicates the terminals penetrate the <b>package_seating_plane</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.maximum_seating_plane_installation_offset">maximum_seating_plane_installation_offset:
+               </a></b>
+         specifies the maximum offset of the seating plane installation of the <b>Package</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.nominal_mounting_lead_pitch">nominal_mounting_lead_pitch:
+               </a></b>
+         specifies the nominal mounting pitch of the <b>Package</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.nominal_mounting_lead_span">nominal_mounting_lead_span:
+               </a></b>
+         specifies the nominal mounting span of the <b>Package</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.maximum_body_height_above_seating_plane">maximum_body_height_above_seating_plane:
+               </a></b>
+         specifies the maximum 
+         height of the <b>Package</b> above the seating plane.  Since there is no attribute describing the maximum terminal height above the seating plane, this
+         attribute shall be interpreted as the furthest point away from the seating plane of either the <b>body</b> or of any <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminal</b></a> above the seating plane.
+         
+      </p>
+      <p class="example"><small><a name="example_3">EXAMPLE&nbsp;3</a>&nbsp;&nbsp;
+            
+            In the case of package to be mounted in a cutout there may only be the surface mounted leads protruding above the seating
+             plane.
+            </small></p>
+      <p class="expressdescription"><b><a name="package_arm.package.maximum_body_height_below_seating_plane">maximum_body_height_below_seating_plane:
+               </a></b>
+         specifies the maximum height of the <b>Package</b> below the seating plane. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.body_clearance_above_seating_plane">body_clearance_above_seating_plane:
+               </a></b>
+         specifies a <a href="../../../modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic"><b>Length_tolerance_characteristic</b></a> that is the minimum length between the <b>body</b> and the  <a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.seating_plane"><b>Seating_plane</b></a>.  The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.body_clearance_below_seating_plane">body_clearance_below_seating_plane:
+               </a></b>
+         specifies a  <a href="../../../modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic"><b>Length_tolerance_characteristic</b></a> that is the minimum length between the <b>body</b> and the  <a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.seating_plane"><b>Seating_plane</b></a>.  The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.maximum_lead_length_below_seating_plane">maximum_lead_length_below_seating_plane:
+               </a></b>
+         specifies the maximum lead length below the seating plane. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.least_lead_length_below_seating_plane">least_lead_length_below_seating_plane:
+               </a></b>
+         specifies the smallest lead length 
+         below the seating plane. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.maximum_package_total_vertical_extent">maximum_package_total_vertical_extent:
+               </a></b>
+         specifies maximum package vertical extent, that is a maximum of sum of <b>maximum_body_height_above_seating_plane</b> and <b>maximum_body_height_below_seating_plane</b>,
+         and sum of <b>maximum_body_height_above_seating_plane</b> and <b>maximum_lead_length_below_seating_plane</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.cutout_required">cutout_required:
+               </a></b>
+         specifies a derived value of TRUE or FALSE, depending on the existence of the optional attribute <b>maximum_body_height_below_seating_plane</b>.  If the attribute exists, the value is TRUE.  If the attribute is no present, the value is FALSE.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.maximum_installed_height">maximum_installed_height:
+               </a></b>
+         specifies the sum of <b>maximum_body_height_above_seating_plane</b> and <b>maximum_seating_plane_installation_offset</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.one_orientation_feature">one_orientation_feature:
+               </a></b>
+         	the attribute is TRUE only if the size of <b>orientation_feature</b> is one.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.two_orientation_features">two_orientation_features:
+               </a></b>
+         	the attribute is TRUE only if the size of <b>orientation_feature</b> is two.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.three_orientation_features">three_orientation_features:
+               </a></b>
+         	the attribute is TRUE only if the size of <b>orientation_feature</b> is tree.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.package_seating_plane">package_seating_plane:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.seating_plane"><b>Seating_plane</b></a> 
+         	for the <b>Package</b>.  
+         	The  
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.seating_plane"><b>Seating_plane</b></a> 
+         	simulates the mounting surface for the terminals in the case of surface mounted parts and in the case of through-hole technology,
+         
+         	an arbitrarily established mounting surface.  Terminals are required to approach the  
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.seating_plane"><b>Seating_plane</b></a> 
+         	from the top, which is the side where the values on the Z axis are positive.  
+         	<b>Package</b> installation is defined to be only from the top of the  
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.seating_plane"><b>Seating_plane</b></a> 
+         	in order to reduce orientation errors between two-dimensional and three-dimensional models in this part of ISO 10303.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.interface_plane">interface_plane:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.interface_plane"><b>Interface_plane</b></a> 
+         	for the <b>Package</b>.
+         	The  <a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.interface_plane"><b>Interface_plane</b></a> 
+         	simulates the interface surface of an external device. There shall exist zero or more  
+         	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.interface_plane"><b>Interface_planes</b></a> 
+         	in the role of <b>interface_plane</b>.
+         
+      </p>
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            The <b>interface_plane</b> is typically used for connectors, but may be used for modules.
+            </small></p>
+      <p class="example"><small><a name="example_4">EXAMPLE&nbsp;4</a>&nbsp;&nbsp;
+            
+            A use of <b>interface_plane</b> is in the case of a fiber-optic transceiver that is mounted on a PCB but has a right angle connector to interface with a
+            fiber.
+            </small></p>
+      <p class="expressdescription"><b><a name="package_arm.package.body">body:
+               </a></b>
+         	specifies an inverse relationship that specifies that the existence of the  <b>Package</b> 
+         	is dependent on the existence of the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body"><b>Package_body</b></a> 
+         	that specifies the <b>Package</b>
+         	as its 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body.associated_definition"><b>associated_definition</b></a>. 
+         	There shall be no more than one  
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body"><b>Package_body</b></a>
+         	for a particular <b>Package</b>. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.package_accesses">package_accesses:
+               </a></b>
+         	an inverse relationship that specifies that the existence of the <b>Package</b> is dependent on the existence of the  
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminal</b></a> 
+         	that specifies the <b>Package</b> as its 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal.associated_definition"><b>associated_definition</b></a>. 
+         	There shall be zero or more  
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminal</b></a> 
+         	for a <b>Package</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.package_polarity_indication">package_polarity_indication:
+               </a></b>
+         	specifies an inverse relationship that specifies that the existence of the  <b>Package</b> 
+         	is dependent on the existence of the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.polarity_indication_feature"><b>Polarity_indication_feature</b></a> 
+         	that specifies the <b>Package</b>
+         	as its 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.associated_definition"><b>associated_definition</b></a>. 
+         	There shall be no more than one  
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.polarity_indication_feature"><b>Polarity_indication_feature</b></a>
+         	for a <b>Package</b> in this role.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.orientation_feature">orientation_feature:
+               </a></b>
+         	specifies an inverse relationship that specifies that the existence of the  <b>Package</b> 
+         	is dependent on the existence of the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_orientation_feature"><b>Package_orientation_feature</b></a> 
+         	that specifies the <b>Package</b>
+         	as its 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_orientation_feature.associated_definition"><b>associated_definition</b></a>. 
+         	There shall be no more than three  
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_orientation_feature"><b>Package_orientation_features</b></a>
+         	for a particular <b>Package</b>. 
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.package.wr:wr1">WR1:
+               </a></b>
+         If <b>mounting_technology</b> is <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.mounting_technology_type.surface_mount"><b>surface_mount</b></a>, then
+         <b>maximum_lead_length_below_seating_plane</b> and <b>least_lead_length_below_seating_plane</b> shall not be provided.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.wr:wr2">WR2:
+               </a></b>
+         If <b>maximum_lead_length_below_seating_plane</b> is provided, then <a href="../../../modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.value_with_unit.value_component"><b>value_component</b></a>
+         of <b>maximum_lead_length_below_seating_plane</b> shall be greater than zero.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.wr:wr3">WR3:
+               </a></b>
+         If <b>least_lead_length_below_seating_plane</b> is provided, then <a href="../../../modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.value_with_unit.value_component"><b>value_component</b></a>
+         of <b>least_lead_length_below_seating_plane</b> shall be greater than zero.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.wr:wr4">WR4:
+               </a></b>
+         If <b>mounting_technology</b> is supplied, then the size of <b>package_seating_plane</b> shall be one.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.wr:wr5">WR5:
+               </a></b>
+         The <a href="../../../modules/product_identification/sys/4_info_reqs.htm#product_identification_arm.product"><b>Product</b></a> refered by
+         <a href="../../../modules/product_version/sys/4_info_reqs.htm#product_version_arm.product_version.of_product"><b>of_product</b></a> of
+         <a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition.defined_version"><b>defined_version</b></a> shall
+         be assigned by <a href="../../../modules/product_categorization/sys/4_info_reqs.htm#product_categorization_arm.product_category_assignment"><b>Product_category_assignment</b></a>
+         to at least one <a href="../../../modules/product_categorization/sys/4_info_reqs.htm#product_categorization_arm.product_category"><b>Product_category</b></a> with
+         <a href="../../../modules/product_categorization/sys/4_info_reqs.htm#product_categorization_arm.product_category.name"><b>name</b></a> 'package'.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.wr:wr6">WR6:
+               </a></b>
+         There shall be one <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_reference_terminal"><b>Primary_reference_terminal</b></a> in <b>package_accesses</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.wr:wr7">WR7:
+               </a></b>
+         	Each member of <b>package_accesses</b> except for one shall specify a 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.precedent_feature"><b>precedent_feature</b></a>.
+         
+      </p>
+      <p class="note"><small><a name="note_4">NOTE&nbsp;4</a>&nbsp;&nbsp;
+            
+            	Only the 
+            	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_reference_terminal"><b>Primary_reference_terminal</b></a> 
+            	shall not specify a <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.precedent_feature"><b>precedent_feature</b></a>.
+            	</small></p>
+      <p class="expressdescription"><b><a name="package_arm.package.wr:wr8">WR8:
+               </a></b>
+         	Each member of <b>package_accesses</b> except for one shall specify a 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.subsequent_feature"><b>subsequent_feature</b></a>.
+         	
+         
+      </p>
+      <p class="note"><small><a name="note_5">NOTE&nbsp;5</a>&nbsp;&nbsp;
+            
+              Constraints WR6, WR7 and WR8 exist to support user defined ordering because this part of ISO 10303 does not predefine an
+            order on the terminals.
+              Data that satisfies the constraints will have the properties of a list with unique entries; the list may have missing entries.
+             </small></p>
+      <p class="example"><small><a name="example_5">EXAMPLE&nbsp;5</a>&nbsp;&nbsp;
+            
+              A BGA definition includes a set of relationships that declare that the terminal labeled "AB1" is earlier in the numbering
+            sequence than "BC2".
+              Some of the grid intersections do not have terminals so 
+             </small></p>
+      <p class="example"><small><a name="example_6">EXAMPLE&nbsp;6</a>&nbsp;&nbsp;
+            
+              A six pin SIP definition has terminals labeled "1" through "6" inclusively. 
+             </small></p>
+      <p class="expressdescription"><b><a name="package_arm.package.wr:wr9">WR9:
+               </a></b>
+         	If there is one <b>orientation_feature</b> then it shall be a 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_orientation_feature"><b>Primary_orientation_feature</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package.wr:wr10">WR10:
+               </a></b>
+         	If there are two <b>orientation_feature</b>s then one of them shall be a 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_orientation_feature"><b>Primary_orientation_feature</b></a> 
+         	and the other shall be a 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.secondary_orientation_feature"><b>Secondary_orientation_feature</b></a>.
+         	
+         
+      </p>
+      <h2><a name="package_arm.package_body">4.3.5 Package_body</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypackage_body"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         A <b>Package_body</b> is a type of 
+         <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> 
+         that is the 
+         encasement used in the realization of a <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>.  The observer view shall be above the seating plane and 
+         shall be higher than the highest point of the <b>Package_body</b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Package_body<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>.associated_definition : <A HREF="#package_arm.package">Package</A>;<br>INVERSE<br>
+            &nbsp;&nbsp;body_material : <A HREF="../../../../data/modules/generic_material_aspects/sys/4_info_reqs.htm#generic_material_aspects_arm.material_identification">Material_identification</A> FOR items;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(QUERY(pf &lt;* USEDIN(SELF,
+            'PACKAGE_ARM.PACKAGE_BODY_SURFACE.ASSOCIATED_PACKAGE_BODY') | ('PACKAGE_ARM.' + 'PACKAGE_BODY_TOP_SURFACE' IN TYPEOF(pf))))
+            &lt;= 1;<br> 
+            &nbsp;&nbsp;WR2: SIZEOF(QUERY(pf &lt;* USEDIN(SELF,
+            'PACKAGE_ARM.PACKAGE_BODY_SURFACE.ASSOCIATED_PACKAGE_BODY') | ('PACKAGE_ARM.' + 'PACKAGE_BODY_BOTTOM_SURFACE' IN TYPEOF(pf))))
+            &lt;= 1;<br> 
+            &nbsp;&nbsp;WR3: SIZEOF(QUERY(pf &lt;* USEDIN(SELF,
+            'PACKAGE_ARM.PACKAGE_BODY_SURFACE.ASSOCIATED_PACKAGE_BODY') | ('PACKAGE_ARM.' + 'PACKAGE_BODY_EDGE_SURFACE' IN TYPEOF(pf))))
+            &lt;= 1;<br> 
+            &nbsp;&nbsp;WR4: 'CONDUCTIVITY_MATERIAL_ASPECTS_ARM.'+ 'MATERIAL_IDENTIFICATION_WITH_CONDUCTIVITY_CLASSIFICATION' IN TYPEOF (body_material);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.package_body.associated_definition">associated_definition:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>
+         	shal be redeclared as the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a> 
+         	for the <b>Package_body</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_body.body_material">body_material:
+               </a></b>
+         	specifies an inverse relationship that specifies that the existence of the  <b>Package_body</b> 
+         	is dependent on the existence of the 
+         	<a href="../../../modules/generic_material_aspects/sys/4_info_reqs.htm#generic_material_aspects_arm.material_identification"><b>Material_identification</b></a> 
+         	that specifies the <b>Package_body</b>
+         	as its 
+         	<a href="../../../modules/generic_material_aspects/sys/4_info_reqs.htm#generic_material_aspects_arm.material_identification.items"><b>items</b></a>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.package_body.wr:wr1">WR1:
+               </a></b>
+         There shall be no more than one <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_top_surface"><b>Package_body_top_surface</b></a>
+         refering <b>Package_body</b> as <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.associated_definition"><b>associated_definition</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_body.wr:wr2">WR2:
+               </a></b>
+         There shall be no more than one <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_bottom_surface"><b>Package_body_bottom_surface</b></a>
+         refering <b>Package_body</b> as <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.associated_definition"><b>associated_definition</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_body.wr:wr3">WR3:
+               </a></b>
+         There shall be no more than one <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_edge_surface"><b>Package_body_edge_surface</b></a>
+         refering <b>Package_body</b> as <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.associated_definition"><b>associated_definition</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_body.wr:wr4">WR4:
+               </a></b>
+         The <b>body_material</b> shall be the <a href="../../../modules/conductivity_material_aspects/sys/4_info_reqs.htm#conductivity_material_aspects_arm.material_identification_with_conductivity_classification"><b>Material_identification_with_conductivity_classification</b></a>.
+         
+      </p>
+      <h2><a name="package_arm.package_body_bottom_surface">4.3.6 Package_body_bottom_surface</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypackage_body_bottom_surface"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Package_body_bottom_surface</b> is a type of <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_surface"><b>Package_body_surface</b></a> that is not visible from an observer located 
+         so as to place the component on a substrate.  The <b>Package_body_bottom_surface</b> is visible from the seating plane associated with the 	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>. 
+         
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		In typical cases the <b>Package_body_bottom_surface</b> is the surface of the package body closest to
+            		 the seating plane.
+            	</small></p>
+      
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Package_body_bottom_surface<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#package_arm.package_body_surface">Package_body_surface</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="package_arm.package_body_edge_segment_surface">4.3.7 Package_body_edge_segment_surface</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypackage_body_edge_segment_surface"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Package_body_edge_segment_surface</b> is a type of 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_surface"><b>Package_body_surface</b></a>.
+         A <b>Package_body_edge_segment_surface</b> is a segment along the edge of the body between the top and bottom
+         	surfaces. 
+         
+      </p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		A BGA package may have four or five edge segments depending on whether the location of pin A2 is indicated
+            		by a chamfered corner.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Package_body_edge_segment_surface<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#package_arm.package_body_surface">Package_body_surface</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;composed_surface : <A HREF="#package_arm.package_body_edge_surface">Package_body_edge_surface</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;start_vertex : <A HREF="../../../../data/modules/extended_geometric_tolerance/sys/4_info_reqs.htm#extended_geometric_tolerance_arm.edge_segment_vertex">Edge_segment_vertex</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;end_vertex : <A HREF="../../../../data/modules/extended_geometric_tolerance/sys/4_info_reqs.htm#extended_geometric_tolerance_arm.edge_segment_vertex">Edge_segment_vertex</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: start_vertex :&lt;&gt;: end_vertex;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.package_body_edge_segment_surface.composed_surface">composed_surface:
+               </a></b>
+         specifies the <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_edge_surface"><b>Package_body_edge_surface</b></a> for the <b>Package_body_edge_segment_surface</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_body_edge_segment_surface.start_vertex">start_vertex:
+               </a></b>
+         specifies the <a href="../../../modules/extended_geometric_tolerance/sys/4_info_reqs.htm#extended_geometric_tolerance_arm.edge_segment_vertex"><b>Edge_segment_vertex</b></a> for the <b>Package_body_edge_segment_surface</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_body_edge_segment_surface.end_vertex">end_vertex:
+               </a></b>
+         specifies the <a href="../../../modules/extended_geometric_tolerance/sys/4_info_reqs.htm#extended_geometric_tolerance_arm.edge_segment_vertex"><b>Edge_segment_vertex</b></a> for the <b>Package_body_edge_segment_surface</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.package_body_edge_segment_surface.wr:wr1">WR1:
+               </a></b>
+         The <b>start_vertex</b> shall not be the <b>end_vertex</b>.
+         
+      </p>
+      <h2><a name="package_arm.package_body_edge_surface">4.3.8 Package_body_edge_surface</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypackage_body_edge_surface"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      
+      <p>
+         	A <b>Package_body_edge_surface</b> is a type of 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_surface"><b>Package_body_surface</b></a>.
+         A <b>Package_body_edge_surface</b> is the surface between the top and bottom surfaces.
+         
+      </p>	
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The structural model of a package provided in this part of ISO 10303 is not intended to be exhaustive
+            		but to provide for coverage of typical needs in physical design, including spacing checks.  It is
+            		anticipated that if complex shapes are desired, then the three dimensional geometric modeling support
+            		provided will be used.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		A usual case for a structural model of a TO-99 case in two dimensions would be that the cross-section of
+            		maximum extent would be used to derive the edge segments, because that cross-section is where the 
+            		orientation tab is located.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Package_body_edge_surface<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#package_arm.package_body_surface">Package_body_surface</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="package_arm.package_body_surface">4.3.9 Package_body_surface</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypackage_body_surface"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      A <b>Package_body_surface</b> is a type of <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>.
+      A <b>Package_body_surface</b> is one of a <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_top_surface"><b>Package_body_top_surface</b></a>, 
+      a <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_bottom_surface"><b>Package_body_bottom_surface</b></a>, 
+      a <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_edge_segment_surface"><b>Package_body_edge_segment_surface</b></a>, or
+      a <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_edge_surface"><b>Package_body_edge_surface</b></a>. 
+      A <b>Package_body_surface</b> relationship to the seating plane may be explicitly established.
+      	If an explicit relationship is not established the interpretation shall be that the bottom surface
+      	is adjacent to or congruent with the seating plane.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Package_body_surface<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#package_arm.package_body_bottom_surface">Package_body_bottom_surface</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#package_arm.package_body_top_surface">Package_body_top_surface</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#package_arm.package_body_edge_segment_surface">Package_body_edge_segment_surface</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#package_arm.package_body_edge_surface">Package_body_edge_surface</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_package_body : <A HREF="#package_arm.package_body">Package_body</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.package_body_surface.associated_package_body">associated_package_body:
+               </a></b>
+         specifies the role of the <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body"><b>Package_body</b></a> for the <b>Package_body_surface</b>.
+         
+      </p>
+      <h2><a name="package_arm.package_body_top_surface">4.3.10 Package_body_top_surface</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypackage_body_top_surface"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      
+      <p>
+         	A <b>Package_body_top_surface</b> is a type of <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_surface"><b>Package_body_surface</b></a> that is visible from any observer located so as 
+         to place the component on a substrate.
+         
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		In typical cases in a three dimensional model, the normal vector of the geometric item representing the 
+            <b>Package_body_top_surface</b>
+            				is parallel with the normal vector of the geometric item representing the seating plane.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Package_body_top_surface<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#package_arm.package_body_surface">Package_body_surface</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="package_arm.package_orientation_feature">4.3.11 Package_orientation_feature</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypackage_orientation_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Package_orientation_feature</b> is a type of 
+      <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>. This
+      	permits the explicit creation of reference frames in order to support unambiguous orientation independent
+      	of differences between model coordinate systems because the datum reference frames are based on model
+      	geometry and not arbitrary coordinate systems.
+      	This supports easier exchange and conversion of model libraries because the mapping is not dependent on discovery of
+      	coordinate system orientation differences.
+      	A <b>Package_orientation_feature</b> participates in providing for the unambiguous orientation of a part in its next assembly.
+      A <b>Package_orientation_feature</b> is either a
+      <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_orientation_feature"><b>Primary_orientation_feature</b></a>
+      or a
+      <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.secondary_orientation_feature"><b>Secondary_orientation_feature</b></a>
+      or a
+      <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.tertiary_orientation_feature"><b>Tertiary_orientation_feature</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Package_orientation_feature<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#package_arm.primary_orientation_feature">Primary_orientation_feature</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#package_arm.secondary_orientation_feature">Secondary_orientation_feature</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#package_arm.tertiary_orientation_feature">Tertiary_orientation_feature</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_body_vertical_extent : 
+            OPTIONAL 
+            SET[1:2] OF <A HREF="#package_arm.package_body_surface">Package_body_surface</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>.associated_definition : <A HREF="#package_arm.package">Package</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(USEDIN(SELF, 'GEOMETRIC_TOLERANCE_ARM.DATUM_DEFINED_BY_FEATURE.DEFINED_BY')) &gt; 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.package_orientation_feature.associated_body_vertical_extent">associated_body_vertical_extent:
+               </a></b>
+         	specifies the role of 
+         	the <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_surface"><b>Package_body_surface</b></a> 
+         	for the <b>Package_orientation_feature</b>. There shall exist one or two
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_surface"><b>Package_body_surfaces</b></a>
+         	for a <b>Package_orientation_feature</b>. The value of this attribute need not be specified. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_orientation_feature.associated_definition">associated_definition:
+               </a></b>
+         	an attribute inherited from the 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>
+         	shall be redeclared as the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>
+         	for the <b>Package_orientation_feature</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.package_orientation_feature.wr:wr1">WR1:
+               </a></b>
+         	 A <b>Package_orientation_feature</b> shall define a 
+         	 <a href="../../../modules/geometric_tolerance/sys/4_info_reqs.htm#geometric_tolerance_arm.datum"><b>Datum</b></a>.
+         	
+      </p>
+      <h2><a name="package_arm.package_terminal">4.3.12 Package_terminal</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypackage_terminal"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         A <b>Package_terminal</b> is a type of 
+         <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> and a type of <a href="../../../modules/shape_feature/sys/4_info_reqs.htm#shape_feature_arm.placed_feature"><b>Placed_feature</b></a>.
+         When the case or package body is used as a terminal then <b>Package_terminal</b> shall be populated to specify the feature of the 
+         <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body"><b>Package_body</b></a> that serves that purpose.
+         The <b>Package_terminal</b> shall be in a sequence, with the initial member being  
+         <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_reference_terminal"><b>Primary_reference_terminal</b></a>, and each member that is not a  
+         <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_reference_terminal"><b>Primary_reference_terminal</b></a> shall reference the previous member in the sequence 
+         using the <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.precedent_feature"><b>precedent_feature</b></a> 
+         attribute inherited from  <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>.  
+         The <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal_template_definition.external_connection_zone"><b>external_connection_zone</b></a> shall be populated.
+         When the connection area inherited from the supertype of this Application Object is populated, the interpretation shall be
+         that the inherited connection area overrides the 
+         <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal_template_definition.external_connection_zone"><b>external_connection_zone</b></a>.  
+         
+      </p>
+      
+      
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            The <b>feature_shape</b> 
+            specified by the terminal or mounting feature may be the same <b>feature_shape</b> that is specified by the associated 
+            <a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone"><b>Connection_zone</b></a>.  In this case the whole 
+            terminal is the  <a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone"><b>Connection_zone</b></a>.
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Package_terminal<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>, <A HREF="../../../../data/modules/shape_feature/sys/4_info_reqs.htm#shape_feature_arm.placed_feature">Placed_feature</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/shape_feature/sys/4_info_reqs.htm#shape_feature_arm.placed_feature">Placed_feature</A>.definition : <A HREF="#package_arm.package_terminal_template_definition">Package_terminal_template_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>.associated_definition : <A HREF="#package_arm.package">Package</A>;<br>INVERSE<br>
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>.feature_shape : SET[1:?] OF <A HREF="../../../../data/modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship">Usage_concept_usage_relationship</A> FOR associated_usage;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(SELF\Shape_feature.surface_conditions) = 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal.definition">definition:
+               </a></b>
+         	an attribute inherited from the 
+         	<a href="../../../modules/shape_feature/sys/4_info_reqs.htm#shape_feature_arm.placed_feature"><b>Placed_feature</b></a> 
+         	shall be redeclared as  the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal_template_definition"><b>Package_terminal_template_definition</b></a> 
+         	for the <b>Package_terminal</b>. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal.associated_definition">associated_definition:
+               </a></b>
+         	an attribute inherited from the 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> 
+         	shall be redeclared as  the  
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a> 
+         	for the <b>Package_terminal</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal.feature_shape">feature_shape:
+               </a></b>
+         	specifies an inverse relationship that specifies that the existence of the  <b>Package_terminal</b> 
+         	is dependent on the existence of the 
+         	<a href="../../../modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship"><b>Usage_concept_usage_relationship</b></a> 
+         	that specifies the <b>Package_terminal</b>
+         	as its 
+         	<a href="../../../modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship.associated_usage"><b>associated_usage</b></a>. 
+         	There shall be one or more  
+         	<a href="../../../modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship"><b>Usage_concept_usage_relationships</b></a>
+         	for a particular <b>Package_terminal</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal.wr:wr1">WR1:
+               </a></b>
+         	On <b>Package_terminal</b>, the direct application of 
+         	<a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.shape_feature.surface_conditions"><b>surface_conditions</b></a> 
+         	shall not be provided.
+         	
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		Surface conditions of the <b>Package_terminal</b> are inherited from the
+            		<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature_template_definition.surface_conditions"><b>surface_conditions</b></a> 
+            		attribute of the 
+            		<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal_template_definition"><b>Package_terminal_template_definition</b></a> 
+            		that is in the role of <b>definition</b> for the <b>Package_terminal</b>.
+            		
+            	</small></p>
+      <h2><a name="package_arm.package_terminal_surface_constituent_relationship">4.3.13 Package_terminal_surface_constituent_relationship</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypackage_terminal_surface_constituent_relationship"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      A <b>Package_terminal_surface_constituent_relationship</b> is a type of <a href="../../../modules/shape_composition/sys/4_info_reqs.htm#shape_composition_arm.shape_element_constituent_relationship"><b>Shape_element_constituent_relationship</b></a>.  It associates the surface of the package to a terminal via  <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element"><b>Shape_element</b></a>. 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Package_terminal_surface_constituent_relationship<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/shape_composition/sys/4_info_reqs.htm#shape_composition_arm.shape_element_constituent_relationship">Shape_element_constituent_relationship</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>.relating : <A HREF="#package_arm.package_body_surface">Package_body_surface</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element_relationship">Shape_element_relationship</A>.related : <A HREF="#package_arm.package_terminal">Package_terminal</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_surface_constituent_relationship.relating">relating:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element_relationship"><b>Shape_element_relationship</b></a>
+         	shall be redeclared as the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_surface"><b>Package_body_surface</b></a> 
+         	for the <b>Package_terminal_surface_constituent_relationship</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_surface_constituent_relationship.related">related:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element_relationship"><b>Shape_element_relationship</b></a>
+         	shall be redeclared as the
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminal</b></a> 
+         	for the <b>Package_terminal_surface_constituent_relationship</b>.
+         
+      </p>
+      <h2><a name="package_arm.package_terminal_template_definition">4.3.14 Package_terminal_template_definition</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypackage_terminal_template_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Package_terminal_template_definition</b> is a type of 
+      <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature_template_definition"><b>Part_feature_template_definition</b></a>.
+      The <b>seating_plane_zone</b> shall not exist if the <b>seating_plane_intersection</b> attribute is 'does not intersect'.  
+      The <b>seating_plane_intersection</b> attribute shall not be 'does not intersect' if the <b>seating_plane_zone</b> 
+      attribute exists.
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The  
+            		<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.seating_plane"><b>Seating_plane</b></a> 
+            		referenced indirectly by this terminal may be in the role of 
+            		<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package.interface_plane"><b>interface_plane</b></a> 
+            		for the 
+            		<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a> 
+            		referenced by 
+            		<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.associated_definition"><b>associated_definition</b></a>.
+            	</small></p>
+      
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            <a href="../../../modules/package/sys/4_info_reqs.htm#figure_pt">Figure 5</a> illustrates a cutaway view of a terminal template definition and shows 
+            the characteristics related to the definition.
+            </small></p>
+      <br><br><a name="figure_pt"></a><div align="center"><IMG src="../pt.gif" border="0" alt="Figure 5&nbsp;&#8212;&nbsp;&nbsp;Package_terminal_template_definition characteristics"></div><br><div align="center"><b>Figure 5&nbsp;&#8212;&nbsp;&nbsp;Package_terminal_template_definition characteristics</b></div><br>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Package_terminal_template_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature_template_definition">Part_feature_template_definition</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.feature_definition_with_connection_area">Feature_definition_with_connection_area</A>.connection_area RENAMED external_connection_zone : 
+            OPTIONAL 
+            SET[1:?] OF <A HREF="#package_arm.connection_zone_in_part_feature_template_definition">Connection_zone_in_part_feature_template_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;internal_connection_zone : 
+            OPTIONAL 
+            SET[1:?] OF <A HREF="#package_arm.connection_zone_in_part_feature_template_definition">Connection_zone_in_part_feature_template_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;lead_form : 
+            OPTIONAL 
+            <A HREF="#package_arm.predefined_lead_form">predefined_lead_form</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;seating_plane_intersection : 
+            OPTIONAL 
+            <A HREF="#package_arm.seating_plane_intersection_type">seating_plane_intersection_type</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;terminal_characteristic : 
+            OPTIONAL 
+            SET[1:?] OF <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.characteristic">characteristic</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;terminal_diametrical_extent : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;seating_plane_zone : 
+            OPTIONAL 
+            <A HREF="#package_arm.connection_zone_package_interface_plane_relationship">Connection_zone_package_interface_plane_relationship</A>;<br>DERIVE<br>
+            &nbsp;&nbsp;mates_with_substrate : BOOLEAN := (EXISTS(seating_plane_zone));<br>
+            &nbsp;&nbsp;terminal_core_material : SET[0:1] OF <A HREF="../../../../data/modules/generic_material_aspects/sys/4_info_reqs.htm#generic_material_aspects_arm.material_identification">Material_identification</A> := bag_to_set(QUERY( temp &lt;* USEDIN(SELF,
+            'GENERIC_MATERIAL_ASPECTS_ARM.MATERIAL_IDENTIFICATION.ITEMS') | 
+            (SIZEOF( QUERY( cla &lt;* USEDIN(temp,'CLASSIFICATION_ASSIGNMENT_ARM.' + 
+            	'CLASSIFICATION_ASSIGNMENT.' + 'ITEMS') | cla.role = 'terminal core material')) = 1)));<br>
+            &nbsp;&nbsp;terminal_surface_material : SET[0:1] OF <A HREF="../../../../data/modules/generic_material_aspects/sys/4_info_reqs.htm#generic_material_aspects_arm.material_identification">Material_identification</A> := bag_to_set(QUERY( temp &lt;* USEDIN(SELF,
+            'GENERIC_MATERIAL_ASPECTS_ARM.MATERIAL_IDENTIFICATION.ITEMS') | 
+            (SIZEOF( QUERY( cla &lt;* USEDIN(temp,'CLASSIFICATION_ASSIGNMENT_ARM.' + 
+            	'CLASSIFICATION_ASSIGNMENT.' + 'ITEMS') | cla.role = 'terminal surface material')) = 1)));<br>INVERSE<br>
+            &nbsp;&nbsp;external_lead_form : SET[0:1] OF <A HREF="../../../../data/modules/external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_source_identification">External_source_identification</A> FOR item;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: NOT EXISTS(seating_plane_zone) OR (SIZEOF(QUERY(cz &lt;* external_connection_zone | (seating_plane_zone.derived_zone = cz)))
+            = 1);<br> 
+            &nbsp;&nbsp;WR2: NOT EXISTS(seating_plane_zone) OR ((seating_plane_intersection = surface_intersection) OR (seating_plane_intersection
+            = through_intersection));<br> 
+            &nbsp;&nbsp;WR3: NOT ((seating_plane_intersection = does_not_intersect) AND (EXISTS(seating_plane_zone)));<br> 
+            &nbsp;&nbsp;WR4: NOT (SIZEOF(terminal_core_material) = 1) OR
+            ('CONDUCTIVITY_MATERIAL_ASPECTS_ARM.MATERIAL_IDENTIFICATION_WITH_CONDUCTIVITY_CLASSIFICATION' IN TYPEOF (terminal_core_material[1]));<br> 
+            &nbsp;&nbsp;WR5: (SIZEOF(terminal_surface_material) = 1) AND
+            ('CONDUCTIVITY_MATERIAL_ASPECTS_ARM.MATERIAL_IDENTIFICATION_WITH_CONDUCTIVITY_CLASSIFICATION' IN TYPEOF (terminal_surface_material[1]));<br> 
+            &nbsp;&nbsp;WR6: (EXISTS (lead_form)) XOR ((SIZEOF(external_lead_form)) = 1);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.external_connection_zone">external_connection_zone:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.connection_zone_in_part_feature_template_definition"><b>Connection_zone_in_part_feature_template_definition</b></a> 
+         	on the outside surface of the <b>Package_terminal_template_definition</b>. There may be more than one  
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.connection_zone_in_part_feature_template_definition"><b>Connection_zone_in_part_feature_template_definition</b></a> 
+         	for a <b>Package_terminal_template_definition</b>.  
+         	The value of this attribute need not be specified.  If the source system contains the data, then the 
+         	<b>external_connection_zone</b> shall be supplied.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.internal_connection_zone">internal_connection_zone:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.connection_zone_in_part_feature_template_definition"><b>Connection_zone_in_part_feature_template_definition</b></a> 
+         	on the inside portion of the <b>Package_terminal_template_definition</b>.  There may be more than one  
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.connection_zone_in_part_feature_template_definition"><b>Connection_zone_in_part_feature_template_definition</b></a> 
+         	in the role of 
+         	<b>internal_connection_zone</b>.  The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.lead_form">lead_form:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.predefined_lead_form"><b>predefined_lead_form</b></a>
+         	for the <b>Package_terminal_template_definition</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.seating_plane_intersection">seating_plane_intersection:
+               </a></b>
+         	specifies whether or not the shape of the <b>Package_terminal_template_definition</b> intersects the shape of the seating plane to within the 
+         	tolerance of the geometric context.  The values allowed for the attribute are 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.seating_plane_intersection_type"><b>'surface_intersection'</b></a>, 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.seating_plane_intersection_type"><b>'through_intersection'</b></a>, 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.seating_plane_intersection_type"><b>'does_not_intersect'</b></a>.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		Not all terminals need to intersect the seating plane.
+            	</small></p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.terminal_characteristic">terminal_characteristic:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.characteristic"><b>characteristic</b></a> 
+         	for the <b>Package_terminal_template_definition</b>. There shall exist one or more
+         	<a href="../../../modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.characteristic"><b>characteristics</b></a> 
+         	for the <b>Package_terminal_template_definition</b>.
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.terminal_diametrical_extent">terminal_diametrical_extent:
+               </a></b>
+         	specifies the  <a href="../../../modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic"><b>Length_tolerance_characteristic</b></a> that 
+         	represents the diameter of a <b>Package_terminal_template_definition</b>. 
+         	The  <a href="../../../modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic"><b>Length_tolerance_characteristic</b></a> is the diameter of 
+         	a circle that circumscribes the cross-sectional shape of the terminal.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.seating_plane_zone">seating_plane_zone:
+               </a></b>
+         	specifies the role of the <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.connection_zone_package_interface_plane_relationship"><b>Connection_zone_package_interface_plane_relationship</b></a>
+         	for the <b>Package_terminal_template_definition</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.mates_with_substrate">mates_with_substrate:
+               </a></b>
+         	an attribute's value becomes TRUE only then <b>seating_plane_zone</b> exists and it's 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.connection_zone_package_interface_plane_relationship.interface_plane"><b>interface_plane</b></a>
+         	is <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package.package_seating_plane"><b>package_seating_plane</b></a> of 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.associated_definition"><b>associated_definition</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.terminal_core_material">terminal_core_material:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/generic_material_aspects/sys/4_info_reqs.htm#generic_material_aspects_arm.material_identification"><b>Material_identification</b></a> for the 
+         	<b>Package_terminal_template_definition</b> core material.  The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.terminal_surface_material">terminal_surface_material:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/generic_material_aspects/sys/4_info_reqs.htm#generic_material_aspects_arm.material_identification"><b>Material_identification</b></a> for the outer surface 
+         	of the <b>Package_terminal_template_definition</b> surface 
+         	material. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.external_lead_form">external_lead_form:
+               </a></b>
+         an inverse relationship that specifies that the existence of the <b>Package_terminal_template_definition</b> is dependent on the existence of the 
+         <a href="../../../modules/external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_source_identification"><b>External_source_identification</b></a> 
+         that specifies the <b>Package_terminal_template_definition</b> as its 
+         <a href="../../../modules/external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_source_identification.item"><b>item</b></a>.
+         There shall exist not more than one
+         <a href="../../../modules/external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_source_identification"><b>External_source_identification</b></a> 
+         for a <b>Package_terminal_template_definition</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.wr:wr1">WR1:
+               </a></b>
+         	If <b>seating_plane_zone</b> is provided, then it's 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.connection_zone_package_interface_plane_relationship.derived_zone"><b>derived_zone</b></a>
+         	shall be in <b>external_connection_zone</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.wr:wr2">WR2:
+               </a></b>
+         	If <b>seating_plane_zone</b> is provided, then <b>seating_plane_intersection</b> shall be 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.seating_plane_intersection_type.surface_intersection"><b>surface_intersection</b></a>
+         	or <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.seating_plane_intersection_type.through_intersection"><b>through_intersection</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.wr:wr3">WR3:
+               </a></b>
+         	If <b>seating_plane_zone</b> is provided, then <b>seating_plane_intersection</b> shall not be 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.seating_plane_intersection_type.does_not_intersect"><b>does_not_intersect</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.wr:wr4">WR4:
+               </a></b>
+         	If <b>terminal_core_material</b> is provided, it shall be the
+         	<a href="../../../modules/conductivity_material_aspects/sys/4_info_reqs.htm#conductivity_material_aspects_arm.material_identification_with_conductivity_classification"><b>Material_identification_with_conductivity_classification</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.wr:wr5">WR5:
+               </a></b>
+         	The <b>terminal_surface_material</b> shall be the
+         	<a href="../../../modules/conductivity_material_aspects/sys/4_info_reqs.htm#conductivity_material_aspects_arm.material_identification_with_conductivity_classification"><b>Material_identification_with_conductivity_classification</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.package_terminal_template_definition.wr:wr6">WR6:
+               </a></b>
+         The <b>lead_form</b> or the <b>external_lead_form</b> shall be provided but not both.
+         
+      </p>
+      <h2><a name="package_arm.polarity_indication_feature">4.3.15 Polarity_indication_feature</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypolarity_indication_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         A <b>Polarity_indication_feature</b> is a type of 
+         <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>. A <b>Polarity_indication_feature</b> provides visible or tactile means to reduce or eliminate ambiguity of the location of a polarized part in an assembly operation.
+          A <b>Polarity_indication_feature</b> shall not be used to identify orientation features of non-polarized components.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            Other orientation information may be required in addition to the <b>Polarity_indication_feature</b> to totally disambiguate the correct orientation.
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Polarity_indication_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_body_vertical_extent : 
+            OPTIONAL 
+            SET[1:2] OF <A HREF="#package_arm.package_body_surface">Package_body_surface</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_terminal : <A HREF="#package_arm.package_terminal">Package_terminal</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>.associated_definition : <A HREF="#package_arm.package">Package</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.polarity_indication_feature.associated_body_vertical_extent">associated_body_vertical_extent:
+               </a></b>
+         specifies a set of  <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_surface"><b>Package_body_surface</b></a> for the polarity indication feature. There may be one or two <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_surface"><b>Package_body_surface</b></a> for the <b>Polarity_indication_feature</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.polarity_indication_feature.associated_terminal">associated_terminal:
+               </a></b>
+         specifies the  <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminal</b></a> for the polarity indication feature.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.polarity_indication_feature.associated_definition">associated_definition:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>
+         	shall be redeclared as the
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>
+         	for the <b>Polarity_indication_feature</b>.
+         
+      </p>
+      <h2><a name="package_arm.primary_orientation_feature">4.3.16 Primary_orientation_feature</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityprimary_orientation_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         A <b>Primary_orientation_feature</b> is a type of 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_orientation_feature"><b>Package_orientation_feature</b></a>. 
+         	A <b>Primary_orientation_feature</b> is the first 
+         	orientation feature
+         	in the sequence of 
+         one to three orientation features
+         	associated with the 	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>. 
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            A <b>Primary_orientation_feature</b> is not usually also a <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_reference_terminal"><b>Primary_reference_terminal</b></a>.
+            </small></p>
+      
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+            <a href="../../../modules/package/sys/4_info_reqs.htm#figure_pof8">
+               Figure 6</a> illustrates two of the three-dimensional geometric relationships between a component and the printed circuit board it is
+            mounted on.  A datum system is included for reference purposes.  The Z direction is parallel to the normal of the top surface
+            of the board.  Both the top and bottom surface normal vectors are parallel to the normal vectors of the seating plane for
+            the components.
+            </small></p>
+      <br><br><a name="figure_pof8"></a><div align="center"><IMG src="../pof8.gif" border="0" alt="Figure 6&nbsp;&#8212;&nbsp;&nbsp;Three-dimensional assembly relationships"></div><br><div align="center"><b>Figure 6&nbsp;&#8212;&nbsp;&nbsp;Three-dimensional assembly relationships</b></div><br>
+      
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            
+            <a href="../../../modules/package/sys/4_info_reqs.htm#figure_pkgxfrm">Figure 7</a> illustrates two of the two-dimensional geometric relationships between a component and the printed circuit board it is mounted
+            on.  A datum system is included for reference purposes.
+            </small></p>
+      <br><br><a name="figure_pkgxfrm"></a><div align="center"><IMG src="../pkgxfrm.gif" border="0" alt="Figure 7&nbsp;&#8212;&nbsp;&nbsp;Two-dimensional assembly relationships"></div><br><div align="center"><b>Figure 7&nbsp;&#8212;&nbsp;&nbsp;Two-dimensional assembly relationships</b></div><br>
+      
+      
+      <p class="example"><small><a name="example_3">EXAMPLE&nbsp;3</a>&nbsp;&nbsp;
+            
+            <a href="../../../modules/package/sys/4_info_reqs.htm#figure_pof7_2">Figures 8</a> through 
+            	<a href="../../../modules/package/sys/4_info_reqs.htm#figure_pof3">9</a> illustrates orientation details for 
+            	microcircuit packages. In <a href="../../../modules/package/sys/4_info_reqs.htm#figure_pof7_2">Figures 8</a> and
+            	<a href="../../../modules/package/sys/4_info_reqs.htm#figure_pof3">9</a> the bottom surface of
+            	the package is the 	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_orientation_feature"><b>Primary_orientation_feature</b></a>.
+            	The assignment of Datum A indicates this fact.
+            </small></p>
+      
+      	<br><br><a name="figure_pof7_2"></a><div align="center"><IMG src="../pof7.gif" border="0" alt="Figure 8&nbsp;&#8212;&nbsp;&nbsp;Twenty pin orientation features"></div><br><div align="center"><b>Figure 8&nbsp;&#8212;&nbsp;&nbsp;Twenty pin orientation features</b></div><br>
+      <br><br><a name="figure_pof3"></a><div align="center"><IMG src="../pof3.gif" border="0" alt="Figure 9&nbsp;&#8212;&nbsp;&nbsp;Ball grid array orientation features"></div><br><div align="center"><b>Figure 9&nbsp;&#8212;&nbsp;&nbsp;Ball grid array orientation features</b></div><br>
+      
+      <p class="example"><small><a name="example_4">EXAMPLE&nbsp;4</a>&nbsp;&nbsp;
+            
+            <a href="../../../modules/package/sys/4_info_reqs.htm#figure_pof2">Figure 10</a> 
+            	illustrates details associated with several variations of an Axial package modification and the associated  
+            	<a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.seating_plane"><b>Seating_plane</b></a>.  
+            	In each case	, the seating plane orientation with respect to the 
+            	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement"><b>Axis_placement</b></a> is constant,
+            	 while the <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a> shape orientation changes 
+            	due to the modification.
+            </small></p>
+      <br><br><a name="figure_pof2"></a><div align="center"><IMG src="../pof2.gif" border="0" alt="Figure 10&nbsp;&#8212;&nbsp;&nbsp;Axial   modifications and resulting orientations"></div><br><div align="center"><b>Figure 10&nbsp;&#8212;&nbsp;&nbsp;Axial   modifications and resulting orientations</b></div><br>
+      
+      <p class="example"><small><a name="example_5">EXAMPLE&nbsp;5</a>&nbsp;&nbsp;
+            
+            <a href="../../../modules/package/sys/4_info_reqs.htm#figure_pof1_2">Figure 11</a> illustrates <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_reference_terminal"><b>Primary_reference_terminal</b></a> assignment and also assignment of  <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.polarity_indication_feature"><b>Polarity_indication_feature</b></a>.  Knowledge of <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.polarity_indication_feature"><b>Polarity_indication_features</b></a> separate from the orientation feature increases the ability to determine when to use polarity indication symbols on the interconnect
+            substrate for polarized components e.g., polarized capacitors, diodes).
+            </small></p>
+      <br><br><a name="figure_pof1_2"></a><div align="center"><IMG src="../pof1.gif" border="0" alt="Figure 11&nbsp;&#8212;&nbsp;&nbsp; and   for discrete devices"></div><br><div align="center"><b>Figure 11&nbsp;&#8212;&nbsp;&nbsp; and   for discrete devices</b></div><br>
+      <br><br><a name="figure_pof6"></a><div align="center"><IMG src="../pof6.gif" border="0" alt="Figure 12&nbsp;&#8212;&nbsp;&nbsp;Eight lead gull wing orientation features"></div><br><div align="center"><b>Figure 12&nbsp;&#8212;&nbsp;&nbsp;Eight lead gull wing orientation features</b></div><br>
+      <br><br><a name="figure_pof5"></a><div align="center"><IMG src="../pof5.gif" border="0" alt="Figure 13&nbsp;&#8212;&nbsp;&nbsp;Eight lead DIP orientation features"></div><br><div align="center"><b>Figure 13&nbsp;&#8212;&nbsp;&nbsp;Eight lead DIP orientation features</b></div><br>
+      <br><br><a name="figure_pof4"></a><div align="center"><IMG src="../pof4.gif" border="0" alt="Figure 14&nbsp;&#8212;&nbsp;&nbsp;TO-99 orientation features"></div><br><div align="center"><b>Figure 14&nbsp;&#8212;&nbsp;&nbsp;TO-99 orientation features</b></div><br>
+      
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Primary_orientation_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#package_arm.package_orientation_feature">Package_orientation_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="package_arm.primary_reference_terminal">4.3.17 Primary_reference_terminal</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityprimary_reference_terminal"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         A <b>Primary_reference_terminal</b> is a type of <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminal</b></a>.
+         This terminal is assigned the identifier string that is first in the 
+         sequence of package terminal names to be assigned to the part.  The <b>Primary_reference_terminal</b>
+         shall not specify a <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.precedent_feature"><b>precedent_feature</b></a> and is the first member of the sequence of  <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminal</b></a>.
+         The sort order of the names assigned to the <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Packaged_terminals</b></a> is defined
+         by the explicit sequence established by the use of <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.precedent_feature"><b>precedent_feature</b></a> inherited from  <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>.
+         
+      </p>
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            If a value of '1' is available, assigning a value of '2' to this terminal 
+            would be prohibited by this part of ISO 10303, due to the possibility of confusion.
+            </small></p>
+      
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            The <b>Primary_reference_terminal</b> is often associated with an orientation 
+            feature, but it may not be the orientation feature itself.  Usually the 
+            <b>Primary_reference_terminal</b> and the 
+             <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_orientation_feature"><b>Primary_orientation_feature</b></a> are
+            different <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.precedent_feature"><b>part_features</b></a>.
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Primary_reference_terminal<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#package_arm.package_terminal">Package_terminal</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: NOT (EXISTS(SELF\Part_feature.precedent_feature));<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.primary_reference_terminal.wr:wr1">WR1:
+               </a></b>
+         	The 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.precedent_feature"><b>precedent_feature</b></a> 
+         	shall not be populated.
+         
+      </p>
+      <h2><a name="package_arm.secondary_orientation_feature">4.3.18 Secondary_orientation_feature</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitysecondary_orientation_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Secondary_orientation_feature</b> is a type of 
+      	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_orientation_feature"><b>Package_orientation_feature</b></a>.
+      	  A <b>Secondary_orientation_feature</b>  provides anti-rotation capability for unambiguous orientation of the part in the datum reference frame.
+      	A <b>Secondary_orientation_feature</b> is the second 
+      orientation feature	in the sequence of 
+      one to three orientation features
+      	associated with the 	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>. 
+      	
+      	  If a <b>Secondary_orientation_feature</b>
+      	is populated for a <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>
+      	, then a member of 
+      	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_orientation_feature"><b>Primary_orientation_feature</b></a>
+      	
+      	shall be populated for that <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Secondary_orientation_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#package_arm.package_orientation_feature">Package_orientation_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="package_arm.tertiary_orientation_feature">4.3.19 Tertiary_orientation_feature</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitytertiary_orientation_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Tertiary_orientation_feature</b> is a type of 
+      	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_orientation_feature"><b>Package_orientation_feature</b></a>.
+      	  A <b>Tertiary_orientation_feature</b>  provides anti-rotation capability for unambiguous orientation of the part in the datum reference frame.
+      	A <b>Tertiary_orientation_feature</b> is the third 
+      	orientation feature
+      	in the sequence of 
+      one to three orientation features
+      	associated with the 	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>.  If a <b>Tertiary_orientation_feature</b>
+      	is populated for a <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>, then a member of 
+      	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.secondary_orientation_feature"><b>Secondary_orientation_feature</b></a>
+      	
+      	and a member of 
+      	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_orientation_feature"><b>Primary_orientation_feature</b></a>
+      	
+      	shall be populated for that <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package"><b>Package</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Tertiary_orientation_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#package_arm.package_orientation_feature">Package_orientation_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="package_arm.visual_orientation_feature">4.3.20 Visual_orientation_feature</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityvisual_orientation_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         A <b>Visual_orientation_feature</b> is a type of 
+         <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>. 
+         A <b>Visual_orientation_feature</b> provides visible or tactile means to reduce or eliminate ambiguity of the location of a 
+         <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_reference_terminal"><b>Primary_reference_terminal</b></a> 
+         in an assembly operation. 
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            	Other orientation information may be required in addition to the <b>Visual_orientation_feature</b> to totally disambiguate the correct 
+            	orientation.
+            	</small></p>
+      
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            A mark on a component implemented with ink or a visible indentation or a formed corner may be used to indicate the fact that
+            pin one 
+            of the package is in close proximity to the mark.  A vision system or a human operator will use the mark to correctly orient
+            the 
+            component.
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Visual_orientation_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_body_vertical_extent : 
+            OPTIONAL 
+            SET[1:2] OF <A HREF="#package_arm.package_body_surface">Package_body_surface</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_terminal : <A HREF="#package_arm.package_terminal">Package_terminal</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.visual_orientation_feature.associated_body_vertical_extent">associated_body_vertical_extent:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_surface"><b>Package_body_surface</b></a> 
+         	for the <b>Visual_orientation_feature</b>.
+         	There shall be one or two 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_surface"><b>package_body_surfaces</b></a> 
+         	for a <b>Visual_orientation_feature</b>.  
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.visual_orientation_feature.associated_terminal">associated_terminal:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminal</b></a> 
+         	for the <b>Visual_orientation_feature</b>.
+         
+      </p>
+      <h2><a name="package_arm.wire_terminal">4.3.21 Wire_terminal</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitywire_terminal"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Wire_terminal</b> is a type of <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminal</b></a>
+      	where the explicit shape of the terminal is not predefined in a library.
+      	A <b>Wire_terminal</b> shall reference a member of 	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.wire_terminal_template_definition"><b>Wire_terminal_template_definition</b></a> 
+      	for the 
+      <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal.definition"><b>definition</b></a>
+      inherited from <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminal</b></a>.
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Wire_terminal<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#package_arm.package_terminal">Package_terminal</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(SELF\Package_terminal.feature_shape) = 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.wire_terminal.wr:wr1">WR1:
+               </a></b>
+         The size of <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal.feature_shape"><b>feature_shape</b></a>
+         inherited from <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminal</b></a>
+         shall be zero.
+         
+      </p>
+      <h2><a name="package_arm.wire_terminal_template_definition">4.3.22 Wire_terminal_template_definition</a>
+         &nbsp;&nbsp;<a href="../../package/armexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitywire_terminal_template_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Wire_terminal_template_definition</b> is a type of a 
+      	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal_template_definition"><b>Package_terminal_template_definition</b></a> 
+      	which 
+      	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal.feature_shape"><b>feature_shape</b></a> 
+      	is inherently flexible and ready for installation to a 
+      	<a href="../../../modules/assembly_module_design/sys/4_info_reqs.htm#assembly_module_design_arm.layered_assembly_module_design_view"><b>Layered_assembly_module_design_view</b></a>
+      	without prior formal preparation by shape modification. The shape of the <b>Wire_terminal_template_definition</b> is incompletely 
+      	defined in the library.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Wire_terminal_template_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#package_arm.package_terminal_template_definition">Package_terminal_template_definition</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/package/sys/4_info_reqs.htm#package_arm.package_terminal_template_definition">Package_terminal_template_definition</A>.internal_connection_zone : SET[1:?] OF <A HREF="#package_arm.connection_zone_in_part_feature_template_definition">Connection_zone_in_part_feature_template_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;wire_terminal_length : <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.wire_terminal_template_definition.internal_connection_zone">internal_connection_zone:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal_template_definition"><b>Package_terminal_template_definition</b></a> 
+         	shall be redeclared as the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.connection_zone_in_part_feature_template_definition"><b>Connection_zone_in_part_feature_template_definition</b></a> 
+         	for the <b>Wire_terminal_template_definition</b>.  
+         	There shall be one or more  <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.connection_zone_in_part_feature_template_definition"><b>Connection_zone_in_part_feature_template_definition</b></a> 
+         	for the <b>Wire_terminal_template_definition</b>. 
+         	The <b>internal_connection_zone</b> is mandatory because it locates the end of the wire that is the attachment area on the package body.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.wire_terminal_template_definition.wire_terminal_length">wire_terminal_length:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic"><b>Length_tolerance_characteristic</b></a> 
+         	for the length of the <b>Wire_terminal_template_definition</b>. 
+         
+      </p>
+      <h2><a name="subtype_constraints">4.4 ARM subtype constraint definition</a></h2>
+      <p>
+         This subclause specifies the ARM subtype constraint for
+         this module. The subtype constraint places a constraint on the
+         possible super-type / subtype instantiations.
+         The ARM subtype constraint and definition is
+         specified below.
+         
+      </p>
+      <h2><A NAME="package_arm.part_feature_subtypes">4.4.1 part_feature_subtypes</A>
+         &nbsp;&nbsp;<a href="../../package/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#scconstraintpart_feature_subtypes"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         The
+         <b>part_feature_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="package_arm.part_feature_subtypes">SUBTYPE_CONSTRAINT part_feature_subtypes</A> FOR <A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#package_arm.package_body">Package_body</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#package_arm.package_body_surface">Package_body_surface</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#package_arm.package_orientation_feature">Package_orientation_feature</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#package_arm.polarity_indication_feature">Polarity_indication_feature</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#package_arm.visual_orientation_feature">Visual_orientation_feature</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p>
+      <h2><a name="functions">4.5 ARM function definitions</a></h2>
+      <p>
+         This subclause specifies the ARM functions for 
+         this module. The ARM functions and definitions are
+         specified below.
+         
+      </p>
+      <h2><A NAME="package_arm.add_data_element">4.5.1 add_data_element</A></h2>
+      The <b>add_data_element</b> functions returns the <a href="../../../modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element"><b>Length_data_element</b></a>
+      that is the sum of <a href="../../../modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element"><b>Length_data_elements</b></a>
+      specified by <b>input1</b> and <b>input2</b>.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION add_data_element&nbsp;(input1 : <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>; input2 : <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>) :<A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;
+         </code><pre>RETURN(input1);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.add_data_element.input1">input1:
+               </a></b>
+         the first specified <a href="../../../modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element"><b>Length_data_element</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.add_data_element.input2">input2:
+               </a></b>
+         the second specified <a href="../../../modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element"><b>Length_data_element</b></a>.
+         
+      </p>
+      <h2><A NAME="package_arm.max_data_element">4.5.2 max_data_element</A></h2>
+      The <b>max_data_element</b> functions returns the <a href="../../../modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element"><b>Length_data_element</b></a>
+      that is the maximum of <a href="../../../modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element"><b>Length_data_elements</b></a>
+      specified by <b>input1</b> and <b>input2</b>.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION max_data_element&nbsp;(input1 : <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>; input2 : <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>) :<A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;
+         </code><pre>RETURN(input1);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="package_arm.max_data_element.input1">input1:
+               </a></b>
+         the first specified <a href="../../../modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element"><b>Length_data_element</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="package_arm.max_data_element.input2">input2:
+               </a></b>
+         the second specified <a href="../../../modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element"><b>Length_data_element</b></a>.
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Package_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

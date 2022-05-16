@@ -1,0 +1,51 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: External_class_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: External_class_mim</h2><code><br><br><a name="external_class_mim">SCHEMA <b>External_class_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema">basic_attribute_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.description_attribute">description_attribute</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.description_attribute_select">description_attribute_select</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/class/sys/e_exp_mim.htm#class_mim">Class_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1070<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/external_source/sys/e_exp_mim.htm#external_source_mim">External_source_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1331<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema">classification_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-54<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/external_reference_schema/external_reference_schema.htm#external_reference_schema">external_reference_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/external_reference_schema/external_reference_schema.htm#external_reference_schema.external_source">external_source</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/external_reference_schema/external_reference_schema.htm#external_reference_schema.externally_defined_item">externally_defined_item</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/name_assignment/sys/e_exp_mim.htm#name_assignment_mim">Name_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1340<br><br></code><code><br><A NAME="external_class_mim.external_class_name_item">TYPE </A><b>external_class_name_item</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/name_assignment/sys/e_exp_mim.htm#name_assignment_mim.name_item">name_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#external_class_mim.external_class_library">external_class_library</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="external_class_mim.external_class_library">ENTITY <b>external_class_library</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/external_reference_schema/external_reference_schema.htm#external_reference_schema.external_source">external_source</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="external_class_mim.externally_defined_class">ENTITY <b>externally_defined_class</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>, <A HREF="../../../data/resources/external_reference_schema/external_reference_schema.htm#external_reference_schema.externally_defined_item">externally_defined_item</A>);<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;External_class_mim<br></code></body>
+</HTML>

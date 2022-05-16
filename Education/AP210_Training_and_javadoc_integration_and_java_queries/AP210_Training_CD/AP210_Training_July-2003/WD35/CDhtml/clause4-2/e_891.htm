@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Terminal_swap_specification</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.891 Terminal_swap_specification</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Terminal_swap_specification is a type of <A
+CLASS="INTERNALREF"
+HREF="e_95.htm"
+>Change_design_object_management_relationship</A
+>.
+The Terminal_swap_specification is part of the swapping specification from the previous design definition to the current design definition.
+It identifies the terminal in the previous design that was connected to a node, and the terminal in the current design that is connected to that node instead.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: With the pin mapping between the functional and physical representations in the library,
+this is sufficient information to derive the swapping at the component terminal;
+however, note that this is in the previous and present design definitions 
+and not in the library functional definition.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>current_design_object</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>previous_design_object</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.891.1 current_design_object</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The current_design_object specifies the <A
+CLASS="INTERNALREF"
+HREF="e_409.htm"
+>Functional_unit_terminal_node_assignment</A
+> of the terminal node after the swap for the 
+Terminal_swap_specification.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.891.2 previous_design_object</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The previous_design_object specifies the <A
+CLASS="INTERNALREF"
+HREF="e_409.htm"
+>Functional_unit_terminal_node_assignment</A
+> of the terminal node before the swap for the 
+Terminal_swap_specification.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The current_design_object shall not be the previous_design_object.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY terminal_swap_specification
+  SUBTYPE OF (change_design_object_management_relationship);
+    SELF\change_design_object_management_relationship.previous_design_object : 
+	functional_unit_terminal_node_assignment;
+    SELF\change_design_object_management_relationship.current_design_object  : 
+	functional_unit_terminal_node_assignment;
+END_ENTITY; -- terminal_swap_specification
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

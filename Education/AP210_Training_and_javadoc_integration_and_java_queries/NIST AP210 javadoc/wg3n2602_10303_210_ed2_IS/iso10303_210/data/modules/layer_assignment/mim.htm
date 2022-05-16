@@ -1,0 +1,38 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Layer_assignment_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Layer_assignment_mim</h2><code><br><br><a name="layer_assignment_mim">SCHEMA <b>Layer_assignment_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/foundation_representation/sys/e_exp_mim.htm#foundation_representation_mim">Foundation_representation_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1006<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/group/sys/e_exp_mim.htm#group_mim">Group_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1113<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema">presentation_organization_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-46<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presentation_layer_assignment">presentation_layer_assignment</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema">geometry_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-42<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema">topology_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-42<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/topology_schema/topology_schema.htm#topology_schema.topological_representation_item">topological_representation_item</A>);
+         <br><br></code><code><br><A NAME="layer_assignment_mim.rep_item_group">ENTITY <b>rep_item_group</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>, <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="layer_assignment_mim.rep_item_group.wr:wr1">WR1: SIZEOF(USEDIN(SELF,'LAYER_ASSIGNMENT_MIM.' + 'PRESENTATION_LAYER_ASSIGNMENT.' + 'ASSIGNED_ITEMS')) &gt; 0;</A><br>
+         &nbsp;&nbsp;<A NAME="layer_assignment_mim.rep_item_group.wr:wr2">WR2: SIZEOF(QUERY(r &lt;* USEDIN(SELF,'LAYER_ASSIGNMENT_MIM.' + 'REPRESENTATION.' + 'ITEMS') | r.name = 'group representation'))
+            &gt; 0;</A><br>
+         &nbsp;&nbsp;<A NAME="layer_assignment_mim.rep_item_group.wr:wr3">WR3: SIZEOF(QUERY(ga &lt;* USEDIN(SELF,'LAYER_ASSIGNMENT_MIM.' + 'GROUP_ASSIGNMENT.' + 'ASSIGNED_GROUP') | ga.role.name &lt;&gt; 'group
+            membership')) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="layer_assignment_mim.rep_item_group.wr:wr4">WR4: SIZEOF(['LAYER_ASSIGNMENT_MIM.' + 'GEOMETRIC_REPRESENTATION_ITEM', 'LAYER_ASSIGNMENT_MIM.' + 'TOPOLOGICAL_REPRESENTATION_ITEM',
+            'LAYER_ASSIGNMENT_MIM.' + 'MAPPED_ITEM','LAYER_ASSIGNMENT_MIM.' + 'STYLED_ITEM'] * TYPEOF(SELF)) = 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Layer_assignment_mim<br></code></body>
+</HTML>

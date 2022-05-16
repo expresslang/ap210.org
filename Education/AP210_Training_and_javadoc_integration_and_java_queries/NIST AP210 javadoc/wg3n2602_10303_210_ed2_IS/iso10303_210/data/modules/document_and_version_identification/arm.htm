@@ -1,0 +1,32 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Document_and_version_identification_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Document_and_version_identification_arm</h2><code><br><br><a name="document_and_version_identification_arm">SCHEMA <b>Document_and_version_identification_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm">Product_identification_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1017<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm">Product_version_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1018<br><br></code><code><br><A NAME="document_and_version_identification_arm.document">ENTITY <b>Document</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="document_and_version_identification_arm.document_version">ENTITY <b>Document_version</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>.<A NAME="document_and_version_identification_arm.document_version.of_product">of_product : </A><A HREF="#document_and_version_identification_arm.document">Document</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="document_and_version_identification_arm.document_version_constraint">RULE&nbsp;<b>document_version_constraint</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/modules/product_version/sys/4_info_reqs.htm#product_version_arm.product_version">Product_version</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="document_and_version_identification_arm.document_version_constraint.wr:wr1">WR1: SIZEOF ( QUERY ( pv &lt;* Product_version |   ( NOT      ( 'DOCUMENT_AND_VERSION_IDENTIFICATION_ARM.' +        'DOCUMENT_VERSION'
+            IN TYPEOF ( pv)     )   )   AND   ( 'DOCUMENT_AND_VERSION_IDENTIFICATION_ARM.' +    'DOCUMENT'     IN TYPEOF ( pv.of_product)
+            )   ) ) = 0 ;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Document_and_version_identification_arm<br></code></body>
+</HTML>

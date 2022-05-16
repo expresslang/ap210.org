@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Assembled_with_fasteners</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.31 Assembled_with_fasteners</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+An Assembled_with_fasteners is a type of <A
+CLASS="INTERNALREF"
+HREF="e_41.htm"
+>Assembly_joint</A
+>
+that establishes the assembly by using fasteners to mechanically position a component so that its 
+component mounting features are connected to component mounting features of another component in the 
+assembly.  The fasteners are associated with the base component using  <A
+CLASS="INTERNALREF"
+HREF="e_741.htm"
+>Product_association</A
+>.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: The usual case for this is the mounting hardware associated with a power device mounted to the <A
+CLASS="INTERNALREF"
+HREF="e_435.htm"
+>Interconnect_module_component</A
+>.
+Figure  <SPAN
+CLASS="INTERNALREF"
+>awf</SPAN
+> illustrates the concept of the joint category described herein and the roles of the related Application Objects.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_assembly</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.31.1 associated_assembly</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_assembly specifies the <A
+CLASS="INTERNALREF"
+HREF="e_40.htm"
+>Assembly_group_component</A
+> that identifies the components required to be considered together 
+in the assembly process for the Assembled_with_fasteners.  The associated_assembly does not describe a formal product structure hierarchy.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY assembled_with_fasteners
+  SUBTYPE OF (assembly_joint);
+  SELF\assembly_joint.associated_assembly : assembly_group_component;
+END_ENTITY; -- assembled_with_fasteners
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

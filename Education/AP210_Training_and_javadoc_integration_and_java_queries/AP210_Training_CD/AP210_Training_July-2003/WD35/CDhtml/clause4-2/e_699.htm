@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Positional_boundary_member_definition</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.702 Positional_boundary_member_definition</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Positional_boundary_member_definition is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Positional_boundary_member_definition is a definition that characterizes a <A
+CLASS="INTERNALREF"
+HREF="e_698.htm"
+>Positional_boundary_member</A
+>. Each Positional_boundary_member_definition is defined by a <A
+CLASS="INTERNALREF"
+HREF="e_76.htm"
+>Boundary_based_position_tolerance</A
+> in conjunction with a <A
+CLASS="INTERNALREF"
+HREF="e_294.htm"
+>Dimensional_size</A
+>. The shape of the 
+Positional_boundary_member is identical to that of the toleranced <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+>. However, the size of the Positional_boundary_member is based on the associated Dimensional_size, the material conditions specified by the associated Boundary_based_position_tolerance, and whether the toleranced Physical_feature_or_part_template is an internal (e.g., a pair of opposing slot sides) or an external (e.g., a pair of opposing tab sides) Physical_feature_or_part_template. </DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_dimension</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>boundary_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>defined_positional_boundary_member</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>tolerance_value</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.702.1 associated_dimension</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_dimension specifies the <A
+CLASS="INTERNALREF"
+HREF="e_294.htm"
+>Dimensional_size</A
+> that defines the maximum material size and 
+minimum material size of the toleranced <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+>. If the associated <A
+CLASS="INTERNALREF"
+HREF="e_76.htm"
+>Boundary_based_position_tolerance</A
+> is specified on a "maximum material principle" basis, the maximum 
+material size is used as the base size to which the <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> specified as the tolerance_value is 
+subtracted if the toleranced Physical_feature_or_part_template is an internal 
+Physical_feature_or_part_template, or added if the toleranced Physical_feature_or_part_template is an 
+external Physical_feature_or_part_template. If the associated Boundary_based_position_tolerance is 
+specified on a "least material requirement" basis, the least material size is used as the base size to which the 
+Length_data_element specified as the tolerance_value is added if the toleranced 
+Physical_feature_or_part_template is an internal Physical_feature_or_part_template, or subtracted if the 
+toleranced Physical_feature_or_part_template is an external Physical_feature_or_part_template.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.702.2 boundary_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The boundary_definition is an inverse relationship that specifies that the existence of the 
+Positional_boundary_member_definition is dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_301.htm"
+>Dimension_related_positional_boundary_definition</A
+> that specifies the 
+Positional_boundary_member_definition as one of its characterized_boundary_member_definitions.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.702.3 defined_positional_boundary_member</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The defined_positional_boundary_member specifies the <A
+CLASS="INTERNALREF"
+HREF="e_698.htm"
+>Positional_boundary_member</A
+> that is characterized 
+by the Positional_boundary_member_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.702.4 tolerance_value</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The tolerance_value specifies the <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> that represents the amount the size of the <A
+CLASS="INTERNALREF"
+HREF="e_698.htm"
+>Positional_boundary_member</A
+> is reduced or enlarged from the base size that is determined by the associated <A
+CLASS="INTERNALREF"
+HREF="e_294.htm"
+>Dimensional_size</A
+> and the material condition specified by the associated <A
+CLASS="INTERNALREF"
+HREF="e_76.htm"
+>Boundary_based_position_tolerance</A
+>.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The Dimension_related_positional_boundary specified as the composed_positional_boundary by the 
+Positional_boundary_member that is specified as the defined_positional_boundary_member shall be the 
+same instance of Dimension_related_positional_boundary as specified as the defined_positional_boundary 
+by the Dimension_related_positional_boundary_definition that is specified as the boundary_definition.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The Positional_boundary_member_definition shall be specified by exactly one Geometric_tolerance 
+as the tolerance_zone_or_boundary_definition, and that Geometric_tolerance shall be a 
+Boundary_based_position_tolerance.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY positional_boundary_member_definition
+  SUBTYPE OF (managed_design_object);
+    defined_positional_boundary_member : positional_boundary_member;
+    tolerance_value                    : length_data_element;
+    associated_dimension               : dimensional_size;
+  INVERSE
+    boundary_definition : dimension_related_positional_boundary_definition FOR 
+                          characterized_boundary_member_definitions;
+END_ENTITY; -- positional_boundary_member_definition
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

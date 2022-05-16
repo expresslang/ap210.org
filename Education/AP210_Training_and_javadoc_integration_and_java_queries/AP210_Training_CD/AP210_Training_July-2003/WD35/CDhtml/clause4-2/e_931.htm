@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Transmission_line_functional_unit_terminal_allocation</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.931 Transmission_line_functional_unit_terminal_allocation</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Transmission_line_functional_unit_terminal_allocation is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A 
+Transmission_line_functional_unit_terminal_allocation is the relationship between the occurrence of a <A
+CLASS="INTERNALREF"
+HREF="e_407.htm"
+>Functional_unit_terminal</A
+> of a transmission line 
+and the physical implementation of that occurrence as a <A
+CLASS="INTERNALREF"
+HREF="e_722.htm"
+>Printed_component_join_terminal</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>functional_unit_design_path</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>implementation</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>transmission_line_functional_unit_terminal</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.931.1 functional_unit_design_path</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The functional_unit_design_path specifies the <A
+CLASS="INTERNALREF"
+HREF="e_932.htm"
+>Transmission_line_functional_unit_to_routed_printed_component_allocation</A
+> path from the <A
+CLASS="INTERNALREF"
+HREF="e_407.htm"
+>Functional_unit_terminal</A
+> to the <A
+CLASS="INTERNALREF"
+HREF="e_722.htm"
+>Printed_component_join_terminal</A
+> for 
+the Transmission_line_functional_unit_terminal_allocation.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.931.2 implementation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The implementation specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_722.htm"
+>Printed_component_join_terminal</A
+> for the 
+Transmission_line_functional_unit_terminal_allocation.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.931.3 transmission_line_functional_unit_terminal</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The transmission_line_functional_unit_terminal specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_407.htm"
+>Functional_unit_terminal</A
+> for this Transmission_line_functional_unit_terminal_allocation.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the implementation and transmission_line_functional_unit_terminal 
+shall be unique within a population of Transmission_line_functional_unit_terminal_allocation.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY transmission_line_functional_unit_terminal_allocation
+  SUBTYPE OF (managed_design_object);
+    implementation                             : printed_component_join_terminal;
+    transmission_line_functional_unit_terminal : functional_unit_terminal;
+    functional_unit_design_path                : 
+	transmission_line_functional_unit_to_routed_printed_component_allocation;
+  UNIQUE
+    ur1 : implementation, transmission_line_functional_unit_terminal;
+END_ENTITY; -- transmission_line_functional_unit_terminal_allocation
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

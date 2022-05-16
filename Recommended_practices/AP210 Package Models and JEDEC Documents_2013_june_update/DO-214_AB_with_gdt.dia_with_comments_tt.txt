@@ -1,0 +1,318 @@
+file:
+DO-214_AB_with_gdt.dia_with_comments_tt.txt
+updated July 27,, 2013
+
+original file: DO-214_AB_with_gdt.stp
+patched file: DO-214_AB_with_gdt_a.p21
+integrity constraint violation: where rule 'APPLICATION_PROTOCOL_DEFINITION_REQUIRED.WR1' evaluates to FALSE
+Instances: rule condition set: []
+Type: SET [0:?] OF APPLICATION_CONTEXT
+in file mim_lf.exp at line 15727
+TT patched #1000
+validated with Jamie 7/25/2013
+-----
+integrity constraint violation: where rule 'CONSISTENT_UNCERTAINTY.WR1' evaluates to FALSE
+Instances: rule condition set: [#13,#573,#1023,#1165,#1177]
+Type: SET [0:?] OF GLOBAL_UNCERTAINTY_ASSIGNED_CONTEXT
+in file mim_lf.exp at line 15878
+TT patched #10, #11, #12
+validated with Jamie 725/2013
+-----
+integrity constraint violation: indeterminate mandatory attribute 'PROPERTY_DEFINITION_REPRESENTATION\used_representation'
+Instance: OID: #1009
+Type: PARAMETER_ASSIGNMENT
+References: 
+in file mim_lf.exp at line 12525
+TT patched
+false positive..PDTEC error
+-----
+integrity constraint violation: indeterminate mandatory attribute 'PROPERTY_DEFINITION_REPRESENTATION\used_representation'
+Instance: OID: #1015
+Type: PARAMETER_ASSIGNMENT
+References: 
+in file mim_lf.exp at line 12525
+TT patched
+false positive..PDTEC error
+
+-----
+integrity constraint violation: indeterminate mandatory attribute 'APPLICATION_CONTEXT_ELEMENT\frame_of_reference'
+Instance: OID: #1209
+Type: PRODUCT_DEFINITION_CONTEXT
+References: 
+in file mim_lf.exp at line 2766
+TT patched
+validated with Jamie 7/25 /* patched to add frame_of_reference #999 and added life cycle 'design' */
+
+-----
+integrity constraint violation: indeterminate mandatory attribute 'PRODUCT_DEFINITION_CONTEXT\life_cycle_stage'
+Instance: OID: #1209
+Type: PRODUCT_DEFINITION_CONTEXT
+References: 
+in file mim_lf.exp at line 12295
+TT patched
+validated with Jamie 7/25 /* patched to add frame_of_reference #999 and added life cycle 'design' */
+
+-----
+integrity constraint violation: indeterminate mandatory attribute 'DIMENSIONAL_SIZE\applies_to'
+Instance: OID: #1264
+Type: SYMMETRIC_SHAPE_ASPECT, DIMENSIONAL_SIZE, DATUM_FEATURE, COMPOSITE_UNIT_SHAPE_ASPECT
+References: 
+in file mim_lf.exp at line 5813
+TT patched
+false positive
+
+-----
+integrity constraint violation: indeterminate mandatory attribute 'SHAPE_ASPECT\name'
+Instance: OID: #1264
+Type: SYMMETRIC_SHAPE_ASPECT, DIMENSIONAL_SIZE, DATUM_FEATURE, COMPOSITE_UNIT_SHAPE_ASPECT
+References: 
+in file mim_lf.exp at line 13216
+TT patchedi
+validated july 25, 2013
+-----
+integrity constraint violation: where rule 'SYMMETRIC_SHAPE_ASPECT.WR1' evaluates to FALSE
+Instance: OID: #1264
+Type: SYMMETRIC_SHAPE_ASPECT, DIMENSIONAL_SIZE, DATUM_FEATURE, COMPOSITE_UNIT_SHAPE_ASPECT
+References: SELF
+in file mim_lf.exp at line 14760
+/* July 25, 2013, decided to stay with symmetric_shape_aspect.
+every symmetric_shape_aspect will have a centre_of_symmetry. */
+-----
+integrity constraint violation: indeterminate mandatory attribute 'DIMENSIONAL_SIZE\applies_to'
+Instance: OID: #1281
+Type: SYMMETRIC_SHAPE_ASPECT, DIMENSIONAL_SIZE, DATUM_FEATURE, COMPOSITE_UNIT_SHAPE_ASPECT
+References: 
+in file mim_lf.exp at line 5813
+TT patched
+false positive
+-----
+integrity constraint violation: indeterminate mandatory attribute 'SHAPE_ASPECT\name'
+Instance: OID: #1281
+Type: SYMMETRIC_SHAPE_ASPECT, DIMENSIONAL_SIZE, DATUM_FEATURE, COMPOSITE_UNIT_SHAPE_ASPECT
+References: 
+in file mim_lf.exp at line 13216
+TT patched
+-----
+integrity constraint violation: where rule 'SYMMETRIC_SHAPE_ASPECT.WR1' evaluates to FALSE
+Instance: OID: #1281
+Type: SYMMETRIC_SHAPE_ASPECT, DIMENSIONAL_SIZE, DATUM_ FEATURE, COMPOSITE_UNIT_SHAPE_ASPECT
+References: SELF
+in file mim_lf.exp at line 14760
+<<<Valid, what is #1281 used for, need a centre_of_symmetry populated and shape_aspect_deriving_relationship?
+temporarily removed symmetric_shape_aspect from complex instance.
+-----
+integrity constraint violation: indeterminate mandatory attribute 'SHAPE_ASPECT\name'
+Instance: OID: #1296
+Type: DATUM_FEATURE, COMPOSITE_UNIT_SHAPE_ASPECT
+References: 
+in file mim_lf.exp at line 13216
+TT patched
+validated jul 27
+-----
+integrity constraint violation: supertype constraint violation
+Instance: OID: #1300
+Type: TANGENT, SEATING_PLANE
+References: 
+in file mim_lf.exp at line 5458
+TT false positive, old schema
+-----
+integrity constraint violation: incompatible type of attribute 'used_representation'
+Instance: OID: #1309
+Type: GEOMETRIC_ITEM_SPECIFIC_USAGE
+References: 
+in file mim_lf.exp at line 8367
+TT false positive, old schema
+-----
+integrity constraint violation: indeterminate mandatory attribute 'SHAPE_ASPECT\name'
+Instance: OID: #1314
+Type: SYMMETRIC_SHAPE_ASPECT, COMPOSITE_UNIT_SHAPE_ASPECT
+References: 
+in file mim_lf.exp at line 13216
+TT patched
+-----
+integrity constraint violation: where rule 'SYMMETRIC_SHAPE_ASPECT.WR1' evaluates to FALSE
+Instance: OID: #1314
+Type: SYMMETRIC_SHAPE_ASPECT, COMPOSITE_UNIT_SHAPE_ASPECT
+References: SELF
+in file mim_lf.exp at line 14760
+<<<Valid, what is #1314 used for, need a centre_of_symmetry populated and shape_aspect_deriving_relationship!
+-----
+integrity constraint violation: incompatible type of attribute 'used_representation'
+Instance: OID: #1334
+Type: GEOMETRIC_ITEM_SPECIFIC_USAGE
+References: 
+in file mim_lf.exp at line 8367
+TT false positive, old schema
+-----
+integrity constraint violation: indeterminate mandatory attribute 'GEOMETRIC_TOLERANCE\description'
+Instance: OID: #1336
+Type: POSITION_TOLERANCE, MODIFIED_GEOMETRIC_TOLERANCE, GEOMETRIC_TOLERANCE_WITH_DATUM_REFERENCE
+References: 
+in file mim_lf.exp at line 7671
+TT false positive, old schema
+-----
+integrity constraint violation: number of elements (0) violates aggregate bounds
+Instances: 
+in file mim_lf.exp at line 7671
+TT no idea.
+-----
+integrity constraint violation: number of elements (0) violates aggregate bounds
+Instance: OID: #1336
+Instance Type: POSITION_TOLERANCE, MODIFIED_GEOMETRIC_TOLERANCE, GEOMETRIC_TOLERANCE_WITH_DATUM_REFERENCE
+Attribute Type: SET, BAG
+in file mim_lf.exp at line 7696
+TT no idea.
+
+-----
+integrity constraint violation: indeterminate mandatory attribute 'SHAPE_ASPECT\name'
+Instance: OID: #1342
+Type: SYMMETRIC_SHAPE_ASPECT, COMPOSITE_UNIT_SHAPE_ASPECT
+References: 
+in file mim_lf.exp at line 13216
+TT patched
+-----
+integrity constraint violation: where rule 'SYMMETRIC_SHAPE_ASPECT.WR1' evaluates to FALSE
+Instance: OID: #1342
+Type: SYMMETRIC_SHAPE_ASPECT, COMPOSITE_UNIT_SHAPE_ASPECT
+References: SELF
+in file mim_lf.exp at line 14760
+TT false positive? EPM says ok. file looks ok.
+-----
+integrity constraint violation: incompatible type of attribute 'used_representation'
+Instance: OID: #1353
+Type: GEOMETRIC_ITEM_SPECIFIC_USAGE
+References: 
+in file mim_lf.exp at line 8367
+TT false positive, old schema
+-----
+integrity constraint violation: indeterminate mandatory attribute 'SHAPE_ASPECT\name'
+Instance: OID: #1355
+Type: SYMMETRIC_SHAPE_ASPECT, COMPOSITE_UNIT_SHAPE_ASPECT
+References: 
+in file mim_lf.exp at line 13216
+TT patched
+-----
+integrity constraint violation: where rule 'SYMMETRIC_SHAPE_ASPECT.WR1' evaluates to FALSE
+Instance: OID: #1355
+Type: SYMMETRIC_SHAPE_ASPECT, COMPOSITE_UNIT_SHAPE_ASPECT
+References: SELF
+in file mim_lf.exp at line 14760
+TT unknown issue, old schema?
+EPM says ok,
+-----
+integrity constraint violation: incompatible type of attribute 'used_representation'
+Instance: OID: #1366
+Type: GEOMETRIC_ITEM_SPECIFIC_USAGE
+References: 
+in file mim_lf.exp at line 8367
+TT unknown issue, old schema?
+-----
+integrity constraint violation: indeterminate mandatory attribute 'GEOMETRIC_TOLERANCE\description'
+Instance: OID: #1372
+Type: POSITION_TOLERANCE, MODIFIED_GEOMETRIC_TOLERANCE, GEOMETRIC_TOLERANCE_WITH_DATUM_REFERENCE
+References: 
+in file mim_lf.exp at line 7671
+TT unknown issue, old schema?
+-----
+integrity constraint violation: number of elements (0) violates aggregate bounds
+Instances: 
+in file mim_lf.exp at line 7671
+TT unknown issue, old schema?
+
+-----
+integrity constraint violation: number of elements (0) violates aggregate bounds
+Instance: OID: #1372
+Instance Type: POSITION_TOLERANCE, MODIFIED_GEOMETRIC_TOLERANCE, GEOMETRIC_TOLERANCE_WITH_DATUM_REFERENCE
+Attribute Type: SET, BAG
+in file mim_lf.exp at line 7696
+TT unknown issue, old schema?
+
+-----
+integrity constraint violation: indeterminate mandatory attribute 'SHAPE_ASPECT\name'
+Instance: OID: #1390
+Type: SYMMETRIC_SHAPE_ASPECT, COMPOSITE_UNIT_SHAPE_ASPECT
+References: 
+in file mim_lf.exp at line 13216
+TT patched
+-----
+integrity constraint violation: where rule 'SYMMETRIC_SHAPE_ASPECT.WR1' evaluates to FALSE
+Instance: OID: #1390
+Type: SYMMETRIC_SHAPE_ASPECT, COMPOSITE_UNIT_SHAPE_ASPECT
+References: SELF
+in file mim_lf.exp at line 14760
+TT what are the requirements?
+Temporarily removed symmetric_shape_aspect from complex
+-----
+integrity constraint violation: indeterminate mandatory attribute 'SHAPE_ASPECT\name'
+Instance: OID: #1394
+Type: SYMMETRIC_SHAPE_ASPECT, COMPOSITE_UNIT_SHAPE_ASPECT
+References: 
+in file mim_lf.exp at line 13216
+TT patched
+-----
+integrity constraint violation: where rule 'SYMMETRIC_SHAPE_ASPECT.WR1' evaluates to FALSE
+Instance: OID: #1394
+Type: SYMMETRIC_SHAPE_ASPECT, COMPOSITE_UNIT_SHAPE_ASPECT
+References: SELF
+in file mim_lf.exp at line 14760
+TT what are the requirements?
+Temporarily removed symmetric_shape_aspect from complex
+-----
+integrity constraint violation: indeterminate mandatory attribute 'SHAPE_ASPECT\name'
+Instance: OID: #1411
+Type: SYMMETRIC_SHAPE_ASPECT, COMPOSITE_UNIT_SHAPE_ASPECT
+References: 
+in file mim_lf.exp at line 13216
+TT patched
+-----
+integrity constraint violation: where rule 'SYMMETRIC_SHAPE_ASPECT.WR1' evaluates to FALSE
+Instance: OID: #1411
+Type: SYMMETRIC_SHAPE_ASPECT, COMPOSITE_UNIT_SHAPE_ASPECT
+References: SELF
+in file mim_lf.exp at line 14760
+-----
+integrity constraint violation: indeterminate mandatory attribute 'GEOMETRIC_TOLERANCE\description'
+Instance: OID: #1452
+Type: POSITION_TOLERANCE, MODIFIED_GEOMETRIC_TOLERANCE, GEOMETRIC_TOLERANCE_WITH_DATUM_REFERENCE
+References: 
+in file mim_lf.exp at line 7671
+TT unknown issue, old schema?
+-----
+integrity constraint violation: number of elements (0) violates aggregate bounds
+Instances: 
+in file mim_lf.exp at line 7671
+TT unknown issue, old schema?
+
+-----
+integrity constraint violation: number of elements (0) violates aggregate bounds
+Instance: OID: #1452
+Instance Type: POSITION_TOLERANCE, MODIFIED_GEOMETRIC_TOLERANCE, GEOMETRIC_TOLERANCE_WITH_DATUM_REFERENCE
+Attribute Type: SET, BAG
+in file mim_lf.exp at line 7696
+TT unknown issue, old schema?
+============other issues========
+1- why two seating_plane instances
+validated July 27-- Jamie to condense.
+
+2- No more than one GEOMETRIC_ITEM_SPECIFIC_USAGE shall reference a specific instance of shape_aspect.
+Use item_identified_representation_usage or a subtype of that to associate two faces to a shape_aspect.
+
+3-    DATUM_REFERENCE_COMPARTMENT
+
+   Instance: 1375738197 (stepId: #1338)
+          ERROR: Violating WHERE rule: GENERAL_DATUM_REFERENCE.WR1
+    9 places, fixed NEED BLANK STRING.
+validated July 27 -- Jamie to remove contents
+
+4-dimensional_size.name should be 'thickness' not length according to pmi rec prac v3.6, table 4.
+We need to add 'length' to that or would 'thickness' work?
+
+6-We should use geometric_tolerance_with_modifiers rather than modified_geometric_tolerance.
+modified_geometric_tolerance is not yet deprecated but it should be. The modifier value is the same.
+Jamie will look at
+
+
+7- package_body, primary_reference_terminal, and package_terminal attribute 'product_definitional' should be .TRUE., right?
+agreed to make the change.
+
+

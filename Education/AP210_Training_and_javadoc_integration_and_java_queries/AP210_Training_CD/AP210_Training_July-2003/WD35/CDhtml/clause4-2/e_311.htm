@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Edge_segment_cross_section</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.311 Edge_segment_cross_section</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Edge_segment_cross_section is a type of <A
+CLASS="INTERNALREF"
+HREF="e_960.htm"
+>Volume_shape_intersection</A
+>.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY edge_segment_cross_section
+  SUBTYPE OF (volume_shape_intersection);
+  SELF\volume_shape_intersection.surface_intersection_result : edge_shape;
+  SELF\volume_shape_intersection.projected_volume : part_template_3d_shape;
+DERIVE
+  cross_section_reference : edge_segment_vertex := 
+  SELF\volume_shape_intersection.projected_volume\part_template_3d_shape.
+  shape_characterized_part_template\inter_stratum_feature_edge_segment_template.
+   start_vertex;
+  
+  associated_template : inter_stratum_feature_edge_segment_template :=
+  SELF\volume_shape_intersection.projected_volume\part_template_3d_shape.
+   shape_characterized_part_template;
+INVERSE
+  referencing_template : inter_stratum_feature_edge_segment_template FOR
+  cross_section;
+WHERE
+  WR1: associated_template :=: referencing_template;
+END_ENTITY; -- edge_segment_cross_section
+
+--tt tc1 wd9 modified 
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

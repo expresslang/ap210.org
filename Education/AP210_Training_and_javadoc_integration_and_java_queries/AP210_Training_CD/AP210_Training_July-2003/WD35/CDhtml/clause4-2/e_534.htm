@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Material_removal_feature_template</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.534 Material_removal_feature_template</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Material_removal_feature_template is a type of <A
+CLASS="INTERNALREF"
+HREF="e_624.htm"
+>Part_template</A
+> that describes the shape of material to be removed from a feature.  A Material_removal_feature_template may be an <A
+CLASS="INTERNALREF"
+HREF="e_342.htm"
+>Electrical_isolation_removal_template</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_904.htm"
+>Thermal_isolation_removal_template</A
+>.<DIV
+CLASS="EXAMPLEGROUP"
+><P
+>EXAMPLES:</P
+><OL
+><LI
+CLASS="EXAMPLEINGROUP"
+>Figure  <SPAN
+CLASS="INTERNALREF"
+>mrft</SPAN
+> illustrates a template and associated parameters designed for electrical isolation.  For a specific template, values will be assigned for the parameters and the explicit geometry will be representative of the assigned parameter values.</LI
+><LI
+CLASS="EXAMPLEINGROUP"
+>Figure  <SPAN
+CLASS="INTERNALREF"
+>mrft2</SPAN
+> illustrates a template and associated parameters designed for thermal isolation.  For a specific template, values will be assigned for the parameters and the explicit geometry will be representative of the assigned parameter values.  In this example, an instance would be a complex instance including <A
+CLASS="INTERNALREF"
+HREF="e_166.htm"
+>Composite_unit_shape_element</A
+> and Material_removal_feature_template.</LI
+></OL
+></DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>of_stratum_technology</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.534.1 of_stratum_technology</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The of_stratum_technology specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_871.htm"
+>Stratum_technology</A
+> for the Material_removal_feature_template.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY material_removal_feature_template
+  SUPERTYPE OF (ONEOF(electrical_isolation_removal_template,
+    thermal_isolation_removal_template))
+  SUBTYPE OF (part_template);
+  of_stratum_technology : stratum_technology;
+END_ENTITY; -- material_removal_feature_template
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

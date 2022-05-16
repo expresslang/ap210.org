@@ -1,0 +1,29 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Part_view_definition_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Part_view_definition_arm</h2><code><br><br><a name="part_view_definition_arm">SCHEMA <b>Part_view_definition_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/part_and_version_identification/sys/e_exp_arm.htm#part_and_version_identification_arm">Part_and_version_identification_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1022<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm">Product_view_definition_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1019<br><br></code><code><br><A NAME="part_view_definition_arm.part_view_definition">ENTITY <b>Part_view_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>.<A NAME="part_view_definition_arm.part_view_definition.defined_version">defined_version : </A><A HREF="../../../data/modules/part_and_version_identification/sys/e_exp_arm.htm#part_and_version_identification_arm.part_version">Part_version</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="part_view_definition_arm.part_view_definition_constraint">RULE&nbsp;<b>part_view_definition_constraint</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="part_view_definition_arm.part_view_definition_constraint.wr:wr1">WR1: SIZEOF ( QUERY ( pvd &lt;* Product_view_definition |   ( NOT      ( 'PART_VIEW_DEFINITION_ARM.' +        'PART_VIEW_DEFINITION'
+            IN TYPEOF (pvd)     )   )   AND   ( 'PART_VIEW_DEFINITION_ARM.' +    'PART_VERSION'     IN TYPEOF ( pvd.defined_version) 
+            )   ) ) =0 ;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Part_view_definition_arm<br></code></body>
+</HTML>

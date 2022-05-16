@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Printed_component_join_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.722 Printed_component_join_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Printed_component_join_terminal is a type of <A
+CLASS="INTERNALREF"
+HREF="e_137.htm"
+>Component_terminal</A
+>.  This terminal is a terminus for internal circuitry in the interconnect substrate.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>pcjt</SPAN
+> illustrates a detail of a layout drawing that shows the internal terminals of the printed connector (edge connector).</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_component</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>connection</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>stratum_concept_implementation_component</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.722.1 associated_component</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_component specifies the <A
+CLASS="INTERNALREF"
+HREF="e_721.htm"
+>Printed_component</A
+> being accessed by the Printed_component_join_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.722.2 connection</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The connection specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_185.htm"
+>Connection_zone</A
+> for the 
+Printed_component_join_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.722.3 definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The definition specifies the <A
+CLASS="INTERNALREF"
+HREF="e_733.htm"
+>Printed_part_template_join_terminal</A
+> that defines the Printed_component_join_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.722.4 stratum_concept_implementation_component</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The stratum_concept_implementation_component specifies either the <A
+CLASS="INTERNALREF"
+HREF="e_471.htm"
+>Inter_stratum_feature</A
+>, the <A
+CLASS="INTERNALREF"
+HREF="e_483.htm"
+>Laminate_component</A
+>, the <A
+CLASS="INTERNALREF"
+HREF="e_845.htm"
+>Stratum</A
+>, the <A
+CLASS="INTERNALREF"
+HREF="e_851.htm"
+>Stratum_feature</A
+>, or the <A
+CLASS="INTERNALREF"
+HREF="e_868.htm"
+>Stratum_surface</A
+> for the Printed_component_join_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY printed_component_join_terminal
+  SUBTYPE OF (laminate_component_join_terminal);
+    SELF\component_feature.definition           : printed_part_template_join_terminal;
+    SELF\component_feature.associated_component : printed_component;
+    stratum_concept_implementation              : stratum_feature;
+WHERE
+  WR1: SIZEOF(QUERY ( sf &#60;* SELF\component_feature.
+            associated_component\printed_component.
+                   stratum_feature_implementation |
+              sf = stratum_concept_implementation )
+         ) = 1;
+END_ENTITY; -- printed_component_join_terminal
+
+--tt tc1 wd9 added
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

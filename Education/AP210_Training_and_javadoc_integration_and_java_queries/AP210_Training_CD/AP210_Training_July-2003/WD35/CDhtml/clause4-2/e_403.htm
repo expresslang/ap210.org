@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Functional_unit_network_node_definition</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.403 Functional_unit_network_node_definition</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Functional_unit_network_node_definition is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Functional_unit_network_node_definition is the definition of a node in the <A
+CLASS="INTERNALREF"
+HREF="e_402.htm"
+>Functional_unit_network_definition</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_functional_unit_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>external_node_access</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>functional_unit_network_node_name</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.403.1 associated_functional_unit_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_functional_unit_definition specifies the <A
+CLASS="INTERNALREF"
+HREF="e_402.htm"
+>Functional_unit_network_definition</A
+> that the Functional_unit_network_node_definition is helping to compose.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.403.2 external_node_access</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The external_node_access is an inverse relationship that specifies the <A
+CLASS="INTERNALREF"
+HREF="e_405.htm"
+>Functional_unit_network_terminal_definition_node_assignment</A
+> that specifies the Functional_unit_network_node_definition as its composed_node. There shall be no more than one Functional_unit_network_terminal_definition_node_assignment for a Functional_unit_network_node_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.403.3 functional_unit_network_node_name</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The functional_unit_network_node_name identifies the Functional_unit_network_node_definition in the context of the associated_functional_unit_definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the functional_unit_network_node_name and the associated_functional_unit_definition shall be unique within a population of Functional_unit_network_node_definitions.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>A member of Functional_unit_network_node_definition shall be referenced by no more than one member of Functional_unit_network_terminal_definition_node_assignment.</DIV
+></DIV
+><DIV
+CLASS="INFORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Informal constraints:</P
+><DIV
+CLASS="INFORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>IP1: </SPAN
+>A member of Functional_unit_network_node_definition that is helping to compose an approved electrical or thermal network definition shall be referenced by at least one of the following:a member of Bus_element_link; a member of Functional_unit_terminal_node_assignment.</DIV
+><DIV
+CLASS="INFORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>IP2: </SPAN
+>A member of Functional_unit_network_node_definition that is helping to compose an approved electrical or thermal network definition shall be referenced by at least two of the following:a member of Bus_element_link; a member of Functional_unit_terminal_node_assignment; no more than one member of Functional_unit_network_terminal_definition_node_assignment.</DIV
+><DIV
+CLASS="INFORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>IP3: </SPAN
+>Each member of Functional_unit_network_node_definition shall be referenced by no more than one member of Aggregate_connectivity_requirement for a specific physical partition.</DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Some nodes are not connected to external terminals.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY functional_unit_network_node_definition
+  SUBTYPE OF (managed_design_object);
+    associated_functional_unit_definition : functional_unit_network_definition;
+    functional_unit_network_node_name     : ee_name;
+DERIVE
+   valid_conservative_node : BOOLEAN := ((SIZEOF(QUERY( vc &#60;* USEDIN (SELF, 
+      'AP210_ARM.BUS_ELEMENT_LINK.PRECEDENT_ELEMENT')|
+      vc &#60;&#62; [])) +
+   SIZEOF(QUERY( vc &#60;* USEDIN (SELF, 
+      'AP210_ARM.BUS_ELEMENT_LINK.SUBSEQUENT_ELEMENT')|
+      vc &#60;&#62; [])) +
+   SIZEOF(QUERY( vc &#60;* USEDIN (SELF, 
+      'AP210_ARM.FUNCTIONAL_UNIT_TERMINAL_NODE_ASSIGNMENT.COMPOSED_NODE') |
+      vc &#60;&#62; [])) +
+   SIZEOF(external_node_access)) &#62; 1);
+   
+  INVERSE
+    external_node_access : SET [0:1] OF 
+                           functional_unit_network_terminal_definition_node_assignment FOR 
+                           composed_node;
+  UNIQUE
+    ur1 : functional_unit_network_node_name, associated_functional_unit_definition;
+END_ENTITY; -- functional_unit_network_node_definition
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,26 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: External_model_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: External_model_arm</h2><code><br><br><a name="external_model_arm">SCHEMA <b>External_model_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm">Elemental_geometric_shape_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1004<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/file_identification/sys/e_exp_arm.htm#file_identification_arm">File_identification_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1127<br><br></code><code><br><A NAME="external_model_arm.external_geometric_model">ENTITY <b>External_geometric_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>.<A NAME="external_model_arm.external_geometric_model.items">items : </A>SET[1:1] OF <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         &nbsp;&nbsp;<A NAME="external_model_arm.external_geometric_model.external_file">external_file : </A><A HREF="../../../data/modules/file_identification/sys/e_exp_arm.htm#file_identification_arm.digital_file">Digital_file</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="external_model_arm.external_geometric_model.wr:wr1">WR1: SELF\Representation.context_of_items.dimension_count = 3;</A><br>
+         &nbsp;&nbsp;<A NAME="external_model_arm.external_geometric_model.wr:wr2">WR2: SELF\Representation.context_of_items.kind = 'external';</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;External_model_arm<br></code></body>
+</HTML>

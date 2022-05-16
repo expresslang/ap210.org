@@ -1,0 +1,826 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application protocol: Electronic assembly, interconnect, and packaging design">
+      <META name="DC.Dates" content="2009-07-18 14:00:12">
+      <META name="DC.Published" content="2009-09-15">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application protocol Electronic assembly, interconnect, and packaging design">
+      <META name="DC.Subject" content="Component Data, Electrical Design, Function, Die, PWB, PWA, PCB, PCA, MCM, Flex, Rigid, Flex-Rigid, Circuit Analysis, Thermal Design, Magnetic Design, Optical Design, Netlist, Assembly, Interconnect, Package, Part, Programmable Device, Embedded Circuit, Configuration Management, Fabrication Stackup Model, Fabrication Technology, Manufacturing Features, Mechanical Features, Mechanical Design, Simulation, Electronic Assembly, Tolerance, Requirements, Interconnect Substrate, Layout, Design Rule, Design Constraints, Template, Requirements, Electro-mechanical Design.">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG3 N2602">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG3 N2074">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG3 N2603">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG3 N2604">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG3 N2605">
+      <META name="STEPMOD.application_protocol.rcs.date" content="Date: 2009-07-18 14:00:12">
+      <META name="STEPMOD.application_protocol.rcs.revision" content="Revision: 1.62">
+      <title>ISO 10303-210:2009(E) </title>
+   </head>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <tr>
+            <td><small></small></td>
+         </tr>
+         <tr>
+            <td valign="MIDDLE"><B>Application protocol:
+                  						Electronic assembly, interconnect, and packaging design</B></td>
+            <td valign="MIDDLE" align="RIGHT"><b>ISO 10303-210:2009(E) <br>
+                  							&copy; ISO
+                  						</b></td>
+         </tr>
+      </TABLE>
+      <table border="1" cellspacing="1" width="100%">
+         <tr>
+            <td valign="TOP">
+               <p class="toc"><a href="../sys/cover.htm">Cover page</a><br><a href="../sys/contents.htm">Table of contents</a><br><a href="../sys/cover.htm#copyright">Copyright</a><br><a href="../sys/foreword.htm">Foreword</a><br><a href="../sys/introduction.htm">Introduction</a><br><a href="../sys/1_scope.htm">1 Scope</a><br><a href="../sys/2_refs.htm">2 Normative references</a><br><a href="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </a></p>
+            </td>
+            <td valign="TOP">
+               <p class="toc"><a href="../sys/4_info_reqs.htm">4 Information requirements</a><br><small>
+                     &nbsp;&nbsp;<a href="../sys/4_info_reqs.htm#41">4.1 Business concepts and terminology</a></small><br><small>
+                     &nbsp;&nbsp;<a href="../sys/4_info_reqs.htm#42">4.2 Information requirements model</a></small><br><a href="../sys/5_main.htm">5 Module interpreted model</a><br><a href="../sys/6_ccs.htm">6 Conformance requirements</a><br></p>
+            </td>
+            <td valign="TOP">
+               <p class="toc"><a href="../sys/annex_exp_lf.htm">
+                     A EXPRESS expanded listings
+                     </a><br><a href="../sys/annex_shortnames.htm">
+                     B MIM short names
+                     </a><br><a href="../sys/annex_imp_meth.htm">
+                     C Implementation method specific requirements
+                     </a><br><a href="../sys/annex_pics.htm">
+                     D Protocol Implementation Conformance Statement (PICS) proforma
+                     </a><br><a href="../sys/annex_obj_reg.htm">
+                     E Information object registration
+                     </a><br><a href="../sys/annex_aam.htm">
+                     F Application activity model
+                     </a>
+                  &nbsp;&nbsp;
+                  <a href="../aamidef01.htm"><img align="middle" border="0" alt="AAM" src="../../../../images/ap_doc/aam.gif"></a><br><a href="../sys/annex_comp_int.htm">G Computer interpretable listing
+                     </a><br><a href="../sys/annex_changes.htm">H Detailed changes
+                     </a><br><a href="../sys/biblio.htm#biblio">
+                     Bibliography
+                     </a><br><a href="../sys/index_apdoc.htm#index">
+                     Index
+                     </a></p>
+            </td>
+         </tr>
+      </table>
+      <h2>
+         2 Normative references
+         
+      </h2>
+      <p>
+         The following referenced documents are indispensable for the application of
+         this document. For dated references, only the edition cited applies. For
+         undated references, the latest edition of the referenced document
+         (including any amendments) applies.
+         
+      </p>
+      <p>ISO/IEC&nbsp;8824-1,&nbsp;
+         <i>Information technology &#8212; Abstract Syntax Notation One (ASN.1) &#8212; Part 1: Specification of basic notation.</i></p>
+      <p>ISO&nbsp;10303-1,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange
+            &#8212; Part 1: Overview and fundamental principles.</i></p>
+      <p>ISO&nbsp;10303-11,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange 
+            &#8212; Part 11: Description methods: The EXPRESS language reference manual.</i></p>
+      <p>ISO&nbsp;10303-21,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange
+            &#8212; Part 21: Implementation methods: Clear text encoding of the exchange structure.</i></p>
+      <p>ISO&nbsp;10303-31,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange
+            &#8212; Part 31: Conformance testing methodology and framework: General concepts.</i></p>
+      <p>ISO&nbsp;10303-202,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange
+            &#8212; Part 202: Application protocol: Associative draughting.</i></p>
+      <p>ISO/TS 10303-410,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 410: Application module: AP210
+            electronic assembly interconnect and packaging design.</i></p>
+      <p>ISO/TS 10303-1001,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1001: Application module:
+            Appearance assignment.</i></p>
+      <p>ISO/TS 10303-1002,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1002: Application module:
+            Colour.</i></p>
+      <p>ISO/TS 10303-1003,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1003: Application module:
+            Curve appearance.</i></p>
+      <p>ISO/TS 10303-1006,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1006: Application module:
+            Foundation representation.</i></p>
+      <p>ISO/TS 10303-1007,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1007: Application module:
+            General surface appearance.</i></p>
+      <p>ISO/TS 10303-1008,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1008: Application module:
+            Layer assignment.</i></p>
+      <p>ISO/TS 10303-1009,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1009: Application module:
+            Shape appearance layers.</i></p>
+      <p>ISO/TS 10303-1010,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1010: Application module:
+            Date time.</i></p>
+      <p>ISO/TS 10303-1011,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1011: Application module:
+            Person organization.</i></p>
+      <p>ISO/TS 10303-1012&nbsp;<sup><a href="#tobepub">1</a>)</sup>,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1012: Application module:
+            Approval.</i></p>
+      <p>ISO/TS 10303-1013,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1013: Application module:
+            Person organization assignment.</i></p>
+      <p>ISO/TS 10303-1014,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1014: Application module:
+            Date time assignment.</i></p>
+      <p>ISO/TS 10303-1015,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1015: Application module:
+            Security classification.</i></p>
+      <p>ISO/TS 10303-1020,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1020: Application module:
+            Product version relationship.</i></p>
+      <p>ISO/TS 10303-1021,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1021: Application module:
+            Identification assignment.</i></p>
+      <p>ISO/TS 10303-1025,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1025: Application module:
+            Alias identification.</i></p>
+      <p>ISO/TS 10303-1026,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1026: Application module:
+            Assembly structure.</i></p>
+      <p>ISO/TS 10303-1027,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1027: Application module:
+            Contextual shape positioning.</i></p>
+      <p>ISO/TS 10303-1030,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1030: Application module:
+            Property assignment.</i></p>
+      <p>ISO/TS 10303-1032,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1032: Application module:
+            Shape property assignment.</i></p>
+      <p>ISO/TS 10303-1033,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1033: Application module:
+            External model.</i></p>
+      <p>ISO/TS 10303-1036,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1036: Application module:
+            Independent property.</i></p>
+      <p>ISO/TS 10303-1038,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1038: Application module:
+            Independent property representation.</i></p>
+      <p>ISO/TS 10303-1039,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1039: Application module:
+            Geometric validation property representation.</i></p>
+      <p>ISO/TS 10303-1040,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1040: Application module:
+            Process property assignment.</i></p>
+      <p>ISO/TS 10303-1042,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1042: Application module:
+            Work request.</i></p>
+      <p>ISO/TS 10303-1043,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1043: Application module:
+            Work order.</i></p>
+      <p>ISO/TS 10303-1044,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1044: Application module:
+            Certification.</i></p>
+      <p>ISO/TS 10303-1046,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1046: Application module:
+            Product replacement.</i></p>
+      <p>ISO/TS 10303-1047,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1047: Application module:
+            Activity.</i></p>
+      <p>ISO/TS 10303-1049,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1049: Application module:
+            Activity method.</i></p>
+      <p>ISO/TS 10303-1050,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1050: Application module:
+            Dimension tolerance.</i></p>
+      <p>ISO/TS 10303-1051,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1051: Application module:
+            Geometric tolerance.</i></p>
+      <p>ISO/TS 10303-1052,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1052: Application module:
+            Default tolerance.</i></p>
+      <p>ISO/TS 10303-1054,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1054: Application module:
+            Value with unit.</i></p>
+      <p>ISO/TS 10303-1055,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1055: Application module:
+            Part definition relationship.</i></p>
+      <p>ISO/TS 10303-1056&nbsp;<sup><a href="#tobepub">1</a>)</sup>,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1056: Application module:
+            Configuration item.</i></p>
+      <p>ISO/TS 10303-1057,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1057: Application module:
+            Effectivity.</i></p>
+      <p>ISO/TS 10303-1058&nbsp;<sup><a href="#tobepub">1</a>)</sup>,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1058: Application module:
+            Configuration effectivity.</i></p>
+      <p>ISO/TS 10303-1059,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1059: Application module:
+            Effectivity application.</i></p>
+      <p>ISO/TS 10303-1060,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1060: Application module:
+            Product concept identification.</i></p>
+      <p>ISO/TS 10303-1061,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1061: Application module:
+            Project.</i></p>
+      <p>ISO/TS 10303-1062&nbsp;<sup><a href="#tobepub">1</a>)</sup>,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1062: Application module:
+            Contract.</i></p>
+      <p>ISO/TS 10303-1063,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1063: Application module:
+            Product occurrence.</i></p>
+      <p>ISO/TS 10303-1064,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1064: Application module:
+            Event.</i></p>
+      <p>ISO/TS 10303-1065,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1065: Application module:
+            Time interval.</i></p>
+      <p>ISO/TS 10303-1068,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1068: Application module:
+            Constructive solid geometry 3D.</i></p>
+      <p>ISO/TS 10303-1070,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1070: Application module:
+            Class.</i></p>
+      <p>ISO/TS 10303-1103,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1103: Application module:
+            Product class.</i></p>
+      <p>ISO/TS 10303-1104,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1104: Application module:
+            Specified product.</i></p>
+      <p>ISO/TS 10303-1105,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1105: Application module:
+            Multi linguism.</i></p>
+      <p>ISO/TS 10303-1106,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1106: Application module:
+            Extended measure representation.</i></p>
+      <p>ISO/TS 10303-1108,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1108: Application module:
+            Specification based configuration.</i></p>
+      <p>ISO/TS 10303-1109,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1109: Application module:
+            Alternative solution.</i></p>
+      <p>ISO/TS 10303-1110,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1110: Application module:
+            Surface conditions.</i></p>
+      <p>ISO/TS 10303-1111,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1111: Application module:
+            Classification with attributes.</i></p>
+      <p>ISO/TS 10303-1112,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1112: Application module:
+            Specification control.</i></p>
+      <p>ISO/TS 10303-1113,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1113: Application module:
+            Group.</i></p>
+      <p>ISO/TS 10303-1114,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1114: Application module:
+            Classification assignment.</i></p>
+      <p>ISO/TS 10303-1115,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1115: Application module:
+            Part collection.</i></p>
+      <p>ISO/TS 10303-1118,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1118: Application module:
+            Measure representation.</i></p>
+      <p>ISO/TS 10303-1121&nbsp;<sup><a href="#tobepub">1</a>)</sup>,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1121: Application module:
+            Document and version identification.</i></p>
+      <p>ISO/TS 10303-1122,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1122: Application module:
+            Document assignment.</i></p>
+      <p>ISO/TS 10303-1123,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1123: Application module:
+            Document definition.</i></p>
+      <p>ISO/TS 10303-1124,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1124: Application module:
+            Document structure.</i></p>
+      <p>ISO/TS 10303-1126&nbsp;<sup><a href="#tobepub">1</a>)</sup>,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1126: Application module:
+            Document properties.</i></p>
+      <p>ISO/TS 10303-1127,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1127: Application module:
+            File identification.</i></p>
+      <p>ISO/TS 10303-1129,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1129: Application module:
+            External properties.</i></p>
+      <p>ISO/TS 10303-1130,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1130: Application module:
+            Derived shape element.</i></p>
+      <p>ISO/TS 10303-1131,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1131: Application module:
+            Construction geometry.</i></p>
+      <p>ISO/TS 10303-1132,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1132: Application module:
+            Associative text.</i></p>
+      <p>ISO/TS 10303-1134,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1134: Application module:
+            Product structure.</i></p>
+      <p>ISO/TS 10303-1136,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1136: Application module:
+            Text appearance.</i></p>
+      <p>ISO/TS 10303-1140&nbsp;<sup><a href="#tobepub">1</a>)</sup>,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1140: Application module:
+            Requirement identification and version.</i></p>
+      <p>ISO/TS 10303-1141,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1141: Application module:
+            Requirement view definition.</i></p>
+      <p>ISO/TS 10303-1142&nbsp;<sup><a href="#tobepub">1</a>)</sup>,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1142: Application module:
+            Requirement view definition relationship.</i></p>
+      <p>ISO/TS 10303-1147,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1147: Application module:
+            Manufacturing configuration effectivity.</i></p>
+      <p>ISO/TS 10303-1206,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1206: Application module:
+            Draughting annotation.</i></p>
+      <p>ISO/TS 10303-1215,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1215: Application module:
+            Physical breakdown.</i></p>
+      <p>ISO/TS 10303-1216,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1216: Application module:
+            Functional breakdown.</i></p>
+      <p>ISO/TS 10303-1228,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1228: Application module:
+            Representation with uncertainty.</i></p>
+      <p>ISO/TS 10303-1233&nbsp;<sup><a href="#tobepub">1</a>)</sup>,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1233: Application module:
+            Requirement assignment.</i></p>
+      <p>ISO/TS 10303-1241&nbsp;<sup><a href="#tobepub">1</a>)</sup>,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1241: Application module:
+            Information rights.</i></p>
+      <p>ISO/TS 10303-1246,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1246: Application module:
+            Attribute classification.</i></p>
+      <p>ISO/TS 10303-1248,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1248: Application module:
+            Product breakdown.</i></p>
+      <p>ISO/TS 10303-1249,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1249: Application module:
+            Activity method assignment.</i></p>
+      <p>ISO/TS 10303-1275,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1275: Application module:
+            External class.</i></p>
+      <p>ISO/TS 10303-1291,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1291: Application module:
+            Plib class reference.</i></p>
+      <p>ISO/TS 10303-1308,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1308: Application module:
+            Picture representation.</i></p>
+      <p>ISO/TS 10303-1309,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1309: Application module:
+            Drawing definition.</i></p>
+      <p>ISO/TS 10303-1310,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1310: Application module:
+            Draughting element.</i></p>
+      <p>ISO/TS 10303-1311,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1311: Application module:
+            Associative draughting elements.</i></p>
+      <p>ISO/TS 10303-1312,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1312: Application module:
+            Draughting element specialisations.</i></p>
+      <p>ISO/TS 10303-1313,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1313: Application module:
+            Mechanical design geometric presentation.</i></p>
+      <p>ISO/TS 10303-1314,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1314: Application module:
+            Mechanical design shaded presentation.</i></p>
+      <p>ISO/TS 10303-1315,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1315: Application module:
+            Mechanical design presentation representation with draughting.</i></p>
+      <p>ISO/TS 10303-1316,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1316: Application module:
+            Camera view 3D.</i></p>
+      <p>ISO/TS 10303-1318,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1318: Application module:
+            Procedural solid model.</i></p>
+      <p>ISO/TS 10303-1319,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1319: Application module:
+            Solid with local modification.</i></p>
+      <p>ISO/TS 10303-1320,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1320: Application module:
+            Thickened face solid.</i></p>
+      <p>ISO/TS 10303-1321,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1321: Application module:
+            Swept solid.</i></p>
+      <p>ISO/TS 10303-1322,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1322: Application module:
+            Modified swept solid.</i></p>
+      <p>ISO/TS 10303-1324,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1324: Application module:
+            Non manifold surface.</i></p>
+      <p>ISO/TS 10303-1327,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1327: Application module:
+            Compound shape representation.</i></p>
+      <p>ISO/TS 10303-1329,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1329: Application module:
+            Elementary boundary representation.</i></p>
+      <p>ISO/TS 10303-1330,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1330: Application module:
+            Presentation hierarchy.</i></p>
+      <p>ISO/TS 10303-1340,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1340: Application module:
+            Name assignment.</i></p>
+      <p>ISO/TS 10303-1343,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1343: Application module:
+            Product placement.</i></p>
+      <p>ISO/TS 10303-1345,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1345: Application module:
+            Item definition structure.</i></p>
+      <p>ISO/TS 10303-1347,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1347: Application module:
+            Wireframe 2D.</i></p>
+      <p>ISO/TS 10303-1349,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1349: Application module:
+            Incomplete data reference mechanism.</i></p>
+      <p>ISO/TS 10303-1350,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1350: Application module:
+            Inertia characteristics.</i></p>
+      <p>ISO/TS 10303-1362,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1362: Application module:
+            Dimension and tolerance callouts.</i></p>
+      <p>ISO/TS 10303-1364,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1364: Application module:
+            Event assignment.</i></p>
+      <p>ISO/TS 10303-1365,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1365: Application module:
+            Time interval assignment.</i></p>
+      <p>ISO/TS 10303-1366,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1366: Application module:
+            Tagged text representation.</i></p>
+      <p>ISO/TS 10303-1404&nbsp;<sup><a href="#tobepub">1</a>)</sup>,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1404: Application module:
+            Geometric model 2d 3D relationship.</i></p>
+      <p>ISO/TS 10303-1501,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1501: Application module:
+            Edge based wireframe.</i></p>
+      <p>ISO/TS 10303-1502,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1502: Application module:
+            Shell based wireframe.</i></p>
+      <p>ISO/TS 10303-1507,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1507: Application module:
+            Geometrically bounded surface.</i></p>
+      <p>ISO/TS 10303-1509,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1509: Application module:
+            Manifold surface.</i></p>
+      <p>ISO/TS 10303-1510,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1510: Application module:
+            Geometrically bounded wireframe.</i></p>
+      <p>ISO/TS 10303-1512,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1512: Application module:
+            Faceted boundary representation.</i></p>
+      <p>ISO/TS 10303-1514,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1514: Application module:
+            Advanced boundary representation.</i></p>
+      <p>ISO/TS 10303-1601,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1601: Application module:
+            Altered package.</i></p>
+      <p>ISO/TS 10303-1602,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1602: Application module:
+            Altered part.</i></p>
+      <p>ISO/TS 10303-1603,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1603: Application module:
+            Analytical model.</i></p>
+      <p>ISO/TS 10303-1613,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1613: Application module:
+            Physical unit non planar design view.</i></p>
+      <p>ISO/TS 10303-1632,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1632: Application module:
+            Assembly 2D shape.</i></p>
+      <p>ISO/TS 10303-1633,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1633: Application module:
+            Assembly 3D shape.</i></p>
+      <p>ISO/TS 10303-1634,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1634: Application module:
+            Assembly component placement requirements.</i></p>
+      <p>ISO/TS 10303-1635,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1635: Application module:
+            Assembly functional interface requirement.</i></p>
+      <p>ISO/TS 10303-1636,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1636: Application module:
+            Assembly module design.</i></p>
+      <p>ISO/TS 10303-1637,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1637: Application module:
+            Assembly module macro definition.</i></p>
+      <p>ISO/TS 10303-1638,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1638: Application module:
+            Assembly module with cable component 2D.</i></p>
+      <p>ISO/TS 10303-1639,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1639: Application module:
+            Assembly module with cable component 3D.</i></p>
+      <p>ISO/TS 10303-1640,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1640: Application module:
+            Assembly module with macro component.</i></p>
+      <p>ISO/TS 10303-1641,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1641: Application module:
+            Assembly module with subassembly.</i></p>
+      <p>ISO/TS 10303-1642,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1642: Application module:
+            Assembly module usage view.</i></p>
+      <p>ISO/TS 10303-1643,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1643: Application module:
+            Assembly module with interconnect component.</i></p>
+      <p>ISO/TS 10303-1645,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1645: Application module:
+            Assembly module with packaged connector component.</i></p>
+      <p>ISO/TS 10303-1646,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1646: Application module:
+            Footprint definition.</i></p>
+      <p>ISO/TS 10303-1647,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1647: Application module:
+            Assembly physical interface requirement.</i></p>
+      <p>ISO/TS 10303-1648,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1648: Application module:
+            Assembly physical requirement allocation.</i></p>
+      <p>ISO/TS 10303-1649,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1649: Application module:
+            Assembly technology.</i></p>
+      <p>ISO/TS 10303-1650,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1650: Application module:
+            Bare die.</i></p>
+      <p>ISO/TS 10303-1653,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1653: Application module:
+            Cable.</i></p>
+      <p>ISO/TS 10303-1654,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1654: Application module:
+            Characteristic.</i></p>
+      <p>ISO/TS 10303-1655,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1655: Application module:
+            Chemical substance.</i></p>
+      <p>ISO/TS 10303-1656,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1656: Application module:
+            Component grouping.</i></p>
+      <p>ISO/TS 10303-1658,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1658: Application module:
+            Connectivity allocation to physical network.</i></p>
+      <p>ISO/TS 10303-1659,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1659: Application module:
+            Curve swept solid.</i></p>
+      <p>ISO/TS 10303-1660,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1660: Application module:
+            Datum difference based model.</i></p>
+      <p>ISO/TS 10303-1664,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1664: Application module:
+            Device marking.</i></p>
+      <p>ISO/TS 10303-1665,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1665: Application module:
+            Electrical network definition.</i></p>
+      <p>ISO/TS 10303-1666,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1666: Application module:
+            Extended geometric tolerance.</i></p>
+      <p>ISO/TS 10303-1669,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1669: Application module:
+            Fabrication requirement.</i></p>
+      <p>ISO/TS 10303-1670,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1670: Application module:
+            Fabrication technology.</i></p>
+      <p>ISO/TS 10303-1672,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1672: Application module:
+            Fill area style.</i></p>
+      <p>ISO/TS 10303-1673,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1673: Application module:
+            Edge shape feature.</i></p>
+      <p>ISO/TS 10303-1674,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1674: Application module:
+            Functional assignment to part.</i></p>
+      <p>ISO/TS 10303-1675,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1675: Application module:
+            Functional decomposition to assembly design.</i></p>
+      <p>ISO/TS 10303-1676,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1676: Application module:
+            Functional decomposition to design.</i></p>
+      <p>ISO/TS 10303-1677,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1677: Application module:
+            Functional decomposition to interconnect design.</i></p>
+      <p>ISO/TS 10303-1678,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1678: Application module:
+            Functional decomposition with nodal representation to packaged mapping.</i></p>
+      <p>ISO/TS 10303-1679,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1679: Application module:
+            Functional specification.</i></p>
+      <p>ISO/TS 10303-1680,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1680: Application module:
+            Functional unit requirement allocation.</i></p>
+      <p>ISO/TS 10303-1681,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1681: Application module:
+            Generic material aspects.</i></p>
+      <p>ISO/TS 10303-1686,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1686: Application module:
+            Interconnect module usage view.</i></p>
+      <p>ISO/TS 10303-1687,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1687: Application module:
+            Interconnect module with macros.</i></p>
+      <p>ISO/TS 10303-1688,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1688: Application module:
+            Interconnect non planar shape.</i></p>
+      <p>ISO/TS 10303-1689,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1689: Application module:
+            Interconnect physical requirement allocation.</i></p>
+      <p>ISO/TS 10303-1690,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1690: Application module:
+            Interconnect placement requirements.</i></p>
+      <p>ISO/TS 10303-1691,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1691: Application module:
+            Interface component.</i></p>
+      <p>ISO/TS 10303-1695,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1695: Application module:
+            Layered interconnect module 2D design.</i></p>
+      <p>ISO/TS 10303-1696,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1696: Application module:
+            Layered interconnect module 3D design.</i></p>
+      <p>ISO/TS 10303-1698,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1698: Application module:
+            Layered interconnect module design.</i></p>
+      <p>ISO/TS 10303-1700,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1700: Application module:
+            Layered interconnect module with printed component design.</i></p>
+      <p>ISO/TS 10303-1701,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1701: Application module:
+            Layout macro definition.</i></p>
+      <p>ISO/TS 10303-1702,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1702: Application module:
+            Manifold subsurface.</i></p>
+      <p>ISO/TS 10303-1703,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1703: Application module:
+            Model parameter.</i></p>
+      <p>ISO/TS 10303-1704,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1704: Application module:
+            Network functional design view.</i></p>
+      <p>ISO/TS 10303-1705,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1705: Application module:
+            Functional usage view.</i></p>
+      <p>ISO/TS 10303-1707,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1707: Application module:
+            Package.</i></p>
+      <p>ISO/TS 10303-1708,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1708: Application module:
+            Packaged connector model.</i></p>
+      <p>ISO/TS 10303-1709,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1709: Application module:
+            Packaged part white box model.</i></p>
+      <p>ISO/TS 10303-1710,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1710: Application module:
+            Packaged part black box model.</i></p>
+      <p>ISO/TS 10303-1712,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1712: Application module:
+            Part feature function.</i></p>
+      <p>ISO/TS 10303-1713,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1713: Application module:
+            Part feature grouping.</i></p>
+      <p>ISO/TS 10303-1715,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1715: Application module:
+            Part occurrence.</i></p>
+      <p>ISO/TS 10303-1716,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1716: Application module:
+            Layered interconnect complex template.</i></p>
+      <p>ISO/TS 10303-1717,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1717: Application module:
+            Part template 3D shape.</i></p>
+      <p>ISO/TS 10303-1718,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1718: Application module:
+            Layered interconnect simple template.</i></p>
+      <p>ISO/TS 10303-1719,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1719: Application module:
+            Part template non planar shape.</i></p>
+      <p>ISO/TS 10303-1720,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1720: Application module:
+            Part template shape with parameters.</i></p>
+      <p>ISO/TS 10303-1722,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1722: Application module:
+            Part template.</i></p>
+      <p>ISO/TS 10303-1723,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1723: Application module:
+            Physical node requirement to implementing component allocation.</i></p>
+      <p>ISO/TS 10303-1726,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1726: Application module:
+            Physical unit 2D shape.</i></p>
+      <p>ISO/TS 10303-1728,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1728: Application module:
+            Physical unit design view.</i></p>
+      <p>ISO/TS 10303-1729,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1729: Application module:
+            Physical unit interconnect definition.</i></p>
+      <p>ISO/TS 10303-1730,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1730: Application module:
+            Physical unit shape with parameters.</i></p>
+      <p>ISO/TS 10303-1732,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1732: Application module:
+            Physical unit usage view.</i></p>
+      <p>ISO/TS 10303-1733,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1733: Application module:
+            Planned characteristic.</i></p>
+      <p>ISO/TS 10303-1734,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1734: Application module:
+            Pre defined datum symbol.</i></p>
+      <p>ISO/TS 10303-1735,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1735: Application module:
+            Pre defined datum 2D symbol.</i></p>
+      <p>ISO/TS 10303-1736,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1736: Application module:
+            Pre defined datum 3D symbol.</i></p>
+      <p>ISO/TS 10303-1737,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1737: Application module:
+            Printed physical layout template.</i></p>
+      <p>ISO/TS 10303-1739,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1739: Application module:
+            Production rule.</i></p>
+      <p>ISO/TS 10303-1741,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1741: Application module:
+            Sequential laminate assembly design.</i></p>
+      <p>ISO/TS 10303-1744,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1744: Application module:
+            Discrete shield.</i></p>
+      <p>ISO/TS 10303-1745,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1745: Application module:
+            Signal.</i></p>
+      <p>ISO/TS 10303-1746,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1746: Application module:
+            Software.</i></p>
+      <p>ISO/TS 10303-1747,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1747: Application module:
+            Specification document.</i></p>
+      <p>ISO/TS 10303-1748,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1748: Application module:
+            Stratum non planar shape.</i></p>
+      <p>ISO/TS 10303-1749,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1749: Application module:
+            Styled curve.</i></p>
+      <p>ISO/TS 10303-1750,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1750: Application module:
+            Text representation.</i></p>
+      <p>ISO/TS 10303-1751,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1751: Application module:
+            Test requirement allocation.</i></p>
+      <p>ISO/TS 10303-1752,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1752: Application module:
+            Thermal network definition.</i></p>
+      <p>ISO/TS 10303-1753,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1753: Application module:
+            Value with unit extension.</i></p>
+      <p>ISO/TS 10303-1755,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1755: Application module:
+            Physical connectivity definition.</i></p>
+      <p>ISO/TS 10303-1756,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1756: Application module:
+            Conductivity material aspects.</i></p>
+      <p>ISO/TS 10303-1757,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1757: Application module:
+            Test select product.</i></p>
+      <p>ISO/TS 10303-1760,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1760: Application module:
+            Pre defined product data management specializations.</i></p>
+      <p>ISO/TS 10303-1762,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1762: Application module:
+            Generic product occurrence.</i></p>
+      <p>ISO/TS 10303-1763,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1763: Application module:
+            Integral shield.</i></p>
+      <p>ISO/TS 10303-1764,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1764: Application module:
+            Shape feature.</i></p>
+      <p>ISO/TS 10303-1767,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1767: Application module:
+            Composite constituent shape.</i></p>
+      <p>ISO/TS 10303-1768,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1768: Application module:
+            Composite material aspects.</i></p>
+      <p>ISO/TS 10303-1770,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1770: Application module:
+            Part and zone laminate tables.</i></p>
+      <p>ISO/TS 10303-1771,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1771: Application module:
+            Stock material.</i></p>
+      <p>ISO/TS 10303-1772,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1772: Application module:
+            Ply orientation specification.</i></p>
+      <p>ISO/TS 10303-1773,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1773: Application module:
+            Basic data representation.</i></p>
+      <p>ISO/TS 10303-1775,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1775: Application module:
+            Currency.</i></p>
+      <p>ISO/TS 10303-1777,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1777: Application module:
+            External currency.</i></p>
+      <p>ISO/TS 10303-1778,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1778: Application module:
+            External library.</i></p>
+      <p>ISO/TS 10303-1779,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1779: Application module:
+            External representation item.</i></p>
+      <p>ISO/TS 10303-1780,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1780: Application module:
+            External unit.</i></p>
+      <p>ISO/TS 10303-1782,&nbsp;
+         <i>Industrial automation systems and integration &#8212; Product data representation and exchange &#8212; Part 1782: Application module:
+            Qualified measure.</i></p>
+      <p><a name="tobepub">
+            1) To be published.
+            </a></p><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</html>

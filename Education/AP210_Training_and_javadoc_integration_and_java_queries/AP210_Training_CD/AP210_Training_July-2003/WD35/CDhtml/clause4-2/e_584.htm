@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Package_body</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.574 Package_body</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Package_body is a type of <A
+CLASS="INTERNALREF"
+HREF="e_613.htm"
+>Part_feature</A
+> that is the 
+encasement used in the realization of a <A
+CLASS="INTERNALREF"
+HREF="e_573.htm"
+>Package</A
+>.  The observer view shall be above the seating plane and shall be higher than the highest point of the Package_body.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>body_bottom_surface</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>body_material</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>body_top_surface</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.574.1 associated_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_definition specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_573.htm"
+>Package</A
+> for the 
+Package_body.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.574.2 body_bottom_surface</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The body_bottom_surface specifies the role of a <A
+CLASS="INTERNALREF"
+HREF="e_585.htm"
+>Package_body_bottom_surface</A
+> for the Package_body.  A body_bottom_surface need not be specified for a Package_body.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.574.3 body_material</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The body_material specifies the <A
+CLASS="INTERNALREF"
+HREF="e_318.htm"
+>Ee_material</A
+> used in the 
+manufacture of the Package_body.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.574.4 body_top_surface</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The body_top_surface specifies the role of a <A
+CLASS="INTERNALREF"
+HREF="e_589.htm"
+>Package_body_top_surface</A
+> for the Package_body.  A body_top_surface need not be specified for a Package_body.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY package_body
+  SUBTYPE OF (part_feature);
+    body_material                           : ee_material;
+    SELF\part_feature.associated_definition : package;
+WHERE
+ WR1: SIZEOF(QUERY ( pf &#60;* USEDIN (SELF,
+   'AP210_ARM.PACKAGE_BODY_SURFACE.ASSOCIATED_PACKAGE_BODY') |
+    ('AP210_ARM.' +
+     'PACKAGE_BODY_TOP_SURFACE' IN TYPEOF (pf))))
+     &#60;= 1;
+ WR2: SIZEOF(QUERY ( pf &#60;* USEDIN (SELF,
+   'AP210_ARM.PACKAGE_BODY_SURFACE.ASSOCIATED_PACKAGE_BODY') |
+    ('AP210_ARM.' +
+     'PACKAGE_BODY_BOTTOM_SURFACE' IN TYPEOF (pf))))
+     &#60;= 1;
+ WR3: SIZEOF(QUERY ( pf &#60;* USEDIN (SELF,
+   'AP210_ARM.PACKAGE_BODY_SURFACE.ASSOCIATED_PACKAGE_BODY') |
+    ('AP210_ARM.' +
+     'PACKAGE_BODY_EDGE_SURFACE' IN TYPEOF (pf))))
+     &#60;= 1;
+END_ENTITY; -- package_body
+
+--tt tc1wd9 added
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

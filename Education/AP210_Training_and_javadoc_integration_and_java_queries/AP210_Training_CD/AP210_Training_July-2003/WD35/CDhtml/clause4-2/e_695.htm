@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Positional_boundary</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.698 Positional_boundary</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Positional_boundary is a type of <A
+CLASS="INTERNALREF"
+HREF="e_561.htm"
+>Non_feature_shape_element</A
+> that is a 
+theoretical boundary that is 
+defined by a <A
+CLASS="INTERNALREF"
+HREF="e_76.htm"
+>Boundary_based_position_tolerance</A
+>. The theoretical boundary is a 
+boundary that cannot be 
+intruded upon by the toleranced <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+> if the 
+Physical_feature_or_part_template is an internal Physical_feature_or_part_template (e.g., a hole) and the 
+Boundary_based_position_tolerance is applied on a "maximum material principle" basis, or if the 
+toleranced Physical_feature_or_part_template is an external Physical_feature_or_part_template (e.g., a tab) 
+and the Boundary_based_position_tolerance is applied on a "least material requirement" basis. 
+Additionally, the theoretical boundary is a boundary that cannot be escaped by the toleranced 
+Physical_feature_or_part_template if the Physical_feature_or_part_template is an internal 
+Physical_feature_or_part_template and the Boundary_based_position_tolerance is applied on a "least 
+material requirement" basis, or if the toleranced Physical_feature_or_part_template is an external 
+Physical_feature_or_part_template and the Boundary_based_position_tolerance is applied on a "maximum 
+material principle" basis. A Positional_boundary is either a <A
+CLASS="INTERNALREF"
+HREF="e_750.htm"
+>Profile_related_positional_boundary</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_300.htm"
+>Dimension_related_positional_boundary</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>boundary_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.698.1 boundary_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The boundary_definition is an inverse relationship that specifies that the existence of the 
+Positional_boundary is dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_697.htm"
+>Positional_boundary_definition</A
+> that specifies the 
+Positional_boundary as its defined_positional_boundary.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY positional_boundary
+  ABSTRACT SUPERTYPE OF (ONEOF (profile_related_positional_boundary,
+      dimension_related_positional_boundary))
+  SUBTYPE OF (non_feature_shape_element);
+  INVERSE
+    boundary_definition : positional_boundary_definition FOR 
+                          defined_positional_boundary;
+END_ENTITY; -- positional_boundary
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

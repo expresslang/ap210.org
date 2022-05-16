@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Unrouted_conductive_interconnect_element</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.937 Unrouted_conductive_interconnect_element</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+>An Unrouted_conductive_interconnect_element is a type of <A
+CLASS="INTERNALREF"
+HREF="e_937.htm"
+>Unrouted_conductive_interconnect_element</A
+>.  
+The data provided by Unrouted_conductive_interconnect_element is provided to identify an unrouted portion of a <A
+CLASS="INTERNALREF"
+HREF="e_660.htm"
+>Physical_network</A
+>.  </DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>connected_point</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.937.1 connected_point</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The connected_point specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_500.htm"
+>Layer_connection_point_link</A
+> for the Unrouted_conductive_interconnect_element.  There shall be one or more Layer_connection_point_link for an Unrouted_conductive_interconnect_element.
+No Layer_connection_point_link shall be specified more than once as a connected_point for an Unrouted_conductive_interconnect_element.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY unrouted_conductive_interconnect_element
+  SUBTYPE OF (conductive_interconnect_element);
+    connected_points : SET [1:?] OF layer_connection_point_link;
+WHERE
+  WR1: NOT(EXISTS(SELF\conductive_interconnect_element.composed_conductor));
+END_ENTITY; -- unrouted_conductive_interconnect_element
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

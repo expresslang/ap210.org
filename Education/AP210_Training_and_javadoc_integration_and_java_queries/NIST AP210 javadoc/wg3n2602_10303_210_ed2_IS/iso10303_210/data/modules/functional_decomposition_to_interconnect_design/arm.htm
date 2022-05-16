@@ -1,0 +1,34 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Functional_decomposition_to_interconnect_design_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Functional_decomposition_to_interconnect_design_arm</h2><code><br><br><a name="functional_decomposition_to_interconnect_design_arm">SCHEMA <b>Functional_decomposition_to_interconnect_design_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/fabrication_joint/sys/e_exp_arm.htm#fabrication_joint_arm">Fabrication_joint_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1668<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/functional_decomposition_to_design/sys/e_exp_arm.htm#functional_decomposition_to_design_arm">Functional_decomposition_to_design_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1676<br><br></code><code><br><A NAME="functional_decomposition_to_interconnect_design_arm.design_functional_unit_allocation_to_fabrication_joint">ENTITY <b>Design_functional_unit_allocation_to_fabrication_joint</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="functional_decomposition_to_interconnect_design_arm.design_functional_unit_allocation_to_fabrication_joint.functional_design_definition_path">functional_design_definition_path : </A><A HREF="../../../data/modules/functional_decomposition_to_design/sys/e_exp_arm.htm#functional_decomposition_to_design_arm.design_composition_path">Design_composition_path</A>;<br>
+         &nbsp;&nbsp;<A NAME="functional_decomposition_to_interconnect_design_arm.design_functional_unit_allocation_to_fabrication_joint.implementation">implementation : </A><A HREF="../../../data/modules/fabrication_joint/sys/e_exp_arm.htm#fabrication_joint_arm.fabrication_joint">Fabrication_joint</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="functional_decomposition_to_interconnect_design_arm.design_functional_unit_allocation_to_fabrication_joint.ur:ur1">UR1: </A>functional_design_definition_path;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="functional_decomposition_to_interconnect_design_arm.transmission_line_functional_unit_terminal_allocation">ENTITY <b>Transmission_line_functional_unit_terminal_allocation</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="functional_decomposition_to_interconnect_design_arm.transmission_line_functional_unit_terminal_allocation.implementation">implementation : </A><A HREF="../../../data/modules/layered_interconnect_module_with_printed_component_design/sys/e_exp_arm.htm#layered_interconnect_module_with_printed_component_design_arm.printed_component_join_terminal">Printed_component_join_terminal</A>;<br>
+         &nbsp;&nbsp;<A NAME="functional_decomposition_to_interconnect_design_arm.transmission_line_functional_unit_terminal_allocation.transmission_line_functional_unit_terminal">transmission_line_functional_unit_terminal : </A><A HREF="../../../data/modules/network_functional_design_view/sys/e_exp_arm.htm#network_functional_design_view_arm.functional_unit_terminal">Functional_unit_terminal</A>;<br>
+         &nbsp;&nbsp;<A NAME="functional_decomposition_to_interconnect_design_arm.transmission_line_functional_unit_terminal_allocation.functional_unit_design_path">functional_unit_design_path : </A><A HREF="#functional_decomposition_to_interconnect_design_arm.transmission_line_functional_unit_to_routed_transmission_line_allocation">Transmission_line_functional_unit_to_routed_transmission_line_allocation</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="functional_decomposition_to_interconnect_design_arm.transmission_line_functional_unit_terminal_allocation.ur:ur1">UR1: </A>implementation, transmission_line_functional_unit_terminal;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="functional_decomposition_to_interconnect_design_arm.transmission_line_functional_unit_to_routed_transmission_line_allocation">ENTITY <b>Transmission_line_functional_unit_to_routed_transmission_line_allocation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/functional_decomposition_to_design/sys/e_exp_arm.htm#functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component">Design_functional_unit_allocation_to_assembly_component</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/functional_decomposition_to_design/sys/e_exp_arm.htm#functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component">Design_functional_unit_allocation_to_assembly_component</A>.<A NAME="functional_decomposition_to_interconnect_design_arm.transmission_line_functional_unit_to_routed_transmission_line_allocation.implementation">implementation : </A><A HREF="../../../data/modules/layered_interconnect_module_with_printed_component_design/sys/e_exp_arm.htm#layered_interconnect_module_with_printed_component_design_arm.routed_transmission_line">Routed_transmission_line</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Functional_decomposition_to_interconnect_design_arm<br></code></body>
+</HTML>

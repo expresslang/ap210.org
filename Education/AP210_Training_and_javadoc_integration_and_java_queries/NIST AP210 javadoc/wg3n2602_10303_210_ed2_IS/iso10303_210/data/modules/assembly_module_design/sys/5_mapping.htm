@@ -1,0 +1,1159 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Assembly module design">
+      <META name="DC.Dates" content="2009-04-30 12:37:08">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Assembly module design">
+      <META name="DC.Subject" content="module, electrical, electromechanical, assembly design, layered interconnect product, layered electrical product, electronic, physical design, design reuse, requirements traceability, shape, configuration management, design change management">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6293">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5574">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-04-30 12:37:08">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.73">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.60">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.52">
+      <TITLE>ISO/TS 10303-1636:2009 Assembly module design</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Assembly module design</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1636:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.4 ARM subtype constraint definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.1 MIM entity definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#subtype_constraints">5.2.2 MIM subtype constraint definition</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <h2><a name="mapping">5.1 Mapping specification</a></h2><a name="mappings"></a><p>
+         In the following, "Application element" designates any entity data
+         type defined in Clause <a href="4_info_reqs.htm">4</a>, any of its 
+         explicit attributes and any subtype constraint. 
+         "MIM element" designates any entity data type defined in 
+         Clause <a href="5_mim.htm#mim_express">5.2</a> or imported with a USE FROM
+         statement, from another EXPRESS schema, any of its 
+         attributes and any subtype constraint defined in Clause <a href="5_mim.htm#mim_express">5.2</a> or imported with a USE FROM
+         statement.
+         
+      </p>
+      <p>
+         This clause contains the mapping specification that defines how each 
+         application element of this part of ISO 10303 (see Clause <a href="4_info_reqs.htm">4</a>) maps to one
+         or more MIM elements (see Clause <a href="5_mim.htm#mim_express">5.2</a>).
+         
+      </p>
+      <p>
+         The mapping for each application element is specified in a separate subclause below. 
+         The mapping specification of an attribute of an ARM entity is a subclause of the clause that contains the mapping specification
+         of this entity.
+         Each mapping specification subclause contains up to five elements.
+         
+      </p>
+      <p><b>Title:</b>
+         The clause title contains:
+      </p>
+      <ul>
+         <li>the name of the considered ARM entity or subtype constraint, or </li>
+         <li>the name of the considered ARM entity atribute when this attribute refers to a type that is not an entity data type or a SELECT
+            type that contains or may contain entity data types, or
+         </li>
+         <li>a composite expression, &lt;attribute name&gt; to &lt;referred type&gt;, when this attribute refers to a type that is not an entity data
+            type or a SELECT type that contains or may contain entity data types.
+         </li>
+      </ul>
+      <p><b>MIM element:</b> 
+         This section contains, depending on the considered application element:
+      </p>
+      <ul>
+         <li>the name of one or more MIM entity data types;</li>
+         <li>the name of a MIM entity attribute, presented with the syntax &lt;entity name&gt;.&lt;attribute name&gt;, when the considered ARM attribute
+            refers to a type that is not an entity data type or a SELECT type that contains or may contain entity data types;
+         </li>
+         <li>the term PATH, when the considered ARM entity attribute refers to an entity data type or to a SELECT type that contains or
+            may contain entity data types;
+         </li>
+         <li>the term IDENTICAL MAPPING, when both application objects
+            involved in an application assertion map to the same instance of a MIM entity data type;
+         </li>
+         <li>the syntax /SUPERTYPE(&lt;supertype name&gt;)/, when the considered ARM entity is mapped as its supertype;</li>
+         <li>one or more constructs /SUBTYPE(&lt;subtype name&gt;)/, when the mapping of the considered ARM entity is the union of the mapping
+            of its subtypes.
+         </li>
+      </ul>
+      <p>
+         When the mapping of an application element involves more than one MIM element, each of these MIM elements is 
+         presented on a separate line in the mapping specification, enclosed between parentheses or brackets. 
+         
+      </p>
+      <p><b>Source:</b> This section contains:
+      </p>
+      <ul>
+         <li>the ISO standard number and part number in which the
+            MIM element is defined, for those MIM elements that are defined in a common
+            resource document;
+         </li>
+         <li>the ISO standard number and
+            part number of this part of ISO 10303, for those MIM elements that are defined in the MIM schema of this part.
+         </li>
+      </ul>
+      <p>
+         		This section is omitted when the keywords PATH or IDENTICAL MAPPING are used in the MIM element section.
+         
+      </p>
+      <p><b>Rules:</b> 
+         This section contains the name of one or more global rules that apply to the
+         population of the MIM entity data types listed in the MIM element section or
+         in the reference path. When no rule applies, this section is omitted.
+         		
+      </p>
+      <p>A reference to a
+         global rule may be followed by a reference to the subclause in
+         which the rule is defined.
+         
+      </p>
+      <p><b>Constraint:</b> 
+         This section contains the name of one or more subtype constraints that apply to the
+         population of the MIM entity data types listed in the MIM element section or
+         in the reference path. When no subtype constraint applies, this section is omitted.
+         
+      </p>
+      <p>
+         A reference to a subtype constraint may be followed by a reference to the subclause in
+         which the subtype constraint is defined.
+         
+      </p>
+      <p><b>Reference path:</b> This section contains:
+      </p>
+      <ul>
+         <li>the reference path to its supertypes in the common resources, 
+            for each MIM element created within this part of ISO 10303; 
+            
+         </li>
+         <li>
+            the specification of the relationships between MIM elements, when the mapping of an application element requires to relate
+            instances of several
+            MIM entity data types. In such a case, each line in the reference path
+            documents the role of a MIM element relative to the referring MIM
+            element or to the next referred MIM element. 
+            		
+         </li>
+      </ul>
+      <p>For the expression of reference paths and of the
+         constraints between MIM elements, the following notational conventions
+         apply:
+         
+      </p>
+      <table cellspacing="6">
+         <tbody>
+            <tr valign="top">
+               <td valign="top">[]</td>
+               <td valign="top">
+                  enclosed section constrains multiple MIM elements or
+                  sections of the reference path are required to satisfy an
+                  information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">()</td>
+               <td valign="top">
+                  enclosed section constrains multiple MIM elements or
+                  sections of the reference path are identified as alternatives
+                  within the mapping to satisfy an information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">{}</td>
+               <td valign="top">
+                  enclosed section constrains the reference path to satisfy
+                  an information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;&gt;</td>
+               <td valign="top">
+                  enclosed section constrains at one or more required
+                  reference path;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">||</td>
+               <td valign="top">enclosed section constrains the supertype entity;</td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">-&gt;</td>
+               <td valign="top">
+                  the attribute, whose name precedes the -&gt; symbol, references the entity or select type whose name follows the -&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;-</td>
+               <td valign="top">
+                  the entity or select type, whose name precedes the &lt;- symbol, is referenced by the entity attribute whose name follows the
+                  &lt;- symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">[i]</td>
+               <td valign="top">
+                  the attribute, whose name precedes the [i] symbol, is an aggregate; any element of that aggregate is referred to;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">[n]</td>
+               <td valign="top">
+                  the attribute, whose name precedes the [n] symbol, is an ordered aggregate; member n of that aggregate is referred to;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">=&gt;</td>
+               <td valign="top">
+                  the entity, whose name precedes the =&gt; symbol, is a supertype of the entity whose name follows the =&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;=</td>
+               <td valign="top">
+                  the entity, whose name precedes the &lt;= symbol, is a subtype of the entity whose name follows the &lt;= symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">=</td>
+               <td valign="top">
+                  the string, select, or enumeration type is constrained to a choice or value;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">\</td>
+               <td valign="top">
+                  the reference path expression continues on the next line;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">*</td>
+               <td valign="top">
+                  one or more instances of the relationship entity data type may be assembled in a
+                  relationship tree structure. The path between the relationship entity and the related entities, is enclosed with braces;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">--</td>
+               <td valign="top">
+                  the text following is a comment or introduces a clause reference;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">*&gt;</td>
+               <td valign="top">
+                  the select or enumeration type, whose name precedes the *&gt; symbol, is
+                  extended into the select or enumeration type whose name follows the *&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;*</td>
+               <td valign="top">
+                  the select or enumeration type, whose name precedes the &lt;* symbol, is an
+                  extension of the select or enumeration type whose name follows the &lt;* symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top" nowrap="t">!{}</td>
+               <td valign="top">
+                  section enclosed by {} indicates a negative constraint placed on the mapping.
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      The definition and use of mapping templates is not supported in the
+      present version of the application modules. However, use of predefined
+      templates /SUBTYPE/ and /SUPERTYPE/ is supported. 
+      
+      <h2><a name="aeentityassembly_connection_zone_position_relationship">5.1.1 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.assembly_connection_zone_position_relationship">Assembly_connection_zone_position_relationship</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>representation_relationship_with_transformation</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-43</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{representation_relationship_with_transformation &lt;=<br>representation_relationship            <br>representation_relationship.name = 'design view connection zone position relationship'}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityassembly_connection_zone_position_relationshipaaattributeassociating_design_view_shapeassertion_togeometric_model"></a>5.1.1.1 <a href="./4_info_reqs.htm#assembly_module_design_arm.assembly_connection_zone_position_relationship">Assembly_connection_zone_position_relationship</a>
+         to <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.assembly_connection_zone_position_relationship.associating_design_view_shape">associating_design_view_shape</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>representation_relationship_with_transformation &lt;=<br>representation_relationship<br>representation_relationship.rep_1 -&gt;<br>{representation<br>representation.name = 'design view shape'}<br>representation =&gt;<br>shape_representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityassembly_connection_zone_position_relationshipaaattributeassociated_usageassertion_toconnection_zone_in_design_view"></a>5.1.1.2 <a href="./4_info_reqs.htm#assembly_module_design_arm.assembly_connection_zone_position_relationship">Assembly_connection_zone_position_relationship</a>
+         to <A HREF="../../../../data/modules/physical_unit_design_view/sys/4_info_reqs.htm#physical_unit_design_view_arm.connection_zone_in_design_view">Connection_zone_in_design_view</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.assembly_connection_zone_position_relationship.associated_usage">associated_usage</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>representation_relationship_with_transformation &lt;=<br>representation_relationship<br>representation_relationship.rep_2 -&gt;<br>{representation<br>representation.name = 'zone shape'}<br>{representation =&gt;<br>shape_representation}<br>representation &lt;-<br>property_definition_representation.used_representation<br>property_definition_representation<br>property_definition_representation.definition -&gt;<br>property_definition<br>property_definition.definition -&gt;<br>characterized_definition<br>characterized_definition = shape_definition<br>shape_definition<br>shape_definition = shape_aspect<br>shape_aspect<br>{shape_aspect<br>shape_aspect.description = 'connection zone'}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityassembly_connection_zone_position_relationshipaaattributeassociated_connection_zone_shape_definitionassertion_togeometric_model"></a>5.1.1.3 <a href="./4_info_reqs.htm#assembly_module_design_arm.assembly_connection_zone_position_relationship">Assembly_connection_zone_position_relationship</a>
+         to <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.assembly_connection_zone_position_relationship.associated_connection_zone_shape_definition">associated_connection_zone_shape_definition</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>representation_relationship_with_transformation &lt;=<br>representation_relationship<br>representation_relationship.rep_2 -&gt;<br>{representation<br>representation.name = 'zone shape'}<br>representation =&gt;<br>shape_representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityassembly_connection_zone_position_relationshipaaattributeassociated_usage_placementassertion_toaxis_placement"></a>5.1.1.4 <a href="./4_info_reqs.htm#assembly_module_design_arm.assembly_connection_zone_position_relationship">Assembly_connection_zone_position_relationship</a>
+         to <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.assembly_connection_zone_position_relationship.associated_usage_placement">associated_usage_placement</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>representation_relationship_with_transformation<br>representation_relationship_with_transformation.transformation_operator -&gt;<br>transformation<br>transformation = item_defined_transformation<br>item_defined_transformation.transform_item_1 -&gt;<br>representation_item =&gt;<br>geometric_representation_item =&gt;<br>placement<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityassembly_connection_zone_position_relationshipaaattributeassociating_design_viewassertion_topart_design_view"></a>5.1.1.5 <a href="./4_info_reqs.htm#assembly_module_design_arm.assembly_connection_zone_position_relationship">Assembly_connection_zone_position_relationship</a>
+         to <A HREF="../../../../data/modules/physical_unit_design_view/sys/4_info_reqs.htm#physical_unit_design_view_arm.part_design_view">Part_design_view</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.assembly_connection_zone_position_relationship.associating_design_view">associating_design_view</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>representation_relationship_with_transformation &lt;=<br>representation_relationship<br>representation_relationship.rep_1 -&gt;<br>{representation =&gt;<br>shape_representation}<br>representation &lt;-<br>property_definition_representation.used_representation<br>property_definition_representation<br>property_definition_representation.definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>physical_unit<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityassembly_module_design_view">5.1.2 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.assembly_module_design_view">Assembly_module_design_view</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>assembly_module_design_view</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1636</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>assembly_module_design_view &lt;=<br>physical_unit<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitybare_die_component">5.1.3 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.bare_die_component">Bare_die_component</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>bare_die_component</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1636</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>bare_die_component &lt;=<br>physical_component &lt;=<br>assembly_component &lt;=<br>component_definition &lt;=<br>product_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitybare_die_componentaaattributederived_fromassertion_tobare_die"></a>5.1.3.1 <a href="./4_info_reqs.htm#assembly_module_design_arm.bare_die_component">Bare_die_component</a>
+         to <A HREF="../../../../data/modules/bare_die/sys/4_info_reqs.htm#bare_die_arm.bare_die">Bare_die</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.bare_die_component.derived_from">derived_from</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>bare_die_component &lt;=<br>physical_component &lt;=<br>assembly_component &lt;=<br>component_definition &lt;=<br>product_definition &lt;-<br>product_definition_relationship.related_product_definition<br>product_definition_relationship<br>{product_definition_relationship<br>product_definition_relationship.name = 'definition usage'}<br>product_definition_relationship.relating_product_definition -&gt;<br>product_definition =&gt;<br>physical_unit =&gt;<br>bare_die<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitybare_die_component_terminal">5.1.4 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.bare_die_component_terminal">Bare_die_component_terminal</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>physical_component_terminal</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1721</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_component_terminal &lt;=<br>component_terminal &lt;=<br>component_feature &lt;=				<br>shape_aspect<br>{shape_aspect<br>[shape_aspect.description = 'bare die component terminal']<br>[shape_aspect.product_definitional = .TRUE.]}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitybare_die_component_terminalaaattributeassociated_componentassertion_tobare_die_component"></a>5.1.4.1 <a href="./4_info_reqs.htm#assembly_module_design_arm.bare_die_component_terminal">Bare_die_component_terminal</a>
+         to <A HREF="../../../../data/modules/assembly_module_design/sys/4_info_reqs.htm#assembly_module_design_arm.bare_die_component">Bare_die_component</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.bare_die_component_terminal.associated_component">associated_component</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_component_terminal &lt;=<br>component_terminal &lt;=<br>component_feature &lt;=	<br>shape_aspect<br>shape_aspect.of_shape -&gt;<br>product_definition_shape =&gt;<br>assembly_component =&gt;<br>physical_component =&gt;<br>bare_die_component<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitybare_die_component_terminalaaattributedefinitionassertion_tobare_die_terminal"></a>5.1.4.2 <a href="./4_info_reqs.htm#assembly_module_design_arm.bare_die_component_terminal">Bare_die_component_terminal</a>
+         to <A HREF="../../../../data/modules/bare_die/sys/4_info_reqs.htm#bare_die_arm.bare_die_terminal">Bare_die_terminal</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.bare_die_component_terminal.definition">definition</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_component_terminal &lt;=<br>component_terminal &lt;=<br>component_feature &lt;=	<br>shape_aspect &lt;-<br>shape_aspect_relationship.related_shape_aspect<br>shape_aspect_relationship<br>{shape_aspect_relationship<br>shape_aspect_relationship.name = 'instantiated feature'}<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect =&gt;<br>minimally_defined_bare_die_terminal =&gt;<br>bare_die_terminal<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_external_reference">5.1.5 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.component_external_reference">Component_external_reference</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>representation</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-43</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{representation<br>representation.name = 'component external reference'}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_external_referenceaaattributedesign_owner"></a>5.1.5.1 <a href="./4_info_reqs.htm#assembly_module_design_arm.component_external_reference.design_owner">design_owner</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>descriptive_representation_item</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>representation<br>representation.items[i] -&gt;<br>{representation_item<br>representation_item.name = 'design owner'}<br>representation_item =&gt;<br>descriptive_representation_item<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_external_referenceaaattributepart_number"></a>5.1.5.2 <a href="./4_info_reqs.htm#assembly_module_design_arm.component_external_reference.part_number">part_number</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>descriptive_representation_item</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>representation<br>representation.items[i] -&gt;<br>{representation_item<br>representation_item.name = 'part number'}<br>representation_item =&gt;<br>descriptive_representation_item<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_external_referenceaaattributerevision_code"></a>5.1.5.3 <a href="./4_info_reqs.htm#assembly_module_design_arm.component_external_reference.revision_code">revision_code</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>descriptive_representation_item</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>representation<br>representation.items[i] -&gt;<br>{representation_item<br>representation_item.name = 'revision code'}<br>representation_item =&gt;<br>descriptive_representation_item<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_external_referenceaaattributeproduct_definition_id"></a>5.1.5.4 <a href="./4_info_reqs.htm#assembly_module_design_arm.component_external_reference.product_definition_id">product_definition_id</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>descriptive_representation_item</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>representation<br>representation.items[i] -&gt;<br>{representation_item<br>representation_item.name = 'product definition id'}<br>representation_item =&gt;<br>descriptive_representation_item<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_external_referenceaaattributereference_designation"></a>5.1.5.5 <a href="./4_info_reqs.htm#assembly_module_design_arm.component_external_reference.reference_designation">reference_designation</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>descriptive_representation_item</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>representation<br>representation.items[i] -&gt;<br>{representation_item<br>representation_item.name = 'reference designation'}<br>representation_item =&gt;<br>descriptive_representation_item<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_feature_external_reference">5.1.6 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.component_feature_external_reference">Component_feature_external_reference</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>descriptive_representation_item</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-45</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>descriptive_representation_item &lt;=<br>{representation_item<br>representation_item.name = 'component feature external reference'}<br>representation_item<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_feature_external_referenceaaattributename"></a>5.1.6.1 <a href="./4_info_reqs.htm#assembly_module_design_arm.component_feature_external_reference.name">name</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>descriptive_representation_item.description</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-45</td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_feature_external_referenceaaattributeassociated_componentassertion_tocomponent_external_reference"></a>5.1.6.2 <a href="./4_info_reqs.htm#assembly_module_design_arm.component_feature_external_reference">Component_feature_external_reference</a>
+         to <A HREF="../../../../data/modules/assembly_module_design/sys/4_info_reqs.htm#assembly_module_design_arm.component_external_reference">Component_external_reference</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.component_feature_external_reference.associated_component">associated_component</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>descriptive_representation_item &lt;=<br>representation_item &lt;-<br>representation.items[i]<br>{representation<br>representation.name = 'component external reference'}<br>representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_mounting_clearance_relationship">5.1.7 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.component_mounting_clearance_relationship">Component_mounting_clearance_relationship</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>representation</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-43</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{representation.name = 'mounting clearance'}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_mounting_clearance_relationshipaaattributemounting_clearanceassertion_tolength_tolerance_characteristic"></a>5.1.7.1 <a href="./4_info_reqs.htm#assembly_module_design_arm.component_mounting_clearance_relationship">Component_mounting_clearance_relationship</a>
+         to <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.component_mounting_clearance_relationship.mounting_clearance">mounting_clearance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{representation.name = 'mounting clearance'}<br>representation &lt;-<br>representation_relationship.rep_1<br>representation_relationship<br>{representation_relationship.name = 'mounting clearance'}<br>representation_relationship.rep_2 -&gt;<br>representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_mounting_clearance_relationshipaaattributefeature_relationshipassertion_tocomponent_feature_relationship"></a>5.1.7.2 <a href="./4_info_reqs.htm#assembly_module_design_arm.component_mounting_clearance_relationship">Component_mounting_clearance_relationship</a>
+         to <A HREF="../../../../data/modules/component_feature/sys/4_info_reqs.htm#component_feature_arm.component_feature_relationship">Component_feature_relationship</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.component_mounting_clearance_relationship.feature_relationship">feature_relationship</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{representation.name = 'mounting clearance'}<br>representation &lt;-<br>property_definition_representation.used_representation<br>property_definition_representation<br>property_definition_representation.definition -&gt;<br>property_definition<br>{property_definition<br>property_definition.name = 'component mounting property'}<br>property_definition.definition -&gt;<br>characterized_definition<br>characterized_definition = shape_definition <br>shape_definition = shape_aspect_relationship <br>shape_aspect_relationship =&gt;<br>component_feature_relationship<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_mounting_feature">5.1.8 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.component_mounting_feature">Component_mounting_feature</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>component_mounting_feature</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1636</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>component_mounting_feature &lt;=<br>physical_component_feature &lt;=<br>component_feature &lt;=				<br>shape_aspect<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_mounting_featureaaattributedefinitionassertion_topart_mounting_feature"></a>5.1.8.1 <a href="./4_info_reqs.htm#assembly_module_design_arm.component_mounting_feature">Component_mounting_feature</a>
+         to <A HREF="../../../../data/modules/part_feature_function/sys/4_info_reqs.htm#part_feature_function_arm.part_mounting_feature">Part_mounting_feature</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.component_mounting_feature.definition">definition</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>component_mounting_feature &lt;=<br>physical_component_feature &lt;=<br>component_feature &lt;=				<br>shape_aspect &lt;-<br>shape_aspect_relationship.related_shape_aspect<br>{shape_aspect_relationship<br>shape_aspect_relationship.name = 'instantiated feature'}<br>shape_aspect_relationship<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect =&gt;<br>part_mounting_feature<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_overlap_relationship">5.1.9 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.component_overlap_relationship">Component_overlap_relationship</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>representation</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-43</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{representation.name = 'overlap clearance'}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_overlap_relationshipaaattributeadded_clearanceassertion_tolength_tolerance_characteristic"></a>5.1.9.1 <a href="./4_info_reqs.htm#assembly_module_design_arm.component_overlap_relationship">Component_overlap_relationship</a>
+         to <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.component_overlap_relationship.added_clearance">added_clearance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{representation.name = 'overlap clearance'}<br>representation<br>representation &lt;-<br>representation_relationship.rep_1<br>representation_relationship<br>{representation_relationship.name = 'added clearance'}<br>representation_relationship.rep_2 -&gt;<br>representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_overlap_relationshipaaattributecurrent_componentassertion_tonext_assembly_usage"></a>5.1.9.2 <a href="./4_info_reqs.htm#assembly_module_design_arm.component_overlap_relationship">Component_overlap_relationship</a>
+         to <A HREF="../../../../data/modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.next_assembly_usage">Next_assembly_usage</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.component_overlap_relationship.current_component">current_component</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{representation.name = 'overlap clearance'}<br>representation &lt;-<br>property_definition_representation.used_representation<br>property_definition_representation<br>property_definition_representation.definition -&gt;<br>{property_definition<br>[property_definition.name = 'component overlap property']<br>[property_definition.description = 'current component']}<br>property_definition<br>property_definition.definition -&gt;<br>characterized_definition<br>characterized_definition = characterized_product_definition<br>characterized_product_definition<br>characterized_product_definition = product_definition_relationship<br>product_definition_relationship =&gt;<br>product_definition_usage =&gt;<br>assembly_component_usage =&gt;<br>(next_assembly_usage_occurrence)<br>([next_assembly_usage_occurrence]<br>[quantified_assembly_component_usage])<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomponent_overlap_relationshipaaattributepreviously_placed_componentassertion_tonext_assembly_usage"></a>5.1.9.3 <a href="./4_info_reqs.htm#assembly_module_design_arm.component_overlap_relationship">Component_overlap_relationship</a>
+         to <A HREF="../../../../data/modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.next_assembly_usage">Next_assembly_usage</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.component_overlap_relationship.previously_placed_component">previously_placed_component</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{representation.name = 'overlap clearance'}<br>representation &lt;-<br>property_definition_representation.used_representation<br>property_definition_representation<br>property_definition_representation.definition -&gt;<br>{property_definition<br>[property_definition.name = 'component overlap property']<br>[property_definition.description = 'previously placed component']}<br>property_definition<br>property_definition.definition -&gt;<br>characterized_definition<br>characterized_definition = characterized_product_definition<br>characterized_product_definition<br>characterized_product_definition = product_definition_relationship<br>product_definition_relationship =&gt;<br>product_definition_usage =&gt;<br>assembly_component_usage =&gt;<br>(next_assembly_usage_occurrence)<br>([next_assembly_usage_occurrence]<br>[quantified_assembly_component_usage])<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylayered_assembly_panel_design_view">5.1.10 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.layered_assembly_panel_design_view">Layered_assembly_panel_design_view</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>layered_assembly_panel_design_view</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1636</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>layered_assembly_panel_design_view &lt;=<br>assembly_module_design_view<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityminimally_defined_component_terminal">5.1.11 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.minimally_defined_component_terminal">Minimally_defined_component_terminal</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>physical_component_terminal</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1721</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{physical_component_terminal &lt;=<br>component_terminal &lt;=<br>component_feature &lt;=				<br>shape_aspect<br>shape_aspect.description = 'minimally defined component terminal'}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityminimally_defined_component_terminalaaattributedefinitionassertion_topart_terminal_external_reference"></a>5.1.11.1 <a href="./4_info_reqs.htm#assembly_module_design_arm.minimally_defined_component_terminal">Minimally_defined_component_terminal</a>
+         to <A HREF="../../../../data/modules/part_external_reference/sys/4_info_reqs.htm#part_external_reference_arm.part_terminal_external_reference">Part_terminal_external_reference</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.minimally_defined_component_terminal.definition">definition</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_component_terminal &lt;=<br>component_terminal &lt;=<br>component_feature &lt;=	<br>shape_aspect<br>shape_aspect_relationship.related_shape_aspect<br>{shape_aspect_relationship<br>shape_aspect_relationship.name = 'instantiated feature'}<br>shape_aspect_relationship<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect =&gt;<br>part_terminal_external_reference<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitymovable_packaged_component_join_terminal">5.1.12 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.movable_packaged_component_join_terminal">Movable_packaged_component_join_terminal</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>physical_component_terminal</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1721</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_component_terminal &lt;=<br>component_terminal &lt;=<br>component_feature &lt;=				<br>shape_aspect<br>{shape_aspect<br>[shape_aspect.description = 'movable packaged component join terminal']<br>[shape_aspect.product_definitional = .TRUE.]}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitymovable_packaged_component_join_terminalaaattributewire_terminal_lengthassertion_tolength_tolerance_characteristic"></a>5.1.12.1 <a href="./4_info_reqs.htm#assembly_module_design_arm.movable_packaged_component_join_terminal">Movable_packaged_component_join_terminal</a>
+         to <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.movable_packaged_component_join_terminal.wire_terminal_length">wire_terminal_length</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_component_terminal &lt;=<br>component_terminal &lt;=<br>component_feature &lt;=	<br>shape_aspect<br>shape_definition = shape_aspect<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'wire terminal length'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypackaged_component">5.1.13 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.packaged_component">Packaged_component</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>packaged_component</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1636</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>packaged_component &lt;=<br>physical_component &lt;=<br>assembly_component &lt;=<br>component_definition &lt;=<br>product_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypackaged_componentaaattributederived_fromassertion_topackaged_part"></a>5.1.13.1 <a href="./4_info_reqs.htm#assembly_module_design_arm.packaged_component">Packaged_component</a>
+         to <A HREF="../../../../data/modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part">Packaged_part</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.packaged_component.derived_from">derived_from</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>packaged_component &lt;=<br>physical_component &lt;=<br>assembly_component &lt;=<br>component_definition &lt;=<br>product_definition &lt;-<br>product_definition_relationship.related_product_definition<br>{product_definition_relationship<br>product_definition_relationship.name = 'definition usage'}<br>product_definition_relationship<br>product_definition_relationship.relating_product_definition -&gt;<br>product_definition =&gt;<br>physical_unit =&gt;<br>packaged_part<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypackaged_componentaaattributeselected_package_alternateassertion_toaltered_package"></a>5.1.13.2 <a href="./4_info_reqs.htm#assembly_module_design_arm.packaged_component">Packaged_component</a>
+         to <A HREF="../../../../data/modules/altered_package/sys/4_info_reqs.htm#altered_package_arm.altered_package">Altered_package</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.packaged_component.selected_package_alternate">selected_package_alternate</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>packaged_component &lt;=<br>physical_component &lt;=<br>assembly_component &lt;=<br>component_definition &lt;=<br>product_definition &lt;-<br>product_definition_relationship.related_product_definition<br>{product_definition_relationship<br>product_definition_relationship.name = 'package alternate'}<br>product_definition_relationship<br>product_definition_relationship.relating_product_definition -&gt;<br>{product_definition<br>product_definition.description = 'altered package'}<br>product_definition =&gt;<br>physical_unit =&gt;<br>package<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypackaged_component_join_terminal">5.1.14 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.packaged_component_join_terminal">Packaged_component_join_terminal</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>physical_component_terminal</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1721</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_component_terminal &lt;=<br>component_terminal &lt;=<br>component_feature &lt;=				<br>shape_aspect<br>{shape_aspect<br>[(shape_aspect.description = 'packaged component join terminal')<br>(shape_aspect.description = 'movable packaged component join terminal')]<br>[shape_aspect.product_definitional = .TRUE.]}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypackaged_component_join_terminalaaattributeassociated_componentassertion_topackaged_component"></a>5.1.14.1 <a href="./4_info_reqs.htm#assembly_module_design_arm.packaged_component_join_terminal">Packaged_component_join_terminal</a>
+         to <A HREF="../../../../data/modules/assembly_module_design/sys/4_info_reqs.htm#assembly_module_design_arm.packaged_component">Packaged_component</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.packaged_component_join_terminal.associated_component">associated_component</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_component_terminal &lt;=<br>component_terminal &lt;=<br>component_feature &lt;=	<br>shape_aspect<br>shape_aspect.of_shape -&gt;<br>product_definition_shape =&gt;<br>assembly_component =&gt;<br>physical_component =&gt;<br>packaged_component<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypackaged_component_join_terminalaaattributedefinitionassertion_topackaged_part_join_terminal"></a>5.1.14.2 <a href="./4_info_reqs.htm#assembly_module_design_arm.packaged_component_join_terminal">Packaged_component_join_terminal</a>
+         to <A HREF="../../../../data/modules/packaged_part_black_box_model/sys/4_info_reqs.htm#packaged_part_black_box_model_arm.packaged_part_join_terminal">Packaged_part_join_terminal</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.packaged_component_join_terminal.definition">definition</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_component_terminal &lt;=<br>component_terminal &lt;=<br>component_feature &lt;=	<br>shape_aspect &lt;-<br>shape_aspect_relationship.related_shape_aspect<br>{shape_aspect_relationship<br>shape_aspect_relationship.name = 'instantiated feature'}<br>shape_aspect_relationship<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>{shape_aspect<br>shape_aspect.description = 'join terminal'}<br>shape_aspect =&gt;<br>packaged_part_terminal<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylayered_assembly_module_design_view">5.1.15 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.layered_assembly_module_design_view">Layered_assembly_module_design_view</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>layered_assembly_module_design_view</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1642</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>layered_assembly_module_design_view &lt;=<br>assembly_module_design_view<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylayered_assembly_module_design_viewaaattributeusage_viewassertion_tolayered_assembly_module_usage_view"></a>5.1.15.1 <a href="./4_info_reqs.htm#assembly_module_design_arm.layered_assembly_module_design_view">Layered_assembly_module_design_view</a>
+         to <A HREF="../../../../data/modules/assembly_module_usage_view/sys/4_info_reqs.htm#assembly_module_usage_view_arm.layered_assembly_module_usage_view">Layered_assembly_module_usage_view</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.layered_assembly_module_design_view.usage_view">usage_view</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>layered_assembly_module_design_view &lt;=<br>assembly_module_design_view &lt;=<br>physical_unit &lt;=<br>product_definition &lt;-<br>product_definition_relationship.related_product_definition<br>{product_definition_relationship<br>product_definition_relationship.name = 'design usage'}<br>product_definition_relationship<br>product_definition_relationship.relating_product_definition -&gt;<br>product_definition =&gt;<br>physical_unit =&gt;<br>assembly_module_usage_view =&gt;<br>layered_assembly_module_usage_view<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityrouted_interconnect_component">5.1.16 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.routed_interconnect_component">Routed_interconnect_component</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>routed_interconnect_component</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1636</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>routed_interconnect_component &lt;=<br>physical_component &lt;=<br>assembly_component &lt;=<br>component_definition &lt;=<br>product_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityrouted_interconnect_componentaaattributerouted_centreline_shapeassertion_topath_area_with_parameters"></a>5.1.16.1 <a href="./4_info_reqs.htm#assembly_module_design_arm.routed_interconnect_component">Routed_interconnect_component</a>
+         to <A HREF="../../../../data/modules/constructive_solid_geometry_2d/sys/4_info_reqs.htm#constructive_solid_geometry_2d_arm.path_area_with_parameters">Path_area_with_parameters</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.routed_interconnect_component.routed_centreline_shape">routed_centreline_shape</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>routed_interconnect_component &lt;=<br>item_identified_representation_usage<br>item_identified_representation_usage.identified_item -&gt; <br>representation_item<br>representation_item =&gt;<br>mapped_item =&gt;<br>path_area_with_parameters<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityrouted_physical_component">5.1.17 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.routed_physical_component">Routed_physical_component</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>routed_physical_component</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1636</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>routed_physical_component &lt;=<br>physical_component &lt;=		<br>assembly_component &lt;=<br>component_definition &lt;=<br>product_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityrouted_physical_componentaaattributerouted_centreline_shapeassertion_topath_area_with_parameters"></a>5.1.17.1 <a href="./4_info_reqs.htm#assembly_module_design_arm.routed_physical_component">Routed_physical_component</a>
+         to <A HREF="../../../../data/modules/constructive_solid_geometry_2d/sys/4_info_reqs.htm#constructive_solid_geometry_2d_arm.path_area_with_parameters">Path_area_with_parameters</A>
+         
+         (as <a href="./4_info_reqs.htm#assembly_module_design_arm.routed_physical_component.routed_centreline_shape">routed_centreline_shape</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>routed_physical_component &lt;=<br>item_identified_representation_usage<br>item_identified_representation_usage.identified_item -&gt; <br>representation_item<br>representation_item =&gt;<br>mapped_item =&gt;<br>path_area_with_parameters<br></td>
+         </tr>
+      </table>
+      <h2><a name="scconstraintphysical_component_subtypes">5.1.18 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.physical_component_subtypes">physical_component_subtypes</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Constraint:</td>
+            <td><br>			amd_assembly_component_subtypes<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="scconstraintamd_physical_component_terminal_subtypes">5.1.19 </a><a href="./4_info_reqs.htm#assembly_module_design_arm.amd_physical_component_terminal_subtypes">amd_physical_component_terminal_subtypes</a></h2>
+      <p></p>
+      			All members of this constraint maps to entity <a href="../../../modules/physical_component_feature/sys/5_mim.htm#physical_component_feature_mim.physical_component_terminal"><b>physical_component_terminal</b></a> with additional constraints in the mapping. All of them require UNIQUE string for <a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect"><b>shape_aspect</b></a>.<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect.description"><b>description</b></a>, so ONEOF subtype constraint from ARM is guaranteed as not violated.
+      			
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Constraint:</td>
+            <td><br>			amd_physical_component_terminal<br>			
+            </td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-41</td>
+         </tr>
+      </table><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

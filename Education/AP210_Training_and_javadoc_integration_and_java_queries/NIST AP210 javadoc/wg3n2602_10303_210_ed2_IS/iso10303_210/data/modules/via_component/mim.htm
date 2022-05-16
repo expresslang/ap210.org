@@ -1,0 +1,39 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Via_component_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Via_component_mim</h2><code><br><br><a name="via_component_mim">SCHEMA <b>Via_component_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/interconnect_module_connection_routing/sys/e_exp_mim.htm#interconnect_module_connection_routing_mim">Interconnect_module_connection_routing_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1684<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/layered_interconnect_module_design/sys/e_exp_mim.htm#layered_interconnect_module_design_mim">Layered_interconnect_module_design_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1698<br><br></code><code><br><A NAME="via_component_mim.blind_via">ENTITY <b>blind_via</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#via_component_mim.non_conductive_base_blind_via">non_conductive_base_blind_via</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#via_component_mim.plated_conductive_base_blind_via">plated_conductive_base_blind_via</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/layered_interconnect_module_design/sys/e_exp_mim.htm#layered_interconnect_module_design_mim.via">via</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="via_component_mim.buried_via">ENTITY <b>buried_via</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/layered_interconnect_module_design/sys/e_exp_mim.htm#layered_interconnect_module_design_mim.via">via</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="via_component_mim.interfacial_connection">ENTITY <b>interfacial_connection</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/layered_interconnect_module_design/sys/e_exp_mim.htm#layered_interconnect_module_design_mim.via">via</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="via_component_mim.non_conductive_base_blind_via">ENTITY <b>non_conductive_base_blind_via</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#via_component_mim.blind_via">blind_via</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="via_component_mim.plated_conductive_base_blind_via">ENTITY <b>plated_conductive_base_blind_via</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#via_component_mim.blind_via">blind_via</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="via_component_mim.via_subtypes">SUBTYPE_CONSTRAINT <b>via_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/modules/layered_interconnect_module_design/sys/e_exp_mim.htm#layered_interconnect_module_design_mim.via">via</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#via_component_mim.blind_via">blind_via</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#via_component_mim.buried_via">buried_via</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#via_component_mim.interfacial_connection">interfacial_connection</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Via_component_mim<br></code></body>
+</HTML>

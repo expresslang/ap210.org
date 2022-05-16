@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Terminal_pair_port_equivalence_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.890 Terminal_pair_port_equivalence_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Terminal_pair_port_equivalence_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Terminal_pair_port_equivalence_relationship is the assignment 
+association between a pair of scalar ports and a single distributed port.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>equivalent_port</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>scalar_ports</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.890.1 equivalent_port</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The equivalent_port specifies the <A
+CLASS="INTERNALREF"
+HREF="e_17.htm"
+>Analytical_model_port</A
+> that represents the single distributed port for the 
+Terminal_pair_port_equivalence_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.890.2 scalar_ports</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The scalar_ports specify the two <A
+CLASS="INTERNALREF"
+HREF="e_20.htm"
+>Analytical_model_scalar_port</A
+> in the ordered sequence for the 
+Terminal_pair_port_equivalence_relationship. The second scalar_port is always the reference port. Other 
+details depend on the specific domain of the <A
+CLASS="INTERNALREF"
+HREF="e_14.htm"
+>Analytical_model</A
+>.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Port "INPUT" of a microwave coaxial filter model is the equivalent_port for this example.
+
+Port "INPUT center pin" is the first Analytical_model_scalar_port for this example. Port "INPUT shield" is the second 
+Analytical_model_scalar_port for this example.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The distributed_properties attribute of the Analytical_model_port in the role of equivalent_port shall be "TRUE".</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The scalar_ports and equivalent_port shall not reference the same Analytical_model.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR3: </SPAN
+>The scalar_ports shall reference the same Analytical_model.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR4: </SPAN
+>The equivalent_port shall not be a member of Digital_analytical_model_port.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY terminal_pair_port_equivalence_relationship
+  SUBTYPE OF (managed_design_object);
+    equivalent_port : analytical_model_port;
+    scalar_ports    : LIST [2:2] OF UNIQUE analytical_model_scalar_port;
+END_ENTITY; -- terminal_pair_port_equivalence_relationship
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

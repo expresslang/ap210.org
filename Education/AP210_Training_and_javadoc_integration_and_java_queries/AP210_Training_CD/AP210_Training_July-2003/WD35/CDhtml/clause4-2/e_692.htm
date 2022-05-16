@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Plus_minus_tolerance_range_representation</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.692 Plus_minus_tolerance_range_representation</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Plus_minus_tolerance_range_representation is a type of <A
+CLASS="INTERNALREF"
+HREF="e_809.htm"
+>Shape_dimension_representation</A
+> that represents a <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+> with three <A
+CLASS="INTERNALREF"
+HREF="e_211.htm"
+>Data_element</A
+> from which the 
+limits of the Dimensional_characteristic can be calculated.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>basic_dimension_value</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>lower_deviation</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>upper_deviation</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.692.1 basic_dimension_value</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The basic_dimension_value specifies the <A
+CLASS="INTERNALREF"
+HREF="e_211.htm"
+>Data_element</A
+> from which the lower and upper limits of the associated <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+> may be calculated.
+<DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>The basic_dimension_value corresponds to the basic size component of toleranced dimensions and is described in ISO 286-1 and ISO 406.</LI
+><LI
+CLASS="NOTEINGROUP"
+>The basic_dimension_value should not be confused with basic dimensions defined in 1.3.9 of ASME Y14.5M.</LI
+></OL
+></DIV
+>&#13;</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.692.2 lower_deviation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The lower_deviation specifies the <A
+CLASS="INTERNALREF"
+HREF="e_211.htm"
+>Data_element</A
+> that is added to the Data_element specified by the basic_dimension_value to determine the lower limit of the associated <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+>.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.692.3 upper_deviation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The upper_deviation specifies the <A
+CLASS="INTERNALREF"
+HREF="e_211.htm"
+>Data_element</A
+> that is added to the Data_element specified by the basic_dimension_value to determine the upper limit of the associated <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+>.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The units of the Data_elements specified by the basic_dimension_value, lower_deviation, and upper_deviation shall be the same.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The value of the Data_element specified by the lower_deviation shall be less than the value of the Data_element specified by the upper_deviation.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY plus_minus_tolerance_range_representation
+  SUBTYPE OF (shape_dimension_representation);
+    basic_dimension_value : data_element;
+    upper_deviation       : data_element;
+    lower_deviation       : data_element;
+END_ENTITY; -- plus_minus_tolerance_range_representation
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

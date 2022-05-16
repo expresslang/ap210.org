@@ -1,0 +1,32 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Pre_defined_datum_3d_symbol_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Pre_defined_datum_3d_symbol_arm</h2><code><br><br><a name="pre_defined_datum_3d_symbol_arm">SCHEMA <b>Pre_defined_datum_3d_symbol_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/extended_geometric_tolerance/sys/e_exp_arm.htm#extended_geometric_tolerance_arm">Extended_geometric_tolerance_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1666<br><br></code><code><br><A NAME="pre_defined_datum_3d_symbol_arm.pre_defined_datum_axis_3d_symbol">ENTITY <b>Pre_defined_datum_axis_3d_symbol</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>);<br>
+         &nbsp;&nbsp;<A NAME="pre_defined_datum_3d_symbol_arm.pre_defined_datum_axis_3d_symbol.associated_element">associated_element : </A><A HREF="../../../data/modules/extended_geometric_tolerance/sys/e_exp_arm.htm#extended_geometric_tolerance_arm.datum_axis">Datum_axis</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="pre_defined_datum_3d_symbol_arm.pre_defined_datum_axis_3d_symbol.wr:wr1">WR1: SELF\Geometric_model.context_of_items.dimension_count = 3;</A><br>
+         &nbsp;&nbsp;<A NAME="pre_defined_datum_3d_symbol_arm.pre_defined_datum_axis_3d_symbol.wr:wr2">WR2: NOT EXISTS(SELF\Representation.name);</A><br>
+         &nbsp;&nbsp;<A NAME="pre_defined_datum_3d_symbol_arm.pre_defined_datum_axis_3d_symbol.wr:wr3">WR3: NOT EXISTS(SELF\Representation.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="pre_defined_datum_3d_symbol_arm.pre_defined_datum_plane_3d_symbol">ENTITY <b>Pre_defined_datum_plane_3d_symbol</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>);<br>
+         &nbsp;&nbsp;<A NAME="pre_defined_datum_3d_symbol_arm.pre_defined_datum_plane_3d_symbol.associated_element">associated_element : </A><A HREF="../../../data/modules/extended_geometric_tolerance/sys/e_exp_arm.htm#extended_geometric_tolerance_arm.datum_plane">Datum_plane</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="pre_defined_datum_3d_symbol_arm.pre_defined_datum_plane_3d_symbol.wr:wr1">WR1: SELF\Geometric_model.context_of_items.dimension_count = 3;</A><br>
+         &nbsp;&nbsp;<A NAME="pre_defined_datum_3d_symbol_arm.pre_defined_datum_plane_3d_symbol.wr:wr2">WR2: NOT EXISTS(SELF\Representation.name);</A><br>
+         &nbsp;&nbsp;<A NAME="pre_defined_datum_3d_symbol_arm.pre_defined_datum_plane_3d_symbol.wr:wr3">WR3: NOT EXISTS(SELF\Representation.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="pre_defined_datum_3d_symbol_arm.pdd3ds_geometric_model_subtypes">SUBTYPE_CONSTRAINT <b>pdd3ds_geometric_model_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#pre_defined_datum_3d_symbol_arm.pre_defined_datum_axis_3d_symbol">Pre_defined_datum_axis_3d_symbol</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#pre_defined_datum_3d_symbol_arm.pre_defined_datum_plane_3d_symbol">Pre_defined_datum_plane_3d_symbol</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Pre_defined_datum_3d_symbol_arm<br></code></body>
+</HTML>

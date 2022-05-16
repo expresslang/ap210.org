@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Gate_path_swap_specification</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.415 Gate_path_swap_specification</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Gate_path_swap_specification is a type of <A
+CLASS="INTERNALREF"
+HREF="e_95.htm"
+>Change_design_object_management_relationship</A
+>. This entity explicitly states that a path to a functional unit in a design shall be changed to a new path in the 
+library of functional unit definitions.
+<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Normally the new path is based on the same root functional 
+unit definition in the library, leading to a different path in the same technology, but there is no restriction in 
+the standard that prohibits switching to a different functional unit definition in the library. If there is a new 
+functional unit definition as root, other design changes will likely need to occur, but the mapping to 
+identify those explicitly and relate them to this entity is not standardized, except through the use of the 
+requirement_occurrence concept. Specifically, this entity needs to be used in conjunction with the 
+component swap specification to swap between components if the path in the library is also changing.</DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: An example is in the case where a change is being made from one microcircuit and its terminal, U1-A, to 
+another microcircuit and terminal, U2-C.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>current_design_object</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>previous_design_object</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.415.1 current_design_object</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The current_design_object specifies the <A
+CLASS="INTERNALREF"
+HREF="e_266.htm"
+>Design_functional_unit_allocation_to_reference_functional_unit</A
+> that 
+results from the swap in the Gate_path_swap_specification.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.415.2 previous_design_object</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The previous_design_object specifies the <A
+CLASS="INTERNALREF"
+HREF="e_266.htm"
+>Design_functional_unit_allocation_to_reference_functional_unit</A
+> from 
+which the swap was made in the Gate_path_swap_specification.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY gate_path_swap_specification
+  SUBTYPE OF (change_design_object_management_relationship);
+    SELF\change_design_object_management_relationship.current_design_object  : 
+	design_functional_unit_allocation_to_reference_functional_unit;
+    SELF\change_design_object_management_relationship.previous_design_object : 
+	design_functional_unit_allocation_to_reference_functional_unit;
+END_ENTITY; -- gate_path_swap_specification
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

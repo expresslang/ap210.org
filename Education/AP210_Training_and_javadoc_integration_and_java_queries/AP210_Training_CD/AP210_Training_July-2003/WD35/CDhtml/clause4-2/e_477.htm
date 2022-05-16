@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Intra_stratum_join_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.477 Intra_stratum_join_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Intra_stratum_join_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_479.htm"
+>Join_relationship</A
+> in which all joins occur on one <A
+CLASS="INTERNALREF"
+HREF="e_275.htm"
+>Design_layer_stratum</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>ordered_implementation</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>random_implementation</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.477.1 ordered_implementation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The ordered_implementation is an inverse relationship that specifies the <A
+CLASS="INTERNALREF"
+HREF="e_176.htm"
+>Conductor</A
+> that specifies the 
+Intra_stratum_join_relationship as its implementation_requirement. There shall be no more than one Conductor for an 
+Intra_stratum_join_relationship.  The use of "ordered" in this context shall be interpreted as "having a distinct structure by design".  It does not indicate a strictly linear sequence.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.477.2 random_implementation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The random_implementation is an inverse relationship that specifies the <A
+CLASS="INTERNALREF"
+HREF="e_184.htm"
+>Connected_filled_area</A
+> that specifies 
+the Intra_stratum_join_relationship as its implementation_requirement. There shall be no more than one Connected_filled_area for an 
+Intra_stratum_join_relationship.  The use of "random" in this context shall be interpreted as "having no intrinsic structure by design".</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>All Layer_connection_points specified shall be on the same Design_layer_stratum.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>At least one ordered_implementaton or random_implementation shall exist for a population of Intra_stratume_join_relationship.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY intra_stratum_join_relationship
+  SUBTYPE OF (join_relationship);
+    points_to_be_connected : SET [2:?] OF layer_connection_point;
+  INVERSE
+    ordered_implementation : SET [0:1] OF conductor FOR implementation_requirement;
+    random_implementation  : SET [0:1] OF connected_filled_area FOR 
+                             implementation_requirement;
+--tt tc1 wd9 added
+WHERE
+ WR1: (EXISTS(ordered_implementation)) XOR (EXISTS(random_implementation));
+END_ENTITY; -- intra_stratum_join_relationship
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

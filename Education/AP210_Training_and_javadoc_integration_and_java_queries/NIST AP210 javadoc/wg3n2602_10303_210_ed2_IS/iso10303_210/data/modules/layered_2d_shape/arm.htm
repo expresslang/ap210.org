@@ -1,0 +1,42 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Layered_2d_shape_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Layered_2d_shape_arm</h2><code><br><br><a name="layered_2d_shape_arm">SCHEMA <b>Layered_2d_shape_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/constructive_solid_geometry_2d/sys/e_exp_arm.htm#constructive_solid_geometry_2d_arm">Constructive_solid_geometry_2d_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1731<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/wireframe_2d/sys/e_exp_arm.htm#wireframe_2d_arm">Wireframe_2d_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1347<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/shape_feature/sys/e_exp_arm.htm#shape_feature_arm">Shape_feature_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1764<br><br></code><code><br><A NAME="layered_2d_shape_arm.part_template_or_physical_unit_2d_shape_select">TYPE </A><b>part_template_or_physical_unit_2d_shape_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="layered_2d_shape_arm.planar_projected_shape_model">ENTITY <b>Planar_projected_shape_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_2d_shape_arm.planar_shape_model">Planar_shape_model</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="layered_2d_shape_arm.planar_projected_shape_model.wr:wr1">WR1: NOT EXISTS(SELF\Representation.name);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_2d_shape_arm.planar_shape_model">ENTITY <b>Planar_shape_model</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(<A HREF="#layered_2d_shape_arm.planar_projected_shape_model">Planar_projected_shape_model</A>)<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="layered_2d_shape_arm.planar_shape_model.wr:wr1">WR1: SELF\Geometric_model.context_of_items.dimension_count = 2;</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Layered_2d_shape_arm<br></code></body>
+</HTML>

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Plus_minus_tolerance_characteristic</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.691 Plus_minus_tolerance_characteristic</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Plus_minus_tolerance_characteristic 
+is a type of <A
+CLASS="INTERNALREF"
+HREF="e_911.htm"
+>Tolerance_characteristic</A
+>. 
+The Plus_minus_tolerance_characteristic includes a minimum, maximum, and nominal characteristic numeric parameter.  All three have the same base unit, but may have different prefixes.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>component_characteristic</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.691.1 component_characteristic</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The component_characteristic specifies the nominal, minimum, and maximum values of the <A
+CLASS="INTERNALREF"
+HREF="e_566.htm"
+>Numeric_parameter</A
+> for the Plus_minus_tolerance_characteristic. There shall be one nominal, one minimum and one maximum value 
+for the Plus_minus_tolerance_characteristic.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>All Data_element referenced by Numeric_parameter in the role of component_characteristic for Plus_minus_tolerance_characteristic shall have the same unit_of_measure.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The Numeric_parameter in the role of component_characteristic shall have a type_name of minimum, nominal, or maximum.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR3: </SPAN
+>The Numeric_parameter in the role of component_characteristic that has a type_name of minmum shall have a property_value that is less than the property_value of the Numeric_parameter in the role of component_characteristic that has a type_name of nominal.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR4: </SPAN
+>The Numeric_parameter in the role of component_characteristic that has a type_name of nominal shall have a property_value that is less than the property_value of the Numeric_parameter in the role of component_characteristic that has a type_name of maximum.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY plus_minus_tolerance_characteristic
+  SUBTYPE OF (tolerance_characteristic);
+    SELF\coordinated_characteristic.component_characteristic : SET [3:3] OF 
+                                                               numeric_parameter;
+END_ENTITY; -- plus_minus_tolerance_characteristic
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

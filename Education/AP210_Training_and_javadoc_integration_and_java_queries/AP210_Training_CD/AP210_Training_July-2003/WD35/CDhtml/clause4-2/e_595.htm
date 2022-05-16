@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Padstack_definition</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.595 Padstack_definition</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+>A Padstack_definition is a type of <A
+CLASS="INTERNALREF"
+HREF="e_323.htm"
+>Ee_product_definition</A
+>.</DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY padstack_definition
+  SUPERTYPE OF(ONEOF(
+       design_layer_type_specific_padstack_definition,
+       stratum_type_independent_padstack_definition,
+       stratum_occurrence_specific_padstack_definition))
+  SUBTYPE OF (ee_product_definition);
+  reference_implementation : reference_packaged_part_interconnect_implementation;
+  teardrop_taper_start_distance : OPTIONAL length_data_element;
+  teardrop_taper_end_distance : OPTIONAL length_data_element;
+  snowball_start_distance : OPTIONAL length_data_element;
+  snowball_end_distance : OPTIONAL length_data_element;
+  snowball_initial_spacing : OPTIONAL length_data_element;  
+  snowball_end_spacing : OPTIONAL length_data_element;  
+  snowball_initial_radius : OPTIONAL length_data_element;  
+  snowball_end_radius : OPTIONAL length_data_element;  
+  snowball_quantity_per_trace : OPTIONAL positive_integer;  
+INVERSE
+  shape : padstack_definition_shape FOR shape_characterized_padstack_definition;
+WHERE
+ WR1: SIZEOF (QUERY( prpc &#60;* 
+   USEDIN(SELF\ee_product_definition.version.versioned_item,
+       'AP210_ARM.EE_PRODUCT_RELATED_PRODUCT_CATEGORY.OF_PRODUCT') | 
+              (prpc.name = 'template model')
+             )) &#62;= 0;
+END_ENTITY; -- padstack_definition
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

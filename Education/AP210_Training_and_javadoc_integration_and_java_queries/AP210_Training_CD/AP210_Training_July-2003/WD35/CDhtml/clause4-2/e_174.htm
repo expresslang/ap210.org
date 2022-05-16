@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Conductive_interconnect_element_with_pre_defined_transitions</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.174 Conductive_interconnect_element_with_pre_defined_transitions</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+>A Conductive_interconnect_element_with_pre_defined_transitions is a type of <A
+CLASS="INTERNALREF"
+HREF="e_171.htm"
+>Conductive_interconnect_element</A
+>.  
+The data provided by Conductive_interconnect_element_with_pre_defined_transitions is typical data available from two dimensional CAD applications.  
+The data does not include explicit representation of the variability in the vertical dimension that occurs in a real "planar" product due to material build up of successive layers of material.  
+The usage_definition is required to be orthogonal to the centreline_shape_representation, but this is insufficient information in a three-dimensional layout.  
+In a two-dimensional layout, the usage_definition shape x direction vector is constrained to be parallel with the x direction vector of the shape of the <A
+CLASS="INTERNALREF"
+HREF="e_851.htm"
+>Stratum_feature</A
+> referenced by the inherited attribute composed_conductor.  
+In a two-dimensional design, all Stratum_features are parallel.  
+In a three-dimensional design, the same parallelism constraint applies, but the underlying substrate is not presumed to be planar.  
+The underlying surface shape idealization is contained in the <A
+CLASS="INTERNALREF"
+HREF="e_870.htm"
+>Stratum_surface_shape</A
+> or  <A
+CLASS="INTERNALREF"
+HREF="e_848.htm"
+>Stratum_average_surface_shape</A
+>.  
+The <A
+CLASS="INTERNALREF"
+HREF="e_859.htm"
+>Stratum_feature_shape_stratum_surface_shape_relationship</A
+> or <A
+CLASS="INTERNALREF"
+HREF="e_858.htm"
+>Stratum_feature_shape_stratum_average_surface_shape_relationship</A
+>shall be populated to specify to a processor the design intent.  
+The centreline_shape_representation shall be a subset of either the points in the Stratum_average_surface_shape or of the points in the Stratum_surface_shape.  <DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The "pre-defined transition" refers to the extrusion of the trace_template shape 
+(a cross-sectional definition) along the path defined by its centreline_shape_representation 
+(a <A
+CLASS="INTERNALREF"
+HREF="e_203.htm"
+>Curve</A
+>).</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>centreline_shape_representation</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>connected_point</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>usage_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.174.1 centreline_shape_representation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The centreline_shape_representation specifies the Curve representing the centreline of the Conductive_interconnect_element_with_pre_defined_transitions.  The centreline when combined with the usage_definition provides a CAD abstraction of the physical shape.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.174.2 connected_point</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The connected_points is an inverse relationship that specifies that the Conductive_interconnect_element_with_pre_defined_transitions is existence dependent on at least one <A
+CLASS="INTERNALREF"
+HREF="e_173.htm"
+>Conductive_interconnect_element_terminal_link</A
+> for the Conductive_interconnect_element.  </DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.174.3 usage_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The usage_definition specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_930.htm"
+>Trace_template</A
+> for the 
+Conductive_interconnect_element_with_pre_defined_transitions.  The usage_definition is a cross section definition.  When combined with the centreline shape, a complete CAD abstraction is formed for the two-dimensional case.  The three-dimensional case requires additional data representing the abstract surface in which the conductor being defined will be located.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY conductive_interconnect_element_with_pre_defined_transitions
+  SUPERTYPE OF (join_two_physical_connectivity_definition_supporting_printed_component)
+  SUBTYPE OF (conductive_interconnect_element);
+    SELF\assembly_component.usage_definition : trace_template;
+    centreline_shape                         : curve;
+    SELF\conductive_interconnect_element.
+         composed_conductor                  : stratum_feature;
+INVERSE
+    connected_points                         : SET [1:?] OF conductive_interconnect_element_terminal_link 
+                                               for associated_element;
+WHERE
+  WR1: SIZEOF(connected_points) = 
+       SIZEOF(SELF\conductive_interconnect_element.access_mechanisms) -1;
+  WR2: correlated_terminals(SELF\conductive_interconnect_element.
+         access_mechanisms,connected_points);
+END_ENTITY; -- conductive_interconnect_element_with_pre_defined_transitions
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

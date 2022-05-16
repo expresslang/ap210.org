@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Tolerance_specific_restraint_condition</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.912 Tolerance_specific_restraint_condition</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+The Tolerance_specific_restraint_condition is a type of Restraint_condition
+that is only applied to specified instances of <A
+CLASS="INTERNALREF"
+HREF="e_421.htm"
+>Geometric_tolerance</A
+> and <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>affected_tolerances</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.912.1 affected_tolerances</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The affected_tolerances specifies the <A
+CLASS="INTERNALREF"
+HREF="e_421.htm"
+>Geometric_tolerance</A
+> and <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+> to which the restraint condition applies. There
+shall be one or more Geometric_tolerance or Dimensional_characteristic
+specified as the affected_tolerances by a
+Tolerance_specific_restraint_condition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY tolerance_specific_restraint_condition
+  SUBTYPE OF (restraint_condition);
+    affected_tolerances : SET [1:?] OF geometric_or_dimension_select;
+END_ENTITY; -- tolerance_specific_restraint_condition
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

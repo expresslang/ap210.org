@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Signal_property</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.824 Signal_property</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Signal_property is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Signal_property may be a <A
+CLASS="INTERNALREF"
+HREF="e_162.htm"
+>Composite_signal_property</A
+>.
+A Signal_property is a data set that characterizes a <A
+CLASS="INTERNALREF"
+HREF="e_823.htm"
+>Signal</A
+> and each element of which has units that are traceable to an ISO or 
+IEC standard. The units may be basic Si units, derived SI units, conversion based units, or context 
+dependent units. Conversion based and context dependent units shall be specified in the external standard 
+that defines the signal_property_category.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>characterized_signal</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>signal_property_category</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>signal_property_representation</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.824.1 characterized_signal</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The characterized_signal specifies the <A
+CLASS="INTERNALREF"
+HREF="e_823.htm"
+>Signal</A
+> that has the 
+Signal_property.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.824.2 signal_property_category</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The signal_property_category specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_367.htm"
+>External_definition</A
+> for the Signal_property.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.824.3 signal_property_representation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The signal_property_representation specifies the <A
+CLASS="INTERNALREF"
+HREF="e_100.htm"
+>Characteristic_data_table</A
+> of the Signal_property.  The signal_property_representation is at least a two dimensional representation, including a sample function and a data set represented at the discrete points of the sample function.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: A signal_property_representation is a discretized function represented by a table that maps a parameter, such as time, frequency, or distance, onto a response variable.  The table is represented in this standard by a list of columnar data, each column is represented by set.  One member of the set is a representation of the sample function at that sample point.  The other members of the set represents the discretized parameters (e.g,. power).</DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: An example signal_property_representation characterizes voltage over a defined frequency range.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY signal_property
+  SUPERTYPE OF (composite_signal_property)
+  SUBTYPE OF (managed_design_object);
+    signal_property_representation : characteristic_data_table;
+    characterized_signal           : signal;
+    signal_property_category       : external_definition;
+END_ENTITY; -- signal_property
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

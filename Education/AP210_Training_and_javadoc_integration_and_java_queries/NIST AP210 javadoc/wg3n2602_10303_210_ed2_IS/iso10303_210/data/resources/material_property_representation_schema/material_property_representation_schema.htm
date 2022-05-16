@@ -1,0 +1,37 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: material_property_representation_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: material_property_representation_schema</h2>
+      <p><i>Source : ISO 10303-45</i></p><code><br><br><a name="material_property_representation_schema">SCHEMA <b>material_property_representation_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema">product_property_representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation">property_definition_representation</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>);
+         <br><br></code><code><br><A NAME="material_property_representation_schema.data_environment">ENTITY <b>data_environment</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_representation_schema.data_environment.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_representation_schema.data_environment.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_representation_schema.data_environment.elements">elements : </A>SET[1:?] OF <A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation">property_definition_representation</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="material_property_representation_schema.data_environment_relationship">ENTITY <b>data_environment_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_representation_schema.data_environment_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_representation_schema.data_environment_relationship.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_representation_schema.data_environment_relationship.relating_data_environment">relating_data_environment : </A><A HREF="#material_property_representation_schema.data_environment">data_environment</A>;<br>
+         &nbsp;&nbsp;<A NAME="material_property_representation_schema.data_environment_relationship.related_data_environment">related_data_environment : </A><A HREF="#material_property_representation_schema.data_environment">data_environment</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="material_property_representation_schema.material_property_representation">ENTITY <b>material_property_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation">property_definition_representation</A>);<br>
+         &nbsp;&nbsp;<A NAME="material_property_representation_schema.material_property_representation.dependent_environment">dependent_environment : </A><A HREF="#material_property_representation_schema.data_environment">data_environment</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;material_property_representation_schema<br></code></body>
+</HTML>

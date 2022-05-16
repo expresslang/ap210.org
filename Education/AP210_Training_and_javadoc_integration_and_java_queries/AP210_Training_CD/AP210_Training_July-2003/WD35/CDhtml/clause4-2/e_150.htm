@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Component_termination_passage_template</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.150 Component_termination_passage_template</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Component_termination_passage_template is a type of <A
+CLASS="INTERNALREF"
+HREF="e_474.htm"
+>Inter_stratum_feature_template</A
+>.
+The Component_termination_passage_template defines all shape data for the associated Component_termination_passage (for which it is the usage_definition), and also where the connection (dependency) on passage technology is established for the properties.  <DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Properties other than shape are to be found in the of_passage_technology.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>access_mechanisms</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>of_passage_technology</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.150.1 access_mechanisms</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The access_mechanisms is an inverse relationship that specifies that the existence of the Component_termination_passage_template 
+is dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_153.htm"
+>Component_termination_passage_template_terminal</A
+> that specifies the 
+Component_termination_passage_template as its associated_definition. There shall be two or more 
+Component_termination_passage_template_terminals for a Component_termination_passage_template.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.150.2 of_passage_technology</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The of_passage_technology specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_249.htm"
+>Default_component_termination_passage_definition</A
+> for the 
+Component_termination_passage_template.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>One access_mechanisms shall be a Component_termination_passage_template_interface_terminal.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>One access_mechanisms shall be a Component_termination_passage_template_join_terminal.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY component_termination_passage_template
+  SUBTYPE OF (inter_stratum_feature_template);
+    SELF\inter_stratum_feature_template.of_passage_technology : 
+	default_component_termination_passage_definition;
+  INVERSE
+    access_mechanisms : SET [2:?] OF component_termination_passage_template_terminal 
+                        FOR associated_definition;
+END_ENTITY; -- component_termination_passage_template
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

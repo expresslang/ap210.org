@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Profile_of_any_surface_tolerance</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.747 Profile_of_any_surface_tolerance</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Profile_of_any_surface_tolerance is a type of <A
+CLASS="INTERNALREF"
+HREF="e_421.htm"
+>Geometric_tolerance</A
+> that specifies or partially specifies the 
+design requirement on the form and possibly on the orientation, size, and location of a surface. A Profile_of_any_surface_tolerance is either a <A
+CLASS="INTERNALREF"
+HREF="e_749.htm"
+>Profile_of_any_surface_tolerance_with_referenced_datum_system</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_748.htm"
+>Profile_of_any_surface_tolerance_without_referenced_datum_system</A
+>. A Profile_of_any_surface_tolerance may also be a <A
+CLASS="INTERNALREF"
+HREF="e_165.htm"
+>Composite_surface_profile_refinement_tolerance</A
+>. The Profile_of_any_surface_tolerance defines a uniform <A
+CLASS="INTERNALREF"
+HREF="e_915.htm"
+>Tolerance_zone_boundary</A
+> along the true profile of the surface within which the actual surface must lie. If the design requirements are such that the Tolerance_zone_boundary is unequally disposed about the <A
+CLASS="INTERNALREF"
+HREF="e_934.htm"
+>True_profile</A
+>, either unilaterally or bilateral, a <A
+CLASS="INTERNALREF"
+HREF="e_743.htm"
+>Profile_boundary_definition_with_offsets</A
+> shall be used to specify this requirement.
+<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Profile of any surface tolerance is defined in terms of tolerance zone definitions in 14.6 of ISO 1101.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The Shape_element specified as the toleranced_shape_element shall be a Physical_feature_or_part_template.</DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The attribute toleranced_shape_element is declared in the Geometric_tolerance entity of which this entity is a subtype.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The Profile_of_any_surface_tolerance shall not be a Geometric_tolerance_with_applied_material_condition_property.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR3: </SPAN
+>The Profile_of_any_surface_tolerance shall specify as the tolerance_zone_or_boundary_definition a Tolerance_zone_definition that specifies a Profile_boundary_definition as its boundary_definition.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY profile_of_any_surface_tolerance
+  ABSTRACT SUPERTYPE OF (ONEOF (
+      profile_of_any_surface_tolerance_with_referenced_datum_system,
+      profile_of_any_surface_tolerance_without_referenced_datum_system) 
+      ANDOR composite_surface_profile_refinement_tolerance)
+  SUBTYPE OF (geometric_tolerance);
+END_ENTITY; -- profile_of_any_surface_tolerance
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

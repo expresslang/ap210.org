@@ -1,0 +1,2166 @@
+
+
+Terminals which are not used:
+
+   '/'
+   '.'
+   ':'
+
+
+State 116 contains 1 reduce/reduce conflict.
+State 144 contains 14 reduce/reduce conflicts.
+State 145 contains 14 reduce/reduce conflicts.
+State 158 contains 3 shift/reduce conflicts.
+
+Grammar
+rule 1    idf_data -> board_data
+rule 2    idf_data -> idf_data board_data
+rule 3    idf_data -> library_data
+rule 4    idf_data -> idf_data library_data
+rule 5    board_data -> board_header
+rule 6    board_data -> board_data board_outline
+rule 7    board_data -> board_data other_outline
+rule 8    board_data -> board_data route_outline
+rule 9    board_data -> board_data place_outline
+rule 10   board_data -> board_data route_keepout
+rule 11   board_data -> board_data via_keepout
+rule 12   board_data -> board_data place_keepout
+rule 13   board_data -> board_data place_region
+rule 14   board_data -> board_data board_drilled_holes
+rule 15   board_data -> board_data board_placement
+rule 16   board_header -> START_HEADER BOARD_FILE idf_version_number source_system_identification date board_file_version board_name units_definition_enumeration END_HEADER
+rule 17   idf_version_number -> RAWREAL
+rule 18   source_system_identification -> any_string
+rule 19   date -> STRING
+rule 20   board_file_version -> integer
+rule 21   board_name -> any_string
+rule 22   any_string -> STRING
+rule 23   any_string -> MM
+rule 24   any_string -> TNM
+rule 25   any_string -> THOU
+rule 26   any_string -> TOP
+rule 27   any_string -> BOTTOM
+rule 28   any_string -> BOTH
+rule 29   any_string -> ALL
+rule 30   any_string -> PTH
+rule 31   any_string -> NPTH
+rule 32   any_string -> BOARD
+rule 33   any_string -> NOREFDES
+rule 34   any_string -> FIXED
+rule 35   any_string -> UNPLACED
+rule 36   any_string -> PLACED
+rule 37   units_definition_enumeration -> MM
+rule 38   units_definition_enumeration -> TNM
+rule 39   units_definition_enumeration -> THOU
+rule 40   board_outline -> START_BOARD_OUTLINE board_thickness loop END_BOARD_OUTLINE
+rule 41   board_thickness -> real
+rule 42   other_outline -> START_OTHER_OUTLINE any_string extrude_thickness loop END_OTHER_OUTLINE
+rule 43   extrude_thickness -> real
+rule 44   route_outline -> START_ROUTE_OUTLINE loop END_ROUTE_OUTLINE
+rule 45   place_outline -> START_PLACE_OUTLINE loop END_PLACE_OUTLINE
+rule 46   route_keepout -> START_ROUTE_KEEPOUT inner_and_outer_layer_enumeration loop END_ROUTE_KEEPOUT
+rule 47   inner_and_outer_layer_enumeration -> TOP
+rule 48   inner_and_outer_layer_enumeration -> BOTTOM
+rule 49   inner_and_outer_layer_enumeration -> BOTH
+rule 50   inner_and_outer_layer_enumeration -> ALL
+rule 51   via_keepout -> START_VIA_KEEPOUT loop END_VIA_KEEPOUT
+rule 52   place_region -> START_PLACE_REGION outer_layers_enumeration any_string loop END_PLACE_REGION
+rule 53   outer_layers_enumeration -> TOP
+rule 54   outer_layers_enumeration -> BOTTOM
+rule 55   outer_layers_enumeration -> BOTH
+rule 56   place_keepout -> START_PLACE_KEEPOUT outer_layers_enumeration comp_height comp_height loop END_PLACE_KEEPOUT
+rule 57   comp_height -> real
+rule 58   comp_height -> integer
+rule 59   loop -> loop_label arc
+rule 60   loop -> loop loop_label arc
+rule 61   loop_label -> integer
+rule 62   arc -> real real angle
+rule 63   angle -> real
+rule 64   angle -> integer
+rule 65   board_drilled_holes -> START_DRILLED_HOLES drilled_holes
+rule 66   board_drilled_holes -> board_drilled_holes drilled_holes
+rule 67   board_drilled_holes -> board_drilled_holes END_DRILLED_HOLES
+rule 68   drilled_holes -> real real real hole_type_enumeration associated_part_string
+rule 69   hole_type_enumeration -> PTH
+rule 70   hole_type_enumeration -> NPTH
+rule 71   associated_part_string -> BOARD
+rule 72   associated_part_string -> NOREFDES
+rule 73   associated_part_string -> any_string
+rule 74   board_placement -> START_PLACEMENT placement
+rule 75   board_placement -> START_PLACEMENT END_PLACEMENT
+rule 76   board_placement -> board_placement placement
+rule 77   board_placement -> board_placement END_PLACEMENT
+rule 78   placement -> any_string any_string reference_designator real real real top_or_bottom_enumeration placement_status_enumeration
+rule 79   placement -> any_string any_string reference_designator real real real top_or_bottom_enumeration
+rule 80   reference_designator -> any_string
+rule 81   reference_designator -> NOREFDES
+rule 82   top_or_bottom_enumeration -> TOP
+rule 83   top_or_bottom_enumeration -> BOTTOM
+rule 84   placement_status_enumeration -> FIXED
+rule 85   placement_status_enumeration -> UNPLACED
+rule 86   placement_status_enumeration -> PLACED
+rule 87   library_data -> library_header
+rule 88   library_data -> library_data electrical
+rule 89   library_data -> library_data mechanical
+rule 90   electrical -> START_ELECTRICAL any_string any_string units_definition_enumeration real loop END_ELECTRICAL
+rule 91   mechanical -> START_MECHANICAL any_string any_string units_definition_enumeration real loop END_MECHANICAL
+rule 92   library_header -> START_HEADER LIBRARY_FILE idf_version_number source_system_identification date library_file_version END_HEADER
+rule 93   library_file_version -> integer
+rule 94   integer -> RAWINTEGER
+rule 95   real -> RAWREAL
+
+Terminals, with rules where they appear
+
+$ (-1)
+'.' (46)
+'/' (47)
+':' (58)
+error (256)
+STRING (258) 19 22
+RAWREAL (259) 17 95
+RAWINTEGER (260) 94
+START_HEADER (261) 16 92
+END_HEADER (262) 16 92
+BOARD_FILE (263) 16
+MM (264) 23 37
+TNM (265) 24 38
+THOU (266) 25 39
+TOP (267) 26 47 53 82
+BOTTOM (268) 27 48 54 83
+BOTH (269) 28 49 55
+ALL (270) 29 50
+PTH (271) 30 69
+NPTH (272) 31 70
+BOARD (273) 32 71
+NOREFDES (274) 33 72 81
+FIXED (275) 34 84
+UNPLACED (276) 35 85
+PLACED (277) 36 86
+START_BOARD_OUTLINE (278) 40
+END_BOARD_OUTLINE (279) 40
+START_OTHER_OUTLINE (280) 42
+END_OTHER_OUTLINE (281) 42
+START_ROUTE_OUTLINE (282) 44
+END_ROUTE_OUTLINE (283) 44
+START_PLACE_OUTLINE (284) 45
+END_PLACE_OUTLINE (285) 45
+START_ROUTE_KEEPOUT (286) 46
+END_ROUTE_KEEPOUT (287) 46
+START_VIA_KEEPOUT (288) 51
+END_VIA_KEEPOUT (289) 51
+START_PLACE_KEEPOUT (290) 56
+END_PLACE_KEEPOUT (291) 56
+START_PLACE_REGION (292) 52
+END_PLACE_REGION (293) 52
+START_DRILLED_HOLES (294) 65
+END_DRILLED_HOLES (295) 67
+START_PLACEMENT (296) 74 75
+END_PLACEMENT (297) 75 77
+LIBRARY_FILE (298) 92
+START_ELECTRICAL (299) 90
+END_ELECTRICAL (300) 90
+START_MECHANICAL (301) 91
+END_MECHANICAL (302) 91
+
+Nonterminals, with rules where they appear
+
+idf_data (51)
+    on left: 1 2 3 4, on right: 2 4
+board_data (52)
+    on left: 5 6 7 8 9 10 11 12 13 14 15, on right: 1 2 6 7 8 9 10
+    11 12 13 14 15
+board_header (53)
+    on left: 16, on right: 5
+idf_version_number (54)
+    on left: 17, on right: 16 92
+source_system_identification (55)
+    on left: 18, on right: 16 92
+date (56)
+    on left: 19, on right: 16 92
+board_file_version (57)
+    on left: 20, on right: 16
+board_name (58)
+    on left: 21, on right: 16
+any_string (59)
+    on left: 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36,
+    on right: 18 21 42 52 73 78 79 80 90 91
+units_definition_enumeration (60)
+    on left: 37 38 39, on right: 16 90 91
+board_outline (61)
+    on left: 40, on right: 6
+board_thickness (62)
+    on left: 41, on right: 40
+other_outline (63)
+    on left: 42, on right: 7
+extrude_thickness (64)
+    on left: 43, on right: 42
+route_outline (65)
+    on left: 44, on right: 8
+place_outline (66)
+    on left: 45, on right: 9
+route_keepout (67)
+    on left: 46, on right: 10
+inner_and_outer_layer_enumeration (68)
+    on left: 47 48 49 50, on right: 46
+via_keepout (69)
+    on left: 51, on right: 11
+place_region (70)
+    on left: 52, on right: 13
+outer_layers_enumeration (71)
+    on left: 53 54 55, on right: 52 56
+place_keepout (72)
+    on left: 56, on right: 12
+comp_height (73)
+    on left: 57 58, on right: 56
+loop (74)
+    on left: 59 60, on right: 40 42 44 45 46 51 52 56 60 90 91
+loop_label (75)
+    on left: 61, on right: 59 60
+arc (76)
+    on left: 62, on right: 59 60
+angle (77)
+    on left: 63 64, on right: 62
+board_drilled_holes (78)
+    on left: 65 66 67, on right: 14 66 67
+drilled_holes (79)
+    on left: 68, on right: 65 66
+hole_type_enumeration (80)
+    on left: 69 70, on right: 68
+associated_part_string (81)
+    on left: 71 72 73, on right: 68
+board_placement (82)
+    on left: 74 75 76 77, on right: 15 76 77
+placement (83)
+    on left: 78 79, on right: 74 76
+reference_designator (84)
+    on left: 80 81, on right: 78 79
+top_or_bottom_enumeration (85)
+    on left: 82 83, on right: 78 79
+placement_status_enumeration (86)
+    on left: 84 85 86, on right: 78
+library_data (87)
+    on left: 87 88 89, on right: 3 4 88 89
+electrical (88)
+    on left: 90, on right: 88
+mechanical (89)
+    on left: 91, on right: 89
+library_header (90)
+    on left: 92, on right: 87
+library_file_version (91)
+    on left: 93, on right: 92
+integer (92)
+    on left: 94, on right: 20 58 61 64 93
+real (93)
+    on left: 95, on right: 41 43 57 62 63 68 78 79 90 91
+
+
+state 0
+
+    START_HEADER	shift, and go to state 1
+
+    idf_data	go to state 2
+    board_data	go to state 3
+    board_header	go to state 4
+    library_data	go to state 5
+    library_header	go to state 6
+
+
+
+state 1
+
+    board_header  ->  START_HEADER . BOARD_FILE idf_version_number source_system_identification date board_file_version board_name units_definition_enumeration END_HEADER   (rule 16)
+    library_header  ->  START_HEADER . LIBRARY_FILE idf_version_number source_system_identification date library_file_version END_HEADER   (rule 92)
+
+    BOARD_FILE	shift, and go to state 7
+    LIBRARY_FILE	shift, and go to state 8
+
+
+
+state 2
+
+    idf_data  ->  idf_data . board_data   (rule 2)
+    idf_data  ->  idf_data . library_data   (rule 4)
+
+    $   	go to state 163
+    START_HEADER	shift, and go to state 1
+
+    board_data	go to state 9
+    board_header	go to state 4
+    library_data	go to state 10
+    library_header	go to state 6
+
+
+
+state 3
+
+    idf_data  ->  board_data .   (rule 1)
+    board_data  ->  board_data . board_outline   (rule 6)
+    board_data  ->  board_data . other_outline   (rule 7)
+    board_data  ->  board_data . route_outline   (rule 8)
+    board_data  ->  board_data . place_outline   (rule 9)
+    board_data  ->  board_data . route_keepout   (rule 10)
+    board_data  ->  board_data . via_keepout   (rule 11)
+    board_data  ->  board_data . place_keepout   (rule 12)
+    board_data  ->  board_data . place_region   (rule 13)
+    board_data  ->  board_data . board_drilled_holes   (rule 14)
+    board_data  ->  board_data . board_placement   (rule 15)
+
+    START_BOARD_OUTLINE	shift, and go to state 11
+    START_OTHER_OUTLINE	shift, and go to state 12
+    START_ROUTE_OUTLINE	shift, and go to state 13
+    START_PLACE_OUTLINE	shift, and go to state 14
+    START_ROUTE_KEEPOUT	shift, and go to state 15
+    START_VIA_KEEPOUT	shift, and go to state 16
+    START_PLACE_KEEPOUT	shift, and go to state 17
+    START_PLACE_REGION	shift, and go to state 18
+    START_DRILLED_HOLES	shift, and go to state 19
+    START_PLACEMENT	shift, and go to state 20
+
+    $default	reduce using rule 1 (idf_data)
+
+    board_outline	go to state 21
+    other_outline	go to state 22
+    route_outline	go to state 23
+    place_outline	go to state 24
+    route_keepout	go to state 25
+    via_keepout	go to state 26
+    place_region	go to state 27
+    place_keepout	go to state 28
+    board_drilled_holes	go to state 29
+    board_placement	go to state 30
+
+
+
+state 4
+
+    board_data  ->  board_header .   (rule 5)
+
+    $default	reduce using rule 5 (board_data)
+
+
+
+state 5
+
+    idf_data  ->  library_data .   (rule 3)
+    library_data  ->  library_data . electrical   (rule 88)
+    library_data  ->  library_data . mechanical   (rule 89)
+
+    START_ELECTRICAL	shift, and go to state 31
+    START_MECHANICAL	shift, and go to state 32
+
+    $default	reduce using rule 3 (idf_data)
+
+    electrical	go to state 33
+    mechanical	go to state 34
+
+
+
+state 6
+
+    library_data  ->  library_header .   (rule 87)
+
+    $default	reduce using rule 87 (library_data)
+
+
+
+state 7
+
+    board_header  ->  START_HEADER BOARD_FILE . idf_version_number source_system_identification date board_file_version board_name units_definition_enumeration END_HEADER   (rule 16)
+
+    RAWREAL	shift, and go to state 35
+
+    idf_version_number	go to state 36
+
+
+
+state 8
+
+    library_header  ->  START_HEADER LIBRARY_FILE . idf_version_number source_system_identification date library_file_version END_HEADER   (rule 92)
+
+    RAWREAL	shift, and go to state 35
+
+    idf_version_number	go to state 37
+
+
+
+state 9
+
+    idf_data  ->  idf_data board_data .   (rule 2)
+    board_data  ->  board_data . board_outline   (rule 6)
+    board_data  ->  board_data . other_outline   (rule 7)
+    board_data  ->  board_data . route_outline   (rule 8)
+    board_data  ->  board_data . place_outline   (rule 9)
+    board_data  ->  board_data . route_keepout   (rule 10)
+    board_data  ->  board_data . via_keepout   (rule 11)
+    board_data  ->  board_data . place_keepout   (rule 12)
+    board_data  ->  board_data . place_region   (rule 13)
+    board_data  ->  board_data . board_drilled_holes   (rule 14)
+    board_data  ->  board_data . board_placement   (rule 15)
+
+    START_BOARD_OUTLINE	shift, and go to state 11
+    START_OTHER_OUTLINE	shift, and go to state 12
+    START_ROUTE_OUTLINE	shift, and go to state 13
+    START_PLACE_OUTLINE	shift, and go to state 14
+    START_ROUTE_KEEPOUT	shift, and go to state 15
+    START_VIA_KEEPOUT	shift, and go to state 16
+    START_PLACE_KEEPOUT	shift, and go to state 17
+    START_PLACE_REGION	shift, and go to state 18
+    START_DRILLED_HOLES	shift, and go to state 19
+    START_PLACEMENT	shift, and go to state 20
+
+    $default	reduce using rule 2 (idf_data)
+
+    board_outline	go to state 21
+    other_outline	go to state 22
+    route_outline	go to state 23
+    place_outline	go to state 24
+    route_keepout	go to state 25
+    via_keepout	go to state 26
+    place_region	go to state 27
+    place_keepout	go to state 28
+    board_drilled_holes	go to state 29
+    board_placement	go to state 30
+
+
+
+state 10
+
+    idf_data  ->  idf_data library_data .   (rule 4)
+    library_data  ->  library_data . electrical   (rule 88)
+    library_data  ->  library_data . mechanical   (rule 89)
+
+    START_ELECTRICAL	shift, and go to state 31
+    START_MECHANICAL	shift, and go to state 32
+
+    $default	reduce using rule 4 (idf_data)
+
+    electrical	go to state 33
+    mechanical	go to state 34
+
+
+
+state 11
+
+    board_outline  ->  START_BOARD_OUTLINE . board_thickness loop END_BOARD_OUTLINE   (rule 40)
+
+    RAWREAL	shift, and go to state 38
+
+    board_thickness	go to state 39
+    real	go to state 40
+
+
+
+state 12
+
+    other_outline  ->  START_OTHER_OUTLINE . any_string extrude_thickness loop END_OTHER_OUTLINE   (rule 42)
+
+    STRING	shift, and go to state 41
+    MM  	shift, and go to state 42
+    TNM 	shift, and go to state 43
+    THOU	shift, and go to state 44
+    TOP 	shift, and go to state 45
+    BOTTOM	shift, and go to state 46
+    BOTH	shift, and go to state 47
+    ALL 	shift, and go to state 48
+    PTH 	shift, and go to state 49
+    NPTH	shift, and go to state 50
+    BOARD	shift, and go to state 51
+    NOREFDES	shift, and go to state 52
+    FIXED	shift, and go to state 53
+    UNPLACED	shift, and go to state 54
+    PLACED	shift, and go to state 55
+
+    any_string	go to state 56
+
+
+
+state 13
+
+    route_outline  ->  START_ROUTE_OUTLINE . loop END_ROUTE_OUTLINE   (rule 44)
+
+    RAWINTEGER	shift, and go to state 57
+
+    loop	go to state 58
+    loop_label	go to state 59
+    integer	go to state 60
+
+
+
+state 14
+
+    place_outline  ->  START_PLACE_OUTLINE . loop END_PLACE_OUTLINE   (rule 45)
+
+    RAWINTEGER	shift, and go to state 57
+
+    loop	go to state 61
+    loop_label	go to state 59
+    integer	go to state 60
+
+
+
+state 15
+
+    route_keepout  ->  START_ROUTE_KEEPOUT . inner_and_outer_layer_enumeration loop END_ROUTE_KEEPOUT   (rule 46)
+
+    TOP 	shift, and go to state 62
+    BOTTOM	shift, and go to state 63
+    BOTH	shift, and go to state 64
+    ALL 	shift, and go to state 65
+
+    inner_and_outer_layer_enumeration	go to state 66
+
+
+
+state 16
+
+    via_keepout  ->  START_VIA_KEEPOUT . loop END_VIA_KEEPOUT   (rule 51)
+
+    RAWINTEGER	shift, and go to state 57
+
+    loop	go to state 67
+    loop_label	go to state 59
+    integer	go to state 60
+
+
+
+state 17
+
+    place_keepout  ->  START_PLACE_KEEPOUT . outer_layers_enumeration comp_height comp_height loop END_PLACE_KEEPOUT   (rule 56)
+
+    TOP 	shift, and go to state 68
+    BOTTOM	shift, and go to state 69
+    BOTH	shift, and go to state 70
+
+    outer_layers_enumeration	go to state 71
+
+
+
+state 18
+
+    place_region  ->  START_PLACE_REGION . outer_layers_enumeration any_string loop END_PLACE_REGION   (rule 52)
+
+    TOP 	shift, and go to state 68
+    BOTTOM	shift, and go to state 69
+    BOTH	shift, and go to state 70
+
+    outer_layers_enumeration	go to state 72
+
+
+
+state 19
+
+    board_drilled_holes  ->  START_DRILLED_HOLES . drilled_holes   (rule 65)
+
+    RAWREAL	shift, and go to state 38
+
+    drilled_holes	go to state 73
+    real	go to state 74
+
+
+
+state 20
+
+    board_placement  ->  START_PLACEMENT . placement   (rule 74)
+    board_placement  ->  START_PLACEMENT . END_PLACEMENT   (rule 75)
+
+    STRING	shift, and go to state 41
+    MM  	shift, and go to state 42
+    TNM 	shift, and go to state 43
+    THOU	shift, and go to state 44
+    TOP 	shift, and go to state 45
+    BOTTOM	shift, and go to state 46
+    BOTH	shift, and go to state 47
+    ALL 	shift, and go to state 48
+    PTH 	shift, and go to state 49
+    NPTH	shift, and go to state 50
+    BOARD	shift, and go to state 51
+    NOREFDES	shift, and go to state 52
+    FIXED	shift, and go to state 53
+    UNPLACED	shift, and go to state 54
+    PLACED	shift, and go to state 55
+    END_PLACEMENT	shift, and go to state 75
+
+    any_string	go to state 76
+    placement	go to state 77
+
+
+
+state 21
+
+    board_data  ->  board_data board_outline .   (rule 6)
+
+    $default	reduce using rule 6 (board_data)
+
+
+
+state 22
+
+    board_data  ->  board_data other_outline .   (rule 7)
+
+    $default	reduce using rule 7 (board_data)
+
+
+
+state 23
+
+    board_data  ->  board_data route_outline .   (rule 8)
+
+    $default	reduce using rule 8 (board_data)
+
+
+
+state 24
+
+    board_data  ->  board_data place_outline .   (rule 9)
+
+    $default	reduce using rule 9 (board_data)
+
+
+
+state 25
+
+    board_data  ->  board_data route_keepout .   (rule 10)
+
+    $default	reduce using rule 10 (board_data)
+
+
+
+state 26
+
+    board_data  ->  board_data via_keepout .   (rule 11)
+
+    $default	reduce using rule 11 (board_data)
+
+
+
+state 27
+
+    board_data  ->  board_data place_region .   (rule 13)
+
+    $default	reduce using rule 13 (board_data)
+
+
+
+state 28
+
+    board_data  ->  board_data place_keepout .   (rule 12)
+
+    $default	reduce using rule 12 (board_data)
+
+
+
+state 29
+
+    board_data  ->  board_data board_drilled_holes .   (rule 14)
+    board_drilled_holes  ->  board_drilled_holes . drilled_holes   (rule 66)
+    board_drilled_holes  ->  board_drilled_holes . END_DRILLED_HOLES   (rule 67)
+
+    RAWREAL	shift, and go to state 38
+    END_DRILLED_HOLES	shift, and go to state 78
+
+    $default	reduce using rule 14 (board_data)
+
+    drilled_holes	go to state 79
+    real	go to state 74
+
+
+
+state 30
+
+    board_data  ->  board_data board_placement .   (rule 15)
+    board_placement  ->  board_placement . placement   (rule 76)
+    board_placement  ->  board_placement . END_PLACEMENT   (rule 77)
+
+    STRING	shift, and go to state 41
+    MM  	shift, and go to state 42
+    TNM 	shift, and go to state 43
+    THOU	shift, and go to state 44
+    TOP 	shift, and go to state 45
+    BOTTOM	shift, and go to state 46
+    BOTH	shift, and go to state 47
+    ALL 	shift, and go to state 48
+    PTH 	shift, and go to state 49
+    NPTH	shift, and go to state 50
+    BOARD	shift, and go to state 51
+    NOREFDES	shift, and go to state 52
+    FIXED	shift, and go to state 53
+    UNPLACED	shift, and go to state 54
+    PLACED	shift, and go to state 55
+    END_PLACEMENT	shift, and go to state 80
+
+    $default	reduce using rule 15 (board_data)
+
+    any_string	go to state 76
+    placement	go to state 81
+
+
+
+state 31
+
+    electrical  ->  START_ELECTRICAL . any_string any_string units_definition_enumeration real loop END_ELECTRICAL   (rule 90)
+
+    STRING	shift, and go to state 41
+    MM  	shift, and go to state 42
+    TNM 	shift, and go to state 43
+    THOU	shift, and go to state 44
+    TOP 	shift, and go to state 45
+    BOTTOM	shift, and go to state 46
+    BOTH	shift, and go to state 47
+    ALL 	shift, and go to state 48
+    PTH 	shift, and go to state 49
+    NPTH	shift, and go to state 50
+    BOARD	shift, and go to state 51
+    NOREFDES	shift, and go to state 52
+    FIXED	shift, and go to state 53
+    UNPLACED	shift, and go to state 54
+    PLACED	shift, and go to state 55
+
+    any_string	go to state 82
+
+
+
+state 32
+
+    mechanical  ->  START_MECHANICAL . any_string any_string units_definition_enumeration real loop END_MECHANICAL   (rule 91)
+
+    STRING	shift, and go to state 41
+    MM  	shift, and go to state 42
+    TNM 	shift, and go to state 43
+    THOU	shift, and go to state 44
+    TOP 	shift, and go to state 45
+    BOTTOM	shift, and go to state 46
+    BOTH	shift, and go to state 47
+    ALL 	shift, and go to state 48
+    PTH 	shift, and go to state 49
+    NPTH	shift, and go to state 50
+    BOARD	shift, and go to state 51
+    NOREFDES	shift, and go to state 52
+    FIXED	shift, and go to state 53
+    UNPLACED	shift, and go to state 54
+    PLACED	shift, and go to state 55
+
+    any_string	go to state 83
+
+
+
+state 33
+
+    library_data  ->  library_data electrical .   (rule 88)
+
+    $default	reduce using rule 88 (library_data)
+
+
+
+state 34
+
+    library_data  ->  library_data mechanical .   (rule 89)
+
+    $default	reduce using rule 89 (library_data)
+
+
+
+state 35
+
+    idf_version_number  ->  RAWREAL .   (rule 17)
+
+    $default	reduce using rule 17 (idf_version_number)
+
+
+
+state 36
+
+    board_header  ->  START_HEADER BOARD_FILE idf_version_number . source_system_identification date board_file_version board_name units_definition_enumeration END_HEADER   (rule 16)
+
+    STRING	shift, and go to state 41
+    MM  	shift, and go to state 42
+    TNM 	shift, and go to state 43
+    THOU	shift, and go to state 44
+    TOP 	shift, and go to state 45
+    BOTTOM	shift, and go to state 46
+    BOTH	shift, and go to state 47
+    ALL 	shift, and go to state 48
+    PTH 	shift, and go to state 49
+    NPTH	shift, and go to state 50
+    BOARD	shift, and go to state 51
+    NOREFDES	shift, and go to state 52
+    FIXED	shift, and go to state 53
+    UNPLACED	shift, and go to state 54
+    PLACED	shift, and go to state 55
+
+    source_system_identification	go to state 84
+    any_string	go to state 85
+
+
+
+state 37
+
+    library_header  ->  START_HEADER LIBRARY_FILE idf_version_number . source_system_identification date library_file_version END_HEADER   (rule 92)
+
+    STRING	shift, and go to state 41
+    MM  	shift, and go to state 42
+    TNM 	shift, and go to state 43
+    THOU	shift, and go to state 44
+    TOP 	shift, and go to state 45
+    BOTTOM	shift, and go to state 46
+    BOTH	shift, and go to state 47
+    ALL 	shift, and go to state 48
+    PTH 	shift, and go to state 49
+    NPTH	shift, and go to state 50
+    BOARD	shift, and go to state 51
+    NOREFDES	shift, and go to state 52
+    FIXED	shift, and go to state 53
+    UNPLACED	shift, and go to state 54
+    PLACED	shift, and go to state 55
+
+    source_system_identification	go to state 86
+    any_string	go to state 85
+
+
+
+state 38
+
+    real  ->  RAWREAL .   (rule 95)
+
+    $default	reduce using rule 95 (real)
+
+
+
+state 39
+
+    board_outline  ->  START_BOARD_OUTLINE board_thickness . loop END_BOARD_OUTLINE   (rule 40)
+
+    RAWINTEGER	shift, and go to state 57
+
+    loop	go to state 87
+    loop_label	go to state 59
+    integer	go to state 60
+
+
+
+state 40
+
+    board_thickness  ->  real .   (rule 41)
+
+    $default	reduce using rule 41 (board_thickness)
+
+
+
+state 41
+
+    any_string  ->  STRING .   (rule 22)
+
+    $default	reduce using rule 22 (any_string)
+
+
+
+state 42
+
+    any_string  ->  MM .   (rule 23)
+
+    $default	reduce using rule 23 (any_string)
+
+
+
+state 43
+
+    any_string  ->  TNM .   (rule 24)
+
+    $default	reduce using rule 24 (any_string)
+
+
+
+state 44
+
+    any_string  ->  THOU .   (rule 25)
+
+    $default	reduce using rule 25 (any_string)
+
+
+
+state 45
+
+    any_string  ->  TOP .   (rule 26)
+
+    $default	reduce using rule 26 (any_string)
+
+
+
+state 46
+
+    any_string  ->  BOTTOM .   (rule 27)
+
+    $default	reduce using rule 27 (any_string)
+
+
+
+state 47
+
+    any_string  ->  BOTH .   (rule 28)
+
+    $default	reduce using rule 28 (any_string)
+
+
+
+state 48
+
+    any_string  ->  ALL .   (rule 29)
+
+    $default	reduce using rule 29 (any_string)
+
+
+
+state 49
+
+    any_string  ->  PTH .   (rule 30)
+
+    $default	reduce using rule 30 (any_string)
+
+
+
+state 50
+
+    any_string  ->  NPTH .   (rule 31)
+
+    $default	reduce using rule 31 (any_string)
+
+
+
+state 51
+
+    any_string  ->  BOARD .   (rule 32)
+
+    $default	reduce using rule 32 (any_string)
+
+
+
+state 52
+
+    any_string  ->  NOREFDES .   (rule 33)
+
+    $default	reduce using rule 33 (any_string)
+
+
+
+state 53
+
+    any_string  ->  FIXED .   (rule 34)
+
+    $default	reduce using rule 34 (any_string)
+
+
+
+state 54
+
+    any_string  ->  UNPLACED .   (rule 35)
+
+    $default	reduce using rule 35 (any_string)
+
+
+
+state 55
+
+    any_string  ->  PLACED .   (rule 36)
+
+    $default	reduce using rule 36 (any_string)
+
+
+
+state 56
+
+    other_outline  ->  START_OTHER_OUTLINE any_string . extrude_thickness loop END_OTHER_OUTLINE   (rule 42)
+
+    RAWREAL	shift, and go to state 38
+
+    extrude_thickness	go to state 88
+    real	go to state 89
+
+
+
+state 57
+
+    integer  ->  RAWINTEGER .   (rule 94)
+
+    $default	reduce using rule 94 (integer)
+
+
+
+state 58
+
+    route_outline  ->  START_ROUTE_OUTLINE loop . END_ROUTE_OUTLINE   (rule 44)
+    loop  ->  loop . loop_label arc   (rule 60)
+
+    RAWINTEGER	shift, and go to state 57
+    END_ROUTE_OUTLINE	shift, and go to state 90
+
+    loop_label	go to state 91
+    integer	go to state 60
+
+
+
+state 59
+
+    loop  ->  loop_label . arc   (rule 59)
+
+    RAWREAL	shift, and go to state 38
+
+    arc 	go to state 92
+    real	go to state 93
+
+
+
+state 60
+
+    loop_label  ->  integer .   (rule 61)
+
+    $default	reduce using rule 61 (loop_label)
+
+
+
+state 61
+
+    place_outline  ->  START_PLACE_OUTLINE loop . END_PLACE_OUTLINE   (rule 45)
+    loop  ->  loop . loop_label arc   (rule 60)
+
+    RAWINTEGER	shift, and go to state 57
+    END_PLACE_OUTLINE	shift, and go to state 94
+
+    loop_label	go to state 91
+    integer	go to state 60
+
+
+
+state 62
+
+    inner_and_outer_layer_enumeration  ->  TOP .   (rule 47)
+
+    $default	reduce using rule 47 (inner_and_outer_layer_enumeration)
+
+
+
+state 63
+
+    inner_and_outer_layer_enumeration  ->  BOTTOM .   (rule 48)
+
+    $default	reduce using rule 48 (inner_and_outer_layer_enumeration)
+
+
+
+state 64
+
+    inner_and_outer_layer_enumeration  ->  BOTH .   (rule 49)
+
+    $default	reduce using rule 49 (inner_and_outer_layer_enumeration)
+
+
+
+state 65
+
+    inner_and_outer_layer_enumeration  ->  ALL .   (rule 50)
+
+    $default	reduce using rule 50 (inner_and_outer_layer_enumeration)
+
+
+
+state 66
+
+    route_keepout  ->  START_ROUTE_KEEPOUT inner_and_outer_layer_enumeration . loop END_ROUTE_KEEPOUT   (rule 46)
+
+    RAWINTEGER	shift, and go to state 57
+
+    loop	go to state 95
+    loop_label	go to state 59
+    integer	go to state 60
+
+
+
+state 67
+
+    via_keepout  ->  START_VIA_KEEPOUT loop . END_VIA_KEEPOUT   (rule 51)
+    loop  ->  loop . loop_label arc   (rule 60)
+
+    RAWINTEGER	shift, and go to state 57
+    END_VIA_KEEPOUT	shift, and go to state 96
+
+    loop_label	go to state 91
+    integer	go to state 60
+
+
+
+state 68
+
+    outer_layers_enumeration  ->  TOP .   (rule 53)
+
+    $default	reduce using rule 53 (outer_layers_enumeration)
+
+
+
+state 69
+
+    outer_layers_enumeration  ->  BOTTOM .   (rule 54)
+
+    $default	reduce using rule 54 (outer_layers_enumeration)
+
+
+
+state 70
+
+    outer_layers_enumeration  ->  BOTH .   (rule 55)
+
+    $default	reduce using rule 55 (outer_layers_enumeration)
+
+
+
+state 71
+
+    place_keepout  ->  START_PLACE_KEEPOUT outer_layers_enumeration . comp_height comp_height loop END_PLACE_KEEPOUT   (rule 56)
+
+    RAWREAL	shift, and go to state 38
+    RAWINTEGER	shift, and go to state 57
+
+    comp_height	go to state 97
+    integer	go to state 98
+    real	go to state 99
+
+
+
+state 72
+
+    place_region  ->  START_PLACE_REGION outer_layers_enumeration . any_string loop END_PLACE_REGION   (rule 52)
+
+    STRING	shift, and go to state 41
+    MM  	shift, and go to state 42
+    TNM 	shift, and go to state 43
+    THOU	shift, and go to state 44
+    TOP 	shift, and go to state 45
+    BOTTOM	shift, and go to state 46
+    BOTH	shift, and go to state 47
+    ALL 	shift, and go to state 48
+    PTH 	shift, and go to state 49
+    NPTH	shift, and go to state 50
+    BOARD	shift, and go to state 51
+    NOREFDES	shift, and go to state 52
+    FIXED	shift, and go to state 53
+    UNPLACED	shift, and go to state 54
+    PLACED	shift, and go to state 55
+
+    any_string	go to state 100
+
+
+
+state 73
+
+    board_drilled_holes  ->  START_DRILLED_HOLES drilled_holes .   (rule 65)
+
+    $default	reduce using rule 65 (board_drilled_holes)
+
+
+
+state 74
+
+    drilled_holes  ->  real . real real hole_type_enumeration associated_part_string   (rule 68)
+
+    RAWREAL	shift, and go to state 38
+
+    real	go to state 101
+
+
+
+state 75
+
+    board_placement  ->  START_PLACEMENT END_PLACEMENT .   (rule 75)
+
+    $default	reduce using rule 75 (board_placement)
+
+
+
+state 76
+
+    placement  ->  any_string . any_string reference_designator real real real top_or_bottom_enumeration placement_status_enumeration   (rule 78)
+    placement  ->  any_string . any_string reference_designator real real real top_or_bottom_enumeration   (rule 79)
+
+    STRING	shift, and go to state 41
+    MM  	shift, and go to state 42
+    TNM 	shift, and go to state 43
+    THOU	shift, and go to state 44
+    TOP 	shift, and go to state 45
+    BOTTOM	shift, and go to state 46
+    BOTH	shift, and go to state 47
+    ALL 	shift, and go to state 48
+    PTH 	shift, and go to state 49
+    NPTH	shift, and go to state 50
+    BOARD	shift, and go to state 51
+    NOREFDES	shift, and go to state 52
+    FIXED	shift, and go to state 53
+    UNPLACED	shift, and go to state 54
+    PLACED	shift, and go to state 55
+
+    any_string	go to state 102
+
+
+
+state 77
+
+    board_placement  ->  START_PLACEMENT placement .   (rule 74)
+
+    $default	reduce using rule 74 (board_placement)
+
+
+
+state 78
+
+    board_drilled_holes  ->  board_drilled_holes END_DRILLED_HOLES .   (rule 67)
+
+    $default	reduce using rule 67 (board_drilled_holes)
+
+
+
+state 79
+
+    board_drilled_holes  ->  board_drilled_holes drilled_holes .   (rule 66)
+
+    $default	reduce using rule 66 (board_drilled_holes)
+
+
+
+state 80
+
+    board_placement  ->  board_placement END_PLACEMENT .   (rule 77)
+
+    $default	reduce using rule 77 (board_placement)
+
+
+
+state 81
+
+    board_placement  ->  board_placement placement .   (rule 76)
+
+    $default	reduce using rule 76 (board_placement)
+
+
+
+state 82
+
+    electrical  ->  START_ELECTRICAL any_string . any_string units_definition_enumeration real loop END_ELECTRICAL   (rule 90)
+
+    STRING	shift, and go to state 41
+    MM  	shift, and go to state 42
+    TNM 	shift, and go to state 43
+    THOU	shift, and go to state 44
+    TOP 	shift, and go to state 45
+    BOTTOM	shift, and go to state 46
+    BOTH	shift, and go to state 47
+    ALL 	shift, and go to state 48
+    PTH 	shift, and go to state 49
+    NPTH	shift, and go to state 50
+    BOARD	shift, and go to state 51
+    NOREFDES	shift, and go to state 52
+    FIXED	shift, and go to state 53
+    UNPLACED	shift, and go to state 54
+    PLACED	shift, and go to state 55
+
+    any_string	go to state 103
+
+
+
+state 83
+
+    mechanical  ->  START_MECHANICAL any_string . any_string units_definition_enumeration real loop END_MECHANICAL   (rule 91)
+
+    STRING	shift, and go to state 41
+    MM  	shift, and go to state 42
+    TNM 	shift, and go to state 43
+    THOU	shift, and go to state 44
+    TOP 	shift, and go to state 45
+    BOTTOM	shift, and go to state 46
+    BOTH	shift, and go to state 47
+    ALL 	shift, and go to state 48
+    PTH 	shift, and go to state 49
+    NPTH	shift, and go to state 50
+    BOARD	shift, and go to state 51
+    NOREFDES	shift, and go to state 52
+    FIXED	shift, and go to state 53
+    UNPLACED	shift, and go to state 54
+    PLACED	shift, and go to state 55
+
+    any_string	go to state 104
+
+
+
+state 84
+
+    board_header  ->  START_HEADER BOARD_FILE idf_version_number source_system_identification . date board_file_version board_name units_definition_enumeration END_HEADER   (rule 16)
+
+    STRING	shift, and go to state 105
+
+    date	go to state 106
+
+
+
+state 85
+
+    source_system_identification  ->  any_string .   (rule 18)
+
+    $default	reduce using rule 18 (source_system_identification)
+
+
+
+state 86
+
+    library_header  ->  START_HEADER LIBRARY_FILE idf_version_number source_system_identification . date library_file_version END_HEADER   (rule 92)
+
+    STRING	shift, and go to state 105
+
+    date	go to state 107
+
+
+
+state 87
+
+    board_outline  ->  START_BOARD_OUTLINE board_thickness loop . END_BOARD_OUTLINE   (rule 40)
+    loop  ->  loop . loop_label arc   (rule 60)
+
+    RAWINTEGER	shift, and go to state 57
+    END_BOARD_OUTLINE	shift, and go to state 108
+
+    loop_label	go to state 91
+    integer	go to state 60
+
+
+
+state 88
+
+    other_outline  ->  START_OTHER_OUTLINE any_string extrude_thickness . loop END_OTHER_OUTLINE   (rule 42)
+
+    RAWINTEGER	shift, and go to state 57
+
+    loop	go to state 109
+    loop_label	go to state 59
+    integer	go to state 60
+
+
+
+state 89
+
+    extrude_thickness  ->  real .   (rule 43)
+
+    $default	reduce using rule 43 (extrude_thickness)
+
+
+
+state 90
+
+    route_outline  ->  START_ROUTE_OUTLINE loop END_ROUTE_OUTLINE .   (rule 44)
+
+    $default	reduce using rule 44 (route_outline)
+
+
+
+state 91
+
+    loop  ->  loop loop_label . arc   (rule 60)
+
+    RAWREAL	shift, and go to state 38
+
+    arc 	go to state 110
+    real	go to state 93
+
+
+
+state 92
+
+    loop  ->  loop_label arc .   (rule 59)
+
+    $default	reduce using rule 59 (loop)
+
+
+
+state 93
+
+    arc  ->  real . real angle   (rule 62)
+
+    RAWREAL	shift, and go to state 38
+
+    real	go to state 111
+
+
+
+state 94
+
+    place_outline  ->  START_PLACE_OUTLINE loop END_PLACE_OUTLINE .   (rule 45)
+
+    $default	reduce using rule 45 (place_outline)
+
+
+
+state 95
+
+    route_keepout  ->  START_ROUTE_KEEPOUT inner_and_outer_layer_enumeration loop . END_ROUTE_KEEPOUT   (rule 46)
+    loop  ->  loop . loop_label arc   (rule 60)
+
+    RAWINTEGER	shift, and go to state 57
+    END_ROUTE_KEEPOUT	shift, and go to state 112
+
+    loop_label	go to state 91
+    integer	go to state 60
+
+
+
+state 96
+
+    via_keepout  ->  START_VIA_KEEPOUT loop END_VIA_KEEPOUT .   (rule 51)
+
+    $default	reduce using rule 51 (via_keepout)
+
+
+
+state 97
+
+    place_keepout  ->  START_PLACE_KEEPOUT outer_layers_enumeration comp_height . comp_height loop END_PLACE_KEEPOUT   (rule 56)
+
+    RAWREAL	shift, and go to state 38
+    RAWINTEGER	shift, and go to state 57
+
+    comp_height	go to state 113
+    integer	go to state 98
+    real	go to state 99
+
+
+
+state 98
+
+    comp_height  ->  integer .   (rule 58)
+
+    $default	reduce using rule 58 (comp_height)
+
+
+
+state 99
+
+    comp_height  ->  real .   (rule 57)
+
+    $default	reduce using rule 57 (comp_height)
+
+
+
+state 100
+
+    place_region  ->  START_PLACE_REGION outer_layers_enumeration any_string . loop END_PLACE_REGION   (rule 52)
+
+    RAWINTEGER	shift, and go to state 57
+
+    loop	go to state 114
+    loop_label	go to state 59
+    integer	go to state 60
+
+
+
+state 101
+
+    drilled_holes  ->  real real . real hole_type_enumeration associated_part_string   (rule 68)
+
+    RAWREAL	shift, and go to state 38
+
+    real	go to state 115
+
+
+
+state 102
+
+    placement  ->  any_string any_string . reference_designator real real real top_or_bottom_enumeration placement_status_enumeration   (rule 78)
+    placement  ->  any_string any_string . reference_designator real real real top_or_bottom_enumeration   (rule 79)
+
+    STRING	shift, and go to state 41
+    MM  	shift, and go to state 42
+    TNM 	shift, and go to state 43
+    THOU	shift, and go to state 44
+    TOP 	shift, and go to state 45
+    BOTTOM	shift, and go to state 46
+    BOTH	shift, and go to state 47
+    ALL 	shift, and go to state 48
+    PTH 	shift, and go to state 49
+    NPTH	shift, and go to state 50
+    BOARD	shift, and go to state 51
+    NOREFDES	shift, and go to state 116
+    FIXED	shift, and go to state 53
+    UNPLACED	shift, and go to state 54
+    PLACED	shift, and go to state 55
+
+    any_string	go to state 117
+    reference_designator	go to state 118
+
+
+
+state 103
+
+    electrical  ->  START_ELECTRICAL any_string any_string . units_definition_enumeration real loop END_ELECTRICAL   (rule 90)
+
+    MM  	shift, and go to state 119
+    TNM 	shift, and go to state 120
+    THOU	shift, and go to state 121
+
+    units_definition_enumeration	go to state 122
+
+
+
+state 104
+
+    mechanical  ->  START_MECHANICAL any_string any_string . units_definition_enumeration real loop END_MECHANICAL   (rule 91)
+
+    MM  	shift, and go to state 119
+    TNM 	shift, and go to state 120
+    THOU	shift, and go to state 121
+
+    units_definition_enumeration	go to state 123
+
+
+
+state 105
+
+    date  ->  STRING .   (rule 19)
+
+    $default	reduce using rule 19 (date)
+
+
+
+state 106
+
+    board_header  ->  START_HEADER BOARD_FILE idf_version_number source_system_identification date . board_file_version board_name units_definition_enumeration END_HEADER   (rule 16)
+
+    RAWINTEGER	shift, and go to state 57
+
+    board_file_version	go to state 124
+    integer	go to state 125
+
+
+
+state 107
+
+    library_header  ->  START_HEADER LIBRARY_FILE idf_version_number source_system_identification date . library_file_version END_HEADER   (rule 92)
+
+    RAWINTEGER	shift, and go to state 57
+
+    library_file_version	go to state 126
+    integer	go to state 127
+
+
+
+state 108
+
+    board_outline  ->  START_BOARD_OUTLINE board_thickness loop END_BOARD_OUTLINE .   (rule 40)
+
+    $default	reduce using rule 40 (board_outline)
+
+
+
+state 109
+
+    other_outline  ->  START_OTHER_OUTLINE any_string extrude_thickness loop . END_OTHER_OUTLINE   (rule 42)
+    loop  ->  loop . loop_label arc   (rule 60)
+
+    RAWINTEGER	shift, and go to state 57
+    END_OTHER_OUTLINE	shift, and go to state 128
+
+    loop_label	go to state 91
+    integer	go to state 60
+
+
+
+state 110
+
+    loop  ->  loop loop_label arc .   (rule 60)
+
+    $default	reduce using rule 60 (loop)
+
+
+
+state 111
+
+    arc  ->  real real . angle   (rule 62)
+
+    RAWREAL	shift, and go to state 38
+    RAWINTEGER	shift, and go to state 57
+
+    angle	go to state 129
+    integer	go to state 130
+    real	go to state 131
+
+
+
+state 112
+
+    route_keepout  ->  START_ROUTE_KEEPOUT inner_and_outer_layer_enumeration loop END_ROUTE_KEEPOUT .   (rule 46)
+
+    $default	reduce using rule 46 (route_keepout)
+
+
+
+state 113
+
+    place_keepout  ->  START_PLACE_KEEPOUT outer_layers_enumeration comp_height comp_height . loop END_PLACE_KEEPOUT   (rule 56)
+
+    RAWINTEGER	shift, and go to state 57
+
+    loop	go to state 132
+    loop_label	go to state 59
+    integer	go to state 60
+
+
+
+state 114
+
+    place_region  ->  START_PLACE_REGION outer_layers_enumeration any_string loop . END_PLACE_REGION   (rule 52)
+    loop  ->  loop . loop_label arc   (rule 60)
+
+    RAWINTEGER	shift, and go to state 57
+    END_PLACE_REGION	shift, and go to state 133
+
+    loop_label	go to state 91
+    integer	go to state 60
+
+
+
+state 115
+
+    drilled_holes  ->  real real real . hole_type_enumeration associated_part_string   (rule 68)
+
+    PTH 	shift, and go to state 134
+    NPTH	shift, and go to state 135
+
+    hole_type_enumeration	go to state 136
+
+
+
+state 116
+
+    any_string  ->  NOREFDES .   (rule 33)
+    reference_designator  ->  NOREFDES .   (rule 81)
+
+    RAWREAL	reduce using rule 33 (any_string)
+    RAWREAL	[reduce using rule 81 (reference_designator)]
+    $default	reduce using rule 33 (any_string)
+
+
+
+state 117
+
+    reference_designator  ->  any_string .   (rule 80)
+
+    $default	reduce using rule 80 (reference_designator)
+
+
+
+state 118
+
+    placement  ->  any_string any_string reference_designator . real real real top_or_bottom_enumeration placement_status_enumeration   (rule 78)
+    placement  ->  any_string any_string reference_designator . real real real top_or_bottom_enumeration   (rule 79)
+
+    RAWREAL	shift, and go to state 38
+
+    real	go to state 137
+
+
+
+state 119
+
+    units_definition_enumeration  ->  MM .   (rule 37)
+
+    $default	reduce using rule 37 (units_definition_enumeration)
+
+
+
+state 120
+
+    units_definition_enumeration  ->  TNM .   (rule 38)
+
+    $default	reduce using rule 38 (units_definition_enumeration)
+
+
+
+state 121
+
+    units_definition_enumeration  ->  THOU .   (rule 39)
+
+    $default	reduce using rule 39 (units_definition_enumeration)
+
+
+
+state 122
+
+    electrical  ->  START_ELECTRICAL any_string any_string units_definition_enumeration . real loop END_ELECTRICAL   (rule 90)
+
+    RAWREAL	shift, and go to state 38
+
+    real	go to state 138
+
+
+
+state 123
+
+    mechanical  ->  START_MECHANICAL any_string any_string units_definition_enumeration . real loop END_MECHANICAL   (rule 91)
+
+    RAWREAL	shift, and go to state 38
+
+    real	go to state 139
+
+
+
+state 124
+
+    board_header  ->  START_HEADER BOARD_FILE idf_version_number source_system_identification date board_file_version . board_name units_definition_enumeration END_HEADER   (rule 16)
+
+    STRING	shift, and go to state 41
+    MM  	shift, and go to state 42
+    TNM 	shift, and go to state 43
+    THOU	shift, and go to state 44
+    TOP 	shift, and go to state 45
+    BOTTOM	shift, and go to state 46
+    BOTH	shift, and go to state 47
+    ALL 	shift, and go to state 48
+    PTH 	shift, and go to state 49
+    NPTH	shift, and go to state 50
+    BOARD	shift, and go to state 51
+    NOREFDES	shift, and go to state 52
+    FIXED	shift, and go to state 53
+    UNPLACED	shift, and go to state 54
+    PLACED	shift, and go to state 55
+
+    board_name	go to state 140
+    any_string	go to state 141
+
+
+
+state 125
+
+    board_file_version  ->  integer .   (rule 20)
+
+    $default	reduce using rule 20 (board_file_version)
+
+
+
+state 126
+
+    library_header  ->  START_HEADER LIBRARY_FILE idf_version_number source_system_identification date library_file_version . END_HEADER   (rule 92)
+
+    END_HEADER	shift, and go to state 142
+
+
+
+state 127
+
+    library_file_version  ->  integer .   (rule 93)
+
+    $default	reduce using rule 93 (library_file_version)
+
+
+
+state 128
+
+    other_outline  ->  START_OTHER_OUTLINE any_string extrude_thickness loop END_OTHER_OUTLINE .   (rule 42)
+
+    $default	reduce using rule 42 (other_outline)
+
+
+
+state 129
+
+    arc  ->  real real angle .   (rule 62)
+
+    $default	reduce using rule 62 (arc)
+
+
+
+state 130
+
+    angle  ->  integer .   (rule 64)
+
+    $default	reduce using rule 64 (angle)
+
+
+
+state 131
+
+    angle  ->  real .   (rule 63)
+
+    $default	reduce using rule 63 (angle)
+
+
+
+state 132
+
+    place_keepout  ->  START_PLACE_KEEPOUT outer_layers_enumeration comp_height comp_height loop . END_PLACE_KEEPOUT   (rule 56)
+    loop  ->  loop . loop_label arc   (rule 60)
+
+    RAWINTEGER	shift, and go to state 57
+    END_PLACE_KEEPOUT	shift, and go to state 143
+
+    loop_label	go to state 91
+    integer	go to state 60
+
+
+
+state 133
+
+    place_region  ->  START_PLACE_REGION outer_layers_enumeration any_string loop END_PLACE_REGION .   (rule 52)
+
+    $default	reduce using rule 52 (place_region)
+
+
+
+state 134
+
+    hole_type_enumeration  ->  PTH .   (rule 69)
+
+    $default	reduce using rule 69 (hole_type_enumeration)
+
+
+
+state 135
+
+    hole_type_enumeration  ->  NPTH .   (rule 70)
+
+    $default	reduce using rule 70 (hole_type_enumeration)
+
+
+
+state 136
+
+    drilled_holes  ->  real real real hole_type_enumeration . associated_part_string   (rule 68)
+
+    STRING	shift, and go to state 41
+    MM  	shift, and go to state 42
+    TNM 	shift, and go to state 43
+    THOU	shift, and go to state 44
+    TOP 	shift, and go to state 45
+    BOTTOM	shift, and go to state 46
+    BOTH	shift, and go to state 47
+    ALL 	shift, and go to state 48
+    PTH 	shift, and go to state 49
+    NPTH	shift, and go to state 50
+    BOARD	shift, and go to state 144
+    NOREFDES	shift, and go to state 145
+    FIXED	shift, and go to state 53
+    UNPLACED	shift, and go to state 54
+    PLACED	shift, and go to state 55
+
+    any_string	go to state 146
+    associated_part_string	go to state 147
+
+
+
+state 137
+
+    placement  ->  any_string any_string reference_designator real . real real top_or_bottom_enumeration placement_status_enumeration   (rule 78)
+    placement  ->  any_string any_string reference_designator real . real real top_or_bottom_enumeration   (rule 79)
+
+    RAWREAL	shift, and go to state 38
+
+    real	go to state 148
+
+
+
+state 138
+
+    electrical  ->  START_ELECTRICAL any_string any_string units_definition_enumeration real . loop END_ELECTRICAL   (rule 90)
+
+    RAWINTEGER	shift, and go to state 57
+
+    loop	go to state 149
+    loop_label	go to state 59
+    integer	go to state 60
+
+
+
+state 139
+
+    mechanical  ->  START_MECHANICAL any_string any_string units_definition_enumeration real . loop END_MECHANICAL   (rule 91)
+
+    RAWINTEGER	shift, and go to state 57
+
+    loop	go to state 150
+    loop_label	go to state 59
+    integer	go to state 60
+
+
+
+state 140
+
+    board_header  ->  START_HEADER BOARD_FILE idf_version_number source_system_identification date board_file_version board_name . units_definition_enumeration END_HEADER   (rule 16)
+
+    MM  	shift, and go to state 119
+    TNM 	shift, and go to state 120
+    THOU	shift, and go to state 121
+
+    units_definition_enumeration	go to state 151
+
+
+
+state 141
+
+    board_name  ->  any_string .   (rule 21)
+
+    $default	reduce using rule 21 (board_name)
+
+
+
+state 142
+
+    library_header  ->  START_HEADER LIBRARY_FILE idf_version_number source_system_identification date library_file_version END_HEADER .   (rule 92)
+
+    $default	reduce using rule 92 (library_header)
+
+
+
+state 143
+
+    place_keepout  ->  START_PLACE_KEEPOUT outer_layers_enumeration comp_height comp_height loop END_PLACE_KEEPOUT .   (rule 56)
+
+    $default	reduce using rule 56 (place_keepout)
+
+
+
+state 144
+
+    any_string  ->  BOARD .   (rule 32)
+    associated_part_string  ->  BOARD .   (rule 71)
+
+    $   	reduce using rule 32 (any_string)
+    $   	[reduce using rule 71 (associated_part_string)]
+    RAWREAL	reduce using rule 32 (any_string)
+    RAWREAL	[reduce using rule 71 (associated_part_string)]
+    START_HEADER	reduce using rule 32 (any_string)
+    START_HEADER	[reduce using rule 71 (associated_part_string)]
+    START_BOARD_OUTLINE	reduce using rule 32 (any_string)
+    START_BOARD_OUTLINE	[reduce using rule 71 (associated_part_string)]
+    START_OTHER_OUTLINE	reduce using rule 32 (any_string)
+    START_OTHER_OUTLINE	[reduce using rule 71 (associated_part_string)]
+    START_ROUTE_OUTLINE	reduce using rule 32 (any_string)
+    START_ROUTE_OUTLINE	[reduce using rule 71 (associated_part_string)]
+    START_PLACE_OUTLINE	reduce using rule 32 (any_string)
+    START_PLACE_OUTLINE	[reduce using rule 71 (associated_part_string)]
+    START_ROUTE_KEEPOUT	reduce using rule 32 (any_string)
+    START_ROUTE_KEEPOUT	[reduce using rule 71 (associated_part_string)]
+    START_VIA_KEEPOUT	reduce using rule 32 (any_string)
+    START_VIA_KEEPOUT	[reduce using rule 71 (associated_part_string)]
+    START_PLACE_KEEPOUT	reduce using rule 32 (any_string)
+    START_PLACE_KEEPOUT	[reduce using rule 71 (associated_part_string)]
+    START_PLACE_REGION	reduce using rule 32 (any_string)
+    START_PLACE_REGION	[reduce using rule 71 (associated_part_string)]
+    START_DRILLED_HOLES	reduce using rule 32 (any_string)
+    START_DRILLED_HOLES	[reduce using rule 71 (associated_part_string)]
+    END_DRILLED_HOLES	reduce using rule 32 (any_string)
+    END_DRILLED_HOLES	[reduce using rule 71 (associated_part_string)]
+    START_PLACEMENT	reduce using rule 32 (any_string)
+    START_PLACEMENT	[reduce using rule 71 (associated_part_string)]
+    $default	reduce using rule 32 (any_string)
+
+
+
+state 145
+
+    any_string  ->  NOREFDES .   (rule 33)
+    associated_part_string  ->  NOREFDES .   (rule 72)
+
+    $   	reduce using rule 33 (any_string)
+    $   	[reduce using rule 72 (associated_part_string)]
+    RAWREAL	reduce using rule 33 (any_string)
+    RAWREAL	[reduce using rule 72 (associated_part_string)]
+    START_HEADER	reduce using rule 33 (any_string)
+    START_HEADER	[reduce using rule 72 (associated_part_string)]
+    START_BOARD_OUTLINE	reduce using rule 33 (any_string)
+    START_BOARD_OUTLINE	[reduce using rule 72 (associated_part_string)]
+    START_OTHER_OUTLINE	reduce using rule 33 (any_string)
+    START_OTHER_OUTLINE	[reduce using rule 72 (associated_part_string)]
+    START_ROUTE_OUTLINE	reduce using rule 33 (any_string)
+    START_ROUTE_OUTLINE	[reduce using rule 72 (associated_part_string)]
+    START_PLACE_OUTLINE	reduce using rule 33 (any_string)
+    START_PLACE_OUTLINE	[reduce using rule 72 (associated_part_string)]
+    START_ROUTE_KEEPOUT	reduce using rule 33 (any_string)
+    START_ROUTE_KEEPOUT	[reduce using rule 72 (associated_part_string)]
+    START_VIA_KEEPOUT	reduce using rule 33 (any_string)
+    START_VIA_KEEPOUT	[reduce using rule 72 (associated_part_string)]
+    START_PLACE_KEEPOUT	reduce using rule 33 (any_string)
+    START_PLACE_KEEPOUT	[reduce using rule 72 (associated_part_string)]
+    START_PLACE_REGION	reduce using rule 33 (any_string)
+    START_PLACE_REGION	[reduce using rule 72 (associated_part_string)]
+    START_DRILLED_HOLES	reduce using rule 33 (any_string)
+    START_DRILLED_HOLES	[reduce using rule 72 (associated_part_string)]
+    END_DRILLED_HOLES	reduce using rule 33 (any_string)
+    END_DRILLED_HOLES	[reduce using rule 72 (associated_part_string)]
+    START_PLACEMENT	reduce using rule 33 (any_string)
+    START_PLACEMENT	[reduce using rule 72 (associated_part_string)]
+    $default	reduce using rule 33 (any_string)
+
+
+
+state 146
+
+    associated_part_string  ->  any_string .   (rule 73)
+
+    $default	reduce using rule 73 (associated_part_string)
+
+
+
+state 147
+
+    drilled_holes  ->  real real real hole_type_enumeration associated_part_string .   (rule 68)
+
+    $default	reduce using rule 68 (drilled_holes)
+
+
+
+state 148
+
+    placement  ->  any_string any_string reference_designator real real . real top_or_bottom_enumeration placement_status_enumeration   (rule 78)
+    placement  ->  any_string any_string reference_designator real real . real top_or_bottom_enumeration   (rule 79)
+
+    RAWREAL	shift, and go to state 38
+
+    real	go to state 152
+
+
+
+state 149
+
+    loop  ->  loop . loop_label arc   (rule 60)
+    electrical  ->  START_ELECTRICAL any_string any_string units_definition_enumeration real loop . END_ELECTRICAL   (rule 90)
+
+    RAWINTEGER	shift, and go to state 57
+    END_ELECTRICAL	shift, and go to state 153
+
+    loop_label	go to state 91
+    integer	go to state 60
+
+
+
+state 150
+
+    loop  ->  loop . loop_label arc   (rule 60)
+    mechanical  ->  START_MECHANICAL any_string any_string units_definition_enumeration real loop . END_MECHANICAL   (rule 91)
+
+    RAWINTEGER	shift, and go to state 57
+    END_MECHANICAL	shift, and go to state 154
+
+    loop_label	go to state 91
+    integer	go to state 60
+
+
+
+state 151
+
+    board_header  ->  START_HEADER BOARD_FILE idf_version_number source_system_identification date board_file_version board_name units_definition_enumeration . END_HEADER   (rule 16)
+
+    END_HEADER	shift, and go to state 155
+
+
+
+state 152
+
+    placement  ->  any_string any_string reference_designator real real real . top_or_bottom_enumeration placement_status_enumeration   (rule 78)
+    placement  ->  any_string any_string reference_designator real real real . top_or_bottom_enumeration   (rule 79)
+
+    TOP 	shift, and go to state 156
+    BOTTOM	shift, and go to state 157
+
+    top_or_bottom_enumeration	go to state 158
+
+
+
+state 153
+
+    electrical  ->  START_ELECTRICAL any_string any_string units_definition_enumeration real loop END_ELECTRICAL .   (rule 90)
+
+    $default	reduce using rule 90 (electrical)
+
+
+
+state 154
+
+    mechanical  ->  START_MECHANICAL any_string any_string units_definition_enumeration real loop END_MECHANICAL .   (rule 91)
+
+    $default	reduce using rule 91 (mechanical)
+
+
+
+state 155
+
+    board_header  ->  START_HEADER BOARD_FILE idf_version_number source_system_identification date board_file_version board_name units_definition_enumeration END_HEADER .   (rule 16)
+
+    $default	reduce using rule 16 (board_header)
+
+
+
+state 156
+
+    top_or_bottom_enumeration  ->  TOP .   (rule 82)
+
+    $default	reduce using rule 82 (top_or_bottom_enumeration)
+
+
+
+state 157
+
+    top_or_bottom_enumeration  ->  BOTTOM .   (rule 83)
+
+    $default	reduce using rule 83 (top_or_bottom_enumeration)
+
+
+
+state 158
+
+    placement  ->  any_string any_string reference_designator real real real top_or_bottom_enumeration . placement_status_enumeration   (rule 78)
+    placement  ->  any_string any_string reference_designator real real real top_or_bottom_enumeration .   (rule 79)
+
+    FIXED	shift, and go to state 159
+    UNPLACED	shift, and go to state 160
+    PLACED	shift, and go to state 161
+
+    FIXED	[reduce using rule 79 (placement)]
+    UNPLACED	[reduce using rule 79 (placement)]
+    PLACED	[reduce using rule 79 (placement)]
+    $default	reduce using rule 79 (placement)
+
+    placement_status_enumeration	go to state 162
+
+
+
+state 159
+
+    placement_status_enumeration  ->  FIXED .   (rule 84)
+
+    $default	reduce using rule 84 (placement_status_enumeration)
+
+
+
+state 160
+
+    placement_status_enumeration  ->  UNPLACED .   (rule 85)
+
+    $default	reduce using rule 85 (placement_status_enumeration)
+
+
+
+state 161
+
+    placement_status_enumeration  ->  PLACED .   (rule 86)
+
+    $default	reduce using rule 86 (placement_status_enumeration)
+
+
+
+state 162
+
+    placement  ->  any_string any_string reference_designator real real real top_or_bottom_enumeration placement_status_enumeration .   (rule 78)
+
+    $default	reduce using rule 78 (placement)
+
+
+
+state 163
+
+    $   	go to state 164
+
+
+
+state 164
+
+    $default	accept

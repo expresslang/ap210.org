@@ -1,0 +1,121 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Model_parameter_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Model_parameter_arm</h2>
+      <p><i>Source : </i></p><code><br><br><a name="model_parameter_arm">SCHEMA <b>Model_parameter_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/activity_method_assignment/sys/e_exp_arm.htm#activity_method_assignment_arm">Activity_method_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1249<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/characteristic/sys/e_exp_arm.htm#characteristic_arm">Characteristic_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1654<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/classification_with_attributes/sys/e_exp_arm.htm#classification_with_attributes_arm">Classification_with_attributes_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1111<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/independent_property_representation/sys/e_exp_arm.htm#independent_property_representation_arm">Independent_property_representation_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1038<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/group/sys/e_exp_arm.htm#group_arm">Group_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1113<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/modules/specification_document/sys/e_exp_arm.htm#specification_document_arm">Specification_document_arm</A>&nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1747<br>&nbsp;&nbsp;(<A HREF="../../../data/modules/specification_document/sys/e_exp_arm.htm#specification_document_arm.get_document_definition">get_document_definition</A>);
+         <br><br></code><code><br><A NAME="model_parameter_arm.mp_activity_method_item_select">TYPE </A><b>mp_activity_method_item_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/activity_method_assignment/sys/e_exp_arm.htm#activity_method_assignment_arm.activity_method_item">activity_method_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#model_parameter_arm.test_method_based_parameter_assignment">Test_method_based_parameter_assignment</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="model_parameter_arm.mp_documented_element_select">TYPE </A><b>mp_documented_element_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/document_assignment/sys/e_exp_arm.htm#document_assignment_arm.documented_element_select">documented_element_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#model_parameter_arm.model_parameter">Model_parameter</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="model_parameter_arm.mp_groupable_item">TYPE </A><b>mp_groupable_item</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/group/sys/e_exp_arm.htm#group_arm.groupable_item">groupable_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/group/sys/e_exp_arm.htm#group_arm.group_relationship">Group_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="model_parameter_arm.category_model_parameter">ENTITY <b>Category_model_parameter</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#model_parameter_arm.model_parameter">Model_parameter</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.category_model_parameter.associated_attribute">associated_attribute : </A>SET[1:1] OF <A HREF="../../../data/modules/classification_with_attributes/sys/e_exp_arm.htm#classification_with_attributes_arm.classification_attribute">Classification_attribute</A> FOR attribute_definition;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_arm.independent_property_with_unit">ENTITY <b>Independent_property_with_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/independent_property/sys/e_exp_arm.htm#independent_property_arm.independent_property">Independent_property</A>);<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.independent_property_with_unit.unit_of_measure">unit_of_measure : </A>SET[1:?] OF <A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.unit">Unit</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_arm.model_parameter">ENTITY <b>Model_parameter</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/independent_property/sys/e_exp_arm.htm#independent_property_arm.independent_property">Independent_property</A>);<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.model_parameter.valid_range">valid_range : </A>
+         OPTIONAL 
+         SET[1:?] OF <A HREF="../../../data/modules/extended_measure_representation/sys/e_exp_arm.htm#extended_measure_representation_arm.value_range">Value_range</A>;<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.model_parameter.default_value">default_value : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/characteristic/sys/e_exp_arm.htm#characteristic_arm.scalar_or_coordinated_characteristics">scalar_or_coordinated_characteristics</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.model_parameter.reference_document">reference_document : </A>SET[0:?] OF <A HREF="../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm.document_definition">Document_definition</A> := get_document_definition(SELF, 'reference document', 
+         'DOCUMENT_DEFINITION_ARM.DOCUMENT_DEFINITION');<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.model_parameter.wr:wr1">WR1: EXISTS (reference_document) AND (SIZEOF(reference_document) = 1);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_arm.model_parameter_with_unit">ENTITY <b>Model_parameter_with_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#model_parameter_arm.independent_property_with_unit">Independent_property_with_unit</A>, <A HREF="#model_parameter_arm.model_parameter">Model_parameter</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.model_parameter_with_unit.wr:wr1">WR1: NOT('MODEL_PARAMETER_ARM.SCHEMA_BASED_MODEL_PARAMETER' IN TYPEOF(SELF));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_arm.parameter_assignment">ENTITY <b>Parameter_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/independent_property_representation/sys/e_exp_arm.htm#independent_property_representation_arm.independent_property_representation">Independent_property_representation</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/independent_property_representation/sys/e_exp_arm.htm#independent_property_representation_arm.independent_property_representation">Independent_property_representation</A>.<A NAME="model_parameter_arm.parameter_assignment.property">property : </A><A HREF="#model_parameter_arm.model_parameter">Model_parameter</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_arm.parameter_assignment_override">ENTITY <b>Parameter_assignment_override</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.parameter_assignment_override.overridden_parameter_assignment">overridden_parameter_assignment : </A><A HREF="#model_parameter_arm.parameter_assignment">Parameter_assignment</A>;<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.parameter_assignment_override.overriding_parameter_assignment">overriding_parameter_assignment : </A><A HREF="#model_parameter_arm.parameter_assignment">Parameter_assignment</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_arm.product_specific_parameter_value_assignment">ENTITY <b>Product_specific_parameter_value_assignment</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.product_specific_parameter_value_assignment.of_product">of_product : </A><A HREF="../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>;<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.product_specific_parameter_value_assignment.assigned_parameter">assigned_parameter : </A><A HREF="#model_parameter_arm.parameter_assignment">Parameter_assignment</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.product_specific_parameter_value_assignment.the_model_parameter">the_model_parameter : </A><A HREF="../../../data/modules/model_parameter/sys/e_exp_arm.htm#model_parameter_arm.model_parameter">Model_parameter</A> := assigned_parameter\Independent_property_representation.property;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.product_specific_parameter_value_assignment.ur:ur1">UR1: </A>the_model_parameter, of_product;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_arm.schema_based_model_parameter">ENTITY <b>Schema_based_model_parameter</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#model_parameter_arm.model_parameter">Model_parameter</A>);<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.schema_based_model_parameter.entity_name">entity_name : </A><A HREF="../../../data/modules/independent_property/sys/e_exp_arm.htm#independent_property_arm.independent_property">Independent_property</A>;<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.schema_based_model_parameter.attribute_name">attribute_name : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/independent_property/sys/e_exp_arm.htm#independent_property_arm.independent_property">Independent_property</A>;<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.schema_based_model_parameter.schema_identifier">schema_identifier : </A><A HREF="../../../data/modules/independent_property/sys/e_exp_arm.htm#independent_property_arm.independent_property">Independent_property</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.schema_based_model_parameter.ur:ur1">UR1: </A>entity_name, attribute_name, schema_identifier;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="model_parameter_arm.test_method_based_parameter_assignment">ENTITY <b>Test_method_based_parameter_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#model_parameter_arm.parameter_assignment">Parameter_assignment</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="model_parameter_arm.test_method_based_parameter_assignment.wr:wr1">WR1: SIZEOF(USEDIN(SELF,'ACTIVITY_METHOD_ASSIGNMENT_ARM.APPLIED_ACTIVITY_METHOD_ASSIGNMENT.ITEMS')) = 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Model_parameter_arm<br></code></body>
+</HTML>

@@ -1,0 +1,56 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Component_grouping_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Component_grouping_mim</h2><code><br><br><a name="component_grouping_mim">SCHEMA <b>Component_grouping_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/interface_component/sys/e_exp_mim.htm#interface_component_mim">Interface_component_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1691<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema">product_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.acyclic_product_definition_relationship">acyclic_product_definition_relationship</A>);
+         <br><br></code><code><br><A NAME="component_grouping_mim.array_placement_group">ENTITY <b>array_placement_group</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#component_grouping_mim.linear_array_placement_group_component">linear_array_placement_group_component</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#component_grouping_mim.rectangular_array_placement_group_component">rectangular_array_placement_group_component</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#component_grouping_mim.assembly_group_component">assembly_group_component</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="component_grouping_mim.assembly_group_component">ENTITY <b>assembly_group_component</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_mim.htm#physical_unit_design_view_mim.assembly_component">assembly_component</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="component_grouping_mim.assembly_group_component_definition_placement_link">ENTITY <b>assembly_group_component_definition_placement_link</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>.<A NAME="component_grouping_mim.assembly_group_component_definition_placement_link.relating_product_definition">relating_product_definition : </A><A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_mim.htm#physical_unit_design_view_mim.assembly_component">assembly_component</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>.<A NAME="component_grouping_mim.assembly_group_component_definition_placement_link.related_product_definition">related_product_definition : </A><A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_mim.htm#physical_unit_design_view_mim.assembly_component">assembly_component</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="component_grouping_mim.assembly_group_component_definition_placement_link.wr:wr1">WR1: SELF\product_definition_relationship.related_product_definition :&lt;&gt;:
+            SELF\product_definition_relationship.relating_product_definition;</A><br>
+         &nbsp;&nbsp;<A NAME="component_grouping_mim.assembly_group_component_definition_placement_link.wr:wr2">WR2: acyclic_product_definition_relationship (SELF,
+            [SELF\product_definition_relationship.related_product_definition],
+            'COMPONENT_GROUPING_MIM.ASSEMBLY_GROUP_COMPONENT_DEFINITION_PLACEMENT_LINK');</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="component_grouping_mim.interfaced_group_component">ENTITY <b>interfaced_group_component</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#component_grouping_mim.assembly_group_component">assembly_group_component</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="component_grouping_mim.linear_array_component_definition_link">ENTITY <b>linear_array_component_definition_link</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>.<A NAME="component_grouping_mim.linear_array_component_definition_link.relating_product_definition">relating_product_definition : </A><A HREF="#component_grouping_mim.linear_array_placement_group_component">linear_array_placement_group_component</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>.<A NAME="component_grouping_mim.linear_array_component_definition_link.related_product_definition">related_product_definition : </A><A HREF="#component_grouping_mim.linear_array_placement_group_component">linear_array_placement_group_component</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="component_grouping_mim.linear_array_component_definition_link.wr:wr1">WR1: SELF\product_definition_relationship.related_product_definition :&lt;&gt;:
+            SELF\product_definition_relationship.relating_product_definition;</A><br>
+         &nbsp;&nbsp;<A NAME="component_grouping_mim.linear_array_component_definition_link.wr:wr2">WR2: acyclic_product_definition_relationship (SELF,
+            [SELF\product_definition_relationship.related_product_definition],
+            'COMPONENT_GROUPING_MIM.LINEAR_ARRAY_COMPONENT_DEFINITION_LINK');</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="component_grouping_mim.linear_array_placement_group_component">ENTITY <b>linear_array_placement_group_component</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#component_grouping_mim.array_placement_group">array_placement_group</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="component_grouping_mim.rectangular_array_placement_group_component">ENTITY <b>rectangular_array_placement_group_component</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#component_grouping_mim.array_placement_group">array_placement_group</A>);<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Component_grouping_mim<br></code></body>
+</HTML>

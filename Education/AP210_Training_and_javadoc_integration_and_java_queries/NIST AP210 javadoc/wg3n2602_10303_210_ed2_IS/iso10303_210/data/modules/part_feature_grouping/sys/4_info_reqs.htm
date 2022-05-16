@@ -1,0 +1,609 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Part feature grouping">
+      <META name="DC.Dates" content="2009-05-04 09:33:45">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Part feature grouping">
+      <META name="DC.Subject" content="module, array, vector, feature, link, piece part, part terminal">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6473">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5739">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-04 09:33:45">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.36">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.46">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.46">
+      <TITLE>ISO/TS 10303-1713:2009 Part feature grouping</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Part feature grouping</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1713:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.2 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.3 ARM function definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.1 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Part feature grouping</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Part_feature_grouping_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="part_feature_grouping_arm">
+            SCHEMA Part_feature_grouping_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm">Physical_unit_usage_view_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1732<br><br></code></p>
+      <p><code>
+            REFERENCE FROM 
+            <A HREF="../../../../data/modules/characterizable_object/sys/4_info_reqs.htm#characterizable_object_arm">Characterizable_object_arm</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1765<br>&nbsp;&nbsp;(<A HREF="../../../../data/modules/characterizable_object/sys/4_info_reqs.htm#characterizable_object_arm.bag_to_set">bag_to_set</A>);
+            <br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Physical_unit_usage_view_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1732</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Characterizable_object_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1765</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="entities">4.2 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="part_feature_grouping_arm.part_array_feature">4.2.1 Part_array_feature</a>
+         &nbsp;&nbsp;<a href="../../part_feature_grouping/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_array_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         
+         A <b>Part_array_feature</b> is a type of <a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_group_feature"><b>Part_group_feature</b></a>
+         that is an array of <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> whose positions are specified 
+         as members of an array, and whose tolerances are applied based upon the array nature of 
+         <b>Part_array_feature</b>.
+         A <b>Part_array_feature</b> is either a <a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_linear_array_feature"><b>Part_linear_array_feature</b></a> or 
+         a <a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_rectangular_array_feature"><b>Part_rectangular_array_feature</b></a>.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            Tolerances applied to <b>Part_array_feature</b> are specified by an object external to the <b>Part_array_feature</b>.
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_array_feature<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#part_feature_grouping_arm.part_linear_array_feature">Part_linear_array_feature</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_feature_grouping_arm.part_rectangular_array_feature">Part_rectangular_array_feature</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#part_feature_grouping_arm.part_group_feature">Part_group_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="part_feature_grouping_arm.part_feature_placement_link">4.2.2 Part_feature_placement_link</a>
+         &nbsp;&nbsp;<a href="../../part_feature_grouping/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_feature_placement_link"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Part_feature_placement_link</b> is a means to specify the order of  
+      	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> 
+      	in a linear array.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_feature_placement_link;<br>
+            
+            
+            
+            &nbsp;&nbsp;precedent_element : <A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;subsequent_element : <A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>;<br>INVERSE<br>
+            &nbsp;&nbsp;referenced_by : <A HREF="#part_feature_grouping_arm.part_linear_array_feature">Part_linear_array_feature</A> FOR element;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: acyclic_part_feature_placement_link(SELF, [subsequent_element], 
+            'PART_FEATURE_GROUPING_ARM.PART_FEATURE_PLACEMENT_LINK');<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_feature_placement_link.precedent_element">precedent_element:
+               </a></b>
+         	specifies a 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> 
+         	for the <b>Part_feature_placement_link</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_feature_placement_link.subsequent_element">subsequent_element:
+               </a></b>
+         	specifies a 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> 
+         	for the <b>Part_feature_placement_link</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_feature_placement_link.referenced_by">referenced_by:
+               </a></b>
+         	an inverse relationship that specifies that the existence of the <b>Part_feature_placement_link</b> is dependent on 
+         	the existence of the  
+         	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_linear_array_feature"><b>Part_linear_array_feature</b></a> 
+         	that specifies the <b>Part_feature_placement_link</b> as its 
+         	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_linear_array_feature.element"><b>element</b></a>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_feature_placement_link.wr:wr1">WR1:
+               </a></b>
+         	The graph of instances of the Application Object <b>Part_feature_placement_link</b>	
+         	shall not contain a cycle.
+         
+      </p>
+      <h2><a name="part_feature_grouping_arm.part_group_feature">4.2.3 Part_group_feature</a>
+         &nbsp;&nbsp;<a href="../../part_feature_grouping/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_group_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Part_group_feature</b> is a type of <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> and a type of <a href="../../../modules/shape_composition/sys/4_info_reqs.htm#shape_composition_arm.composite_shape_element"><b>Composite_shape_element</b></a> that is an 
+      aggregation of <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_features</b></a>. A <b>Part_group_feature</b> may be a <a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_array_feature"><b>Part_array_feature</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_group_feature<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(<A HREF="#part_feature_grouping_arm.part_array_feature">Part_array_feature</A>)<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/shape_composition/sys/4_info_reqs.htm#shape_composition_arm.composite_shape_element">Composite_shape_element</A>, <A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="part_feature_grouping_arm.part_linear_array_feature">4.2.4 Part_linear_array_feature</a>
+         &nbsp;&nbsp;<a href="../../part_feature_grouping/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_linear_array_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Part_linear_array_feature</b> is a type of 
+      	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_array_feature"><b>Part_array_feature</b></a>.
+      	The <b>location_uncertainty</b> refers to originating CAD system geometric uncertainty, not material processing tolerance.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_linear_array_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#part_feature_grouping_arm.part_array_feature">Part_array_feature</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;element : SET[1:?] OF <A HREF="#part_feature_grouping_arm.part_feature_placement_link">Part_feature_placement_link</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;initial_node_positive_x_displacement : <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;terminus_node_positive_x_displacement : <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;location_uncertainty : <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: (1 + SIZEOF(element)) = pfg_get_sz_pf(element);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_linear_array_feature.element">element:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_feature_placement_link"><b>Part_feature_placement_link</b></a> 
+         	for the <b>Part_linear_array_feature</b>. 
+         	There shall be one or more  
+         	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_feature_placement_link"><b>Part_feature_placement_link</b></a> 
+         	for a <b>Part_linear_array_feature</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_linear_array_feature.initial_node_positive_x_displacement">initial_node_positive_x_displacement:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element"><b>Length_data_element</b></a> 
+         	for the <b>Part_linear_array_feature</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_linear_array_feature.terminus_node_positive_x_displacement">terminus_node_positive_x_displacement:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element"><b>Length_data_element</b></a> 
+         	for the <b>Part_linear_array_feature</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_linear_array_feature.location_uncertainty">location_uncertainty:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element"><b>Length_data_element</b></a> 
+         	for the <b>Part_linear_array_feature</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_linear_array_feature.wr:wr1">WR1:
+               </a></b>
+         	The total number of 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_features</b></a>
+         	referenced by members of <b>element</b>s shall be one more than the number of <b>element</b>s.
+         
+      </p>
+      <h2><a name="part_feature_grouping_arm.part_linear_array_feature_link">4.2.5 Part_linear_array_feature_link</a>
+         &nbsp;&nbsp;<a href="../../part_feature_grouping/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_linear_array_feature_link"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Part_linear_array_feature_link</b> is a means to associate two  
+      	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_linear_array_feature"><b>Part_linear_array_feature</b></a>s.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_linear_array_feature_link;<br>
+            
+            
+            
+            &nbsp;&nbsp;precedent_element : <A HREF="#part_feature_grouping_arm.part_linear_array_feature">Part_linear_array_feature</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;subsequent_element : <A HREF="#part_feature_grouping_arm.part_linear_array_feature">Part_linear_array_feature</A>;<br>INVERSE<br>
+            &nbsp;&nbsp;referenced_by : <A HREF="#part_feature_grouping_arm.part_rectangular_array_feature">Part_rectangular_array_feature</A> FOR element;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: acyclic_part_linear_array_feature_link(SELF, [subsequent_element], 
+            'PART_FEATURE_GROUPING_ARM.PART_LINEAR_ARRAY_FEATURE_LINK');<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_linear_array_feature_link.precedent_element">precedent_element:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_linear_array_feature"><b>Part_linear_array_feature</b></a> 
+         	for the <b>Part_linear_array_feature_link</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_linear_array_feature_link.subsequent_element">subsequent_element:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_linear_array_feature"><b>Part_linear_array_feature</b></a> 
+         	for the <b>Part_linear_array_feature_link</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_linear_array_feature_link.referenced_by">referenced_by:
+               </a></b>
+         	an inverse relationship that specifies that the existence of the <b>Part_linear_array_feature_link</b> is dependent 
+         	on the existence of the  
+         	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_rectangular_array_feature"><b>Part_rectangular_array_feature</b></a> 
+         	that specifies the <b>Part_linear_array_feature_link</b> as 
+         	its <a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_rectangular_array_feature.element"><b>element</b></a>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_linear_array_feature_link.wr:wr1">WR1:
+               </a></b>
+         	The graph of instances of the Application Object <b>Part_linear_array_feature_link</b>
+         	shall not contain a cycle.
+         
+      </p>
+      <h2><a name="part_feature_grouping_arm.part_rectangular_array_feature">4.2.6 Part_rectangular_array_feature</a>
+         &nbsp;&nbsp;<a href="../../part_feature_grouping/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_rectangular_array_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Part_rectangular_array_feature</b> is a type of 
+      	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_array_feature"><b>Part_array_feature</b></a>.
+      	The <b>location_uncertainty</b> refers to originating CAD system uncertainty, not material processing tolerances.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_rectangular_array_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#part_feature_grouping_arm.part_array_feature">Part_array_feature</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;element : SET[1:?] OF <A HREF="#part_feature_grouping_arm.part_linear_array_feature_link">Part_linear_array_feature_link</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;initial_row_positive_y_displacement : <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;terminus_row_positive_y_displacement : <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;location_uncertainty : <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: (1 + SIZEOF(element)) = pfg_get_sz_plar(element);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_rectangular_array_feature.element">element:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_linear_array_feature_link"><b>Part_linear_array_feature_link</b></a> 
+         	for the <b>Part_rectangular_array_feature</b>. 
+         	There shall be one or more  
+         	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_linear_array_feature_link"><b>Part_linear_array_feature_link</b></a> 
+         	for a <b>Part_rectangular_array_feature</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_rectangular_array_feature.initial_row_positive_y_displacement">initial_row_positive_y_displacement:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element"><b>Length_data_element</b></a> 
+         	for the <b>Part_rectangular_array_feature</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_rectangular_array_feature.terminus_row_positive_y_displacement">terminus_row_positive_y_displacement:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element"><b>Length_data_element</b></a> 
+         	for the <b>Part_rectangular_array_feature</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_rectangular_array_feature.location_uncertainty">location_uncertainty:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element"><b>Length_data_element</b></a> 
+         	for the <b>Part_rectangular_array_feature</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.part_rectangular_array_feature.wr:wr1">WR1:
+               </a></b>
+         	The total number of 
+         	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_linear_array_feature"><b>Part_linear_array_features</b></a>
+         	referenced by members of <b>element</b>s shall be one more than the number of <b>element</b>s.
+         
+      </p>
+      <h2><a name="functions">4.3 ARM function definitions</a></h2>
+      <p>
+         This subclause specifies the ARM functions for 
+         this module. The ARM functions and definitions are
+         specified below.
+         
+      </p>
+      <h2><A NAME="part_feature_grouping_arm.acyclic_part_feature_placement_link">4.3.1 acyclic_part_feature_placement_link</A></h2>
+      	The <b>acyclic_part_feature_placement_link</b> function determines whether 
+      	the graph of instances of the Application Object type 
+      	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_feature_placement_link"><b>Part_feature_placement_link</b></a> 
+      	that contains relation as one of its links contains a cycle.  
+      	This function may be used to evaluate 
+      	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_feature_placement_link"><b>Part_feature_placement_link</b></a> 
+      	or any of it's subtypes. 
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION acyclic_part_feature_placement_link&nbsp;(relation : <A HREF="#part_feature_grouping_arm.part_feature_placement_link">Part_feature_placement_link</A>; relatives : SET[1:?] OF <A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>; specific_relation : STRING) :BOOLEAN;
+         </code><pre>LOCAL
+      x : SET OF Part_feature_placement_link := [];
+    END_LOCAL;
+    IF relation.precedent_element IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(pd &lt;* bag_to_set(USEDIN(relation.precedent_element,
+      'PART_FEATURE_GROUPING_ARM.' +
+      'PART_FEATURE_PLACEMENT_LINK.' +
+      'SUBSEQUENT_ELEMENT')) | specific_relation IN TYPEOF(pd));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_part_feature_placement_link(x[i], relatives +
+        relation.precedent_element, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.acyclic_part_feature_placement_link.relation">relation:
+               </a></b>
+         	the specified
+         	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_feature_placement_link"><b>Part_feature_placement_link</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.acyclic_part_feature_placement_link.relatives">relatives:
+               </a></b>
+         	the specified set of
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.acyclic_part_feature_placement_link.specific_relation">specific_relation:
+               </a></b>
+         	the specified string.
+         
+      </p>
+      <h2><A NAME="part_feature_grouping_arm.acyclic_part_linear_array_feature_link">4.3.2 acyclic_part_linear_array_feature_link</A></h2>
+      	The <b>acyclic_part_linear_array_feature_link</b> function determines whether 
+      	the graph of instances of the Application Object type 
+      	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_linear_array_feature_link"><b>Part_linear_array_feature_link</b></a> 
+      	that contains relation as one of its links contains a cycle.  
+      	This function may be used to evaluate 
+      	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_linear_array_feature_link"><b>Part_linear_array_feature_link</b></a> 
+      	or any of it's subtypes. 
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION acyclic_part_linear_array_feature_link&nbsp;(relation : <A HREF="#part_feature_grouping_arm.part_linear_array_feature_link">Part_linear_array_feature_link</A>; relatives : SET[1:?] OF <A HREF="#part_feature_grouping_arm.part_linear_array_feature">Part_linear_array_feature</A>; specific_relation : STRING) :BOOLEAN;
+         </code><pre>LOCAL
+      x : SET OF Part_linear_array_feature_link := [];
+    END_LOCAL;
+    IF relation.precedent_element IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(pd &lt;* bag_to_set(USEDIN(relation.precedent_element,
+      'PART_FEATURE_GROUPING_ARM.' +
+      'PART_LINEAR_ARRAY_FEATURE_LINK.' +
+      'SUBSEQUENT_ELEMENT')) | specific_relation IN TYPEOF(pd));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_part_linear_array_feature_link(x[i], relatives +
+        relation.precedent_element, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.acyclic_part_linear_array_feature_link.relation">relation:
+               </a></b>
+         	the specified
+         	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_linear_array_feature_link"><b>Part_linear_array_feature_link</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.acyclic_part_linear_array_feature_link.relatives">relatives:
+               </a></b>
+         	the specified set of
+         	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_linear_array_feature"><b>Part_linear_array_feature</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.acyclic_part_linear_array_feature_link.specific_relation">specific_relation:
+               </a></b>
+         	the specified string.
+         
+      </p>
+      <h2><A NAME="part_feature_grouping_arm.pfg_get_sz_pf">4.3.3 pfg_get_sz_pf</A></h2>
+      	The function <b>pfg_get_sz_pf</b>returns the size of the set of '
+      	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> 
+      	referenced by members of <b>input</b>.
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION pfg_get_sz_pf&nbsp;(input : SET[1:?] OF <A HREF="#part_feature_grouping_arm.part_feature_placement_link">Part_feature_placement_link</A>) :INTEGER;
+         </code><pre>LOCAL
+      ac : SET OF Part_feature := [];
+    END_LOCAL;
+    REPEAT i := 1 TO HIINDEX(input);
+      ac := ac + input[i]\Part_feature_placement_link.precedent_element +
+        input[i]\Part_feature_placement_link.subsequent_element;
+    END_REPEAT;
+    RETURN (SIZEOF(ac));</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.pfg_get_sz_pf.input">input:
+               </a></b>
+         	the specified set of
+         	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_feature_placement_link"><b>Part_feature_placement_link</b></a>.
+         
+      </p>
+      <h2><A NAME="part_feature_grouping_arm.pfg_get_sz_plar">4.3.4 pfg_get_sz_plar</A></h2>
+      	The function <b>pfg_get_sz_plar</b> returns the size of the set of 
+      	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_linear_array_feature"><b>Part_linear_array_feature</b></a> 
+      	referenced by members of <b>input</b>.
+      	
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION pfg_get_sz_plar&nbsp;(input : SET[1:?] OF <A HREF="#part_feature_grouping_arm.part_linear_array_feature_link">Part_linear_array_feature_link</A>) :INTEGER;
+         </code><pre>LOCAL
+      ac : SET OF Part_linear_array_feature := [];
+    END_LOCAL;
+    REPEAT i := 1 TO HIINDEX(input);
+      ac := ac + input[i]\Part_linear_array_feature_link.precedent_element +
+        input[i]\Part_linear_array_feature_link.subsequent_element;
+    END_REPEAT;
+    RETURN (SIZEOF(ac));</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_grouping_arm.pfg_get_sz_plar.input">input:
+               </a></b>
+         	the specified set of
+         	<a href="../../../modules/part_feature_grouping/sys/4_info_reqs.htm#part_feature_grouping_arm.part_linear_array_feature_link"><b>Part_linear_array_feature_link</b></a>.
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Part_feature_grouping_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

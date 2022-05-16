@@ -1,0 +1,107 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: drawing_definition_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: drawing_definition_schema</h2>
+      <p><i>Source : ISO 10303-101</i></p><code><br><br><a name="drawing_definition_schema">SCHEMA <b>drawing_definition_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.bag_to_set">bag_to_set</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.mapped_item">mapped_item</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema">presentation_organization_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-46<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.area_in_set">area_in_set</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presentation_area">presentation_area</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presentation_set">presentation_set</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presentation_representation_relationship">presentation_representation_relationship</A>);
+         <br><br></code><code><br><A NAME="drawing_definition_schema.draughting_titled_item">TYPE </A><b>draughting_titled_item</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#drawing_definition_schema.drawing_revision">drawing_revision</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#drawing_definition_schema.drawing_sheet_revision">drawing_sheet_revision</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="drawing_definition_schema.draughting_title">ENTITY <b>draughting_title</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.draughting_title.items">items : </A>SET[1:?] OF <A HREF="#drawing_definition_schema.draughting_titled_item">draughting_titled_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.draughting_title.language">language : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.draughting_title.contents">contents : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="drawing_definition_schema.drawing_definition">ENTITY <b>drawing_definition</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_definition.drawing_number">drawing_number : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_definition.drawing_type">drawing_type : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="drawing_definition_schema.drawing_revision">ENTITY <b>drawing_revision</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presentation_set">presentation_set</A>);<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_revision.revision_identifier">revision_identifier : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_revision.drawing_identifier">drawing_identifier : </A><A HREF="#drawing_definition_schema.drawing_definition">drawing_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_revision.intended_scale">intended_scale : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_revision.ur:ur1">UR1: </A>revision_identifier, drawing_identifier;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="drawing_definition_schema.drawing_revision_sequence">ENTITY <b>drawing_revision_sequence</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_revision_sequence.predecessor">predecessor : </A><A HREF="#drawing_definition_schema.drawing_revision">drawing_revision</A>;<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_revision_sequence.successor">successor : </A><A HREF="#drawing_definition_schema.drawing_revision">drawing_revision</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_revision_sequence.wr:wr1">WR1: predecessor :&lt;&gt;: successor;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="drawing_definition_schema.drawing_sheet_revision">ENTITY <b>drawing_sheet_revision</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presentation_area">presentation_area</A>);<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_sheet_revision.revision_identifier">revision_identifier : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_sheet_revision.wr:wr1">WR1: SIZEOF( QUERY(item &lt;* SELF\representation.items |
+            ('REPRESENTATION_SCHEMA.MAPPED_ITEM' IN (TYPEOF(item)))
+            AND
+            ('DRAWING_DEFINITION_SCHEMA.DRAWING_SHEET_REVISION' IN
+            (TYPEOF(item\mapped_item.mapping_source.mapped_representation)))))=0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="drawing_definition_schema.drawing_sheet_revision_sequence">ENTITY <b>drawing_sheet_revision_sequence</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_sheet_revision_sequence.wr:wr1">WR1: SELF\representation_relationship.rep_1 :&lt;&gt;:                            
+            SELF\representation_relationship.rep_2;</A><br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_sheet_revision_sequence.wr:wr2">WR2: 'DRAWING_DEFINITION_SCHEMA.DRAWING_SHEET_REVISION'
+            IN TYPEOF (SELF\representation_relationship.rep_1);</A><br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_sheet_revision_sequence.wr:wr3">WR3: 'DRAWING_DEFINITION_SCHEMA.DRAWING_SHEET_REVISION'
+            IN TYPEOF (SELF\representation_relationship.rep_2);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="drawing_definition_schema.drawing_sheet_revision_usage">ENTITY <b>drawing_sheet_revision_usage</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.area_in_set">area_in_set</A>);<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_sheet_revision_usage.sheet_number">sheet_number : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_sheet_revision_usage.ur:ur1">UR1: </A>sheet_number, 
+         SELF\<A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.area_in_set">area_in_set</A>.in_set;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_sheet_revision_usage.wr:wr1">WR1: ('DRAWING_DEFINITION_SCHEMA.DRAWING_SHEET_REVISION' IN 
+            TYPEOF(SELF\area_in_set.area)) 
+            AND
+            ('DRAWING_DEFINITION_SCHEMA.DRAWING_REVISION' 
+            IN TYPEOF (SELF\area_in_set.in_set));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="drawing_definition_schema.drawing_sheets_not_nested">RULE&nbsp;<b>drawing_sheets_not_nested</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presentation_representation_relationship">presentation_representation_relationship</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="drawing_definition_schema.drawing_sheets_not_nested.wr:wr1">WR1: SIZEOF( QUERY(p_r_r &lt;* presentation_representation_relationship |      
+            ('DRAWING_DEFINITION_SCHEMA.DRAWING_SHEET_REVISION' 
+            IN (TYPEOF(p_r_r.rep_1))) AND
+            ('DRAWING_DEFINITION_SCHEMA.DRAWING_SHEET_REVISION'
+            IN (TYPEOF( p_r_r.rep_2))))) = 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;drawing_definition_schema<br></code></body>
+</HTML>

@@ -1,0 +1,59 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Effectivity_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Effectivity_arm</h2><code><br><br><a name="effectivity_arm">SCHEMA <b>Effectivity_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/time_interval/sys/e_exp_arm.htm#time_interval_arm">Time_interval_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1065<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm">Value_with_unit_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1054<br><br></code><code><br><A NAME="effectivity_arm.dated_effectivity">ENTITY <b>Dated_effectivity</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#effectivity_arm.effectivity">Effectivity</A>);<br>
+         &nbsp;&nbsp;<A NAME="effectivity_arm.dated_effectivity.start_bound">start_bound : </A><A HREF="../../../data/modules/event/sys/e_exp_arm.htm#event_arm.date_or_event">date_or_event</A>;<br>
+         &nbsp;&nbsp;<A NAME="effectivity_arm.dated_effectivity.end_bound">end_bound : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/event/sys/e_exp_arm.htm#event_arm.date_or_event">date_or_event</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="effectivity_arm.effectivity">ENTITY <b>Effectivity</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#effectivity_arm.serial_effectivity">Serial_effectivity</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#effectivity_arm.dated_effectivity">Dated_effectivity</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#effectivity_arm.lot_effectivity">Lot_effectivity</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#effectivity_arm.time_interval_effectivity">Time_interval_effectivity</A>));<br>
+         &nbsp;&nbsp;<A NAME="effectivity_arm.effectivity.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="effectivity_arm.effectivity.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="effectivity_arm.effectivity.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="effectivity_arm.effectivity_relationship">ENTITY <b>Effectivity_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="effectivity_arm.effectivity_relationship.relation_type">relation_type : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="effectivity_arm.effectivity_relationship.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="effectivity_arm.effectivity_relationship.relating_effectivity">relating_effectivity : </A><A HREF="#effectivity_arm.effectivity">Effectivity</A>;<br>
+         &nbsp;&nbsp;<A NAME="effectivity_arm.effectivity_relationship.related_effectivity">related_effectivity : </A><A HREF="#effectivity_arm.effectivity">Effectivity</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="effectivity_arm.lot_effectivity">ENTITY <b>Lot_effectivity</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#effectivity_arm.effectivity">Effectivity</A>);<br>
+         &nbsp;&nbsp;<A NAME="effectivity_arm.lot_effectivity.lot_id">lot_id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="effectivity_arm.lot_effectivity.lot_size">lot_size : </A><A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.value_with_unit">Value_with_unit</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="effectivity_arm.serial_effectivity">ENTITY <b>Serial_effectivity</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#effectivity_arm.effectivity">Effectivity</A>);<br>
+         &nbsp;&nbsp;<A NAME="effectivity_arm.serial_effectivity.start_id">start_id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="effectivity_arm.serial_effectivity.end_id">end_id : </A>
+         OPTIONAL 
+         STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="effectivity_arm.time_interval_effectivity">ENTITY <b>Time_interval_effectivity</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#effectivity_arm.effectivity">Effectivity</A>);<br>
+         &nbsp;&nbsp;<A NAME="effectivity_arm.time_interval_effectivity.effectivity_period">effectivity_period : </A><A HREF="../../../data/modules/time_interval/sys/e_exp_arm.htm#time_interval_arm.time_interval">Time_interval</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Effectivity_arm<br></code></body>
+</HTML>

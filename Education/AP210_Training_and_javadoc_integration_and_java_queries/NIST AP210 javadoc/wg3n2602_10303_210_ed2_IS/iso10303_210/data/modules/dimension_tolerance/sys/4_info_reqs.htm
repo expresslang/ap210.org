@@ -1,0 +1,1005 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Dimension tolerance">
+      <META name="DC.Dates" content="2009-06-11 09:36:07">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Dimension tolerance">
+      <META name="DC.Subject" content="module, dimension, tolerance, angular, location, linear, plus, minus, limit, fit">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6675">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N3275">
+      <META name="SC4.version" content="3">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N2988">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N2989">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N2990">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-06-11 09:36:07">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.52">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.21">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.11">
+      <TITLE>ISO/TS 10303-1050:2009 Dimension tolerance</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Dimension tolerance</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1050:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Dimension tolerance</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Dimension_tolerance_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="dimension_tolerance_arm">
+            SCHEMA Dimension_tolerance_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/construction_geometry/sys/4_info_reqs.htm#construction_geometry_arm">Construction_geometry_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1131<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/derived_shape_element/sys/4_info_reqs.htm#derived_shape_element_arm">Derived_shape_element_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1130<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/document_assignment/sys/4_info_reqs.htm#document_assignment_arm">Document_assignment_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1122<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm">Elemental_geometric_shape_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1004<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/extended_measure_representation/sys/4_info_reqs.htm#extended_measure_representation_arm">Extended_measure_representation_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1106<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm">Measure_representation_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1118<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm">Shape_property_assignment_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1032<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm">Value_with_unit_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1054<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Construction_geometry_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1131</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Derived_shape_element_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1130</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Document_assignment_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1122</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Elemental_geometric_shape_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1004</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Extended_measure_representation_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1106</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Measure_representation_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1118</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Shape_property_assignment_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1032</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Value_with_unit_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1054</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="dimension_tolerance_arm.dimension_tolerance_document_element_select">4.2.1 dimension_tolerance_document_element_select</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>dimension_tolerance_document_element_select</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/document_assignment/sys/4_info_reqs.htm#document_assignment_arm.documented_element_select">documented_element_select</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#dimension_tolerance_arm.externally_defined_size_dimension">Externally_defined_size_dimension</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            dimension_tolerance_document_element_select =
+            
+            EXTENSIBLE
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/document_assignment/sys/4_info_reqs.htm#document_assignment_arm.documented_element_select">documented_element_select</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#dimension_tolerance_arm.externally_defined_size_dimension">Externally_defined_size_dimension</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="dimension_tolerance_arm.dimension_value_select">4.2.2 dimension_value_select</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>dimension_value_select</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#dimension_tolerance_arm.dimension_value_with_limitation">Dimension_value_with_limitation</A></b>, <b><A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A></b>, <b><A HREF="#dimension_tolerance_arm.tolerance_range">Tolerance_range</A></b>
+         
+         and
+         
+         <b><A HREF="../../../../data/modules/extended_measure_representation/sys/4_info_reqs.htm#extended_measure_representation_arm.value_limit">Value_limit</A></b>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            dimension_value_select =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#dimension_tolerance_arm.dimension_value_with_limitation">Dimension_value_with_limitation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#dimension_tolerance_arm.tolerance_range">Tolerance_range</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/extended_measure_representation/sys/4_info_reqs.htm#extended_measure_representation_arm.value_limit">Value_limit</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="dimension_tolerance_arm.element_with_dimension_select">4.2.3 element_with_dimension_select</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>element_with_dimension_select</b> type is an
+         extensible list of alternate data types
+         that allows for the designation of the data 
+         
+         type
+         <b><A HREF="../../../../data/modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element">Shape_element</A></b>.
+         
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;
+            The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.                 
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            element_with_dimension_select =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element">Shape_element</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="dimension_tolerance_arm.limitation_definition_select">4.2.4 limitation_definition_select</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>limitation_definition_select</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#dimension_tolerance_arm.limits_and_fits">Limits_and_fits</A></b>
+         and
+         <b><A HREF="#dimension_tolerance_arm.plus_minus_bounds">Plus_minus_bounds</A></b>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            limitation_definition_select =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#dimension_tolerance_arm.limits_and_fits">Limits_and_fits</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#dimension_tolerance_arm.plus_minus_bounds">Plus_minus_bounds</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="dimension_tolerance_arm.placed_element_select">4.2.5 placed_element_select</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>placed_element_select</b> type is an
+         extensible list of alternate data types
+         that allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/construction_geometry/sys/4_info_reqs.htm#construction_geometry_arm.constructive_element_select">constructive_element_select</A></b>, <b><A HREF="../../../../data/modules/derived_shape_element/sys/4_info_reqs.htm#derived_shape_element_arm.derived_geometry">Derived_geometry</A></b>
+         
+         and
+         
+         <b><A HREF="#dimension_tolerance_arm.element_with_dimension_select">element_with_dimension_select</A></b>.
+         
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;
+            The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.                 
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            placed_element_select =
+            
+            EXTENSIBLE
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/construction_geometry/sys/4_info_reqs.htm#construction_geometry_arm.constructive_element_select">constructive_element_select</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/derived_shape_element/sys/4_info_reqs.htm#derived_shape_element_arm.derived_geometry">Derived_geometry</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#dimension_tolerance_arm.element_with_dimension_select">element_with_dimension_select</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="dimension_tolerance_arm.angular_location_dimension">4.3.1 Angular_location_dimension</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityangular_location_dimension"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>An <b>Angular_location_dimension</b> is a type of <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.location_dimension"><b>Location_dimension</b></a> that represents the angle between two elements.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Angular_location_dimension<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#dimension_tolerance_arm.location_dimension">Location_dimension</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;orientation : <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.angular_location_dimension.orientation">orientation:
+               </a></b>an axis placement establishing the direction of positive measure of the <b>Angular_location_dimension</b>. The angle extends in the XY plane from the X axis towards Y, about the origin.
+         
+         
+      </p>
+      <h2><a name="dimension_tolerance_arm.angular_size_dimension">4.3.2 Angular_size_dimension</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityangular_size_dimension"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>An <b>Angular_size_dimension</b> is a type of <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.size_dimension"><b>Size_dimension</b></a> that represents a dimension representing an angular size of an aspect of a part.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Angular_size_dimension<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#dimension_tolerance_arm.size_dimension">Size_dimension</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;full : BOOLEAN;<br>
+            
+            
+            
+            &nbsp;&nbsp;major_angle : BOOLEAN;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.angular_size_dimension.full">full:
+               </a></b>a Boolean value that specifies whether the <b>Angular_size_dimension</b> refers to the full angle or the half angle representing the size of the  <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element"><b>Shape_element</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.angular_size_dimension.major_angle">major_angle:
+               </a></b> a Boolean value that indicates one of the two possible angles. A value of 'true' specifies the angle to be the larger of
+         the two angles formed by the angular element.
+         
+      </p>
+      <h2><a name="dimension_tolerance_arm.curved_distance_dimension">4.3.3 Curved_distance_dimension</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycurved_distance_dimension"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Curved_distance_dimension</b> is a type of <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.location_dimension"><b>Location_dimension</b></a> that  represents the arc length along a curve.
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Curved_distance_dimension<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#dimension_tolerance_arm.location_dimension">Location_dimension</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;used_path : <A HREF="../../../../data/modules/basic_curve/sys/4_info_reqs.htm#basic_curve_arm.measurement_path">Measurement_path</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.curved_distance_dimension.used_path">used_path:
+               </a></b>the curve that represents the arc whose length is represented by the <b>Curved_distance_dimension</b>.
+      </p>
+      <h2><a name="dimension_tolerance_arm.curved_size_dimension">4.3.4 Curved_size_dimension</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycurved_size_dimension"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2> A <b>Curved_size_dimension</b> is a type of    <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.size_dimension"><b>Size_dimension</b></a> that is the tolerance on a
+      dimension for a curve measured along the entire path of a curve.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Curved_size_dimension<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#dimension_tolerance_arm.size_dimension">Size_dimension</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="dimension_tolerance_arm.diameter_size_dimension">4.3.5 Diameter_size_dimension</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydiameter_size_dimension"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2> A <b>Diameter_size_dimension</b> is a type of    <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.size_dimension"><b>Size_dimension</b></a> that is a diameter of a circular, cylindrical, or spherical feature.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Diameter_size_dimension<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#dimension_tolerance_arm.size_dimension">Size_dimension</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="dimension_tolerance_arm.dimension_value_with_limitation">4.3.6 Dimension_value_with_limitation</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydimension_value_with_limitation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>A <b>Dimension_value_with_limitation</b> is the value range of a toleranced geometric dimension. A toleranced geometric dimension is given as a  nominal value that
+      is  qualified  to create a range of allowable values. toleranced geometric dimension.  
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Dimension_value_with_limitation;<br>
+            
+            
+            
+            &nbsp;&nbsp;defined_by : <A HREF="#dimension_tolerance_arm.limitation_definition_select">limitation_definition_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;limited_value : <A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.dimension_value_with_limitation.defined_by">defined_by:
+               </a></b>the specification of the tolerance range.  The range is <b>defined_by</b> either a <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.plus_minus_bounds"><b>Plus_minus_bounds</b></a>, or by a reference to a system of limits and fits for the nominal value.
+         
+      </p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.dimension_value_with_limitation.limited_value">limited_value:
+               </a></b>the value that is limited.
+         
+      </p>
+      <h2><a name="dimension_tolerance_arm.externally_defined_size_dimension">4.3.7 Externally_defined_size_dimension</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityexternally_defined_size_dimension"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>An <b>Externally_defined_size_dimension</b> is a type of <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.size_dimension"><b>Size_dimension</b></a> that may be used to represent a size dimension that is defined in an external document. Each <b>Externally_defined_size_dimension</b> shall be referenced by an instance of <a href="../../../modules/document_assignment/sys/4_info_reqs.htm#document_assignment_arm.document_assignment"><b>Document_assignment</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Externally_defined_size_dimension<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#dimension_tolerance_arm.size_dimension">Size_dimension</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;name : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;used_path : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/basic_curve/sys/4_info_reqs.htm#basic_curve_arm.measurement_path">Measurement_path</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.externally_defined_size_dimension.name">name:
+               </a></b>
+         the words by which the  <b>Externally_defined_size_dimension</b> is known.
+      </p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.externally_defined_size_dimension.used_path">used_path:
+               </a></b>
+         the path along which the <b>Externally_defined_size_dimension</b> is applied or measured.  The value of this attribute need not be specified.
+      </p>
+      <h2><a name="dimension_tolerance_arm.geometric_dimension">4.3.8 Geometric_dimension</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitygeometric_dimension"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>A <b>Geometric_dimension</b> is the specification of  size of an element of a shape, or a displacement of one shape element relative to another shape
+      element.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Geometric_dimension<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#dimension_tolerance_arm.location_dimension">Location_dimension</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#dimension_tolerance_arm.size_dimension">Size_dimension</A>));<br>
+            
+            
+            
+            &nbsp;&nbsp;id : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;dimension_value : <A HREF="#dimension_tolerance_arm.dimension_value_select">dimension_value_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;notes : SET[0:?] OF STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.geometric_dimension.id">id:
+               </a></b>the identifier of the <b>Geometric_dimension</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.geometric_dimension.dimension_value">dimension_value:
+               </a></b>the value of size of the element or of the distance between the two elements.
+         
+      </p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.geometric_dimension.notes">notes:
+               </a></b>the set of instances of text that provide additional information about the <b>Geometric_dimension</b>. Where applicable the following values shall be used:
+      </p>
+      <ul>
+           
+         <li>"auxiliary": the dimension is for information purposes only.  The 
+            <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.geometric_dimension.dimension_value"><b>dimension_value</b></a>
+            
+             shall be a <a href="../../../modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit"><b>Numerical_item_with_unit</b></a>;
+         </li>
+               
+         <li>"theoretical": the dimension is theoretically exact.   The 
+            <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.geometric_dimension.dimension_value"><b>dimension_value</b></a>
+            
+             shall be a <a href="../../../modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit"><b>Numerical_item_with_unit</b></a>.
+         </li>
+         
+      </ul>
+      <h2><a name="dimension_tolerance_arm.height_size_dimension">4.3.9 Height_size_dimension</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityheight_size_dimension"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2> A <b>Height_size_dimension</b> is a type of <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.size_dimension"><b>Size_dimension</b></a> that may be used to represent the height of a feature.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Height_size_dimension<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#dimension_tolerance_arm.size_dimension">Size_dimension</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;used_path : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/basic_curve/sys/4_info_reqs.htm#basic_curve_arm.measurement_path">Measurement_path</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.height_size_dimension.used_path">used_path:
+               </a></b>
+         the path along which the <b>Height_size_dimension</b> is applied or measured.  The value of this attribute need not be specified.
+      </p>
+      <h2><a name="dimension_tolerance_arm.length_size_dimension">4.3.10 Length_size_dimension</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitylength_size_dimension"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>A <b>Length_size_dimension</b> is a type of <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.size_dimension"><b>Size_dimension</b></a> that may be used to represent the length of a feature.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Length_size_dimension<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#dimension_tolerance_arm.size_dimension">Size_dimension</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;used_path : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/basic_curve/sys/4_info_reqs.htm#basic_curve_arm.measurement_path">Measurement_path</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.length_size_dimension.used_path">used_path:
+               </a></b>
+         the path along which the <b>Length_size_dimension</b> is applied or measured.  The value of this attribute need not be specified.
+      </p>
+      <h2><a name="dimension_tolerance_arm.limits_and_fits">4.3.11 Limits_and_fits</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitylimits_and_fits"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>A <b>Limits_and_fits</b> is  a tolerance specified by reference to the limits-and-fits system standardized by ISO 286.  Limits and fits is a system
+      for assigning tolerances associated with the assembly of mating product features. 
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+             A hole and a shaft</small></p>
+      In this system, a tolerance is assigned to a feature of size by classification rather than by giving an explicit value.  A
+      tolerance classification is composed of a fundamental deviation or "position letter" and a tolerance grade. These are used
+      to calculate the size of the tolerance zone and its location relative to the basic or nominal size of the feature according
+      to the tables and formulas found in ISO 286.
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Limits_and_fits;<br>
+            
+            
+            
+            &nbsp;&nbsp;deviation : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;fitting_type : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;grade : STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.limits_and_fits.deviation">deviation:
+               </a></b>the fundamental deviation or "position letter" of the ISO 286-1 limits-and-fits tolerance classification.
+      </p>
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            The characters 'A' to 'ZC' for holes or 'a' to 'zc' for shafts may be used for deviation.</small></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.limits_and_fits.fitting_type">fitting_type:
+               </a></b>the kind of fitting to which the tolerance applies.  The value of this attribute need not be specified.  Normally the tolerance
+         applies to an external or internal feature of the workpiece. Where applicable the following values shall be used:
+      </p>
+      <ul>
+               
+         <li>"hole": the tolerance applies to an internal feature of the workpiece;</li>
+               
+         <li>"shaft": the tolerance applies to an external feature of the workpiece.</li>
+         
+      </ul>
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            Whether the tolerance applies to an interior  or exterior feature can be determined from the position letter of the fundamental
+            deviation, therefore <b>fitting_type</b> need not be specified.</small></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.limits_and_fits.grade">grade:
+               </a></b>the quality or the accuracy grade of a tolerance.
+      </p>
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            The grade is one of the 18 international standard tolerance grades defined in ISO 286-1</small></p>
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+             'IT07'</small></p>
+      <h2><a name="dimension_tolerance_arm.linear_distance_dimension">4.3.12 Linear_distance_dimension</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitylinear_distance_dimension"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>A <b>Linear_distance_dimension</b> is a type of <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.location_dimension"><b>Location_dimension</b></a> that specifies the distance along a straight line between two elements of a shape.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Linear_distance_dimension<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#dimension_tolerance_arm.location_dimension">Location_dimension</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;orientation : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.linear_distance_dimension.orientation">orientation:
+               </a></b>a point and a direction along which the <b>Linear_distance_dimension</b> is measured.   The direction is the x-axis of the axis placement.  The value of this attribute need not be specified.
+         
+         
+      </p>
+      <h2><a name="dimension_tolerance_arm.location_dimension">4.3.13 Location_dimension</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitylocation_dimension"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>A <b>Location_dimension</b> is a type of <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.geometric_dimension"><b>Geometric_dimension</b></a>
+      
+      that represents the specification of the distance or angle that one feature is displaced from another  feature.
+      
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            The short edge of a plate is located 90 degrees relative to  the long edge.</small></p>
+      
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            The center of the hole is 10 centimetres from the short edge</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Location_dimension<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#dimension_tolerance_arm.angular_location_dimension">Angular_location_dimension</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#dimension_tolerance_arm.curved_distance_dimension">Curved_distance_dimension</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#dimension_tolerance_arm.linear_distance_dimension">Linear_distance_dimension</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#dimension_tolerance_arm.geometric_dimension">Geometric_dimension</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;directed : 
+            OPTIONAL 
+            BOOLEAN;<br>
+            
+            
+            
+            &nbsp;&nbsp;origin : <A HREF="#dimension_tolerance_arm.placed_element_select">placed_element_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;target : <A HREF="#dimension_tolerance_arm.placed_element_select">placed_element_select</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.location_dimension.description">description:
+               </a></b>the text that provides further  information about the <b>Location_dimension</b>.  The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.location_dimension.directed">directed:
+               </a></b>a Boolean value designating the importance of direction for measuring a <b>Location_dimension</b>. If the value is 'true' the <b>Location_dimension</b> is measured from origin to target. A value of 'false' indicates that the direction for measuring the <b>Location_dimension</b>
+         
+          is inconsequential.   The value of this attribute need not be specified.
+      </p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.location_dimension.origin">origin:
+               </a></b>the element that is the origin for the <b>Location_dimension</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.location_dimension.target">target:
+               </a></b>the element that is the target for the <b>Location_dimension</b>.
+         
+      </p>
+      <h2><a name="dimension_tolerance_arm.plus_minus_bounds">4.3.14 Plus_minus_bounds</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityplus_minus_bounds"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>A <b>Plus_minus_bounds</b> is the specification of a tolerance  by  offsets which are each added to the <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.dimension_value_with_limitation.limited_value"><b>limited_value</b></a>
+      
+      which is the nominal value, to create the two limits of the allowable range. 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Plus_minus_bounds;<br>
+            
+            
+            
+            &nbsp;&nbsp;lower_bound : <A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.value_with_unit">Value_with_unit</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;significant_digits : 
+            OPTIONAL 
+            INTEGER;<br>
+            
+            
+            
+            &nbsp;&nbsp;upper_bound : <A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.value_with_unit">Value_with_unit</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;value_determination : 
+            OPTIONAL 
+            STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.plus_minus_bounds.lower_bound">lower_bound:
+               </a></b> the lower offset.
+      </p>
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            the <b>lower_bound</b> may be positive or negative.</small></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.plus_minus_bounds.significant_digits">significant_digits:
+               </a></b>the number of decimal digits indicating the accuracy of the lower bound and upper bound values.   The value of this attribute
+         need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.plus_minus_bounds.upper_bound">upper_bound:
+               </a></b>the upper offset.
+      </p>
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            the <b>upper_bound</b> may be positive or negative.</small></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.plus_minus_bounds.value_determination">value_determination:
+               </a></b>a qualifier that specifies how the  the tolerance shall be interpreted.  The value of this attribute need not be specified.
+          Where applicable the following values shall be used:
+         
+      </p>
+      <ul>
+         	
+         <li>'calculated': The value has been calculated from a particular representation;</li>
+         	
+         <li>'designed': The value represents a value intended by the design;</li>
+         	
+         <li>'estimated': The value has been estimated;</li>
+         	
+         <li>'measured': The value has been measured;</li>
+         	
+         <li>'required': The value represents a requirement.</li>
+         
+      </ul>
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            A <b>Plus_minus_bounds</b> may be specified in the design stage of a product but it may also be documented as measured on a prototype.
+            </small></p>
+      <h2><a name="dimension_tolerance_arm.radial_size_dimension">4.3.15 Radial_size_dimension</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityradial_size_dimension"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2> A <b>Radial_size_dimension</b> is a type of    <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.size_dimension"><b>Size_dimension</b></a> that is a radius of a circular, cylindrical, or spherical feature.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Radial_size_dimension<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#dimension_tolerance_arm.size_dimension">Size_dimension</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;radius_type : STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.radial_size_dimension.radius_type">radius_type:
+               </a></b>the specification of the method by which the radius is located.  The following values shall be used:
+      </p>
+      <ul>
+         <li>
+            "adjoining": the radius is located by its end points;
+         </li>
+         <li>
+            "centred": the radius is located by its centre.
+         </li>
+      </ul>
+      <h2><a name="dimension_tolerance_arm.size_dimension">4.3.16 Size_dimension</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitysize_dimension"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>A <b>Size_dimension</b>  is a type of <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.geometric_dimension"><b>Geometric_dimension</b></a> that  specifies the size of an individual <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element"><b>Shape_element</b></a>.
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            The diameter of a hole is 2 centimetres.</small></p>
+        
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            <b>Size_dimension</b> as defined in this part of ISO 10303 describe an intrinsic length or angle characteristic of part shape.  This includes characteristics
+            of what are traditionally called "features-of-size", but they are not limited to that usage alone.  For example, the <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.radial_size_dimension"><b>Radial_size_dimension</b></a>
+             and <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.curved_size_dimension"><b>Curved_size_dimension</b></a>   application objects describe characteristics which may not be applied to "features-of-size".</small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Size_dimension<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#dimension_tolerance_arm.angular_size_dimension">Angular_size_dimension</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#dimension_tolerance_arm.curved_size_dimension">Curved_size_dimension</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#dimension_tolerance_arm.diameter_size_dimension">Diameter_size_dimension</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#dimension_tolerance_arm.externally_defined_size_dimension">Externally_defined_size_dimension</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#dimension_tolerance_arm.height_size_dimension">Height_size_dimension</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#dimension_tolerance_arm.length_size_dimension">Length_size_dimension</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#dimension_tolerance_arm.radial_size_dimension">Radial_size_dimension</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#dimension_tolerance_arm.thickness_size_dimension">Thickness_size_dimension</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#dimension_tolerance_arm.width_size_dimension">Width_size_dimension</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#dimension_tolerance_arm.geometric_dimension">Geometric_dimension</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;envelope_principle : 
+            OPTIONAL 
+            BOOLEAN;<br>
+            
+            
+            
+            &nbsp;&nbsp;is_applied_to : <A HREF="#dimension_tolerance_arm.element_with_dimension_select">element_with_dimension_select</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.size_dimension.envelope_principle">envelope_principle:
+               </a></b>a boolean value that specifies whether the envelope principle applies or not. A value of 'true' indicates that the envelope
+         principle applies to this size dimension. The value of this attribute need not be specified.  When the envelope principle
+         applies,  the envelope of the perfect shape corresponding to the maximum material shall not be larger than the specified dimension
+         and tolerance. The envelope principle specifies that size and form tolerances are not  additive.
+         
+      </p>
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            The Envelope principle is defined in ISO 1101</small></p>
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            The envelope principle may have counterparts in other standards.</small></p>
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            The envelope principle is equivalent to ASME Y14.5 rule 1</small></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.size_dimension.is_applied_to">is_applied_to:
+               </a></b>the <a href="../../../modules/shape_property_assignment/sys/4_info_reqs.htm#shape_property_assignment_arm.shape_element"><b>Shape_element</b></a>
+         
+          to which the <b>Size_dimension</b> is applied.
+         
+      </p>
+      <h2><a name="dimension_tolerance_arm.thickness_size_dimension">4.3.17 Thickness_size_dimension</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitythickness_size_dimension"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>A <b>Thickness_size_dimension</b> is a type of <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.size_dimension"><b>Size_dimension</b></a>
+      
+      that  represents a thickness. Use of <b>Thickness_size_dimension</b> is user defined.
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            The remaining thickness below a blind hole might be specified as a <b>Thickness_size_dimension</b>.</small></p>
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            The thickness of a coating layer is a <b>Thickness_size_dimension</b>.</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Thickness_size_dimension<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#dimension_tolerance_arm.size_dimension">Size_dimension</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;used_path : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/basic_curve/sys/4_info_reqs.htm#basic_curve_arm.measurement_path">Measurement_path</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.thickness_size_dimension.used_path">used_path:
+               </a></b>
+         the path along which the <b>Thickness_size_dimension</b> is applied or measured.  The value of this attribute need not be specified.
+      </p>
+      <h2><a name="dimension_tolerance_arm.tolerance_range">4.3.18 Tolerance_range</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitytolerance_range"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Tolerance_range</b>  is a pair of numbers representing the range in which a <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.geometric_dimension.dimension_value"><b>dimension_value</b></a>  shall lie. 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Tolerance_range;<br>
+            
+            
+            
+            &nbsp;&nbsp;lower_range : <A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;significant_digits : 
+            OPTIONAL 
+            INTEGER;<br>
+            
+            
+            
+            &nbsp;&nbsp;upper_range : <A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.tolerance_range.lower_range">lower_range:
+               </a></b> the lower limit.
+         
+      </p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.tolerance_range.significant_digits">significant_digits:
+               </a></b>the number of digits that are significant.  The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.tolerance_range.upper_range">upper_range:
+               </a></b>the upper limit
+         
+      </p>
+      <h2><a name="dimension_tolerance_arm.width_size_dimension">4.3.19 Width_size_dimension</a>
+         &nbsp;&nbsp;<a href="../../dimension_tolerance/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitywidth_size_dimension"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>A <b>Width_size_dimension</b> is a type of <a href="../../../modules/dimension_tolerance/sys/4_info_reqs.htm#dimension_tolerance_arm.size_dimension"><b>Size_dimension</b></a> that may be used to represent the width of a feature.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Width_size_dimension<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#dimension_tolerance_arm.size_dimension">Size_dimension</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;used_path : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/basic_curve/sys/4_info_reqs.htm#basic_curve_arm.measurement_path">Measurement_path</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="dimension_tolerance_arm.width_size_dimension.used_path">used_path:
+               </a></b>
+         the path along which the <b>Width_size_dimension</b> is applied or measured.  The value of this attribute need not be specified.
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Dimension_tolerance_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

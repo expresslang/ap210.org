@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Projected_zone_height_characteristic</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.754 Projected_zone_height_characteristic</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Projected_zone_height_characteristic is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A 
+Projected_zone_height_characteristic is a definition that characterizes the height that a <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> is 
+projected from a <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>defined_height_of</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>projected_height_value</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>zone_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.754.1 defined_height_of</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The defined_height_of specifies the <A
+CLASS="INTERNALREF"
+HREF="e_753.htm"
+>Projected_zone_and_base_relationship</A
+> that associates a <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> with the <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+> from which the Tolerance_zone is projected. The 
+specified Projected_zone_and_base_relationship is characterized by the 
+Projected_zone_height_characteristic.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.754.2 projected_height_value</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The projected_height_value specifies the <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> that represents the height that the associated <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> is projected relative to the associated <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+> for the 
+Projected_zone_height_characteristic.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.754.3 zone_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The zone_definition is an inverse relationship that specifies that the existence of the Projected_zone_height_characteristic is dependent 
+on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_752.htm"
+>Projected_tolerance_zone_definition</A
+> that specifies the Projected_zone_height_characteristic as 
+its projected_zone_height.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY projected_zone_height_characteristic
+  SUBTYPE OF (managed_design_object);
+    defined_height_of      : projected_zone_and_base_relationship;
+    projected_height_value : length_data_element;
+  INVERSE
+    zone_definition : projected_tolerance_zone_definition FOR 
+                      projected_zone_height;
+END_ENTITY; -- projected_zone_height_characteristic
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

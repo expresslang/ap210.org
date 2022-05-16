@@ -1,0 +1,1033 @@
+# Microsoft Developer Studio Project File - Name="AP210Viewer" - Package Owner=<4>
+# Microsoft Developer Studio Generated Build File, Format Version 6.00
+# ** DO NOT EDIT **
+
+# TARGTYPE "Win32 (x86) Application" 0x0101
+
+CFG=AP210Viewer - Win32 Debug
+!MESSAGE This is not a valid makefile. To build this project using NMAKE,
+!MESSAGE use the Export Makefile command and run
+!MESSAGE 
+!MESSAGE NMAKE /f "AP210Viewer.mak".
+!MESSAGE 
+!MESSAGE You can specify a configuration when running NMAKE
+!MESSAGE by defining the macro CFG on the command line. For example:
+!MESSAGE 
+!MESSAGE NMAKE /f "AP210Viewer.mak" CFG="AP210Viewer - Win32 Debug"
+!MESSAGE 
+!MESSAGE Possible choices for configuration are:
+!MESSAGE 
+!MESSAGE "AP210Viewer - Win32 Release" (based on "Win32 (x86) Application")
+!MESSAGE "AP210Viewer - Win32 Debug" (based on "Win32 (x86) Application")
+!MESSAGE 
+
+# Begin Project
+# PROP AllowPerConfigDependencies 0
+# PROP Scc_ProjName ""
+# PROP Scc_LocalPath ""
+CPP=cl.exe
+MTL=midl.exe
+RSC=rc.exe
+
+!IF  "$(CFG)" == "AP210Viewer - Win32 Release"
+
+# PROP BASE Use_MFC 6
+# PROP BASE Use_Debug_Libraries 0
+# PROP BASE Output_Dir "Release"
+# PROP BASE Intermediate_Dir "Release"
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 6
+# PROP Use_Debug_Libraries 0
+# PROP Output_Dir "Release"
+# PROP Intermediate_Dir "Release"
+# PROP Ignore_Export_Lib 0
+# PROP Target_Dir ""
+# ADD BASE CPP /nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /Yu"stdafx.h" /FD /c
+# ADD CPP /nologo /MD /W3 /GX /O2 /I "c:\steptools_7.0\include\expx" /I "c:\steptools_7.0\include\expx\classes" /I "c:\steptools_7.0\include" /I "C:\oglsdk\glut-3.7\include" /I "d:\ap210viewer\ap210viewer\ap210arm" /I "d:\ap210viewer\ap210viewer\ap210arm\include" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "_AFXDLL" /D "IDFHEIGHT" /D "DELETECL" /U "TRACKBALL" /Yu"stdafx.h" /FD /c
+# ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
+# ADD MTL /nologo /D "NDEBUG" /mktyplib203 /o "NUL" /win32
+# ADD BASE RSC /l 0x409 /d "NDEBUG" /d "_AFXDLL"
+# ADD RSC /l 0x409 /d "NDEBUG" /d "_AFXDLL"
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 /nologo /subsystem:windows /machine:I386
+# ADD LINK32 expx.lib sdai.lib rose.lib opengl32.lib glu32.lib glut32.lib /nologo /subsystem:windows /machine:I386 /libpath:"d:\ap210viewer\ap210viewer\AP210ARM\release" /libpath:"C:\steptools_7.0\lib\i86_win32_msvc_5.0_md" /libpath:"c:\oglsdk\glut-3.7\lib\glut"
+
+!ELSEIF  "$(CFG)" == "AP210Viewer - Win32 Debug"
+
+# PROP BASE Use_MFC 6
+# PROP BASE Use_Debug_Libraries 1
+# PROP BASE Output_Dir "Debug"
+# PROP BASE Intermediate_Dir "Debug"
+# PROP BASE Target_Dir ""
+# PROP Use_MFC 6
+# PROP Use_Debug_Libraries 1
+# PROP Output_Dir "Debug"
+# PROP Intermediate_Dir "Debug"
+# PROP Ignore_Export_Lib 0
+# PROP Target_Dir ""
+# ADD BASE CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /Yu"stdafx.h" /FD /c
+# ADD CPP /nologo /MD /W3 /Gm /GX /ZI /Od /I "c:\steptools_7.0\include\expx" /I "c:\steptools_7.0\include\expx\classes" /I "c:\steptools_7.0\include" /I "C:\oglsdk\glut-3.7\include" /I "d:\ap210viewer\ap210viewer\ap210arm" /I "d:\ap210viewer\ap210viewer\ap210arm\include" /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /D "_AFXDLL" /U "TRACKBALL" /Yu"stdafx.h" /FD /c
+# SUBTRACT CPP /u /Fr
+# ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
+# ADD MTL /nologo /D "_DEBUG" /mktyplib203 /o "NUL" /win32
+# ADD BASE RSC /l 0x409 /d "_DEBUG" /d "_AFXDLL"
+# ADD RSC /l 0x409 /d "_DEBUG" /d "_AFXDLL"
+BSC32=bscmake.exe
+# ADD BASE BSC32 /nologo
+# ADD BSC32 /nologo
+LINK32=link.exe
+# ADD BASE LINK32 /nologo /subsystem:windows /debug /machine:I386 /pdbtype:sept
+# ADD LINK32 expx.lib sdai.lib rose.lib opengl32.lib glu32.lib glut32.lib ap210arm.lib /nologo /subsystem:windows /profile /debug /machine:I386 /nodefaultlib:"MSVCRT" /libpath:"c:\keenan\ap210viewer\ap210viewer\AP210ARM\debug" /libpath:"C:\steptools_7.0\lib\i86_win32_msvc_5.0_md" /libpath:"c:\oglsdk\glut-3.7\lib\glut"
+
+!ENDIF 
+
+# Begin Target
+
+# Name "AP210Viewer - Win32 Release"
+# Name "AP210Viewer - Win32 Debug"
+# Begin Group "Source Files"
+
+# PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
+# Begin Source File
+
+SOURCE=.\AP210DocManager.cpp
+
+!IF  "$(CFG)" == "AP210Viewer - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "AP210Viewer - Win32 Debug"
+
+# ADD CPP /Yu
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\AP210ProdView.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\AP210SplitWnd.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\AP210Viewer.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\AP210Viewer.hpj
+
+!IF  "$(CFG)" == "AP210Viewer - Win32 Release"
+
+USERDEP__AP210="$(ProjDir)\hlp\AfxCore.rtf"	"$(ProjDir)\hlp\AfxPrint.rtf"	
+# Begin Custom Build - Making help file...
+OutDir=.\Release
+ProjDir=.
+TargetName=AP210Viewer
+InputPath=.\hlp\AP210Viewer.hpj
+
+"$(OutDir)\$(TargetName).hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	call "$(ProjDir)\makehelp.bat"
+
+# End Custom Build
+
+!ELSEIF  "$(CFG)" == "AP210Viewer - Win32 Debug"
+
+USERDEP__AP210="$(ProjDir)\hlp\AfxCore.rtf"	"$(ProjDir)\hlp\AfxPrint.rtf"	
+# Begin Custom Build - Making help file...
+OutDir=.\Debug
+ProjDir=.
+TargetName=AP210Viewer
+InputPath=.\hlp\AP210Viewer.hpj
+
+"$(OutDir)\$(TargetName).hlp" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	call "$(ProjDir)\makehelp.bat"
+
+# End Custom Build
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=.\AP210Viewer.rc
+# End Source File
+# Begin Source File
+
+SOURCE=.\AP210ViewerDoc.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\AP210ViewerView.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\AssemblyProductSelectDlg.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\AssemblyPropertiesSheet.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChildFrm.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ComponentDefinitionSheet.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ComponentPlacementRestriction.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ComponentPlacementRestrictionAreaPage.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ComponentPlacementRestrictionAreaSheet.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\ComponentPropertiesSheet.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\GeneralAssemblyPage.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\GeneralInterconnectModulePage.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\GeneralPackagedComponentPage.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\GeneralPackagedPartPage.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\GeneralPackagePage.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\IDFDoc.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\InterconnectModulePropertiesSheet.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\InterconnectModuleUsageViewPage.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\IOAP210.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\MainFrm.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\MultiFileMultiDocTemplate.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\NonPlatedThruHolePage.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\NonPlatedThruHoleSheet.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\PackagedPartPropertiesSheet.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\PackagePropertiesSheet.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\PropertiesDlg.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\PropertiesPage.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\PWBDataBase.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\SingleComponentRestrictionAssignmentPage.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\StdAfx.cpp
+# ADD CPP /Yc"stdafx.h"
+# End Source File
+# End Group
+# Begin Group "Header Files"
+
+# PROP Default_Filter "h;hpp;hxx;hm;inl"
+# Begin Source File
+
+SOURCE=.\AP210DocManager.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\AP210ProdView.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\AP210SplitWnd.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\AP210Viewer.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\AP210ViewerDoc.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\AP210ViewerView.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\AssemblyProductSelectDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\AssemblyPropertiesSheet.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ChildFrm.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ComponentDefinitionSheet.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ComponentPlacementRestriction.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ComponentPlacementRestrictionAreaPage.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ComponentPlacementRestrictionAreaSheet.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\ComponentPropertiesSheet.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\GeneralAssemblyPage.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\GeneralInterconnectModulePage.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\GeneralPackagedComponentPage.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\GeneralPackagedPartPage.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\GeneralPackagePage.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\IDFDoc.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\InterconnectModulePropertiesSheet.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\InterconnectModuleUsageViewPage.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\IOAP210.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\MainFrm.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\MultiFileMultiDocTemplate.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\NonPLatedThruHolePage.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\NonPlatedThruHoleSheet.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\PackagedPartPropertiesSheet.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\PackagePropertiesSheet.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\PropertiesDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\PropertiesPage.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\PWBDataBase.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Resource.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\SingleComponentRestrictionAssignmentPage.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\StdAfx.h
+# End Source File
+# End Group
+# Begin Group "Resource Files"
+
+# PROP Default_Filter "ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe"
+# Begin Source File
+
+SOURCE=.\res\AP210Viewer.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\AP210Viewer.rc2
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\AP210ViewerDoc.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\bitmap1.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\bitmap2.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\bmfile.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\bmp00001.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\bmp00002.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\bmp00003.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\bmp00004.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\bmp00005.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\bmp00006.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\commdlg_.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\componen.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\cursor1.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\cursor2.cur
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\idr_main.ico
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\package.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Res\referenc.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Toolbar.bmp
+# End Source File
+# End Group
+# Begin Group "Help Files"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\hlp\AfxCore.rtf
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\AfxPrint.rtf
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\AP210Viewer.cnt
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\AppExit.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\Bullet.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\CurArw2.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\CurArw4.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\CurHelp.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\EditCopy.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\EditCut.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\EditPast.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\EditUndo.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\FileNew.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\FileOpen.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\FilePrnt.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\FileSave.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\HlpSBar.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\HlpTBar.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\MakeHelp.bat
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\RecFirst.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\RecLast.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\RecNext.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\RecPrev.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\Scmax.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\ScMenu.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\hlp\Scmin.bmp
+# End Source File
+# End Group
+# Begin Group "SDAI"
+
+# PROP Default_Filter ""
+# Begin Group "Source Files No. 1"
+
+# PROP Default_Filter "*.cpp, *.c"
+# Begin Source File
+
+SOURCE=.\Sdai\ap210_visualizer.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\AP210GraphicObject.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\AP210Line.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\AP210LP.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\SDAI\AP210MagicStrings.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\AP210Object.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\AP210ObjectList.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\AP210Point.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\BoardComponent.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\ComponentDefinition.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\ExtractGeometry.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\MathUtility.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\MountingRestrictionArea.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\NonPlatedThruHole.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\Package.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\PackagedComponent.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\PackagedPart.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\PhysicalUnit.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\RoseDebugErrorReporter.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\SdaiStoredProceedures.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\SdaiUtility.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\UnitUtility.cpp
+# End Source File
+# End Group
+# Begin Group "Header Files No. 1"
+
+# PROP Default_Filter "*.h"
+# Begin Source File
+
+SOURCE=.\Sdai\ap210_visualizer.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\AP210GraphicObject.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\AP210Line.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\AP210LP.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\AP210MagicStrings.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\AP210Object.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\AP210ObjectList.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\AP210Point.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\AP210SdaiModel.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\BoardComponent.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\ComponentDefinition.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\ExtractGeometry.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\MathUtility.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\MountingRestrictionArea.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\NonPlatedThruHole.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\Package.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\PackagedComponent.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\PackagedPart.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\PhysicalUnit.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\RoseDebugErrorReporter.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\SdaiStoredProceedures.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\SdaiUtility.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\SIUnits.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Sdai\UnitUtility.h
+# End Source File
+# End Group
+# End Group
+# Begin Group "OpenGL"
+
+# PROP Default_Filter ""
+# Begin Group "Source Files No. 2"
+
+# PROP Default_Filter "*.cpp"
+# Begin Source File
+
+SOURCE=.\OpenGL\MatrixUtilities.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\OpenGL\Tess.c
+# ADD CPP /GB
+# SUBTRACT CPP /YX /Yc /Yu
+# End Source File
+# Begin Source File
+
+SOURCE=.\OpenGL\trackball.cpp
+# End Source File
+# End Group
+# Begin Group "Header Files No. 2"
+
+# PROP Default_Filter "*.h"
+# Begin Source File
+
+SOURCE=.\OpenGL\MatrixUtilities.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\OpenGL\Tess.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\OpenGL\trackball.h
+# End Source File
+# End Group
+# End Group
+# Begin Group "IDFToSdai"
+
+# PROP Default_Filter ""
+# Begin Group "Source Files No. 3"
+
+# PROP Default_Filter "*.c"
+# Begin Source File
+
+SOURCE=.\IDFToSdai\IDFToSdai.cpp
+# End Source File
+# End Group
+# Begin Group "Header Files No. 3"
+
+# PROP Default_Filter "*,h"
+# Begin Source File
+
+SOURCE=.\IDFToSdai\IDFToSdai.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\IDFToSdai\map.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\IDFToSdai\map_tab.h
+# End Source File
+# End Group
+# End Group
+# Begin Group "IDFToAP210"
+
+# PROP Default_Filter ""
+# Begin Group "Source Files No. 5"
+
+# PROP Default_Filter "*.cpp"
+# Begin Source File
+
+SOURCE=.\Idf2ap210\helpers.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Idf2ap210\idf2arm.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\Idf2ap210\PopulateBaseCircle.cpp
+# End Source File
+# End Group
+# Begin Group "Headers Files"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=.\Idf2ap210\idf2arm.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\Idf2ap210\PopulateBaseCircle.h
+# End Source File
+# End Group
+# End Group
+# Begin Group "SdaiToIDF"
+
+# PROP Default_Filter ""
+# Begin Group "Source Files No. 4"
+
+# PROP Default_Filter "*.cpp"
+# Begin Source File
+
+SOURCE=.\SdaiToIDF\boardfile.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\SdaiToIDF\LibraryFile.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\SdaiToIDF\SdaiToIDF.cpp
+# End Source File
+# End Group
+# Begin Group "Header Files No. 4"
+
+# PROP Default_Filter "*.h"
+# Begin Source File
+
+SOURCE=.\SdaiToIDF\IDF.h
+# End Source File
+# End Group
+# End Group
+# Begin Group "RoseExtensions"
+
+# PROP Default_Filter "*.c *.h"
+# Begin Group "Source Files No. 6"
+
+# PROP Default_Filter "*.cpp"
+# Begin Source File
+
+SOURCE=.\RoseExtensions\SchemaName.cpp
+# End Source File
+# End Group
+# Begin Group "Header Files No. 5"
+
+# PROP Default_Filter "*.h"
+# Begin Source File
+
+SOURCE=.\RoseExtensions\SchemaName.h
+# End Source File
+# End Group
+# End Group
+# Begin Source File
+
+SOURCE=.\AP210Viewer.reg
+# End Source File
+# Begin Source File
+
+SOURCE=.\BuildMatrix.txt
+# End Source File
+# Begin Source File
+
+SOURCE=.\DistributionList.txt
+# End Source File
+# Begin Source File
+
+SOURCE=.\empilotnotes.txt
+# End Source File
+# Begin Source File
+
+SOURCE=.\JohnV.txt
+# End Source File
+# Begin Source File
+
+SOURCE=.\kevin.txt
+# End Source File
+# Begin Source File
+
+SOURCE=.\MfcReadme.txt
+# End Source File
+# Begin Source File
+
+SOURCE=.\Notes.txt
+# End Source File
+# Begin Source File
+
+SOURCE=.\ReadMe.txt
+# End Source File
+# End Target
+# End Project
+# Section AP210Viewer : {E6E17E86-DF38-11CF-8E74-00A0C90F26F8}
+# 	2:5:Class:CSlider
+# 	2:10:HeaderFile:slider.h
+# 	2:8:ImplFile:slider.cpp
+# End Section
+# Section AP210Viewer : {7BF80981-BF32-101A-8BBB-00AA00300CAB}
+# 	2:5:Class:CPicture
+# 	2:10:HeaderFile:picture.h
+# 	2:8:ImplFile:picture.cpp
+# End Section
+# Section AP210Viewer : {373FF7F0-EB8B-11CD-8820-08002B2F4F5A}
+# 	2:21:DefaultSinkHeaderFile:slider.h
+# 	2:16:DefaultSinkClass:CSlider
+# End Section
+# Section AP210Viewer : {7791BA52-E020-11CF-8E74-00A0C90F26F8}
+# 	2:5:Class:CTab
+# 	2:10:HeaderFile:tab.h
+# 	2:8:ImplFile:tab.cpp
+# End Section
+# Section AP210Viewer : {9ED94440-E5E8-101B-B9B5-444553540000}
+# 	2:21:DefaultSinkHeaderFile:tabstrip.h
+# 	2:16:DefaultSinkClass:CTabStrip
+# End Section
+# Section AP210Viewer : {E6E17E8A-DF38-11CF-8E74-00A0C90F26F8}
+# 	2:5:Class:CTabStrip
+# 	2:10:HeaderFile:tabstrip.h
+# 	2:8:ImplFile:tabstrip.cpp
+# End Section
+# Section AP210Viewer : {BEF6E003-A874-101A-8BBA-00AA00300CAB}
+# 	2:5:Class:COleFont
+# 	2:10:HeaderFile:font.h
+# 	2:8:ImplFile:font.cpp
+# End Section
+# Section AP210Viewer : {7791BA50-E020-11CF-8E74-00A0C90F26F8}
+# 	2:5:Class:CTabs
+# 	2:10:HeaderFile:tabs.h
+# 	2:8:ImplFile:tabs.cpp
+# End Section

@@ -1,0 +1,183 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Fabrication_technology_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Fabrication_technology_mim</h2><code><br><br><a name="fabrication_technology_mim">SCHEMA <b>Fabrication_technology_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/constructive_solid_geometry_2d/sys/e_exp_mim.htm#constructive_solid_geometry_2d_mim">Constructive_solid_geometry_2d_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1731<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/extended_geometric_tolerance/sys/e_exp_mim.htm#extended_geometric_tolerance_mim">Extended_geometric_tolerance_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1666<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/part_template/sys/e_exp_mim.htm#part_template_mim">Part_template_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1722<br><br></code><code><br><A NAME="fabrication_technology_mim.ft_classification_item">TYPE </A><b>ft_classification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/classification_assignment/sys/e_exp_mim.htm#classification_assignment_mim.classification_item">classification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#fabrication_technology_mim.stratum_technology_occurrence_relationship">stratum_technology_occurrence_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="fabrication_technology_mim.ft_document_reference_item">TYPE </A><b>ft_document_reference_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/document_assignment/sys/e_exp_mim.htm#document_assignment_mim.document_reference_item">document_reference_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#fabrication_technology_mim.passage_technology">passage_technology</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#fabrication_technology_mim.stratum_technology">stratum_technology</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="fabrication_technology_mim.ft_external_identification_item">TYPE </A><b>ft_external_identification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_mim.htm#external_item_identification_assignment_mim.external_identification_item">external_identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#fabrication_technology_mim.stratum_technology">stratum_technology</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="fabrication_technology_mim.ft_requirement_assigned_item">TYPE </A><b>ft_requirement_assigned_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/requirement_assignment/sys/e_exp_mim.htm#requirement_assignment_mim.requirement_assigned_item">requirement_assigned_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#fabrication_technology_mim.passage_technology">passage_technology</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#fabrication_technology_mim.stratum_technology">stratum_technology</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#fabrication_technology_mim.stratum_technology_occurrence">stratum_technology_occurrence</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#fabrication_technology_mim.stratum_technology_occurrence_relationship">stratum_technology_occurrence_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="fabrication_technology_mim.allocated_passage_minimum_annular_ring">ENTITY <b>allocated_passage_minimum_annular_ring</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.copy_stratum_technology_occurrence_relationship">ENTITY <b>copy_stratum_technology_occurrence_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#fabrication_technology_mim.derived_stratum_technology_occurrence_relationship">derived_stratum_technology_occurrence_relationship</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.derived_stratum_technology_occurrence_relationship">ENTITY <b>derived_stratum_technology_occurrence_relationship</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#fabrication_technology_mim.copy_stratum_technology_occurrence_relationship">copy_stratum_technology_occurrence_relationship</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#fabrication_technology_mim.inverse_copy_stratum_technology_occurrence_relationship">inverse_copy_stratum_technology_occurrence_relationship</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#fabrication_technology_mim.stratum_technology_occurrence_relationship">stratum_technology_occurrence_relationship</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.design_stack_model">ENTITY <b>design_stack_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#fabrication_technology_mim.stratum_stack_model">stratum_stack_model</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.equivalent_stackup_model_definition">ENTITY <b>equivalent_stackup_model_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>.relating_product_definition&nbsp;RENAMED&nbsp;<A NAME="fabrication_technology_mim.equivalent_stackup_model_definition.primary_stackup_model">primary_stackup_model : </A><A HREF="#fabrication_technology_mim.stratum_stack_model">stratum_stack_model</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>.related_product_definition&nbsp;RENAMED&nbsp;<A NAME="fabrication_technology_mim.equivalent_stackup_model_definition.equivalent_stackup_model">equivalent_stackup_model : </A><A HREF="#fabrication_technology_mim.stratum_stack_model">stratum_stack_model</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="fabrication_technology_mim.equivalent_stackup_model_definition.wr:wr1">WR1: primary_stackup_model :&lt;&gt;: equivalent_stackup_model;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.equivalent_sub_stack_definition">ENTITY <b>equivalent_sub_stack_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.footprint_library_stratum_technology">ENTITY <b>footprint_library_stratum_technology</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#fabrication_technology_mim.stratum_technology">stratum_technology</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.impedance_measurement_setup_requirement">ENTITY <b>impedance_measurement_setup_requirement</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/requirement_decomposition/sys/e_exp_mim.htm#requirement_decomposition_mim.predefined_requirement_view_definition">predefined_requirement_view_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.impedance_requirement">ENTITY <b>impedance_requirement</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/requirement_decomposition/sys/e_exp_mim.htm#requirement_decomposition_mim.predefined_requirement_view_definition">predefined_requirement_view_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.inverse_copy_stratum_technology_occurrence_relationship">ENTITY <b>inverse_copy_stratum_technology_occurrence_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#fabrication_technology_mim.derived_stratum_technology_occurrence_relationship">derived_stratum_technology_occurrence_relationship</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.local_linear_stack">ENTITY <b>local_linear_stack</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#fabrication_technology_mim.stratum_sub_stack">stratum_sub_stack</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.passage_deposition_material_identification">ENTITY <b>passage_deposition_material_identification</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.material_designation">material_designation</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.material_designation">material_designation</A>.<A NAME="fabrication_technology_mim.passage_deposition_material_identification.definitions">definitions : </A>SET[1:?] OF <A HREF="#fabrication_technology_mim.passage_technology">passage_technology</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.passage_filling_material_identification">ENTITY <b>passage_filling_material_identification</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.material_designation">material_designation</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.material_designation">material_designation</A>.<A NAME="fabrication_technology_mim.passage_filling_material_identification.definitions">definitions : </A>SET[1:?] OF <A HREF="#fabrication_technology_mim.passage_technology">passage_technology</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.passage_technology">ENTITY <b>passage_technology</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>, <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.product_definition_shape">product_definition_shape</A>);<br>DERIVE<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>.<A NAME="fabrication_technology_mim.passage_technology.definition">definition : </A><A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_definition">characterized_definition</A> := SELF;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="fabrication_technology_mim.passage_technology.ur:ur1">UR1: </A>
+         SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>.name;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.passage_technology_allocation_to_stack_model">ENTITY <b>passage_technology_allocation_to_stack_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#fabrication_technology_mim.stratum_sub_stack">stratum_sub_stack</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.stratum_stack_model">ENTITY <b>stratum_stack_model</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         <br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/part_template/sys/e_exp_mim.htm#part_template_mim.part_template_definition">part_template_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.stratum_sub_stack">ENTITY <b>stratum_sub_stack</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#fabrication_technology_mim.local_linear_stack">local_linear_stack</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#fabrication_technology_mim.passage_technology_allocation_to_stack_model">passage_technology_allocation_to_stack_model</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/part_template/sys/e_exp_mim.htm#part_template_mim.part_template_definition">part_template_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.stratum_surface_technology">ENTITY <b>stratum_surface_technology</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>.of_shape&nbsp;RENAMED&nbsp;<A NAME="fabrication_technology_mim.stratum_surface_technology.associated_technology">associated_technology : </A><A HREF="#fabrication_technology_mim.stratum_technology">stratum_technology</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.stratum_technology">ENTITY <b>stratum_technology</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>, <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.product_definition_shape">product_definition_shape</A>);<br>DERIVE<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>.<A NAME="fabrication_technology_mim.stratum_technology.definition">definition : </A><A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_definition">characterized_definition</A> := SELF;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="fabrication_technology_mim.stratum_technology.ur:ur1">UR1: </A>
+         SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>.name;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.stratum_technology_mapping_relationship">ENTITY <b>stratum_technology_mapping_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.property_definition_relationship">property_definition_relationship</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.stratum_technology_occurrence">ENTITY <b>stratum_technology_occurrence</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.stratum_technology_occurrence_feature_constraint">ENTITY <b>stratum_technology_occurrence_feature_constraint</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#fabrication_technology_mim.stratum_technology_occurrence_relationship">stratum_technology_occurrence_relationship</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.stratum_technology_occurrence_link">ENTITY <b>stratum_technology_occurrence_link</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#fabrication_technology_mim.stratum_technology_occurrence_relationship">stratum_technology_occurrence_relationship</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.stratum_technology_occurrence_relationship">ENTITY <b>stratum_technology_occurrence_relationship</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#fabrication_technology_mim.derived_stratum_technology_occurrence_relationship">derived_stratum_technology_occurrence_relationship</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#fabrication_technology_mim.stratum_technology_occurrence_link">stratum_technology_occurrence_link</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#fabrication_technology_mim.stratum_technology_occurrence_feature_constraint">stratum_technology_occurrence_feature_constraint</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#fabrication_technology_mim.stratum_technology_occurrence_swap_relationship">stratum_technology_occurrence_swap_relationship</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>, <A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.property_definition_relationship">property_definition_relationship</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.stratum_technology_occurrence_swap_relationship">ENTITY <b>stratum_technology_occurrence_swap_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#fabrication_technology_mim.stratum_technology_occurrence_relationship">stratum_technology_occurrence_relationship</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.stratum_technology_swap_relationship">ENTITY <b>stratum_technology_swap_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.property_definition_relationship">property_definition_relationship</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_technology_mim.ft_property_definition_relationship_subtypes">SUBTYPE_CONSTRAINT <b>ft_property_definition_relationship_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.property_definition_relationship">property_definition_relationship</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#fabrication_technology_mim.stratum_technology_occurrence_relationship">stratum_technology_occurrence_relationship</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#fabrication_technology_mim.stratum_technology_swap_relationship">stratum_technology_swap_relationship</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br><A NAME="fabrication_technology_mim.ft_property_definition_subtypes">SUBTYPE_CONSTRAINT <b>ft_property_definition_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#fabrication_technology_mim.stratum_technology_occurrence_relationship">stratum_technology_occurrence_relationship</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#fabrication_technology_mim.stratum_technology_occurrence">stratum_technology_occurrence</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Fabrication_technology_mim<br></code></body>
+</HTML>

@@ -1,0 +1,423 @@
+July 4th, 1999
+
+Need to get points for Boards and Component References.  
+Look at the SDAI instance passed in to create them.  
+Will need to get some code from ExtractGeometry. (DONE)
+
+Need to look into what I will need from glut.
+I'd like to eliminate glut and use straight opengl
+this should be easy since I've the source to glut.
+
+
+Got AP210LP and AP210Line to compile, now need to extract the lines 
+into a list for the board.  (DONE)
+
+Memory leak in ComponentReference::Draw is where 
+I need to build a OpenGL data structure.
+
+Need to get the Tess routines working.  In particular the
+callback assignments in Tess.cpp (DONE)
+
+Got the board and components to display, need to look
+into the best lighting, color model.
+
+Added mouse move message handler need filter left mouse down/move 
+event and use panning from glut-3.6\progs\examples\halomagic.c
+
+Need to figure out why print preview doesn't work.
+(It's a basic problem with MFC and OpenGl.)
+
+Working on updating the lighting modes in viewer define TESTING
+to turn on the trial. (DONE)
+
+
+The repaint from the mouse move and OnSize cause the window
+to go black, most likely a problem with OnDraw. (FIXED)
+
+
+July 11th, 1999
+Need to look into where the board is on a redraw.
+A hunch: The problem is most likely that I need to back off -10
+in the Z axis Dino must have been draw to see from the Origin?
+
+Don't glEnable(GL_CULL_FACE) since the faces are created properly
+need create them all with the same winding.  Could be a
+side affect of the tess routine, might be be worth looking into.
+Look at extrudeSolidFromPolygon() in dinospin.c
+
+Need to incorporate trackball.c for mouse moves. Just define TRACKBALL,
+need to intergrate with zooming and testwith scrolling.
+
+Need to inplement picking. See triselect.c for an example.
+(DONE MTK 12/99)
+
+July 29, 1999
+
+Need to create OpenGl rendering contexts for both the screen and printing.
+Since the screen and printing devices have different pixel formats.
+
+August 19, 1999
+Moved AP210Model to CAP210ViewerDoc in order to be able to display more than one 
+model at a time.  CAP210ViewerView::ScaleDisplay() is a problem since it looks at
+all the BoardComponents in AP210Object::list need to have a seperate list for each
+CAP210ViewerDoc.
+
+August 29, 1999
+Created PWBDataBase class to act as the interface between documents
+and the PWB viewer.
+
+If a flasher.stp and flasher.p21 file are loaded they share the same model,
+then if one is closed and error occurs when the other is closed.  Need to
+look into this. They are sharing the same SdaiModel but not the same document!
+What to do? (DONE MTK 01/30/00)
+
+Since the CIDFDoc doesn't do anything, PWB is null which is a bad thing.
+Need to throw a loadSave exception, in serialize since I want to use that
+to load the data.
+
+
+Nov 7th 1999
+
+Need to seperate the translations for a display from the actual display.
+This will allow translation, setting up the pick matrix and display for selection.
+(DONE MTK 12/99)
+
+Nov 10th 1999
+
+To handle arcs sweep the start point through the degress using the translation 
+code currently available. Sweeping the angle to zero would give the proper
+direction of the arc. (MTK DONE)
+
+Dec 6th 1999
+Need to clean up AP210 lines and lists after OpenGl is created, or at least
+when the model document is closed. (MTK DONE 12/18/99)
+
+Dec 22nd 1999
+
+Need to move the code that manipulates the projection matrix in
+CAP210ViewerView::OnSize so that it can be called from DoSelect
+to restore the projection matix, OR push and pop the matrix.
+(DONE MTK 12/99 - Created Perspective())
+
+Dec. 28 1999
+
+Need to make registry location a constant and check rose value.
+(MTK DONE 1/1/2000)
+
+Jan. 1 2000
+
+Need to set the names of the IDF to AP210 ExpressX files in the registry.
+IDFToAP210ARM -      idf_v2_to_ap210dis_299_40_EXPX
+AP210ARMToAP210AIM - ap210dis_299_40_to_aim_EXPX
+(MTK DONE 1/1/2000)
+
+
+Jan 1. 2000
+
+Need to look into fixing save as problem for IDF files, I'd like to 
+be able to save idf, arm and aim.
+
+
+CDocManager::DoPromptFileName() might be better since it is virtual.
+
+Would need to create a CDocManager subclass and set it InitApplication()
+
+Created AP210DocManager::DoPromptFileName(),  now need to look into what to do!
+
+Getting there on Jan 8th, just need to check the file extension in SaveDocument and 
+save the correct file.
+(MTK DONE 1/9/2000)
+
+Jan 6. 2000
+
+Need to pick up mechanical components from AP210 files put there by the IDF translator.
+First need to update CAP210ViewerDoc::BuildPackagedComponents() to properly go thru the
+assembly physical_unit currently in looks for all the packaged_components.
+(Wait for final version of AP210 Translator)
+
+Jan 8. 2000
+
+Craig Lanning asked for the ap210 file extension, created the IOAP210 class that lets
+you define a format and file extension. The defaults are "step" and "ap210".
+This would be the basis for allowing users to define there own extensions.
+(MTK DONE 1/9/2000)
+
+Jan 9. 2000 
+
+There is a problem that confuses ROSE and you can't load additional files.  I think
+it is related to loading a model when there is already one there with the same name.
+I need to check for this rather than corrupt the database, It would be nice
+to have each type of file have it's own name related to its format
+(e.g. mechidf, mechap210, mechidfstp, etc).
+
+Jan 13. 2000
+
+To solve my problems with opening multiple models, Possibly I need to create a 
+repository for each Document. (DONE MTK 01/30/00 - used a ROSE function to find the design)
+
+Jan 26. 2000
+Have gotten the selection to work with the "Package" data model. Have noticed
+that when a new window is opened there are no components only the board.
+(FIX MTK 1/27/00)
+
+Jan 29. 2000
+Did some work on display the entire board when it is first displayed. Works OK
+but some boards are still hidden a little, needs some work.
+
+Jan 30. 2000
+onCloseDocument currently messes with the files attribute to make sure they don't get
+deleted.  Look into RoseInterface's deleteRoseDesign function it states that it only
+deletes the in memory model.
+
+Feb 13, 2000
+Working with Version 1.2 of ITI translator. Fixed problem with Rockwell IDF files.
+It appears that the units extracted in CAP210ViewerDoc::BuildPackagedComponents
+are for the shape rep and not for the location.  Usually these are the same but
+not always. Need to look into this.
+
+Feb 20. 2000
+Have a memory leak in the properties list need to determine where I can free the
+memory allocated for the displayed screens. Fixed by NOT using a strdup to 
+copy the string when assigning it. I hope this won't cause problems.
+(DONE MTK 2/20/00)
+
+Need to display the requirement_properties associated with the component locations.
+(DONE MTK 2/22/00 for placement fixed, still need to do mounting style)
+
+Feb 22. 2000
+
+Need to update Readme.txt file for version 1.2a, Look at save options for IDF,
+release version of 1.2 didn't use "my_document_manager"(FIXED),
+and FindItemNumber (IMPLEMENTED).
+
+Need to recompile IDF ExpressX since I added complex instances to the working set.
+(DONE KC)
+Need to display Mechanical parts ASAP.
+
+Work on saving changes when "placement fixed" is changed. (DONE MTK 2/24/00)
+PackagedComponent::setPlacementFixed(BOOL fixed) is the model of how to control
+the changes so that the user is prompted to save the file.
+
+Feb 27, 2000
+
+Look at save of IDF file it isn't clearing out the SDAI model. (DONE MTK 2/28/00)
+
+March 3, 2000
+Look at changing board thickness and component height.
+(Board thickness done, but not saved to p21 MTK 3/4/00)
+(Component Height done, but not saved to p21 MTK 3/6/00)
+
+
+March 4, 2000
+Find Item Number is not set to zero for each design!
+(FIXED MTK 3/5/00)
+
+Look at using double values for edit windows where valid.
+(DONE MTK 3/5/00 works great!, checks values)
+
+Set up package to edit height only when selected from the tree.
+Look and x y for help on setting editablility.
+(DONE MTK 3/5/00)
+
+March 6, 2000
+Removed Render from PackagedComponent need to test this.
+(DONE MTK 3/7/00)
+
+March 7, 2000
+Need to create a "packaged_component" and "board_component"
+classes for IDF since I keep having to hack up the "AP210"
+one in order to support IDF.
+
+March 11, 2000
+The DLLs Mfc42.dll and Msvcrt.dll where required to run on a 
+clean Win95 installation.  I believe that there are compile 
+options that would allow me not to include these.
+
+March 14, 2000
+
+Need to get rid of ComponentReference
+
+Pushing through the Z xy plane to put a component on the bottom
+of the board is might be wrong need to rotate 180 degrees about
+the x and y axis, after the component is located. (DONE MTK 2/22/00)
+
+March 20, 2000
+
+If you SAVEAS a file with the .210 extension and don't
+explecitly call out the extension when you close the file
+you get an error about not being able to find the .stp
+version of the file.  Need to get the format of the model
+and use it to set the document type in MFC.
+(FIXED by changing the pathname, not the document type
+still need to look into changing document type MTK 3/21/00)
+
+
+The primary and secondary surfaces strings are shared between
+packaged_components. setPackagedComponentSide() is moving all
+the components from one side to the other. This needs to be
+fixed! (DONE MTK 3/22/00)  
+
+EXTENDED VIEWER CAPABILITY from Pdes Inc. Offsite.
+
+Mechanical Parts
+Keep-outs
+3d representation
+test points
+datum reference frame
+DLL's
+Demo to MCAD vendor needed capability
+Marketing 210
+IDF->210 =-> MGC
+210->IDF
+viewer for bid packages.
+
+
+IDF Translator:
+Seed file: PDM or PDM input in viewer.
+Option for Package Parts and Package instead of Library
+
+
+Check it Out! www.cais.com/hotel
+
+
+March 25, 2000
+Need to examine/test DoSave in doc's shouldn't need Rose to
+set pathname.  At one time the extension was lost and I
+had a problem when I went to close a document.
+(MTK FIXED?)
+
+March 26, 2000
+// these and the next two functions should be encapsulated in
+// a class. and these variables need to be determined for each
+// PWBdatabase! 
+SdaiADB primary_surface = sdaiNULL;
+SdaiADB secondary_surface = sdaiNULL;
+(MTK DONE)
+
+March 28, 2000
+Using setReadOnly and setEditable need to pick one,
+I like setReadOnly
+   // we want to edit the Height on this sheet
+   m_packagePage.setReadOnly(FALSE);
+
+April 1, 2000
+Rose has a handle to peform perodic status updates, this could be used to implement a status bar.
+The rosedesign function clrModified() should be called when a design is saved.
+
+April 10, 2000
+Need to keep the interconnect module and interconnect assembly physical_units in PWBDataBase.
+
+June 14th, 2000
+Unable to determine where SetModifiedFlag(TRUE) is called when the surface of a packaged_component is changed.
+
+
+
+In PackagedComponent::deleteComponentLocationRef()
+D Component Location: #380 a component_location  Value = 0-0
+DC item: #38 a descriptive_representation_item  Value = 0-0
+DC item: #369 a cartesian_transformation_operator_2d  Value = 0-0
+DC   axis1: #125 a direction  Value = 0-0
+DC   axis2: #141 a direction  Value = 0-0
+DC   local_origin: #267 a cartesian_point  Value = 0-0
+1
+2
+3
+4
+DC item: #390 a mapped_item  Value = 0-0
+DC   mapping_source: #401 a representation_map  Value = 0-0
+1
+2
+  context_of_items: #174 a geometric_representation_context_and_global_uncertainty_assigned_context_and_global_unit_assigned_context  Value = 0-0
+DC  pdr: #196 a property_definition_representation  Value = 0-0
+DC     definition: #105 a product_definition_shape  Value = 0-0
+DC  pdr: #210 a property_definition_representation  Value = 0-0
+DC     definition: #230 a property_definition  Value = 0-0
+
+Sept, 2000
+
+Added transparency to AP210GraphicObject and implemented it for BoardComponent.
+Updated selection to select the component on "top".
+
+Need to remove Side for PWBDataBase::getTransformationMatrix.
+(Complete 9/12/00 MTK)
+
+Oct 22 2000
+Transparency doesn't work with an opengl32.dll from 1999 but does with one from 1996.
+
+Nov. 1 2000
+
+Added support for both the DIS and IS mappings for located interconnect module thickness.
+Since I get the data from the step model often.  It makes since to have the BoardComponent
+reference this property defintion for the gets and puts (and most likely creates in the future).
+ditto for height.
+By turning on VERBOSE I should be able to find and fix some benign error messages.
+(MTK 11/1/2000)
+
+
+Nov 11, 2000
+Need to get rid of case where a PWBDatabase and an AP210Model are passed in.
+This would make the code more portable.  In fact getting rid of the AP210Model
+in favor of the database would be a good idea.  Maybe make an ExtactGeometry 
+a data member of PWBDatabase.
+
+Jan 6, 2001
+#ifdef INSTANCEOF removes controls some code that isn't used.
+It appears that it could be deleted.
+
+Jan 17, 2001
+Need to handle circles for drilled holes.
+
+Jan 18, 2001
+Need to use the AP210Model in the PWBDatabase object in ExtractGeometry
+this will isolate the application better from toolkits.
+
+
+define IDFDELETEBUG get demonstrate a bug with deleting the centers
+of arches and circles when looking for the extent of the board when
+display an IDF inport, (Doesn't appear to be a problem with 210 files)
+
+March 13, 2001
+Need to refine usage of CRA and MRA.
+MRA dialog will display location and if the placement is fixed.
+CRA will display transparency and height.
+Confirm this idea with the CRA.pdf file in the ATX testcase.
+
+March 19th, 2001
+
+Completness survey of GUI via tree widget.
+
+Assembly:
+  Interconnect Module:
+	Hookup assembly name (done 3/20/2001 used interconnect module product.id)
+	Implement or remove usage view.
+
+Restriction Areas
+	Implement what is possible,
+        remove what is not.
+        Change visible area on surface combobox to be 3. (done 3/18/2001)
+		Implemented height, appearance and ReadOnly functionality.
+
+		Remaining:
+		  Surface
+		  Location
+		  Identity
+
+View menu item.
+
+	Implement primary and secondary surface. (done 3/19/2001)
+        The code to do this is in CAP210ViewerView::CAP210ViewerView().
+		(set_eyeZ(); needs to be reviewed)
+
+Tree Widget
+	Need to update changed labels without recreating the entire tree.
+
+Menu:
+	Need to look into side and cra menu items and when they appear
+
+March 21,2001
+
+Look at www.opencascade.com for an opensource 3d module system.
+
+March 23, 2001
+
+Set value of ReadOnly in GUI constructors

@@ -1,0 +1,37 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Effectivity_application_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Effectivity_application_mim</h2><code><br><br><a name="effectivity_application_mim">SCHEMA <b>Effectivity_application_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema">basic_attribute_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.object_role">object_role</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.role_association">role_association</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.role_select">role_select</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/effectivity/sys/e_exp_mim.htm#effectivity_mim">Effectivity_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1057<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema">management_resources_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.effectivity_assignment">effectivity_assignment</A>);
+         <br><br></code><code><br><A NAME="effectivity_application_mim.effectivity_item">TYPE </A><b>effectivity_item</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="effectivity_application_mim.applied_effectivity_assignment">ENTITY <b>applied_effectivity_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.effectivity_assignment">effectivity_assignment</A>);<br>
+         &nbsp;&nbsp;<A NAME="effectivity_application_mim.applied_effectivity_assignment.items">items : </A>SET[1:?] OF <A HREF="#effectivity_application_mim.effectivity_item">effectivity_item</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Effectivity_application_mim<br></code></body>
+</HTML>

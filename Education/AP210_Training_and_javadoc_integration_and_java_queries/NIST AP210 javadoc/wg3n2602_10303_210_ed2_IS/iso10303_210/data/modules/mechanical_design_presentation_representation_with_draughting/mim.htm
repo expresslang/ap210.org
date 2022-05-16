@@ -1,0 +1,56 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Mechanical_design_presentation_representation_with_draughting_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Mechanical_design_presentation_representation_with_draughting_mim</h2><code><br><br><a name="mechanical_design_presentation_representation_with_draughting_mim">SCHEMA <b>Mechanical_design_presentation_representation_with_draughting_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/associative_draughting_elements/sys/e_exp_mim.htm#associative_draughting_elements_mim">Associative_draughting_elements_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1311<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/mechanical_design_geometric_presentation/sys/e_exp_mim.htm#mechanical_design_geometric_presentation_mim">Mechanical_design_geometric_presentation_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1313<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/mechanical_design_shaded_presentation/sys/e_exp_mim.htm#mechanical_design_shaded_presentation_mim">Mechanical_design_shaded_presentation_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1314<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.definitional_representation_relationship_with_same_context">definitional_representation_relationship_with_same_context</A>);
+         <br><br></code><code><br><A NAME="mechanical_design_presentation_representation_with_draughting_mim.mechanical_design_and_draughting_relationship_select">TYPE </A><b>mechanical_design_and_draughting_relationship_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/aic_associative_draughting_elements/aic_associative_draughting_elements.htm#aic_associative_draughting_elements.draughting_model">draughting_model</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/aic_mechanical_design_geometric_presentation/aic_mechanical_design_geometric_presentation.htm#aic_mechanical_design_geometric_presentation.mechanical_design_geometric_presentation_representation">mechanical_design_geometric_presentation_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#mechanical_design_presentation_representation_with_draughting_mim.mechanical_design_presentation_representation_with_draughting">mechanical_design_presentation_representation_with_draughting</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/aic_mechanical_design_shaded_presentation/aic_mechanical_design_shaded_presentation.htm#aic_mechanical_design_shaded_presentation.mechanical_design_shaded_presentation_representation">mechanical_design_shaded_presentation_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.shape_representation">shape_representation</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="mechanical_design_presentation_representation_with_draughting_mim.mechanical_design_and_draughting_relationship">ENTITY <b>mechanical_design_and_draughting_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.definitional_representation_relationship_with_same_context">definitional_representation_relationship_with_same_context</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>.<A NAME="mechanical_design_presentation_representation_with_draughting_mim.mechanical_design_and_draughting_relationship.rep_1">rep_1 : </A><A HREF="#mechanical_design_presentation_representation_with_draughting_mim.mechanical_design_and_draughting_relationship_select">mechanical_design_and_draughting_relationship_select</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>.<A NAME="mechanical_design_presentation_representation_with_draughting_mim.mechanical_design_and_draughting_relationship.rep_2">rep_2 : </A><A HREF="#mechanical_design_presentation_representation_with_draughting_mim.mechanical_design_and_draughting_relationship_select">mechanical_design_and_draughting_relationship_select</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="mechanical_design_presentation_representation_with_draughting_mim.mechanical_design_and_draughting_relationship.wr:wr1">WR1: NOT('AIC_ASSOCIATIVE_DRAUGHTING_ELEMENTS.'+'DRAUGHTING_MODEL' IN TYPEOF(rep_2)) OR 
+            (('AIC_ASSOCIATIVE_DRAUGHTING_ELEMENTS.'+'DRAUGHTING_MODEL' IN TYPEOF(rep_1)) OR
+            ('PRODUCT_PROPERTY_REPRESENTATION_SCHEMA.'+'SHAPE_REPRESENTATION' IN TYPEOF(rep_1)));</A><br>
+         &nbsp;&nbsp;<A NAME="mechanical_design_presentation_representation_with_draughting_mim.mechanical_design_and_draughting_relationship.wr:wr2">WR2: NOT('AIC_MECHANICAL_DESIGN_GEOMETRIC_PRESENTATION.'+'MECHANICAL_DESIGN_GEOMETRIC_PRESENTATION_REPRESENTATION' IN TYPEOF(rep_2))
+            OR 
+            (('AIC_MECHANICAL_DESIGN_GEOMETRIC_PRESENTATION.'+'MECHANICAL_DESIGN_GEOMETRIC_PRESENTATION_REPRESENTATION' IN TYPEOF(rep_1))
+            OR
+            ('PRODUCT_PROPERTY_REPRESENTATION_SCHEMA.'+'SHAPE_REPRESENTATION' IN TYPEOF(rep_1)));</A><br>
+         &nbsp;&nbsp;<A NAME="mechanical_design_presentation_representation_with_draughting_mim.mechanical_design_and_draughting_relationship.wr:wr3">WR3: NOT('AIC_MECHANICAL_DESIGN_SHADED_PRESENTATION.'+'MECHANICAL_DESIGN_SHADED_PRESENTATION_REPRESENTATION' IN TYPEOF(rep_2))
+            OR 
+            (('AIC_MECHANICAL_DESIGN_SHADED_PRESENTATION.'+'MECHANICAL_DESIGN_SHADED_PRESENTATION_REPRESENTATION' IN TYPEOF(rep_1)) OR
+            ('PRODUCT_PROPERTY_REPRESENTATION_SCHEMA.'+'SHAPE_REPRESENTATION' IN TYPEOF(rep_1)));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="mechanical_design_presentation_representation_with_draughting_mim.mechanical_design_presentation_representation_with_draughting">ENTITY <b>mechanical_design_presentation_representation_with_draughting</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>.<A NAME="mechanical_design_presentation_representation_with_draughting_mim.mechanical_design_presentation_representation_with_draughting.items">items : </A>SET[1:?] OF <A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.camera_model_d3">camera_model_d3</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Mechanical_design_presentation_representation_with_draughting_mim<br></code></body>
+</HTML>

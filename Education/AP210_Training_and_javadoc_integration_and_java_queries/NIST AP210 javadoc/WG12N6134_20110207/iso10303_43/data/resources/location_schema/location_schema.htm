@@ -1,0 +1,55 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: location_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: location_schema</h2>
+      <p><i>Source : ISO 10303-41</i></p><code><br><br><a name="location_schema">SCHEMA <b>location_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.bag_to_set">bag_to_set</A>);
+         <br><br></code><code><br><A NAME="location_schema.location">ENTITY <b>location</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="location_schema.location.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="location_schema.location.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="location_schema.location.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="location_schema.location_relationship">ENTITY <b>location_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="location_schema.location_relationship.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="location_schema.location_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="location_schema.location_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="location_schema.location_relationship.relating_location">relating_location : </A><A HREF="#location_schema.location">location</A>;<br>
+         &nbsp;&nbsp;<A NAME="location_schema.location_relationship.related_location">related_location : </A><A HREF="#location_schema.location">location</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="location_schema.acyclic_location_relationship">FUNCTION <b>acyclic_location_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/location_schema/location_schema.htm#location_schema.location_relationship">location_relationship</A>; relatives : SET[0:?] OF <A HREF="../../../data/resources/location_schema/location_schema.htm#location_schema.location">location</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>LOCAL
+      x : SET OF location_relationship;
+    END_LOCAL;
+
+    IF relation.relating_location IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(lctn &lt;* bag_to_set(USEDIN(relation.relating_location, 'LOCATION_SCHEMA.' + 'LOCATION_RELATIONSHIP.' + 'RELATED_LOCATION')) | specific_relation IN TYPEOF(lctn));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_location_relationship(x[i], relatives + relation.relating_location, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;location_schema<br></code></body>
+</HTML>

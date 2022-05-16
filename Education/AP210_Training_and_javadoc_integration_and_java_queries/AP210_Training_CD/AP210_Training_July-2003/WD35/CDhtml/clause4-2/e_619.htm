@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Part_linear_array_feature</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.615 Part_linear_array_feature</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Part_linear_array_feature is a type of <A
+CLASS="INTERNALREF"
+HREF="e_608.htm"
+>Part_array_feature</A
+>.
+The location_uncertainty refers to originating CAD system geometric uncertainty, not material processing tolerance.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>element</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>initial_node_positive_x_displacement</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>terminus_node_positive_x_displacement</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.615.1 element</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The element specifies the role of a <A
+CLASS="INTERNALREF"
+HREF="e_616.htm"
+>Part_feature_placement_link</A
+> for the Part_linear_array_feature. There shall be one or more Part_feature_placement_link for a Part_linear_array_feature.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.615.2 initial_node_positive_x_displacement</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The initial_node_positive_x_displacement specifies a <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> for the Part_linear_array_feature.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.615.3 terminus_node_positive_x_displacement</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The terminus_node_positive_x_displacement specifies a <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> for the Part_linear_array_feature.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY part_linear_array_feature
+  SUBTYPE OF (part_array_feature);
+  element : SET [1:?] OF part_feature_placement_link;
+  initial_node_positive_x_displacement : length_data_element;
+  terminus_node_positive_x_displacement : length_data_element;
+  location_uncertainty : length_data_element;
+END_ENTITY; -- part_linear_array_feature
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

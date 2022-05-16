@@ -1,0 +1,520 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Chemical substance">
+      <META name="DC.Dates" content="2009-04-30 12:03:25">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Chemical substance">
+      <META name="DC.Subject" content="module, substance, chemical element, chemical compound, physical particles, CAS registry number">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6221">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5313">
+      <META name="SC4.version" content="3">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6563">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6564">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6565">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-04-30 12:03:25">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.49">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.60">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.50">
+      <TITLE>ISO/TS 10303-1655:2009 Chemical substance</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Chemical substance</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1655:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#constants">4.2 ARM constant definition</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.3 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.4 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#rules">4.5 ARM rule definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="annexe-arm-express"></A></H2><code>
+         (*<br>ISO TC184/SC4/WG12&nbsp;N6222 - ISO/TS&nbsp;10303-1655 Chemical substance - EXPRESS ARM<br>Supersedes 
+         ISO TC184/SC4/WG12&nbsp;N5314<br>*)
+         </code><br><code><br><br><a name="chemical_substance_arm">SCHEMA <b>Chemical_substance_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/assembly_structure/sys/e_exp_arm.htm#assembly_structure_arm">Assembly_structure_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1026<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/generic_material_aspects/sys/e_exp_arm.htm#generic_material_aspects_arm">Generic_material_aspects_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1681<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/part_view_definition/sys/e_exp_arm.htm#part_view_definition_arm">Part_view_definition_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1023<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/person_organization_assignment/sys/e_exp_arm.htm#person_organization_assignment_arm">Person_organization_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1013<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm">Product_view_definition_relationship_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1041<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm">Characterizable_object_arm</A>&nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1765<br>&nbsp;&nbsp;(<A HREF="../../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm.bag_to_set">bag_to_set</A>);
+         <br><br></code><code><br>CONSTANT<br><A NAME="chemical_substance_arm.chemical_elements"></A>
+         &nbsp;&nbsp;chemical_elements : LIST[0:?] OF STRING := <br>
+         &nbsp;&nbsp;&nbsp;[
+         'HYDROGEN',<br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'HELIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'LITHIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'BERYLLIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'BORON',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'CARBON',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'NITROGEN',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'OXYGEN',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'FLUORINE',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'NEON',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'SODIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'MAGNESIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'ALUMINIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'SILICON',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'PHOSPHORUS',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'SULPHUR',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'CHLORINE',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'ARGON',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'POTASSIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'CALCIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'SCANDIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'TITANIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'VANADIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'CHROMIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'MANGANESE',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'IRON',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'COBALT',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'NICKEL',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'COPPER',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'ZINC',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'GALLIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'GERMANIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'ARSENIC',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'SELENIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'BROMINE',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'KRYPTON',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'RUBIDIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'STRONTIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'YTTRIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'ZIRCONIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'NIOBIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'MOLYBDENUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'TECHNETIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'RUTHENIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'RHODIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'PALLADIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'SILVER',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'CADMIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'INDIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'TIN',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'ANTIMONY',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'TELLURIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'IODINE',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'XENON',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'CAESIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'BARIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'LANTHANUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'CERIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'PRASEODYMIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'NEODYMIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'PROMETHIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'SAMARIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'EUROPIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'GADOLINIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'TERBIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'DYSPROSIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'HOLMIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'ERBIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'THULIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'YTTERBIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'LUTETIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'HAFNIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'TANTALUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'TUNGSTEN',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'RHENIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'OSMIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'IRIDIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'PLATINUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'GOLD',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'MERCURY',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'THALLIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'LEAD',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'BISMUTH',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'POLONIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'ASTATINE',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'RADON',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'FRANCIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'RADIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'ACTINIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'THORIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'PROTACTINIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'URANIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'NEPTUNIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'PLUTONIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'AMERICIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'CURIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'BERKELIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'CALIFORNIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'EINSTEINIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'FERMIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'MENDELEVIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'NOBELIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'LAWRENCIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'RUTHERFORDIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'DUBNIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'SEABORGIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'BOHRIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'HASSIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'MEITNERIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'DARMSTADTIUM',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         'ROENTGENIUM'];
+         <br>
+         END_CONSTANT;
+         <br></code><code><br><A NAME="chemical_substance_arm.cs_material_item_select">TYPE </A><b>cs_material_item_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/generic_material_aspects/sys/e_exp_arm.htm#generic_material_aspects_arm.material_item_select">material_item_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#chemical_substance_arm.substance_view_definition">Substance_view_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="chemical_substance_arm.substance_composition_basis">TYPE </A><b>substance_composition_basis</b> =
+         
+         EXTENSIBLE
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (VOLUME,<br>&nbsp;&nbsp;&nbsp;&nbsp;MASS,<br>&nbsp;&nbsp;&nbsp;&nbsp;MOLES,<br>&nbsp;&nbsp;&nbsp;&nbsp;ATOMS);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="chemical_substance_arm.chemical_compound">ENTITY <b>Chemical_compound</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#chemical_substance_arm.substance">Substance</A>);<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="chemical_substance_arm.chemical_compound.id_owner">id_owner : </A>SET[0:?] OF <A HREF="../../../../data/modules/person_organization_assignment/sys/e_exp_arm.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment">Organization_or_person_in_organization_assignment</A> := QUERY(temp &lt;* bag_to_set(USEDIN(SELF,'PERSON_ORGANIZATION_ASSIGNMENT_ARM.'+
+         'ORGANIZATION_OR_PERSON_IN_ORGANIZATION_ASSIGNMENT.ITEMS')) |
+         (temp.role = 'id owner') );<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="chemical_substance_arm.chemical_compound.wr:wr1">WR1: EXISTS (id_owner) AND (SIZEOF(id_owner) = 1);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="chemical_substance_arm.chemical_element">ENTITY <b>Chemical_element</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#chemical_substance_arm.substance">Substance</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="chemical_substance_arm.physical_particle">ENTITY <b>Physical_particle</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#chemical_substance_arm.substance">Substance</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="chemical_substance_arm.raw_material_definition_relationship">ENTITY <b>Raw_material_definition_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_usage">View_definition_usage</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.relating_view&nbsp;RENAMED&nbsp;<A NAME="chemical_substance_arm.raw_material_definition_relationship.application">application : </A><A HREF="../../../../data/modules/part_view_definition/sys/e_exp_arm.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.related_view&nbsp;RENAMED&nbsp;<A NAME="chemical_substance_arm.raw_material_definition_relationship.definition">definition : </A><A HREF="#chemical_substance_arm.substance_view_definition">Substance_view_definition</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="chemical_substance_arm.raw_material_definition_relationship.ur:ur1">UR1: </A>application;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="chemical_substance_arm.raw_material_definition_relationship.wr:wr1">WR1: NOT EXISTS(SELF\View_definition_relationship.relation_type);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="chemical_substance_arm.substance">ENTITY <b>Substance</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#chemical_substance_arm.chemical_element">Chemical_element</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#chemical_substance_arm.chemical_compound">Chemical_compound</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#chemical_substance_arm.physical_particle">Physical_particle</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>);<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="chemical_substance_arm.substance.ur:ur1">UR1: </A>
+         SELF\<A HREF="../../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>.id;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="chemical_substance_arm.substance_composition_relationship">ENTITY <b>Substance_composition_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.related_view&nbsp;RENAMED&nbsp;<A NAME="chemical_substance_arm.substance_composition_relationship.constituent">constituent : </A><A HREF="#chemical_substance_arm.substance_view_definition">Substance_view_definition</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.relating_view&nbsp;RENAMED&nbsp;<A NAME="chemical_substance_arm.substance_composition_relationship.whole">whole : </A><A HREF="#chemical_substance_arm.substance_view_definition">Substance_view_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="chemical_substance_arm.substance_composition_relationship.composition_basis">composition_basis : </A><A HREF="#chemical_substance_arm.substance_composition_basis">substance_composition_basis</A>;<br>
+         &nbsp;&nbsp;<A NAME="chemical_substance_arm.substance_composition_relationship.determination_method">determination_method : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="chemical_substance_arm.substance_composition_relationship.amount">amount : </A><A HREF="../../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.value_with_unit">Value_with_unit</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="chemical_substance_arm.substance_composition_relationship.wr:wr1">WR1: 'VALUE_WITH_UNIT_ARM.RATIO_UNIT' IN TYPEOF(amount.unit);</A><br>
+         &nbsp;&nbsp;<A NAME="chemical_substance_arm.substance_composition_relationship.wr:wr2">WR2: NOT EXISTS(SELF\View_definition_relationship.relation_type);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="chemical_substance_arm.substance_version">ENTITY <b>Substance_version</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>.<A NAME="chemical_substance_arm.substance_version.of_product">of_product : </A><A HREF="#chemical_substance_arm.substance">Substance</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="chemical_substance_arm.substance_view_definition">ENTITY <b>Substance_view_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>.<A NAME="chemical_substance_arm.substance_view_definition.defined_version">defined_version : </A><A HREF="#chemical_substance_arm.substance_version">Substance_version</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="chemical_substance_arm.chemical_element_constraint">RULE&nbsp;<b>chemical_element_constraint</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../../data/modules/product_identification/sys/4_info_reqs.htm#product_identification_arm.product">Product</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="chemical_substance_arm.chemical_element_constraint.wr:wr1">WR1: SIZEOF ( QUERY ( p &lt;* Product | 
+            (('CHEMICAL_SUBSTANCE_ARM.' + 'SUBSTANCE' IN TYPEOF (p) ) AND ((p\Product.name) IN chemical_elements) ) 
+            OR
+            (NOT('CHEMICAL_SUBSTANCE_ARM.' + 'SUBSTANCE' IN TYPEOF (p) ) AND NOT((p\Product.name) IN chemical_elements) ))) =
+            SIZEOF ( Product);</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="chemical_substance_arm.substance_version_constraint">RULE&nbsp;<b>substance_version_constraint</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../../data/modules/product_version/sys/4_info_reqs.htm#product_version_arm.product_version">Product_version</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="chemical_substance_arm.substance_version_constraint.wr:wr1">WR1: SIZEOF ( QUERY ( pv &lt;* Product_version | ( NOT ( 'CHEMICAL_SUBSTANCE_ARM.' + 'SUBSTANCE_VERSION' IN TYPEOF ( pv) ) )
+            AND ( 'CHEMICAL_SUBSTANCE_ARM.' + 'SUBSTANCE' IN TYPEOF ( pv.of_product) ) ) ) =0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="chemical_substance_arm.substance_view_definition_constraint">RULE&nbsp;<b>substance_view_definition_constraint</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="chemical_substance_arm.substance_view_definition_constraint.wr:wr1">WR1: SIZEOF ( QUERY ( pvd &lt;* Product_view_definition | ( NOT ( 'CHEMICAL_SUBSTANCE_ARM.' + 'SUBSTANCE_VIEW_DEFINITION' IN
+            TYPEOF (pvd) ) ) AND ( 'CHEMICAL_SUBSTANCE_ARM.' + 'SUBSTANCE_VERSION' IN TYPEOF ( pvd.defined_version) ) ) ) =0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Chemical_substance_arm<br></code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

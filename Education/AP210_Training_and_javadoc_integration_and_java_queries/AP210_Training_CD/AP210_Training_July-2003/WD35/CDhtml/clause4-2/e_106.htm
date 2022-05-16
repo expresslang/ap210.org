@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Component_2d_edge_location</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.106 Component_2d_edge_location</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Component_2d_edge_location is a type of <A
+CLASS="INTERNALREF"
+HREF="e_108.htm"
+>Component_2d_location</A
+>.
+The Component_2d_edge_location places components on the edge of a substrate in order to maintain contact with both the top and bottom circuitry.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  <A
+CLASS="INTERNALREF"
+HREF="e_188.htm"
+>Connection_zone_interface_plane_relationship</A
+> and <A
+CLASS="INTERNALREF"
+HREF="e_186.htm"
+>Connection_zone_based_assembly_joint</A
+> may be used to provide more details if needed by a receiving organization.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>reference_terminal_assembly_joint</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.106.1 reference_terminal_assembly_joint</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The reference_terminal_assembly_joint specifies the <A
+CLASS="INTERNALREF"
+HREF="e_41.htm"
+>Assembly_joint</A
+> that joins the <A
+CLASS="INTERNALREF"
+HREF="e_718.htm"
+>Primary_reference_terminal</A
+> of the component being located to the associated mating component feature.
+The surface the mating component feature is associated with is part of the orientation 
+description for the Component_2d_edge_location.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>stuff to be added</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY component_2d_edge_location
+  SUBTYPE OF (component_2d_location);
+    reference_terminal_assembly_joint : assembly_joint;
+--tt tc1 wd13 added
+      mounting_surface_assembly_joint : assembly_joint;
+--tt tc1 wd13 added 
+WHERE
+ wr1:  reference_terminal_assembly_joint &#60;&#62; mounting_surface_assembly_joint;
+ wr2: SELF\component_2d_location.substrate_location = FALSE;
+ wr3: SIZEOF(['AP210_ARM.INTERCONNECT_MODULE_COMPONENT_TERMINAL',
+       'AP210_ARM.INTERCONNECT_MODULE_COMPONENT_SURFACE_FEATURE'] *
+       TYPEOF(mounting_surface_assembly_joint.assembly_features_1)) &#62;= 0;
+END_ENTITY; -- component_2d_edge_location
+
+--tt tc1 wd8 modified
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

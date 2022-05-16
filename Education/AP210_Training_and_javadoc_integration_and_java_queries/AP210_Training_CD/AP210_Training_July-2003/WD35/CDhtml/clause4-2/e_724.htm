@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Printed_connector_component</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.724 Printed_connector_component</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Printed_connector_component is a type of <A
+CLASS="INTERNALREF"
+HREF="e_721.htm"
+>Printed_component</A
+>.
+The Printed_connector_component is the occurrence of a printed_connector_template. 
+The purpose of the Printed_connector_component is to provide access to the 
+assembly in which the interconnect substrate, that the realized connector is part of, is installed.  </DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>interface_access_mechanism</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>usage_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.724.1 interface_access_mechanism</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The interface_access_mechanism is an inverse relationship that specifies that the existence of the Printed_connector_component is 
+dependent 
+on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_725.htm"
+>Printed_connector_component_interface_terminal</A
+> that specifies the 
+Printed_connector_component as its associated_component. There shall be one or more Printed_connector_component_interface_terminal for a Printed_connector_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.724.2 usage_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The usage_definition specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_726.htm"
+>Printed_connector_template</A
+> for the Printed_connector_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY printed_connector_component
+  SUBTYPE OF (printed_component);
+    SELF\assembly_component.usage_definition : printed_connector_template;
+  INVERSE
+    interface_access_mechanism : SET [1:?] OF 
+                                 printed_connector_component_interface_terminal FOR 
+                                 associated_component;
+END_ENTITY; -- printed_connector_component
+
+--tt tc1 wd9 modified
+--tt tc1 wd8 modified
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

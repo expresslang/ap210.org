@@ -1,0 +1,597 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Drawing definition">
+      <META name="DC.Dates" content="">
+      <META name="DC.Published" content="2008-12-19">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Drawing definition">
+      <META name="DC.Subject" content="module, drawing, draughting title, drawing sheet, camera image, camera model">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N5361">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N4990">
+      <META name="SC4.version" content="1">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N5268">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N5269">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N5270">
+      <META name="STEPMOD.module.rcs.date" content="Date">
+      <META name="STEPMOD.module.rcs.revision" content="Revision">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision">
+      <TITLE>ISO/TS 10303-1309:2008 Drawing definition</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Drawing definition</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1309:2008(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARM</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.4 ARM subtype constraint definition</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Drawing definition</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Drawing_definition_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="drawing_definition_arm">
+            SCHEMA Drawing_definition_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARM</A></h2>
+      <p>
+         The following EXPRESS interface statement specifies the elements
+         imported from the ARM of another application module.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/presentation_hierarchy/sys/4_info_reqs.htm#presentation_hierarchy_arm">Presentation_hierarchy_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1330<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Presentation_hierarchy_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1330</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="drawing_definition_arm.dd_view_element_select">4.2.1 dd_view_element_select</a>
+         &nbsp;&nbsp;<a href="../../drawing_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>dd_view_element_select</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/presentation_hierarchy/sys/4_info_reqs.htm#presentation_hierarchy_arm.view_element_select">view_element_select</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#drawing_definition_arm.camera_image_2d_with_scale">Camera_image_2d_with_scale</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            dd_view_element_select =
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/presentation_hierarchy/sys/4_info_reqs.htm#presentation_hierarchy_arm.view_element_select">view_element_select</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#drawing_definition_arm.camera_image_2d_with_scale">Camera_image_2d_with_scale</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="drawing_definition_arm.draughting_titled_item">4.2.2 draughting_titled_item</a>
+         &nbsp;&nbsp;<a href="../../drawing_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>draughting_titled_item</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#drawing_definition_arm.drawing">Drawing</A></b>
+         and
+         <b><A HREF="#drawing_definition_arm.drawing_sheet">Drawing_sheet</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            draughting_titled_item =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#drawing_definition_arm.drawing">Drawing</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#drawing_definition_arm.drawing_sheet">Drawing_sheet</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="drawing_definition_arm.camera_image_2d_with_scale">4.3.1 Camera_image_2d_with_scale</a>
+         &nbsp;&nbsp;<a href="../../drawing_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycamera_image_2d_with_scale"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Camera_image_2d_with_scale</b> is a type of
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Camera_image_2d_with_scale<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;is_displaying : <A HREF="../../../../data/modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.presented_model_select">presented_model_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;source : <A HREF="#drawing_definition_arm.camera_model_d2">Camera_model_d2</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;target : <A HREF="../../../../data/modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.planar_box">Planar_box</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.camera_image_2d_with_scale.is_displaying">is_displaying:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.presented_model_select"><b>presented_model_select</b></a>
+         	for the <b>Camera_image_2d_with_scale</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.camera_image_2d_with_scale.source">source:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/drawing_definition/sys/4_info_reqs.htm#drawing_definition_arm.camera_model_d2"><b>Camera_model_d2</b></a>
+         	for the <b>Camera_image_2d_with_scale</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.camera_image_2d_with_scale.target">target:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.planar_box"><b>Planar_box</b></a>
+         	for the <b>Camera_image_2d_with_scale</b>.
+         
+      </p>
+      <h2><a name="drawing_definition_arm.camera_model_d2">4.3.2 Camera_model_d2</a>
+         &nbsp;&nbsp;<a href="../../drawing_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycamera_model_d2"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Camera_model_d2</b> is a type of
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Camera_model_d2<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;view_window : <A HREF="../../../../data/modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.planar_box">Planar_box</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;view_window_clipping : BOOLEAN;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.camera_model_d2.view_window">view_window:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.planar_box"><b>Planar_box</b></a>
+         	for the <b>Camera_model_d2</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.camera_model_d2.view_window_clipping">view_window_clipping:
+               </a></b>
+         	specifies a logical value.
+         
+      </p>
+      <h2><a name="drawing_definition_arm.draughting_title">4.3.3 Draughting_title</a>
+         &nbsp;&nbsp;<a href="../../drawing_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydraughting_title"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Draughting_title</b> is a brief text describing the contents of the drawing or drawing sheet.
+         	It is draughting application-specific, language-dependent, and may be applicable to more than one drawing or drawing sheet.
+         
+      </p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		A drawing containing the mechanical compatibility information for a safety switching device may be given a text description
+            
+            		such as "MECHANICAL COMPATIBILITY, SAFETY SWITCH", where the language is English. 
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Draughting_title;<br>
+            
+            
+            
+            &nbsp;&nbsp;items : SET[1:?] OF <A HREF="#drawing_definition_arm.draughting_titled_item">draughting_titled_item</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;language : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;contents : STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.draughting_title.items">items:
+               </a></b>
+         	specifies the
+         	<a href="../../../modules/drawing_definition/sys/4_info_reqs.htm#drawing_definition_arm.draughting_titled_item"><b>draughting_titled_item</b></a>
+         	to which the title applies.
+         	There shall exist one or more
+         	<a href="../../../modules/drawing_definition/sys/4_info_reqs.htm#drawing_definition_arm.draughting_titled_item"><b>draughting_titled_items</b></a>
+         	for the <b>Draughting_title</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.draughting_title.language">language:
+               </a></b>a STRING indicating the language used for terms in the contents of the <b>Draughting_title</b>.
+      </p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.draughting_title.contents">contents:
+               </a></b>
+         	specifies a STRING of a title.
+         
+      </p>
+      <h2><a name="drawing_definition_arm.drawing">4.3.4 Drawing</a>
+         &nbsp;&nbsp;<a href="../../drawing_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydrawing"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Drawing</b> is a type of
+      	<a href="../../../modules/presentation_hierarchy/sys/4_info_reqs.htm#presentation_hierarchy_arm.presentation_set"><b>Presentation_set</b></a>.
+      	A <b>Drawing</b> is the presentation of product data in a human interpretable form wherein the physical and 
+      	functional requirements for that product data are presented by pictures or text.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Drawing<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/presentation_hierarchy/sys/4_info_reqs.htm#presentation_hierarchy_arm.presentation_set">Presentation_set</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;revision_identifier : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;drawing_identifier : <A HREF="#drawing_definition_arm.drawing_definition">Drawing_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;intended_scale : 
+            OPTIONAL 
+            STRING;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: revision_identifier, drawing_identifier;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.drawing.revision_identifier">revision_identifier:
+               </a></b>
+         	specifies an identifier of a revision for the <b>Drawing</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.drawing.drawing_identifier">drawing_identifier:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/drawing_definition/sys/4_info_reqs.htm#drawing_definition_arm.drawing_definition"><b>Drawing_definition</b></a>
+         	for the <b>Drawing</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.drawing.intended_scale">intended_scale:
+               </a></b>
+         	specifies a STRING value.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.drawing.ur:ur1">UR1:
+               </a></b>
+         	The <b>revision_identifier</b> and <b>drawing_identifier</b> shall be unique within a population of the <b>Drawings</b>.
+         
+      </p>
+      <h2><a name="drawing_definition_arm.drawing_definition">4.3.5 Drawing_definition</a>
+         &nbsp;&nbsp;<a href="../../drawing_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydrawing_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Drawing_definition</b> is an identification and categorization, by type, of a set of drawing versions.
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		When the need for a drawing is identified, a drawing definition begins its existence when the
+            		organization assigns a drawing number.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Drawing_definition;<br>
+            
+            
+            
+            &nbsp;&nbsp;drawing_number : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;drawing_type : 
+            OPTIONAL 
+            STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.drawing_definition.drawing_number">drawing_number:
+               </a></b>
+         	specifies a number of the drawing for the <b>Drawing_definition</b>.
+         
+      </p>
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		Drawing numbers themselves are often composed of parts such as: a type prefix, a part number (or stem), and a suffix.
+            		Its composition is provided by the originating organization.
+            	</small></p>
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		"CK123456-789", "DL-S12345", "1B5102-04", and "1D55500" are examples of drawing number strings.
+            	</small></p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.drawing_definition.drawing_type">drawing_type:
+               </a></b>a string used to describe the functional categorization of the drawing.
+      </p>
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		A type of drawing is used to communicate a specific portion of the information about a product.
+            		For a printed wiring assembly, the functional aspects are communicated by means of a schematic diagram
+            		whereas the physical aspects are communicated by means of another drawing type.
+            	</small></p>
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		"SCHEMATIC DIAGRAM", "SITE PLAN", "DETAIL", and "ASSEMBLY" are examples of drawing-type labels.
+            		Additional examples for drawing-type labels may be found in clause 3 of ISO 10209-1.
+            	</small></p>
+      <p>The value of this attribute need not be specified.</p>
+      <h2><a name="drawing_definition_arm.drawing_sequence">4.3.6 Drawing_sequence</a>
+         &nbsp;&nbsp;<a href="../../drawing_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydrawing_sequence"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Drawing_sequence</b> is a revision sequence between two 
+      	<a href="../../../modules/drawing_definition/sys/4_info_reqs.htm#drawing_definition_arm.drawing"><b>Drawing</b></a> 
+      	objects.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Drawing_sequence;<br>
+            
+            
+            
+            &nbsp;&nbsp;predecessor : <A HREF="#drawing_definition_arm.drawing">Drawing</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;successor : <A HREF="#drawing_definition_arm.drawing">Drawing</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: predecessor :&lt;&gt;: successor;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.drawing_sequence.predecessor">predecessor:
+               </a></b>
+         	specifies the previous revision of the
+         	<a href="../../../modules/drawing_definition/sys/4_info_reqs.htm#drawing_definition_arm.drawing"><b>Drawing</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.drawing_sequence.successor">successor:
+               </a></b>
+         	specifies the following revision of the
+         	<a href="../../../modules/drawing_definition/sys/4_info_reqs.htm#drawing_definition_arm.drawing"><b>Drawing</b></a>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.drawing_sequence.wr:wr1">WR1:
+               </a></b>
+         	The <b>predecessor</b> should not be equal to the <b>successor</b>.
+         
+      </p>
+      <h2><a name="drawing_definition_arm.drawing_sheet">4.3.7 Drawing_sheet</a>
+         &nbsp;&nbsp;<a href="../../drawing_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydrawing_sheet"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Drawing_sheet</b> is a type of
+      	<a href="../../../modules/presentation_hierarchy/sys/4_info_reqs.htm#presentation_hierarchy_arm.view_area"><b>View_area</b></a>.
+      	A <b>Drawing_sheet</b> is a logical division of a drawing into a two-dimensional area for the presentation of product data
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Drawing_sheet<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/presentation_hierarchy/sys/4_info_reqs.htm#presentation_hierarchy_arm.view_area">View_area</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;revision_identifier : STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.drawing_sheet.revision_identifier">revision_identifier:
+               </a></b>
+         	specifies the identifier of the sheet revision.
+         
+      </p>
+      <h2><a name="drawing_definition_arm.drawing_sheet_sequence">4.3.8 Drawing_sheet_sequence</a>
+         &nbsp;&nbsp;<a href="../../drawing_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydrawing_sheet_sequence"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Drawing_sheet_sequence</b> is a type of
+      	<a href="../../../modules/presentation_hierarchy/sys/4_info_reqs.htm#presentation_hierarchy_arm.view_area_relationship"><b>View_area_relationship</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Drawing_sheet_sequence<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/presentation_hierarchy/sys/4_info_reqs.htm#presentation_hierarchy_arm.view_area_relationship">View_area_relationship</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/presentation_hierarchy/sys/4_info_reqs.htm#presentation_hierarchy_arm.view_area_relationship">View_area_relationship</A>.relating : <A HREF="#drawing_definition_arm.drawing_sheet">Drawing_sheet</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/presentation_hierarchy/sys/4_info_reqs.htm#presentation_hierarchy_arm.view_area_relationship">View_area_relationship</A>.related : <A HREF="#drawing_definition_arm.drawing_sheet">Drawing_sheet</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF\View_area_relationship.relating :&lt;&gt;: SELF\View_area_relationship.related;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.drawing_sheet_sequence.relating">relating:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../modules/presentation_hierarchy/sys/4_info_reqs.htm#presentation_hierarchy_arm.view_area_relationship"><b>View_area_relationship</b></a>
+         	shall be redeclared as the 
+         	<a href="../../../modules/drawing_definition/sys/4_info_reqs.htm#drawing_definition_arm.drawing_sheet"><b>Drawing_sheet</b></a>
+         	for the <b>Drawing_sheet_sequence</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.drawing_sheet_sequence.related">related:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../modules/presentation_hierarchy/sys/4_info_reqs.htm#presentation_hierarchy_arm.view_area_relationship"><b>View_area_relationship</b></a>
+         	shall be redeclared as the 
+         	<a href="../../../modules/drawing_definition/sys/4_info_reqs.htm#drawing_definition_arm.drawing_sheet"><b>Drawing_sheet</b></a>
+         	for the <b>Drawing_sheet_sequence</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="drawing_definition_arm.drawing_sheet_sequence.wr:wr1">WR1:
+               </a></b>
+         	The <b>relating</b> should not be equal to the <b>related</b>
+         
+      </p>
+      <h2><a name="subtype_constraints">4.4 ARM subtype constraint definition</a></h2>
+      <p>
+         This subclause specifies the ARM subtype constraint for
+         this module. The subtype constraint places a constraint on the
+         possible super-type / subtype instantiations.
+         The ARM subtype constraint and definition is
+         specified below.
+         
+      </p>
+      <h2><A NAME="drawing_definition_arm.dd_detailed_geometric_model_element_subtypes">4.4.1 dd_detailed_geometric_model_element_subtypes</A>
+         &nbsp;&nbsp;<a href="../../drawing_definition/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#scconstraintdd_detailed_geometric_model_element_subtypes"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         The
+         <b>dd_detailed_geometric_model_element_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="drawing_definition_arm.dd_detailed_geometric_model_element_subtypes">SUBTYPE_CONSTRAINT dd_detailed_geometric_model_element_subtypes</A> FOR <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#drawing_definition_arm.camera_model_d2">Camera_model_d2</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#drawing_definition_arm.camera_image_2d_with_scale">Camera_image_2d_with_scale</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Drawing_definition_arm<br>(*
+         </code><br><br><p>&copy; ISO 2008 &#8212; All rights reserved</p>
+   </body>
+</HTML>

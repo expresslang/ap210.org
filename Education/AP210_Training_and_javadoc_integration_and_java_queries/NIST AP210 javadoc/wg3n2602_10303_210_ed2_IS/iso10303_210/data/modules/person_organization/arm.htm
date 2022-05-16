@@ -1,0 +1,107 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Person_organization_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Person_organization_arm</h2><code><br><br><a name="person_organization_arm">SCHEMA <b>Person_organization_arm</b>;</a><br><br></code><code><br><A NAME="person_organization_arm.organization_or_person_in_organization_select">TYPE </A><b>organization_or_person_in_organization_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#person_organization_arm.organization">Organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#person_organization_arm.person_in_organization">Person_in_organization</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="person_organization_arm.address">ENTITY <b>Address</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address.name">name : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address.street_number">street_number : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address.street">street : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address.postal_box">postal_box : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address.town">town : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address.region">region : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address.postal_code">postal_code : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address.country">country : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address.internal_location">internal_location : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address.facsimile_number">facsimile_number : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address.telephone_number">telephone_number : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address.electronic_mail_address">electronic_mail_address : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address.telex_number">telex_number : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address.url">url : </A>
+         OPTIONAL 
+         STRING;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address.wr:wr1">WR1: (EXISTS (street_number) OR         EXISTS (street) OR         EXISTS (postal_box) OR         EXISTS (town) OR       
+            EXISTS (region) OR         EXISTS (postal_code) OR         EXISTS (country) OR         EXISTS (internal_location) OR     
+            EXISTS (facsimile_number) OR     EXISTS (telephone_number) OR         EXISTS (electronic_mail_address) OR         EXISTS (telex_number));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_arm.address_assignment">ENTITY <b>Address_assignment</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address_assignment.address_type">address_type : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address_assignment.assigned_address">assigned_address : </A><A HREF="#person_organization_arm.address">Address</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.address_assignment.located_person_organizations">located_person_organizations : </A>SET[1:?] OF <A HREF="#person_organization_arm.organization_or_person_in_organization_select">organization_or_person_in_organization_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_arm.organization">ENTITY <b>Organization</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.organization.id">id : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.organization.name">name : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_arm.organization_relationship">ENTITY <b>Organization_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.organization_relationship.relation_type">relation_type : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.organization_relationship.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.organization_relationship.relating_organization">relating_organization : </A><A HREF="#person_organization_arm.organization">Organization</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.organization_relationship.related_organization">related_organization : </A><A HREF="#person_organization_arm.organization">Organization</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_arm.person">ENTITY <b>Person</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.person.last_name">last_name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.person.first_name">first_name : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.person.middle_names">middle_names : </A>
+         OPTIONAL 
+         LIST[1:?] OF STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.person.prefix_titles">prefix_titles : </A>
+         OPTIONAL 
+         LIST[1:?] OF STRING;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.person.suffix_titles">suffix_titles : </A>
+         OPTIONAL 
+         LIST[1:?] OF STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_arm.person_in_organization">ENTITY <b>Person_in_organization</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.person_in_organization.concerned_person">concerned_person : </A><A HREF="#person_organization_arm.person">Person</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.person_in_organization.containing_organization">containing_organization : </A><A HREF="#person_organization_arm.organization">Organization</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_arm.person_in_organization.role">role : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Person_organization_arm<br></code></body>
+</HTML>

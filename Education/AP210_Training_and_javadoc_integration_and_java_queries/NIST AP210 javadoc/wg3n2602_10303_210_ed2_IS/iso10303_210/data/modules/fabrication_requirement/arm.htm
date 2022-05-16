@@ -1,0 +1,61 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Fabrication_requirement_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Fabrication_requirement_arm</h2><code><br><br><a name="fabrication_requirement_arm">SCHEMA <b>Fabrication_requirement_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/fabrication_technology/sys/e_exp_arm.htm#fabrication_technology_arm">Fabrication_technology_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1670<br><br></code><code><br><A NAME="fabrication_requirement_arm.metal_or_dielectric">TYPE </A><b>metal_or_dielectric</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (over_finished_conductor,<br>&nbsp;&nbsp;&nbsp;&nbsp;over_finished_dielectric);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="fabrication_requirement_arm.fabrication_thickness_requirement">ENTITY <b>Fabrication_thickness_requirement</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/requirement_decomposition/sys/e_exp_arm.htm#requirement_decomposition_arm.predefined_requirement_view_definition">Predefined_requirement_view_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.fabrication_thickness_requirement.characterized_class">characterized_class : </A><A HREF="#fabrication_requirement_arm.metal_or_dielectric">metal_or_dielectric</A>;<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.fabrication_thickness_requirement.characterized_class_range">characterized_class_range : </A><A HREF="../../../data/modules/characteristic/sys/e_exp_arm.htm#characteristic_arm.range_characteristic">Range_characteristic</A>;<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.fabrication_thickness_requirement.tolerance">tolerance : </A><A HREF="../../../data/modules/characteristic/sys/e_exp_arm.htm#characteristic_arm.tolerance_characteristic">Tolerance_characteristic</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.fabrication_thickness_requirement.wr:wr1">WR1: SELF\Product_view_definition.initial_context.life_cycle_stage = 'test';</A><br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.fabrication_thickness_requirement.wr:wr2">WR2: NOT EXISTS(SELF\Product_view_definition.id);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_requirement_arm.layout_land_width_tolerance_requirement">ENTITY <b>Layout_land_width_tolerance_requirement</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/requirement_decomposition/sys/e_exp_arm.htm#requirement_decomposition_arm.predefined_requirement_view_definition">Predefined_requirement_view_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.layout_land_width_tolerance_requirement.mating_feature_pitch_class">mating_feature_pitch_class : </A><A HREF="#fabrication_requirement_arm.pitch_class">Pitch_class</A>;<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.layout_land_width_tolerance_requirement.maximum_negative_deviation">maximum_negative_deviation : </A><A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_arm.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.layout_land_width_tolerance_requirement.wr:wr1">WR1: SELF\Product_view_definition.initial_context.life_cycle_stage = 'test';</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_requirement_arm.layout_line_width_tolerance_requirement">ENTITY <b>Layout_line_width_tolerance_requirement</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/requirement_decomposition/sys/e_exp_arm.htm#requirement_decomposition_arm.predefined_requirement_view_definition">Predefined_requirement_view_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.layout_line_width_tolerance_requirement.characterized_stratum_technology">characterized_stratum_technology : </A><A HREF="../../../data/modules/fabrication_technology/sys/e_exp_arm.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</A>;<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.layout_line_width_tolerance_requirement.tolerance_line_width_class">tolerance_line_width_class : </A><A HREF="#fabrication_requirement_arm.line_width_class">Line_width_class</A>;<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.layout_line_width_tolerance_requirement.maximum_negative_deviation">maximum_negative_deviation : </A><A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_arm.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.layout_line_width_tolerance_requirement.maximum_positive_deviation">maximum_positive_deviation : </A><A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_arm.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.layout_line_width_tolerance_requirement.wr:wr1">WR1: SELF\Product_view_definition.initial_context.life_cycle_stage = 'test';</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_requirement_arm.line_width_class">ENTITY <b>Line_width_class</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.line_width_class.class_member">class_member : </A><A HREF="../../../data/modules/characteristic/sys/e_exp_arm.htm#characteristic_arm.range_characteristic">Range_characteristic</A>;<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.line_width_class.class_name">class_name : </A>STRING;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.line_width_class.wr:wr1">WR1: SIZEOF(QUERY(np &lt;* class_member\Representation.items | NOT ('VALUE_WITH_UNIT_EXTENSION_ARM.LENGTH_DATA_ELEMENT' IN TYPEOF(np))))
+            = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_requirement_arm.pitch_class">ENTITY <b>Pitch_class</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.pitch_class.class_member">class_member : </A><A HREF="../../../data/modules/characteristic/sys/e_exp_arm.htm#characteristic_arm.range_characteristic">Range_characteristic</A>;<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.pitch_class.class_name">class_name : </A>STRING;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="fabrication_requirement_arm.pitch_class.wr:wr1">WR1: SIZEOF(QUERY(np &lt;* class_member\Representation.items | NOT ('VALUE_WITH_UNIT_EXTENSION_ARM.LENGTH_DATA_ELEMENT' IN TYPEOF(np))))
+            = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="fabrication_requirement_arm.fr_predefined_requirement_view_definition_subtypes">SUBTYPE_CONSTRAINT <b>fr_predefined_requirement_view_definition_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/modules/requirement_decomposition/sys/e_exp_arm.htm#requirement_decomposition_arm.predefined_requirement_view_definition">Predefined_requirement_view_definition</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#fabrication_requirement_arm.layout_line_width_tolerance_requirement">Layout_line_width_tolerance_requirement</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#fabrication_requirement_arm.layout_land_width_tolerance_requirement">Layout_land_width_tolerance_requirement</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#fabrication_requirement_arm.fabrication_thickness_requirement">Fabrication_thickness_requirement</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Fabrication_requirement_arm<br></code></body>
+</HTML>

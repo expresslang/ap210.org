@@ -1,0 +1,496 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Assembly physical requirement allocation">
+      <META name="DC.Dates" content="2009-04-30 13:00:59">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Assembly physical requirement allocation">
+      <META name="DC.Subject" content="module, detailed physical requirement, assembly design, requirement allocation, electrical, connector placement, configuration management, change management, electromagnetic, thermal, separation, shield">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6326">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N3890">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-04-30 13:00:59">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.58">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.55">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.47">
+      <TITLE>ISO/TS 10303-1648:2009 Assembly physical requirement allocation</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Assembly physical requirement allocation</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1648:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Assembly physical requirement allocation</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Assembly_physical_requirement_allocation_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="assembly_physical_requirement_allocation_arm">
+            SCHEMA Assembly_physical_requirement_allocation_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/assembly_physical_interface_requirement/sys/4_info_reqs.htm#assembly_physical_interface_requirement_arm">Assembly_physical_interface_requirement_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1647<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm">Assembly_technology_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1649<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/discrete_shield/sys/4_info_reqs.htm#discrete_shield_arm">Discrete_shield_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1744<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Assembly_physical_interface_requirement_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1647</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Assembly_technology_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1649</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Discrete_shield_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1744</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="assembly_physical_requirement_allocation_arm.apra_requirement_assignment_item">4.2.1 apra_requirement_assignment_item</a>
+         &nbsp;&nbsp;<a href="../../assembly_physical_requirement_allocation/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>apra_requirement_assignment_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment_item">requirement_assignment_item</A></b> type. 
+         
+         It adds the data 
+         
+         types
+         <b><A HREF="#assembly_physical_requirement_allocation_arm.component_or_feature">component_or_feature</A></b>
+         and
+         <b><A HREF="../../../../data/modules/discrete_shield/sys/4_info_reqs.htm#discrete_shield_arm.physical_shield">Physical_shield</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            apra_requirement_assignment_item =
+            
+            EXTENSIBLE
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment_item">requirement_assignment_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#assembly_physical_requirement_allocation_arm.component_or_feature">component_or_feature</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/discrete_shield/sys/4_info_reqs.htm#discrete_shield_arm.physical_shield">Physical_shield</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="assembly_physical_requirement_allocation_arm.component_or_feature">4.2.2 component_or_feature</a>
+         &nbsp;&nbsp;<a href="../../assembly_physical_requirement_allocation/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>component_or_feature</b> type is an
+         extensible list of alternate data types
+         that allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/physical_unit_design_view/sys/4_info_reqs.htm#physical_unit_design_view_arm.assembly_component">Assembly_component</A></b>, <b><A HREF="../../../../data/modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint">Assembly_joint</A></b>
+         
+         and
+         
+         <b><A HREF="../../../../data/modules/component_feature/sys/4_info_reqs.htm#component_feature_arm.component_feature">Component_feature</A></b>.
+         
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;
+            The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.                 
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            component_or_feature =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/physical_unit_design_view/sys/4_info_reqs.htm#physical_unit_design_view_arm.assembly_component">Assembly_component</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint">Assembly_joint</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/component_feature/sys/4_info_reqs.htm#component_feature_arm.component_feature">Component_feature</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="assembly_physical_requirement_allocation_arm.assembly_requirement_allocation">4.3.1 Assembly_requirement_allocation</a>
+         &nbsp;&nbsp;<a href="../../assembly_physical_requirement_allocation/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityassembly_requirement_allocation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	An <b>Assembly_requirement_allocation</b> is a type of 
+      	<a href="../../../modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment"><b>Requirement_assignment</b></a>. 
+      	An <b>Assembly_requirement_allocation</b> is the relationship between the 
+      	<a href="../../../modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.predefined_requirement_view_definition"><b>Predefined_requirement_view_definition</b></a> 
+      	and either an 
+      	<a href="../../../modules/physical_unit_design_view/sys/4_info_reqs.htm#physical_unit_design_view_arm.assembly_component"><b>Assembly_component</b></a> 
+      	or a 
+      	<a href="../../../modules/component_feature/sys/4_info_reqs.htm#component_feature_arm.component_feature"><b>Component_feature</b></a> 
+      	that satisfies that  
+      	<a href="../../../modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.predefined_requirement_view_definition"><b>Predefined_requirement_view_definition</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Assembly_requirement_allocation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</A>.assigned_to : <A HREF="#assembly_physical_requirement_allocation_arm.component_or_feature">component_or_feature</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="assembly_physical_requirement_allocation_arm.assembly_requirement_allocation.assigned_to">assigned_to:
+               </a></b>
+         	an attribute inherited from  
+         	<a href="../../../modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment"><b>Requirement_assignment</b></a> 
+         	that specifies a <a href="../../../modules/assembly_physical_requirement_allocation/sys/4_info_reqs.htm#assembly_physical_requirement_allocation_arm.component_or_feature"><b>component_or_feature</b></a> 
+         	for the <b>Assembly_requirement_allocation</b>.
+         
+      </p>
+      <h2><a name="assembly_physical_requirement_allocation_arm.assembly_separation_requirement_allocation">4.3.2 Assembly_separation_requirement_allocation</a>
+         &nbsp;&nbsp;<a href="../../assembly_physical_requirement_allocation/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityassembly_separation_requirement_allocation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	An <b>Assembly_separation_requirement_allocation</b> is a type of 
+         	<a href="../../../modules/assembly_physical_requirement_allocation/sys/4_info_reqs.htm#assembly_physical_requirement_allocation_arm.assembly_requirement_allocation"><b>Assembly_requirement_allocation</b></a>. 
+         	An <b>Assembly_separation_requirement_allocation</b> provides for the physical spacing required among components of the assembly.
+         	The <b>Assembly_separation_requirement_allocation</b> is for the purpose of specifying separation between items based on the 
+         	<a href="../../../modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.predefined_requirement_view_definition"><b>Predefined_requirement_view_definition</b></a>. 
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		Multiple members of this entity may be populated in order to specify all the sets with which a given set 
+            		will be disjoint, either thermally or electromagnetically.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		A typical usage of this AO is to reference a member of 
+            		<a href="../../../modules/interconnect_placement_requirements/sys/4_info_reqs.htm#interconnect_placement_requirements_arm.layout_spacing_requirement"><b>Layout_spacing_requirement</b></a> 
+            		as the requirement inherited from  
+            		<a href="../../../modules/assembly_physical_requirement_allocation/sys/4_info_reqs.htm#assembly_physical_requirement_allocation_arm.assembly_requirement_allocation"><b>Assembly_requirement_allocation</b></a>.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Assembly_separation_requirement_allocation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#assembly_physical_requirement_allocation_arm.assembly_requirement_allocation">Assembly_requirement_allocation</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;disjoint_assignment : SET[1:?] OF <A HREF="#assembly_physical_requirement_allocation_arm.component_or_feature">component_or_feature</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="assembly_physical_requirement_allocation_arm.assembly_separation_requirement_allocation.disjoint_assignment">disjoint_assignment:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/assembly_physical_requirement_allocation/sys/4_info_reqs.htm#assembly_physical_requirement_allocation_arm.component_or_feature"><b>component_or_feature</b></a> 
+         	for the <b>Assembly_separation_requirement_allocation</b>. There
+         	shall be one or more  
+         	<a href="../../../modules/assembly_physical_requirement_allocation/sys/4_info_reqs.htm#assembly_physical_requirement_allocation_arm.component_or_feature"><b>component_or_feature</b></a> 
+         	for the <b>Assembly_separation_requirement_allocation</b>.  The <b>disjoint_assignment</b> shall be applied pairwise.
+         
+      </p>
+      <p><u>Informal propositions:</u></p>
+      <p class="expressdescription"><b><a name="assembly_physical_requirement_allocation_arm.assembly_separation_requirement_allocation.wr:ip1">IP1:
+               </a></b>
+         	The type of characteristic inherited from assembly requirement allocation attribute requirement shall be 
+         	<a href="../../../modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element"><b>Length_data_element</b></a>.
+         
+      </p>
+      <h2><a name="assembly_physical_requirement_allocation_arm.assembly_shield_allocation">4.3.3 Assembly_shield_allocation</a>
+         &nbsp;&nbsp;<a href="../../assembly_physical_requirement_allocation/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityassembly_shield_allocation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	An <b>Assembly_shield_allocation</b> is a type of 
+         	<a href="../../../modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment"><b>Requirement_assignment</b></a>  
+         	that assigns a <a href="../../../modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.predefined_requirement_view_definition"><b>Predefined_requirement_view_definition</b></a> to a <a href="../../../modules/discrete_shield/sys/4_info_reqs.htm#discrete_shield_arm.physical_shield"><b>Physical_shield</b></a>.  
+         
+      </p>	
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		Typical requirements are electromagnetic although other domains such as mechanical may be allocated.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Assembly_shield_allocation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</A>.assigned_to : <A HREF="../../../../data/modules/discrete_shield/sys/4_info_reqs.htm#discrete_shield_arm.physical_shield">Physical_shield</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</A>.assigned_requirement RENAMED assigned_requirement_property : <A HREF="../../../../data/modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.predefined_requirement_view_definition">Predefined_requirement_view_definition</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: assigned_requirement_property\Product_view_definition.initial_context\View_definition_context.application_domain = 'electrical';<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="assembly_physical_requirement_allocation_arm.assembly_shield_allocation.assigned_to">assigned_to:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/discrete_shield/sys/4_info_reqs.htm#discrete_shield_arm.physical_shield"><b>Physical_shield</b></a> for the 
+         	<b>Assembly_shield_allocation</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="assembly_physical_requirement_allocation_arm.assembly_shield_allocation.assigned_requirement_property">assigned_requirement_property:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.predefined_requirement_view_definition"><b>Predefined_requirement_view_definition</b></a> 
+         	for the <b>Assembly_shield_allocation</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="assembly_physical_requirement_allocation_arm.assembly_shield_allocation.wr:wr1">WR1:
+               </a></b>
+         	The 
+         	<a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.view_definition_context.application_domain"><b>application_domain</b></a>
+         	of 
+         	<a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition.initial_context"><b>initial_context</b></a>
+         	of <b>assigned_requirement_property</b> shall be set to 'electrical'.
+         
+      </p>
+      <h2><a name="assembly_physical_requirement_allocation_arm.electromagnetic_compatibility_requirement_allocation">4.3.4 Electromagnetic_compatibility_requirement_allocation</a>
+         &nbsp;&nbsp;<a href="../../assembly_physical_requirement_allocation/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityelectromagnetic_compatibility_requirement_allocation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	An <b>Electromagnetic_compatibility_requirement_allocation</b> is a type of 
+      	<a href="../../../modules/assembly_physical_requirement_allocation/sys/4_info_reqs.htm#assembly_physical_requirement_allocation_arm.assembly_requirement_allocation"><b>Assembly_requirement_allocation</b></a> 
+      	that allocates an electromagnetic compatibility requirement to product data. 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Electromagnetic_compatibility_requirement_allocation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#assembly_physical_requirement_allocation_arm.assembly_requirement_allocation">Assembly_requirement_allocation</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="assembly_physical_requirement_allocation_arm.interface_component_allocation">4.3.5 Interface_component_allocation</a>
+         &nbsp;&nbsp;<a href="../../assembly_physical_requirement_allocation/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityinterface_component_allocation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+       An <b>Interface_component_allocation</b> is the assignment relationship 
+      between an <a href="../../../modules/interface_component/sys/4_info_reqs.htm#interface_component_arm.interface_component"><b>Interface_component</b></a> on an assembly and the <a href="../../../modules/assembly_physical_interface_requirement/sys/4_info_reqs.htm#assembly_physical_interface_requirement_arm.mating_connector_usage"><b>Mating_connector_usage</b></a> to which the  <a href="../../../modules/interface_component/sys/4_info_reqs.htm#interface_component_arm.interface_component"><b>Interface_component</b></a> must mechanically and 
+      electrically mate in the next assembly level.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Interface_component_allocation;<br>
+            
+            
+            
+            &nbsp;&nbsp;mating_solution : <A HREF="../../../../data/modules/interface_component/sys/4_info_reqs.htm#interface_component_arm.interface_component">Interface_component</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;mating_requirement : <A HREF="../../../../data/modules/assembly_physical_interface_requirement/sys/4_info_reqs.htm#assembly_physical_interface_requirement_arm.mating_connector_usage">Mating_connector_usage</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="assembly_physical_requirement_allocation_arm.interface_component_allocation.mating_solution">mating_solution:
+               </a></b>
+         specifies the role of the <a href="../../../modules/interface_component/sys/4_info_reqs.htm#interface_component_arm.interface_component"><b>Interface_component</b></a> for the <b>Interface_component_allocation</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="assembly_physical_requirement_allocation_arm.interface_component_allocation.mating_requirement">mating_requirement:
+               </a></b>
+         specifies the role of the <a href="../../../modules/assembly_physical_interface_requirement/sys/4_info_reqs.htm#assembly_physical_interface_requirement_arm.mating_connector_usage"><b>Mating_connector_usage</b></a> for the <b>Interface_component_allocation</b>.
+         
+      </p>
+      <h2><a name="assembly_physical_requirement_allocation_arm.thermal_requirement_allocation">4.3.6 Thermal_requirement_allocation</a>
+         &nbsp;&nbsp;<a href="../../assembly_physical_requirement_allocation/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitythermal_requirement_allocation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Thermal_requirement_allocation</b> is a type of 
+      	<a href="../../../modules/assembly_physical_requirement_allocation/sys/4_info_reqs.htm#assembly_physical_requirement_allocation_arm.assembly_requirement_allocation"><b>Assembly_requirement_allocation</b></a> 
+      	for which the 
+      	<a href="../../../modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.predefined_requirement_view_definition"><b>Predefined_requirement_view_definition</b></a> 
+      	has thermal characteristics. 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Thermal_requirement_allocation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#assembly_physical_requirement_allocation_arm.assembly_requirement_allocation">Assembly_requirement_allocation</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</A>.assigned_to : <A HREF="../../../../data/modules/physical_unit_design_view/sys/4_info_reqs.htm#physical_unit_design_view_arm.thermal_component">Thermal_component</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</A>.assigned_requirement RENAMED assigned_requirement_property : <A HREF="../../../../data/modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.predefined_requirement_view_definition">Predefined_requirement_view_definition</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: assigned_requirement_property\Product_view_definition.initial_context\View_definition_context.application_domain = 'thermal';<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="assembly_physical_requirement_allocation_arm.thermal_requirement_allocation.assigned_to">assigned_to:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/physical_unit_design_view/sys/4_info_reqs.htm#physical_unit_design_view_arm.thermal_component"><b>Thermal_component</b></a> 
+         	for the <b>Thermal_requirement_allocation</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="assembly_physical_requirement_allocation_arm.thermal_requirement_allocation.assigned_requirement_property">assigned_requirement_property:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.predefined_requirement_view_definition"><b>Predefined_requirement_view_definition</b></a>
+         	for the <b>Thermal_requirement_allocation</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="assembly_physical_requirement_allocation_arm.thermal_requirement_allocation.wr:wr1">WR1:
+               </a></b>
+         The <a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.view_definition_context.application_domain"><b>application_domain</b></a>
+         of <a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition.initial_context"><b>initial_context</b></a>
+         of <b>assigned_requirement_property</b> shall be set to 'thermal'.
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Assembly_physical_requirement_allocation_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>
