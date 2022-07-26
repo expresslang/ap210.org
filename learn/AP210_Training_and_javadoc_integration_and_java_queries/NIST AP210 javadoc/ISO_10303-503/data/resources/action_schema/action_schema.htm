@@ -1,0 +1,215 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: action_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: action_schema</h2>
+      <p><i>Source : ISO 10303-41</i></p><code><br><br><a name="action_schema">SCHEMA <b>action_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema">basic_attribute_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.description_attribute">description_attribute</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.get_description_value">get_description_value</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.get_id_value">get_id_value</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.get_name_value">get_name_value</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.id_attribute">id_attribute</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.name_attribute">name_attribute</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.bag_to_set">bag_to_set</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>);
+         <br><br></code><code><br><A NAME="action_schema.supported_item">TYPE </A><b>supported_item</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#action_schema.action">action</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#action_schema.action_directive">action_directive</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#action_schema.action_method">action_method</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="action_schema.action">ENTITY <b>action</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action.chosen_method">chosen_method : </A><A HREF="#action_schema.action_method">action_method</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A> := get_id_value (SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action.wr:wr1">WR1: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'ID_ATTRIBUTE.IDENTIFIED_ITEM')) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="action_schema.action_directive">ENTITY <b>action_directive</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_directive.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_directive.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_directive.analysis">analysis : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_directive.comment">comment : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_directive.requests">requests : </A>SET[1:?] OF <A HREF="#action_schema.versioned_action_request">versioned_action_request</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="action_schema.action_method">ENTITY <b>action_method</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_method.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_method.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_method.consequence">consequence : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_method.purpose">purpose : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="action_schema.action_method_relationship">ENTITY <b>action_method_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_method_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_method_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_method_relationship.relating_method">relating_method : </A><A HREF="#action_schema.action_method">action_method</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_method_relationship.related_method">related_method : </A><A HREF="#action_schema.action_method">action_method</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="action_schema.action_relationship">ENTITY <b>action_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_relationship.relating_action">relating_action : </A><A HREF="#action_schema.action">action</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_relationship.related_action">related_action : </A><A HREF="#action_schema.action">action</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="action_schema.action_request_solution">ENTITY <b>action_request_solution</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_request_solution.method">method : </A><A HREF="#action_schema.action_method">action_method</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_request_solution.request">request : </A><A HREF="#action_schema.versioned_action_request">versioned_action_request</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_request_solution.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A> := get_description_value (SELF);<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_request_solution.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A> := get_name_value (SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_request_solution.wr:wr1">WR1: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'DESCRIPTION_ATTRIBUTE.DESCRIBED_ITEM')) &lt;= 1;</A><br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_request_solution.wr:wr2">WR2: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'NAME_ATTRIBUTE.NAMED_ITEM')) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="action_schema.action_request_status">ENTITY <b>action_request_status</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_request_status.status">status : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_request_status.assigned_request">assigned_request : </A><A HREF="#action_schema.versioned_action_request">versioned_action_request</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="action_schema.action_resource">ENTITY <b>action_resource</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_resource.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_resource.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_resource.usage">usage : </A>SET[1:?] OF <A HREF="#action_schema.supported_item">supported_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_resource.kind">kind : </A><A HREF="#action_schema.action_resource_type">action_resource_type</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="action_schema.action_resource_relationship">ENTITY <b>action_resource_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_resource_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_resource_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_resource_relationship.relating_resource">relating_resource : </A><A HREF="#action_schema.action_resource">action_resource</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_resource_relationship.related_resource">related_resource : </A><A HREF="#action_schema.action_resource">action_resource</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="action_schema.action_resource_type">ENTITY <b>action_resource_type</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_resource_type.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="action_schema.action_status">ENTITY <b>action_status</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_status.status">status : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.action_status.assigned_action">assigned_action : </A><A HREF="#action_schema.executed_action">executed_action</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="action_schema.directed_action">ENTITY <b>directed_action</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#action_schema.executed_action">executed_action</A>);<br>
+         &nbsp;&nbsp;<A NAME="action_schema.directed_action.directive">directive : </A><A HREF="#action_schema.action_directive">action_directive</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="action_schema.executed_action">ENTITY <b>executed_action</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#action_schema.action">action</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="action_schema.versioned_action_request">ENTITY <b>versioned_action_request</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.versioned_action_request.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.versioned_action_request.version">version : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.versioned_action_request.purpose">purpose : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.versioned_action_request.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="action_schema.versioned_action_request_relationship">ENTITY <b>versioned_action_request_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.versioned_action_request_relationship.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.versioned_action_request_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.versioned_action_request_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.versioned_action_request_relationship.relating_versioned_action_request">relating_versioned_action_request : </A><A HREF="#action_schema.versioned_action_request">versioned_action_request</A>;<br>
+         &nbsp;&nbsp;<A NAME="action_schema.versioned_action_request_relationship.related_versioned_action_request">related_versioned_action_request : </A><A HREF="#action_schema.versioned_action_request">versioned_action_request</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="action_schema.acyclic_action_method_relationship">FUNCTION <b>acyclic_action_method_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_method_relationship">action_method_relationship</A>; relatives : SET[1:?] OF <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_method">action_method</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>
+ LOCAL
+      x : SET OF action_method_relationship;
+    END_LOCAL;
+
+    IF relation.relating_method IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(am &lt;* bag_to_set(USEDIN(relation.relating_method, 'ACTION_SCHEMA.' + 'ACTION_METHOD_RELATIONSHIP.' + 'RELATED_METHOD')) | specific_relation IN TYPEOF(am));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_action_method_relationship(x[i], relatives + relation.relating_method, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);
+      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="action_schema.acyclic_action_relationship">FUNCTION <b>acyclic_action_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_relationship">action_relationship</A>; relatives : SET[1:?] OF <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action">action</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>
+   LOCAL
+      x : SET OF action_relationship;
+    END_LOCAL;
+
+    IF relation.relating_action IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(actn &lt;* bag_to_set(USEDIN(relation.relating_action, 'ACTION_SCHEMA.' + 'ACTION_RELATIONSHIP.' + 'RELATED_ACTION')) | specific_relation IN TYPEOF(actn));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_action_relationship(x[i], relatives + relation.relating_action, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);
+      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="action_schema.acyclic_action_resource_relationship">FUNCTION <b>acyclic_action_resource_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_resource_relationship">action_resource_relationship</A>; relatives : SET[1:?] OF <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_resource">action_resource</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>
+LOCAL
+      x : SET OF action_resource_relationship;
+    END_LOCAL;
+
+    IF relation.relating_resource IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(ar &lt;* bag_to_set(USEDIN(relation.relating_resource, 'ACTION_SCHEMA.' + 'ACTION_RESOURCE_RELATIONSHIP.' + 'RELATED_RESOURCE')) | specific_relation IN TYPEOF(ar));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_action_resource_relationship(x[i], relatives + relation.relating_resource, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);
+      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="action_schema.acyclic_versioned_action_request_relationship">FUNCTION <b>acyclic_versioned_action_request_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.versioned_action_request_relationship">versioned_action_request_relationship</A>; relatives : SET OF <A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.versioned_action_request">versioned_action_request</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>
+   LOCAL
+      x : SET OF versioned_action_request_relationship;
+    END_LOCAL;
+
+    IF relation.relating_versioned_action_request IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(varr &lt;* bag_to_set(USEDIN(relation.relating_versioned_action_request, 'ACTION_SCHEMA.' + 'VERSIONED_ACTION_REQUEST_RELATIONSHIP.' + 'RELATED_VERSIONED_ACTION_REQUEST')) | specific_relation IN TYPEOF(varr));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_versioned_action_request_relationship(x[i], relatives + relation.relating_versioned_action_request, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);
+			</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;action_schema<br></code></body>
+</HTML>

@@ -1,0 +1,60 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: External_library_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: External_library_arm</h2><code><br><br><a name="external_library_arm">SCHEMA <b>External_library_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/external_source/sys/e_exp_arm.htm#external_source_arm">External_source_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1331<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/plib_class_reference/sys/e_exp_arm.htm#plib_class_reference_arm">Plib_class_reference_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1291<br><br></code><code><br><A NAME="external_library_arm.el_external_identification_item">TYPE </A><b>el_external_identification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_arm.htm#external_item_identification_assignment_arm.external_identification_item">external_identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#external_library_arm.user_defined_library_or_dictionary">User_defined_library_or_dictionary</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="external_library_arm.iso15926_4_rdl">ENTITY <b>Iso15926_4_rdl</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#external_library_arm.known_source">Known_source</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="external_library_arm.known_source">ENTITY <b>Known_source</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#external_library_arm.iso15926_4_rdl">Iso15926_4_rdl</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#external_library_arm.otd_catalogue">Otd_catalogue</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#external_library_arm.otd_dictionary">Otd_dictionary</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#external_library_arm.plib_dictionary">Plib_dictionary</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#external_library_arm.plib_library">Plib_library</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/external_source/sys/e_exp_arm.htm#external_source_arm.external_source">External_source</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="external_library_arm.otd_catalogue">ENTITY <b>Otd_catalogue</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#external_library_arm.known_source">Known_source</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="external_library_arm.otd_dictionary">ENTITY <b>Otd_dictionary</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#external_library_arm.known_source">Known_source</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="external_library_arm.plib_dictionary">ENTITY <b>Plib_dictionary</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#external_library_arm.known_source">Known_source</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="external_library_arm.plib_library">ENTITY <b>Plib_library</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#external_library_arm.known_source">Known_source</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="external_library_arm.user_defined_library_or_dictionary">ENTITY <b>User_defined_library_or_dictionary</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/external_source/sys/e_exp_arm.htm#external_source_arm.external_source">External_source</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="external_library_arm.user_defined_library_or_dictionary.source">source : </A><A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_arm.htm#external_item_identification_assignment_arm.external_source_identification">External_source_identification</A> FOR item;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="external_library_arm.external_source_subtypes">SUBTYPE_CONSTRAINT <b>external_source_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/modules/external_source/sys/e_exp_arm.htm#external_source_arm.external_source">External_source</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#external_library_arm.known_source">Known_source</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#external_library_arm.user_defined_library_or_dictionary">User_defined_library_or_dictionary</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;External_library_arm<br></code></body>
+</HTML>

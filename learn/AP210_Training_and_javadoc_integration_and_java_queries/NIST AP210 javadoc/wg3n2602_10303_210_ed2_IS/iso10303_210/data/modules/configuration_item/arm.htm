@@ -1,0 +1,58 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Configuration_item_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Configuration_item_arm</h2><code><br><br><a name="configuration_item_arm">SCHEMA <b>Configuration_item_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_concept_identification/sys/e_exp_arm.htm#product_concept_identification_arm">Product_concept_identification_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1060<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm">Product_version_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1018<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm">Product_view_definition_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1019<br><br></code><code><br><A NAME="configuration_item_arm.version_or_definition">TYPE </A><b>version_or_definition</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="configuration_item_arm.item_design_association">ENTITY <b>Item_design_association</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="configuration_item_arm.item_design_association.configuration">configuration : </A><A HREF="#configuration_item_arm.product_configuration">Product_configuration</A>;<br>
+         &nbsp;&nbsp;<A NAME="configuration_item_arm.item_design_association.design">design : </A><A HREF="#configuration_item_arm.version_or_definition">version_or_definition</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="configuration_item_arm.item_design_association.ur:ur1">UR1: </A>configuration, design;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="configuration_item_arm.product_configuration">ENTITY <b>Product_configuration</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="configuration_item_arm.product_configuration.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="configuration_item_arm.product_configuration.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="configuration_item_arm.product_configuration.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="configuration_item_arm.product_configuration.item_context">item_context : </A><A HREF="../../../data/modules/product_concept_identification/sys/e_exp_arm.htm#product_concept_identification_arm.product_concept">Product_concept</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="configuration_item_arm.product_configuration.corresponding_design">corresponding_design : </A>SET[0:1] OF <A HREF="#configuration_item_arm.item_design_association">Item_design_association</A> FOR configuration;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="configuration_item_arm.product_configuration_hierarchical_relationship">ENTITY <b>Product_configuration_hierarchical_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#configuration_item_arm.product_configuration_relationship">Product_configuration_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/configuration_item/sys/e_exp_arm.htm#configuration_item_arm.product_configuration_relationship">Product_configuration_relationship</A>.related_product_configuration&nbsp;RENAMED&nbsp;<A NAME="configuration_item_arm.product_configuration_hierarchical_relationship.child">child : </A><A HREF="#configuration_item_arm.product_configuration">Product_configuration</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/configuration_item/sys/e_exp_arm.htm#configuration_item_arm.product_configuration_relationship">Product_configuration_relationship</A>.relating_product_configuration&nbsp;RENAMED&nbsp;<A NAME="configuration_item_arm.product_configuration_hierarchical_relationship.parent">parent : </A><A HREF="#configuration_item_arm.product_configuration">Product_configuration</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="configuration_item_arm.product_configuration_relationship">ENTITY <b>Product_configuration_relationship</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#configuration_item_arm.product_configuration_hierarchical_relationship">Product_configuration_hierarchical_relationship</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#configuration_item_arm.product_configuration_revision_sequence">Product_configuration_revision_sequence</A>));<br>
+         &nbsp;&nbsp;<A NAME="configuration_item_arm.product_configuration_relationship.relating_product_configuration">relating_product_configuration : </A><A HREF="#configuration_item_arm.product_configuration">Product_configuration</A>;<br>
+         &nbsp;&nbsp;<A NAME="configuration_item_arm.product_configuration_relationship.related_product_configuration">related_product_configuration : </A><A HREF="#configuration_item_arm.product_configuration">Product_configuration</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="configuration_item_arm.product_configuration_revision_sequence">ENTITY <b>Product_configuration_revision_sequence</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#configuration_item_arm.product_configuration_relationship">Product_configuration_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/configuration_item/sys/e_exp_arm.htm#configuration_item_arm.product_configuration_relationship">Product_configuration_relationship</A>.relating_product_configuration&nbsp;RENAMED&nbsp;<A NAME="configuration_item_arm.product_configuration_revision_sequence.predecessor">predecessor : </A><A HREF="#configuration_item_arm.product_configuration">Product_configuration</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/configuration_item/sys/e_exp_arm.htm#configuration_item_arm.product_configuration_relationship">Product_configuration_relationship</A>.related_product_configuration&nbsp;RENAMED&nbsp;<A NAME="configuration_item_arm.product_configuration_revision_sequence.successor">successor : </A><A HREF="#configuration_item_arm.product_configuration">Product_configuration</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Configuration_item_arm<br></code></body>
+</HTML>

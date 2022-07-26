@@ -1,0 +1,43 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Construction_geometry_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Construction_geometry_arm</h2><code><br><br><a name="construction_geometry_arm">SCHEMA <b>Construction_geometry_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/basic_curve/sys/e_exp_arm.htm#basic_curve_arm">Basic_curve_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1651<br><br></code><code><br><A NAME="construction_geometry_arm.constructive_element_select">TYPE </A><b>constructive_element_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/basic_geometry/sys/e_exp_arm.htm#basic_geometry_arm.curve">Curve</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/basic_geometry/sys/e_exp_arm.htm#basic_geometry_arm.point_select">point_select</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/basic_geometry/sys/e_exp_arm.htm#basic_geometry_arm.surface">Surface</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="construction_geometry_arm.constructive_geometry_select">TYPE </A><b>constructive_geometry_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#construction_geometry_arm.constructive_geometry">Constructive_geometry</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="construction_geometry_arm.constructive_geometry">ENTITY <b>Constructive_geometry</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>.<A NAME="construction_geometry_arm.constructive_geometry.context_of_items">context_of_items : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_coordinate_space">Geometric_coordinate_space</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>.<A NAME="construction_geometry_arm.constructive_geometry.items">items : </A>SET[1:?] OF <A HREF="#construction_geometry_arm.constructive_element_select">constructive_element_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="construction_geometry_arm.constructive_geometry_association">ENTITY <b>Constructive_geometry_association</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="construction_geometry_arm.constructive_geometry_association.auxiliary_geometry">auxiliary_geometry : </A><A HREF="#construction_geometry_arm.constructive_geometry">Constructive_geometry</A>;<br>
+         &nbsp;&nbsp;<A NAME="construction_geometry_arm.constructive_geometry_association.base_geometry">base_geometry : </A><A HREF="#construction_geometry_arm.constructive_geometry_select">constructive_geometry_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="construction_geometry_arm.constructive_geometry_association.description">description : </A>STRING;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="construction_geometry_arm.constructive_geometry_association.wr:wr1">WR1: auxiliary_geometry\Representation.context_of_items :=: base_geometry\Representation.context_of_items;</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Construction_geometry_arm<br></code></body>
+</HTML>

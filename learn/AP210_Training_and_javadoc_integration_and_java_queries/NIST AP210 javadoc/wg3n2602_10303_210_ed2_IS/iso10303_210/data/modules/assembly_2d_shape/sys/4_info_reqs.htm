@@ -1,0 +1,510 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Assembly 2D shape">
+      <META name="DC.Dates" content="2009-04-30 12:34:16">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Assembly 2D shape">
+      <META name="DC.Subject" content="module, assembly two dimensional shape">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6281">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5562">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-04-30 12:34:16">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.39">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.54">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.44">
+      <TITLE>ISO/TS 10303-1632:2009 Assembly 2D shape</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Assembly 2D shape</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1632:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.2 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.3 ARM subtype constraint definition</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Assembly 2D shape</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Assembly_2d_shape_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="assembly_2d_shape_arm">
+            SCHEMA Assembly_2d_shape_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm">Assembly_technology_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1649<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/physical_unit_2d_design_view/sys/4_info_reqs.htm#physical_unit_2d_design_view_arm">Physical_unit_2d_design_view_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1724<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Assembly_technology_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1649</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Physical_unit_2d_design_view_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1724</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="entities">4.2 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="assembly_2d_shape_arm.bond_assembly_2d_position">4.2.1 Bond_assembly_2d_position</a>
+         &nbsp;&nbsp;<a href="../../assembly_2d_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitybond_assembly_2d_position"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Bond_assembly_2d_position</b> is a means to provide information about the shape and position of a bond in an assembly in two-dimensional space.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Bond_assembly_2d_position;<br>
+            
+            
+            
+            &nbsp;&nbsp;bond : <A HREF="../../../../data/modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembled_with_bonding">Assembled_with_bonding</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;assembly_model : <A HREF="../../../../data/modules/physical_unit_2d_shape/sys/4_info_reqs.htm#physical_unit_2d_shape_arm.physical_unit_planar_shape_model">Physical_unit_planar_shape_model</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;bond_model : <A HREF="../../../../data/modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.default_assembly_bond_shape_model">Default_assembly_bond_shape_model</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;bond_definition_placement : <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement_2d">Axis_placement_2d</A>;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: bond;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.bond_assembly_2d_position.bond">bond:
+               </a></b>
+         	specifies the role of the <a href="../../../modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembled_with_bonding"><b>Assembled_with_bonding</b></a> for the <b>Bond_assembly_2d_position</b>.  The <b>bond</b> is the joint that is created in the assembly.
+         
+      </p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.bond_assembly_2d_position.assembly_model">assembly_model:
+               </a></b>
+         	specifies the role of the <a href="../../../modules/physical_unit_2d_shape/sys/4_info_reqs.htm#physical_unit_2d_shape_arm.physical_unit_planar_shape_model"><b>Physical_unit_planar_shape_model</b></a> 
+         	for the <b>Bond_assembly_2d_position</b>.  The <b>assembly_model</b> is the planar shape of the bond. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.bond_assembly_2d_position.bond_model">bond_model:
+               </a></b>
+         	specifies the role of the <a href="../../../modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.default_assembly_bond_shape_model"><b>Default_assembly_bond_shape_model</b></a> 
+         	for the <b>Bond_assembly_2d_position</b>.  The <b>bond_model</b> is the default shape of the bond. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.bond_assembly_2d_position.bond_definition_placement">bond_definition_placement:
+               </a></b> 
+         	specifies the role of the <a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement_2d"><b>Axis_placement_2d</b></a> for the <b>Bond_assembly_2d_position</b>.  The <b>bond_definition_placement</b> is the position of the bond in two-dimensional space. 
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.bond_assembly_2d_position.ur:ur1">UR1:
+               </a></b>
+         	The <b>bond</b> shall be unique within a population of <b>Bond_assembly_2d_position</b>.
+         
+      </p>
+      <h2><a name="assembly_2d_shape_arm.component_2d_edge_location">4.2.2 Component_2d_edge_location</a>
+         &nbsp;&nbsp;<a href="../../assembly_2d_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycomponent_2d_edge_location"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Component_2d_edge_location</b> is a type of 
+         	<a href="../../../modules/physical_unit_2d_design_view/sys/4_info_reqs.htm#physical_unit_2d_design_view_arm.component_2d_location"><b>Component_2d_location</b></a>.
+         	The <b>Component_2d_edge_location</b> places components on the edge of a substrate in order to maintain contact with both the top and bottom 
+         	circuitry.
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		<a href="../../../modules/bare_die/sys/4_info_reqs.htm#bare_die_arm.connection_zone_bare_die_interface_plane_relationship"><b>Connection_zone_bare_die_interface_plane_relationship</b></a> 
+            		and 
+            		<a href="../../../modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.connection_zone_based_assembly_joint"><b>Connection_zone_based_assembly_joint</b></a> 
+            		may be used to provide more details if needed by a receiving organization.
+            	 </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Component_2d_edge_location<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_2d_design_view/sys/4_info_reqs.htm#physical_unit_2d_design_view_arm.component_2d_location">Component_2d_location</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;reference_terminal_assembly_joint : <A HREF="../../../../data/modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint">Assembly_joint</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;mounting_surface_assembly_joint : <A HREF="../../../../data/modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint">Assembly_joint</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: reference_terminal_assembly_joint &lt;&gt; mounting_surface_assembly_joint;<br> 
+            &nbsp;&nbsp;WR2: SELF\Component_2d_location.substrate_location = FALSE;<br> 
+            &nbsp;&nbsp;WR3: SIZEOF(['ASSEMBLY_MODULE_WITH_INTERCONNECT_COMPONENT_ARM.INTERCONNECT_MODULE_COMPONENT_TERMINAL',
+            'ASSEMBLY_MODULE_WITH_INTERCONNECT_COMPONENT_ARM.INTERCONNECT_MODULE_COMPONENT_SURFACE_FEATURE'] * TYPEOF(mounting_surface_assembly_joint.assembly_feature_1))
+            &gt;= 1;<br> 
+            &nbsp;&nbsp;WR4: 'PACKAGE_ARM.PRIMARY_REFERENCE_TERMINAL' IN TYPEOF(reference_terminal_assembly_joint\assembly_joint.assembly_feature_1);<br> 
+            &nbsp;&nbsp;WR5: NOT EXISTS(SELF\Representation_relationship.description);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.component_2d_edge_location.reference_terminal_assembly_joint">reference_terminal_assembly_joint:
+               </a></b>
+         	specifies one role of the 
+         	<a href="../../../modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint"><b>Assembly_joint</b></a> 
+         	for the <b>Component_2d_edge_location</b>.  The <b>reference_terminal_assembly_joint</b> joins the 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_reference_terminal"><b>Primary_reference_terminal</b></a> 
+         	of the component being located to the associated mating component feature.
+         	The surface that the mating component feature is associated with is part of the orientation 
+         	description for the <b>Component_2d_edge_location</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.component_2d_edge_location.mounting_surface_assembly_joint">mounting_surface_assembly_joint:
+               </a></b>
+         	specifies one role of the 
+         	<a href="../../../modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint"><b>Assembly_joint</b></a> 
+         	for the <b>Component_2d_edge_location</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.component_2d_edge_location.wr:wr1">WR1:
+               </a></b>
+         	<b>reference_terminal_assembly_joint</b> shall not be <b>mounting_surface_assembly_joint</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.component_2d_edge_location.wr:wr2">WR2:
+               </a></b>
+         	The <a href="../../../modules/physical_unit_2d_design_view/sys/4_info_reqs.htm#physical_unit_2d_design_view_arm.component_2d_location.substrate_location"><b>substrate_location</b></a>  
+         	inherited from the 
+         	<a href="../../../modules/physical_unit_2d_design_view/sys/4_info_reqs.htm#physical_unit_2d_design_view_arm.component_2d_location"><b>Component_2d_location</b></a> 
+         	shall be "False". 
+         
+      </p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.component_2d_edge_location.wr:wr3">WR3:
+               </a></b>
+         	<a href="../../../modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint.assembly_feature_1"><b>assembly_feature_1</b></a> 
+         	of <b>mounting_surface_assembly_joint</b>
+         	shall only be a 
+         	<a href="../../../modules/assembly_module_with_interconnect_component/sys/4_info_reqs.htm#assembly_module_with_interconnect_component_arm.interconnect_module_component_terminal"><b>Interconnect_module_component_terminal</b></a>
+         	or a 
+         	<a href="../../../modules/assembly_module_with_interconnect_component/sys/4_info_reqs.htm#assembly_module_with_interconnect_component_arm.interconnect_module_component_surface_feature"><b>Interconnect_module_component_surface_feature</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.component_2d_edge_location.wr:wr4">WR4:
+               </a></b>
+         The <b>reference_terminal_assembly_joint</b> shall reference an entity instance of type
+         <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.primary_reference_terminal"><b>Primary_reference_terminal</b></a> as
+         <a href="../../../modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint.assembly_feature_1"><b>assembly_feature_1</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.component_2d_edge_location.wr:wr5">WR5:
+               </a></b>
+         	The
+         	<a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation_relationship.description"><b>description</b></a>
+         	shall not be populated.
+         
+      </p>
+      <h2><a name="assembly_2d_shape_arm.component_2d_stacked_location">4.2.3 Component_2d_stacked_location</a>
+         &nbsp;&nbsp;<a href="../../assembly_2d_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycomponent_2d_stacked_location"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Component_2d_stacked_location</b> is a type of 
+         	<a href="../../../modules/physical_unit_2d_design_view/sys/4_info_reqs.htm#physical_unit_2d_design_view_arm.component_2d_location"><b>Component_2d_location</b></a> 
+         	where the components are vertically stacked.  
+         	The stack reference direction shall be parallel to the normal vector of the primary surface of the interconnect.
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		The reference direction is independent of whether the stack is based on the primary or secondary surface of the interconnect.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		The reference direction is opposite to that of the Z axis of the interconnect internal layer stackup.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            		Applications should ensure that stacked components maintain a consistent direction in the stack.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The arrangement of stacked memory chips may be represented using <b>Component_2d_stacked_location</b>.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Component_2d_stacked_location<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_2d_design_view/sys/4_info_reqs.htm#physical_unit_2d_design_view_arm.component_2d_location">Component_2d_location</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;mounting_joint : <A HREF="../../../../data/modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint">Assembly_joint</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(['ASSEMBLY_MODULE_WITH_INTERCONNECT_COMPONENT_ARM.INTERCONNECT_MODULE_COMPONENT_TERMINAL',
+            'ASSEMBLY_MODULE_WITH_INTERCONNECT_COMPONENT_ARM.INTERCONNECT_MODULE_COMPONENT_SURFACE_FEATURE'] * TYPEOF(mounting_joint.assembly_feature_1))
+            = 0;<br> 
+            &nbsp;&nbsp;WR2: SIZEOF(['ASSEMBLY_MODULE_WITH_INTERCONNECT_COMPONENT_ARM.INTERCONNECT_MODULE_COMPONENT_TERMINAL',
+            'ASSEMBLY_MODULE_WITH_INTERCONNECT_COMPONENT_ARM.INTERCONNECT_MODULE_COMPONENT_SURFACE_FEATURE'] * TYPEOF(mounting_joint.assembly_feature_2))
+            = 0;<br> 
+            &nbsp;&nbsp;WR3: SELF\Component_2d_location.substrate_location = FALSE;<br> 
+            &nbsp;&nbsp;WR4: NOT EXISTS(SELF\Representation_relationship.description);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.component_2d_stacked_location.mounting_joint">mounting_joint:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint"><b>Assembly_joint</b></a> 
+         	for the <b>Component_2d_stacked_location</b>.  The joint provides a mechanism
+         	for traversing the vertical stack unambiguously. 
+         	The stack direction vector origin shall be represented by the feature specified by the 
+         	<a href="../../../modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint.assembly_feature_1"><b>assembly_feature_1</b></a> 
+         	attribute of the <b>mounting_joint</b>. 
+         	The stack direction vector destination shall be represented by the feature specified by the 
+         	<a href="../../../modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint.assembly_feature_2"><b>assembly_feature_2</b></a> 
+         	attribute of the <b>mounting_joint</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.component_2d_stacked_location.wr:wr1">WR1:
+               </a></b>
+         	<a href="../../../modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint.assembly_feature_1"><b>assembly_feature_1</b></a> 
+         	of <b>mounting_joint</b>
+         	shall not be a 
+         	<a href="../../../modules/assembly_module_with_interconnect_component/sys/4_info_reqs.htm#assembly_module_with_interconnect_component_arm.interconnect_module_component_terminal"><b>Interconnect_module_component_terminal</b></a>
+         	nor a 
+         	<a href="../../../modules/assembly_module_with_interconnect_component/sys/4_info_reqs.htm#assembly_module_with_interconnect_component_arm.interconnect_module_component_surface_feature"><b>Interconnect_module_component_surface_feature</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.component_2d_stacked_location.wr:wr2">WR2:
+               </a></b>
+         	<a href="../../../modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint.assembly_feature_2"><b>assembly_feature_2</b></a> 
+         	of <b>mounting_joint</b>
+         	shall not be a 
+         	<a href="../../../modules/assembly_module_with_interconnect_component/sys/4_info_reqs.htm#assembly_module_with_interconnect_component_arm.interconnect_module_component_terminal"><b>Interconnect_module_component_terminal</b></a>
+         	nor a 
+         	<a href="../../../modules/assembly_module_with_interconnect_component/sys/4_info_reqs.htm#assembly_module_with_interconnect_component_arm.interconnect_module_component_surface_feature"><b>Interconnect_module_component_surface_feature</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.component_2d_stacked_location.wr:wr3">WR3:
+               </a></b>
+         	The <a href="../../../modules/physical_unit_2d_design_view/sys/4_info_reqs.htm#physical_unit_2d_design_view_arm.component_2d_location.substrate_location"><b>substrate_location</b></a>  
+         	inherited from the 
+         	<a href="../../../modules/physical_unit_2d_design_view/sys/4_info_reqs.htm#physical_unit_2d_design_view_arm.component_2d_location"><b>Component_2d_location</b></a> 
+         	shall be "False".
+         
+      </p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.component_2d_stacked_location.wr:wr4">WR4:
+               </a></b>
+         	The
+         	<a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation_relationship.description"><b>description</b></a> 
+         	shall not be populated.
+         
+      </p>
+      <h2><a name="assembly_2d_shape_arm.component_2d_surface_location">4.2.4 Component_2d_surface_location</a>
+         &nbsp;&nbsp;<a href="../../assembly_2d_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycomponent_2d_surface_location"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Component_2d_surface_location</b> is a type of 
+         	<a href="../../../modules/physical_unit_2d_design_view/sys/4_info_reqs.htm#physical_unit_2d_design_view_arm.component_2d_location"><b>Component_2d_location</b></a>.
+         	The <b>Component_2d_surface_location</b> places components on the external surface of a substrate.
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            	<a href="../../../modules/bare_die/sys/4_info_reqs.htm#bare_die_arm.connection_zone_bare_die_interface_plane_relationship"><b>Connection_zone_bare_die_interface_plane_relationship</b></a> 
+            	and 
+            	<a href="../../../modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.connection_zone_based_assembly_joint"><b>Connection_zone_based_assembly_joint</b></a> 
+            	may be used to provide more details if needed by a receiving organization.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Component_2d_surface_location<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_2d_design_view/sys/4_info_reqs.htm#physical_unit_2d_design_view_arm.component_2d_location">Component_2d_location</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;mounting_surface_assembly_joint : <A HREF="../../../../data/modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint">Assembly_joint</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF\Component_2d_location.substrate_location = FALSE;<br> 
+            &nbsp;&nbsp;WR2: SIZEOF(['ASSEMBLY_MODULE_WITH_INTERCONNECT_COMPONENT_ARM.INTERCONNECT_MODULE_COMPONENT_TERMINAL',
+            'ASSEMBLY_MODULE_WITH_INTERCONNECT_COMPONENT_ARM.INTERCONNECT_MODULE_COMPONENT_SURFACE_FEATURE'] * TYPEOF(mounting_surface_assembly_joint.assembly_feature_1))
+            &gt;= 1;<br> 
+            &nbsp;&nbsp;WR3: NOT EXISTS(SELF\Representation_relationship.description);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.component_2d_surface_location.mounting_surface_assembly_joint">mounting_surface_assembly_joint:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint"><b>Assembly_joint</b></a> 
+         	that joins the 
+         	<a href="../../../modules/assembly_module_design/sys/4_info_reqs.htm#assembly_module_design_arm.component_mounting_feature"><b>Component_mounting_feature</b></a> 
+         	of the component being located to the associated mating component feature.
+         	The surface the mating component feature is associated with is part of the orientation description for the <b>Component_2d_surface_location</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.component_2d_surface_location.wr:wr1">WR1:
+               </a></b>
+         	The <a href="../../../modules/physical_unit_2d_design_view/sys/4_info_reqs.htm#physical_unit_2d_design_view_arm.component_2d_location.substrate_location"><b>substrate_location</b></a> 
+         	inherited from the 
+         	<a href="../../../modules/physical_unit_2d_design_view/sys/4_info_reqs.htm#physical_unit_2d_design_view_arm.component_2d_location"><b>Component_2d_location</b></a> 
+         	shall be "False".
+         
+      </p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.component_2d_surface_location.wr:wr2">WR2:
+               </a></b>
+         	<a href="../../../modules/assembly_technology/sys/4_info_reqs.htm#assembly_technology_arm.assembly_joint.assembly_feature_1"><b>assembly_feature_1</b></a> of <b>mounting_surface_assembly_joint</b>
+         	shall only be a 
+         	<a href="../../../modules/assembly_module_with_interconnect_component/sys/4_info_reqs.htm#assembly_module_with_interconnect_component_arm.interconnect_module_component_terminal"><b>Interconnect_module_component_terminal</b></a>
+         	or a 
+         	<a href="../../../modules/assembly_module_with_interconnect_component/sys/4_info_reqs.htm#assembly_module_with_interconnect_component_arm.interconnect_module_component_surface_feature"><b>Interconnect_module_component_surface_feature</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="assembly_2d_shape_arm.component_2d_surface_location.wr:wr3">WR3:
+               </a></b>
+         	The
+         	<a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation_relationship.description"><b>description</b></a> 
+         	shall not be populated.
+         
+      </p>
+      <h2><a name="subtype_constraints">4.3 ARM subtype constraint definition</a></h2>
+      <p>
+         This subclause specifies the ARM subtype constraint for
+         this module. The subtype constraint places a constraint on the
+         possible super-type / subtype instantiations.
+         The ARM subtype constraint and definition is
+         specified below.
+         
+      </p>
+      <h2><A NAME="assembly_2d_shape_arm.a2ds_component_2d_location_subtypes">4.3.1 a2ds_component_2d_location_subtypes</A>
+         &nbsp;&nbsp;<a href="../../assembly_2d_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#scconstrainta2ds_component_2d_location_subtypes"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         The
+         <b>a2ds_component_2d_location_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/physical_unit_2d_design_view/sys/4_info_reqs.htm#physical_unit_2d_design_view_arm.component_2d_location">Component_2d_location</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="assembly_2d_shape_arm.a2ds_component_2d_location_subtypes">SUBTYPE_CONSTRAINT a2ds_component_2d_location_subtypes</A> FOR <A HREF="../../../../data/modules/physical_unit_2d_design_view/sys/4_info_reqs.htm#physical_unit_2d_design_view_arm.component_2d_location">Component_2d_location</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#assembly_2d_shape_arm.component_2d_edge_location">Component_2d_edge_location</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_2d_shape_arm.component_2d_stacked_location">Component_2d_stacked_location</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_2d_shape_arm.component_2d_surface_location">Component_2d_surface_location</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Assembly_2d_shape_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

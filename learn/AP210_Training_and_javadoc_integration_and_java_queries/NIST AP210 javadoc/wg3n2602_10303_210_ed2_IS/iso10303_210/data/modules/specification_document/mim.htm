@@ -1,0 +1,74 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Specification_document_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Specification_document_mim</h2><code><br><br><a name="specification_document_mim">SCHEMA <b>Specification_document_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/characteristic/sys/e_exp_mim.htm#characteristic_mim">Characteristic_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1654<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/configuration_item/sys/e_exp_mim.htm#configuration_item_mim">Configuration_item_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1056<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/tagged_text_representation/sys/e_exp_mim.htm#tagged_text_representation_mim">Tagged_text_representation_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1366<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema">document_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema.document_type">document_type</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema">management_resources_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.group_assignment">group_assignment</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema">date_time_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema.date_time_role">date_time_role</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema">product_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation_relationship">product_definition_formation_relationship</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema">product_property_representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.item_identified_representation_usage">item_identified_representation_usage</A>);
+         <br><br></code><code><br><A NAME="specification_document_mim.document_identifier_assigned_item">TYPE </A><b>document_identifier_assigned_item</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema.document">document</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="specification_document_mim.sd_document_reference_item">TYPE </A><b>sd_document_reference_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/document_assignment/sys/e_exp_mim.htm#document_assignment_mim.document_reference_item">document_reference_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/configuration_management_schema/configuration_management_schema.htm#configuration_management_schema.configuration_item">configuration_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product">product</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation">product_definition_formation</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="specification_document_mim.document_identifier">ENTITY <b>document_identifier</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>);<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="specification_document_mim.document_identifier.ur:ur1">UR1: </A>
+         SELF\<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>.name, 
+         SELF\<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>.description;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="specification_document_mim.document_identifier_assignment">ENTITY <b>document_identifier_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.group_assignment">group_assignment</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.group_assignment">group_assignment</A>.<A NAME="specification_document_mim.document_identifier_assignment.assigned_group">assigned_group : </A><A HREF="#specification_document_mim.document_identifier">document_identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="specification_document_mim.document_identifier_assignment.items">items : </A>SET[1:?] OF <A HREF="#specification_document_mim.document_identifier_assigned_item">document_identifier_assigned_item</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="specification_document_mim.partial_document_with_structured_text_representation_assignment">ENTITY <b>partial_document_with_structured_text_representation_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/document_assignment/sys/e_exp_mim.htm#document_assignment_mim.applied_document_usage_constraint_assignment">applied_document_usage_constraint_assignment</A>, <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="specification_document_mim.specification_definition">ENTITY <b>specification_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Specification_document_mim<br></code></body>
+</HTML>

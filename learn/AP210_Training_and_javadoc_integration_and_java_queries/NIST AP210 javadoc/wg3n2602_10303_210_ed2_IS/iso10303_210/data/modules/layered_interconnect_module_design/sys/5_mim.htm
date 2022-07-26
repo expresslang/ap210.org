@@ -1,0 +1,2419 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Layered interconnect module design">
+      <META name="DC.Dates" content="2009-05-27 11:06:20">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Layered interconnect module design">
+      <META name="DC.Subject" content="module, interconnect, substrate, electrical, electronic, design, layout, features, layered product, connectivity, thermal, requirement, simulation">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6434">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5700">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-27 11:06:20">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.246">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.162">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.96">
+      <TITLE>ISO/TS 10303-1698:2009 Layered interconnect module design</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Layered interconnect module design</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1698:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#constants">4.2 ARM constant definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.3 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.4 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.5 ARM subtype constraint definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.6 ARM function definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#rules">4.7 ARM rule definition</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#subtype_constraints">5.2.3 MIM subtype constraint definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <h2><a name="mim_express">5.2 MIM EXPRESS short listing</a></h2>
+      <p>
+         This clause specifies the EXPRESS schema derived from the mapping
+         table. 
+         It uses elements from the common resources or from other application
+         modules and defines the EXPRESS constructs that are specific to this
+         part of ISO 10303.
+         
+      </p>
+      <p>
+         This clause constitutes the Module Interpreted Module (MIM) of the
+         application module.
+         
+      </p>
+      <p>This clause also
+         specifies the modifications that apply to the constructs 
+         imported from the common resources.
+      </p>
+      <p>The following restrictions apply to the use, in this schema, of constructs defined in common resources or in application
+         modules:
+      </p>
+      <ul>
+         <li>
+            use of a supertype entity does not make applicable any of its
+            specializations, unless the specialization is also imported in the
+            MIM schema;
+            
+         </li>
+         <li>
+            use of a SELECT type does not make applicable any of its listed types
+            unless the listed type is also imported in the MIM schema.
+            
+         </li>
+      </ul>
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="layered_interconnect_module_design_mim">
+            SCHEMA Layered_interconnect_module_design_mim;</a></code><h2><A NAME="interfaces"></A></h2>
+      <p></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/component_grouping/sys/5_mim.htm#component_grouping_mim">Component_grouping_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1656<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/edge_shape_feature/sys/5_mim.htm#edge_shape_feature_mim">Edge_shape_feature_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1673<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/footprint_definition/sys/5_mim.htm#footprint_definition_mim">Footprint_definition_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1646<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/assembly_component_placement_requirements/sys/5_mim.htm#assembly_component_placement_requirements_mim">Assembly_component_placement_requirements_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1634<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/land/sys/5_mim.htm#land_mim">Land_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1692<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/layered_interconnect_module_with_printed_component_design/sys/5_mim.htm#layered_interconnect_module_with_printed_component_design_mim">Layered_interconnect_module_with_printed_component_design_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1700<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Component_grouping_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1656</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Edge_shape_feature_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1673</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Footprint_definition_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1646</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Assembly_component_placement_requirements_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1634</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Land_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1692</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Layered_interconnect_module_with_printed_component_design_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1700</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="d_mim_expg.htm">D</a>, 
+            
+            Figures
+            <a href="../mimexpg1.htm">D.1</a>, <a href="../mimexpg2.htm">D.2</a>, <a href="../mimexpg3.htm">D.3</a>, <a href="../mimexpg4.htm">D.4</a>, <a href="../mimexpg5.htm">D.5</a>, <a href="../mimexpg6.htm">D.6</a>and <a href="../mimexpg7.htm">D.7</a>
+            for a graphical representation of this schema.            
+            </small></p>
+      <h2><a name="types">5.2.1 MIM type definitions</a></h2>
+      <p>
+         This subclause specifies the MIM types
+         for this application module. The MIM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="layered_interconnect_module_design_mim.limd_document_reference_item">5.2.1.1 limd_document_reference_item</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg7.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>limd_document_reference_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/document_assignment/sys/5_mim.htm#document_assignment_mim.document_reference_item">document_reference_item</A></b> type. 
+         
+         It adds the data 
+         
+         types
+         <b><A HREF="#layered_interconnect_module_design_mim.inter_stratum_feature">inter_stratum_feature</A></b>, <b><A HREF="#layered_interconnect_module_design_mim.stratum">stratum</A></b>, <b><A HREF="#layered_interconnect_module_design_mim.stratum_feature">stratum_feature</A></b>, <b><A HREF="#layered_interconnect_module_design_mim.stratum_surface">stratum_surface</A></b>
+         
+         and
+         
+         <b><A HREF="#layered_interconnect_module_design_mim.structured_layout_component">structured_layout_component</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            limd_document_reference_item =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/document_assignment/sys/5_mim.htm#document_assignment_mim.document_reference_item">document_reference_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#layered_interconnect_module_design_mim.inter_stratum_feature">inter_stratum_feature</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.stratum">stratum</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.stratum_feature">stratum_feature</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.stratum_surface">stratum_surface</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.structured_layout_component">structured_layout_component</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.limd_external_identification_item">5.2.1.2 limd_external_identification_item</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg7.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>limd_external_identification_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/external_item_identification_assignment/sys/5_mim.htm#external_item_identification_assignment_mim.external_identification_item">external_identification_item</A></b> type. 
+         
+         It adds the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/physical_unit_design_view/sys/5_mim.htm#physical_unit_design_view_mim.assembly_component">assembly_component</A></b>, <b><A HREF="#layered_interconnect_module_design_mim.externally_defined_physical_network_group">externally_defined_physical_network_group</A></b>, <b><A HREF="#layered_interconnect_module_design_mim.externally_defined_physical_network_group_element_relationship">externally_defined_physical_network_group_element_relationship</A></b>, <b><A HREF="#layered_interconnect_module_design_mim.stratum">stratum</A></b>
+         
+         and
+         
+         <b><A HREF="#layered_interconnect_module_design_mim.stratum_feature_based_derived_pattern">stratum_feature_based_derived_pattern</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            limd_external_identification_item =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/external_item_identification_assignment/sys/5_mim.htm#external_item_identification_assignment_mim.external_identification_item">external_identification_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/physical_unit_design_view/sys/5_mim.htm#physical_unit_design_view_mim.assembly_component">assembly_component</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.externally_defined_physical_network_group">externally_defined_physical_network_group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.externally_defined_physical_network_group_element_relationship">externally_defined_physical_network_group_element_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.stratum">stratum</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.stratum_feature_based_derived_pattern">stratum_feature_based_derived_pattern</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.limd_groupable_item">5.2.1.3 limd_groupable_item</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>limd_groupable_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/group/sys/5_mim.htm#group_mim.groupable_item">groupable_item</A></b> type. 
+         
+         It adds the data 
+         
+         types
+         <b><A HREF="#layered_interconnect_module_design_mim.physical_network">physical_network</A></b>
+         and
+         <b><A HREF="#layered_interconnect_module_design_mim.stratum">stratum</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            limd_groupable_item =
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/group/sys/5_mim.htm#group_mim.groupable_item">groupable_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#layered_interconnect_module_design_mim.physical_network">physical_network</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.stratum">stratum</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.limd_requirement_assigned_item">5.2.1.4 limd_requirement_assigned_item</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg7.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>limd_requirement_assigned_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/requirement_assignment/sys/5_mim.htm#requirement_assignment_mim.requirement_assigned_item">requirement_assigned_item</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#layered_interconnect_module_design_mim.layered_interconnect_module_design_view">layered_interconnect_module_design_view</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            limd_requirement_assigned_item =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/requirement_assignment/sys/5_mim.htm#requirement_assignment_mim.requirement_assigned_item">requirement_assigned_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#layered_interconnect_module_design_mim.layered_interconnect_module_design_view">layered_interconnect_module_design_view</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">5.2.2 MIM entity definitions</a></h2>
+      <p>
+         This subclause specifies the MIM entities for this
+         module. The MIM entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="layered_interconnect_module_design_mim.additive_laminate_text_component">5.2.2.1 additive_laminate_text_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>additive_laminate_text_component</b> is a type of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.generic_laminate_text_component"><b>generic_laminate_text_component</b></a> 
+      	that implements the ARM concepts of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.additive_laminate_text_component"><b>Additive_laminate_text_component</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY additive_laminate_text_component<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.generic_laminate_text_component">generic_laminate_text_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.area_component">5.2.2.2 area_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	An <b>area_component</b> is a type of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.stratum_feature_template_component"><b>stratum_feature_template_component</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.area_component"><b>Area_component</b></a>.
+      	An <b>area_component</b> may be a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.connected_area_component"><b>connected_area_component</b></a> 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY area_component<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.connected_area_component">connected_area_component</A>)<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.stratum_feature_template_component">stratum_feature_template_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.breakout_occurrence">5.2.2.3 breakout_occurrence</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>breakout_occurrence</b> is a type of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.footprint_occurrence"><b>footprint_occurrence</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.breakout_occurrence"><b>Breakout_occurrence</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY breakout_occurrence<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.footprint_occurrence">footprint_occurrence</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.component_termination_passage">5.2.2.4 component_termination_passage</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>component_termination_passage</b> is a type of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.plated_passage"><b>plated_passage</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.component_termination_passage"><b>Component_termination_passage</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY component_termination_passage<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.plated_passage">plated_passage</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.conductive_interconnect_element">5.2.2.5 conductive_interconnect_element</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>conductive_interconnect_element</b> is a type of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.stratum_feature_template_component"><b>stratum_feature_template_component</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.conductive_interconnect_element"><b>Conductive_interconnect_element</b></a>.
+      	A <b>conductive_interconnect_element</b> is one of an
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.unrouted_conductive_interconnect_element"><b>unrouted_conductive_interconnect_element</b></a>
+      	or a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.conductive_interconnect_element_with_pre_defined_transitions"><b>conductive_interconnect_element_with_pre_defined_transitions</b></a>.	
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY conductive_interconnect_element<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.unrouted_conductive_interconnect_element">unrouted_conductive_interconnect_element</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.conductive_interconnect_element_with_pre_defined_transitions">conductive_interconnect_element_with_pre_defined_transitions</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.stratum_feature_template_component">stratum_feature_template_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.conductive_interconnect_element_terminal_link">5.2.2.6 conductive_interconnect_element_terminal_link</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>conductive_interconnect_element_terminal_link</b> is a type of 
+      	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect"><b>shape_aspect</b></a> 
+      	and a  
+      	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship"><b>shape_aspect_relationship</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.conductive_interconnect_element_terminal_link"><b>Conductive_interconnect_element_terminal_link</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY conductive_interconnect_element_terminal_link<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>, <A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.relating_shape_aspect : <A HREF="#layered_interconnect_module_design_mim.laminate_component_feature">laminate_component_feature</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.related_shape_aspect : <A HREF="#layered_interconnect_module_design_mim.laminate_component_feature">laminate_component_feature</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF\shape_aspect_relationship.related_shape_aspect :&lt;&gt;:
+            SELF\shape_aspect_relationship.relating_shape_aspect;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.conductive_interconnect_element_terminal_link.relating_shape_aspect">relating_shape_aspect:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.laminate_component_feature"><b>laminate_component_feature</b></a>
+         	for the <b>conductive_interconnect_element_terminal_link</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.conductive_interconnect_element_terminal_link.related_shape_aspect">related_shape_aspect:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.laminate_component_feature"><b>laminate_component_feature</b></a>
+         	for the <b>conductive_interconnect_element_terminal_link</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.conductive_interconnect_element_terminal_link.wr:wr1">WR1:
+               </a></b>
+         The related point shall not be the relating point. 
+         
+      </p>
+      <h2><a name="layered_interconnect_module_design_mim.conductive_interconnect_element_with_pre_defined_transitions">5.2.2.7 conductive_interconnect_element_with_pre_defined_transitions</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>conductive_interconnect_element_with_pre_defined_transitions</b> is a type of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.conductive_interconnect_element"><b>conductive_interconnect_element</b></a> 
+      	and a type of
+      	<a href="../../../resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.item_identified_representation_usage"><b>item_identified_representation_usage</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.conductive_interconnect_element_with_pre_defined_transitions"><b>Conductive_interconnect_element_with_pre_defined_transitions</b></a>.	
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY conductive_interconnect_element_with_pre_defined_transitions<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.conductive_interconnect_element">conductive_interconnect_element</A>, <A HREF="../../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.item_identified_representation_usage">item_identified_representation_usage</A>);<br>DERIVE<br>
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.item_identified_representation_usage">item_identified_representation_usage</A>.definition : <A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A> := SELF;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.conductive_interconnect_element_with_pre_defined_transitions.definition">definition:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.item_identified_representation_usage"><b>item_identified_representation_usage</b></a>
+         	shall be redeclared as the
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition"><b>property_definition</b></a>
+         	for the <b>conductive_interconnect_element_with_pre_defined_transitions</b>.
+         
+      </p>
+      <h2><a name="layered_interconnect_module_design_mim.connected_area_component">5.2.2.8 connected_area_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>connected_area_component</b> is a type of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.area_component"><b>area_component</b></a> 
+         	that implements the ARM concept of
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.connected_area_component"><b>Connected_area_component</b></a>
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY connected_area_component<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.area_component">area_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.cutout">5.2.2.9 cutout</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>cutout</b> is a type of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.inter_stratum_feature"><b>inter_stratum_feature</b></a>
+      	that implements the ARM concept of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.cutout"><b>Cutout</b></a>.
+      	A <b>cutout</b> may be one of a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.physical_connectivity_interrupting_cutout"><b>physical_connectivity_interrupting_cutout</b></a>
+      	or a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.plated_cutout"><b>plated_cutout</b></a>
+      	or a 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.partially_plated_cutout"><b>partially_plated_cutout</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY cutout<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.physical_connectivity_interrupting_cutout">physical_connectivity_interrupting_cutout</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.plated_cutout">plated_cutout</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.partially_plated_cutout">partially_plated_cutout</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.inter_stratum_feature">inter_stratum_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.cutout_edge_segment">5.2.2.10 cutout_edge_segment</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>cutout_edge_segment</b> is a type of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.inter_stratum_feature"><b>inter_stratum_feature</b></a> 
+         	and a  
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship"><b>shape_aspect_relationship</b></a> 
+         	that implements the ARM concept of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.cutout_edge_segment"><b>Cutout_edge_segment</b></a>.
+         	A <b>cutout_edge_segment</b> may be a 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.plated_cutout_edge_segment"><b>plated_cutout_edge_segment</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY cutout_edge_segment<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.plated_cutout_edge_segment">plated_cutout_edge_segment</A>)<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.inter_stratum_feature">inter_stratum_feature</A>, <A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.relating_shape_aspect : <A HREF="../../../../data/modules/extended_geometric_tolerance/sys/5_mim.htm#extended_geometric_tolerance_mim.edge_segment_vertex">edge_segment_vertex</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.related_shape_aspect : <A HREF="../../../../data/modules/extended_geometric_tolerance/sys/5_mim.htm#extended_geometric_tolerance_mim.edge_segment_vertex">edge_segment_vertex</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF\shape_aspect_relationship.relating_shape_aspect :&lt;&gt;:
+            SELF\shape_aspect_relationship.related_shape_aspect;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.cutout_edge_segment.relating_shape_aspect">relating_shape_aspect:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/extended_geometric_tolerance/sys/5_mim.htm#extended_geometric_tolerance_mim.edge_segment_vertex"><b>edge_segment_vertex</b></a>
+         	for the <b>cutout_edge_segment</b>
+         
+      </p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.cutout_edge_segment.related_shape_aspect">related_shape_aspect:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/extended_geometric_tolerance/sys/5_mim.htm#extended_geometric_tolerance_mim.edge_segment_vertex"><b>edge_segment_vertex</b></a>
+         	for the <b>cutout_edge_segment</b>
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.cutout_edge_segment.wr:wr1">WR1:
+               </a></b>
+         	<b>related_shape_aspect</b> shall not be equal to <b>relating_shape_aspect</b>.
+         	
+      </p>
+      <h2><a name="layered_interconnect_module_design_mim.derived_stratum">5.2.2.11 derived_stratum</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>derived_stratum</b> is a type of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.stratum"><b>stratum</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.derived_stratum"><b>Derived_stratum</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY derived_stratum<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.stratum">stratum</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.design_layer_stratum">5.2.2.12 design_layer_stratum</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>design_layer_stratum</b> is a type of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.stratum"><b>stratum</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.design_layer_stratum"><b>Design_layer_stratum</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY design_layer_stratum<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.stratum">stratum</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.dielectric_material_passage">5.2.2.13 dielectric_material_passage</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>dielectric_material_passage</b> is a type of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.inter_stratum_feature"><b>inter_stratum_feature</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.dielectric_material_passage"><b>Dielectric_material_passage</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY dielectric_material_passage<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.inter_stratum_feature">inter_stratum_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.documentation_layer_stratum">5.2.2.14 documentation_layer_stratum</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>documentation_layer_stratum</b> is a type of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.stratum"><b>stratum</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.documentation_layer_stratum"><b>Documentation_layer_stratum</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY documentation_layer_stratum<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.stratum">stratum</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.electrical_isolation_laminate_component">5.2.2.15 electrical_isolation_laminate_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>electrical_isolation_laminate_component</b> is a type of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.material_removal_laminate_component"><b>material_removal_laminate_component</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.electrical_isolation_laminate_component"><b>Electrical_isolation_laminate_component</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY electrical_isolation_laminate_component<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.material_removal_laminate_component">material_removal_laminate_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.externally_defined_physical_network_group">5.2.2.16 externally_defined_physical_network_group</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg7.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>externally_defined_physical_network_group</b> is a type of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.physical_network_group"><b>physical_network_group</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.externally_defined_physical_network_group"><b>Externally_defined_physical_network_group</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY externally_defined_physical_network_group<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.physical_network_group">physical_network_group</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.externally_defined_physical_network_group_element_relationship">5.2.2.17 externally_defined_physical_network_group_element_relationship</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg7.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>externally_defined_physical_network_group_element_relationship</b> is a type of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.physical_network_group_element_relationship"><b>physical_network_group_element_relationship</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.externally_defined_physical_network_group_element_relationship"><b>Externally_defined_physical_network_group_element_relationship</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY externally_defined_physical_network_group_element_relationship<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.physical_network_group_element_relationship">physical_network_group_element_relationship</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.fiducial">5.2.2.18 fiducial</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      A <b>fiducial</b> is a type of  <a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.laminate_component"><b>laminate_component</b></a> that implements the ARM concept of  <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.fiducial"><b>Fiducial</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY fiducial<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.laminate_component">laminate_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.fiducial_stratum_feature">5.2.2.19 fiducial_stratum_feature</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         
+         A <b>fiducial_stratum_feature</b> is a  type of <a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.stratum_feature"><b>stratum_feature</b></a> that implements the ARM
+         concept of  <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.fiducial_stratum_feature"><b>Fiducial_stratum_feature</b></a>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY fiducial_stratum_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.stratum_feature">stratum_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.filled_via">5.2.2.20 filled_via</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>filled_via</b> is a type of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.via"><b>via</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY filled_via<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.via">via</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.footprint_occurrence">5.2.2.21 footprint_occurrence</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>footprint_occurrence</b> is a type of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.structured_layout_component"><b>structured_layout_component</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.footprint_occurrence"><b>Footprint_occurrence</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY footprint_occurrence<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.structured_layout_component">structured_layout_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.footprint_occurrence_product_definition_relationship">5.2.2.22 footprint_occurrence_product_definition_relationship</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>footprint_occurrence_product_definition_relationship</b> is a type of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.structured_layout_component_sub_assembly_relationship"><b>structured_layout_component_sub_assembly_relationship</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY footprint_occurrence_product_definition_relationship<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.structured_layout_component_sub_assembly_relationship">structured_layout_component_sub_assembly_relationship</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.generic_laminate_text_component">5.2.2.23 generic_laminate_text_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>generic_laminate_text_component</b> is a type of  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.laminate_component"><b>laminate_component</b></a> 
+         	that implements the ARM concept of  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.generic_laminate_text_component"><b>Generic_laminate_text_component</b></a>.
+         	A <b>generic_laminate_text_component</b> is either a
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.additive_laminate_text_component"><b>additive_laminate_text_component</b></a> 
+         	or a
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.material_removal_laminate_text_component"><b>material_removal_laminate_text_component</b></a>. 
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY generic_laminate_text_component<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.additive_laminate_text_component">additive_laminate_text_component</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.material_removal_laminate_text_component">material_removal_laminate_text_component</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.laminate_component">laminate_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.inter_stratum_feature">5.2.2.24 inter_stratum_feature</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         
+         An <b>inter_stratum_feature</b> is a type of  <a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.laminate_component"><b>laminate_component</b></a> that implements the ARM
+         concepts of:
+         
+      </p>
+      <ul>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.cutout"><b>Cutout</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.cutout_edge_segment"><b>Cutout_edge_segment</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.dielectric_material_passage"><b>Dielectric_material_passage</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_feature"><b>Inter_stratum_feature</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.interconnect_module_edge"><b>Interconnect_module_edge</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.interconnect_module_edge_segment"><b>Interconnect_module_edge_segment</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.partially_plated_cutout"><b>Partially_plated_cutout</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.partially_plated_interconnect_module_edge"><b>Partially_plated_interconnect_module_edge</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.physical_connectivity_interrupting_cutout"><b>Physical_connectivity_interrupting_cutout</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.unsupported_passage"><b>Unsupported_passage</b></a>.
+         </li>
+         
+      </ul>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY inter_stratum_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.laminate_component">laminate_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.interconnect_module_design_view">5.2.2.25 interconnect_module_design_view</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	An <b>interconnect_module_design_view</b> is a type of  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.layered_interconnect_module_design_view"><b>layered_interconnect_module_design_view</b></a> 
+         	that implement the ARM concept of  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.interconnect_module_design_view"><b>Interconnect_module_design_view</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY interconnect_module_design_view<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.layered_interconnect_module_design_view">layered_interconnect_module_design_view</A>)<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_usage_view/sys/5_mim.htm#physical_unit_usage_view_mim.physical_unit">physical_unit</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.interconnect_module_edge">5.2.2.26 interconnect_module_edge</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	An <b>interconnect_module_edge</b> is a type of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.inter_stratum_feature"><b>inter_stratum_feature</b></a>
+      	that implements the ARM concept of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.interconnect_module_edge"><b>Interconnect_module_edge</b></a>.
+      	A <b>interconnect_module_edge</b> may be one of a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.partially_plated_interconnect_module_edge"><b>partially_plated_interconnect_module_edge</b></a>
+      	or a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.plated_interconnect_module_edge"><b>plated_interconnect_module_edge</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY interconnect_module_edge<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.partially_plated_interconnect_module_edge">partially_plated_interconnect_module_edge</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.plated_interconnect_module_edge">plated_interconnect_module_edge</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.inter_stratum_feature">inter_stratum_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.interconnect_module_edge_segment">5.2.2.27 interconnect_module_edge_segment</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	An <b>interconnect_module_edge_segment</b> is a type of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.inter_stratum_feature"><b>inter_stratum_feature</b></a> 
+         	and  
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship"><b>shape_aspect_relationship</b></a> 
+         	that implements the ARM concept of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.interconnect_module_edge_segment"><b>Interconnect_module_edge_segment</b></a>.
+         	An <b>interconnect_module_edge_segment</b> may be one of a
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.plated_interconnect_module_edge_segment"><b>plated_interconnect_module_edge_segment</b></a>
+         	or an
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.unplated_interconnect_module_edge_segment"><b>unplated_interconnect_module_edge_segment</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY interconnect_module_edge_segment<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.plated_interconnect_module_edge_segment">plated_interconnect_module_edge_segment</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.unplated_interconnect_module_edge_segment">unplated_interconnect_module_edge_segment</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.inter_stratum_feature">inter_stratum_feature</A>, <A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.relating_shape_aspect : <A HREF="../../../../data/modules/extended_geometric_tolerance/sys/5_mim.htm#extended_geometric_tolerance_mim.edge_segment_vertex">edge_segment_vertex</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.related_shape_aspect : <A HREF="../../../../data/modules/extended_geometric_tolerance/sys/5_mim.htm#extended_geometric_tolerance_mim.edge_segment_vertex">edge_segment_vertex</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF\shape_aspect_relationship.relating_shape_aspect :&lt;&gt;:
+            SELF\shape_aspect_relationship.related_shape_aspect;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.interconnect_module_edge_segment.relating_shape_aspect">relating_shape_aspect:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/extended_geometric_tolerance/sys/5_mim.htm#extended_geometric_tolerance_mim.edge_segment_vertex"><b>edge_segment_vertex</b></a>
+         	for the <b>interconnect_module_edge_segment</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.interconnect_module_edge_segment.related_shape_aspect">related_shape_aspect:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/extended_geometric_tolerance/sys/5_mim.htm#extended_geometric_tolerance_mim.edge_segment_vertex"><b>edge_segment_vertex</b></a>
+         	for the <b>interconnect_module_edge_segment</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.interconnect_module_edge_segment.wr:wr1">WR1:
+               </a></b>
+         	<b>related_shape_aspect</b> shall not be equal to <b>relating_shape_aspect</b>.
+         	
+      </p>
+      <h2><a name="layered_interconnect_module_design_mim.interconnect_module_macro_terminal">5.2.2.28 interconnect_module_macro_terminal</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	An <b>interconnect_module_macro_terminal</b> is a type of  
+         	<a href="../../../modules/interconnect_module_usage_view/sys/5_mim.htm#interconnect_module_usage_view_mim.interconnect_module_terminal"><b>interconnect_module_terminal</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY interconnect_module_macro_terminal<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/interconnect_module_usage_view/sys/5_mim.htm#interconnect_module_usage_view_mim.interconnect_module_terminal">interconnect_module_terminal</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.interface_access_component_definition">5.2.2.29 interface_access_component_definition</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      An <b>interface_access_component_definition</b> is a type of <a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.laminate_component"><b>laminate_component</b></a> that implements
+      the ARM concept of <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.interface_access_stratum_feature_template_component"><b>Interface_access_stratum_feature_template_component</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY interface_access_component_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.laminate_component">laminate_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.interface_access_material_removal_laminate_component">5.2.2.30 interface_access_material_removal_laminate_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	An <b>interface_access_material_removal_laminate_component</b> is a type of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.material_removal_laminate_component"><b>material_removal_laminate_component</b></a>.
+         	that implements the ARM concept of  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.interface_access_material_removal_laminate_component"><b>Interface_access_material_removal_laminate_component</b></a>. 
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY interface_access_material_removal_laminate_component<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.material_removal_laminate_component">material_removal_laminate_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.interface_access_stratum_feature_template_component">5.2.2.31 interface_access_stratum_feature_template_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	An <b>interface_access_stratum_feature_template_component</b> is a type of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.stratum_feature_template_component"><b>stratum_feature_template_component</b></a>.
+         	that implements the ARM concept of  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.interface_access_stratum_feature_template_component"><b>Interface_access_stratum_feature_template_component</b></a>. 
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY interface_access_stratum_feature_template_component<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.stratum_feature_template_component">stratum_feature_template_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.internal_probe_access_area">5.2.2.32 internal_probe_access_area</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      An <b>internal_probe_access_area</b> is a type of <a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.probe_access_area"><b>probe_access_area</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY internal_probe_access_area<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.probe_access_area">probe_access_area</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.join_shape_aspect">5.2.2.33 join_shape_aspect</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         A <b>join_shape_aspect</b> is a type of  <a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect"><b>shape_aspect</b></a> that implements the ARM concepts of:
+         
+      </p>
+      <ul>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_join_relationship"><b>Inter_stratum_join_relationship</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.intra_stratum_join_relationship"><b>Intra_stratum_join_relationship</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.join_relationship"><b>Join_relationship</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.unrouted_join_relationship"><b>Unrouted_join_relationship</b></a>.
+         </li>
+         
+      </ul>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY join_shape_aspect<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.laminate_component">5.2.2.34 laminate_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>laminate_component</b> is a type of 
+      	<a href="../../../modules/physical_unit_design_view/sys/5_mim.htm#physical_unit_design_view_mim.assembly_component"><b>assembly_component</b></a>
+      	that implements the ARM concept of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.laminate_component"><b>Laminate_component</b></a>.
+      	A <b>laminate_component</b> may be a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.material_removal_laminate_component"><b>material_removal_laminate_component</b></a>
+      	or a 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.probe_access_area"><b>probe_access_area</b></a>
+      	or an
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.inter_stratum_feature"><b>inter_stratum_feature</b></a>
+      	or additionally may be a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.fiducial"><b>fiducial</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY laminate_component<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.material_removal_laminate_component">material_removal_laminate_component</A>, (<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.stratum_feature_template_component">stratum_feature_template_component</A><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ANDOR&nbsp;<A HREF="#layered_interconnect_module_design_mim.probe_access_area">probe_access_area</A>),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.inter_stratum_feature">inter_stratum_feature</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.generic_laminate_text_component">generic_laminate_text_component</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.laminate_text_string_component">laminate_text_string_component</A>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ANDOR&nbsp;<A HREF="#layered_interconnect_module_design_mim.fiducial">fiducial</A>)<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_design_view/sys/5_mim.htm#physical_unit_design_view_mim.assembly_component">assembly_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.laminate_component_feature">5.2.2.35 laminate_component_feature</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>laminate_component_feature</b> is a type of 
+      	<a href="../../../modules/component_feature/sys/5_mim.htm#component_feature_mim.component_feature"><b>component_feature</b></a>
+      	that implements the ARM concept of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.laminate_component_feature"><b>Laminate_component_feature</b></a>.
+      	A <b>laminate_component_feature</b> may be one of a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.laminate_component_interface_terminal"><b>laminate_component_interface_terminal</b></a>
+      	or a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.laminate_component_join_terminal"><b>laminate_component_join_terminal</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY laminate_component_feature<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.laminate_component_interface_terminal">laminate_component_interface_terminal</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.laminate_component_join_terminal">laminate_component_join_terminal</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/component_feature/sys/5_mim.htm#component_feature_mim.component_feature">component_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.laminate_component_interface_terminal">5.2.2.36 laminate_component_interface_terminal</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         A <b>laminate_component_interface_terminal</b> is a type of  <a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.laminate_component_feature"><b>laminate_component_feature</b></a>.  A <b>laminate_component_interface_terminal</b>
+         implements the ARM concepts of:
+         
+      </p>
+      <ul>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.component_termination_passage_interface_terminal"><b>Component_termination_passage_interface_terminal</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/land/sys/4_info_reqs.htm#land_arm.land_interface_terminal"><b>Land_interface_terminal</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_with_printed_component_design/sys/4_info_reqs.htm#layered_interconnect_module_with_printed_component_design_arm.printed_connector_component_interface_terminal"><b>Printed_connector_component_interface_terminal</b></a>.
+         </li>
+         
+      </ul>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY laminate_component_interface_terminal<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.laminate_component_feature">laminate_component_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.laminate_component_join_terminal">5.2.2.37 laminate_component_join_terminal</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      A <b>laminate_component_join_terminal</b> is a type of <a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.laminate_component_feature"><b>laminate_component_feature</b></a> or <a href="../../../modules/component_feature/sys/5_mim.htm#component_feature_mim.component_terminal"><b>component_terminal</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY laminate_component_join_terminal<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/component_feature/sys/5_mim.htm#component_feature_mim.component_terminal">component_terminal</A>, <A HREF="#layered_interconnect_module_design_mim.laminate_component_feature">laminate_component_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.laminate_group_component_make_from_relationship">5.2.2.38 laminate_group_component_make_from_relationship</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>laminate_group_component_make_from_relationship</b> is a type of  
+         	<a href="../../../resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.make_from_usage_option"><b>make_from_usage_option</b></a> 
+         	that implements the ARM concept of  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.laminate_group_component_make_from_relationship"><b>Laminate_group_component_make_from_relationship</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY laminate_group_component_make_from_relationship<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.make_from_usage_option">make_from_usage_option</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>.relating_product_definition : <A HREF="../../../../data/modules/component_grouping/sys/5_mim.htm#component_grouping_mim.assembly_group_component">assembly_group_component</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>.related_product_definition : <A HREF="../../../../data/modules/component_grouping/sys/5_mim.htm#component_grouping_mim.assembly_group_component">assembly_group_component</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.laminate_group_component_make_from_relationship.relating_product_definition">relating_product_definition:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/component_grouping/sys/5_mim.htm#component_grouping_mim.assembly_group_component"><b>assembly_group_component</b></a> 
+         	for the <b>laminate_group_component_make_from_relationship</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.laminate_group_component_make_from_relationship.related_product_definition">related_product_definition:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/component_grouping/sys/5_mim.htm#component_grouping_mim.assembly_group_component"><b>assembly_group_component</b></a> 
+         	for the <b>laminate_group_component_make_from_relationship</b>.
+         
+      </p>
+      <h2><a name="layered_interconnect_module_design_mim.laminate_text_string_component">5.2.2.39 laminate_text_string_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>laminate_text_string_component</b> is a type of  
+         	<a href="../../../modules/component_grouping/sys/5_mim.htm#component_grouping_mim.array_placement_group"><b>array_placement_group</b></a> 
+         	and a type of
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.laminate_component"><b>laminate_component</b></a> 
+         	that implements the ARM concept of  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.laminate_text_string_component"><b>Laminate_text_string_component</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY laminate_text_string_component<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/component_grouping/sys/5_mim.htm#component_grouping_mim.array_placement_group">array_placement_group</A>, <A HREF="#layered_interconnect_module_design_mim.laminate_component">laminate_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.layer_connection_point">5.2.2.40 layer_connection_point</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         
+         A <b>layer_connection_point</b> is a type of  <a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect"><b>shape_aspect</b></a> that implements the ARM concepts of:
+         
+      </p>
+      <ul>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.dependently_located_layer_connection_point"><b>Dependently_located_layer_connection_point</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.explicitly_located_layer_connection_point"><b>Explicitly_located_layer_connection_point</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layer_connection_point"><b>Layer_connection_point</b></a>.
+         </li>
+         
+      </ul>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY layer_connection_point<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: 
+            SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>.name, 
+            SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>.of_shape;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.layer_connection_point.ur:ur1">UR1:
+               </a></b>
+         The name shall be unique within the stratum that is the  <a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a> for this <b>layer_connection_point</b>.
+         
+      </p>
+      <h2><a name="layered_interconnect_module_design_mim.layer_stack_region">5.2.2.41 layer_stack_region</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>layer_stack_region</b> is a  type of 
+      	<a href="../../../modules/shape_feature/sys/5_mim.htm#shape_feature_mim.instanced_feature"><b>instanced_feature</b></a> 
+      	that implements the ARM concept of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layer_stack_region"><b>Layer_stack_region</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY layer_stack_region<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/shape_feature/sys/5_mim.htm#shape_feature_mim.instanced_feature">instanced_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.layered_interconnect_module_design_view">5.2.2.42 layered_interconnect_module_design_view</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>layered_interconnect_module_design_view</b> is a  type of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.interconnect_module_design_view"><b>interconnect_module_design_view</b></a> 
+      	that implements the ARM concept of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layered_interconnect_module_design_view"><b>Layered_interconnect_module_design_view</b></a>.
+      	A <b>layered_interconnect_module_design_view</b> may be a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.layered_interconnect_panel_design_view"><b>layered_interconnect_panel_design_view</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY layered_interconnect_module_design_view<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.layered_interconnect_panel_design_view">layered_interconnect_panel_design_view</A>)<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.interconnect_module_design_view">interconnect_module_design_view</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.layered_interconnect_panel_design_view">5.2.2.43 layered_interconnect_panel_design_view</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>layered_interconnect_panel_design_view</b> is a  type of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.layered_interconnect_module_design_view"><b>layered_interconnect_module_design_view</b></a> 
+      	that implements the ARM concept of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layered_interconnect_panel_design_view"><b>Layered_interconnect_panel_design_view</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY layered_interconnect_panel_design_view<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.layered_interconnect_module_design_view">layered_interconnect_module_design_view</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.layout_junction">5.2.2.44 layout_junction</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      A <b>layout_junction</b> is a type of  <a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect"><b>shape_aspect</b></a> that implements the ARM concept of <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.layout_junction"><b>Layout_junction</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY layout_junction<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.material_removal_laminate_component">5.2.2.45 material_removal_laminate_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>material_removal_laminate_component</b> is a  type of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.laminate_component"><b>laminate_component</b></a> 
+      	that implements the ARM concept of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.material_removal_laminate_component"><b>Material_removal_laminate_component</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY material_removal_laminate_component<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.laminate_component">laminate_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.material_removal_laminate_text_component">5.2.2.46 material_removal_laminate_text_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>material_removal_laminate_text_component</b> is a type of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.generic_laminate_text_component"><b>generic_laminate_text_component</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.material_removal_laminate_text_component"><b>Material_removal_laminate_text_component</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY material_removal_laminate_text_component<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.generic_laminate_text_component">generic_laminate_text_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.material_removal_structured_component">5.2.2.47 material_removal_structured_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>material_removal_structured_component</b> is a  type of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.structured_layout_component"><b>structured_layout_component</b></a> 
+      	that implements the ARM concept of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.material_removal_structured_component"><b>Material_removal_structured_component</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY material_removal_structured_component<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.structured_layout_component">structured_layout_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.multi_layer_component_definition">5.2.2.48 multi_layer_component_definition</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         
+         A <b>multi_layer_component_definition</b> is a type of  <a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.laminate_component"><b>laminate_component</b></a> that implements
+         the ARM concept of  <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.multi_layer_stratum_feature_template_component"><b>Multi_layer_stratum_feature_template_component</b></a>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY multi_layer_component_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.laminate_component">laminate_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.multi_layer_material_removal_laminate_component">5.2.2.49 multi_layer_material_removal_laminate_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>multi_layer_material_removal_laminate_component</b> is a type of  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.material_removal_laminate_component"><b>material_removal_laminate_component</b></a>
+         	that implements the ARM concept of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.multi_layer_material_removal_laminate_component"><b>Multi_layer_material_removal_laminate_component</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY multi_layer_material_removal_laminate_component<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.material_removal_laminate_component">material_removal_laminate_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.multi_layer_stratum_feature_template_component">5.2.2.50 multi_layer_stratum_feature_template_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>multi_layer_stratum_feature_template_component</b> is a type of  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.stratum_feature_template_component"><b>stratum_feature_template_component</b></a> 
+         	that implements the ARM concept of  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.multi_layer_stratum_feature_template_component"><b>Multi_layer_stratum_feature_template_component</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY multi_layer_stratum_feature_template_component<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.stratum_feature_template_component">stratum_feature_template_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.multi_stratum_special_symbol_component">5.2.2.51 multi_stratum_special_symbol_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>multi_stratum_special_symbol_component</b> is a type of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.structured_layout_component"><b>structured_layout_component</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.multi_stratum_special_symbol_component"><b>Multi_stratum_special_symbol_component</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY multi_stratum_special_symbol_component<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.structured_layout_component">structured_layout_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.padstack_occurrence">5.2.2.52 padstack_occurrence</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>padstack_occurrence</b> is a type of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.structured_layout_component"><b>structured_layout_component</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.padstack_occurrence"><b>Padstack_occurrence</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY padstack_occurrence<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.structured_layout_component">structured_layout_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.padstack_occurrence_product_definition_relationship">5.2.2.53 padstack_occurrence_product_definition_relationship</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg7.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>padstack_occurrence_product_definition_relationship</b> is a type of
+      	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition"><b>property_definition</b></a>
+      	and 
+      	<a href="../../../modules/physical_unit_design_view/sys/5_mim.htm#physical_unit_design_view_mim.next_assembly_usage_occurrence_relationship"><b>next_assembly_usage_occurrence_relationship</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY padstack_occurrence_product_definition_relationship<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_design_view/sys/5_mim.htm#physical_unit_design_view_mim.next_assembly_usage_occurrence_relationship">next_assembly_usage_occurrence_relationship</A>, <A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF\product_definition_relationship.related_product_definition :&lt;&gt;:
+            SELF\product_definition_relationship.relating_product_definition;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.padstack_occurrence_product_definition_relationship.wr:wr1">WR1:
+               </a></b>
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship.related_product_definition"><b>related_product_definition</b></a>
+         	shall not be 
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship.relating_product_definition"><b>relating_product_definition</b></a>.
+         
+      </p>
+      <h2><a name="layered_interconnect_module_design_mim.partially_plated_cutout">5.2.2.54 partially_plated_cutout</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>partially_plated_cutout</b> is a type of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.cutout"><b>cutout</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.partially_plated_cutout"><b>Partially_plated_cutout</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY partially_plated_cutout<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.cutout">cutout</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.partially_plated_interconnect_module_edge">5.2.2.55 partially_plated_interconnect_module_edge</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>partially_plated_interconnect_module_edge</b> is a type of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.interconnect_module_edge"><b>interconnect_module_edge</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.partially_plated_interconnect_module_edge"><b>Partially_plated_interconnect_module_edge</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY partially_plated_interconnect_module_edge<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.interconnect_module_edge">interconnect_module_edge</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.physical_connectivity_interrupting_cutout">5.2.2.56 physical_connectivity_interrupting_cutout</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>physical_connectivity_interrupting_cutout</b> is a type of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.cutout"><b>cutout</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.physical_connectivity_interrupting_cutout"><b>Physical_connectivity_interrupting_cutout</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY physical_connectivity_interrupting_cutout<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.cutout">cutout</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.physical_network">5.2.2.57 physical_network</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>physical_network</b> is a type of  
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect"><b>shape_aspect</b></a> 
+         	that implements the ARM concept of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.generic_physical_network"><b>Generic_physical_network</b></a>.
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            	A <b>physical_network</b> should not be confused with the like sounding term  
+            	<a href="../../../modules/physical_connectivity_definition/sys/5_mim.htm#physical_connectivity_definition_mim.physical_unit_network_definition"><b>physical_unit_network_definition</b></a>.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY physical_network<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.physical_network_group">5.2.2.58 physical_network_group</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg7.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>physical_network_group</b> is a type of  
+      	<a href="../../../resources/group_schema/group_schema.htm#group_schema.group"><b>group</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.physical_network_group"><b>Physical_network_group</b></a>.
+      	A <b>physical_network_group</b> is either a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.pre_defined_physical_network_group"><b>pre_defined_physical_network_group</b></a> 
+      	or a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.externally_defined_physical_network_group"><b>externally_defined_physical_network_group</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY physical_network_group<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.pre_defined_physical_network_group">pre_defined_physical_network_group</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.externally_defined_physical_network_group">externally_defined_physical_network_group</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.physical_network_group_element_relationship">5.2.2.59 physical_network_group_element_relationship</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg7.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>physical_network_group_element_relationship</b> is a type of  
+      	<a href="../../../resources/group_schema/group_schema.htm#group_schema.group_relationship"><b>group_relationship</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.physical_network_group_element_relationship"><b>Physical_network_group_element_relationship</b></a>.
+      	A <b>physical_network_group_element_relationship</b> is either a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.pre_defined_physical_network_group_element_relationship"><b>pre_defined_physical_network_group_element_relationship</b></a> 
+      	or a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.externally_defined_physical_network_group_element_relationship"><b>externally_defined_physical_network_group_element_relationship</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY physical_network_group_element_relationship<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.pre_defined_physical_network_group_element_relationship">pre_defined_physical_network_group_element_relationship</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.externally_defined_physical_network_group_element_relationship">externally_defined_physical_network_group_element_relationship</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/group_schema/group_schema.htm#group_schema.group_relationship">group_relationship</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.physical_network_supporting_inter_stratum_feature">5.2.2.60 physical_network_supporting_inter_stratum_feature</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>physical_network_supporting_inter_stratum_feature</b> is a type of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.plated_inter_stratum_feature"><b>plated_inter_stratum_feature</b></a>
+      	that implements the ARM concept of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.physical_network_supporting_inter_stratum_feature"><b>Physical_network_supporting_inter_stratum_feature</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY physical_network_supporting_inter_stratum_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.plated_inter_stratum_feature">plated_inter_stratum_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.plated_cutout">5.2.2.61 plated_cutout</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>plated_cutout</b> is a type of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.cutout"><b>cutout</b></a> 
+      	and a type of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.plated_inter_stratum_feature"><b>plated_inter_stratum_feature</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.plated_cutout"><b>Plated_cutout</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY plated_cutout<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.cutout">cutout</A>, <A HREF="#layered_interconnect_module_design_mim.plated_inter_stratum_feature">plated_inter_stratum_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.plated_cutout_edge_segment">5.2.2.62 plated_cutout_edge_segment</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         
+         A <b>plated_cutout_edge_segment</b> is a type of <a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.cutout_edge_segment"><b>cutout_edge_segment</b></a> and  <a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.plated_inter_stratum_feature"><b>plated_inter_stratum_feature</b></a> 
+         that implements the ARM concept of <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.plated_cutout_edge_segment"><b>Plated_cutout_edge_segment</b></a>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY plated_cutout_edge_segment<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.cutout_edge_segment">cutout_edge_segment</A>, <A HREF="#layered_interconnect_module_design_mim.plated_inter_stratum_feature">plated_inter_stratum_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.plated_inter_stratum_feature">5.2.2.63 plated_inter_stratum_feature</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         
+         	A <b>plated_inter_stratum_feature</b> is a type of  <a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.inter_stratum_feature"><b>inter_stratum_feature</b></a> that implements the
+         	ARM concepts of:
+         	
+      </p>
+      <ul> 
+         	
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_join_implementation"><b>Inter_stratum_join_implementation</b></a>;
+         </li>
+         	
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.physical_network_supporting_inter_stratum_feature"><b>Physical_network_supporting_inter_stratum_feature</b></a>;
+         </li>
+         	
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.plated_cutout"><b>Plated_cutout</b></a>;
+         </li>
+         	
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.plated_inter_stratum_feature"><b>Plated_inter_stratum_feature</b></a>;
+         </li>
+         	
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.plated_interconnect_module_edge"><b>Plated_interconnect_module_edge</b></a>.
+         </li>
+         	
+      </ul>
+      	A <b>plated_inter_stratum_feature</b> may be a 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.plated_cutout_edge_segment"><b>plated_cutout_edge_segment</b></a>
+      	or a 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.plated_interconnect_module_edge_segment"><b>plated_interconnect_module_edge_segment</b></a>
+      	or a 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.plated_passage"><b>plated_passage</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY plated_inter_stratum_feature<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.plated_cutout_edge_segment">plated_cutout_edge_segment</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.plated_interconnect_module_edge_segment">plated_interconnect_module_edge_segment</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.plated_passage">plated_passage</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.inter_stratum_feature">inter_stratum_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.plated_interconnect_module_edge">5.2.2.64 plated_interconnect_module_edge</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>plated_interconnect_module_edge</b> is a type of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.interconnect_module_edge"><b>interconnect_module_edge</b></a> 
+         	and  a type of
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.plated_inter_stratum_feature"><b>plated_inter_stratum_feature</b></a> 
+         	that implements the ARM concept of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.plated_interconnect_module_edge"><b>Plated_interconnect_module_edge</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY plated_interconnect_module_edge<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.interconnect_module_edge">interconnect_module_edge</A>, <A HREF="#layered_interconnect_module_design_mim.plated_inter_stratum_feature">plated_inter_stratum_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.plated_interconnect_module_edge_segment">5.2.2.65 plated_interconnect_module_edge_segment</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>plated_interconnect_module_edge_segment</b> is a type of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.plated_inter_stratum_feature"><b>plated_inter_stratum_feature</b></a> 
+         	and  a type of
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.interconnect_module_edge_segment"><b>interconnect_module_edge_segment</b></a> 
+         	that implements the ARM concept of 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.plated_interconnect_module_edge_segment"><b>Plated_interconnect_module_edge_segment</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY plated_interconnect_module_edge_segment<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.interconnect_module_edge_segment">interconnect_module_edge_segment</A>, <A HREF="#layered_interconnect_module_design_mim.plated_inter_stratum_feature">plated_inter_stratum_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.plated_passage">5.2.2.66 plated_passage</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         	A <b>plated_passage</b> is a type of  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.plated_inter_stratum_feature"><b>plated_inter_stratum_feature</b></a> 
+         	that implements the ARM concepts of:
+         
+      </p>
+      
+      <ul> 
+         	
+         <li> <a href="../../../modules/via_component/sys/4_info_reqs.htm#via_component_arm.blind_via"><b>Blind_via</b></a>;
+         </li>
+         	
+         <li> <a href="../../../modules/via_component/sys/4_info_reqs.htm#via_component_arm.buried_via"><b>Buried_via</b></a>;
+         </li>
+         	
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.component_termination_passage"><b>Component_termination_passage</b></a>;
+         </li>
+         	
+         <li> <a href="../../../modules/via_component/sys/4_info_reqs.htm#via_component_arm.interfacial_connection"><b>Interfacial_connection</b></a>;
+         </li>
+         	
+         <li> <a href="../../../modules/via_component/sys/4_info_reqs.htm#via_component_arm.non_conductive_base_blind_via"><b>Non_conductive_base_blind_via</b></a>;
+         </li>
+         	
+         <li> <a href="../../../modules/via_component/sys/4_info_reqs.htm#via_component_arm.plated_conductive_base_blind_via"><b>Plated_conductive_base_blind_via</b></a>;
+         </li>
+         	
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.plated_passage"><b>Plated_passage</b></a>;
+         </li>
+         	
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.via"><b>Via</b></a>.
+         </li>
+         
+      </ul>
+      	A <b>plated_passage</b> may be one of a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.component_termination_passage"><b>component_termination_passage</b></a>
+      	or a 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.via"><b>via</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY plated_passage<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.component_termination_passage">component_termination_passage</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.via">via</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.plated_inter_stratum_feature">plated_inter_stratum_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.pre_defined_physical_network_group">5.2.2.67 pre_defined_physical_network_group</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg7.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>pre_defined_physical_network_group</b> is a type of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.physical_network_group"><b>physical_network_group</b></a> 
+      	that implements the ARM concepts of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.pre_defined_physical_network_group"><b>Pre_defined_physical_network_group</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY pre_defined_physical_network_group<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.physical_network_group">physical_network_group</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.pre_defined_physical_network_group_element_relationship">5.2.2.68 pre_defined_physical_network_group_element_relationship</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg7.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>pre_defined_physical_network_group_element_relationship</b> is a type of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.physical_network_group_element_relationship"><b>physical_network_group_element_relationship</b></a> 
+      	that implements the ARM concepts of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.pre_defined_physical_network_group_element_relationship"><b>Pre_defined_physical_network_group_element_relationship</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY pre_defined_physical_network_group_element_relationship<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.physical_network_group_element_relationship">physical_network_group_element_relationship</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.primary_stratum_indicator_symbol">5.2.2.69 primary_stratum_indicator_symbol</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>primary_stratum_indicator_symbol</b> is a type of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.single_stratum_special_symbol_component"><b>single_stratum_special_symbol_component</b></a> 
+      	that implements the ARM concepts of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.primary_stratum_indicator_symbol"><b>Primary_stratum_indicator_symbol</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY primary_stratum_indicator_symbol<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.single_stratum_special_symbol_component">single_stratum_special_symbol_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.probe_access_area">5.2.2.70 probe_access_area</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>probe_access_area</b> is a type of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.laminate_component"><b>laminate_component</b></a> 
+      	and a type of
+      	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect"><b>shape_aspect</b></a> 
+      	that implements the ARM concepts of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.internal_probe_access_area"><b>Internal_probe_access_area</b></a>
+      	and  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.probe_access_area"><b>Probe_access_area</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY probe_access_area<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.laminate_component">laminate_component</A>, <A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>DERIVE<br>
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>.of_shape : <A HREF="#layered_interconnect_module_design_mim.probe_access_area">probe_access_area</A> := SELF;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.probe_access_area.of_shape">of_shape:
+               </a></b>
+         	an atribute inherited from the
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect"><b>shape_aspect</b></a>
+         	shall be redeclared as the
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.probe_access_area"><b>probe_access_area</b></a>
+         	for the <b>probe_access_area</b>.
+         
+      </p>
+      <h2><a name="layered_interconnect_module_design_mim.region_based_derived_pattern">5.2.2.71 region_based_derived_pattern</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>region_based_derived_pattern</b> is a type of
+      	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect"><b>shape_aspect</b></a>
+      	that implements the ARM concepts of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.region_based_derived_pattern"><b>Region_based_derived_pattern</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY region_based_derived_pattern<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.single_stratum_special_symbol_component">5.2.2.72 single_stratum_special_symbol_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>single_stratum_special_symbol_component</b> is a type of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.structured_layout_component"><b>structured_layout_component</b></a>
+      	that implements the ARM concepts of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.single_stratum_special_symbol_component"><b>Single_stratum_special_symbol_component</b></a>.
+      	A <b>single_stratum_special_symbol_component</b> may be a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.primary_stratum_indicator_symbol"><b>primary_stratum_indicator_symbol</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY single_stratum_special_symbol_component<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.primary_stratum_indicator_symbol">primary_stratum_indicator_symbol</A>)<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.structured_layout_component">structured_layout_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.stratum">5.2.2.73 stratum</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         	A <b>stratum</b> is a  type of 
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a> 
+         	and a type of
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.product_definition_shape"><b>product_definition_shape</b></a> 
+         	that implements the ARM concepts of:
+         
+      </p>
+      
+      <ul>
+         	
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.design_layer_stratum"><b>Design_layer_stratum</b></a>;
+         </li>
+         	
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.documentation_layer_stratum"><b>Documentation_layer_stratum</b></a>;
+         </li>
+         	
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum"><b>Stratum</b></a>.
+         </li>
+         
+      </ul>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY stratum<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.documentation_layer_stratum">documentation_layer_stratum</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.design_layer_stratum">design_layer_stratum</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.product_definition_shape">product_definition_shape</A>);<br>DERIVE<br>
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>.definition : <A HREF="#layered_interconnect_module_design_mim.stratum">stratum</A> := SELF;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: 
+            SELF\<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>.id, 
+            SELF\<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>.formation;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' +'NAME_ATTRIBUTE.NAMED_ITEM')) = 0;<br> 
+            &nbsp;&nbsp;WR2: NOT EXISTS(SELF\property_definition.description);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.stratum.definition">definition:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition"><b>property_definition</b></a>
+         	shall be redeclared as the 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.stratum"><b>stratum</b></a>
+         	for the <b>stratum</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.stratum.ur:ur1">UR1:
+               </a></b>
+         	The combination of
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition.id"><b>id</b></a>
+         	and
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition.formation"><b>formation</b></a>
+         	shall be unique within a population of <b>stratum</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.stratum.wr:wr1">WR1:
+               </a></b>
+         	 No member of entity data type <b>stratum</b> 
+         	shall be referenced by a member of entity data type 
+         	<a href="../../../resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.name_attribute"><b>name_attribute</b></a> 
+         	as a 
+         	<a href="../../../resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.name_attribute.named_item"><b>named_item</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.stratum.wr:wr2">WR2:
+               </a></b>
+         	The 
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition.description"><b>description</b></a>
+         	shall not be specified for the <b>stratum</b>.
+         
+      </p>
+      <h2><a name="layered_interconnect_module_design_mim.stratum_feature">5.2.2.74 stratum_feature</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>stratum_feature</b> is a type of  
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect"><b>shape_aspect</b></a> 
+         	that implements the ARM concepts of:
+         
+      </p>
+      
+      <ul>
+         	
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.conductive_filled_area"><b>Conductive_filled_area</b></a>;
+         </li>
+         	
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.conductor"><b>Conductor</b></a>;
+         </li>
+         	
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.connected_filled_area"><b>Connected_filled_area</b></a>;
+         </li>
+         	
+         <li> <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature"><b>Stratum_feature</b></a>.
+         </li>
+         
+      </ul>
+      	A <b>stratum_feature</b> may be a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.fiducial_stratum_feature"><b>fiducial_stratum_feature</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY stratum_feature<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.fiducial_stratum_feature">fiducial_stratum_feature</A>)<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.stratum_feature_based_derived_pattern">5.2.2.75 stratum_feature_based_derived_pattern</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>stratum_feature_based_derived_pattern</b> is a type of
+      	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object"><b>characterized_object</b></a> 
+      	and a type of 
+      	<a href="../../../resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.property_definition_relationship"><b>property_definition_relationship</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature_based_derived_pattern"><b>Stratum_feature_based_derived_pattern</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY stratum_feature_based_derived_pattern<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>, <A HREF="../../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.property_definition_relationship">property_definition_relationship</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.stratum_feature_conductive_join">5.2.2.76 stratum_feature_conductive_join</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>stratum_feature_conductive_join</b> is a type of
+      	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship"><b>product_definition_relationship</b></a>
+      	that implements the ARM concept of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature_conductive_join"><b>Stratum_feature_conductive_join</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY stratum_feature_conductive_join<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.stratum_feature_template_component">5.2.2.77 stratum_feature_template_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>stratum_feature_template_component</b> is a type of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.laminate_component"><b>laminate_component</b></a> 
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature_template_component"><b>Stratum_feature_template_component</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY stratum_feature_template_component<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.area_component">area_component</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.conductive_interconnect_element">conductive_interconnect_element</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.laminate_component">laminate_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.stratum_feature_template_component_with_stratum_feature">5.2.2.78 stratum_feature_template_component_with_stratum_feature</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>stratum_feature_template_component_with_stratum_feature</b> is a type of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.stratum_feature_template_component"><b>stratum_feature_template_component</b></a>,
+      	a type of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.stratum_feature"><b>stratum_feature</b></a>,
+      	and a type of
+      	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship"><b>shape_aspect_relationship</b></a>
+      	that implements the ARM concept of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature_template_component_with_stratum_feature"><b>Stratum_feature_template_component_with_stratum_feature</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY stratum_feature_template_component_with_stratum_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>, <A HREF="#layered_interconnect_module_design_mim.stratum_feature">stratum_feature</A>, <A HREF="#layered_interconnect_module_design_mim.stratum_feature_template_component">stratum_feature_template_component</A>);<br>DERIVE<br>
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.related_shape_aspect : <A HREF="#layered_interconnect_module_design_mim.stratum_feature_template_component_with_stratum_feature">stratum_feature_template_component_with_stratum_feature</A> := SELF;<br>
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.relating_shape_aspect : <A HREF="#layered_interconnect_module_design_mim.stratum_feature_template_component_with_stratum_feature">stratum_feature_template_component_with_stratum_feature</A> := SELF;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF\shape_aspect_relationship.name = 'implementation';<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.stratum_feature_template_component_with_stratum_feature.related_shape_aspect">related_shape_aspect:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship"><b>shape_aspect_relationship</b></a> 
+         	shall be redeclared as the 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.stratum_feature_template_component_with_stratum_feature"><b>stratum_feature_template_component_with_stratum_feature</b></a> 
+         	for the <b>stratum_feature_template_component_with_stratum_feature</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.stratum_feature_template_component_with_stratum_feature.relating_shape_aspect">relating_shape_aspect:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship"><b>shape_aspect_relationship</b></a> 
+         	shall be redeclared as the 
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.stratum_feature_template_component_with_stratum_feature"><b>stratum_feature_template_component_with_stratum_feature</b></a> 
+         	for the <b>stratum_feature_template_component_with_stratum_feature</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.stratum_feature_template_component_with_stratum_feature.wr:wr1">WR1:
+               </a></b>
+         	The attribute 
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship.name"><b>name</b></a> 
+         	inherited from the 
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship"><b>shape_aspect_relationship</b></a> 
+         	shall be equal to 'implementation'.	
+         
+      </p>
+      <h2><a name="layered_interconnect_module_design_mim.stratum_surface">5.2.2.79 stratum_surface</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         
+         A <b>stratum_surface</b> is a type of  <a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect"><b>shape_aspect</b></a> that implements the ARM concepts
+         of  <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_surface"><b>Stratum_surface</b></a>
+         and  <a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_average_surface"><b>Stratum_average_surface</b></a>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY stratum_surface<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.structured_layout_component">5.2.2.80 structured_layout_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>structured_layout_component</b> is a type of  
+         	<a href="../../../modules/component_grouping/sys/5_mim.htm#component_grouping_mim.assembly_group_component"><b>assembly_group_component</b></a>
+         	that implements the ARM concept of  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.structured_layout_component"><b>Structured_layout_component</b></a>.
+         	A <b>structured_layout_component</b> is either a
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.footprint_occurrence"><b>footprint_occurrence</b></a>
+         	or a
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.material_removal_structured_component"><b>material_removal_structured_component</b></a>
+         	or a
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.multi_stratum_special_symbol_component"><b>multi_stratum_special_symbol_component</b></a>
+         	or a
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.padstack_occurrence"><b>padstack_occurrence</b></a>
+         	or a
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.single_stratum_special_symbol_component"><b>single_stratum_special_symbol_component</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY structured_layout_component<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.footprint_occurrence">footprint_occurrence</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.material_removal_structured_component">material_removal_structured_component</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.multi_stratum_special_symbol_component">multi_stratum_special_symbol_component</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.padstack_occurrence">padstack_occurrence</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.single_stratum_special_symbol_component">single_stratum_special_symbol_component</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/component_grouping/sys/5_mim.htm#component_grouping_mim.assembly_group_component">assembly_group_component</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.structured_layout_component_sub_assembly_relationship">5.2.2.81 structured_layout_component_sub_assembly_relationship</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>structured_layout_component_sub_assembly_relationship</b> is a type of  
+         	<a href="../../../modules/physical_unit_design_view/sys/5_mim.htm#physical_unit_design_view_mim.next_assembly_usage_occurrence_relationship"><b>next_assembly_usage_occurrence_relationship</b></a>
+         	that implements the ARM concept of  
+         	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.structured_layout_component_sub_assembly_relationship"><b>Structured_layout_component_sub_assembly_relationship</b></a>.
+         	A <b>structured_layout_component_sub_assembly_relationship</b> may be a
+         	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.footprint_occurrence_product_definition_relationship"><b>footprint_occurrence_product_definition_relationship</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY structured_layout_component_sub_assembly_relationship<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.footprint_occurrence_product_definition_relationship">footprint_occurrence_product_definition_relationship</A>)<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_design_view/sys/5_mim.htm#physical_unit_design_view_mim.next_assembly_usage_occurrence_relationship">next_assembly_usage_occurrence_relationship</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF\product_definition_relationship.related_product_definition :&lt;&gt;:
+            SELF\product_definition_relationship.relating_product_definition;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.structured_layout_component_sub_assembly_relationship.wr:wr1">WR1:
+               </a></b>
+         	The <a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship.related_product_definition"><b>related_product_definition</b></a> 
+         	shall not reference same entity instance as one referenced by
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship.relating_product_definition"><b>relating_product_definition</b></a>.
+         
+      </p>
+      <h2><a name="layered_interconnect_module_design_mim.structured_layout_component_sub_assembly_relationship_with_component">5.2.2.82 structured_layout_component_sub_assembly_relationship_with_component</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>structured_layout_component_sub_assembly_relationship_with_component</b> is a type of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.structured_layout_component_sub_assembly_relationship"><b>structured_layout_component_sub_assembly_relationship</b></a>
+      	and a type of
+      	<a href="../../../modules/physical_unit_design_view/sys/5_mim.htm#physical_unit_design_view_mim.assembly_component"><b>assembly_component</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.structured_layout_component_sub_assembly_relationship_with_component"><b>Structured_layout_component_sub_assembly_relationship_with_component</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY structured_layout_component_sub_assembly_relationship_with_component<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_design_view/sys/5_mim.htm#physical_unit_design_view_mim.assembly_component">assembly_component</A>, <A HREF="#layered_interconnect_module_design_mim.structured_layout_component_sub_assembly_relationship">structured_layout_component_sub_assembly_relationship</A>);<br>DERIVE<br>
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>.related_product_definition : <A HREF="../../../../data/modules/physical_unit_design_view/sys/5_mim.htm#physical_unit_design_view_mim.assembly_component">assembly_component</A> := SELF;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="layered_interconnect_module_design_mim.structured_layout_component_sub_assembly_relationship_with_component.related_product_definition">related_product_definition:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship"><b>product_definition_relationship</b></a>
+         	shall be redeclared as the
+         	<a href="../../../modules/physical_unit_design_view/sys/5_mim.htm#physical_unit_design_view_mim.assembly_component"><b>assembly_component</b></a>
+         	for the <b>structured_layout_component_sub_assembly_relationship_with_component</b>
+         
+      </p>
+      <h2><a name="layered_interconnect_module_design_mim.unplated_cutout_edge_segment">5.2.2.83 unplated_cutout_edge_segment</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>unplated_cutout_edge_segment</b> is a type of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.cutout_edge_segment"><b>cutout_edge_segment</b></a>
+      	that implements the ARM concept of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.unplated_cutout_edge_segment"><b>Unplated_cutout_edge_segment</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY unplated_cutout_edge_segment<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.cutout_edge_segment">cutout_edge_segment</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.unplated_interconnect_module_edge_segment">5.2.2.84 unplated_interconnect_module_edge_segment</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>unplated_interconnect_module_edge_segment</b> is a type of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.interconnect_module_edge_segment"><b>interconnect_module_edge_segment</b></a>
+      	that implements the ARM concept of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.unplated_interconnect_module_edge_segment"><b>Unplated_interconnect_module_edge_segment</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY unplated_interconnect_module_edge_segment<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.interconnect_module_edge_segment">interconnect_module_edge_segment</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.unrouted_conductive_interconnect_element">5.2.2.85 unrouted_conductive_interconnect_element</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>unrouted_conductive_interconnect_element</b> is a type of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.conductive_interconnect_element"><b>conductive_interconnect_element</b></a>
+      	that implements the ARM concept of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.unrouted_conductive_interconnect_element"><b>Unrouted_conductive_interconnect_element</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY unrouted_conductive_interconnect_element<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.conductive_interconnect_element">conductive_interconnect_element</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.unsupported_passage">5.2.2.86 unsupported_passage</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>unsupported_passage</b> is a type of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.inter_stratum_feature"><b>inter_stratum_feature</b></a>
+      	that implements the ARM concept of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.unsupported_passage"><b>Unsupported_passage</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY unsupported_passage<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.inter_stratum_feature">inter_stratum_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="layered_interconnect_module_design_mim.via">5.2.2.87 via</a>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>via</b> is a type of
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.plated_passage"><b>plated_passage</b></a>
+      	that implements the ARM concept of  
+      	<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.via"><b>Via</b></a>.
+      	A <b>via</b> is a
+      	<a href="../../../modules/layered_interconnect_module_design/sys/5_mim.htm#layered_interconnect_module_design_mim.filled_via"><b>filled_via</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY via<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.filled_via">filled_via</A>)<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_module_design_mim.plated_passage">plated_passage</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="subtype_constraints">5.2.3 MIM subtype constraint definitions</a></h2>
+      <p>
+         This subclause specifies the MIM
+         subtype constraints for 
+         this module. Each subtype constraint places constraints on the
+         possible super-type / subtype instantiations.
+         The MIM subtype constraints and definitions are
+         specified below.
+         
+      </p>
+      <h2><A NAME="layered_interconnect_module_design_mim.array_placement_group_subtypes">5.2.3.1 array_placement_group_subtypes</A>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The
+         <b>array_placement_group_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/component_grouping/sys/5_mim.htm#component_grouping_mim.array_placement_group">array_placement_group</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="layered_interconnect_module_design_mim.array_placement_group_subtypes">SUBTYPE_CONSTRAINT array_placement_group_subtypes</A> FOR <A HREF="../../../../data/modules/component_grouping/sys/5_mim.htm#component_grouping_mim.array_placement_group">array_placement_group</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.laminate_text_string_component">laminate_text_string_component</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/component_grouping/sys/5_mim.htm#component_grouping_mim.linear_array_placement_group_component">linear_array_placement_group_component</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/component_grouping/sys/5_mim.htm#component_grouping_mim.rectangular_array_placement_group_component">rectangular_array_placement_group_component</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p>
+      <h2><A NAME="layered_interconnect_module_design_mim.assembly_component_subtypes">5.2.3.2 assembly_component_subtypes</A>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg4.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The
+         <b>assembly_component_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/physical_unit_design_view/sys/5_mim.htm#physical_unit_design_view_mim.assembly_component">assembly_component</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="layered_interconnect_module_design_mim.assembly_component_subtypes">SUBTYPE_CONSTRAINT assembly_component_subtypes</A> FOR <A HREF="../../../../data/modules/physical_unit_design_view/sys/5_mim.htm#physical_unit_design_view_mim.assembly_component">assembly_component</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="../../../../data/modules/physical_unit_design_view/sys/5_mim.htm#physical_unit_design_view_mim.physical_component">physical_component</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.laminate_component">laminate_component</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p>
+      <h2><A NAME="layered_interconnect_module_design_mim.component_feature_subtypes">5.2.3.3 component_feature_subtypes</A>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The
+         <b>component_feature_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/component_feature/sys/5_mim.htm#component_feature_mim.component_feature">component_feature</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="layered_interconnect_module_design_mim.component_feature_subtypes">SUBTYPE_CONSTRAINT component_feature_subtypes</A> FOR <A HREF="../../../../data/modules/component_feature/sys/5_mim.htm#component_feature_mim.component_feature">component_feature</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="../../../../data/modules/physical_component_feature/sys/5_mim.htm#physical_component_feature_mim.physical_component_feature">physical_component_feature</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.laminate_component_feature">laminate_component_feature</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p>
+      <h2><A NAME="layered_interconnect_module_design_mim.limd_component_terminal_subtypes">5.2.3.4 limd_component_terminal_subtypes</A>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The
+         <b>limd_component_terminal_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/component_feature/sys/5_mim.htm#component_feature_mim.component_terminal">component_terminal</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="layered_interconnect_module_design_mim.limd_component_terminal_subtypes">SUBTYPE_CONSTRAINT limd_component_terminal_subtypes</A> FOR <A HREF="../../../../data/modules/component_feature/sys/5_mim.htm#component_feature_mim.component_terminal">component_terminal</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="../../../../data/modules/physical_component_feature/sys/5_mim.htm#physical_component_feature_mim.physical_component_terminal">physical_component_terminal</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.laminate_component_join_terminal">laminate_component_join_terminal</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p>
+      <h2><A NAME="layered_interconnect_module_design_mim.inter_stratum_feature_subtypes">5.2.3.5 inter_stratum_feature_subtypes</A>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg5.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The
+         <b>inter_stratum_feature_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="#layered_interconnect_module_design_mim.inter_stratum_feature">inter_stratum_feature</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="layered_interconnect_module_design_mim.inter_stratum_feature_subtypes">SUBTYPE_CONSTRAINT inter_stratum_feature_subtypes</A> FOR <A HREF="#layered_interconnect_module_design_mim.inter_stratum_feature">inter_stratum_feature</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#layered_interconnect_module_design_mim.cutout">cutout</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.interconnect_module_edge">interconnect_module_edge</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p>
+      <h2><A NAME="layered_interconnect_module_design_mim.interconnect_module_terminal_subtypes">5.2.3.6 interconnect_module_terminal_subtypes</A>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg6.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The
+         <b>interconnect_module_terminal_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/interconnect_module_usage_view/sys/5_mim.htm#interconnect_module_usage_view_mim.interconnect_module_terminal">interconnect_module_terminal</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="layered_interconnect_module_design_mim.interconnect_module_terminal_subtypes">SUBTYPE_CONSTRAINT interconnect_module_terminal_subtypes</A> FOR <A HREF="../../../../data/modules/interconnect_module_usage_view/sys/5_mim.htm#interconnect_module_usage_view_mim.interconnect_module_terminal">interconnect_module_terminal</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="../../../../data/modules/interconnect_module_usage_view/sys/5_mim.htm#interconnect_module_usage_view_mim.interconnect_module_interface_terminal">interconnect_module_interface_terminal</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.interconnect_module_macro_terminal">interconnect_module_macro_terminal</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p>
+      <h2><A NAME="layered_interconnect_module_design_mim.limd_product_definition_subtypes">5.2.3.7 limd_product_definition_subtypes</A>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The
+         <b>limd_product_definition_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="layered_interconnect_module_design_mim.limd_product_definition_subtypes">SUBTYPE_CONSTRAINT limd_product_definition_subtypes</A> FOR <A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="../../../../data/modules/physical_unit_usage_view/sys/5_mim.htm#physical_unit_usage_view_mim.physical_unit">physical_unit</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_module_design_mim.stratum">stratum</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p>
+      <h2><A NAME="layered_interconnect_module_design_mim.limd_part_template_definition_subtypes">5.2.3.8 limd_part_template_definition_subtypes</A>
+         &nbsp;&nbsp;<a href="../../layered_interconnect_module_design/mimexpg7.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The
+         <b>limd_part_template_definition_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/part_template/sys/5_mim.htm#part_template_mim.part_template_definition">part_template_definition</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="layered_interconnect_module_design_mim.limd_part_template_definition_subtypes">SUBTYPE_CONSTRAINT limd_part_template_definition_subtypes</A> FOR <A HREF="../../../../data/modules/part_template/sys/5_mim.htm#part_template_mim.part_template_definition">part_template_definition</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;((ONEOF&nbsp;(<A HREF="../../../../data/modules/printed_physical_layout_template/sys/5_mim.htm#printed_physical_layout_template_mim.printed_part_template">printed_part_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/5_mim.htm#layered_interconnect_complex_template_mim.special_symbol_template">special_symbol_template</A>)<br>&nbsp;ANDOR&nbsp;<A HREF="../../../../data/modules/part_template_shape_with_parameters/sys/5_mim.htm#part_template_shape_with_parameters_mim.geometric_template">geometric_template</A>),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/printed_physical_layout_template/sys/5_mim.htm#printed_physical_layout_template_mim.non_conductive_cross_section_template">non_conductive_cross_section_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_simple_template/sys/5_mim.htm#layered_interconnect_simple_template_mim.part_string_template">part_string_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_simple_template/sys/5_mim.htm#layered_interconnect_simple_template_mim.parametric_template">parametric_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_simple_template/sys/5_mim.htm#layered_interconnect_simple_template_mim.part_text_template">part_text_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/fabrication_technology/sys/5_mim.htm#fabrication_technology_mim.stratum_stack_model">stratum_stack_model</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/fabrication_technology/sys/5_mim.htm#fabrication_technology_mim.stratum_sub_stack">stratum_sub_stack</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Layered_interconnect_module_design_mim<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

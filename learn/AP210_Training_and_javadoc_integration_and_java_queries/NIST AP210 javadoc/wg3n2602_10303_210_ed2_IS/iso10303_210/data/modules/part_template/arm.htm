@@ -1,0 +1,77 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Part_template_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Part_template_arm</h2><code><br><br><a name="part_template_arm">SCHEMA <b>Part_template_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/analytical_model/sys/e_exp_arm.htm#analytical_model_arm">Analytical_model_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1603<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/feature_and_connection_zone/sys/e_exp_arm.htm#feature_and_connection_zone_arm">Feature_and_connection_zone_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1671<br><br></code><code><br><A NAME="part_template_arm.correlated_or_independent">TYPE </A><b>correlated_or_independent</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/characteristic/sys/e_exp_arm.htm#characteristic_arm.characteristic">characteristic</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.property_value_representation">Property_value_representation</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="part_template_arm.physical_unit_or_part_template">TYPE </A><b>physical_unit_or_part_template</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/part_view_definition/sys/e_exp_arm.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_template_arm.template_definition">Template_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="part_template_arm.plp_material_item_select">TYPE </A><b>plp_material_item_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/generic_material_aspects/sys/e_exp_arm.htm#generic_material_aspects_arm.material_item_select">material_item_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#part_template_arm.template_definition">Template_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="part_template_arm.reference_part_template_for_analytical_model">ENTITY <b>Reference_part_template_for_analytical_model</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="part_template_arm.reference_part_template_for_analytical_model.template">template : </A><A HREF="#part_template_arm.template_definition">Template_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="part_template_arm.reference_part_template_for_analytical_model.analytical_representation">analytical_representation : </A><A HREF="../../../data/modules/analytical_model/sys/e_exp_arm.htm#analytical_model_arm.analytical_model_definition">Analytical_model_definition</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="part_template_arm.reference_part_template_for_analytical_model.ur:ur1">UR1: </A>template;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="part_template_arm.template">ENTITY <b>Template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>);<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="part_template_arm.template.ur:ur1">UR1: </A>
+         SELF\<A HREF="../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>.id;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="part_template_arm.template_definition">ENTITY <b>Template_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.item_shape">Item_shape</A>, <A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>.<A NAME="part_template_arm.template_definition.defined_version">defined_version : </A><A HREF="#part_template_arm.template_version">Template_version</A>;<br>
+         &nbsp;&nbsp;<A NAME="part_template_arm.template_definition.physical_characteristic">physical_characteristic : </A>
+         OPTIONAL 
+         SET[1:?] OF <A HREF="#part_template_arm.correlated_or_independent">correlated_or_independent</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.item_shape">Item_shape</A>.<A NAME="part_template_arm.template_definition.described_element">described_element : </A><A HREF="../../../data/modules/part_template/sys/e_exp_arm.htm#part_template_arm.template_definition">Template_definition</A> := SELF;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="part_template_arm.template_version">ENTITY <b>Template_version</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>.<A NAME="part_template_arm.template_version.of_product">of_product : </A><A HREF="#part_template_arm.template">Template</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="part_template_arm.template_definition_constraint">RULE&nbsp;<b>template_definition_constraint</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="part_template_arm.template_definition_constraint.wr:wr1">WR1: SIZEOF ( QUERY ( pvd &lt;* Product_view_definition | ( NOT ( 'PHYSICAL_LAYOUT_TEMPLATE_ARM.' + 'TEMPLATE_DEFINITION' IN
+            TYPEOF (pvd) ) ) AND ( 'PHYSICAL_LAYOUT_TEMPLATE_ARM.' + 'TEMPLATE_VERSION' IN TYPEOF ( pvd.defined_version) ) ) ) =0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="part_template_arm.template_version_constraint">RULE&nbsp;<b>template_version_constraint</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/modules/product_version/sys/4_info_reqs.htm#product_version_arm.product_version">Product_version</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="part_template_arm.template_version_constraint.wr:wr1">WR1: SIZEOF ( QUERY ( pv &lt;* Product_version | ( NOT ( 'PHYSICAL_LAYOUT_TEMPLATE_ARM.' + 'TEMPLATE_VERSION' IN TYPEOF ( pv)
+            ) ) AND ( 'PHYSICAL_LAYOUT_TEMPLATE_ARM.' + 'TEMPLATE' IN TYPEOF ( pv.of_product) ) ) ) =0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Part_template_arm<br></code></body>
+</HTML>

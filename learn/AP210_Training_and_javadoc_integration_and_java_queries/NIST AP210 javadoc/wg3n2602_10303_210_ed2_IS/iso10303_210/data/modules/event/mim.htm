@@ -1,0 +1,57 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Event_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Event_mim</h2><code><br><br><a name="event_mim">SCHEMA <b>Event_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/date_time_assignment/sys/e_exp_mim.htm#date_time_assignment_mim">Date_time_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1014<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/date_time/sys/e_exp_mim.htm#date_time_mim">Date_time_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1010<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema">date_time_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema.event_occurrence">event_occurrence</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema.event_occurrence_relationship">event_occurrence_relationship</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema.relative_event_occurrence">relative_event_occurrence</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/value_with_unit/sys/e_exp_mim.htm#value_with_unit_mim">Value_with_unit_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1054<br><br></code><code><br><A NAME="event_mim.event_occurrence_date_and_time_item">TYPE </A><b>event_occurrence_date_and_time_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/date_time_assignment/sys/e_exp_mim.htm#date_time_assignment_mim.date_and_time_item">date_and_time_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema.event_occurrence">event_occurrence</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="event_mim.event_occurrence_date_item">TYPE </A><b>event_occurrence_date_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/date_time_assignment/sys/e_exp_mim.htm#date_time_assignment_mim.date_item">date_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema.event_occurrence">event_occurrence</A>);<br>
+         END_TYPE; 
+         <br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Event_mim<br></code></body>
+</HTML>

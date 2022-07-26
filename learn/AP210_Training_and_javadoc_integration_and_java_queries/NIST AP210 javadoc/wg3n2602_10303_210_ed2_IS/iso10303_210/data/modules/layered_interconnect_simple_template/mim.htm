@@ -1,0 +1,188 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Layered_interconnect_simple_template_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Layered_interconnect_simple_template_mim</h2><code><br><br><a name="layered_interconnect_simple_template_mim">SCHEMA <b>Layered_interconnect_simple_template_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/layered_2d_shape/sys/e_exp_mim.htm#layered_2d_shape_mim">Layered_2d_shape_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1693<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/fill_area_style/sys/e_exp_mim.htm#fill_area_style_mim">Fill_area_style_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1672<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/fabrication_technology/sys/e_exp_mim.htm#fabrication_technology_mim">Fabrication_technology_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1670<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/text_representation/sys/e_exp_mim.htm#text_representation_mim">Text_representation_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1750<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/part_template_shape_with_parameters/sys/e_exp_mim.htm#part_template_shape_with_parameters_mim">Part_template_shape_with_parameters_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1720<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema">presentation_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-46<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.text_literal">text_literal</A>);
+         <br><br></code><code><br><A NAME="layered_interconnect_simple_template_mim.list_external_identification_item">TYPE </A><b>list_external_identification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_mim.htm#external_item_identification_assignment_mim.external_identification_item">external_identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#layered_interconnect_simple_template_mim.land_physical_template">land_physical_template</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="layered_interconnect_simple_template_mim.blind_passage_template">ENTITY <b>blind_passage_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.unsupported_passage_template">unsupported_passage_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.component_termination_passage_template">ENTITY <b>component_termination_passage_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.continuous_template">continuous_template</A>, <A HREF="#layered_interconnect_simple_template_mim.inter_stratum_feature_template">inter_stratum_feature_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.continuous_template">ENTITY <b>continuous_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/part_template_shape_with_parameters/sys/e_exp_mim.htm#part_template_shape_with_parameters_mim.geometric_template">geometric_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.counterbore_passage_template">ENTITY <b>counterbore_passage_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.unsupported_passage_template">unsupported_passage_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.countersunk_passage_template">ENTITY <b>countersunk_passage_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.unsupported_passage_template">unsupported_passage_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.default_attachment_size_based_land_physical_template">ENTITY <b>default_attachment_size_based_land_physical_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.land_physical_template">land_physical_template</A>, <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>DERIVE<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>.<A NAME="layered_interconnect_simple_template_mim.default_attachment_size_based_land_physical_template.of_shape">of_shape : </A><A HREF="../../../data/modules/layered_interconnect_simple_template/sys/e_exp_mim.htm#layered_interconnect_simple_template_mim.default_attachment_size_based_land_physical_template">default_attachment_size_based_land_physical_template</A> := SELF;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.default_passage_based_land_physical_template">ENTITY <b>default_passage_based_land_physical_template</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_simple_template_mim.default_plated_passage_based_land_physical_template">default_plated_passage_based_land_physical_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_simple_template_mim.default_unsupported_passage_based_land_physical_template">default_unsupported_passage_based_land_physical_template</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.land_physical_template">land_physical_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.default_plated_passage_based_land_physical_template">ENTITY <b>default_plated_passage_based_land_physical_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.default_passage_based_land_physical_template">default_passage_based_land_physical_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.default_trace_template">ENTITY <b>default_trace_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.trace_template">trace_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.default_unsupported_passage_based_land_physical_template">ENTITY <b>default_unsupported_passage_based_land_physical_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.default_passage_based_land_physical_template">default_passage_based_land_physical_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.electrical_isolation_removal_template">ENTITY <b>electrical_isolation_removal_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.material_removal_feature_template">material_removal_feature_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.fill_area_template">ENTITY <b>fill_area_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.parametric_template">parametric_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.hatch_area_template">ENTITY <b>hatch_area_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.fill_area_template">fill_area_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.hatch_line_element">ENTITY <b>hatch_line_element</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>, <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>.<A NAME="layered_interconnect_simple_template_mim.hatch_line_element.relating_representation_item">relating_representation_item : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.line">line</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>.<A NAME="layered_interconnect_simple_template_mim.hatch_line_element.related_representation_item">related_representation_item : </A><A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.measure_representation_item">measure_representation_item</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.inter_stratum_feature_edge_segment_template">ENTITY <b>inter_stratum_feature_edge_segment_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/part_template/sys/e_exp_mim.htm#part_template_mim.part_template_definition">part_template_definition</A>, <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.<A NAME="layered_interconnect_simple_template_mim.inter_stratum_feature_edge_segment_template.relating_shape_aspect">relating_shape_aspect : </A><A HREF="../../../data/modules/extended_geometric_tolerance/sys/e_exp_mim.htm#extended_geometric_tolerance_mim.edge_segment_vertex">edge_segment_vertex</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>.<A NAME="layered_interconnect_simple_template_mim.inter_stratum_feature_edge_segment_template.related_shape_aspect">related_shape_aspect : </A><A HREF="../../../data/modules/extended_geometric_tolerance/sys/e_exp_mim.htm#extended_geometric_tolerance_mim.edge_segment_vertex">edge_segment_vertex</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="layered_interconnect_simple_template_mim.inter_stratum_feature_edge_segment_template.wr:wr1">WR1: SELF\shape_aspect_relationship.relating_shape_aspect :&lt;&gt;:
+            SELF\shape_aspect_relationship.related_shape_aspect;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.inter_stratum_feature_edge_template">ENTITY <b>inter_stratum_feature_edge_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/part_template/sys/e_exp_mim.htm#part_template_mim.part_template_definition">part_template_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.inter_stratum_feature_template">ENTITY <b>inter_stratum_feature_template</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#layered_interconnect_simple_template_mim.component_termination_passage_template">component_termination_passage_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_simple_template_mim.unsupported_passage_template">unsupported_passage_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_simple_template_mim.via_template">via_template</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/part_template_shape_with_parameters/sys/e_exp_mim.htm#part_template_shape_with_parameters_mim.geometric_template">geometric_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.land_physical_template">ENTITY <b>land_physical_template</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#layered_interconnect_simple_template_mim.default_passage_based_land_physical_template">default_passage_based_land_physical_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_simple_template_mim.default_attachment_size_based_land_physical_template">default_attachment_size_based_land_physical_template</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.stratum_feature_template">stratum_feature_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.land_template_terminal">ENTITY <b>land_template_terminal</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.material_removal_feature_template">ENTITY <b>material_removal_feature_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.single_stratum_continuous_template">single_stratum_continuous_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.parametric_template">ENTITY <b>parametric_template</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_simple_template_mim.fill_area_template">fill_area_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_simple_template_mim.teardrop_template">teardrop_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_simple_template_mim.trace_template">trace_template</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/part_template/sys/e_exp_mim.htm#part_template_mim.part_template_definition">part_template_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.part_string_template">ENTITY <b>part_string_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/part_template/sys/e_exp_mim.htm#part_template_mim.part_template_definition">part_template_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.part_text_template">ENTITY <b>part_text_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/part_template/sys/e_exp_mim.htm#part_template_mim.part_template_definition">part_template_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.planar_closed_path_shape_representation_with_parameters">ENTITY <b>planar_closed_path_shape_representation_with_parameters</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.planar_path_shape_representation_with_parameters">planar_path_shape_representation_with_parameters</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.planar_path_shape_representation_with_parameters">ENTITY <b>planar_path_shape_representation_with_parameters</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/constructive_solid_geometry_2d/sys/e_exp_mim.htm#constructive_solid_geometry_2d_mim.single_area_csg_2d_shape_representation">single_area_csg_2d_shape_representation</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.single_stratum_continuous_template">ENTITY <b>single_stratum_continuous_template</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_simple_template_mim.stratum_feature_template">stratum_feature_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_simple_template_mim.material_removal_feature_template">material_removal_feature_template</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.continuous_template">continuous_template</A>, <A HREF="#layered_interconnect_simple_template_mim.single_stratum_template">single_stratum_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.single_stratum_template">ENTITY <b>single_stratum_template</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(<A HREF="#layered_interconnect_simple_template_mim.single_stratum_continuous_template">single_stratum_continuous_template</A>)<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/part_template/sys/e_exp_mim.htm#part_template_mim.part_template_definition">part_template_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.snowball_template">ENTITY <b>snowball_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.teardrop_template">teardrop_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.solid_character_glyph_2d_symbol">ENTITY <b>solid_character_glyph_2d_symbol</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/constructive_solid_geometry_2d/sys/e_exp_mim.htm#constructive_solid_geometry_2d_mim.csg_2d_shape_representation">csg_2d_shape_representation</A>, <A HREF="../../../data/resources/presentation_resource_schema/presentation_resource_schema.htm#presentation_resource_schema.generic_character_glyph_symbol">generic_character_glyph_symbol</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.stratum_feature_template">ENTITY <b>stratum_feature_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.single_stratum_continuous_template">single_stratum_continuous_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.teardrop_by_angle_template">ENTITY <b>teardrop_by_angle_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.teardrop_template">teardrop_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.teardrop_by_length_template">ENTITY <b>teardrop_by_length_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.teardrop_template">teardrop_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.teardrop_template">ENTITY <b>teardrop_template</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#layered_interconnect_simple_template_mim.snowball_template">snowball_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_simple_template_mim.teardrop_by_angle_template">teardrop_by_angle_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_simple_template_mim.teardrop_by_length_template">teardrop_by_length_template</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.parametric_template">parametric_template</A>, <A HREF="#layered_interconnect_simple_template_mim.single_stratum_template">single_stratum_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.tile_area_template">ENTITY <b>tile_area_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.fill_area_template">fill_area_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.trace_template">ENTITY <b>trace_template</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (<A HREF="#layered_interconnect_simple_template_mim.default_trace_template">default_trace_template</A>)<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.parametric_template">parametric_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.unsupported_passage_template">ENTITY <b>unsupported_passage_template</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#layered_interconnect_simple_template_mim.counterbore_passage_template">counterbore_passage_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_simple_template_mim.countersunk_passage_template">countersunk_passage_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_simple_template_mim.blind_passage_template">blind_passage_template</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.continuous_template">continuous_template</A>, <A HREF="#layered_interconnect_simple_template_mim.inter_stratum_feature_template">inter_stratum_feature_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.via_template">ENTITY <b>via_template</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#layered_interconnect_simple_template_mim.continuous_template">continuous_template</A>, <A HREF="#layered_interconnect_simple_template_mim.inter_stratum_feature_template">inter_stratum_feature_template</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="layered_interconnect_simple_template_mim.list_template_definition_subtypes">SUBTYPE_CONSTRAINT <b>list_template_definition_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/modules/part_template/sys/e_exp_mim.htm#part_template_mim.part_template_definition">part_template_definition</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="../../../data/modules/part_template_shape_with_parameters/sys/e_exp_mim.htm#part_template_shape_with_parameters_mim.geometric_template">geometric_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_simple_template_mim.parametric_template">parametric_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_simple_template_mim.part_string_template">part_string_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_simple_template_mim.part_text_template">part_text_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#layered_interconnect_simple_template_mim.single_stratum_template">single_stratum_template</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/fabrication_technology/sys/e_exp_mim.htm#fabrication_technology_mim.stratum_stack_model">stratum_stack_model</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Layered_interconnect_simple_template_mim<br></code></body>
+</HTML>

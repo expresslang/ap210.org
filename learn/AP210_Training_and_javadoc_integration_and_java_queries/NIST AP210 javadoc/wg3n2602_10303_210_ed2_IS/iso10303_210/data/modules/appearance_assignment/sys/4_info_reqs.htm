@@ -1,0 +1,704 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Appearance assignment">
+      <META name="DC.Dates" content="2008-09-26 12:22:02">
+      <META name="DC.Published" content="2008-12-19">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Appearance assignment">
+      <META name="DC.Subject" content="module, appearance assignment, styled element, visual attributes">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N5280">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N4653">
+      <META name="SC4.version" content="4">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N5268">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N5269">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N5270">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2008-09-26 12:22:02">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.38">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.9">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.9">
+      <TITLE>ISO/TS 10303-1001:2008 Appearance assignment</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Appearance assignment</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1001:2008(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.4 ARM subtype constraint definition</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definition</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#subtype_constraints">5.2.2 MIM subtype constraint definition</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#rules">5.2.3 MIM rule definition</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Appearance assignment</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Appearance_assignment_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="appearance_assignment_arm">
+            SCHEMA Appearance_assignment_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm">Elemental_geometric_shape_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1004<br><br></code></p>
+      <p><code>
+            REFERENCE FROM 
+            <A HREF="../../../../data/modules/characterizable_object/sys/4_info_reqs.htm#characterizable_object_arm">Characterizable_object_arm</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1765<br>&nbsp;&nbsp;(<A HREF="../../../../data/modules/characterizable_object/sys/4_info_reqs.htm#characterizable_object_arm.bag_to_set">bag_to_set</A>);
+            <br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Elemental_geometric_shape_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1004</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Characterizable_object_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1765</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="appearance_assignment_arm.appearance_context">4.2.1 appearance_context</a>
+         &nbsp;&nbsp;<a href="../../appearance_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>appearance_context</b> type is an
+         extensible list of alternate data types
+         that allows for the designation of the data 
+         
+         type
+         <b><A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation">Representation</A></b>.
+         
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;
+            The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.                 
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            appearance_context =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation">Representation</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="appearance_assignment_arm.appearance_select">4.2.2 appearance_select</a>
+         &nbsp;&nbsp;<a href="../../appearance_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p> 
+         The <b>appearance_select</b> type is an
+         extensible list of alternate data types. 
+         Additional alternate data types are specified in select data
+         types that extend the 
+         <b>appearance_select</b> type. 
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;
+            This empty extensible select requires
+            extension in a further module to ensure that entities that refer to it have
+            at least one valid instantiation.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            appearance_select =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT;<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="appearance_assignment_arm.context_dependent_appearance_assignment_set">4.2.3 context_dependent_appearance_assignment_set</a>
+         &nbsp;&nbsp;<a href="../../appearance_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	The <b>context_dependent_appearance_assignment_set</b> type is a set of 
+      	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.context_dependent_appearance_assignment"><b>Context_dependent_appearance_assignment</b></a>.
+      	There shall exist two or more
+      	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.context_dependent_appearance_assignment"><b>Context_dependent_appearance_assignment</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            context_dependent_appearance_assignment_set =
+            SET[2:?] OF <A HREF="../../../../data/modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.context_dependent_appearance_assignment">Context_dependent_appearance_assignment</A>;<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="appearance_assignment_arm.overriding_style_context">4.2.4 overriding_style_context</a>
+         &nbsp;&nbsp;<a href="../../appearance_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>overriding_style_context</b> type is an
+         extensible list of alternate data types
+         that allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A></b>
+         and
+         <b><A HREF="#appearance_assignment_arm.styled_model">Styled_model</A></b>.
+         
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;
+            The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.                 
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            overriding_style_context =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#appearance_assignment_arm.styled_model">Styled_model</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="appearance_assignment_arm.presented_model_select">4.2.5 presented_model_select</a>
+         &nbsp;&nbsp;<a href="../../appearance_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>presented_model_select</b> type is an
+         extensible list of alternate data types
+         that allows for the designation of the data 
+         
+         type
+         <b><A HREF="#appearance_assignment_arm.styled_model">Styled_model</A></b>.
+         
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;
+            The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.                 
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            presented_model_select =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#appearance_assignment_arm.styled_model">Styled_model</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="appearance_assignment_arm.styled_element_appearance">4.2.6 styled_element_appearance</a>
+         &nbsp;&nbsp;<a href="../../appearance_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>styled_element_appearance</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#appearance_assignment_arm.appearance_assignment">Appearance_assignment</A></b>
+         and
+         <b><A HREF="#appearance_assignment_arm.context_dependent_appearance_assignment_set">context_dependent_appearance_assignment_set</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            styled_element_appearance =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#appearance_assignment_arm.appearance_assignment">Appearance_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#appearance_assignment_arm.context_dependent_appearance_assignment_set">context_dependent_appearance_assignment_set</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="appearance_assignment_arm.appearance_assignment">4.3.1 Appearance_assignment</a>
+         &nbsp;&nbsp;<a href="../../appearance_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityappearance_assignment"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	An <b>Appearance_assignment</b> is the identification of the characteristics of visual appearance of geometric or annotation elements. 
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		The various visual characteristics that can be assigned to points, curves or surfaces are defined in other application modules.
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            		The appearance can be defined explicitly for each represented element or for a context in which the elements 
+            		are represented. 
+            	</small></p>
+      	
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            		Several appearance components can be simultaneously specified with an <b>Appearance_assignment</b>.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Appearance_assignment;<br>
+            
+            
+            
+            &nbsp;&nbsp;appearance_components : SET[1:?] OF <A HREF="#appearance_assignment_arm.appearance_select">appearance_select</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="appearance_assignment_arm.appearance_assignment.appearance_components">appearance_components:
+               </a></b>
+         	the set of instances of entity types listed in 
+         	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.appearance_select"><b>appearance_select</b></a>
+         	that characterize the appearance of geometric and annotation objects.
+         
+      </p>
+      <h2><a name="appearance_assignment_arm.context_dependent_appearance_assignment">4.3.2 Context_dependent_appearance_assignment</a>
+         &nbsp;&nbsp;<a href="../../appearance_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycontext_dependent_appearance_assignment"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Context_dependent_appearance_assignment</b> is a type of 
+      	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.appearance_assignment"><b>Appearance_assignment</b></a>
+      	that identifies visual characteristics that apply in the context of a particular viewing context.
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		A view in a drawing sheet or on a screen, a layer are examples of contexts within which particular visual characteristics,
+            
+            		such as color or line font, apply.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Context_dependent_appearance_assignment<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#appearance_assignment_arm.appearance_assignment">Appearance_assignment</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;context_definition : <A HREF="#appearance_assignment_arm.appearance_context">appearance_context</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="appearance_assignment_arm.context_dependent_appearance_assignment.context_definition">context_definition:
+               </a></b> 
+         	the instance of a type selected in 
+         	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.appearance_context"><b>appearance_context</b></a>
+         	that identifies the context where the appearance components are valid.
+         
+      </p>
+      <h2><a name="appearance_assignment_arm.context_dependent_over_riding_styled_element">4.3.3 Context_dependent_over_riding_styled_element</a>
+         &nbsp;&nbsp;<a href="../../appearance_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycontext_dependent_over_riding_styled_element"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Context_dependent_over_riding_styled_element</b> is a type of
+      	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.over_riding_styled_element"><b>Over_riding_styled_element</b></a>
+      	that overrides the visual characteristics of another
+      	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.styled_element"><b>Styled_element</b></a> 
+      	in the context of another 
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a> 
+      	or a
+      	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.styled_model"><b>Styled_model</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Context_dependent_over_riding_styled_element<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#appearance_assignment_arm.over_riding_styled_element">Over_riding_styled_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;context_definition : LIST[1:?] OF <A HREF="#appearance_assignment_arm.overriding_style_context">overriding_style_context</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="appearance_assignment_arm.context_dependent_over_riding_styled_element.context_definition">context_definition:
+               </a></b>
+         	specifies a list of one or more contexts for which the overriding styles applies.
+         
+      </p>
+      <h2><a name="appearance_assignment_arm.over_riding_styled_element">4.3.4 Over_riding_styled_element</a>
+         &nbsp;&nbsp;<a href="../../appearance_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityover_riding_styled_element"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	An <b>Over_riding_styled_element</b> is a type of 
+      	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.styled_element"><b>Styled_element</b></a>
+      	that overrides the visual characteristics of another 
+      	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.styled_element"><b>Styled_element</b></a>.
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		Over-riding occurs when both instances of 
+            		<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.styled_element"><b>Styled_element</b></a>
+            		are included, directly or indirectly, in the same presentation.
+            	</small></p>
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		An instance of 
+            		<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.styled_element"><b>Styled_element</b></a>
+            		may assign a blue color to a circle. 
+            		An instance of <b>Over_riding_styled_element</b> would override that colour by a red colour.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Over_riding_styled_element<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#appearance_assignment_arm.styled_element">Styled_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;over_ridden_element : <A HREF="#appearance_assignment_arm.styled_element">Styled_element</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="appearance_assignment_arm.over_riding_styled_element.over_ridden_element">over_ridden_element:
+               </a></b>
+         	the 
+         	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.styled_element"><b>Styled_element</b></a>
+         	whose visual characteristics are over-ridden.
+         
+      </p>
+      <h2><a name="appearance_assignment_arm.planar_box">4.3.5 Planar_box</a>
+         &nbsp;&nbsp;<a href="../../appearance_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityplanar_box"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Planar_box</b> is a type of
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a>
+      	that specifies an arbitrary rectangular box and its location in a two-dimensional cartesian coordinate system.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Planar_box<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;size_in_x : <A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.length_measure">length_measure</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;size_in_y : <A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.length_measure">length_measure</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;placement : <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="appearance_assignment_arm.planar_box.size_in_x">size_in_x:
+               </a></b>
+         	specifies the extent in the x axis direction prior of applying the placement transformation.
+         
+      </p>
+      <p class="expressdescription"><b><a name="appearance_assignment_arm.planar_box.size_in_y">size_in_y:
+               </a></b>
+         	specifies the extent in the y axis direction prior of applying the placement transformation.
+         
+      </p>
+      <p class="expressdescription"><b><a name="appearance_assignment_arm.planar_box.placement">placement:
+               </a></b>
+         	specifies the position and orientation of the bottom-left corner of the box.
+         
+      </p>
+      <h2><a name="appearance_assignment_arm.styled_element">4.3.6 Styled_element</a>
+         &nbsp;&nbsp;<a href="../../appearance_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitystyled_element"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Styled_element</b> is a type of 
+      	<a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation_item"><b>Representation_item</b></a>
+      	that has presentation information. 
+      <p>Only specializations of <b>Styled_element</b> can be instantiated.
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Styled_element<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation_item">Representation_item</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;appearance : <A HREF="#appearance_assignment_arm.styled_element_appearance">styled_element_appearance</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;element : <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;invisible : BOOLEAN;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="appearance_assignment_arm.styled_element.appearance">appearance:
+               </a></b>
+         	the 
+         	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.styled_element_appearance"><b>styled_element_appearance</b></a>
+         	that specifies the presentation characteristics of the <b>Styled_element</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="appearance_assignment_arm.styled_element.element">element:
+               </a></b>
+         	the element to which styles are assigned.
+         
+      </p>
+      <p class="expressdescription"><b><a name="appearance_assignment_arm.styled_element.invisible">invisible:
+               </a></b>
+         	a Boolean value that specifies whether the <b>Styled_element</b> is invisible.
+         
+      </p>
+      <h2><a name="appearance_assignment_arm.styled_model">4.3.7 Styled_model</a>
+         &nbsp;&nbsp;<a href="../../appearance_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitystyled_model"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Styled_model</b> is a type of 
+      	<a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation"><b>Representation</b></a>
+      	that contains a set of geometric or annotation elements for which visual characteristics are specified.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Styled_model<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            <br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation">Representation</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;version_id : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation">Representation</A>.context_of_items : <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_coordinate_space">Geometric_coordinate_space</A>;<br>DERIVE<br>
+            &nbsp;&nbsp;styled_geometry : SET[0:?] OF <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A> := bag_to_set(QUERY (r &lt;* (USEDIN(SELF\Representation.context_of_items,
+            'FOUNDATION_REPRESENTATION_ARM.' + 
+            'REPRESENTATION.' + 'CONTEXT_OF_ITEMS')) | 
+            'ELEMENTAL_GEOMETRIC_SHAPE_ARM.GEOMETRIC_MODEL' IN TYPEOF(r)));<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="appearance_assignment_arm.styled_model.version_id">version_id:
+               </a></b>
+         	the string that specifies the version identifier of the <b>Styled_model</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="appearance_assignment_arm.styled_model.context_of_items">context_of_items:
+               </a></b> 
+         	the context of the styled 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_coordinate_space"><b>Geometric_coordinate_space</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="appearance_assignment_arm.styled_model.styled_geometry">styled_geometry:
+               </a></b>
+         	the 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a>
+         	that contains the presented geometric information.
+         
+      </p>
+      <h2><a name="appearance_assignment_arm.styled_model_replication">4.3.8 Styled_model_replication</a>
+         &nbsp;&nbsp;<a href="../../appearance_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitystyled_model_replication"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Styled_model_replication</b> is a type of
+      	<a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation_item"><b>Representation_item</b></a>
+      	that replicates a
+      	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.styled_model"><b>Styled_model</b></a> 
+      	in another 
+      	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.styled_model"><b>Styled_model</b></a> 
+      	that includes it with a transformation.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Styled_model_replication<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation_item">Representation_item</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;replicated_model : <A HREF="#appearance_assignment_arm.styled_model">Styled_model</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;source : <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;target : <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_mapping_target">geometric_mapping_target</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="appearance_assignment_arm.styled_model_replication.replicated_model">replicated_model:
+               </a></b>
+         	specifies the
+         	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.styled_model"><b>Styled_model</b></a>
+         	that is replicated.
+         
+      </p>
+      <p class="expressdescription"><b><a name="appearance_assignment_arm.styled_model_replication.source">source:
+               </a></b>
+         	the 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement"><b>Axis_placement</b></a> 
+         	that specifies the origin of the <b>replicated_model</b> origin to be transformed.
+         
+      </p>
+      <p class="expressdescription"><b><a name="appearance_assignment_arm.styled_model_replication.target">target:
+               </a></b>
+         	the 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement"><b>Axis_placement</b></a> 
+         	or 
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.cartesian_transformation_2d"><b>Cartesian_transformation_2d</b></a> 
+         	or
+         	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.cartesian_transformation_3d"><b>Cartesian_transformation_3d</b></a> 
+         	that specified the target for the transformation.
+         
+      </p>
+      <h2><a name="subtype_constraints">4.4 ARM subtype constraint definition</a></h2>
+      <p>
+         This subclause specifies the ARM subtype constraint for
+         this module. The subtype constraint places a constraint on the
+         possible super-type / subtype instantiations.
+         The ARM subtype constraint and definition is
+         specified below.
+         
+      </p>
+      <h2><A NAME="appearance_assignment_arm.aa_representation_item_subtypes">4.4.1 aa_representation_item_subtypes</A>
+         &nbsp;&nbsp;<a href="../../appearance_assignment/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#scconstraintaa_representation_item_subtypes"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	The <b>aa_representation_item_subtypes</b> constraint specifies a constraint that applies to instances of subtypes of
+      	<a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation_item"><b>Representation_item</b></a>.
+      
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="appearance_assignment_arm.aa_representation_item_subtypes">SUBTYPE_CONSTRAINT aa_representation_item_subtypes</A> FOR <A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation_item">Representation_item</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#appearance_assignment_arm.styled_element">Styled_element</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#appearance_assignment_arm.styled_model_replication">Styled_model_replication</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Appearance_assignment_arm<br>(*
+         </code><br><br><p>&copy; ISO 2008 &#8212; All rights reserved</p>
+   </body>
+</HTML>

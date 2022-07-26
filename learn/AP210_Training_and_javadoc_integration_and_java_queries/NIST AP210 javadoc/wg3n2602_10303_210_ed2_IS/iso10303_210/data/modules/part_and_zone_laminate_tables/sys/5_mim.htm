@@ -1,0 +1,1027 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Part and zone laminate tables">
+      <META name="DC.Dates" content="2009-04-30 12:19:04">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Part and zone laminate tables">
+      <META name="DC.Subject" content="module, laminates, laminate table,">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6248">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5439">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6563">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6564">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6565">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-04-30 12:19:04">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.17">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.6">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.6">
+      <TITLE>ISO/TS 10303-1770:2009 Part and zone laminate tables</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Part and zone laminate tables</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1770:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.1 MIM entity definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#subtype_constraints">5.2.2 MIM subtype constraint definition</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#rules">5.2.3 MIM rule definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <h2><a name="mim_express">5.2 MIM EXPRESS short listing</a></h2>
+      <p>
+         This clause specifies the EXPRESS schema derived from the mapping
+         table. 
+         It uses elements from the common resources or from other application
+         modules and defines the EXPRESS constructs that are specific to this
+         part of ISO 10303.
+         
+      </p>
+      <p>
+         This clause constitutes the Module Interpreted Module (MIM) of the
+         application module.
+         
+      </p>
+      <p>This clause also
+         specifies the modifications that apply to the constructs 
+         imported from the common resources.
+      </p>
+      <p>The following restrictions apply to the use, in this schema, of constructs defined in common resources or in application
+         modules:
+      </p>
+      <ul>
+         <li>
+            use of a supertype entity does not make applicable any of its
+            specializations, unless the specialization is also imported in the
+            MIM schema;
+            
+         </li>
+         <li>
+            use of a SELECT type does not make applicable any of its listed types
+            unless the listed type is also imported in the MIM schema.
+            
+         </li>
+      </ul>
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="part_and_zone_laminate_tables_mim">
+            SCHEMA Part_and_zone_laminate_tables_mim;</a></code><h2><A NAME="interfaces"></A></h2>
+      <p></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/composite_constituent_shape/sys/5_mim.htm#composite_constituent_shape_mim">Composite_constituent_shape_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1767<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/ply_orientation_specification/sys/5_mim.htm#ply_orientation_specification_mim">Ply_orientation_specification_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1772<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/shape_property_assignment/sys/5_mim.htm#shape_property_assignment_mim">Shape_property_assignment_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1032<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/stock_material/sys/5_mim.htm#stock_material_mim">Stock_material_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1771<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema">product_structure_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-44<br>&nbsp;&nbsp;(<A HREF="../../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence">next_assembly_usage_occurrence</A>);
+            <br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema">product_definition_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category">product_related_product_category</A>);
+            <br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Composite_constituent_shape_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1767</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Ply_orientation_specification_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1772</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Shape_property_assignment_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1032</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Stock_material_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1771</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>product_structure_schema</small></b></td>
+               <td width="127"><small>ISO 10303-44</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>product_definition_schema</small></b></td>
+               <td width="127"><small>ISO 10303-41</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="d_mim_expg.htm">D</a>, 
+            
+            Figures
+            <a href="../mimexpg1.htm">D.1</a>and <a href="../mimexpg2.htm">D.2</a>
+            for a graphical representation of this schema.            
+            </small></p>
+      <h2><a name="entities">5.2.1 MIM entity definitions</a></h2>
+      <p>
+         This subclause specifies the MIM entities for this
+         module. The MIM entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="part_and_zone_laminate_tables_mim.composite_assembly_definition">5.2.1.1 composite_assembly_definition</a>
+         &nbsp;&nbsp;<a href="../../part_and_zone_laminate_tables/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>composite_assembly_definition</b> is a type of 
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a> 
+         	containing an ordered list of constituents that make up the composite assembly.
+         	The ordered list is defined by use of 
+         	<a href="../../../resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence"><b>next_assembly_usage_occurrence</b></a>.
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		This 
+            		<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a> 
+            		defines composite assemblies.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY composite_assembly_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF (QUERY (pdr &lt;* USEDIN (SELF, 
+            'PRODUCT_DEFINITION_SCHEMA.' +
+            'PRODUCT_DEFINITION_RELATIONSHIP.' +
+            'RELATING_PRODUCT_DEFINITION') |
+            'PRODUCT_STRUCTURE_SCHEMA.' +
+            'NEXT_ASSEMBLY_USAGE_OCCURRENCE' IN
+            TYPEOF (pdr))) = 1;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_and_zone_laminate_tables_mim.composite_assembly_definition.wr:wr1">WR1:
+               </a></b>
+         		The <b>composite_assembly_definition</b> shall be used by one 
+         		<a href="../../../resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence"><b>next_assembly_usage_occurrence</b></a>.
+         	
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The first 
+            		<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship.relating_product_definition"><b>next_assembly_usage_occurrence.relating_product_definition</b></a> 
+            		shall be the 
+            		<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.composite_assembly_definition"><b>composite_assembly_definition</b></a>, 
+            		and the 
+            		<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship.related_product_definition"><b>next_assembly_usage_occurrence.related_product_definition</b></a>  
+            		shall be the first 
+            		<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.composite_assembly_sequence_definition"><b>composite_assembly_sequence_definition</b></a> 
+            		in the table. 
+            		Thereafter the subsequent 
+            		<a href="../../../resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence"><b>next_assembly_usage_occurrence</b></a> 
+            		chain together
+            		<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.composite_assembly_sequence_definition"><b>composite_assembly_sequence_definitions</b></a>
+            		entities into an ordered table.
+            	</small></p>
+      <h2><a name="part_and_zone_laminate_tables_mim.composite_assembly_sequence_definition">5.2.1.2 composite_assembly_sequence_definition</a>
+         &nbsp;&nbsp;<a href="../../part_and_zone_laminate_tables/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>composite_assembly_sequence_definition</b> is a type of
+      	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/4_info_reqs.htm#part_and_zone_laminate_tables_arm.composite_assembly_sequence_definition"><b>Composite_assembly_sequence_definition</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY composite_assembly_sequence_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF (QUERY (pdr &lt;* USEDIN (SELF, 
+            'PRODUCT_DEFINITION_SCHEMA.' +
+            'PRODUCT_DEFINITION_RELATIONSHIP.' +
+            'RELATING_PRODUCT_DEFINITION') |
+            'PRODUCT_STRUCTURE_SCHEMA.' +
+            'NEXT_ASSEMBLY_USAGE_OCCURRENCE' IN
+            TYPEOF (pdr))) &gt; 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_and_zone_laminate_tables_mim.composite_assembly_sequence_definition.wr:wr1">WR1:
+               </a></b>
+         		A <b>composite_assembly_sequence_definition</b> shall be used by one or many
+         		<a href="../../../resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence"><b>next_assembly_usage_occurrence</b></a>.
+         	
+      </p>
+      <h2><a name="part_and_zone_laminate_tables_mim.composite_assembly_table">5.2.1.3 composite_assembly_table</a>
+         &nbsp;&nbsp;<a href="../../part_and_zone_laminate_tables/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>composite_assembly_table</b> is a type of
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.part_laminate_table"><b>part_laminate_table</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/4_info_reqs.htm#part_and_zone_laminate_tables_arm.composite_assembly_table"><b>Composite_assembly_table</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY composite_assembly_table<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#part_and_zone_laminate_tables_mim.part_laminate_table">part_laminate_table</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="part_and_zone_laminate_tables_mim.laminate_table">5.2.1.4 laminate_table</a>
+         &nbsp;&nbsp;<a href="../../part_and_zone_laminate_tables/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>laminate_table</b> is a type of
+      	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/4_info_reqs.htm#part_and_zone_laminate_tables_arm.laminate_table"><b>Laminate_table</b></a>.
+      	A <b>laminate_table</b> may be a
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.part_laminate_table"><b>part_laminate_table</b></a>
+      	or a 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.zone_structural_makeup"><b>zone_structural_makeup</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY laminate_table<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#part_and_zone_laminate_tables_mim.part_laminate_table">part_laminate_table</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_and_zone_laminate_tables_mim.zone_structural_makeup">zone_structural_makeup</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="part_and_zone_laminate_tables_mim.part_laminate_table">5.2.1.5 part_laminate_table</a>
+         &nbsp;&nbsp;<a href="../../part_and_zone_laminate_tables/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>part_laminate_table</b> is a type of
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.laminate_table"><b>laminate_table</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/4_info_reqs.htm#part_and_zone_laminate_tables_arm.part_laminate_table"><b>Part_laminate_table</b></a>.
+      	A <b>part_laminate_table</b> may be a
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.ply_laminate_table"><b>ply_laminate_table</b></a>
+      	or a 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.composite_assembly_table"><b>composite_assembly_table</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY part_laminate_table<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#part_and_zone_laminate_tables_mim.composite_assembly_table">composite_assembly_table</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_and_zone_laminate_tables_mim.ply_laminate_table">ply_laminate_table</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#part_and_zone_laminate_tables_mim.laminate_table">laminate_table</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="part_and_zone_laminate_tables_mim.percentage_laminate_definition">5.2.1.6 percentage_laminate_definition</a>
+         &nbsp;&nbsp;<a href="../../part_and_zone_laminate_tables/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>percentage_laminate_definition</b> is a type of
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a>
+         	that implements the ARM concept of 
+         	<a href="../../../modules/part_and_zone_laminate_tables/sys/4_info_reqs.htm#part_and_zone_laminate_tables_arm.percentage_ply"><b>Percentage_ply</b></a>.
+         	A <b>percentage_laminate_definition</b> is an idealization that says that the cross-section is defined by percentages of material. 
+         	The parts making up a percentage of this are defined by a 
+         	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.percentage_ply_definition"><b>percentage_ply_definition</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY percentage_laminate_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF (QUERY (pdr &lt;* USEDIN (SELF, 
+            'PRODUCT_DEFINITION_SCHEMA.' +
+            'PRODUCT_DEFINITION_RELATIONSHIP.' +
+            'RELATING_PRODUCT_DEFINITION') |
+            'PRODUCT_STRUCTURE_SCHEMA.' +
+            'NEXT_ASSEMBLY_USAGE_OCCURRENCE' IN
+            TYPEOF (pdr))) &gt; 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_and_zone_laminate_tables_mim.percentage_laminate_definition.wr:wr1">WR1:
+               </a></b>
+         		A <b>percentage_laminate_definition</b> shall be used by one or many 
+         		<a href="../../../resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence"><b>next_assembly_usage_occurrence</b></a>.
+         	
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The 
+            		<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship.relating_product_definition"><b>next_assembly_usage_occurrence.relating_product_definition</b></a> 
+            		shall be the <b>percentage_laminate_definition</b>.
+            		The 
+            		<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship.related_product_definition"><b>next_assembly_usage_occurrence.related_product_definition</b></a>  
+            		thus associated comprise the SET of 
+            		<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a> 
+            		entities for the table.
+            	</small></p>
+      <h2><a name="part_and_zone_laminate_tables_mim.percentage_laminate_table">5.2.1.7 percentage_laminate_table</a>
+         &nbsp;&nbsp;<a href="../../part_and_zone_laminate_tables/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>percentage_laminate_table</b> is a type of
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.zone_structural_makeup"><b>zone_structural_makeup</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/4_info_reqs.htm#part_and_zone_laminate_tables_arm.percentage_laminate_table"><b>Percentage_laminate_table</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY percentage_laminate_table<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#part_and_zone_laminate_tables_mim.zone_structural_makeup">zone_structural_makeup</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="part_and_zone_laminate_tables_mim.percentage_ply_definition">5.2.1.8 percentage_ply_definition</a>
+         &nbsp;&nbsp;<a href="../../part_and_zone_laminate_tables/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>percentage_ply_definition</b> is a type of
+      	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/4_info_reqs.htm#part_and_zone_laminate_tables_arm.percentage_ply"><b>Percentage_ply</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY percentage_ply_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF (QUERY (pdr &lt;* USEDIN (SELF, 'PRODUCT_DEFINITION_SCHEMA.' +
+            'PRODUCT_DEFINITION_RELATIONSHIP.RELATING_PRODUCT_DEFINITION') |
+            ('STRUCTURAL_ANALYSIS_DESIGN.PERCENTAGE_LAMINATE_DEFINITION' 
+            IN TYPEOF (pdr.related_product_definition)) AND
+            (pdr.name = 'makeup and properties'))) = 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_and_zone_laminate_tables_mim.percentage_ply_definition.wr:wr1">WR1:
+               </a></b>
+         	A <b>percentage_ply_definition</b> shall be not be related to a 
+         	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.percentage_laminate_definition"><b>percentage_laminate_definition</b></a> 
+         	by a
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship"><b>product_definition_relationship</b></a> 
+         	whose name attribute is "makeup and properties".
+         
+      </p>
+      <h2><a name="part_and_zone_laminate_tables_mim.ply_laminate_definition">5.2.1.9 ply_laminate_definition</a>
+         &nbsp;&nbsp;<a href="../../part_and_zone_laminate_tables/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>ply_laminate_definition</b> is a type of
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a>
+         	that implements the ARM concept of 
+         	<a href="../../../modules/part_and_zone_laminate_tables/sys/4_info_reqs.htm#part_and_zone_laminate_tables_arm.ply_laminate_table"><b>Ply_laminate_table</b></a>.
+         	A <b>ply_laminate_definition</b> contains an ordered list of 
+         	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.ply_laminate_sequence_definition"><b>ply_laminate_sequence_definitions</b></a>. 
+         	This ordered list is defined by the use of 
+         	<a href="../../../resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence"><b>next_assembly_usage_occurrence</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY ply_laminate_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF (QUERY (pdr &lt;* USEDIN (SELF, 
+            'PRODUCT_DEFINITION_SCHEMA.' +
+            'PRODUCT_DEFINITION_RELATIONSHIP.' +
+            'RELATING_PRODUCT_DEFINITION') |
+            'PRODUCT_STRUCTURE_SCHEMA.' +
+            'NEXT_ASSEMBLY_USAGE_OCCURRENCE' IN
+            TYPEOF (pdr))) = 1;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_and_zone_laminate_tables_mim.ply_laminate_definition.wr:wr1">WR1:
+               </a></b>
+         	A <b>ply_laminate_definition</b> shall be used by one 
+         	<a href="../../../resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence"><b>next_assembly_usage_occurrence</b></a>.
+         	
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The first 
+            		<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship.relating_product_definition"><b>next_assembly_usage_occurrence.relating_product_definition</b></a> 
+            		shall be the <b>ply_laminate_definition</b>, and the 
+            		<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship.related_product_definition"><b>next_assembly_usage_occurrence.related_product_definition</b></a> 
+            		shall be the first 
+            		<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.ply_laminate_sequence_definition"><b>ply_laminate_sequence_definition</b></a> 
+            		in the table. 
+            		Thereafter the subsequent 
+            		<a href="../../../resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence"><b>next_assembly_usage_occurrence</b></a> 
+            		chain together 
+            		<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.ply_laminate_sequence_definition"><b>ply_laminate_sequence_definition</b></a> 
+            		entities into an ordered table.
+            	</small></p>
+      <h2><a name="part_and_zone_laminate_tables_mim.ply_laminate_sequence_definition">5.2.1.10 ply_laminate_sequence_definition</a>
+         &nbsp;&nbsp;<a href="../../part_and_zone_laminate_tables/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>ply_laminate_sequence_definition</b> is a type of
+      	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/4_info_reqs.htm#part_and_zone_laminate_tables_arm.ply_laminate_sequence_definition"><b>Ply_laminate_sequence_definition</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY ply_laminate_sequence_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF (QUERY (pdr &lt;* USEDIN (SELF, 
+            'PRODUCT_DEFINITION_SCHEMA.' +
+            'PRODUCT_DEFINITION_RELATIONSHIP.' +
+            'RELATING_PRODUCT_DEFINITION') |
+            'PRODUCT_STRUCTURE_SCHEMA.' +
+            'NEXT_ASSEMBLY_USAGE_OCCURRENCE' IN
+            TYPEOF (pdr))) &gt; 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_and_zone_laminate_tables_mim.ply_laminate_sequence_definition.wr:wr1">WR1:
+               </a></b>
+         	A <b>ply_laminate_sequence_definition</b> shall be used by one or many 
+         	<a href="../../../resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence"><b>next_assembly_usage_occurrence</b></a>.
+         	
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The 
+            		<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship.relating_product_definition"><b>next_assembly_usage_occurrence.relating_product_definition</b></a>  
+            		shall be the <b>ply_laminate_sequence_definition</b>. 
+            		The 
+            		<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship.related_product_definition"><b>next_assembly_usage_occurrence.related_product_definition</b></a>  
+            		thus associated comprise the SET of 
+            		<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a> 
+            		entities for the table.
+            	</small></p>
+      <h2><a name="part_and_zone_laminate_tables_mim.ply_laminate_table">5.2.1.11 ply_laminate_table</a>
+         &nbsp;&nbsp;<a href="../../part_and_zone_laminate_tables/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>ply_laminate_table</b> is a type of
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.part_laminate_table"><b>part_laminate_table</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/4_info_reqs.htm#part_and_zone_laminate_tables_arm.ply_laminate_table"><b>Ply_laminate_table</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY ply_laminate_table<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#part_and_zone_laminate_tables_mim.part_laminate_table">part_laminate_table</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="part_and_zone_laminate_tables_mim.smeared_material_definition">5.2.1.12 smeared_material_definition</a>
+         &nbsp;&nbsp;<a href="../../part_and_zone_laminate_tables/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>smeared_material_definition</b> is a type of
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.zone_structural_makeup"><b>zone_structural_makeup</b></a>.
+      	A <b>smeared_material_definition</b> is an idealized 
+      	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a> 
+      	of a laminate product that smears the constituent materials together into a single definition that is representative of the
+      whole.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY smeared_material_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#part_and_zone_laminate_tables_mim.zone_structural_makeup">zone_structural_makeup</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="part_and_zone_laminate_tables_mim.thickness_laminate_definition">5.2.1.13 thickness_laminate_definition</a>
+         &nbsp;&nbsp;<a href="../../part_and_zone_laminate_tables/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>thickness_laminate_definition</b> is a type of
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a>
+         	containing an ordered list of constituents applicable for a particular 
+         	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect"><b>shape_aspect</b></a> 
+         	of a product. 
+         	The ordered list is defined by use of
+         	<a href="../../../resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence"><b>next_assembly_usage_occurrence</b></a>.
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The definition may be of the actual products such as plies or may be an idealized representation where multiple
+            		layers or core is represented as a ply with a thickness defined. 
+            		For the first case the thickness would be defined from the material.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY thickness_laminate_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF (QUERY (pdr &lt;* USEDIN (SELF, 
+            'PRODUCT_DEFINITION_SCHEMA.' +
+            'PRODUCT_DEFINITION_RELATIONSHIP.' +
+            'RELATING_PRODUCT_DEFINITION') |
+            'PRODUCT_STRUCTURE_SCHEMA.' +
+            'NEXT_ASSEMBLY_USAGE_OCCURRENCE' IN
+            TYPEOF (pdr))) = 1;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_and_zone_laminate_tables_mim.thickness_laminate_definition.wr:wr1">WR1:
+               </a></b>
+         		A <b>thickness_laminate_definition</b> shall be used by one 
+         		<a href="../../../resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence"><b>next_assembly_usage_occurrence</b></a>.
+         	
+      </p>
+      <h2><a name="part_and_zone_laminate_tables_mim.thickness_laminate_table">5.2.1.14 thickness_laminate_table</a>
+         &nbsp;&nbsp;<a href="../../part_and_zone_laminate_tables/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>thickness_laminate_table</b> is a type of
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.zone_structural_makeup"><b>zone_structural_makeup</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/4_info_reqs.htm#part_and_zone_laminate_tables_arm.thickness_laminate_table"><b>Thickness_laminate_table</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY thickness_laminate_table<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#part_and_zone_laminate_tables_mim.zone_structural_makeup">zone_structural_makeup</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="part_and_zone_laminate_tables_mim.zone_structural_makeup">5.2.1.15 zone_structural_makeup</a>
+         &nbsp;&nbsp;<a href="../../part_and_zone_laminate_tables/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>zone_structural_makeup</b> is a type of
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.laminate_table"><b>laminate_table</b></a>
+      	that implements the ARM concept of 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/4_info_reqs.htm#part_and_zone_laminate_tables_arm.zone_structural_makeup"><b>Zone_structural_makeup</b></a>.
+      	A <b>zone_structural_makeup</b> may be either a
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.thickness_laminate_table"><b>thickness_laminate_table</b></a> 
+      	and 
+      	a
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.smeared_material_definition"><b>smeared_material_definition</b></a>
+      	or a
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.percentage_laminate_table"><b>percentage_laminate_table</b></a> 
+      	and a 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.smeared_material_definition"><b>smeared_material_definition</b></a>,
+      	or a
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.thickness_laminate_table"><b>thickness_laminate_table</b></a>,
+      	or a
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.percentage_laminate_table"><b>percentage_laminate_table</b></a>,
+      	or a
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.smeared_material_definition"><b>smeared_material_definition</b></a>.
+      	
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY zone_structural_makeup<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;((<A HREF="#part_and_zone_laminate_tables_mim.thickness_laminate_table">thickness_laminate_table</A><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;<A HREF="#part_and_zone_laminate_tables_mim.smeared_material_definition">smeared_material_definition</A>), (<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_and_zone_laminate_tables_mim.percentage_laminate_table">percentage_laminate_table</A><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;<A HREF="#part_and_zone_laminate_tables_mim.smeared_material_definition">smeared_material_definition</A>),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_and_zone_laminate_tables_mim.thickness_laminate_table">thickness_laminate_table</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_and_zone_laminate_tables_mim.percentage_laminate_table">percentage_laminate_table</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_and_zone_laminate_tables_mim.smeared_material_definition">smeared_material_definition</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#part_and_zone_laminate_tables_mim.laminate_table">laminate_table</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="subtype_constraints">5.2.2 MIM subtype constraint definition</a></h2>
+      <p>
+         This subclause specifies the MIM subtype constraint for
+         this module. The subtype constraint places a constraint on the
+         possible super-type / subtype instantiations.
+         The MIM subtype constraint and definition is
+         specified below.
+         
+      </p>
+      <h2><A NAME="part_and_zone_laminate_tables_mim.pos_product_definition_subtypes">5.2.2.1 pos_product_definition_subtypes</A>
+         &nbsp;&nbsp;<a href="../../part_and_zone_laminate_tables/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	The <b>pos_product_definition_subtypes</b> constraint specifies a constraint that applies to instances of subtypes of 
+      	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a>.
+      
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="part_and_zone_laminate_tables_mim.pos_product_definition_subtypes">SUBTYPE_CONSTRAINT pos_product_definition_subtypes</A> FOR <A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#part_and_zone_laminate_tables_mim.composite_assembly_definition">composite_assembly_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_and_zone_laminate_tables_mim.composite_assembly_sequence_definition">composite_assembly_sequence_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_and_zone_laminate_tables_mim.laminate_table">laminate_table</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_and_zone_laminate_tables_mim.percentage_laminate_definition">percentage_laminate_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_and_zone_laminate_tables_mim.percentage_ply_definition">percentage_ply_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_and_zone_laminate_tables_mim.ply_laminate_definition">ply_laminate_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_and_zone_laminate_tables_mim.ply_laminate_sequence_definition">ply_laminate_sequence_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_and_zone_laminate_tables_mim.thickness_laminate_definition">thickness_laminate_definition</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p>
+      <h2><a name="rules">5.2.3 MIM rule definitions</a></h2>
+      <p>
+         This subclause specifies the MIM rules for 
+         this module. The MIM rules and definitions are
+         specified below.
+         
+      </p>
+      <h2><A NAME="part_and_zone_laminate_tables_mim.component_class_for_assembly_select">5.2.3.1 component_class_for_assembly_select</A></h2>
+      	The <b>component_class_for_assembly_select</b> rule states that products associated with a 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.composite_assembly_sequence_definition"><b>composite_assembly_sequence_definition</b></a> 
+      	shall have a 
+      	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_category.name"><b>product_related_product_category.name</b></a> 
+      	of "ply", "ply laminate", "filament laminate", "processed core", or "composite assembly".
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         RULE component_class_for_assembly_select FOR
+         <br>
+         
+         (<A HREF="../../../../data/modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.composite_assembly_sequence_definition">composite_assembly_sequence_definition</A>, <A HREF="../../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence">next_assembly_usage_occurrence</A>, <A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category">product_related_product_category</A>);<br></code><pre>LOCAL
+      i,j,k :  INTEGER :=0;
+      dkuhr :  LOGICAL :=TRUE;
+      nnauo :  INTEGER :=0;
+      nprpc :  INTEGER :=0;
+      rp    :  product;
+    END_LOCAL;
+    REPEAT i:= LOINDEX (composite_assembly_sequence_definition) TO
+               HIINDEX (composite_assembly_sequence_definition);
+      nnauo := 0;  
+      REPEAT j:= LOINDEX (next_assembly_usage_occurrence) TO
+                 HIINDEX (next_assembly_usage_occurrence);
+        IF (composite_assembly_sequence_definition[i] = 
+          next_assembly_usage_occurrence[j].relating_product_definition) THEN
+          rp := next_assembly_usage_occurrence[j].related_product_definition.
+                formation.of_product;
+          nprpc := 0;
+          REPEAT k:= LOINDEX (product_related_product_category) TO
+                     HIINDEX (product_related_product_category);
+            IF ((rp IN product_related_product_category[k].products) AND
+                (product_related_product_category[k].name IN ['ply',
+                 'ply laminate', 'filament laminate', 'processed core',
+                 'composite assembly'])) THEN
+                nprpc := nprpc + 1;
+            END_IF;
+          END_REPEAT;
+          IF (nprpc = 1) THEN
+            nnauo := nnauo + 1;
+          ELSE
+            dkuhr := FALSE;
+            ESCAPE;
+          END_IF;
+        END_IF;
+      END_REPEAT;
+      IF (dkuhr = FALSE) THEN
+        ESCAPE; 
+      END_IF;
+      IF(nnauo = 0) THEN
+        dkuhr := FALSE;
+        ESCAPE;
+      END_IF;
+    END_REPEAT;</pre><code>WHERE<br> 
+         &nbsp;&nbsp;WR1: dkuhr;<br>
+         END_RULE;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b>composite_assembly_sequence_definition : </b>
+         
+         the set of all instances of 
+         <A HREF="../../../../data/modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.composite_assembly_sequence_definition">composite_assembly_sequence_definition</A>.
+      </p>
+      <p class="expressdescription"><b>next_assembly_usage_occurrence : </b>
+         
+         the set of all instances of 
+         <A HREF="../../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence">next_assembly_usage_occurrence</A>.
+      </p>
+      <p class="expressdescription"><b>product_related_product_category : </b>
+         
+         the set of all instances of 
+         <A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category">product_related_product_category</A>.
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_and_zone_laminate_tables_mim.component_class_for_assembly_select.wr:wr1">WR1:
+               </a></b> 
+         	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.composite_assembly_sequence_definition"><b>Composite_assembly_sequence_definitions</b></a> 
+         	shall be related through at least one
+         	<a href="../../../resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence"><b>next_assembly_usage_occurrence</b></a> 
+         	relationship to 
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definitions</b></a>
+         	which are associated with products that are in the 
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category"><b>product_related_product_category</b></a> 
+         	with the 
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_category.name"><b>name</b></a> 
+         	atttribute of "ply", "ply laminate", "filament laminate", "composite assembly", or "processed core".
+         	
+      </p>
+      <h2><A NAME="part_and_zone_laminate_tables_mim.ply_reference">5.2.3.2 ply_reference</A></h2>
+      	The <b>ply_reference</b> rules states that products associated with a 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.ply_laminate_sequence_definition"><b>ply_laminate_sequence_definition</b></a> 
+      	shall have a 
+      	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_category.name"><b>product_related_product_category.name</b></a>  
+      	of "ply".
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         RULE ply_reference FOR
+         <br>
+         
+         (<A HREF="../../../../data/modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.ply_laminate_sequence_definition">ply_laminate_sequence_definition</A>, <A HREF="../../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence">next_assembly_usage_occurrence</A>, <A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category">product_related_product_category</A>);<br></code><pre>LOCAL
+      i,j,k :  INTEGER;
+      dkuhr :  LOGICAL := TRUE;
+      nnauo :  INTEGER;
+      nprpc :  INTEGER := 0;
+      rp    :  product;
+    END_LOCAL;
+    REPEAT i:= LOINDEX (ply_laminate_sequence_definition) TO
+               HIINDEX (ply_laminate_sequence_definition);
+      nnauo := 0;  
+      REPEAT j:= LOINDEX (next_assembly_usage_occurrence) TO 
+                 HIINDEX (next_assembly_usage_occurrence);
+        IF (ply_laminate_sequence_definition[i] = 
+          next_assembly_usage_occurrence[j].relating_product_definition) THEN
+          rp := next_assembly_usage_occurrence[j].related_product_definition.
+                formation.of_product;
+          nprpc := 0;
+          REPEAT k:= LOINDEX (product_related_product_category) TO
+                     HIINDEX (product_related_product_category);
+            IF ((product_related_product_category[k].name = 'ply') AND
+                (rp IN product_related_product_category[k].products)) THEN
+                nprpc := nprpc + 1;
+            END_IF;
+          END_REPEAT;
+          IF (nprpc = 1) THEN
+            nnauo := nnauo + 1;
+          ELSE
+            dkuhr := FALSE;
+            ESCAPE;
+          END_IF;
+        END_IF;
+      END_REPEAT;
+      IF (dkuhr = FALSE) THEN
+        ESCAPE; 
+      END_IF;
+      IF(nnauo = 0) THEN
+        dkuhr := FALSE;
+        ESCAPE;
+      END_IF;
+    END_REPEAT;</pre><code>WHERE<br> 
+         &nbsp;&nbsp;WR1: dkuhr;<br>
+         END_RULE;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b>ply_laminate_sequence_definition : </b>
+         
+         the set of all instances of 
+         <A HREF="../../../../data/modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.ply_laminate_sequence_definition">ply_laminate_sequence_definition</A>.
+      </p>
+      <p class="expressdescription"><b>next_assembly_usage_occurrence : </b>
+         
+         the set of all instances of 
+         <A HREF="../../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence">next_assembly_usage_occurrence</A>.
+      </p>
+      <p class="expressdescription"><b>product_related_product_category : </b>
+         
+         the set of all instances of 
+         <A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category">product_related_product_category</A>.
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_and_zone_laminate_tables_mim.ply_reference.wr:wr1">WR1:
+               </a></b>
+         	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.ply_laminate_sequence_definition"><b>Ply_laminate_sequence_definitions</b></a> 
+         	shall be related through at least one 
+         	<a href="../../../resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence"><b>next_assembly_usage_occurrence</b></a> 
+         	relationship to 
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definitions</b></a> 
+         	which are associated with products that are in the
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category"><b>product_related_product_category</b></a> 
+         	with the 
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_category.name"><b>name</b></a> 
+         	atttribute of "ply".
+         
+      </p>
+      <h2><A NAME="part_and_zone_laminate_tables_mim.stock_material_reference">5.2.3.3 stock_material_reference</A></h2>
+      	The <b>stock_material_reference</b> rule states that products associated with a 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.percentage_ply_definition"><b>percentage_ply_definition</b></a> 
+      	shall have components that have a 
+      	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_category.name"><b>product_related_product_category.name</b></a>   
+      	of "isotropic material", "anisotropic material", "filament assembly", "stock core", or "discontinuous fiber assembly".
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         RULE stock_material_reference FOR
+         <br>
+         
+         (<A HREF="../../../../data/modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.percentage_ply_definition">percentage_ply_definition</A>, <A HREF="../../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.make_from_usage_option">make_from_usage_option</A>, <A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category">product_related_product_category</A>);<br></code><pre>LOCAL
+      i,j,k :  INTEGER;
+      dkuhr :  LOGICAL;
+      nmfuo :  INTEGER;
+      nprpc :  INTEGER;
+      rp     :  product;
+    END_LOCAL;
+    dkuhr := TRUE;
+    REPEAT i:= LOINDEX (percentage_ply_definition) TO
+               HIINDEX (percentage_ply_definition);
+      nmfuo := 0;  
+      REPEAT j:= LOINDEX (make_from_usage_option) TO 
+                 HIINDEX (make_from_usage_option);
+        IF (percentage_ply_definition[i] = 
+          make_from_usage_option[j].relating_product_definition) THEN
+          rp := make_from_usage_option[j].related_product_definition.
+                formation.of_product;
+          nprpc := 0;
+          REPEAT k:= LOINDEX (product_related_product_category) TO
+                     HIINDEX (product_related_product_category);
+            IF ((rp IN product_related_product_category[k].products) AND
+                (product_related_product_category[k].name IN 
+                ['anisotropic material', 'isotropic material', 'stock core',
+                 'filament assembly', 'discontinuous fiber assembly'])) THEN
+                nprpc := nprpc + 1;
+            END_IF;
+          END_REPEAT;
+          IF (nprpc = 1) THEN
+            nmfuo := nmfuo + 1;
+          ELSE
+            dkuhr := FALSE;
+            ESCAPE;
+          END_IF;
+        END_IF;
+      END_REPEAT;
+      IF (dkuhr = FALSE) THEN
+        ESCAPE; 
+      END_IF;
+      IF(nmfuo = 0) THEN
+        dkuhr := FALSE;
+        ESCAPE;
+      END_IF;
+    END_REPEAT;</pre><code>WHERE<br> 
+         &nbsp;&nbsp;WR1: dkuhr;<br>
+         END_RULE;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b>percentage_ply_definition : </b>
+         
+         the set of all instances of 
+         <A HREF="../../../../data/modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.percentage_ply_definition">percentage_ply_definition</A>.
+      </p>
+      <p class="expressdescription"><b>make_from_usage_option : </b>
+         
+         the set of all instances of 
+         <A HREF="../../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.make_from_usage_option">make_from_usage_option</A>.
+      </p>
+      <p class="expressdescription"><b>product_related_product_category : </b>
+         
+         the set of all instances of 
+         <A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category">product_related_product_category</A>.
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_and_zone_laminate_tables_mim.stock_material_reference.wr:wr1">WR1:
+               </a></b>
+         	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.percentage_ply_definition"><b>Percentage_ply_definitions</b></a> 
+         	shall be related through at least one 
+         	<a href="../../../resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.make_from_usage_option"><b>make_from_usage_option</b></a>
+         	relationship to 
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definitions</b></a> 
+         	which are associated with products that are in the 
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category"><b>product_related_product_category</b></a> 
+         	with the 
+         	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_category.name"><b>name</b></a>
+         	atttribute of "isotropic material", "anisotropic material", "filament assembly", "discontinuous fiber assembly", or "stock
+         core".
+         	
+      </p>
+      <h2><A NAME="part_and_zone_laminate_tables_mim.thickness_laminate_table_component_select">5.2.3.4 thickness_laminate_table_component_select</A></h2>
+      	The <b>thickness_laminate_table_component_select</b> rule states that products associated with a 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.thickness_laminate_definition"><b>thickness_laminate_definition</b></a> 
+      	shall have a 
+      	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_category.name"><b>product_related_product_category.name</b></a>   
+      	of "ply", "filament laminate", or "processed core".
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         RULE thickness_laminate_table_component_select FOR
+         <br>
+         
+         (<A HREF="../../../../data/modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.thickness_laminate_definition">thickness_laminate_definition</A>, <A HREF="../../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence">next_assembly_usage_occurrence</A>, <A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category">product_related_product_category</A>);<br></code><pre>LOCAL
+      i,j,k :  INTEGER;
+      dkuhr :  LOGICAL;
+      nnauo :  INTEGER;
+      nprpc :  INTEGER;
+      rp    :  product;
+    END_LOCAL;
+    dkuhr := TRUE;
+    REPEAT i:= LOINDEX (thickness_laminate_definition) TO
+               HIINDEX (thickness_laminate_definition);
+      nnauo := 0;  
+      REPEAT j:= LOINDEX (next_assembly_usage_occurrence) TO 
+                 HIINDEX (next_assembly_usage_occurrence);
+        IF (thickness_laminate_definition[i] = 
+          next_assembly_usage_occurrence[j].relating_product_definition) THEN
+          rp := next_assembly_usage_occurrence[j].related_product_definition.
+                formation.of_product;
+          nprpc := 0;
+          REPEAT k:= LOINDEX (product_related_product_category) TO
+                     HIINDEX (product_related_product_category);
+            IF ((rp IN product_related_product_category[k].products) AND
+                (product_related_product_category[k].name IN 
+                 ['ply', 'filament laminate', 'processed core'])) THEN
+                nprpc := nprpc + 1;
+            END_IF;
+          END_REPEAT;
+          IF (nprpc = 1) THEN
+            nnauo := nnauo + 1;
+          ELSE
+            dkuhr := FALSE;
+            ESCAPE;
+          END_IF;
+        END_IF;
+      END_REPEAT;
+      IF (dkuhr = FALSE) THEN
+        ESCAPE;
+      END_IF;
+      IF (nnauo &lt;&gt; 1) THEN
+        dkuhr := FALSE;
+        ESCAPE;
+      END_IF;
+    END_REPEAT;</pre><code>WHERE<br> 
+         &nbsp;&nbsp;WR1: dkuhr;<br>
+         END_RULE;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b>thickness_laminate_definition : </b>
+         
+         the set of all instances of 
+         <A HREF="../../../../data/modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.thickness_laminate_definition">thickness_laminate_definition</A>.
+      </p>
+      <p class="expressdescription"><b>next_assembly_usage_occurrence : </b>
+         
+         the set of all instances of 
+         <A HREF="../../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence">next_assembly_usage_occurrence</A>.
+      </p>
+      <p class="expressdescription"><b>product_related_product_category : </b>
+         
+         the set of all instances of 
+         <A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category">product_related_product_category</A>.
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_and_zone_laminate_tables_mim.thickness_laminate_table_component_select.wr:wr1">WR1:
+               </a></b>
+         		Each 
+         		<a href="../../../modules/part_and_zone_laminate_tables/sys/5_mim.htm#part_and_zone_laminate_tables_mim.thickness_laminate_definition"><b>thickness_laminate_definition</b></a> 
+         		shall be related through one 
+         		<a href="../../../resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.next_assembly_usage_occurrence"><b>next_assembly_usage_occurrence</b></a> 
+         		relationship to a 
+         		<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a> 
+         		which has an associated product that is in the 
+         		<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category"><b>product_related_product_category</b></a>
+         		with the 
+         		<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_category.name"><b>name</b></a> 
+         		atttribute of "ply", "filament laminate", or "processed core".
+         	
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Part_and_zone_laminate_tables_mim<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

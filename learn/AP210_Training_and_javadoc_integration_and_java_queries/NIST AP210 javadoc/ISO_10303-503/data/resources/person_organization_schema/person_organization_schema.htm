@@ -1,0 +1,343 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: person_organization_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: person_organization_schema</h2>
+      <p><i>Source : ISO 10303-41</i></p><code><br><br><a name="person_organization_schema">SCHEMA <b>person_organization_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema">basic_attribute_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.description_attribute">description_attribute</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.get_description_value">get_description_value</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.get_id_value">get_id_value</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.get_name_value">get_name_value</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.get_role">get_role</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.id_attribute">id_attribute</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.name_attribute">name_attribute</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.object_role">object_role</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.role_association">role_association</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.bag_to_set">bag_to_set</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>);
+         <br><br></code><code><br><A NAME="person_organization_schema.person_organization_select">TYPE </A><b>person_organization_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#person_organization_schema.organization">organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#person_organization_schema.person">person</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#person_organization_schema.person_and_organization">person_and_organization</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="person_organization_schema.address">ENTITY <b>address</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.address.internal_location">internal_location : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.address.street_number">street_number : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.address.street">street : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.address.postal_box">postal_box : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.address.town">town : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.address.region">region : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.address.postal_code">postal_code : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.address.country">country : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.address.facsimile_number">facsimile_number : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.address.telephone_number">telephone_number : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.address.electronic_mail_address">electronic_mail_address : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.address.telex_number">telex_number : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.address.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A> := get_name_value(SELF);<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.address.url">url : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A> := get_id_value(SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.address.wr:wr1">WR1: EXISTS(internal_location) OR EXISTS(street_number) OR EXISTS(street) OR EXISTS(postal_box) OR EXISTS(town) OR EXISTS(region)
+            OR EXISTS(postal_code) OR EXISTS(country) OR EXISTS(facsimile_number) OR EXISTS(telephone_number) OR EXISTS(electronic_mail_address)
+            OR EXISTS(telex_number);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.organization">ENTITY <b>organization</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization.id">id : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.organization_relationship">ENTITY <b>organization_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization_relationship.relating_organization">relating_organization : </A><A HREF="#person_organization_schema.organization">organization</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization_relationship.related_organization">related_organization : </A><A HREF="#person_organization_schema.organization">organization</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.organization_role">ENTITY <b>organization_role</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization_role.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization_role.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A> := get_description_value(SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization_role.wr:wr1">WR1: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'DESCRIPTION_ATTRIBUTE.DESCRIBED_ITEM')) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.organization_type">ENTITY <b>organization_type</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization_type.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization_type.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization_type.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.organization_type_relationship">ENTITY <b>organization_type_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization_type_relationship.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization_type_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization_type_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization_type_relationship.relating_organization_type">relating_organization_type : </A><A HREF="#person_organization_schema.organization_type">organization_type</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organization_type_relationship.related_organization_type">related_organization_type : </A><A HREF="#person_organization_schema.organization_type">organization_type</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.organizational_address">ENTITY <b>organizational_address</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#person_organization_schema.address">address</A>);<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organizational_address.organizations">organizations : </A>SET[1:?] OF <A HREF="#person_organization_schema.organization">organization</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organizational_address.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.organizational_project">ENTITY <b>organizational_project</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organizational_project.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organizational_project.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organizational_project.responsible_organizations">responsible_organizations : </A>SET[1:?] OF <A HREF="#person_organization_schema.organization">organization</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organizational_project.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A> := get_id_value (SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organizational_project.wr:wr1">WR1: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'ID_ATTRIBUTE.IDENTIFIED_ITEM')) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.organizational_project_relationship">ENTITY <b>organizational_project_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organizational_project_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organizational_project_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organizational_project_relationship.relating_organizational_project">relating_organizational_project : </A><A HREF="#person_organization_schema.organizational_project">organizational_project</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.organizational_project_relationship.related_organizational_project">related_organizational_project : </A><A HREF="#person_organization_schema.organizational_project">organizational_project</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.person">ENTITY <b>person</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person.last_name">last_name : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person.first_name">first_name : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person.middle_names">middle_names : </A>
+         OPTIONAL 
+         LIST[1:?] OF <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person.prefix_titles">prefix_titles : </A>
+         OPTIONAL 
+         LIST[1:?] OF <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person.suffix_titles">suffix_titles : </A>
+         OPTIONAL 
+         LIST[1:?] OF <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person.wr:wr1">WR1: EXISTS(last_name) OR EXISTS(first_name);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.person_and_organization">ENTITY <b>person_and_organization</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_and_organization.the_person">the_person : </A><A HREF="#person_organization_schema.person">person</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_and_organization.the_organization">the_organization : </A><A HREF="#person_organization_schema.organization">organization</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_and_organization.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A> := get_name_value (SELF);<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_and_organization.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A> := get_description_value(SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_and_organization.wr:wr1">WR1: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'NAME_ATTRIBUTE.NAMED_ITEM')) &lt;= 1;</A><br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_and_organization.wr:wr2">WR2: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'DESCRIPTION_ATTRIBUTE.DESCRIBED_ITEM')) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.person_and_organization_role">ENTITY <b>person_and_organization_role</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_and_organization_role.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_and_organization_role.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A> := get_description_value (SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_and_organization_role.wr:wr1">WR1: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'DESCRIPTION_ATTRIBUTE.DESCRIBED_ITEM')) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.person_role">ENTITY <b>person_role</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_role.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_role.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A> := get_description_value (SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_role.wr:wr1">WR1: SIZEOF (USEDIN (SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'DESCRIPTION_ATTRIBUTE.DESCRIBED_ITEM')) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.person_type">ENTITY <b>person_type</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_type.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_type.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_type.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.person_type_definition">ENTITY <b>person_type_definition</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_type_definition.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_type_definition.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_type_definition.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_type_definition.formation">formation : </A><A HREF="#person_organization_schema.person_type_definition_formation">person_type_definition_formation</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.person_type_definition_formation">ENTITY <b>person_type_definition_formation</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_type_definition_formation.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_type_definition_formation.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_type_definition_formation.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_type_definition_formation.of_person_type">of_person_type : </A><A HREF="#person_organization_schema.person_type">person_type</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.person_type_definition_relationship">ENTITY <b>person_type_definition_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_type_definition_relationship.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_type_definition_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_type_definition_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_type_definition_relationship.relating_person_type_definition">relating_person_type_definition : </A><A HREF="#person_organization_schema.person_type_definition">person_type_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.person_type_definition_relationship.related_person_type_definition">related_person_type_definition : </A><A HREF="#person_organization_schema.person_type_definition">person_type_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.personal_address">ENTITY <b>personal_address</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#person_organization_schema.address">address</A>);<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.personal_address.people">people : </A>SET[1:?] OF <A HREF="#person_organization_schema.person">person</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.personal_address.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.position_in_organization">ENTITY <b>position_in_organization</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.position_in_organization.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.position_in_organization.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.position_in_organization.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.position_in_organization_relationship">ENTITY <b>position_in_organization_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.position_in_organization_relationship.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.position_in_organization_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.position_in_organization_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.position_in_organization_relationship.relating_position_in_organization">relating_position_in_organization : </A><A HREF="#person_organization_schema.position_in_organization">position_in_organization</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.position_in_organization_relationship.related_position_in_organization">related_position_in_organization : </A><A HREF="#person_organization_schema.position_in_organization">position_in_organization</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.position_in_organization_type">ENTITY <b>position_in_organization_type</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.position_in_organization_type.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.position_in_organization_type.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="person_organization_schema.position_in_organization_type.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="person_organization_schema.acyclic_organization_relationship">FUNCTION <b>acyclic_organization_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.organization_relationship">organization_relationship</A>; relatives : SET[1:?] OF <A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.organization">organization</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>
+  LOCAL
+      x : SET OF organization_relationship;
+    END_LOCAL;
+
+    IF relation.relating_organization IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(org &lt;* bag_to_set(USEDIN(relation.relating_organization, 'PERSON_ORGANIZATION_SCHEMA.' + 'ORGANIZATION_RELATIONSHIP.' + 'RELATED_ORGANIZATION')) | specific_relation IN TYPEOF(org));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_organization_relationship(x[i], relatives + relation.relating_organization, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);
+
+     			</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="person_organization_schema.acyclic_organization_type_relationship">FUNCTION <b>acyclic_organization_type_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.organization_type_relationship">organization_type_relationship</A>; relatives : SET OF <A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.organization_type">organization_type</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>
+   LOCAL
+      x : SET OF organization_type_relationship;
+    END_LOCAL;
+
+    IF relation.relating_organization_type IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(orgtyp &lt;* bag_to_set(USEDIN(relation.relating_organization_type, 'PERSON_ORGANIZATION_SCHEMA.' + 'ORGANIZATION_TYPE_RELATIONSHIP.' + 'RELATED_ORGANIZATION_TYPE')) | specific_relation IN TYPEOF(orgtyp));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_organization_type_relationship(x[i], relatives + relation.relating_organization_type, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);
+			</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="person_organization_schema.acyclic_organizational_project_relationship">FUNCTION <b>acyclic_organizational_project_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.organizational_project_relationship">organizational_project_relationship</A>; relatives : SET[1:?] OF <A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.organizational_project">organizational_project</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>
+   LOCAL
+      x : SET OF organizational_project_relationship;
+    END_LOCAL;
+
+    IF relation.relating_organizational_project IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(op &lt;* bag_to_set(USEDIN(relation.relating_organizational_project, 'PERSON_ORGANIZATION_SCHEMA.' + 'ORGANIZATIONAL_PROJECT_RELATIONSHIP.' + 'RELATED_ORGANIZATIONAL_PROJECT')) | specific_relation IN TYPEOF(op));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_organizational_project_relationship(x[i], relatives + relation.relating_organizational_project, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);
+      			</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="person_organization_schema.acyclic_person_type_definition_relationship">FUNCTION <b>acyclic_person_type_definition_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.person_type_definition_relationship">person_type_definition_relationship</A>; relatives : SET OF <A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.person_type_definition">person_type_definition</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>
+   LOCAL
+      x : SET OF person_type_definition_relationship;
+    END_LOCAL;
+
+    IF relation.relating_person_type_definition IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(ptdef &lt;* bag_to_set(USEDIN(relation.relating_person_type_definition, 'PERSON_ORGANIZATION_SCHEMA.' + 'PERSON_TYPE_DEFINITION_RELATIONSHIP.' + 'RELATED_PERSON_TYPE_DEFINITION')) | specific_relation IN TYPEOF(ptdef));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_person_type_definition_relationship(x[i], relatives + relation.relating_person_type_definition, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);
+			</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="person_organization_schema.acyclic_position_in_organization_relationship">FUNCTION <b>acyclic_position_in_organization_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.position_in_organization_relationship">position_in_organization_relationship</A>; relatives : SET OF <A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.position_in_organization">position_in_organization</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>
+   LOCAL
+      x : SET OF position_in_organization_relationship;
+    END_LOCAL;
+
+    IF relation.relating_position_in_organization IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(piorg &lt;* bag_to_set(USEDIN(relation.relating_position_in_organization, 'PERSON_ORGANIZATION_SCHEMA.' + 'POSITION_IN_ORGANIZATION_RELATIONSHIP.' + 'RELATED_POSITION_IN_ORGANIZATION')) | specific_relation IN TYPEOF(piorg));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_position_in_organization_relationship(x[i], relatives + relation.relating_position_in_organization, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);
+			</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;person_organization_schema<br></code></body>
+</HTML>

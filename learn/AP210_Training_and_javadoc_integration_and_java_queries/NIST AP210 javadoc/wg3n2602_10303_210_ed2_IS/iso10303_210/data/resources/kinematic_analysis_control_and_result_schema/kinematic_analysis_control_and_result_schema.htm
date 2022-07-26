@@ -1,0 +1,116 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: kinematic_analysis_control_and_result_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: kinematic_analysis_control_and_result_schema</h2>
+      <p><i>Source : ISO 10303-104</i></p><code><br><br><a name="kinematic_analysis_control_and_result_schema">SCHEMA <b>kinematic_analysis_control_and_result_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/kinematic_motion_representation_schema/kinematic_motion_representation_schema.htm#kinematic_motion_representation_schema">kinematic_motion_representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-105<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/kinematic_motion_representation_schema/kinematic_motion_representation_schema.htm#kinematic_motion_representation_schema.kinematic_path">kinematic_path</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/kinematic_motion_representation_schema/kinematic_motion_representation_schema.htm#kinematic_motion_representation_schema.motion_parameter_measure">motion_parameter_measure</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/kinematic_structure_schema/kinematic_structure_schema.htm#kinematic_structure_schema">kinematic_structure_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-105<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/kinematic_structure_schema/kinematic_structure_schema.htm#kinematic_structure_schema.kinematic_joint">kinematic_joint</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/kinematic_structure_schema/kinematic_structure_schema.htm#kinematic_structure_schema.kinematic_link_representation">kinematic_link_representation</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/kinematic_structure_schema/kinematic_structure_schema.htm#kinematic_structure_schema.mechanism">mechanism</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/kinematic_structure_schema/kinematic_structure_schema.htm#kinematic_structure_schema.pair_value">pair_value</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/kinematic_structure_schema/kinematic_structure_schema.htm#kinematic_structure_schema.rigid_placement">rigid_placement</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema">geometry_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-42<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_context">geometric_representation_context</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>);
+         <br><br></code><code><br><A NAME="kinematic_analysis_control_and_result_schema.interpolation_type">TYPE </A><b>interpolation_type</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (undefined,<br>&nbsp;&nbsp;&nbsp;&nbsp;synchronous,<br>&nbsp;&nbsp;&nbsp;&nbsp;linear);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="kinematic_analysis_control_and_result_schema.kinematic_analysis_definition">TYPE </A><b>kinematic_analysis_definition</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#kinematic_analysis_control_and_result_schema.interpolated_configuration_sequence">interpolated_configuration_sequence</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#kinematic_analysis_control_and_result_schema.prescribed_path">prescribed_path</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="kinematic_analysis_control_and_result_schema.kinematic_result">TYPE </A><b>kinematic_result</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#kinematic_analysis_control_and_result_schema.interpolated_configuration_sequence">interpolated_configuration_sequence</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#kinematic_analysis_control_and_result_schema.resulting_path">resulting_path</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="kinematic_analysis_control_and_result_schema.configuration_definition">ENTITY <b>configuration_definition</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.configuration_definition.pair_values">pair_values : </A>SET[1:?] OF <A HREF="../../../data/resources/kinematic_structure_schema/kinematic_structure_schema.htm#kinematic_structure_schema.pair_value">pair_value</A>;<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.configuration_definition.t_parameter">t_parameter : </A><A HREF="../../../data/resources/kinematic_motion_representation_schema/kinematic_motion_representation_schema.htm#kinematic_motion_representation_schema.motion_parameter_measure">motion_parameter_measure</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="kinematic_analysis_control_and_result_schema.configuration_interpolation">ENTITY <b>configuration_interpolation</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.configuration_interpolation.previous_configuration_definition">previous_configuration_definition : </A><A HREF="#kinematic_analysis_control_and_result_schema.configuration_definition">configuration_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.configuration_interpolation.next_configuration_definition">next_configuration_definition : </A><A HREF="#kinematic_analysis_control_and_result_schema.configuration_definition">configuration_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.configuration_interpolation.interpolation">interpolation : </A><A HREF="#kinematic_analysis_control_and_result_schema.interpolation_type">interpolation_type</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="kinematic_analysis_control_and_result_schema.founded_kinematic_path">ENTITY <b>founded_kinematic_path</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>.<A NAME="kinematic_analysis_control_and_result_schema.founded_kinematic_path.items">items : </A>SET[1:?] OF <A HREF="../../../data/resources/kinematic_motion_representation_schema/kinematic_motion_representation_schema.htm#kinematic_motion_representation_schema.kinematic_path">kinematic_path</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>.<A NAME="kinematic_analysis_control_and_result_schema.founded_kinematic_path.context_of_items">context_of_items : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_context">geometric_representation_context</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.founded_kinematic_path.paths">paths : </A>SET[1:?] OF <A HREF="../../../data/resources/kinematic_motion_representation_schema/kinematic_motion_representation_schema.htm#kinematic_motion_representation_schema.kinematic_path">kinematic_path</A> := SELF\representation.items;<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.founded_kinematic_path.founding">founding : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_context">geometric_representation_context</A> := SELF\representation.context_of_items;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="kinematic_analysis_control_and_result_schema.interpolated_configuration_sequence">ENTITY <b>interpolated_configuration_sequence</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.interpolated_configuration_sequence.interpolation">interpolation : </A>SET[1:?] OF <A HREF="#kinematic_analysis_control_and_result_schema.configuration_interpolation">configuration_interpolation</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="kinematic_analysis_control_and_result_schema.kinematic_analysis_consistency">ENTITY <b>kinematic_analysis_consistency</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.kinematic_analysis_consistency.control">control : </A><A HREF="#kinematic_analysis_control_and_result_schema.kinematic_control">kinematic_control</A>;<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.kinematic_analysis_consistency.result">result : </A><A HREF="#kinematic_analysis_control_and_result_schema.kinematic_analysis_result">kinematic_analysis_result</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.kinematic_analysis_consistency.wr:wr1">WR1: control.controlled_mechanism :=: result.analysed_mechanism;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="kinematic_analysis_control_and_result_schema.kinematic_analysis_result">ENTITY <b>kinematic_analysis_result</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.kinematic_analysis_result.analysed_mechanism">analysed_mechanism : </A><A HREF="../../../data/resources/kinematic_structure_schema/kinematic_structure_schema.htm#kinematic_structure_schema.mechanism">mechanism</A>;<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.kinematic_analysis_result.contained_kinematic_results">contained_kinematic_results : </A>SET[1:?] OF <A HREF="#kinematic_analysis_control_and_result_schema.kinematic_result">kinematic_result</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.kinematic_analysis_result.wr:wr1">WR1: (SIZEOF (QUERY (result &lt;* contained_kinematic_results |       'KINEMATIC_ANALYSIS_CONTROL_AND_RESULT_SCHEMA.RESULTING_PATH'
+            IN TYPEOF (result)))       &gt; 0)     XOR     (SIZEOF (QUERY (result &lt;* contained_kinematic_results |       (('KINEMATIC_ANALYSIS_CONTROL_AND_RESULT_SCHEMA.'+
+            'INTERPOLATED_CONFIGURATION_SEQUENCE' IN TYPEOF (result))              AND       (SIZEOF (QUERY (sequence &lt;* result\     
+            interpolated_configuration_sequence.interpolation |                (sequence.interpolation &lt;&gt; undefined ))) &gt; 0)))) = 0);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="kinematic_analysis_control_and_result_schema.kinematic_control">ENTITY <b>kinematic_control</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.kinematic_control.controlled_mechanism">controlled_mechanism : </A><A HREF="../../../data/resources/kinematic_structure_schema/kinematic_structure_schema.htm#kinematic_structure_schema.mechanism">mechanism</A>;<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.kinematic_control.contained_kinematic_programs">contained_kinematic_programs : </A>SET[1:?] OF <A HREF="#kinematic_analysis_control_and_result_schema.kinematic_analysis_definition">kinematic_analysis_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="kinematic_analysis_control_and_result_schema.motion_link_relationship">ENTITY <b>motion_link_relationship</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#kinematic_analysis_control_and_result_schema.prescribed_path">prescribed_path</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#kinematic_analysis_control_and_result_schema.resulting_path">resulting_path</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>.<A NAME="kinematic_analysis_control_and_result_schema.motion_link_relationship.rep_1">rep_1 : </A><A HREF="#kinematic_analysis_control_and_result_schema.founded_kinematic_path">founded_kinematic_path</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>.<A NAME="kinematic_analysis_control_and_result_schema.motion_link_relationship.rep_2">rep_2 : </A><A HREF="../../../data/resources/kinematic_structure_schema/kinematic_structure_schema.htm#kinematic_structure_schema.kinematic_link_representation">kinematic_link_representation</A>;<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.motion_link_relationship.related_frame">related_frame : </A><A HREF="../../../data/resources/kinematic_structure_schema/kinematic_structure_schema.htm#kinematic_structure_schema.rigid_placement">rigid_placement</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.motion_link_relationship.motion">motion : </A><A HREF="../../../data/resources/kinematic_analysis_control_and_result_schema/kinematic_analysis_control_and_result_schema.htm#kinematic_analysis_control_and_result_schema.founded_kinematic_path">founded_kinematic_path</A> := SELF\representation_relationship.rep_1;<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.motion_link_relationship.frame_link">frame_link : </A><A HREF="../../../data/resources/kinematic_structure_schema/kinematic_structure_schema.htm#kinematic_structure_schema.kinematic_link_representation">kinematic_link_representation</A> := SELF\representation_relationship.rep_2;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.motion_link_relationship.wr:wr1">WR1: related_frame IN frame_link\representation.items;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="kinematic_analysis_control_and_result_schema.prescribed_path">ENTITY <b>prescribed_path</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#kinematic_analysis_control_and_result_schema.motion_link_relationship">motion_link_relationship</A>);<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.prescribed_path.controlling_joints">controlling_joints : </A>
+         OPTIONAL 
+         SET[1:6] OF <A HREF="../../../data/resources/kinematic_structure_schema/kinematic_structure_schema.htm#kinematic_structure_schema.kinematic_joint">kinematic_joint</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="kinematic_analysis_control_and_result_schema.resulting_path">ENTITY <b>resulting_path</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#kinematic_analysis_control_and_result_schema.motion_link_relationship">motion_link_relationship</A>);<br>
+         &nbsp;&nbsp;<A NAME="kinematic_analysis_control_and_result_schema.resulting_path.controlling_joints">controlling_joints : </A>SET[1:?] OF <A HREF="../../../data/resources/kinematic_structure_schema/kinematic_structure_schema.htm#kinematic_structure_schema.kinematic_joint">kinematic_joint</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;kinematic_analysis_control_and_result_schema<br></code></body>
+</HTML>

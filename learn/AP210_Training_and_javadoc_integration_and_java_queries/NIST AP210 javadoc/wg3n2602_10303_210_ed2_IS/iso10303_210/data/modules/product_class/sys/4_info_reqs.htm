@@ -1,0 +1,1134 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Product class">
+      <META name="DC.Dates" content="2009-04-30 12:26:13">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Product class">
+      <META name="DC.Subject" content="module, product class, specification, specification category, Boolean specification expression">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6254">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5475">
+      <META name="SC4.version" content="3">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6563">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6564">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6565">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-04-30 12:26:13">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.36">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.16">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.22">
+      <TITLE>ISO/TS 10303-1103:2009 Product class</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Product class</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1103:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#rules">5.2.3 MIM rule definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Product class</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Product_class_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="product_class_arm">
+            SCHEMA Product_class_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm">Identification_assignment_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1021<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/product_concept_identification/sys/4_info_reqs.htm#product_concept_identification_arm">Product_concept_identification_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1060<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/group/sys/4_info_reqs.htm#group_arm">Group_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1113<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Identification_assignment_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1021</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Product_concept_identification_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1060</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Group_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1113</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="product_class_arm.expression_operator">4.2.1 expression_operator</a>
+         &nbsp;&nbsp;<a href="../../product_class/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      		
+      <p>The <b>expression_operator</b> type is an enumeration of the following Boolean operators:
+      </p>
+      		
+      <ul>
+         			
+         <li>
+            				<b>or_operator</b>;
+         </li>
+         			
+         <li>
+            				<b>and_operator</b>;
+         </li>
+         			
+         <li>
+            				<b>oneof_operator</b>;
+         </li>
+         			
+         <li>
+            				<b>not_operator</b>.
+         </li>
+         		
+      </ul>
+      		
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            These operators can be used in a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a>.</small></p>
+      		
+      <p>In the case where these operators are used in a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a>, evaluation of the operation is done in the context of a product.
+         The result depends on the operators in the expression and on whether that product, that may be represented within an instance
+         of  <a href="../../../modules/specified_product/sys/4_info_reqs.htm#specified_product_arm.product_specification"><b>Product_specification</b></a>, possesses or not the specifications that are referred to in the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a>.
+         
+      </p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            expression_operator =
+            
+            ENUMERATION
+            
+            OF
+            <br>
+            &nbsp;&nbsp; 
+            (or_operator,<br>&nbsp;&nbsp;&nbsp;&nbsp;and_operator,<br>&nbsp;&nbsp;&nbsp;&nbsp;oneof_operator,<br>&nbsp;&nbsp;&nbsp;&nbsp;not_operator);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <p><u>Enumerated item definitions:</u></p>
+      <p class="expressdescription"><b><a name="product_class_arm.expression_operator.or_operator">or_operator:
+               </a></b>
+         a logical operation that is true if at least one of the operands is true.
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.expression_operator.and_operator">and_operator:
+               </a></b>
+         a logical operation that is true if every operand is true.
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.expression_operator.oneof_operator">oneof_operator:
+               </a></b>
+         a logical operation that is true if only one of the operands is true.
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.expression_operator.not_operator">not_operator:
+               </a></b>
+         a logical operation that is true if none of the operands is true.
+         
+      </p>
+      <h2><a name="product_class_arm.id_for_class">4.2.2 id_for_class</a>
+         &nbsp;&nbsp;<a href="../../product_class/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>id_for_class</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_item">identification_item</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#product_class_arm.product_class">Product_class</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            id_for_class =
+            
+            EXTENSIBLE
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/identification_assignment/sys/4_info_reqs.htm#identification_assignment_arm.identification_item">identification_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#product_class_arm.product_class">Product_class</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="product_class_arm.specification_for_category">4.2.3 specification_for_category</a>
+         &nbsp;&nbsp;<a href="../../product_class/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>specification_for_category</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/group/sys/4_info_reqs.htm#group_arm.groupable_item">groupable_item</A></b> type. 
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            specification_for_category =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/group/sys/4_info_reqs.htm#group_arm.groupable_item">groupable_item</A>;<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="product_class_arm.specification_operand_select">4.2.4 specification_operand_select</a>
+         &nbsp;&nbsp;<a href="../../product_class/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>specification_operand_select</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#product_class_arm.specification">Specification</A></b>
+         and
+         <b><A HREF="#product_class_arm.specification_expression">Specification_expression</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            specification_operand_select =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#product_class_arm.specification">Specification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#product_class_arm.specification_expression">Specification_expression</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="product_class_arm.class_category_association">4.3.1 Class_category_association</a>
+         &nbsp;&nbsp;<a href="../../product_class/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityclass_category_association"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      		
+      <p>A <b>Class_category_association</b> is the association of a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> with a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+      </p>
+      		
+      <p>This assignment specifies that the related category of specifications is relevant for the products of the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>. In addition, it specifies if the usage of one or more specifications belonging to this <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a>, is mandatory or optional for all products of that <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+      </p>
+      		
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            A category of specifications characterizing the available colours may be associated with a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> characterizing a family of seats.</small></p>
+      		
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            The assignment of a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> to a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> does not replace the association of single members of the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> to the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+            </small></p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Class_category_association;<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_product_class : <A HREF="#product_class_arm.product_class">Product_class</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;mandatory : BOOLEAN;<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_category : <A HREF="#product_class_arm.specification_category">Specification_category</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="product_class_arm.class_category_association.associated_product_class">associated_product_class:
+               </a></b>
+         the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> for which the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> is relevant.
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.class_category_association.mandatory">mandatory:
+               </a></b>a boolean value that specifies whether the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> instances referring to the associated <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> have to be used or may be used (optional) for products within the referenced <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>. A value of 'true' indicates that the usage is mandatory. 
+      </p>
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            The <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> instance 'additional optional features' may be considered as optional while the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> instance 'colour' is usually a mandatory category.</small></p>
+      <p class="expressdescription"><b><a name="product_class_arm.class_category_association.associated_category">associated_category:
+               </a></b>
+         the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> that is associated with the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+         
+      </p>
+      <h2><a name="product_class_arm.class_condition_association">4.3.2 Class_condition_association</a>
+         &nbsp;&nbsp;<a href="../../product_class/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityclass_condition_association"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      		
+      <p>A <b>Class_condition_association</b> is the association of a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a> with a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+      </p>
+      		
+      <p>This assignment specifies that the related specification expression is relevant for the products of the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+      </p>
+      		
+      <p>The meaning and context of use of this association is specified further by the attribute <b>condition_type</b> .
+         
+      </p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Class_condition_association;<br>
+            
+            
+            
+            &nbsp;&nbsp;condition_type : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_product_class : <A HREF="#product_class_arm.product_class">Product_class</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_condition : <A HREF="#product_class_arm.specification_expression">Specification_expression</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="product_class_arm.class_condition_association.condition_type">condition_type:
+               </a></b>specifies the meaning of the association.
+      </p>
+      <p>Where applicable, the following values shall be used:</p>
+      <ul>
+         			
+         <li>'design case': the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a> specifies a condition when a given object has to be designed and verified; 
+            
+            <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+                  This value of the <b>condition_type</b> may be used when the <b>Class_condition_association</b> is referred to by a <a href="../../../modules/specification_based_configuration/sys/4_info_reqs.htm#specification_based_configuration_arm.configuration"><b>Configuration</b></a> with <a href="../../../modules/specification_based_configuration/sys/4_info_reqs.htm#specification_based_configuration_arm.configuration.configuration_type"><b>configuration_type</b></a> 'design'. 
+                  </small></p>
+            				
+            <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+                  This value may be used to precise when a given <a href="../../../modules/functional_breakdown/sys/4_info_reqs.htm#functional_breakdown_arm.functional_element_definition"><b>Functional_element_definition</b></a> or a given <a href="../../../modules/physical_breakdown/sys/4_info_reqs.htm#physical_breakdown_arm.physical_element_definition"><b>Physical_element_definition</b></a> has to be studied by the design department so that it provides solutions appropriate for the case specified by <b>associated_condition</b> and <b>associated_product_class</b>.
+                  		</small></p>
+            			
+         </li>
+         			
+         <li>'identification': the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a> specifies a condition that enables to distinguish the associated <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> from other <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> instances.
+            This value is not applicable for a top level node in a hierarchy of <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> instances.
+            This identification is part of the identification of all sub classes of this<a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>;
+            
+         </li>
+         			
+         <li>'part usage': the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a> specifies a condition for the usage of particular parts in the products of the associated <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> or of particular process plans or process operations to manufacture these products;
+            
+            <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+                  The parts may be referred to as elements of an <a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.alternative_solution"><b>Alternative_solution</b></a>, or as instances of <a href="../../../modules/generic_product_occurrence/sys/4_info_reqs.htm#generic_product_occurrence_arm.product_occurrence"><b>Product_occurrence</b></a>.
+                  </small></p>
+            			
+         </li>
+         			
+         <li>'validity': the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a> specifies a condition that is used to verify products, represented as instances of the <a href="../../../modules/specified_product/sys/4_info_reqs.htm#specified_product_arm.product_specification"><b>Product_specification</b></a> entity, belonging to the associated <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+            The actual set of specifications implemented within any <a href="../../../modules/specified_product/sys/4_info_reqs.htm#specified_product_arm.product_specification"><b>Product_specification</b></a>, member of the <b>associated_product_class</b>, shall be such the associated <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a> evaluates to TRUE.
+            If it evaluates to FALSE, those products are invalid.
+            
+         </li>
+         		
+      </ul>
+      <p>In the cases 'part usage' and 'design case', the <b>Class_condition_association</b> shall be referenced by at least one <a href="../../../modules/specification_based_configuration/sys/4_info_reqs.htm#specification_based_configuration_arm.configuration"><b>Configuration</b></a> instance. 
+         
+      </p>
+      <p>In the cases 'identification' and 'validity', the <b>associated_condition</b> applies to all products belonging to the <b>associated_product_class</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.class_condition_association.associated_product_class">associated_product_class:
+               </a></b>
+         the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> for which the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a> is valid.
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.class_condition_association.description">description:
+               </a></b>a text that provides additional information about the <b>Class_condition_association.</b>
+         		
+      </p>
+      <p>The description need not be specified for a particular <b>Class_condition_association</b>.
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.class_condition_association.associated_condition">associated_condition:
+               </a></b>
+         the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a> that is assigned to the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+         
+      </p>
+      <h2><a name="product_class_arm.class_inclusion_association">4.3.3 Class_inclusion_association</a>
+         &nbsp;&nbsp;<a href="../../product_class/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityclass_inclusion_association"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Class_inclusion_association</b> is the assignment of a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_inclusion"><b>Specification_inclusion</b></a> to a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>. This assignment contains the information that a particular <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_inclusion"><b>Specification_inclusion</b></a> applies for all products of that <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+      
+      <p>This assignment specifies that the related specification inclusion is relevant for the products of the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+      </p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Class_inclusion_association;<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_product_class : <A HREF="#product_class_arm.product_class">Product_class</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_inclusion : <A HREF="#product_class_arm.specification_inclusion">Specification_inclusion</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="product_class_arm.class_inclusion_association.associated_product_class">associated_product_class:
+               </a></b>
+         the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> for which the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_inclusion"><b>Specification_inclusion</b></a> is relevant.
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.class_inclusion_association.description">description:
+               </a></b>additional information about the <b>Class_inclusion_association</b>.
+      </p>
+      <p>The description need not be specified for a particular <b>Class_inclusion_association</b>.
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.class_inclusion_association.associated_inclusion">associated_inclusion:
+               </a></b>
+         the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_inclusion"><b>Specification_inclusion</b></a> that is associated with the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+         
+      </p>
+      <h2><a name="product_class_arm.class_specification_association">4.3.4 Class_specification_association</a>
+         &nbsp;&nbsp;<a href="../../product_class/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityclass_specification_association"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Class_specification_association</b> is an association of a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> with a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>. 
+      
+      <p>This assignment specifies that the related specification is relevant for the products of the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+         This <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> serves as a potential characteristic of all products belonging to the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+      </p>
+      		
+      <p>The meaning of this association is specified further by the attribute <b>association_type</b>.
+         
+      </p>
+      		
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            Effectivity information may be added to characterize the period when the specification is relevant within the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>, with that considered association type</small></p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Class_specification_association;<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_product_class : <A HREF="#product_class_arm.product_class">Product_class</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;association_type : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_specification : <A HREF="#product_class_arm.specification">Specification</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="product_class_arm.class_specification_association.associated_product_class">associated_product_class:
+               </a></b>
+         the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> for which the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> is relevant.
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.class_specification_association.association_type">association_type:
+               </a></b>the <b>association_type</b> specifies the kind of availability of a particular <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> in a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>. 
+      </p>
+      <p>Where applicable, the following values shall be used:</p>
+      <ul>
+         			
+         <li>'availability': the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> is a potential characteristic of any product belonging to a high level <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>. It is not specified if this is an option or a standard;
+            
+            <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+                  'brown colour' or 'white colour' are available for a generic product of the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> instance 'Family 1'.
+                  </small></p>
+            			
+         </li>
+         			
+         <li>'identification': the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> is a characteristic that enables to distinguish the associated <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> from other <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> instances. This is a kind of non replaceable standard. This value is not applicable for a top level node in a hierarchy of
+            <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> instances. This identification is part of the identification of all sub classes of this <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>;
+            
+            <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+                   '3' is the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> instance that distinguish all the sofas with 3 cushions from the 4 cushions sofas in the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> instance that includes 3 and 4 cushions sofas.</small></p>
+            			
+         </li>
+         			
+         <li>'non replaceable standard': the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> is a characteristic of all products belonging to the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>;
+            
+            <p class="example"><small><a name="example_3">EXAMPLE&nbsp;3</a>&nbsp;&nbsp;
+                  South East Asia climate zone is a non replaceable standard for a product that is produced for use in that particular geographic
+                  area.</small></p>
+            			
+         </li>
+         			
+         <li>'option': the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> instance is a characteristic of a product if explicitly chosen. The relevant <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> instance replaces another <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> instance of the same <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> instance if the replaced <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> instance is associated with the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> as replaceable standard; 
+            
+            <p class="example"><small><a name="example_4">EXAMPLE&nbsp;4</a>&nbsp;&nbsp;
+                  Additional features are common customization options proposed to the customer.</small></p>
+            			
+         </li>
+         			
+         <li>'replaceable standard': the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> is a default characteristic of the products belonging to the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> as long as no other <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> of the same <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> is chosen;
+            
+            <p class="example"><small><a name="example_5">EXAMPLE&nbsp;5</a>&nbsp;&nbsp;
+                   'lack painting' is a replaceable standard for <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> instance 'Furniture family 1'; it can be replaced by other types of painting which is another <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> instance of the same <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> instance 'finishing'.</small></p>
+            			
+         </li>
+         			
+         <li>'design case': the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a> specifies a condition when a given object has to be designed and verified; 
+            
+            <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+                  This value of the <b>association_type</b> may be used when the <b>Class_specification_association</b> is referred to by a <a href="../../../modules/specification_based_configuration/sys/4_info_reqs.htm#specification_based_configuration_arm.configuration"><b>Configuration</b></a> with <a href="../../../modules/specification_based_configuration/sys/4_info_reqs.htm#specification_based_configuration_arm.configuration.configuration_type"><b>configuration_type</b></a> 'design'. 
+                  </small></p>
+            				
+            <p class="example"><small><a name="example_6">EXAMPLE&nbsp;6</a>&nbsp;&nbsp;
+                  This value may be used to precise when a given <a href="../../../modules/functional_breakdown/sys/4_info_reqs.htm#functional_breakdown_arm.functional_element_definition"><b>Functional_element_definition</b></a> or a given <a href="../../../modules/physical_breakdown/sys/4_info_reqs.htm#physical_breakdown_arm.physical_element_definition"><b>Physical_element_definition</b></a> has to be studied by the design department so that it provides solutions appropriate for the case specified by the <b>associated_specification</b> and <b>associated_product_class</b>.
+                  </small></p>
+            			
+         </li>
+         			
+         <li>'part usage': the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a> specifies a condition for the usage of particular parts in the products of the associated <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> or of particular process plans or process operations to manufacture these products.
+            
+            <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+                  The parts may be referred to as elements of an <a href="../../../modules/alternative_solution/sys/4_info_reqs.htm#alternative_solution_arm.alternative_solution"><b>Alternative_solution</b></a>, or as instances of <a href="../../../modules/generic_product_occurrence/sys/4_info_reqs.htm#generic_product_occurrence_arm.product_occurrence"><b>Product_occurrence</b></a>.
+                  </small></p>
+            			
+         </li>
+         		
+      </ul>
+      <p>In the cases 'part usage' and 'design case', the <b>Class_specification_association</b> shall be referenced by at least one <a href="../../../modules/specification_based_configuration/sys/4_info_reqs.htm#specification_based_configuration_arm.configuration"><b>Configuration</b></a> instance. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.class_specification_association.associated_specification">associated_specification:
+               </a></b>
+         the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> that is associated with the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+         
+      </p>
+      <h2><a name="product_class_arm.product_class">4.3.5 Product_class</a>
+         &nbsp;&nbsp;<a href="../../product_class/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityproduct_class"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Product_class</b> is a type of <a href="../../../modules/product_concept_identification/sys/4_info_reqs.htm#product_concept_identification_arm.product_concept"><b>Product_concept</b></a> that may be characterized with specifications.
+      
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            A marketed family of wardrobes may be characterized by specifications of colour, number of doors and height.
+            </small></p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Product_class<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_concept_identification/sys/4_info_reqs.htm#product_concept_identification_arm.product_concept">Product_concept</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;version_id : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;level_type : 
+            OPTIONAL 
+            STRING;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: NOT EXISTS(SELF\Product_concept.target_market);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="product_class_arm.product_class.version_id">version_id:
+               </a></b>the version identifier of the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+      </p>
+      <p>The <b>version_id</b> need not be specified for a particular <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.product_class.level_type">level_type:
+               </a></b>the level or category of this <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> in a hierarchical structure of product classes.
+      </p>
+      <p>The <b>level_type</b> need not be specified for a particular <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="product_class_arm.product_class.wr:wr1">WR1:
+               </a></b>the <a href="../../../modules/product_concept_identification/sys/4_info_reqs.htm#product_concept_identification_arm.product_concept.target_market"><b>target_market</b></a> attribute shall not be specified.
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            When needed, characterization of the <a href="../../../modules/product_concept_identification/sys/4_info_reqs.htm#product_concept_identification_arm.product_concept.target_market"><b>target_market</b></a> for a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> can be done, as for other product features, using the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> and <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a>entity data types.
+            </small></p>
+      <h2><a name="product_class_arm.product_class_relationship">4.3.6 Product_class_relationship</a>
+         &nbsp;&nbsp;<a href="../../product_class/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityproduct_class_relationship"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Product_class_relationship</b> is a relationship between two instances of <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+      
+      <p>Instances of <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> that are related to each other by a <b>Product_class_relationship</b>, do not inherit any characteristics from each other.
+         
+      </p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Product_class_relationship;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;relating : <A HREF="#product_class_arm.product_class">Product_class</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;related : <A HREF="#product_class_arm.product_class">Product_class</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;relation_type : STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="product_class_arm.product_class_relationship.description">description:
+               </a></b>
+         a text that provides additional information about the <b>Product_class_relationship</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.product_class_relationship.relating">relating:
+               </a></b>
+         one of the instances of <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> that is a part of the relationship.
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.product_class_relationship.related">related:
+               </a></b>
+         the other instance of <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> that is a part of the relationship. If one element of the relationship is dependent up on the other, this attribute shall
+         be the dependent one.
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.product_class_relationship.relation_type">relation_type:
+               </a></b>the meaning of the relationship.
+      </p>
+      <p> Where applicable the following values shall be used:</p>
+      <ul>
+         			
+         <li>'derivation': the related <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> is derived from the relating <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>;
+         </li>
+         			
+         <li>'hierarchy': the relating <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> is on a higher level in the hierarchy of <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> instances than the related <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>;
+         </li>
+         			
+         <li>'substitution': the related <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> replaces the relating <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>;
+         </li>
+         			
+         <li>'version sequence': the relating <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> is the preceding version and the related <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> is the following version.
+         </li>
+         		
+      </ul>
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            The following is an example of hierarchical structure of <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> instances, the 
+            hierarchical relationships being established with instances of <b>Product_class_relationship</b> with <b>relation_type</b> 'hierarchy':</small></p>
+      <ul>
+         				
+         <li><small>a high level <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> instance (<a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class.level_type"><b>level_type</b></a> = enterprise) may be used to define all the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> and <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> instances for all <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> instances of an enterprise 
+               with several brands and companies;</small></li>
+         				
+         <li><small>a second level <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> instance (<a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class.level_type"><b>level_type</b></a> = designer) may be used to group all products that are based on the same concept, the same designer; these products may belong
+               to different brands;</small></li>
+         				
+         <li><small>a third level <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> instance (<a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class.level_type"><b>level_type</b></a> = product family) may be used to group all products that have a common base and a fixed set of characteristics (specification
+               categories);</small></li>
+         				
+         <li><small>a fourth level <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> instance (<a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class.level_type"><b>level_type</b></a> = product type) may represent products that are offered to the market; this level of <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> may be defined by the marketing department. A set of specifications sufficient to produce the product is associated with
+               this level of <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>. Within this association, a distinction is made between standard characteristics and options that have to be chosen or that
+               may be chosen by the customer.
+               
+               <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+                     the 'number of doors' is a standard characteristics.</small></p>
+               					
+               <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+                     the 'colour' is an option that shall be choose by a customer.</small></p>
+               					
+               <p class="example"><small><a name="example_3">EXAMPLE&nbsp;3</a>&nbsp;&nbsp;
+                     the 'additional features' are options that may be choose by a customer.</small></p>
+               				</small></li>
+         			
+      </ul>
+      <h2><a name="product_class_arm.specification">4.3.7 Specification</a>
+         &nbsp;&nbsp;<a href="../../product_class/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityspecification"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      		
+      <p>A <b>Specification</b> is a characteristic of products to be proposed to customers or users.
+      </p>
+      		
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            A <b>Specification</b> may be used to discriminate a product from other members of the same <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>. 
+            </small></p>
+      		
+      <p>A <b>Specification</b> refers to a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> that completes the semantics of the <b>Specification</b>.
+      </p>
+      		
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            'green', 'white', or 'black' are examples for specifications belonging to the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> of type 'colour'. 'set of 3 drawers' or 'set of 5 drawers' are examples for specifications belonging to the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> of type 'additional feature'.
+            </small></p>
+      		
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            A <b>Specification</b> may be a characteristic of the members of more than one <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> using <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.class_specification_association"><b>Class_specification_association</b></a> instances.
+            </small></p>
+      		
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            A <b>Specification</b> in combination with a <a href="../../../modules/specification_based_configuration/sys/4_info_reqs.htm#specification_based_configuration_arm.configuration"><b>Configuration</b></a> may be used to define under which conditions a product is used for a product of a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>.
+            </small></p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Specification;<br>
+            
+            
+            
+            &nbsp;&nbsp;id : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;version_id : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;name : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;category : <A HREF="#product_class_arm.specification_category">Specification_category</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;package : BOOLEAN;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification.id">id:
+               </a></b>
+         the identifier of the <b>Specification</b>.
+         It shall be unique within the scope of a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification.version_id">version_id:
+               </a></b>the identification of the version of the <b>Specification</b>.
+      </p>
+      <p> 
+         The <b>version_id</b> need not be specified for a particular <b>Specification</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification.name">name:
+               </a></b>the word or group of words by which the <b>Specification</b> is referred.
+      </p>
+      <p>The <b>name</b> need not be specified for a particular <b>Specification</b>. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification.description">description:
+               </a></b>additional information about the <b>Specification</b>.
+      </p>
+      <p>  
+         The <b>description</b> need not be specified for a particular <b>Specification</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification.category">category:
+               </a></b>the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> which the <b>Specification</b> belongs.
+      </p>
+      <p class="note"><small><a name="note_4">NOTE&nbsp;4</a>&nbsp;&nbsp;
+            The <b>category</b> completes the semantics of the <b>Specification</b>.</small></p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification.package">package:
+               </a></b>a boolean value that specifies whether this <b>Specification</b> represents a package of specifications. 
+         Such a <b>Specification</b> combines those specifications that shall be offered to the market as a set.
+      </p>
+      <p>In the case where package is 'true', there shall be exactly one <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_inclusion"><b>Specification_inclusion</b></a> per <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> considered, that refers to this <b>Specification</b> as <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_inclusion.if_condition"><b>if_condition</b></a>. 
+         The <b>Specification</b> instances that are members of the package, shall be identified within a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a> referred to  by the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_inclusion"><b>Specification_inclusion</b></a> as <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_inclusion.included_specification"><b>included_specification</b></a>.
+      </p>
+      <p class="note"><small><a name="note_5">NOTE&nbsp;5</a>&nbsp;&nbsp;
+            Commercial packages may be defined by the marketing department.</small></p>
+      <p class="note"><small><a name="note_6">NOTE&nbsp;6</a>&nbsp;&nbsp;
+            Usually the members of a package belong to distinct specification categories.
+            </small></p>
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            A sports package for a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> of cars contains sports seats, a special steering wheel, special tires and wheels. 
+            A winter package contains heated front seats, heated windshield washers, heated exterior mirrors, and special tires.
+            </small></p>
+      <h2><a name="product_class_arm.specification_category">4.3.8 Specification_category</a>
+         &nbsp;&nbsp;<a href="../../product_class/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityspecification_category"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      		
+      <p>A <b>Specification_category</b> is the identification of a set of specifications serving the same purpose.
+      </p>
+      		
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            The category 'colours', containing the specifications 'green' and 'white' and the category 'additional features', containing
+            the specifications 'set of 3 drawers', 'set of 5 drawers', are examples for a <b>Specification_category</b>.
+            </small></p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Specification_category;<br>
+            
+            
+            
+            &nbsp;&nbsp;id : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;implicit_exclusive_condition : BOOLEAN;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification_category.id">id:
+               </a></b>the identifier of the <b>Specification_category</b> that shall be unique.
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            The scope of uniqueness is usually dependent on the form of implementation. 
+            The scope of uniqueness may be constrained by the extent of a physical file or a database.
+            </small></p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification_category.description">description:
+               </a></b>a text that provides additional information about the <b>Specification_category</b>.
+      </p>
+      <p class="example"><small><a name="example_3">EXAMPLE&nbsp;3</a>&nbsp;&nbsp;
+            
+            The description 'trim' may characterize a <b>Specification_category</b> for instances of <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> that control quality and colour of the finishing of the product including door panels and upholstery.
+            </small></p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification_category.implicit_exclusive_condition">implicit_exclusive_condition:
+               </a></b>a boolean value that specifies whether the specifications within the <b>Specification_category</b> are mutually exclusive for the production of a particular product.
+      </p>
+      <p>A value of 'true' indicates that the referenced objects are mutually exclusive.</p>
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            'additional features' is a non mutually exclusive <b>Specification_category</b> if 'set of 3 drawers' and 'door with mirror' are <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> instances in this category. 'colours' is a <b>Specification_category</b> with an <b>implicit_exclusive_condition</b> since usually the product can have only one 'colour'.
+            </small></p>
+      <p>More complex conditions can be handled using instances of <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a>.
+      </p>
+      <h2><a name="product_class_arm.specification_category_hierarchy">4.3.9 Specification_category_hierarchy</a>
+         &nbsp;&nbsp;<a href="../../product_class/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityspecification_category_hierarchy"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      		
+      <p>A <b>Specification_category_hierarchy</b> is used to build up hierarchical structures of instances of <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a>.
+      </p>
+      		
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            The <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> "Type of cover", for sofas, contains the specifications: "Leather" and "Alcantara". 
+            The <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> "Leather cover kind", containing the specifications "Buffalo cover" and "Kidskin cover", may be a <b>sub_category</b> of the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> "Type of cover".
+            </small></p>
+      		
+      <p>The fact that a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> is a <b>sub_category</b> of another <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> does not involve that this <b>sub_category</b> inherits the associations of the <b>super_category</b> with product classes.
+      </p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Specification_category_hierarchy;<br>
+            
+            
+            
+            &nbsp;&nbsp;sub_category : <A HREF="#product_class_arm.specification_category">Specification_category</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;super_category : <A HREF="#product_class_arm.specification_category">Specification_category</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification_category_hierarchy.sub_category">sub_category:
+               </a></b>
+         the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> that is the lower level of the considered hierarchy.
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification_category_hierarchy.super_category">super_category:
+               </a></b>
+         the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_category"><b>Specification_category</b></a> that is the higher level of the considered hierarchy.
+         
+      </p>
+      <h2><a name="product_class_arm.specification_expression">4.3.10 Specification_expression</a>
+         &nbsp;&nbsp;<a href="../../product_class/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityspecification_expression"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      		
+      <p>A <b>Specification_expression</b> is a combination of <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> instances formed with Boolean operations.
+      </p>
+      		
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            If color "Light blue" of sofa when selected with "Alcantara" coating requires a special finishing operation, a <b>Specification_expression</b> with the expression
+            "Light blue" AND "Alcantara", will be created to be used to define a use case of that particular process operation.
+            </small></p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Specification_expression;<br>
+            
+            
+            
+            &nbsp;&nbsp;id : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;operation : <A HREF="#product_class_arm.expression_operator">expression_operator</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;operand : SET[1:?] OF <A HREF="#product_class_arm.specification_operand_select">specification_operand_select</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: (operation &lt;&gt; not_operator) OR (SIZEOF(operand)=1);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification_expression.id">id:
+               </a></b>the identifier of the <b>Specification_expression</b>.
+      </p>
+      <p>The id need not be specified for a particular <b>Specification_expression</b>.
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification_expression.description">description:
+               </a></b>a text that provides additional information about the <b>Specification_expression</b>.
+      </p>
+      <p>
+         The description need not be specified for a particular <b>Specification_expression</b>. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification_expression.operation">operation:
+               </a></b>
+         the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.expression_operator"><b>expression_operator</b></a> used in the expression. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification_expression.operand">operand:
+               </a></b>
+         the set of instances of <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> or of <b>Specification_expression</b> that are the operands of the Boolean operation. 
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification_expression.wr:wr1">WR1:
+               </a></b>
+         There is one operand when the operation is <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.expression_operator"><b>not_operator</b></a>, with all the other operations the operands are more than one.
+         
+      </p>
+      <h2><a name="product_class_arm.specification_inclusion">4.3.11 Specification_inclusion</a>
+         &nbsp;&nbsp;<a href="../../product_class/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityspecification_inclusion"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      		
+      <p>A <b>Specification_inclusion</b> is the representation of the statement that specifies that the application of a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> or of a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a> implies the inclusion of an additional <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> or <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a>.
+      </p>
+      		
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            A <b>Specification_inclusion</b> may be used to complete the set of specifications of a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a>, introducing dependency rules between these specifications.
+            </small></p>
+      		
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            A <b>Specification_inclusion</b>, associated with a <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.product_class"><b>Product_class</b></a> "sofa", may represent the fact that the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> "Leather" implies the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a>: "3 seats" OR ("2 seats" AND "headrests").
+            Such an constraint would imply that if a customer choses a leather 2-seats sofa, he would get also headrests.
+            </small></p>
+      	
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Specification_inclusion;<br>
+            
+            
+            
+            &nbsp;&nbsp;id : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;if_condition : <A HREF="#product_class_arm.specification_operand_select">specification_operand_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;included_specification : <A HREF="#product_class_arm.specification_operand_select">specification_operand_select</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification_inclusion.id">id:
+               </a></b>the identifier of the <b>Specification_inclusion</b>.
+      </p>
+      <p> 
+         The id need not be specified for a particular <b>Specification_inclusion</b>.
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification_inclusion.description">description:
+               </a></b>a text that provides additional information about the <b>Specification_inclusion</b>.
+      </p>
+      <p>
+         The description need not be specified for a particular <b>Specification_inclusion</b>. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification_inclusion.if_condition">if_condition:
+               </a></b>
+         the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> or the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a> that serves as the condition for the inclusion. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="product_class_arm.specification_inclusion.included_specification">included_specification:
+               </a></b>
+         the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification"><b>Specification</b></a> or the <a href="../../../modules/product_class/sys/4_info_reqs.htm#product_class_arm.specification_expression"><b>Specification_expression</b></a> that is implied if the <b>if_condition</b> is met.
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Product_class_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

@@ -1,0 +1,42 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Software_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Software_arm</h2><code><br><br><a name="software_arm">SCHEMA <b>Software_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm">Document_definition_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1123<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/information_product/sys/e_exp_arm.htm#information_product_arm">Information_product_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1761<br><br></code><code><br><A NAME="software_arm.software">ENTITY <b>Software</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/information_product/sys/e_exp_arm.htm#information_product_arm.information_product">Information_product</A>);<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="software_arm.software.ur:ur1">UR1: </A>
+         SELF\<A HREF="../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>.id;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="software_arm.software_definition">ENTITY <b>Software_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/information_product/sys/e_exp_arm.htm#information_product_arm.information_definition">Information_definition</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>.<A NAME="software_arm.software_definition.defined_version">defined_version : </A><A HREF="#software_arm.software_version">Software_version</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="software_arm.software_version">ENTITY <b>Software_version</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/information_product/sys/e_exp_arm.htm#information_product_arm.information_version">Information_version</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>.<A NAME="software_arm.software_version.of_product">of_product : </A><A HREF="#software_arm.software">Software</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="software_arm.software_definition_constraint">RULE&nbsp;<b>software_definition_constraint</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="software_arm.software_definition_constraint.wr:wr1">WR1: SIZEOF ( QUERY ( pvd &lt;* Product_view_definition | ( NOT ( 'SOFTWARE_ARM.' + 'SOFTWARE_DEFINITION' IN TYPEOF (pvd) ) )
+            AND ( 'SOFTWARE_ARM.' + 'SOFTWARE_VERSION' IN TYPEOF ( pvd.defined_version) ) ) ) =0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="software_arm.software_version_constraint">RULE&nbsp;<b>software_version_constraint</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/modules/product_version/sys/4_info_reqs.htm#product_version_arm.product_version">Product_version</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="software_arm.software_version_constraint.wr:wr1">WR1: SIZEOF ( QUERY ( pv &lt;* Product_version | ( NOT ( 'SOFTWARE_ARM.' + 'SOFTWARE_VERSION' IN TYPEOF ( pv) ) ) AND ( 'SOFTWARE_ARM.'
+            + 'SOFTWARE' IN TYPEOF ( pv.of_product) ) ) ) =0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Software_arm<br></code></body>
+</HTML>

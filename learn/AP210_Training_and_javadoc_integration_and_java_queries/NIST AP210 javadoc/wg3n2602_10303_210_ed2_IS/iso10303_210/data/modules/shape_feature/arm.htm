@@ -1,0 +1,66 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Shape_feature_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Shape_feature_arm</h2><code><br><br><a name="shape_feature_arm">SCHEMA <b>Shape_feature_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/contextual_shape_positioning/sys/e_exp_arm.htm#contextual_shape_positioning_arm">Contextual_shape_positioning_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1027<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/property_assignment/sys/e_exp_arm.htm#property_assignment_arm">Property_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1030<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm">Characterizable_object_arm</A>&nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1765<br>&nbsp;&nbsp;(<A HREF="../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm.bag_to_set">bag_to_set</A>);
+         <br><br></code><code><br><A NAME="shape_feature_arm.sf_property_assignment_select">TYPE </A><b>sf_property_assignment_select</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/property_assignment/sys/e_exp_arm.htm#property_assignment_arm.property_assignment_select">property_assignment_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm.characterizable_object">Characterizable_object</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element">Shape_element</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="shape_feature_arm.instanced_feature">ENTITY <b>Instanced_feature</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_feature_arm.shape_feature_definition">Shape_feature_definition</A>, <A HREF="#shape_feature_arm.shape_feature_occurrence">Shape_feature_occurrence</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_feature_arm.placed_feature">ENTITY <b>Placed_feature</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_feature_arm.shape_feature_occurrence">Shape_feature_occurrence</A>);<br>
+         &nbsp;&nbsp;<A NAME="shape_feature_arm.placed_feature.definition">definition : </A><A HREF="#shape_feature_arm.shape_feature_definition">Shape_feature_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_feature_arm.shape_feature_definition">ENTITY <b>Shape_feature_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm.characterizable_object">Characterizable_object</A>);<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="shape_feature_arm.shape_feature_definition.feature_model">feature_model : </A>SET[1:?] OF <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A> := get_geometric_model(of_shape);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="shape_feature_arm.shape_feature_definition.of_shape">of_shape : </A><A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.item_shape">Item_shape</A> FOR described_element;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_feature_arm.shape_feature_definition.wr:wr1">WR1: EXISTS(feature_model);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_feature_arm.shape_feature_occurrence">ENTITY <b>Shape_feature_occurrence</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#shape_feature_arm.instanced_feature">Instanced_feature</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#shape_feature_arm.placed_feature">Placed_feature</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element">Shape_element</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_feature_arm.get_geometric_model">FUNCTION <b>get_geometric_model</b></A><br>&nbsp;(input : <A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.item_shape">Item_shape</A>) : SET[0:?] OF <A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>;
+         </code><pre>LOCAL
+  sda : SET OF Shape_description_association := [];
+  gm : SET OF Geometric_model := [];
+ END_LOCAL;
+ 
+  sda := bag_to_set(USEDIN(input,
+	 	'SHAPE_PROPERTY_ASSIGNMENT_ARM.' + 
+	 	'SHAPE_DESCRIPTION_ASSOCIATION.' + 'REPRESENTED_CHARACTERISTIC'));
+ 
+ REPEAT i := 1 to SIZEOF(sda) BY 1;
+  gm := gm + sda[i].representation;
+ END_REPEAT;
+ RETURN(gm);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Shape_feature_arm<br></code></body>
+</HTML>

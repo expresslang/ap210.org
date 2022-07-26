@@ -1,0 +1,62 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: General_surface_appearance_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: General_surface_appearance_arm</h2><code><br><br><a name="general_surface_appearance_arm">SCHEMA <b>General_surface_appearance_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/curve_appearance/sys/e_exp_arm.htm#curve_appearance_arm">Curve_appearance_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1003<br><br></code><code><br><A NAME="general_surface_appearance_arm.surface_side">TYPE </A><b>surface_side</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (positive,<br>&nbsp;&nbsp;&nbsp;&nbsp;negative,<br>&nbsp;&nbsp;&nbsp;&nbsp;both);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="general_surface_appearance_arm.boundary_curve_appearance">ENTITY <b>Boundary_curve_appearance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#general_surface_appearance_arm.surface_related_curve_appearance">Surface_related_curve_appearance</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="general_surface_appearance_arm.control_grid_appearance">ENTITY <b>Control_grid_appearance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#general_surface_appearance_arm.surface_related_curve_appearance">Surface_related_curve_appearance</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="general_surface_appearance_arm.parameter_line_appearance">ENTITY <b>Parameter_line_appearance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#general_surface_appearance_arm.surface_related_curve_appearance">Surface_related_curve_appearance</A>);<br>
+         &nbsp;&nbsp;<A NAME="general_surface_appearance_arm.parameter_line_appearance.number_of_u_curves">number_of_u_curves : </A>INTEGER;<br>
+         &nbsp;&nbsp;<A NAME="general_surface_appearance_arm.parameter_line_appearance.number_of_v_curves">number_of_v_curves : </A>INTEGER;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="general_surface_appearance_arm.segmentation_curve_appearance">ENTITY <b>Segmentation_curve_appearance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#general_surface_appearance_arm.surface_related_curve_appearance">Surface_related_curve_appearance</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="general_surface_appearance_arm.silhouette_curve_appearance">ENTITY <b>Silhouette_curve_appearance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#general_surface_appearance_arm.surface_related_curve_appearance">Surface_related_curve_appearance</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="general_surface_appearance_arm.surface_appearance">ENTITY <b>Surface_appearance</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="general_surface_appearance_arm.surface_appearance.side">side : </A><A HREF="#general_surface_appearance_arm.surface_side">surface_side</A>;<br>
+         &nbsp;&nbsp;<A NAME="general_surface_appearance_arm.surface_appearance.styles">styles : </A>SET[1:7] OF <A HREF="#general_surface_appearance_arm.surface_appearance_element">Surface_appearance_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="general_surface_appearance_arm.surface_appearance_element">ENTITY <b>Surface_appearance_element</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#general_surface_appearance_arm.surface_related_curve_appearance">Surface_related_curve_appearance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#general_surface_appearance_arm.surface_colour">Surface_colour</A>));<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="general_surface_appearance_arm.surface_colour">ENTITY <b>Surface_colour</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#general_surface_appearance_arm.surface_appearance_element">Surface_appearance_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="general_surface_appearance_arm.surface_colour.assigned_colour">assigned_colour : </A><A HREF="../../../data/modules/colour/sys/e_exp_arm.htm#colour_arm.colour">Colour</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="general_surface_appearance_arm.surface_related_curve_appearance">ENTITY <b>Surface_related_curve_appearance</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#general_surface_appearance_arm.boundary_curve_appearance">Boundary_curve_appearance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#general_surface_appearance_arm.control_grid_appearance">Control_grid_appearance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#general_surface_appearance_arm.parameter_line_appearance">Parameter_line_appearance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#general_surface_appearance_arm.segmentation_curve_appearance">Segmentation_curve_appearance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#general_surface_appearance_arm.silhouette_curve_appearance">Silhouette_curve_appearance</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#general_surface_appearance_arm.surface_appearance_element">Surface_appearance_element</A>);<br>
+         &nbsp;&nbsp;<A NAME="general_surface_appearance_arm.surface_related_curve_appearance.style">style : </A><A HREF="../../../data/modules/styled_curve/sys/e_exp_arm.htm#styled_curve_arm.curve_appearance">Curve_appearance</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;General_surface_appearance_arm<br></code></body>
+</HTML>

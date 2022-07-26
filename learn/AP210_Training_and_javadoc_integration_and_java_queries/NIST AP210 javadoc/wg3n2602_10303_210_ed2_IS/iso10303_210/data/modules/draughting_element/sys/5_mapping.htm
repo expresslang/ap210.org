@@ -1,0 +1,901 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Draughting element">
+      <META name="DC.Dates" content="">
+      <META name="DC.Published" content="2008-12-19">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Draughting element">
+      <META name="DC.Subject" content="module, projection curve, leader curve, dimension curve, draughting callout, fill area">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N5355">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N4707">
+      <META name="SC4.version" content="1">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N5268">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N5269">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N5270">
+      <META name="STEPMOD.module.rcs.date" content="Date">
+      <META name="STEPMOD.module.rcs.revision" content="Revision">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision">
+      <TITLE>ISO/TS 10303-1310:2008 Draughting element</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Draughting element</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1310:2008(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.4 ARM subtype constraint definition</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <h2><a name="mapping">5.1 Mapping specification</a></h2><a name="mappings"></a><p>
+         In the following, "Application element" designates any entity data
+         type defined in Clause <a href="4_info_reqs.htm">4</a>, any of its 
+         explicit attributes and any subtype constraint. 
+         "MIM element" designates any entity data type defined in 
+         Clause <a href="5_mim.htm#mim_express">5.2</a> or imported with a USE FROM
+         statement, from another EXPRESS schema, any of its 
+         attributes and any subtype constraint defined in Clause <a href="5_mim.htm#mim_express">5.2</a> or imported with a USE FROM
+         statement.
+         
+      </p>
+      <p>
+         This clause contains the mapping specification that defines how each 
+         application element of this part of ISO 10303 (see Clause <a href="4_info_reqs.htm">4</a>) maps to one
+         or more MIM elements (see Clause <a href="5_mim.htm#mim_express">5.2</a>).
+         
+      </p>
+      <p>
+         The mapping for each application element is specified in a separate subclause below. 
+         The mapping specification of an attribute of an ARM entity is a subclause of the clause that contains the mapping specification
+         of this entity.
+         Each mapping specification subclause contains up to five elements.
+         
+      </p>
+      <p><b>Title:</b>
+         The clause title contains:
+      </p>
+      <ul>
+         <li>the name of the considered ARM entity or subtype constraint, or </li>
+         <li>the name of the considered ARM entity atribute when this attribute refers to a type that is not an entity data type or a SELECT
+            type that contains or may contain entity data types, or
+         </li>
+         <li>a composite expression, &lt;attribute name&gt; to &lt;referred type&gt;, when this attribute refers to a type that is not an entity data
+            type or a SELECT type that contains or may contain entity data types.
+         </li>
+      </ul>
+      <p><b>MIM element:</b> 
+         This section contains, depending on the considered application element:
+      </p>
+      <ul>
+         <li>the name of one or more MIM entity data types;</li>
+         <li>the name of a MIM entity attribute, presented with the syntax &lt;entity name&gt;.&lt;attribute name&gt;, when the considered ARM attribute
+            refers to a type that is not an entity data type or a SELECT type that contains or may contain entity data types;
+         </li>
+         <li>the term PATH, when the considered ARM entity attribute refers to an entity data type or to a SELECT type that contains or
+            may contain entity data types;
+         </li>
+         <li>the term IDENTICAL MAPPING, when both application objects
+            involved in an application assertion map to the same instance of a MIM entity data type;
+         </li>
+         <li>the syntax /SUPERTYPE(&lt;supertype name&gt;)/, when the considered ARM entity is mapped as its supertype;</li>
+         <li>one or more constructs /SUBTYPE(&lt;subtype name&gt;)/, when the mapping of the considered ARM entity is the union of the mapping
+            of its subtypes.
+         </li>
+      </ul>
+      <p>
+         When the mapping of an application element involves more than one MIM element, each of these MIM elements is 
+         presented on a separate line in the mapping specification, enclosed between parentheses or brackets. 
+         
+      </p>
+      <p><b>Source:</b> This section contains:
+      </p>
+      <ul>
+         <li>the ISO standard number and part number in which the
+            MIM element is defined, for those MIM elements that are defined in a common
+            resource document;
+         </li>
+         <li>the ISO standard number and
+            part number of this part of ISO 10303, for those MIM elements that are defined in the MIM schema of this part.
+         </li>
+      </ul>
+      <p>
+         		This section is omitted when the keywords PATH or IDENTICAL MAPPING are used in the MIM element section.
+         
+      </p>
+      <p><b>Rules:</b> 
+         This section contains the name of one or more global rules that apply to the
+         population of the MIM entity data types listed in the MIM element section or
+         in the reference path. When no rule applies, this section is omitted.
+         		
+      </p>
+      <p>A reference to a
+         global rule may be followed by a reference to the subclause in
+         which the rule is defined.
+         
+      </p>
+      <p><b>Constraint:</b> 
+         This section contains the name of one or more subtype constraints that apply to the
+         population of the MIM entity data types listed in the MIM element section or
+         in the reference path. When no subtype constraint applies, this section is omitted.
+         
+      </p>
+      <p>
+         A reference to a subtype constraint may be followed by a reference to the subclause in
+         which the subtype constraint is defined.
+         
+      </p>
+      <p><b>Reference path:</b> This section contains:
+      </p>
+      <ul>
+         <li>the reference path to its supertypes in the common resources, 
+            for each MIM element created within this part of ISO 10303; 
+            
+         </li>
+         <li>
+            the specification of the relationships between MIM elements, when the mapping of an application element requires to relate
+            instances of several
+            MIM entity data types. In such a case, each line in the reference path
+            documents the role of a MIM element relative to the referring MIM
+            element or to the next referred MIM element. 
+            		
+         </li>
+      </ul>
+      <p>For the expression of reference paths and of the
+         constraints between MIM elements, the following notational conventions
+         apply:
+         
+      </p>
+      <table cellspacing="6">
+         <tbody>
+            <tr valign="top">
+               <td valign="top">[]</td>
+               <td valign="top">
+                  enclosed section constrains multiple MIM elements or
+                  sections of the reference path are required to satisfy an
+                  information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">()</td>
+               <td valign="top">
+                  enclosed section constrains multiple MIM elements or
+                  sections of the reference path are identified as alternatives
+                  within the mapping to satisfy an information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">{}</td>
+               <td valign="top">
+                  enclosed section constrains the reference path to satisfy
+                  an information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;&gt;</td>
+               <td valign="top">
+                  enclosed section constrains at one or more required
+                  reference path;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">||</td>
+               <td valign="top">enclosed section constrains the supertype entity;</td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">-&gt;</td>
+               <td valign="top">
+                  the attribute, whose name precedes the -&gt; symbol, references the entity or select type whose name follows the -&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;-</td>
+               <td valign="top">
+                  the entity or select type, whose name precedes the &lt;- symbol, is referenced by the entity attribute whose name follows the
+                  &lt;- symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">[i]</td>
+               <td valign="top">
+                  the attribute, whose name precedes the [i] symbol, is an aggregate; any element of that aggregate is referred to;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">[n]</td>
+               <td valign="top">
+                  the attribute, whose name precedes the [n] symbol, is an ordered aggregate; member n of that aggregate is referred to;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">=&gt;</td>
+               <td valign="top">
+                  the entity, whose name precedes the =&gt; symbol, is a supertype of the entity whose name follows the =&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;=</td>
+               <td valign="top">
+                  the entity, whose name precedes the &lt;= symbol, is a subtype of the entity whose name follows the &lt;= symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">=</td>
+               <td valign="top">
+                  the string, select, or enumeration type is constrained to a choice or value;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">\</td>
+               <td valign="top">
+                  the reference path expression continues on the next line;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">*</td>
+               <td valign="top">
+                  one or more instances of the relationship entity data type may be assembled in a
+                  relationship tree structure. The path between the relationship entity and the related entities, is enclosed with braces;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">--</td>
+               <td valign="top">
+                  the text following is a comment or introduces a clause reference;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">*&gt;</td>
+               <td valign="top">
+                  the select or enumeration type, whose name precedes the *&gt; symbol, is
+                  extended into the select or enumeration type whose name follows the *&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;*</td>
+               <td valign="top">
+                  the select or enumeration type, whose name precedes the &lt;* symbol, is an
+                  extension of the select or enumeration type whose name follows the &lt;* symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top" nowrap="t">!{}</td>
+               <td valign="top">
+                  section enclosed by {} indicates a negative constraint placed on the mapping.
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      The definition and use of mapping templates is not supported in the
+      present version of the application modules. However, use of predefined
+      templates /SUBTYPE/ and /SUPERTYPE/ is supported. 
+      
+      <h2><a name="aeentityannotation_fill_area">5.1.1 </a><a href="./4_info_reqs.htm#draughting_element_arm.annotation_fill_area">Annotation_fill_area</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>annotation_fill_area</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-46</td>
+         </tr>
+      </table>
+      <h2><a name="aeentityannotation_fill_areaaaattributeboundariesassertion_tocurve"></a>5.1.1.1 <a href="./4_info_reqs.htm#draughting_element_arm.annotation_fill_area">Annotation_fill_area</a>
+         to <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.curve">Curve</A>
+         
+         (as <a href="./4_info_reqs.htm#draughting_element_arm.annotation_fill_area.boundaries">boundaries</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>annotation_fill_area<br>				annotation_fill_area.boundaries[i] -&gt;<br>				curve<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityannotation_plane">5.1.2 </a><a href="./4_info_reqs.htm#draughting_element_arm.annotation_plane">Annotation_plane</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>annotation_plane</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-46</td>
+         </tr>
+      </table>
+      <h2><a name="aeentityannotation_planeaaattributeelementassertion_toplanar_box"></a>5.1.2.1 <a href="./4_info_reqs.htm#draughting_element_arm.annotation_plane">Annotation_plane</a>
+         to <A HREF="../../../../data/modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.planar_box">Planar_box</A>
+         
+         (as <a href="./4_info_reqs.htm#draughting_element_arm.annotation_plane.element">element</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>annotation_plane &lt;=<br>				annotation_occurrence &lt;=<br>			 	styled_item<br>				styled_item.item -&gt; <br>				representation_item =&gt;<br>				geometric_representation_item =&gt;<br>				planar_extent =&gt;<br>				planar_box<br>			 
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityannotation_planeaaattributeelementsassertion_todraughting_callout"></a>5.1.2.2 <a href="./4_info_reqs.htm#draughting_element_arm.annotation_plane">Annotation_plane</a>
+         to <A HREF="../../../../data/modules/draughting_element/sys/4_info_reqs.htm#draughting_element_arm.draughting_callout">Draughting_callout</A>
+         
+         (as <a href="./4_info_reqs.htm#draughting_element_arm.annotation_plane.elements">elements</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>annotation_plane.elements[i] -&gt; <br>			 	annotation_plane_element<br>			 	annotation_plane_element = draughting_callout<br>			 	draughting_callout<br>			 
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityannotation_planeaaattributeelementsassertion_tostyled_element"></a>5.1.2.3 <a href="./4_info_reqs.htm#draughting_element_arm.annotation_plane">Annotation_plane</a>
+         to <A HREF="../../../../data/modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.styled_element">Styled_element</A>
+         
+         (as <a href="./4_info_reqs.htm#draughting_element_arm.annotation_plane.elements">elements</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>annotation_plane.elements[i] -&gt; <br>			 	annotation_plane_element<br>			 	annotation_plane_element = styled_item<br>			 	styled_item<br>			 
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityannotation_planeaaattributeelementassertion_toplane"></a>5.1.2.4 <a href="./4_info_reqs.htm#draughting_element_arm.annotation_plane">Annotation_plane</a>
+         to <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.plane">Plane</A>
+         
+         (as <a href="./4_info_reqs.htm#draughting_element_arm.annotation_plane.element">element</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>annotation_plane &lt;=<br>				annotation_occurrence &lt;=<br>			 	styled_item<br>				styled_item.item -&gt; <br>				representation_item =&gt;<br>				geometric_representation_item =&gt;<br>				surface =&gt;<br>				elementary_surface =&gt;<br>				plane<br>			 
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityappearance_assignment">5.1.3 </a><a href="../../appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.appearance_assignment">Appearance_assignment</a></h2>
+      <p>
+         This application object,  
+         <a href="../../appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.appearance_assignment">Appearance_assignment</a>, is defined in the module
+         <a href="../../appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.appearance_assignment">appearance_assignment</a>.
+         This mapping section extends the 
+         <a href="../../appearance_assignment/sys/5_mapping.htm#aeentityappearance_assignment"> mapping of Appearance_assignment</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentityappearance_assignmentaaattributeappearance_componentsassertion_tocurve_appearance"></a>5.1.3.1 <a href="../../appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.appearance_assignment">Appearance_assignment</a>
+         to <A HREF="../../../../data/modules/styled_curve/sys/4_info_reqs.htm#styled_curve_arm.curve_appearance">Curve_appearance</A>
+         
+         (as <a href="../../appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.appearance_assignment.appearance_components">appearance_components</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>presentation_style_assignment<br>					presentation_style_assignment.styles[i] -&gt; <br>					presentation_style_select<br>presentation_style_select = curve_style
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityappearance_assignmentaaattributeappearance_componentsassertion_topoint_appearance"></a>5.1.3.2 <a href="../../appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.appearance_assignment">Appearance_assignment</a>
+         to <A HREF="../../../../data/modules/curve_appearance/sys/4_info_reqs.htm#curve_appearance_arm.point_appearance">Point_appearance</A>
+         
+         (as <a href="../../appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.appearance_assignment.appearance_components">appearance_components</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>presentation_style_assignment<br>					presentation_style_assignment.styles[i] -&gt; <br>					presentation_style_select<br>presentation_style_select = point_style
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityappearance_assignmentaaattributeappearance_componentsassertion_totext_style"></a>5.1.3.3 <a href="../../appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.appearance_assignment">Appearance_assignment</a>
+         to <A HREF="../../../../data/modules/associative_text/sys/4_info_reqs.htm#associative_text_arm.text_style">Text_style</A>
+         
+         (as <a href="../../appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.appearance_assignment.appearance_components">appearance_components</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>presentation_style_assignment<br>					presentation_style_assignment.styles[i] -&gt; <br>					presentation_style_select<br>presentation_style_select = text_style<br>				text_style =&gt;<br>				text_style_with_box_characteristics
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydimension_curve">5.1.4 </a><a href="./4_info_reqs.htm#draughting_element_arm.dimension_curve">Dimension_curve</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>dimension_curve</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-101</td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydimension_curveaaattributeterminatorassertion_toterminator"></a>5.1.4.1 <a href="./4_info_reqs.htm#draughting_element_arm.dimension_curve">Dimension_curve</a>
+         to <A HREF="../../../../data/modules/curve_appearance/sys/4_info_reqs.htm#curve_appearance_arm.terminator">Terminator</A>
+         
+         (as <a href="./4_info_reqs.htm#draughting_element_arm.dimension_curve.terminator">terminator</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimension_curve &lt;=<br>			annotation_curve_occurrence &lt;-<br>			terminator_symbol.annotated_curve<br>			terminator_symbol &lt;=<br>			{terminator_symbol =&gt;<br>			dimension_curve_terminator}<br>			annotation_symbol_occurrence &lt;= <br>			annotation_occurrence &lt;=<br>			styled_item<br>			styled_item.item -&gt;<br>			representation_item =&gt;<br>			geometric_representation_item =&gt;<br>			defined_symbol<br>			defined_symbol.definition -&gt;<br>			defined_symbol_select<br>			defined_symbol_select = pre_defined_symbol<br>			pre_defined_symbol =&gt;<br>			pre_defined_terminator_symbol<br>		
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydimension_curve_directed_callout">5.1.5 </a><a href="./4_info_reqs.htm#draughting_element_arm.dimension_curve_directed_callout">Dimension_curve_directed_callout</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>dimension_curve_directed_callout</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-101</td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydimension_curve_directed_calloutaaattributedimension_curveassertion_todimension_curve"></a>5.1.5.1 <a href="./4_info_reqs.htm#draughting_element_arm.dimension_curve_directed_callout">Dimension_curve_directed_callout</a>
+         to <A HREF="../../../../data/modules/draughting_element/sys/4_info_reqs.htm#draughting_element_arm.dimension_curve">Dimension_curve</A>
+         
+         (as <a href="./4_info_reqs.htm#draughting_element_arm.dimension_curve_directed_callout.dimension_curve">dimension_curve</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dimension_curve_directed_callout<br>		  		draughting_callout<br>				draughting_callout.contents[i] -&gt;<br>			  	draughting_callout_element<br>				draughting_callout_element = annotation_curve_occurrence<br>				annotation_curve_occurrence =&gt;<br>				dimension_curve<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydraughting_callout">5.1.6 </a><a href="../../draughting_element/sys/4_info_reqs.htm#draughting_element_arm.draughting_callout">Draughting_callout</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>draughting_callout</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-506</td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydraughting_calloutaaattributecontentsassertion_todraughting_callout_content_select"></a>5.1.6.1 <a href="../../draughting_element/sys/4_info_reqs.htm#draughting_element_arm.draughting_callout">Draughting_callout</a>
+         to <A HREF="../../../../data/modules/draughting_element/sys/4_info_reqs.htm#draughting_element_arm.draughting_callout_content_select">draughting_callout_content_select</A>
+         
+         (as <a href="../../draughting_element/sys/4_info_reqs.htm#draughting_element_arm.draughting_callout.contents">contents</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>draughting_callout<br>				draughting_callout.contents[i] -&gt;<br>			  	draughting_callout_element<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydraughting_calloutaaattributecontentsassertion_togeneric_annotation_curve"></a>5.1.6.2 <a href="../../draughting_element/sys/4_info_reqs.htm#draughting_element_arm.draughting_callout">Draughting_callout</a>
+         to <A HREF="../../../../data/modules/draughting_element/sys/4_info_reqs.htm#draughting_element_arm.generic_annotation_curve">Generic_annotation_curve</A>
+         
+         (as <a href="../../draughting_element/sys/4_info_reqs.htm#draughting_element_arm.draughting_callout.contents">contents</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>draughting_callout<br>				draughting_callout.contents[i] -&gt;<br>			  	draughting_callout_element<br>draughting_callout_element = annotation_curve_occurrence<br>			  	annotation_curve_occurrence
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydraughting_calloutaaattributecontentsassertion_totext"></a>5.1.6.3 <a href="../../draughting_element/sys/4_info_reqs.htm#draughting_element_arm.draughting_callout">Draughting_callout</a>
+         to <A HREF="../../../../data/modules/associative_text/sys/4_info_reqs.htm#associative_text_arm.text">Text</A>
+         
+         (as <a href="../../draughting_element/sys/4_info_reqs.htm#draughting_element_arm.draughting_callout.contents">contents</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>draughting_callout<br>				draughting_callout.contents[i] -&gt;<br>			  	draughting_callout_element<br>draughting_callout_element = annotation_text_occurrence<br>		  		annotation_text_occurrence
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityfill_area">5.1.7 </a><a href="./4_info_reqs.htm#draughting_element_arm.fill_area">Fill_area</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>annotation_fill_area_occurrence</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-46</td>
+         </tr>
+      </table>
+      <h2><a name="aeentityfill_areaaaattributeelementassertion_toannotation_fill_area"></a>5.1.7.1 <a href="./4_info_reqs.htm#draughting_element_arm.fill_area">Fill_area</a>
+         to <A HREF="../../../../data/modules/draughting_element/sys/4_info_reqs.htm#draughting_element_arm.annotation_fill_area">Annotation_fill_area</A>
+         
+         (as <a href="./4_info_reqs.htm#draughting_element_arm.fill_area.element">element</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>annotation_fill_area_occurrence &lt;=<br>				annotation_occurrence &lt;=<br>				styled_item<br>				styled_item.item -&gt;<br>				representation_item =&gt;<br>				geometric_representation_item =&gt;<br>				annotation_fill_area<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityfill_areaaaattributereference_pointassertion_topoint_select"></a>5.1.7.2 <a href="./4_info_reqs.htm#draughting_element_arm.fill_area">Fill_area</a>
+         to <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.point_select">point_select</A>
+         
+         (as <a href="./4_info_reqs.htm#draughting_element_arm.fill_area.reference_point">reference_point</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>annotation_fill_area_occurrence<br>				annotation_fill_area_occurrence.fill_style_target -&gt; <br>				point<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityfill_areaaaattributereference_pointassertion_tocartesian_point"></a>5.1.7.3 <a href="./4_info_reqs.htm#draughting_element_arm.fill_area">Fill_area</a>
+         to <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.cartesian_point">Cartesian_point</A>
+         
+         (as <a href="./4_info_reqs.htm#draughting_element_arm.fill_area.reference_point">reference_point</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>annotation_fill_area_occurrence<br>				annotation_fill_area_occurrence.fill_style_target -&gt; <br>				point =&gt; <br>				cartesian_point<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityfill_areaaaattributereference_pointassertion_topoint_on_curve"></a>5.1.7.4 <a href="./4_info_reqs.htm#draughting_element_arm.fill_area">Fill_area</a>
+         to <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.point_on_curve">Point_on_curve</A>
+         
+         (as <a href="./4_info_reqs.htm#draughting_element_arm.fill_area.reference_point">reference_point</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>annotation_fill_area_occurrence<br>				annotation_fill_area_occurrence.fill_style_target -&gt; <br>				point =&gt;<br>				point_on_curve
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityfill_areaaaattributereference_pointassertion_topoint_on_surface"></a>5.1.7.5 <a href="./4_info_reqs.htm#draughting_element_arm.fill_area">Fill_area</a>
+         to <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.point_on_surface">Point_on_surface</A>
+         
+         (as <a href="./4_info_reqs.htm#draughting_element_arm.fill_area.reference_point">reference_point</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;If the point is defined from the evaluation of the surface function for a given parameter pair.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(annotation_fill_area_occurrence<br>				annotation_fill_area_occurrence.fill_style_target -&gt; <br>				point =&gt;<br>				point_on_surface)<br>			
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;If the Point_on_surface identifies a point where a curve on the surface collapses.
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>(annotation_fill_area_occurrence<br>				annotation_fill_area_occurrence.fill_style_target -&gt; <br>				point =&gt;<br>				degenerate_pcurve)<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitygeneric_annotation_curve">5.1.8 </a><a href="./4_info_reqs.htm#draughting_element_arm.generic_annotation_curve">Generic_annotation_curve</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>annotation_curve_occurrence</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>10303-504</td>
+         </tr>
+      </table>
+      <h2><a name="aeentityleader">5.1.9 </a><a href="./4_info_reqs.htm#draughting_element_arm.leader">Leader</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>leader_curve</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-101</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{leader_curve &lt;= annotation_curve_occurrence<br>		annotation_curve_occurrence &lt;= annotation_occurrence}<br>	
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityleader_directed_callout">5.1.10 </a><a href="./4_info_reqs.htm#draughting_element_arm.leader_directed_callout">Leader_directed_callout</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>leader_directed_callout</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-101</td>
+         </tr>
+      </table>
+      <h2><a name="aeentityleader_directed_calloutaaattributeleaderassertion_toleader"></a>5.1.10.1 <a href="./4_info_reqs.htm#draughting_element_arm.leader_directed_callout">Leader_directed_callout</a>
+         to <A HREF="../../../../data/modules/draughting_element/sys/4_info_reqs.htm#draughting_element_arm.leader">Leader</A>
+         
+         (as <a href="./4_info_reqs.htm#draughting_element_arm.leader_directed_callout.leader">leader</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>leader_directed_callout<br>		  		draughting_callout<br>				draughting_callout.contents[i] -&gt;<br>			  	draughting_callout_element<br>				draughting_callout_element = annotation_curve_occurrence<br>				annotation_curve_occurrence =&gt;<br>				leader_curve<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityprojection_curve">5.1.11 </a><a href="./4_info_reqs.htm#draughting_element_arm.projection_curve">Projection_curve</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>projection_curve</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-101</td>
+         </tr>
+      </table>
+      <h2><a name="aeentityprojection_directed_callout">5.1.12 </a><a href="./4_info_reqs.htm#draughting_element_arm.projection_directed_callout">Projection_directed_callout</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>projection_directed_callout</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-101</td>
+         </tr>
+      </table>
+      <h2><a name="aeentityprojection_directed_calloutaaattributeprojection_curveassertion_toprojection_curve"></a>5.1.12.1 <a href="./4_info_reqs.htm#draughting_element_arm.projection_directed_callout">Projection_directed_callout</a>
+         to <A HREF="../../../../data/modules/draughting_element/sys/4_info_reqs.htm#draughting_element_arm.projection_curve">Projection_curve</A>
+         
+         (as <a href="./4_info_reqs.htm#draughting_element_arm.projection_directed_callout.projection_curve">projection_curve</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>projection_directed_callout<br>		  		draughting_callout<br>				draughting_callout.contents[i] -&gt;<br>			  	draughting_callout_element<br>				draughting_callout_element = annotation_curve_occurrence<br>				annotation_curve_occurrence =&gt;<br>				projection_curve<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="scconstraintannotation_curve_subtypes">5.1.13 </a><a href="./4_info_reqs.htm#draughting_element_arm.annotation_curve_subtypes">annotation_curve_subtypes</a></h2>
+      <p></p>
+      			maps to subtype constraint <a href="../../../resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.annotation_curve_subtypes"><b>annotation_curve_subtypes</b></a> entity.
+      		
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Constraint:</td>
+            <td><br>		annotation_curve_subtypes<br>		
+            </td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-101</td>
+         </tr>
+      </table><br><br><p>&copy; ISO 2008 &#8212; All rights reserved</p>
+   </body>
+</HTML>

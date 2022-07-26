@@ -1,0 +1,254 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: product_definition_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: product_definition_schema</h2>
+      <p><i>Source : ISO 10303-41</i></p><code><br><br><a name="product_definition_schema">SCHEMA <b>product_definition_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/application_context_schema/application_context_schema.htm#application_context_schema">application_context_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/application_context_schema/application_context_schema.htm#application_context_schema.product_context">product_context</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/application_context_schema/application_context_schema.htm#application_context_schema.product_definition_context">product_definition_context</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema">basic_attribute_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.get_id_value">get_id_value</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.get_name_value">get_name_value</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/basic_attribute_schema/basic_attribute_schema.htm#basic_attribute_schema.name_attribute">name_attribute</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema">document_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema.document">document</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/effectivity_schema/effectivity_schema.htm#effectivity_schema">effectivity_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/effectivity_schema/effectivity_schema.htm#effectivity_schema.effectivity">effectivity</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.bag_to_set">bag_to_set</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>);
+         <br><br></code><code><br><A NAME="product_definition_schema.source">TYPE </A><b>source</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (made,<br>&nbsp;&nbsp;&nbsp;&nbsp;bought,<br>&nbsp;&nbsp;&nbsp;&nbsp;not_known);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="product_definition_schema.product">ENTITY <b>product</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product.frame_of_reference">frame_of_reference : </A>SET[1:?] OF <A HREF="../../../data/resources/application_context_schema/application_context_schema.htm#application_context_schema.product_context">product_context</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_definition_schema.product_category">ENTITY <b>product_category</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_category.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_category.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_category.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A> := get_id_value(SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_category.wr:wr1">WR1: SIZEOF(USEDIN(SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'ID_ATTRIBUTE.IDENTIFIED_ITEM')) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_definition_schema.product_category_relationship">ENTITY <b>product_category_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_category_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_category_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_category_relationship.category">category : </A><A HREF="#product_definition_schema.product_category">product_category</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_category_relationship.sub_category">sub_category : </A><A HREF="#product_definition_schema.product_category">product_category</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_category_relationship.wr:wr1">WR1: acyclic_product_category_relationship(SELF, [SELF.sub_category]);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_definition_schema.product_definition">ENTITY <b>product_definition</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition.formation">formation : </A><A HREF="#product_definition_schema.product_definition_formation">product_definition_formation</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition.frame_of_reference">frame_of_reference : </A><A HREF="../../../data/resources/application_context_schema/application_context_schema.htm#application_context_schema.product_definition_context">product_definition_context</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A> := get_name_value(SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition.wr:wr1">WR1: SIZEOF(USEDIN(SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'NAME_ATTRIBUTE.NAMED_ITEM')) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_definition_schema.product_definition_context_association">ENTITY <b>product_definition_context_association</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_context_association.definition">definition : </A><A HREF="#product_definition_schema.product_definition">product_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_context_association.frame_of_reference">frame_of_reference : </A><A HREF="../../../data/resources/application_context_schema/application_context_schema.htm#application_context_schema.product_definition_context">product_definition_context</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_context_association.role">role : </A><A HREF="#product_definition_schema.product_definition_context_role">product_definition_context_role</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_definition_schema.product_definition_context_role">ENTITY <b>product_definition_context_role</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_context_role.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_context_role.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_definition_schema.product_definition_effectivity">ENTITY <b>product_definition_effectivity</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/effectivity_schema/effectivity_schema.htm#effectivity_schema.effectivity">effectivity</A>);<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_effectivity.usage">usage : </A><A HREF="#product_definition_schema.product_definition_relationship">product_definition_relationship</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_effectivity.wr:wr1">WR1: SIZEOF(USEDIN(SELF, 'MANAGEMENT_RESOURCES_SCHEMA.' + 'EFFECTIVITY_ASSIGNMENT.ASSIGNED_EFFECTIVITY')) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_definition_schema.product_definition_formation">ENTITY <b>product_definition_formation</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_formation.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_formation.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_formation.of_product">of_product : </A><A HREF="#product_definition_schema.product">product</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_formation.ur:ur1">UR1: </A>id, of_product;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_definition_schema.product_definition_formation_relationship">ENTITY <b>product_definition_formation_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_formation_relationship.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_formation_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_formation_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_formation_relationship.relating_product_definition_formation">relating_product_definition_formation : </A><A HREF="#product_definition_schema.product_definition_formation">product_definition_formation</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_formation_relationship.related_product_definition_formation">related_product_definition_formation : </A><A HREF="#product_definition_schema.product_definition_formation">product_definition_formation</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_definition_schema.product_definition_formation_with_specified_source">ENTITY <b>product_definition_formation_with_specified_source</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_definition_schema.product_definition_formation">product_definition_formation</A>);<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_formation_with_specified_source.make_or_buy">make_or_buy : </A><A HREF="#product_definition_schema.source">source</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_definition_schema.product_definition_relationship">ENTITY <b>product_definition_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_relationship.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_relationship.relating_product_definition">relating_product_definition : </A><A HREF="#product_definition_schema.product_definition">product_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_relationship.related_product_definition">related_product_definition : </A><A HREF="#product_definition_schema.product_definition">product_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_definition_schema.product_definition_substitute">ENTITY <b>product_definition_substitute</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_substitute.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_substitute.context_relationship">context_relationship : </A><A HREF="#product_definition_schema.product_definition_relationship">product_definition_relationship</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_substitute.substitute_definition">substitute_definition : </A><A HREF="#product_definition_schema.product_definition">product_definition</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_substitute.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A> := get_name_value(SELF);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_substitute.wr:wr1">WR1: context_relationship.related_product_definition :&lt;&gt;: substitute_definition;</A><br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_substitute.wr:wr2">WR2: SIZEOF(USEDIN(SELF, 'BASIC_ATTRIBUTE_SCHEMA.' + 'NAME_ATTRIBUTE.NAMED_ITEM')) &lt;= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_definition_schema.product_definition_with_associated_documents">ENTITY <b>product_definition_with_associated_documents</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_definition_schema.product_definition">product_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_definition_with_associated_documents.documentation_ids">documentation_ids : </A>SET[1:?] OF <A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema.document">document</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_definition_schema.product_related_product_category">ENTITY <b>product_related_product_category</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_definition_schema.product_category">product_category</A>);<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_related_product_category.products">products : </A>SET[1:?] OF <A HREF="#product_definition_schema.product">product</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_definition_schema.product_relationship">ENTITY <b>product_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_relationship.id">id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_relationship.relating_product">relating_product : </A><A HREF="#product_definition_schema.product">product</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_definition_schema.product_relationship.related_product">related_product : </A><A HREF="#product_definition_schema.product">product</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_definition_schema.acyclic_product_category_relationship">FUNCTION <b>acyclic_product_category_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_category_relationship">product_category_relationship</A>; children : SET[0:?] OF <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_category">product_category</A>) : BOOLEAN;
+         </code><pre>LOCAL
+      x : SET OF product_category_relationship;
+      local_children : SET OF product_category;
+    END_LOCAL;
+
+    REPEAT i := 1 TO HIINDEX(children);
+      IF relation.category :=: children[i] THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    x := bag_to_set(USEDIN(relation.category, 'PRODUCT_DEFINITION_SCHEMA.' + 'PRODUCT_CATEGORY_RELATIONSHIP.SUB_CATEGORY'));
+    local_children := children + relation.category;
+    IF SIZEOF(x) &gt; 0 THEN
+      REPEAT i := 1 TO HIINDEX(x);
+        IF NOT acyclic_product_category_relationship(x[i], local_children) THEN
+          RETURN (FALSE);
+        END_IF;
+      END_REPEAT;
+    END_IF;
+    RETURN (TRUE);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="product_definition_schema.acyclic_product_definition_formation_relationship">FUNCTION <b>acyclic_product_definition_formation_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation_relationship">product_definition_formation_relationship</A>; relatives : SET[1:?] OF <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation">product_definition_formation</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>LOCAL
+      x : SET OF product_definition_formation_relationship;
+    END_LOCAL;
+
+    IF relation.relating_product_definition_formation IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(pdf &lt;* bag_to_set(USEDIN(relation.relating_product_definition_formation, 'PRODUCT_DEFINITION_SCHEMA.' + 'PRODUCT_DEFINITION_FORMATION_RELATIONSHIP.' + 'RELATED_PRODUCT_DEFINITION_FORMATION')) | specific_relation IN TYPEOF(pdf));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_product_definition_formation_relationship(x[i], relatives + relation.relating_product_definition_formation, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="product_definition_schema.acyclic_product_definition_relationship">FUNCTION <b>acyclic_product_definition_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>; relatives : SET[1:?] OF <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>LOCAL
+      x : SET OF product_definition_relationship;
+    END_LOCAL;
+
+    IF relation.relating_product_definition IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(pd &lt;* bag_to_set(USEDIN(relation.relating_product_definition, 'PRODUCT_DEFINITION_SCHEMA.' + 'PRODUCT_DEFINITION_RELATIONSHIP.' + 'RELATED_PRODUCT_DEFINITION')) | specific_relation IN TYPEOF(pd));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_product_definition_relationship(x[i], relatives + relation.relating_product_definition, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="product_definition_schema.acyclic_product_relationship">FUNCTION <b>acyclic_product_relationship</b></A><br>&nbsp;(relation : <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_relationship">product_relationship</A>; relatives : SET[1:?] OF <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product">product</A>; specific_relation : STRING) : BOOLEAN;
+         </code><pre>LOCAL
+      x : SET OF product_relationship;
+    END_LOCAL;
+
+    IF relation.relating_product IN relatives THEN
+      RETURN (FALSE);
+    END_IF;
+    x := QUERY(prod &lt;* bag_to_set(USEDIN(relation.relating_product, 'PRODUCT_DEFINITION_SCHEMA.' + 'PRODUCT_RELATIONSHIP.' + 'RELATED_PRODUCT')) | specific_relation IN TYPEOF(prod));
+    REPEAT i := 1 TO HIINDEX(x);
+      IF NOT acyclic_product_relationship(x[i], relatives + relation.relating_product, specific_relation) THEN
+        RETURN (FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN (TRUE);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="product_definition_schema.categories_of_product">FUNCTION <b>categories_of_product</b></A><br>&nbsp;(obj : <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product">product</A>) : SET[0:?] OF STRING;
+         </code><pre>LOCAL
+    category_assignments: BAG OF product_category;
+    categories: SET OF STRING:=[];
+  END_LOCAL;
+    category_assignments := USEDIN(obj, 'PRODUCT_DEFINITION_SCHEMA.' + 'PRODUCT_RELATED_PRODUCT_CATEGORY.PRODUCTS');
+    REPEAT i := LOINDEX(category_assignments) TO HIINDEX(category_assignments) BY 1;
+      categories := categories + category_assignments[i].name;
+    END_REPEAT;
+    RETURN(categories);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="product_definition_schema.get_product_definitions">FUNCTION <b>get_product_definitions</b></A><br>&nbsp;(c_def_instance : <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product">product</A>) : SET[0:?] OF <A HREF="#product_definition_schema.product_definition">product_definition</A>;
+         </code><pre>LOCAL
+      pd_set : SET OF product_definition_formation := [];
+      pdr_set : SET OF product_definition := [];
+    END_LOCAL;
+
+    pd_set := bag_to_set(USEDIN(c_def_instance, 'PRODUCT_DEFINITION_SCHEMA.PRODUCT_DEFINITION_FORMATION.OF_PRODUCT'));
+    IF (SIZEOF(pd_set) &lt; 1) THEN
+      RETURN (pdr_set);
+    END_IF;
+    REPEAT i := 1 TO HIINDEX(pd_set);
+      pdr_set := pdr_set + bag_to_set(USEDIN(pd_set[i], 'PRODUCT_DEFINITION_SCHEMA.PRODUCT_DEFINITION.FORMATION'));
+    END_REPEAT;
+    RETURN (pdr_set);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;product_definition_schema<br></code></body>
+</HTML>

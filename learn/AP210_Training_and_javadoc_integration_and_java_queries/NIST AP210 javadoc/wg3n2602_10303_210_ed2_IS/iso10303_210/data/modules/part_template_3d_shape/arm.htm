@@ -1,0 +1,65 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Part_template_3d_shape_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Part_template_3d_shape_arm</h2><code><br><br><a name="part_template_3d_shape_arm">SCHEMA <b>Part_template_3d_shape_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/edge_shape_feature/sys/e_exp_arm.htm#edge_shape_feature_arm">Edge_shape_feature_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1673<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/layered_3d_shape/sys/e_exp_arm.htm#layered_3d_shape_arm">Layered_3d_shape_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1694<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/layered_interconnect_simple_template/sys/e_exp_arm.htm#layered_interconnect_simple_template_arm">Layered_interconnect_simple_template_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1718<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/modules/requirement_decomposition/sys/e_exp_arm.htm#requirement_decomposition_arm">Requirement_decomposition_arm</A>&nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1740<br>&nbsp;&nbsp;(<A HREF="../../../data/modules/requirement_decomposition/sys/e_exp_arm.htm#requirement_decomposition_arm.get_rvd">get_rvd</A>);
+         <br><br></code><code><br><A NAME="part_template_3d_shape_arm.pt3ds_part_template_or_physical_unit_3d_shape_model_select">TYPE </A><b>pt3ds_part_template_or_physical_unit_3d_shape_model_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/layered_3d_shape/sys/e_exp_arm.htm#layered_3d_shape_arm.part_template_or_physical_unit_3d_shape_model_select">part_template_or_physical_unit_3d_shape_model_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#part_template_3d_shape_arm.part_template_3d_shape_model">Part_template_3d_shape_model</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="part_template_3d_shape_arm.edge_segment_cross_section">ENTITY <b>Edge_segment_cross_section</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/layered_3d_shape/sys/e_exp_arm.htm#layered_3d_shape_arm.shape_definition_3d_intersection">Shape_definition_3d_intersection</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/layered_3d_shape/sys/e_exp_arm.htm#layered_3d_shape_arm.shape_definition_3d_intersection">Shape_definition_3d_intersection</A>.<A NAME="part_template_3d_shape_arm.edge_segment_cross_section.surface_intersection_result">surface_intersection_result : </A><A HREF="../../../data/modules/edge_shape_feature/sys/e_exp_arm.htm#edge_shape_feature_arm.edge_shape_model">Edge_shape_model</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/layered_3d_shape/sys/e_exp_arm.htm#layered_3d_shape_arm.shape_definition_3d_intersection">Shape_definition_3d_intersection</A>.<A NAME="part_template_3d_shape_arm.edge_segment_cross_section.projected_volume">projected_volume : </A><A HREF="#part_template_3d_shape_arm.part_template_3d_shape_model">Part_template_3d_shape_model</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="part_template_3d_shape_arm.edge_segment_cross_section.cross_section_reference">cross_section_reference : </A><A HREF="../../../data/modules/extended_geometric_tolerance/sys/e_exp_arm.htm#extended_geometric_tolerance_arm.edge_segment_vertex">Edge_segment_vertex</A> := SELF\Shape_definition_3d_intersection.projected_volume\Part_template_shape_model.shape_characterized_definition[1]\
+         Inter_stratum_feature_edge_segment_template.start_vertex;<br>
+         &nbsp;&nbsp;<A NAME="part_template_3d_shape_arm.edge_segment_cross_section.associated_template">associated_template : </A><A HREF="../../../data/modules/part_template/sys/e_exp_arm.htm#part_template_arm.template_definition">Template_definition</A> := SELF\Shape_definition_3d_intersection.projected_volume\Part_template_shape_model.shape_characterized_definition[1];<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="part_template_3d_shape_arm.edge_segment_cross_section.referencing_template">referencing_template : </A><A HREF="#part_template_3d_shape_arm.inter_stratum_feature_edge_segment_template_with_cross_section">Inter_stratum_feature_edge_segment_template_with_cross_section</A> FOR cross_section;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="part_template_3d_shape_arm.edge_segment_cross_section.wr:wr1">WR1: associated_template :=: referencing_template;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="part_template_3d_shape_arm.inter_stratum_feature_edge_segment_template_with_cross_section">ENTITY <b>Inter_stratum_feature_edge_segment_template_with_cross_section</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/layered_interconnect_simple_template/sys/e_exp_arm.htm#layered_interconnect_simple_template_arm.inter_stratum_feature_edge_segment_template">Inter_stratum_feature_edge_segment_template</A>);<br>
+         &nbsp;&nbsp;<A NAME="part_template_3d_shape_arm.inter_stratum_feature_edge_segment_template_with_cross_section.cross_section">cross_section : </A><A HREF="#part_template_3d_shape_arm.edge_segment_cross_section">Edge_segment_cross_section</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="part_template_3d_shape_arm.part_template_3d_keepout_shape_model">ENTITY <b>Part_template_3d_keepout_shape_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/non_feature_shape_element/sys/e_exp_arm.htm#non_feature_shape_element_arm.non_feature_shape_model">Non_feature_shape_model</A>, <A HREF="../../../data/modules/part_template_shape_with_parameters/sys/e_exp_arm.htm#part_template_shape_with_parameters_arm.part_template_keepout_shape_model">Part_template_keepout_shape_model</A>);<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="part_template_3d_shape_arm.part_template_3d_keepout_shape_model.application_technology_constraint">application_technology_constraint : </A>SET[0:?] OF <A HREF="../../../data/modules/requirement_view_definition/sys/e_exp_arm.htm#requirement_view_definition_arm.requirement_view_definition">Requirement_view_definition</A> := get_rvd(SELF, 'application technology constraint');<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="part_template_3d_shape_arm.part_template_3d_keepout_shape_model.wr:wr1">WR1: (SIZEOF(application_technology_constraint) &lt;= 1);</A><br>
+         &nbsp;&nbsp;<A NAME="part_template_3d_shape_arm.part_template_3d_keepout_shape_model.wr:wr2">WR2: NOT EXISTS(SELF\Representation.name);</A><br>
+         &nbsp;&nbsp;<A NAME="part_template_3d_shape_arm.part_template_3d_keepout_shape_model.wr:wr3">WR3: NOT EXISTS(SELF\Representation.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="part_template_3d_shape_arm.part_template_3d_shape_model">ENTITY <b>Part_template_3d_shape_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/part_template_shape_with_parameters/sys/e_exp_arm.htm#part_template_shape_with_parameters_arm.part_template_shape_model">Part_template_shape_model</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="part_template_3d_shape_arm.part_template_3d_shape_model.wr:wr1">WR1: NOT EXISTS(SELF\Representation.name);</A><br>
+         &nbsp;&nbsp;<A NAME="part_template_3d_shape_arm.part_template_3d_shape_model.wr:wr2">WR2: NOT EXISTS(SELF\Representation.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Part_template_3d_shape_arm<br></code></body>
+</HTML>

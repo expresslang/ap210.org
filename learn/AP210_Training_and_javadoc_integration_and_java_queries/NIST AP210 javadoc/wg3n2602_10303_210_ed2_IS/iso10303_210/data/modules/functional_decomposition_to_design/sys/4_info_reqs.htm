@@ -1,0 +1,776 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Functional decomposition to design">
+      <META name="DC.Dates" content="2007-01-30 13:53:10">
+      <META name="DC.Published" content="2006-12-14">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Functional decomposition to design">
+      <META name="DC.Subject" content="module, electrical, layered product, analysis, synthesis, simulation, packaging application, library pin mapping">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N3974">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N3419">
+      <META name="SC4.version" content="1">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N3818">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N3819">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N3820">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2007-01-30 13:53:10">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.42">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.46">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.44">
+      <TITLE>ISO/TS 10303-1676:2006 Functional decomposition to design</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Functional decomposition to design</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1676:2006(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definition</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.4 ARM subtype constraint definition</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Functional decomposition to design</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Functional_decomposition_to_design_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="functional_decomposition_to_design_arm">
+            SCHEMA Functional_decomposition_to_design_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/design_management/sys/4_info_reqs.htm#design_management_arm">Design_management_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1661<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/physical_unit_design_view/sys/4_info_reqs.htm#physical_unit_design_view_arm">Physical_unit_design_view_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1728<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm">Network_functional_design_view_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1704<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Design_management_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1661</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Physical_unit_design_view_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1728</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Network_functional_design_view_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1704</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definition</a></h2>
+      <p>
+         This subclause specifies the ARM type
+         for this application module. The ARM type and
+         definition is specified below. 
+         
+      </p>
+      <h2><a name="functional_decomposition_to_design_arm.fdtd_managed_design_object">4.2.1 fdtd_managed_design_object</a>
+         &nbsp;&nbsp;<a href="../../functional_decomposition_to_design/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>fdtd_managed_design_object</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/design_management/sys/4_info_reqs.htm#design_management_arm.managed_design_object">managed_design_object</A></b> type. 
+         
+         It adds the data 
+         
+         types
+         <b><A HREF="#functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component">Design_functional_unit_allocation_to_assembly_component</A></b>
+         and
+         <b><A HREF="#functional_decomposition_to_design_arm.design_functional_unit_allocation_to_reference_functional_unit">Design_functional_unit_allocation_to_reference_functional_unit</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            fdtd_managed_design_object =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/design_management/sys/4_info_reqs.htm#design_management_arm.managed_design_object">managed_design_object</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component">Design_functional_unit_allocation_to_assembly_component</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#functional_decomposition_to_design_arm.design_functional_unit_allocation_to_reference_functional_unit">Design_functional_unit_allocation_to_reference_functional_unit</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="functional_decomposition_to_design_arm.component_swap_specification">4.3.1 Component_swap_specification</a>
+         &nbsp;&nbsp;<a href="../../functional_decomposition_to_design/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycomponent_swap_specification"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         
+         A <b>Component_swap_specification</b> is a type of <a href="../../../modules/design_management/sys/4_info_reqs.htm#design_management_arm.change_design_object_management_relationship"><b>Change_design_object_management_relationship</b></a>.
+         The <b>Component_swap_specification</b> specifies which component has been swapped for which other component in a design; both the swapped-out and the swapped-in
+         components are specified.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            The <b>Component_swap_specification</b> supports the component identification portion of the gate 
+            swap specification. It is necessary when components, such as the microcircuits 
+            known as U1, U2, etc. are being swapped.
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Component_swap_specification<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/design_management/sys/4_info_reqs.htm#design_management_arm.change_design_object_management_relationship">Change_design_object_management_relationship</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/design_management/sys/4_info_reqs.htm#design_management_arm.change_design_object_management_relationship">Change_design_object_management_relationship</A>.current_design_object : <A HREF="#functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component">Design_functional_unit_allocation_to_assembly_component</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/design_management/sys/4_info_reqs.htm#design_management_arm.change_design_object_management_relationship">Change_design_object_management_relationship</A>.previous_design_object : <A HREF="#functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component">Design_functional_unit_allocation_to_assembly_component</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.component_swap_specification.current_design_object">current_design_object:
+               </a></b>
+         specifies the <a href="../../../modules/functional_decomposition_to_design/sys/4_info_reqs.htm#functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component"><b>Design_functional_unit_allocation_to_assembly_component</b></a> for the resulting design object after swapping, for the <b>Component_swap_specification</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.component_swap_specification.previous_design_object">previous_design_object:
+               </a></b>
+         specifies the <a href="../../../modules/functional_decomposition_to_design/sys/4_info_reqs.htm#functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component"><b>Design_functional_unit_allocation_to_assembly_component</b></a> for the original design object before swapping, for the <b>Component_swap_specification</b>.
+         
+      </p>
+      <h2><a name="functional_decomposition_to_design_arm.design_composition_path">4.3.2 Design_composition_path</a>
+         &nbsp;&nbsp;<a href="../../functional_decomposition_to_design/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydesign_composition_path"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+          A <b>Design_composition_path</b> is a collection of <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit"><b>Functional_unit</b></a> that together compose one path through the complete functional 
+         definition that has the <b>design_functional_unit</b> as a reference to the <a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_definition"><b>Functional_unit_definition</b></a> that is the leaf node.
+         The functional definition has a root node that is a <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_definition"><b>Functional_unit_network_definition</b></a>.  The path is then established by starting at the leaf element and traversing the collection of <b>path_element</b> in the sequence in which they exist in the functional definition between the leaf element and the root element.  Each member
+         of <b>path_element</b> establishes a link in the sequence.
+         The <b>Design_composition_path</b> is a mapping source for a packaging application to use to map between a hierarchical description and a flattened description
+         of a network.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            The types of node elements that are composing a directed acyclic graph must be consistent.  This part of ISO 10303 uses <a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_definition"><b>Functional_unit_definition</b></a> as the node elements.
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Design_composition_path;<br>
+            
+            
+            
+            &nbsp;&nbsp;path_element : SET[1:?] OF <A HREF="../../../../data/modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit">Functional_unit</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;design_functional_unit : <A HREF="../../../../data/modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit">Functional_unit</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.design_composition_path.path_element">path_element:
+               </a></b>
+         specifies the <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit"><b>Functional_unit</b></a> for the 
+         <b>Design_composition_path</b>. There shall be one or more  <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit"><b>Functional_unit</b></a> for a <b>Design_composition_path</b>. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.design_composition_path.design_functional_unit">design_functional_unit:
+               </a></b>
+         specifies the <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit"><b>Functional_unit</b></a>
+         for the leaf element for the <b>Design_composition_path</b>.
+         
+      </p>
+      <h2><a name="functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component">4.3.3 Design_functional_unit_allocation_to_assembly_component</a>
+         &nbsp;&nbsp;<a href="../../functional_decomposition_to_design/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydesign_functional_unit_allocation_to_assembly_component"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Design_functional_unit_allocation_to_assembly_component</b> is the relationship between the 
+      	<a href="../../../modules/functional_decomposition_to_design/sys/4_info_reqs.htm#functional_decomposition_to_design_arm.design_composition_path"><b>Design_composition_path</b></a> 
+      	and the 
+      	<a href="../../../modules/physical_unit_design_view/sys/4_info_reqs.htm#physical_unit_design_view_arm.assembly_component"><b>Assembly_component</b></a> 
+      	that performs the required function. 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Design_functional_unit_allocation_to_assembly_component;<br>
+            
+            
+            
+            &nbsp;&nbsp;functional_design_definition_path : <A HREF="#functional_decomposition_to_design_arm.design_composition_path">Design_composition_path</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;implementation : <A HREF="../../../../data/modules/physical_unit_design_view/sys/4_info_reqs.htm#physical_unit_design_view_arm.assembly_component">Assembly_component</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;global_swappable : BOOLEAN;<br>
+            
+            
+            
+            &nbsp;&nbsp;local_swappable : BOOLEAN;<br>
+            
+            
+            
+            &nbsp;&nbsp;of_property : 
+            OPTIONAL 
+            SET[1:?] OF <A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.property_value_representation">Property_value_representation</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;path_alias : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;swap_code : STRING;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: implementation, path_alias;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component.functional_design_definition_path">functional_design_definition_path:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/functional_decomposition_to_design/sys/4_info_reqs.htm#functional_decomposition_to_design_arm.design_composition_path"><b>Design_composition_path</b></a> 
+         	for the <b>Design_functional_unit_allocation_to_assembly_component</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component.implementation">implementation:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/physical_unit_design_view/sys/4_info_reqs.htm#physical_unit_design_view_arm.assembly_component"><b>Assembly_component</b></a> 
+         	for the <b>Design_functional_unit_allocation_to_assembly_component</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component.global_swappable">global_swappable:
+               </a></b>
+         	specifies a boolean value that indicates if occurrences of the associated path can be exchanged within the context of an
+          
+         	<a href="../../../modules/product_identification/sys/4_info_reqs.htm#product_identification_arm.product"><b>Product</b></a> being designed.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component.local_swappable">local_swappable:
+               </a></b>
+         	specifies a boolean value that indicates if occurrences of the associated path can be exchanged within the context of an
+          
+         	<a href="../../../modules/physical_unit_design_view/sys/4_info_reqs.htm#physical_unit_design_view_arm.assembly_component"><b>Assembly_component</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component.of_property">of_property:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.property_value_representation"><b>Property_value_representation</b></a> 
+         	for the <b>Design_functional_unit_allocation_to_assembly_component</b>. 
+         	There may be more than one <b>of_property</b> for a <b>Design_functional_unit_allocation_to_assembly_component</b>. 
+         	The value of this attribute need not be specified. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component.path_alias">path_alias:
+               </a></b> 
+         	specifies the label that is the identifier in the context of the <b>implementation</b> for the <b>Design_functional_unit_allocation_to_assembly_component</b>.
+         
+      </p>
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		"A", "B", "C", "D", are typical <b>path_alias</b> for a quad NAND gate part.
+            	</small></p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component.swap_code">swap_code:
+               </a></b>
+         	specifies the text that is the type of replacement that is valid.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.design_functional_unit_allocation_to_assembly_component.ur:ur1">UR1:
+               </a></b>
+         	The combination of <b>implementation</b> and <b>path_alias</b> shall be unique within a population of 
+         	<b>Design_functional_unit_allocation_to_assembly_component</b>.
+         
+      </p>
+      <h2><a name="functional_decomposition_to_design_arm.design_functional_unit_allocation_to_reference_functional_unit">4.3.4 Design_functional_unit_allocation_to_reference_functional_unit</a>
+         &nbsp;&nbsp;<a href="../../functional_decomposition_to_design/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydesign_functional_unit_allocation_to_reference_functional_unit"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+          A <b>Design_functional_unit_allocation_to_reference_functional_unit</b> is an assignment of a <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit"><b>Functional_unit</b></a> in a <a href="../../../modules/functional_decomposition_to_design/sys/4_info_reqs.htm#functional_decomposition_to_design_arm.design_composition_path"><b>Design_composition_path</b></a> to a  <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit"><b>Functional_unit</b></a> in a <a href="../../../modules/functional_decomposition_to_design/sys/4_info_reqs.htm#functional_decomposition_to_design_arm.reference_composition_path"><b>Reference_composition_path</b></a> for the functional definition of a product.
+         
+         
+      </p>
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            This provides the capability to exchange a functional decomposition that an enterprise reuses in multiple designs.
+            </small></p>
+      
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            The library functional hierarchy, if provided, is required to be a network definition with the constraint that 
+            only external references on the root node of the network structure will be mapped to physical terminals of 
+            the reused product design.
+            </small></p>
+      
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            The allocation relationship in this Application Object is critical in mapping between a functional design and a physical implementation
+            of that design, because this part of ISO 10303 relies on the reference mapping between a functional definition in a library
+            and the physical implementation of that functional definition in that library, usually in a packaged part, to identify the
+            necessary definitions that need to be instantiated in the physical design.
+            </small></p>
+      
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Design_functional_unit_allocation_to_reference_functional_unit;<br>
+            
+            
+            
+            &nbsp;&nbsp;reference_definition_path : <A HREF="#functional_decomposition_to_design_arm.reference_composition_path">Reference_composition_path</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;design_definition_path : <A HREF="#functional_decomposition_to_design_arm.design_composition_path">Design_composition_path</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.design_functional_unit_allocation_to_reference_functional_unit.reference_definition_path">reference_definition_path:
+               </a></b>
+         specifies the <a href="../../../modules/functional_decomposition_to_design/sys/4_info_reqs.htm#functional_decomposition_to_design_arm.reference_composition_path"><b>Reference_composition_path</b></a> for the 
+         <b>Design_functional_unit_allocation_to_reference_functional_unit</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.design_functional_unit_allocation_to_reference_functional_unit.design_definition_path">design_definition_path:
+               </a></b>
+         specifies the <a href="../../../modules/functional_decomposition_to_design/sys/4_info_reqs.htm#functional_decomposition_to_design_arm.design_composition_path"><b>Design_composition_path</b></a> for the 
+         <b>Design_functional_unit_allocation_to_reference_functional_unit</b>.
+         
+      </p>
+      <h2><a name="functional_decomposition_to_design_arm.gate_path_swap_specification">4.3.5 Gate_path_swap_specification</a>
+         &nbsp;&nbsp;<a href="../../functional_decomposition_to_design/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitygate_path_swap_specification"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         
+         A <b>Gate_path_swap_specification</b> is a type of <a href="../../../modules/design_management/sys/4_info_reqs.htm#design_management_arm.change_design_object_management_relationship"><b>Change_design_object_management_relationship</b></a>. This entity explicitly states that a path to a functional unit in a design shall be changed to a new path in the 
+         library of functional unit definitions.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            Normally the new path is based on the same root functional 
+            unit definition in the library, leading to a different path in the same technology, but there is no restriction in 
+            the standard that prohibits switching to a different functional unit definition in the library. If there is a new 
+            functional unit definition as root, other design changes will likely need to occur, but the mapping to 
+            identify those explicitly and relate them to this entity is not standardized, except through the use of the 
+            requirement occurrence concept. Specifically, this entity needs to be used in conjunction with the 
+            component swap specification to swap between components if the path in the library is also changing.
+            </small></p>
+      
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            An example is in the case where a change is being made from one microcircuit and its terminal, U1-A, to 
+            another microcircuit and terminal, U2-C.
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Gate_path_swap_specification<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/design_management/sys/4_info_reqs.htm#design_management_arm.change_design_object_management_relationship">Change_design_object_management_relationship</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/design_management/sys/4_info_reqs.htm#design_management_arm.change_design_object_management_relationship">Change_design_object_management_relationship</A>.current_design_object : <A HREF="#functional_decomposition_to_design_arm.design_functional_unit_allocation_to_reference_functional_unit">Design_functional_unit_allocation_to_reference_functional_unit</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/design_management/sys/4_info_reqs.htm#design_management_arm.change_design_object_management_relationship">Change_design_object_management_relationship</A>.previous_design_object : <A HREF="#functional_decomposition_to_design_arm.design_functional_unit_allocation_to_reference_functional_unit">Design_functional_unit_allocation_to_reference_functional_unit</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.gate_path_swap_specification.current_design_object">current_design_object:
+               </a></b>
+         specifies the <a href="../../../modules/functional_decomposition_to_design/sys/4_info_reqs.htm#functional_decomposition_to_design_arm.design_functional_unit_allocation_to_reference_functional_unit"><b>Design_functional_unit_allocation_to_reference_functional_unit</b></a> that 
+         results from the swap in the <b>Gate_path_swap_specification</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.gate_path_swap_specification.previous_design_object">previous_design_object:
+               </a></b>
+         specifies the <a href="../../../modules/functional_decomposition_to_design/sys/4_info_reqs.htm#functional_decomposition_to_design_arm.design_functional_unit_allocation_to_reference_functional_unit"><b>Design_functional_unit_allocation_to_reference_functional_unit</b></a> from 
+         which the swap was made in the <b>Gate_path_swap_specification</b>.
+         
+      </p>
+      <h2><a name="functional_decomposition_to_design_arm.reference_composition_path">4.3.6 Reference_composition_path</a>
+         &nbsp;&nbsp;<a href="../../functional_decomposition_to_design/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityreference_composition_path"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Reference_composition_path</b> is one path through the function reference network graph.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Reference_composition_path;<br>
+            
+            
+            
+            &nbsp;&nbsp;path_element : SET[1:?] OF <A HREF="../../../../data/modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit">Functional_unit</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;reference_functional_unit : <A HREF="../../../../data/modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit">Functional_unit</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.reference_composition_path.path_element">path_element:
+               </a></b>
+         specifies a role of the <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit"><b>Functional_unit</b></a> for the 
+         <b>Reference_composition_path</b>. There shall be one or more  <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit"><b>Functional_unit</b></a> for a <b>Reference_composition_path</b>. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.reference_composition_path.reference_functional_unit">reference_functional_unit:
+               </a></b>
+         specifies the <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit"><b>Functional_unit</b></a> that participates as a link to the leaf node in the functional decomposition 
+         hierarchical definition in the <b>Reference_composition_path</b>.
+         
+      </p>
+      <h2><a name="functional_decomposition_to_design_arm.reference_functional_unit_assignment_to_part">4.3.7 Reference_functional_unit_assignment_to_part</a>
+         &nbsp;&nbsp;<a href="../../functional_decomposition_to_design/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityreference_functional_unit_assignment_to_part"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Reference_functional_unit_assignment_to_part</b> is a means to assign one specific path in the function reference network graph to an <b>implementation</b>.
+      	A <b>Reference_functional_unit_assignment_to_part</b> provides support for exchange of information needed to determine swappability of functions assigned to devices.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Reference_functional_unit_assignment_to_part;<br>
+            
+            
+            
+            &nbsp;&nbsp;functional_design_definition_path : <A HREF="#functional_decomposition_to_design_arm.reference_composition_path">Reference_composition_path</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;implementation : <A HREF="../../../../data/modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;of_property : 
+            OPTIONAL 
+            SET[1:?] OF <A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.property_value_representation">Property_value_representation</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;path_alias : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;swap_code : 
+            OPTIONAL 
+            STRING;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: implementation, path_alias;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.reference_functional_unit_assignment_to_part.functional_design_definition_path">functional_design_definition_path:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/functional_decomposition_to_design/sys/4_info_reqs.htm#functional_decomposition_to_design_arm.reference_composition_path"><b>Reference_composition_path</b></a> 
+         	for the <b>Reference_functional_unit_assignment_to_part</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.reference_functional_unit_assignment_to_part.implementation">implementation:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition"><b>Part_view_definition</b></a> 
+         	for the <b>Reference_functional_unit_assignment_to_part</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.reference_functional_unit_assignment_to_part.of_property">of_property:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.property_value_representation"><b>Property_value_representation</b></a>  
+         	for the <b>Reference_functional_unit_assignment_to_part</b>. 
+         	There may be more than one <b>of_property</b> for a <b>Reference_functional_unit_assignment_to_part</b>. 
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.reference_functional_unit_assignment_to_part.path_alias">path_alias:
+               </a></b>
+         	specifies a string that is the identifier for the <b>Reference_functional_unit_assignment_to_part</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.reference_functional_unit_assignment_to_part.swap_code">swap_code:
+               </a></b>
+         	specifies the string that is the type of exchange that is valid. The value of this attribute need not be specified.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.reference_functional_unit_assignment_to_part.ur:ur1">UR1:
+               </a></b>
+         The combination of <b>implementation</b> and <b>path_alias</b> shall be unique within a population of <b>Reference_functional_unit_assignment_to_part</b>.
+         
+      </p>
+      <h2><a name="functional_decomposition_to_design_arm.reference_functional_unit_assignment_to_template">4.3.8 Reference_functional_unit_assignment_to_template</a>
+         &nbsp;&nbsp;<a href="../../functional_decomposition_to_design/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityreference_functional_unit_assignment_to_template"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Functional_decomposition_to_design_arm.Reference_functional_unit_assignment_to_template</b> 
+      	is a means to assign one specific path in the function reference network graph to an <b>implementation</b>.
+      	A <b>Functional_decomposition_to_design_arm.Reference_functional_unit_assignment_to_template</b> 
+      	provides support for exchange of information needed to determine swappability of functions assigned to templates.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Reference_functional_unit_assignment_to_template;<br>
+            
+            
+            
+            &nbsp;&nbsp;functional_design_definition_path : <A HREF="#functional_decomposition_to_design_arm.reference_composition_path">Reference_composition_path</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;implementation : <A HREF="../../../../data/modules/part_template/sys/4_info_reqs.htm#part_template_arm.template_definition">Template_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;of_property : 
+            OPTIONAL 
+            SET[1:?] OF <A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.property_value_representation">Property_value_representation</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;path_alias : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;swap_code : 
+            OPTIONAL 
+            STRING;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: implementation, path_alias;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.reference_functional_unit_assignment_to_template.functional_design_definition_path">functional_design_definition_path:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/functional_decomposition_to_design/sys/4_info_reqs.htm#functional_decomposition_to_design_arm.reference_composition_path"><b>Reference_composition_path</b></a>
+         	for the <b>Reference_functional_unit_assignment_to_template</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.reference_functional_unit_assignment_to_template.implementation">implementation:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/part_template/sys/4_info_reqs.htm#part_template_arm.template_definition"><b>Template_definition</b></a>
+         	for the <b>Reference_functional_unit_assignment_to_template</b>.		
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.reference_functional_unit_assignment_to_template.of_property">of_property:
+               </a></b>
+         	specifies a set of one or more 
+         	<a href="../../../modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.property_value_representation"><b>Property_value_representation</b></a> 
+         	for the <b>Reference_functional_unit_assignment_to_template</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.reference_functional_unit_assignment_to_template.path_alias">path_alias:
+               </a></b>
+         	specifies alternate text for the path for <b>Reference_functional_unit_assignment_to_template</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.reference_functional_unit_assignment_to_template.swap_code">swap_code:
+               </a></b>
+         	specifies a string for the <b>Reference_functional_unit_assignment_to_template</b>. The value of this attribute need not be specified.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.reference_functional_unit_assignment_to_template.ur:ur1">UR1:
+               </a></b>
+         	The combination of <b>implementation</b> and <b>path_alias</b> shall be unique within a population of the <b>Reference_functional_unit_assignment_to_template</b>.
+         
+      </p>
+      <h2><a name="functional_decomposition_to_design_arm.terminal_swap_specification">4.3.9 Terminal_swap_specification</a>
+         &nbsp;&nbsp;<a href="../../functional_decomposition_to_design/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityterminal_swap_specification"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         A <b>Terminal_swap_specification</b> is a type of <a href="../../../modules/design_management/sys/4_info_reqs.htm#design_management_arm.change_design_object_management_relationship"><b>Change_design_object_management_relationship</b></a>.
+         The <b>Terminal_swap_specification</b> is part of the swapping specification from the previous design definition to the current design definition.
+         It identifies the terminal in the previous design that was connected to a node, and the terminal in the current design that
+         is connected to that node instead.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            With the pin mapping between the functional and physical representations in the library,
+            this is sufficient information to derive the swapping at the component terminal;
+            however, note that this is in the previous and present design definitions 
+            and not in the library functional definition.
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Terminal_swap_specification<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/design_management/sys/4_info_reqs.htm#design_management_arm.change_design_object_management_relationship">Change_design_object_management_relationship</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/design_management/sys/4_info_reqs.htm#design_management_arm.change_design_object_management_relationship">Change_design_object_management_relationship</A>.previous_design_object : <A HREF="../../../../data/modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal_node_assignment">Functional_unit_terminal_node_assignment</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/design_management/sys/4_info_reqs.htm#design_management_arm.change_design_object_management_relationship">Change_design_object_management_relationship</A>.current_design_object : <A HREF="../../../../data/modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal_node_assignment">Functional_unit_terminal_node_assignment</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.terminal_swap_specification.previous_design_object">previous_design_object:
+               </a></b>
+         specifies the <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal_node_assignment"><b>Functional_unit_terminal_node_assignment</b></a> of the terminal node before the swap for the 
+         <b>Terminal_swap_specification</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="functional_decomposition_to_design_arm.terminal_swap_specification.current_design_object">current_design_object:
+               </a></b>
+         specifies the <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal_node_assignment"><b>Functional_unit_terminal_node_assignment</b></a> of the terminal node after the swap for the 
+         <b>Terminal_swap_specification</b>.
+         
+      </p>
+      <h2><a name="subtype_constraints">4.4 ARM subtype constraint definition</a></h2>
+      <p>
+         This subclause specifies the ARM subtype constraint for
+         this module. The subtype constraint places a constraint on the
+         possible super-type / subtype instantiations.
+         The ARM subtype constraint and definition is
+         specified below.
+         
+      </p>
+      <h2><A NAME="functional_decomposition_to_design_arm.change_design_object_management_relationship_subtypes">4.4.1 change_design_object_management_relationship_subtypes</A>
+         &nbsp;&nbsp;<a href="../../functional_decomposition_to_design/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#scconstraintchange_design_object_management_relationship_subtypes"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         The
+         <b>change_design_object_management_relationship_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/design_management/sys/4_info_reqs.htm#design_management_arm.change_design_object_management_relationship">Change_design_object_management_relationship</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="functional_decomposition_to_design_arm.change_design_object_management_relationship_subtypes">SUBTYPE_CONSTRAINT change_design_object_management_relationship_subtypes</A> FOR <A HREF="../../../../data/modules/design_management/sys/4_info_reqs.htm#design_management_arm.change_design_object_management_relationship">Change_design_object_management_relationship</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#functional_decomposition_to_design_arm.terminal_swap_specification">Terminal_swap_specification</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#functional_decomposition_to_design_arm.gate_path_swap_specification">Gate_path_swap_specification</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#functional_decomposition_to_design_arm.component_swap_specification">Component_swap_specification</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Functional_decomposition_to_design_arm<br>(*
+         </code><br><br><p>&copy; ISO 2006 &#8212; All rights reserved</p>
+   </body>
+</HTML>

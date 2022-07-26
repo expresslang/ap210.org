@@ -1,0 +1,59 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Basic_curve_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Basic_curve_mim</h2><code><br><br><a name="basic_curve_mim">SCHEMA <b>Basic_curve_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/basic_geometry/sys/e_exp_mim.htm#basic_geometry_mim">Basic_geometry_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1652<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_mim.htm#external_item_identification_assignment_mim">External_item_identification_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1128<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema">geometry_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-42<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.circle">circle</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.trimmed_curve">trimmed_curve</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.line">line</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.composite_curve">composite_curve</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.composite_curve_segment">composite_curve_segment</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.pcurve">pcurve</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.surface_curve">surface_curve</A>);
+         <br><br></code><code><br><A NAME="basic_curve_mim.bc_external_identification_item">TYPE </A><b>bc_external_identification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_mim.htm#external_item_identification_assignment_mim.external_identification_item">external_identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.trimmed_curve">trimmed_curve</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="basic_curve_mim.closed_curve">TYPE </A><b>closed_curve</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.circle">circle</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.composite_curve">composite_curve</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="basic_curve_mim.closed_curve.wr:wr1">WR1: NOT('GEOMETRY_SCHEMA.COMPOSITE_CURVE' IN TYPEOF(SELF)) OR (SELF\composite_curve.closed_curve = TRUE);</A><br>
+         END_TYPE; 
+         <br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Basic_curve_mim<br></code></body>
+</HTML>

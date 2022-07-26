@@ -1,0 +1,61 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Planned_characteristic_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Planned_characteristic_arm</h2><code><br><br><a name="planned_characteristic_arm">SCHEMA <b>Planned_characteristic_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/production_rule/sys/e_exp_arm.htm#production_rule_arm">Production_rule_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1739<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/requirement_assignment/sys/e_exp_arm.htm#requirement_assignment_arm">Requirement_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1233<br><br></code><code><br><A NAME="planned_characteristic_arm.evaluation_result_value">TYPE </A><b>evaluation_result_value</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (pass,<br>&nbsp;&nbsp;&nbsp;&nbsp;fail,<br>&nbsp;&nbsp;&nbsp;&nbsp;undefined);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="planned_characteristic_arm.evaluation_type">TYPE </A><b>evaluation_type</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (not_evaluatable,<br>&nbsp;&nbsp;&nbsp;&nbsp;invalid,<br>&nbsp;&nbsp;&nbsp;&nbsp;valid,<br>&nbsp;&nbsp;&nbsp;&nbsp;to_be_evaluated);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="planned_characteristic_arm.evaluated_characteristic">ENTITY <b>Evaluated_characteristic</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (<A HREF="#planned_characteristic_arm.rule_based_evaluated_characteristic">Rule_based_evaluated_characteristic</A>);<br>
+         &nbsp;&nbsp;<A NAME="planned_characteristic_arm.evaluated_characteristic.planned_product_data">planned_product_data : </A><A HREF="#planned_characteristic_arm.planned_characteristic">Planned_characteristic</A>;<br>
+         &nbsp;&nbsp;<A NAME="planned_characteristic_arm.evaluated_characteristic.product_data_status">product_data_status : </A><A HREF="#planned_characteristic_arm.evaluation_type">evaluation_type</A>;<br>
+         &nbsp;&nbsp;<A NAME="planned_characteristic_arm.evaluated_characteristic.product_characterization_data">product_characterization_data : </A>
+         OPTIONAL 
+         SET[1:?] OF <A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.property_value_representation">Property_value_representation</A>;<br>
+         &nbsp;&nbsp;<A NAME="planned_characteristic_arm.evaluated_characteristic.evaluation_result">evaluation_result : </A><A HREF="#planned_characteristic_arm.evaluation_result_value">evaluation_result_value</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="planned_characteristic_arm.evaluation_view_definition">ENTITY <b>Evaluation_view_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="planned_characteristic_arm.evaluation_view_definition.evaluated_product_definition">evaluated_product_definition : </A><A HREF="../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="planned_characteristic_arm.evaluation_view_definition.evaluation_data">evaluation_data : </A>SET[1:?] OF <A HREF="#planned_characteristic_arm.evaluated_characteristic">Evaluated_characteristic</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="planned_characteristic_arm.evaluation_view_definition.wr:wr1">WR1: TYPEOF(SELF) &lt;&gt; TYPEOF(evaluated_product_definition);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="planned_characteristic_arm.planned_characteristic">ENTITY <b>Planned_characteristic</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="planned_characteristic_arm.planned_characteristic.reference_requirement">reference_requirement : </A><A HREF="../../../data/modules/requirement_assignment/sys/e_exp_arm.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</A>;<br>
+         &nbsp;&nbsp;<A NAME="planned_characteristic_arm.planned_characteristic.planned_coordinated_characteristic">planned_coordinated_characteristic : </A><A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.property_value_representation">Property_value_representation</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="planned_characteristic_arm.rule_based_evaluated_characteristic">ENTITY <b>Rule_based_evaluated_characteristic</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#planned_characteristic_arm.evaluated_characteristic">Evaluated_characteristic</A>);<br>
+         &nbsp;&nbsp;<A NAME="planned_characteristic_arm.rule_based_evaluated_characteristic.evaluating_rule">evaluating_rule : </A><A HREF="../../../data/modules/production_rule/sys/e_exp_arm.htm#production_rule_arm.rule_definition">Rule_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Planned_characteristic_arm<br></code></body>
+</HTML>

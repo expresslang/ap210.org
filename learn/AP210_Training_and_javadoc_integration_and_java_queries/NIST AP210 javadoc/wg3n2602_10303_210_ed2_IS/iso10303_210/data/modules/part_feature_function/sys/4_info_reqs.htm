@@ -1,0 +1,525 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Part feature function">
+      <META name="DC.Dates" content="2009-05-04 09:33:15">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Part feature function">
+      <META name="DC.Subject" content="module, part, feature, thermal, mating, mounting, tooling, test point, fiducial, interface access">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6470">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5736">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-04 09:33:15">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.37">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.50">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.46">
+      <TITLE>ISO/TS 10303-1712:2009 Part feature function</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Part feature function</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1712:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARM</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.2 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.1 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Part feature function</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Part_feature_function_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="part_feature_function_arm">
+            SCHEMA Part_feature_function_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARM</A></h2>
+      <p>
+         The following EXPRESS interface statement specifies the elements
+         imported from the ARM of another application module.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm">Physical_unit_usage_view_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1732<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Physical_unit_usage_view_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1732</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="entities">4.2 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="part_feature_function_arm.fiducial_part_feature">4.2.1 Fiducial_part_feature</a>
+         &nbsp;&nbsp;<a href="../../part_feature_function/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityfiducial_part_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      A <b>Fiducial_part_feature</b> is a type of <a href="../../../modules/part_feature_function/sys/4_info_reqs.htm#part_feature_function_arm.part_tooling_feature"><b>Part_tooling_feature</b></a>. A <b>Fiducial_part_feature</b> identifies a feature for 
+      product alignment with respect to a tool. 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Fiducial_part_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#part_feature_function_arm.part_tooling_feature">Part_tooling_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="part_feature_function_arm.part_interface_access_feature">4.2.2 Part_interface_access_feature</a>
+         &nbsp;&nbsp;<a href="../../part_feature_function/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_interface_access_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Part_interface_access_feature</b> is a type of 
+      	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>
+      	that is 
+      	identified to facilitate tolerance specification when an occurrence of the associated part is used in an assembly.  Specifically
+      the intent is to provide identification that the function of the  <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> is to provide access via a void in the material to internal components or terminals, which have been identified as having
+      some function at the  <a href="../../../modules/part_and_version_identification/sys/4_info_reqs.htm#part_and_version_identification_arm.part"><b>Part</b></a> level, e.g., are <a href="../../../modules/functional_assignment_to_part/sys/4_info_reqs.htm#functional_assignment_to_part_arm.part_terminal"><b>Part_terminals</b></a>.  The <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.material_state_change"><b>material_state_change</b></a> attribute inherited from  <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> shall be <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.material_state_change"><b>material_removal</b></a>.
+      	
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The reset button in a notebook computer requires a <b>Part_interface_access_feature</b> whose properties are coupled to the reset button to ensure correct functionality of the end product.
+            	</small></p>
+      	
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_interface_access_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;accessed_interface : <A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.shape_feature">Shape_feature</A>.connection_area : 
+            OPTIONAL 
+            SET[1:?] OF <A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.connection_zone_in_usage_view">Connection_zone_in_usage_view</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF\Part_feature.material_state_change = material_removal;<br> 
+            &nbsp;&nbsp;WR2: SELF &lt;&gt; accessed_interface;<br> 
+            &nbsp;&nbsp;WR3: NOT ('FUNCTIONAL_ASSIGNMENT_TO_PART_ARM.PART_TERMINAL' IN TYPEOF(SELF));<br> 
+            &nbsp;&nbsp;WR4: NOT ('PACKAGE_ARM.PACKAGE_BODY' IN TYPEOF(SELF));<br> 
+            &nbsp;&nbsp;WR5: NOT ('PART_FEATURE_FUNCTION_ARM.PART_MOUNTING_FEATURE' IN TYPEOF(SELF));<br> 
+            &nbsp;&nbsp;WR6: NOT ('INTERCONNECT_MODULE_USAGE_VIEW_ARM.INTERCONNECT_MODULE_SURFACE_FEATURE' IN TYPEOF(SELF));<br> 
+            &nbsp;&nbsp;WR7: NOT ('PACKAGE_ARM.PACKAGE_TERMINAL' IN TYPEOF(SELF));<br> 
+            &nbsp;&nbsp;WR8: NOT ('PACKAGE_ARM.PACKAGE_BODY_SURFACE' IN TYPEOF(SELF));<br> 
+            &nbsp;&nbsp;WR9: NOT ('PACKAGE_ARM.POLARITY_INDICATION_FEATURE' IN TYPEOF(SELF));<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_interface_access_feature.accessed_interface">accessed_interface:
+               </a></b>
+         specifies a role of the <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> for the <b>Part_interface_access_feature</b>.  
+         The <b>accessed_interface</b> is the feature for which the <b>Part_interface_access_feature</b> provides access.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            The <b>accessed_interface</b> is at the same level of design hierarchy as the <b>Part_interface_access_feature</b> for consistency purposes.
+            It is anticipated that  <a href="../../../modules/component_feature/sys/4_info_reqs.htm#component_feature_arm.component_feature_to_physical_usage_view_assignment"><b>Component_feature_to_physical_usage_view_assignment</b></a> will be populated as necessary to support the design process peculiar to the enterprise.
+            </small></p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_interface_access_feature.connection_area">connection_area:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.connection_zone_in_usage_view"><b>Connection_zone_in_usage_view</b></a> 
+         	for the <b>Part_interface_access_feature</b>. There shall be one or more  
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.connection_zone_in_usage_view"><b>Connection_zone_in_usage_view</b></a> 
+         	for an <b>connection_area</b>. The value of this attribute need not be specified.
+         	The <b>connection_area</b> provides a means to geometrically specify an area for critical mechanical interface access properties.  The  
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.connection_zone_in_usage_view"><b>Connection_zone_in_usage_view</b></a> area is void of material.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_interface_access_feature.wr:wr1">WR1:
+               </a></b>
+         The <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature.material_state_change"><b>material_state_change</b></a> inherited from
+         <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> shall be
+         <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.material_state_change_enumeration.material_removal"><b>material_removal</b></a>
+         for <b>Part_interface_access_feature</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_interface_access_feature.wr:wr2">WR2:
+               </a></b>
+         The <b>accessed_interface</b> shall not be this <b>Part_interface_access_feature</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_interface_access_feature.wr:wr3">WR3:
+               </a></b>
+         The <b>Part_interface_access_feature</b> shall not be complex with <a href="../../../modules/functional_assignment_to_part/sys/4_info_reqs.htm#functional_assignment_to_part_arm.part_terminal"><b>Part_terminal</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_interface_access_feature.wr:wr4">WR4:
+               </a></b>
+         The <b>Part_interface_access_feature</b> shall not be complex with <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body"><b>Package_body</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_interface_access_feature.wr:wr5">WR5:
+               </a></b>
+         The <b>Part_interface_access_feature</b> shall not be complex with <a href="../../../modules/part_feature_function/sys/4_info_reqs.htm#part_feature_function_arm.part_mounting_feature"><b>Part_mounting_feature</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_interface_access_feature.wr:wr6">WR6:
+               </a></b>
+         The <b>Part_interface_access_feature</b> shall not be complex with <a href="../../../modules/interconnect_module_usage_view/sys/4_info_reqs.htm#interconnect_module_usage_view_arm.interconnect_module_surface_feature"><b>Interconnect_module_surface_feature</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_interface_access_feature.wr:wr7">WR7:
+               </a></b>
+         The <b>Part_interface_access_feature</b> shall not be complex with <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminal</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_interface_access_feature.wr:wr8">WR8:
+               </a></b>
+         The <b>Part_interface_access_feature</b> shall not be complex with <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_body_surface"><b>Package_body_surface</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_interface_access_feature.wr:wr9">WR9:
+               </a></b>
+         The <b>Part_interface_access_feature</b> shall not be complex with <a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.polarity_indication_feature"><b>Polarity_indication_feature</b></a>.
+         
+      </p>
+      <h2><a name="part_feature_function_arm.part_mating_feature">4.2.3 Part_mating_feature</a>
+         &nbsp;&nbsp;<a href="../../part_feature_function/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_mating_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      A <b>Part_mating_feature</b> is a type of 
+      <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>
+      that is 
+      identified to facilitate tolerance specification when an occurrence of the associated part is mated to a complementary part.
+       A <b>Part_mating_feature</b> is provided where there is no requirement to convey electrical functionality as would be provided by  <a href="../../../modules/functional_assignment_to_part/sys/4_info_reqs.htm#functional_assignment_to_part_arm.part_terminal"><b>Part_terminal</b></a>.
+      
+      
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            The use of multi-pin connectors may require specification of mechanical mating areas in addition to electrical terminals.
+            </small></p>
+      
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            The plastic housing on some connectors may contain <b>Part_mating_feature</b>s.
+            </small></p>
+      
+      
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_mating_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.shape_feature">Shape_feature</A>.connection_area : 
+            OPTIONAL 
+            SET[1:?] OF <A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.connection_zone_in_usage_view">Connection_zone_in_usage_view</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: NOT ('PART_FEATURE_FUNCTION_ARM.PART_MOUNTING_FEATURE' IN TYPEOF(SELF));<br> 
+            &nbsp;&nbsp;WR2: NOT ('INTERCONNECT_MODULE_USAGE_VIEW_ARM.INTERCONNECT_MODULE_SURFACE_FEATURE' IN TYPEOF(SELF));<br> 
+            &nbsp;&nbsp;WR3: NOT ('PACKAGE_ARM.PACKAGE_TERMINAL' IN TYPEOF(SELF));<br> 
+            &nbsp;&nbsp;WR4: NOT ('FUNCTIONAL_ASSIGNMENT_TO_PART_ARM.PART_TERMINAL' IN TYPEOF(SELF));<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_mating_feature.connection_area">connection_area:
+               </a></b>
+         	specifies a role of the 
+         	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.connection_zone_in_usage_view"><b>Connection_zone_in_usage_view</b></a> 
+         	for the <b>Part_mating_feature</b>.  
+         	There shall be one or more <b>connection_area</b> for a <b>Part_mating_feature</b>. The value of this attribute need not be specified. 
+         	The <b>connection_area</b> provides a means to geometrically specify a surface area for critical mechanical mating properties.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		The <a href="../../../modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship"><b>Usage_concept_usage_relationship</b></a> 
+            		specified by the mating feature may be the same  
+            		<a href="../../../modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship"><b>Usage_concept_usage_relationship</b></a> 
+            		that is specified by the associated <a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone"><b>Connection_zone</b></a>.  
+            		In this case the whole mating feature is the  <a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone"><b>Connection_zone</b></a>.
+            	</small></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_mating_feature.wr:wr1">WR1:
+               </a></b>
+         	The <b>Part_mating_feature</b> shall not be complex with 
+         	<a href="../../../modules/part_feature_function/sys/4_info_reqs.htm#part_feature_function_arm.part_mounting_feature"><b>Part_mounting_feature</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_mating_feature.wr:wr2">WR2:
+               </a></b>
+         	The <b>Part_mating_feature</b> shall not be complex with 
+         	<a href="../../../modules/interconnect_module_usage_view/sys/4_info_reqs.htm#interconnect_module_usage_view_arm.interconnect_module_surface_feature"><b>Interconnect_module_surface_feature</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_mating_feature.wr:wr3">WR3:
+               </a></b>
+         	The <b>Part_mating_feature</b> shall not be complex with 
+         	<a href="../../../modules/package/sys/4_info_reqs.htm#package_arm.package_terminal"><b>Package_terminal</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_mating_feature.wr:wr4">WR4:
+               </a></b>
+         	The <b>Part_mating_feature</b> shall not be complex with 
+         	<a href="../../../modules/functional_assignment_to_part/sys/4_info_reqs.htm#functional_assignment_to_part_arm.part_terminal"><b>Part_terminal</b></a>.
+         
+      </p>
+      <h2><a name="part_feature_function_arm.part_mounting_feature">4.2.4 Part_mounting_feature</a>
+         &nbsp;&nbsp;<a href="../../part_feature_function/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_mounting_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Part_mounting_feature</b> is a type of 
+      	<a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> 
+      	that is identified to facilitate tolerance specification when an occurrence of the associated part is used in an assembly.
+      	
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            	The use of high density surface mount parts may require specification of mechanical mounting areas in addition to electrical
+            terminals.
+            	</small></p>
+      	
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_mounting_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.shape_feature">Shape_feature</A>.connection_area : 
+            OPTIONAL 
+            SET[1:?] OF <A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.connection_zone_in_usage_view">Connection_zone_in_usage_view</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.part_mounting_feature.connection_area">connection_area:
+               </a></b>
+         	specifies a role of the <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.connection_zone_in_usage_view"><b>Connection_zone_in_usage_view</b></a> for the <b>Part_mounting_feature</b>.  
+         	There shall be one or more  <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.connection_zone_in_usage_view"><b>Connection_zone_in_usage_view</b></a> for a <b>connection_area</b>. The value of this attribute need not be specified.
+         	The <b>connection_area</b> provides a means to geometrically specify a surface area for critical mechanical mounting properties.
+         	
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            	The <a href="../../../modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship"><b>Usage_concept_usage_relationship</b></a> 
+            	specified by the mounting feature may be the same 
+            	 <a href="../../../modules/part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship"><b>Usage_concept_usage_relationship</b></a> 
+            	 that is specified by the associated 
+            	 <a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone"><b>Connection_zone</b></a>.  
+            	 In this case the whole mounting feature is the  
+            	 <a href="../../../modules/feature_and_connection_zone/sys/4_info_reqs.htm#feature_and_connection_zone_arm.connection_zone"><b>Connection_zone</b></a>.
+            	</small></p>
+      <h2><a name="part_feature_function_arm.part_tooling_feature">4.2.5 Part_tooling_feature</a>
+         &nbsp;&nbsp;<a href="../../part_feature_function/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitypart_tooling_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         A <b>Part_tooling_feature</b> is a type of 
+         <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a>.  
+         A <b>Part_tooling_feature</b> may be one of a
+         <a href="../../../modules/part_feature_function/sys/4_info_reqs.htm#part_feature_function_arm.fiducial_part_feature"><b>Fiducial_part_feature</b></a> 
+         or a
+         <a href="../../../modules/part_feature_function/sys/4_info_reqs.htm#part_feature_function_arm.tool_registration_mark"><b>Tool_registration_mark</b></a>, 
+         or additionally may be a
+         <a href="../../../modules/part_feature_function/sys/4_info_reqs.htm#part_feature_function_arm.test_point_part_feature"><b>Test_point_part_feature</b></a>.
+         A <b>Part_tooling_feature</b> identifies a feature for tooling purposes.  A feature may be used for other purposes or may intrinsically be in a particular
+         feature category, and in either of those cases the feature would be a <b>Part_tooling_feature</b> and also the other type of feature. 
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            Tooling purposes as used herein includes test instrumentation and measurement purposes, not just inspection, fabrication and
+            assembly tooling.
+            </small></p>
+      
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            
+            Examples of a <b>Part_tooling_feature</b> include, but are not limited, to slots, passages, notches defined by Geometric Dimensioning and Tolerancing methodology,
+            as well as fiducials, and photo tool and mask alignment marks. 
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Part_tooling_feature<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#part_feature_function_arm.fiducial_part_feature">Fiducial_part_feature</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#part_feature_function_arm.tool_registration_mark">Tool_registration_mark</A>)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ANDOR&nbsp;<A HREF="#part_feature_function_arm.test_point_part_feature">Test_point_part_feature</A>)<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="part_feature_function_arm.test_point_part_feature">4.2.6 Test_point_part_feature</a>
+         &nbsp;&nbsp;<a href="../../part_feature_function/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitytest_point_part_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Test_point_part_feature</b> is a type of <a href="../../../modules/part_feature_function/sys/4_info_reqs.htm#part_feature_function_arm.part_tooling_feature"><b>Part_tooling_feature</b></a>. A <b>Test_point_part_feature</b> identifies a feature for use with test instrumentation. 
+         
+      </p>
+      	
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		A <b>Test_point_part_feature</b> may be related to a 
+            		<a href="../../../modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.probe_access_area"><b>Probe_access_area</b></a> 
+            		if the layout view is also supplied.
+            	</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Test_point_part_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#part_feature_function_arm.part_tooling_feature">Part_tooling_feature</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: 'FUNCTIONAL_ASSIGNMENT_TO_PART_ARM.PART_TERMINAL' IN TYPEOF(SELF);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="part_feature_function_arm.test_point_part_feature.wr:wr1">WR1:
+               </a></b>
+         	All instances of type <b>Test_point_part_feature</b> must also be of type 
+         	<a href="../../../modules/functional_assignment_to_part/sys/4_info_reqs.htm#functional_assignment_to_part_arm.part_terminal"><b>Part_terminal</b></a>.
+         
+      </p>
+      <h2><a name="part_feature_function_arm.thermal_feature">4.2.7 Thermal_feature</a>
+         &nbsp;&nbsp;<a href="../../part_feature_function/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitythermal_feature"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Thermal_feature</b> is a type of <a href="../../../modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature"><b>Part_feature</b></a> that is specified as 
+      having a role in the exchange of heat with the application environment of the <a href="../../../modules/part_view_definition/sys/4_info_reqs.htm#part_view_definition_arm.part_view_definition"><b>Part_view_definition</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Thermal_feature<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/physical_unit_usage_view/sys/4_info_reqs.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="part_feature_function_arm.tool_registration_mark">4.2.8 Tool_registration_mark</a>
+         &nbsp;&nbsp;<a href="../../part_feature_function/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitytool_registration_mark"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         A <b>Tool_registration_mark</b> is a type of <a href="../../../modules/part_feature_function/sys/4_info_reqs.htm#part_feature_function_arm.part_tooling_feature"><b>Part_tooling_feature</b></a> that is used to visually indicate a reference alignment for tooling purposes.
+         The geometric representation for a <b>Tool_registration_mark</b> is identical to the geometric representation of the <a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.reference_graphic_registration_mark"><b>Reference_graphic_registration_mark</b></a> that is part of the annotation for a pcb design.  
+         
+         
+      </p>
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            The difference between a  <a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.reference_graphic_registration_mark"><b>Reference_graphic_registration_mark</b></a> and a <b>Tool_registration_mark</b> is that the <a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.reference_graphic_registration_mark"><b>Reference_graphic_registration_mark</b></a> is annotation and therefore is not to be operated on as part of the design geometric model wheras the <b>Tool_registration_mark</b> is a real feature of the tool model and is operated on as part of the tool geometric model.
+            </small></p>
+      
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            In the case that tooling alignment registration marks are placed inside the outline of the pcb, <b>Tool_registration_mark</b> would be used instead of  <a href="../../../modules/non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.reference_graphic_registration_mark"><b>Reference_graphic_registration_mark</b></a> since the graphic directly affect the design shape.
+            </small></p>
+      
+      <p class="note"><small><a name="note_3">NOTE&nbsp;3</a>&nbsp;&nbsp;
+            
+            <b>Tool_registration_mark</b>s are included for manufacturing purposes, specifcally for ensuring accurate orientation and location of a set of photools
+            in a fabrication facility.
+            </small></p>
+      
+      <p class="note"><small><a name="note_4">NOTE&nbsp;4</a>&nbsp;&nbsp;
+            
+            The <b>Tool_registration_mark</b>s may be included in a design of a product category with an industry accepted name of "panel".  This standard supports that
+            usage by applications identifying a pcb as being an  <a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>Product_view_definition</b></a> for a product in the 'panel' category. In this application the <b>Tool_registration_mark</b> would be included as part of the product geometric model.
+            </small></p>
+      
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Tool_registration_mark<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#part_feature_function_arm.part_tooling_feature">Part_tooling_feature</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Part_feature_function_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

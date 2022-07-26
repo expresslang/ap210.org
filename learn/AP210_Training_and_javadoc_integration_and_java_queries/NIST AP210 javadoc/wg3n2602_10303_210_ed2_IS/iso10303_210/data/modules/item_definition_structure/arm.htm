@@ -1,0 +1,66 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Item_definition_structure_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Item_definition_structure_arm</h2><code><br><br><a name="item_definition_structure_arm">SCHEMA <b>Item_definition_structure_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/effectivity_application/sys/e_exp_arm.htm#effectivity_application_arm">Effectivity_application_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1059<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/part_occurrence/sys/e_exp_arm.htm#part_occurrence_arm">Part_occurrence_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1715<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_structure/sys/e_exp_arm.htm#product_structure_arm">Product_structure_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1134<br><br></code><code><br><A NAME="item_definition_structure_arm.effectivity_item_for_replacement">TYPE </A><b>effectivity_item_for_replacement</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/effectivity_application/sys/e_exp_arm.htm#effectivity_application_arm.effectivity_item">effectivity_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#item_definition_structure_arm.part_definition_relationship">Part_definition_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="item_definition_structure_arm.assembled_part_association">ENTITY <b>Assembled_part_association</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/assembly_structure/sys/e_exp_arm.htm#assembly_structure_arm.assembly_component_relationship">Assembly_component_relationship</A>, <A HREF="../../../data/modules/part_occurrence/sys/e_exp_arm.htm#part_occurrence_arm.part_occurrence_definition_relationship">Part_occurrence_definition_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/assembly_structure/sys/e_exp_arm.htm#assembly_structure_arm.product_occurrence_definition_relationship">Product_occurrence_definition_relationship</A>.<A NAME="item_definition_structure_arm.assembled_part_association.relating_view">relating_view : </A><A HREF="#item_definition_structure_arm.assembly_definition">Assembly_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="item_definition_structure_arm.assembly_definition">ENTITY <b>Assembly_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/part_view_definition/sys/e_exp_arm.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="item_definition_structure_arm.effectivity_controlled_assembly_definition">ENTITY <b>Effectivity_controlled_assembly_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#item_definition_structure_arm.assembly_definition">Assembly_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="item_definition_structure_arm.geometrical_relationship">ENTITY <b>Geometrical_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#item_definition_structure_arm.part_definition_relationship">Part_definition_relationship</A>);<br>
+         &nbsp;&nbsp;<A NAME="item_definition_structure_arm.geometrical_relationship.definition_placement">definition_placement : </A><A HREF="../../../data/modules/contextual_shape_positioning/sys/e_exp_arm.htm#contextual_shape_positioning_arm.geometric_model_relationship_with_transformation">Geometric_model_relationship_with_transformation</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.<A NAME="item_definition_structure_arm.geometrical_relationship.relation_type">relation_type : </A>STRING := 'geometrical relationship';<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="item_definition_structure_arm.part_definition_relationship">ENTITY <b>Part_definition_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.<A NAME="item_definition_structure_arm.part_definition_relationship.relating_view">relating_view : </A><A HREF="../../../data/modules/part_view_definition/sys/e_exp_arm.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>.<A NAME="item_definition_structure_arm.part_definition_relationship.related_view">related_view : </A><A HREF="../../../data/modules/part_view_definition/sys/e_exp_arm.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="item_definition_structure_arm.definition_replacement_requires_effectivity_assignment">RULE&nbsp;<b>definition_replacement_requires_effectivity_assignment</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/modules/item_definition_structure/sys/4_info_reqs.htm#item_definition_structure_arm.part_definition_relationship">Part_definition_relationship</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="item_definition_structure_arm.definition_replacement_requires_effectivity_assignment.wr:wr1">WR1: SIZEOF( QUERY( pdr &lt;* Part_definition_relationship | 
+            (pdr\View_definition_relationship.relation_type = 'definition replacement') AND 
+            (SIZEOF( USEDIN(pdr,'ITEM_DEFINITION_STRUCTURE_ARM.EFFECTIVITY_ASSIGNMENT.ITEMS') ) = 0) ))
+            	     = 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="item_definition_structure_arm.mandatory_part_occurrence_definition_relationship">RULE&nbsp;<b>mandatory_part_occurrence_definition_relationship</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../data/modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm.assembly_component_relationship">Assembly_component_relationship</A>);<br></code><pre>LOCAL
+      assemblies_of_parts: SET OF Assembly_component_relationship := [];
+    END_LOCAL;</pre><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="item_definition_structure_arm.mandatory_part_occurrence_definition_relationship.wr:wr1">WR1: SIZEOF(QUERY(ar &lt;* assemblies_of_parts | 
+            	    NOT ('ITEM_DEFINITION_STRUCTURE_ARM.ASSEMBLED_PART_ASSOCIATION' IN TYPEOF(ar)) ))= 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Item_definition_structure_arm<br></code></body>
+</HTML>

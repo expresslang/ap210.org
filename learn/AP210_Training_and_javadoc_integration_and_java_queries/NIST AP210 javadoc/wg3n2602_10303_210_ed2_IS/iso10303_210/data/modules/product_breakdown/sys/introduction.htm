@@ -1,0 +1,336 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Product breakdown">
+      <META name="DC.Dates" content="2008-10-03 08:13:47">
+      <META name="DC.Published" content="2008-12-19">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Product breakdown">
+      <META name="DC.Subject" content="module, breakdown">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N5472">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N4797">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N5268">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N5269">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N5270">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2008-10-03 08:13:47">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.69">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.20">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.16">
+      <TITLE>ISO/TS 10303-1248:2008 Product breakdown</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Product breakdown</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1248:2008(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <h2><a name="introduction">
+            Introduction
+            </a></h2>
+      <p>
+         ISO 10303 is an International Standard for the computer-interpretable 
+         representation of product information and for the exchange of product data.
+         The objective is to provide a neutral mechanism capable of describing
+         products throughout their life cycle. This mechanism is suitable not only
+         for neutral file exchange, but also as a basis for implementing and
+         sharing product databases, and as a basis 
+         for archiving.
+         
+      </p>
+      		
+      <p>
+         			This part of ISO 10303 specifies an application module for the representation of various breakdowns of products.  
+         			A breakdown is a partitioning of a product into a set of related elements to support engineering, analysis 
+         			and other activities that can be performed in relation to the product.
+         		
+      </p>
+      		
+      <p>
+         			The exact nature of a breakdown is determined by three different aspects of the breakdown:
+         		
+      </p>
+      		
+      <ul>
+         			
+         <li>The items that constitute the nodes or elements in the breakdown, including whether these are heterogeneous or homogeneous;</li>
+         			
+         <li>The interpretation placed on the relationships between the elements in the breakdown;</li>
+         			
+         <li>The rule set being followed by the creator of the breakdown.</li>
+         		
+      </ul>
+      		
+      <p>
+         			This module does not place any constraints on these three aspects. 
+         			However, there are specific types of breakdowns defined in other modules that specialise the entities provided in this
+         module.
+         			These breakdowns are explicit, parent-child views that are constrained to use homogeneous elements 
+         			and therefore provide specific breakdown types:
+         		
+      </p>
+      		
+      <ul>
+         			
+         <li>functional [5];</li>
+         			
+         <li>physical [4];</li>
+         			
+         <li>system [3];</li>
+         			
+         <li>zonal [6].</li>
+         			
+         		
+      </ul>
+      		
+      <p>
+         			A breakdown can be asserted to be a Hybrid breakdown using the specialization described 
+         			in [7]. Such a breakdown uses heterogeneous elements.
+         		
+      </p>
+      
+      		
+      <p>
+         			These views are complementary to the assembly structure and bill of materials views that are the primary focus for manufacturing
+         
+         			(realization) of a product [2]. 
+         			Product breakdowns differ from such assembly structures in that the relationships between the nodes are often specific
+         
+         			to both the particular breakdown and the product or products to which the breakdown applies. 
+         			In the case of an assembly structure the meaning of the relationships between components is 
+         			always a variant of the idea of assembly and so any sub-tree can be used in multiple assemblies. 
+         			A similar sub-tree of a product breakdown can only be applicable to the breakdown of the product in which it is defined.
+         
+         			The extent to which this is the case depends on the rule set followed by the creator of the breakdown.
+         		
+      </p>
+      		
+      <p>
+         			Breakdowns can be of designs or realized individual products. For example, the functional breakdown of an individual product
+         that 
+         			has been damaged will be different to the functional breakdown of the design of that product type.
+         			For any product, more than one breakdown can exist to support various different engineering activities.
+         		
+      </p>
+      		
+      <p>
+         			A 
+         			<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown"><b>Breakdown</b></a> 
+         			is a type of  
+         			<a href="../../../modules/product_identification/sys/4_info_reqs.htm#product_identification_arm.product"><b>Product</b></a> 
+         			and, thus, has identification and can have versions 
+         			(<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_version"><b>Breakdown_version</b></a>).
+         		
+      </p>
+      		
+      <p>
+         			Each version of a breakdown 
+         			(<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_version"><b>Breakdown_version</b></a>)
+         		       	is related to the product that is the subject of the breakdown through 
+         			<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_of"><b>Breakdown_of</b></a>. 
+         		
+      </p>
+      		
+      <p>
+         			The constituents of a breakdown are represented by 
+         			<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_element"><b>Breakdown_element</b></a> 
+         			objects.
+         		
+      </p>
+      		
+      <p>
+         			A 
+         			<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_element"><b>Breakdown_element</b></a>
+         			can appear in one or more breakdowns and is a 
+         			<a href="../../../modules/product_identification/sys/4_info_reqs.htm#product_identification_arm.product"><b>Product</b></a> 
+         			with identification, versions 
+         			(<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_element_version"><b>Breakdown_element_version</b></a>)
+         		       	and views 
+         			(<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_element_definition"><b>Breakdown_element_definition</b></a>)
+         		       	of those versions.
+         		
+      </p>
+      		
+      <p>
+         			A 
+         			<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_element_usage"><b>Breakdown_element_usage</b></a> 
+         			identifies the parent-child relationship between a pair of 
+         			<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_element"><b>Breakdown_element</b></a> 
+         			objects in the context of the relevant breakdown.  
+         			The complete breakdown hierarchy consists of a tree of 
+         			<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_element_usage"><b>Breakdown_element_usage</b></a> 
+         			objects.
+         		
+      </p>
+      		
+      <p>
+         			A 
+         			<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_element"><b>Breakdown_element</b></a> 
+         			can be one of the allowed subtypes:
+         		
+      </p>
+      		
+      <ul>
+         			
+         <li>a Functional_element (see in [5]);</li>
+         			
+         <li>a Physical_element (see in [4]);</li>
+         			
+         <li>a System_element (see in [3]);</li>
+         			
+         <li>or a Zone_element (see in [6]).</li>
+         		
+      </ul>
+      		
+      <p>
+         			Other types of element can be introduced by classification of the 
+         			<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_element"><b>Breakdown_element</b></a> entity. 
+         			The nature of the relationship between elements in the breakdown can also be refined by means of classification.
+         		
+      </p>
+      		
+      <p>
+         			This part of 10303 also supports the requirement to identify the product or relationship between products that is the realization
+         of a 
+         			<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_element_definition"><b>Breakdown_element_definition</b></a> 
+         			or a
+         			<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_element_usage"><b>Breakdown_element_usage</b></a>.  
+         			A 
+         			<a href="../../../modules/product_breakdown/sys/4_info_reqs.htm#product_breakdown_arm.breakdown_element_realization"><b>Breakdown_element_realization</b></a> 
+         			provides this identification.
+         		
+      </p>
+      		
+      		
+      <p>
+         			This second edition of this part of ISO 10303 incorporates the modifications to the first edition listed below.
+         		
+      </p>
+      		
+      		
+      		
+      <p>
+         			The following ARM EXPRESS declarations and interface specifications have been removed:
+         		
+      </p>
+      		
+      <ul>
+         			
+         <li>USE FROM Product_identification_arm;</li>
+         			
+         <li>USE FROM Product_version_arm;</li>
+         			
+         <li>USE FROM Product_view_definition_arm.</li>
+         		
+      </ul>
+      		
+      		
+      <p>
+         			In addition, modifications have been made to the mapping specification, 
+         			the MIM schema and the EXPRESS-G diagrams to reflect and be consistent with the modifications of the ARM.
+         		
+      </p>
+      		
+      		
+      	
+      <p>
+         Clause <a href="1_scope.htm">1</a> defines the scope of the
+         application module and summarizes the functionality and data covered. 
+         
+         Clause <a href="3_defs.htm">3</a> lists the words defined in
+         this part of ISO 10303 and gives pointers to words defined elsewhere. 
+         
+         The information requirements of the application are specified in Clause 
+         <a href="4_info_reqs.htm">4</a> using terminology appropriate to
+         the application. 
+         
+         A graphical representation of the information requirements, referred to
+         as the application reference model, is given in Annex 
+         <a href="c_arm_expg.htm">C</a>. 
+         
+         Resource constructs are interpreted to meet the information
+         requirements. 
+         This interpretation produces the module interpreted model (MIM). 
+         This interpretation, given in <a href="5_mapping.htm#mapping">5.1</a>,
+         shows the correspondence between the information requirements and the
+         MIM. The short listing of the MIM specifies the interface to the
+         resources and is given in <a href="5_mim.htm#mim_express">5.2</a>.  
+         
+         A graphical representation of the short listing of the MIM is given
+         in Annex <a href="d_mim_expg.htm">D</a>.
+         
+      </p>
+      <p>
+         In this International Standard, the same English language words may be
+         used to refer to an object in the real world or concept, and as the
+         name of an EXPRESS data type that represents this object or concept. 
+         
+      </p>
+      <p>
+         The following typographical convention is used to distinguish between
+         these. If a word or phrase occurs in the same typeface as narrative
+         text, the referent is the object or concept. If the word or phrase
+         occurs in a bold typeface or as a hyperlink, the referent is the
+         EXPRESS data type. 
+         
+      </p>
+      <p>
+         The name of an EXPRESS data type may be used to refer to the data type
+         itself, or to an instance of the data type. The distinction between
+         these uses is normally clear from the context. If there is a likelihood
+         of ambiguity, either the phrase "entity data type" or "instance(s) of" is
+         included in the text. 
+         
+      </p>
+      <p>
+         Double quotation marks " " denote quoted text. Single quotation marks ' '
+         denote particular text string values.
+         
+      </p><br><br><p>&copy; ISO 2008 &#8212; All rights reserved</p>
+   </body>
+</HTML>

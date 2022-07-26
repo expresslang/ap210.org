@@ -1,0 +1,454 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Production rule">
+      <META name="DC.Dates" content="2009-05-04 10:06:18">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Production rule">
+      <META name="DC.Subject" content="module rule change adoption rejection modification request supersedence submission function conclusion definition expiration domain range parameter justification">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6539">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N4163">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-04 10:06:18">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.30">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.18">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.11">
+      <TITLE>ISO/TS 10303-1739:2009 Production rule</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Production rule</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1739:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.4 ARM function definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#rules">4.5 ARM rule definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="annexe-arm-express"></A></H2><code>
+         (*<br>ISO TC184/SC4/WG12&nbsp;N6540 - ISO/TS&nbsp;10303-1739 Production rule - EXPRESS ARM<br>Supersedes 
+         ISO TC184/SC4/WG12&nbsp;N4164<br>*)
+         </code><br><code><br><br><a name="production_rule_arm">SCHEMA <b>Production_rule_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/specification_document/sys/e_exp_arm.htm#specification_document_arm">Specification_document_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1747<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/software/sys/e_exp_arm.htm#software_arm">Software_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1746<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/date_time_assignment/sys/e_exp_arm.htm#date_time_assignment_arm">Date_time_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1014<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/activity/sys/e_exp_arm.htm#activity_arm">Activity_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1047<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/identification_assignment/sys/e_exp_arm.htm#identification_assignment_arm">Identification_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1021<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm">Product_identification_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1017<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../../data/modules/specification_document/sys/e_exp_arm.htm#specification_document_arm">Specification_document_arm</A>&nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1747<br>&nbsp;&nbsp;(<A HREF="../../../../data/modules/specification_document/sys/e_exp_arm.htm#specification_document_arm.get_document_definition">get_document_definition</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm">Characterizable_object_arm</A>&nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1765<br>&nbsp;&nbsp;(<A HREF="../../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm.bag_to_set">bag_to_set</A>);
+         <br><br></code><code><br><A NAME="production_rule_arm.built_in_functions">TYPE </A><b>built_in_functions</b> =
+         
+         EXTENSIBLE
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (attr_val);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="production_rule_arm.clause_select">TYPE </A><b>clause_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#production_rule_arm.complex_clause">Complex_clause</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.simple_clause">Simple_clause</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="production_rule_arm.constants">TYPE </A><b>constants</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.any_number_value">any_number_value</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.any_string_value">any_string_value</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/basic_data_representation/sys/e_exp_arm.htm#basic_data_representation_arm.logical_representation_item">Logical_representation_item</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="production_rule_arm.expression_syntax">TYPE </A><b>expression_syntax</b> =
+         
+         EXTENSIBLE
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (express);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="production_rule_arm.function_symbol">TYPE </A><b>function_symbol</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.any_string_value">any_string_value</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.built_in_functions">built_in_functions</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="production_rule_arm.pr_documented_element_select">TYPE </A><b>pr_documented_element_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/document_assignment/sys/e_exp_arm.htm#document_assignment_arm.documented_element_select">documented_element_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#production_rule_arm.rule_set">Rule_set</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="production_rule_arm.pr_identification_item">TYPE </A><b>pr_identification_item</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/identification_assignment/sys/e_exp_arm.htm#identification_assignment_arm.identification_item">identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#production_rule_arm.rule_set">Rule_set</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="production_rule_arm.pr_organization_or_person_in_organization_item">TYPE </A><b>pr_organization_or_person_in_organization_item</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/person_organization_assignment/sys/e_exp_arm.htm#person_organization_assignment_arm.organization_or_person_in_organization_item">organization_or_person_in_organization_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="production_rule_arm.predicate_symbol">TYPE </A><b>predicate_symbol</b> =
+         STRING;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="production_rule_arm.scope_select">TYPE </A><b>scope_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#production_rule_arm.rule_definition">Rule_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_set">Rule_set</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_set_group">Rule_set_group</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="production_rule_arm.term_select">TYPE </A><b>term_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#production_rule_arm.constants">constants</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.func">Func</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.row_value">Row_value</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.row_variable">Row_variable</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.scalar_variable">Scalar_variable</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.symbol">Symbol</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="production_rule_arm.abstract_variable">ENTITY <b>Abstract_variable</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#production_rule_arm.scalar_variable">Scalar_variable</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.row_variable">Row_variable</A>));<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.abstract_variable.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.abstract_variable.scope">scope : </A><A HREF="#production_rule_arm.scope_select">scope_select</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.abstract_variable.ur:ur1">UR1: </A>name, scope;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.atomic_formula">ENTITY <b>Atomic_formula</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#production_rule_arm.rule_condition">Rule_condition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.ground_fact">Ground_fact</A>));<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.atomic_formula.predicate_symbol">predicate_symbol : </A><A HREF="#production_rule_arm.predicate_symbol">predicate_symbol</A>;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.atomic_formula.terms">terms : </A>LIST[0:?] OF <A HREF="#production_rule_arm.term_select">term_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.attribute_assertion">ENTITY <b>Attribute_assertion</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.fact_type">Fact_type</A>);<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.attribute_assertion.entity_type">entity_type : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.attribute_assertion.attribute">attribute : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.back_chaining_rule">ENTITY <b>Back_chaining_rule</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_definition">Rule_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.back_chaining_rule.head">head : </A><A HREF="#production_rule_arm.rule_condition">Rule_condition</A>;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.back_chaining_rule.body">body : </A>LIST[0:?] OF <A HREF="#production_rule_arm.rule_condition">Rule_condition</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.back_chaining_rule.wr:wr1">WR1: SELF.head.positive = TRUE;</A><br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.back_chaining_rule.wr:wr2">WR2: local_vars_of(SELF.head) &lt;= local_vars_of(SELF.body);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.complex_clause">ENTITY <b>Complex_clause</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#production_rule_arm.complex_conjunctive_clause">Complex_conjunctive_clause</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.complex_disjunctive_clause">Complex_disjunctive_clause</A>));<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.complex_clause.clauses">clauses : </A>LIST[2:?] OF <A HREF="#production_rule_arm.clause_select">clause_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.complex_conjunctive_clause">ENTITY <b>Complex_conjunctive_clause</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.complex_clause">Complex_clause</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.complex_disjunctive_clause">ENTITY <b>Complex_disjunctive_clause</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.complex_clause">Complex_clause</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.entity_assertion">ENTITY <b>Entity_assertion</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.fact_type">Fact_type</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.enum_reference_prefix">ENTITY <b>Enum_reference_prefix</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.enum_reference_prefix.prefix">prefix : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.extent">ENTITY <b>Extent</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.extent.variable_id">variable_id : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.extent.source">source : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.extent.query_expression">query_expression : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.extent.syntax">syntax : </A>
+         OPTIONAL 
+         <A HREF="#production_rule_arm.expression_syntax">expression_syntax</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.fact_type">ENTITY <b>Fact_type</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#production_rule_arm.entity_assertion">Entity_assertion</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.attribute_assertion">Attribute_assertion</A>));<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.fact_type.source">source : </A><A HREF="#production_rule_arm.extent">Extent</A>;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.fact_type.predicate_symbol">predicate_symbol : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.forward_chaining_rule">ENTITY <b>Forward_chaining_rule</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_definition">Rule_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.forward_chaining_rule.premise">premise : </A><A HREF="#production_rule_arm.clause_select">clause_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.forward_chaining_rule.conclusion">conclusion : </A><A HREF="#production_rule_arm.literal_conjunction">Literal_conjunction</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.forward_chaining_rule.wr:wr1">WR1: local_vars_of(SELF.conclusion) &lt;= local_vars_of(SELF.premise);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.func">ENTITY <b>Func</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.func.func_sym">func_sym : </A><A HREF="#production_rule_arm.function_symbol">function_symbol</A>;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.func.terms">terms : </A>LIST[0:?] OF <A HREF="#production_rule_arm.term_select">term_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.global_assignment">ENTITY <b>Global_assignment</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.global_assignment.variable">variable : </A><A HREF="#production_rule_arm.abstract_variable">Abstract_variable</A>;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.global_assignment.val">val : </A><A HREF="#production_rule_arm.term_select">term_select</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.global_assignment.wr:wr1">WR1: NOT(contains_variable(SELF.val));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.ground_fact">ENTITY <b>Ground_fact</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.atomic_formula">Atomic_formula</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.ground_fact.wr:wr1">WR1: SIZEOF(QUERY(r &lt;* SELF\Atomic_formula.terms | contains_variable(r))) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.literal_conjunction">ENTITY <b>Literal_conjunction</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.simple_clause">Simple_clause</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.literal_disjunction">ENTITY <b>Literal_disjunction</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.simple_clause">Simple_clause</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.row_value">ENTITY <b>Row_value</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.row_value.values">values : </A>LIST[0:?] OF <A HREF="#production_rule_arm.term_select">term_select</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.row_value.wr:wr1">WR1: SIZEOF(QUERY(v &lt;* SELF.values | contains_variable(v))) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.row_value.wr:wr2">WR2: SIZEOF(QUERY(v &lt;* SELF.values | 'PRODUCTION_RULE_ARM.ROW_VALUE' IN TYPEOF(v))) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.row_variable">ENTITY <b>Row_variable</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.abstract_variable">Abstract_variable</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_action">ENTITY <b>Rule_action</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#production_rule_arm.rule_submission">Rule_submission</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_adoption">Rule_adoption</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_rejection">Rule_rejection</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_supersedence">Rule_supersedence</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_creation">Rule_creation</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_expiration">Rule_expiration</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_change_request">Rule_change_request</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_request">Rule_request</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_modification">Rule_modification</A>));<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_action.subject_rule">subject_rule : </A><A HREF="#production_rule_arm.rule_version">Rule_version</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_action.subject_action_assignment">subject_action_assignment : </A>SET[0:?] OF <A HREF="../../../../data/modules/person_organization_assignment/sys/e_exp_arm.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment">Organization_or_person_in_organization_assignment</A> := bag_to_set(QUERY(temp &lt;* USEDIN ( SELF , 'PERSON_ORGANIZATION_ASSIGNMENT_ARM.' + 
+         'ORGANIZATION_OR_PERSON_IN_ORGANIZATION_ASSIGNMENT.ITEMS' ) 
+         | ( temp.role = 'subject action assignment')));<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_action.ur:ur1">UR1: </A>subject_rule, subject_action_assignment;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_action.wr:wr1">WR1: EXISTS (subject_action_assignment) AND (SIZEOF(subject_action_assignment) = 1 );</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_adoption">ENTITY <b>Rule_adoption</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_change_request">ENTITY <b>Rule_change_request</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_change_request.change_reason">change_reason : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_condition">ENTITY <b>Rule_condition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.atomic_formula">Atomic_formula</A>);<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_condition.positive">positive : </A>BOOLEAN;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_creation">ENTITY <b>Rule_creation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_definition">ENTITY <b>Rule_definition</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#production_rule_arm.forward_chaining_rule">Forward_chaining_rule</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.back_chaining_rule">Back_chaining_rule</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_software_definition">Rule_software_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_expiration">ENTITY <b>Rule_expiration</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_expiration.expiration_rationale">expiration_rationale : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_justification">ENTITY <b>Rule_justification</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_justification.justified_action">justified_action : </A><A HREF="#production_rule_arm.rule_action">Rule_action</A>;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_justification.justification_rationale">justification_rationale : </A>STRING;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_justification.wr:wr1">WR1: SELF &lt;&gt; justified_action;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_modification">ENTITY <b>Rule_modification</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_modification.modification_rationale">modification_rationale : </A><A HREF="#production_rule_arm.rule_change_request">Rule_change_request</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_priority">ENTITY <b>Rule_priority</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_priority.priority">priority : </A>INTEGER;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_priority.prioritized_rule">prioritized_rule : </A><A HREF="#production_rule_arm.rule_definition">Rule_definition</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_priority.wr:wr1">WR1: priority &gt;= 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_product">ENTITY <b>Rule_product</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/software/sys/e_exp_arm.htm#software_arm.software">Software</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_rejection">ENTITY <b>Rule_rejection</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_rejection.rejection_reason">rejection_reason : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_request">ENTITY <b>Rule_request</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_set">ENTITY <b>Rule_set</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_software_definition">Rule_software_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_set.conflict_resolution_strategy">conflict_resolution_strategy : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_set.rule_member">rule_member : </A>SET[1:?] OF <A HREF="#production_rule_arm.rule_priority">Rule_priority</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_set.engine">engine : </A>SET[1:1] OF <A HREF="../../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm.document_definition">Document_definition</A> := get_document_definition(SELF, 'engine', 
+         		'SPECIFICATION_DOCUMENT_ARM.LANGUAGE_REFERENCE_MANUAL');<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_set.purpose">purpose : </A><A HREF="../../../../data/modules/identification_assignment/sys/e_exp_arm.htm#identification_assignment_arm.identification_assignment">Identification_assignment</A> FOR items;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_set.wr:wr1">WR1: purpose.role = 'purpose';</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_set_group">ENTITY <b>Rule_set_group</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_software_definition">Rule_software_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_set_group.elements">elements : </A>SET[2:?] OF <A HREF="#production_rule_arm.rule_set">Rule_set</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_software_definition">ENTITY <b>Rule_software_definition</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#production_rule_arm.rule_definition">Rule_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_set_group">Rule_set_group</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.rule_set">Rule_set</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/software/sys/e_exp_arm.htm#software_arm.software_definition">Software_definition</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>.<A NAME="production_rule_arm.rule_software_definition.defined_version">defined_version : </A><A HREF="#production_rule_arm.rule_version">Rule_version</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_submission">ENTITY <b>Rule_submission</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_submission.submission_rationale">submission_rationale : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_supersedence">ENTITY <b>Rule_supersedence</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.rule_action">Rule_action</A>);<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_supersedence.superseded_rule">superseded_rule : </A><A HREF="#production_rule_arm.rule_version">Rule_version</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.rule_version">ENTITY <b>Rule_version</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/software/sys/e_exp_arm.htm#software_arm.software_version">Software_version</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>.<A NAME="production_rule_arm.rule_version.of_product">of_product : </A><A HREF="#production_rule_arm.rule_product">Rule_product</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_version.management_action">management_action : </A>SET[1:?] OF <A HREF="#production_rule_arm.rule_action">Rule_action</A> FOR subject_rule;<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_version.product_definition">product_definition : </A>SET[1:?] OF <A HREF="#production_rule_arm.rule_software_definition">Rule_software_definition</A> FOR defined_version;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.scalar_variable">ENTITY <b>Scalar_variable</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#production_rule_arm.abstract_variable">Abstract_variable</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.simple_clause">ENTITY <b>Simple_clause</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#production_rule_arm.literal_conjunction">Literal_conjunction</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#production_rule_arm.literal_disjunction">Literal_disjunction</A>));<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.simple_clause.formulas">formulas : </A>LIST[1:?] OF <A HREF="#production_rule_arm.rule_condition">Rule_condition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.symbol">ENTITY <b>Symbol</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_item">Representation_item</A>);<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.symbol.ur:ur1">UR1: </A>
+         SELF\<A HREF="../../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_item">Representation_item</A>.name;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="production_rule_arm.max_one_entity_prefix">RULE&nbsp;<b>max_one_entity_prefix</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../../data/modules/production_rule/sys/4_info_reqs.htm#production_rule_arm.enum_reference_prefix">Enum_reference_prefix</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.max_one_entity_prefix.wr:wr1">WR1: SIZEOF(QUERY(x &lt;* Enum_reference_prefix | TRUE)) &lt;= 1;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="production_rule_arm.rule_software_definition_constraint">RULE&nbsp;<b>rule_software_definition_constraint</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_software_definition_constraint.wr:wr1">WR1: SIZEOF (QUERY ( pvd &lt;* Product_view_definition | ( NOT('PRODUCTION_RULE_ARM.' + 'RULE_SOFTWARE_DEFINITION' 
+            IN TYPEOF(pvd))) 
+            AND ('PRODUCTION_RULE_ARM.' + 'RULE_VERSION' IN TYPEOF (pvd . defined_version)))) = 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="production_rule_arm.rule_version_constraint">RULE&nbsp;<b>rule_version_constraint</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../../data/modules/product_version/sys/4_info_reqs.htm#product_version_arm.product_version">Product_version</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="production_rule_arm.rule_version_constraint.wr:wr1">WR1: SIZEOF (QUERY(pv &lt;* Product_version | (NOT('PRODUCTION_RULE_ARM.' + 'RULE_VERSION' IN TYPEOF(pv))) 
+            AND ( 'PRODUCTION_RULE_ARM.' + 'RULE_PRODUCT' IN TYPEOF(pv.of_product)))) = 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="production_rule_arm.contains_variable">FUNCTION <b>contains_variable</b></A><br>&nbsp;(x : <A HREF="../../../../data/modules/production_rule/sys/e_exp_arm.htm#production_rule_arm.term_select">term_select</A>) : BOOLEAN;
+         </code><pre>IF ('PRODUCTION_RULE_ARM.ABSTRACT_VARIABLE' IN TYPEOF(x)) THEN RETURN (TRUE);
+      ELSE IF (('PRODUCTION_RULE_ARM.FUNC' IN TYPEOF(X)) AND
+              (SIZEOF(QUERY(y &lt;* x.terms | contains_variable(y))) &gt; 0)) 
+              THEN RETURN (TRUE);
+              ELSE RETURN (FALSE);
+           END_IF;
+  END_IF;</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="production_rule_arm.local_vars_aux">FUNCTION <b>local_vars_aux</b></A><br>&nbsp;(thing : GENERIC; accum : SET[0:?] OF <A HREF="../../../../data/modules/production_rule/sys/e_exp_arm.htm#production_rule_arm.scalar_variable">Scalar_variable</A>) : SET[0:?] OF <A HREF="#production_rule_arm.scalar_variable">Scalar_variable</A>;
+         </code><pre>LOCAL i,j,k : INTEGER; END_LOCAL;
+  IF (('PRODUCTION_RULE_ARM.ABSTRACT_VARIABLE' IN TYPEOF(thing)) AND 
+      ('PRODUCTION_RULE_ARM.RULE_DEFINITION' IN (TYPEOF(thing.scope))))
+   THEN accum := accum + thing;
+   ELSE IF ('PRODUCTION_RULE_ARM.RULE_CONDITION' IN TYPEOF(thing))
+        THEN REPEAT i := 1 TO HIINDEX(thing\Atomic_formula.terms);
+                accum := local_vars_aux(thing\Atomic_formula.terms[i],accum);
+             END_REPEAT;
+        ELSE IF ('PRODUCTION_RULE_ARM.SIMPLE_CLAUSE' IN TYPEOF(thing))
+             THEN REPEAT j := 1 TO HIINDEX(thing.formulas);
+                        accum := local_vars_aux(thing.formulas[j],accum);
+                  END_REPEAT;
+             ELSE IF ('PRODUCTION_RULE_ARM.COMPLEX_CLAUSE' IN TYPEOF(thing))
+                  THEN REPEAT k := 1 TO HIINDEX(thing.clauses);
+                        accum := local_vars_aux(thing.clauses[k],accum);
+                       END_REPEAT;
+                  END_IF;
+             END_IF;
+        END_IF;
+  END_IF;
+  RETURN(accum);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="production_rule_arm.local_vars_of">FUNCTION <b>local_vars_of</b></A><br>&nbsp;(thing : GENERIC) : SET[0:?] OF <A HREF="#production_rule_arm.scalar_variable">Scalar_variable</A>;
+         </code><pre>LOCAL
+    accum : SET [0:?] OF Scalar_variable := [];
+  END_LOCAL;
+  RETURN (local_vars_aux(thing, accum));</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Production_rule_arm<br></code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

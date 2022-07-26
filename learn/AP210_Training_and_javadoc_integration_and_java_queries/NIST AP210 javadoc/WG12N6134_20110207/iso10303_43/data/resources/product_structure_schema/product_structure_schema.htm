@@ -1,0 +1,125 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: product_structure_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: product_structure_schema</h2>
+      <p><i>Source : ISO 10303-44</i></p><code><br><br><a name="product_structure_schema">SCHEMA <b>product_structure_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema">product_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product">product</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.acyclic_product_definition_relationship">acyclic_product_definition_relationship</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema">measure_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>);
+         <br><br></code><code><br><A NAME="product_structure_schema.alternate_product_relationship">ENTITY <b>alternate_product_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.alternate_product_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.alternate_product_relationship.definition">definition : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.alternate_product_relationship.alternate">alternate : </A><A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product">product</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.alternate_product_relationship.base">base : </A><A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product">product</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.alternate_product_relationship.basis">basis : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.alternate_product_relationship.ur:ur1">UR1: </A>alternate, base;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.alternate_product_relationship.wr:wr1">WR1: alternate :&lt;&gt;: base;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_structure_schema.assembly_component_usage">ENTITY <b>assembly_component_usage</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#product_structure_schema.next_assembly_usage_occurrence">next_assembly_usage_occurrence</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#product_structure_schema.specified_higher_usage_occurrence">specified_higher_usage_occurrence</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#product_structure_schema.promissory_usage_occurrence">promissory_usage_occurrence</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_structure_schema.product_definition_usage">product_definition_usage</A>);<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.assembly_component_usage.reference_designator">reference_designator : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_structure_schema.assembly_component_usage_substitute">ENTITY <b>assembly_component_usage_substitute</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.assembly_component_usage_substitute.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.assembly_component_usage_substitute.definition">definition : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.assembly_component_usage_substitute.base">base : </A><A HREF="#product_structure_schema.assembly_component_usage">assembly_component_usage</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.assembly_component_usage_substitute.substitute">substitute : </A><A HREF="#product_structure_schema.assembly_component_usage">assembly_component_usage</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.assembly_component_usage_substitute.ur:ur1">UR1: </A>base, substitute;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.assembly_component_usage_substitute.wr:wr1">WR1: base.relating_product_definition :=:       substitute.relating_product_definition;</A><br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.assembly_component_usage_substitute.wr:wr2">WR2: base :&lt;&gt;: substitute;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_structure_schema.assembly_component_usage_substitute_with_ranking">ENTITY <b>assembly_component_usage_substitute_with_ranking</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_structure_schema.assembly_component_usage_substitute">assembly_component_usage_substitute</A>);<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.assembly_component_usage_substitute_with_ranking.ranking">ranking : </A>INTEGER;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.assembly_component_usage_substitute_with_ranking.ranking_rationale">ranking_rationale : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_structure_schema.make_from_usage_option">ENTITY <b>make_from_usage_option</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_structure_schema.product_definition_usage">product_definition_usage</A>);<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.make_from_usage_option.ranking">ranking : </A>INTEGER;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.make_from_usage_option.ranking_rationale">ranking_rationale : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.make_from_usage_option.quantity">quantity : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.make_from_usage_option.wr:wr1">WR1: (NOT ('NUMBER' IN TYPEOF(quantity.value_component)))       OR (quantity.value_component &gt; 0);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_structure_schema.make_from_usage_option_group">ENTITY <b>make_from_usage_option_group</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.make_from_usage_option_group.members">members : </A>SET[2:?] OF <A HREF="#product_structure_schema.make_from_usage_option">make_from_usage_option</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.make_from_usage_option_group.wr:wr1">WR1: SIZEOF (QUERY (example &lt;* members |       example.related_product_definition       :=: members[1].related_product_definition))
+            =SIZEOF(members);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_structure_schema.next_assembly_usage_occurrence">ENTITY <b>next_assembly_usage_occurrence</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_structure_schema.assembly_component_usage">assembly_component_usage</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_structure_schema.product_definition_occurrence_relationship">ENTITY <b>product_definition_occurrence_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.product_definition_occurrence_relationship.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.product_definition_occurrence_relationship.description">description : </A>
+         OPTIONAL 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.product_definition_occurrence_relationship.occurrence">occurrence : </A><A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.product_definition_occurrence_relationship.occurrence_usage">occurrence_usage : </A><A HREF="#product_structure_schema.assembly_component_usage">assembly_component_usage</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.product_definition_occurrence_relationship.wr:wr1">WR1: occurrence_usage.relating_product_definition :&lt;&gt;:        occurrence;</A><br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.product_definition_occurrence_relationship.wr:wr2">WR2: occurrence_usage.related_product_definition :&lt;&gt;:        occurrence;</A><br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.product_definition_occurrence_relationship.wr:wr3">WR3: occurrence.formation :=:       occurrence_usage.related_product_definition.formation;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_structure_schema.product_definition_usage">ENTITY <b>product_definition_usage</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#product_structure_schema.make_from_usage_option">make_from_usage_option</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#product_structure_schema.assembly_component_usage">assembly_component_usage</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>);<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.product_definition_usage.ur:ur1">UR1: </A>SELF\product_definition_relationship.id, SELF\product_definition_relationship.relating_product_definition, SELF\product_definition_relationship.related_product_definition;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.product_definition_usage.wr:wr1">WR1: acyclic_product_definition_relationship         (SELF,         [SELF\product_definition_relationship.related_product_definition],
+            'PRODUCT_STRUCTURE_SCHEMA.PRODUCT_DEFINITION_USAGE');</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_structure_schema.promissory_usage_occurrence">ENTITY <b>promissory_usage_occurrence</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_structure_schema.assembly_component_usage">assembly_component_usage</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_structure_schema.quantified_assembly_component_usage">ENTITY <b>quantified_assembly_component_usage</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_structure_schema.assembly_component_usage">assembly_component_usage</A>);<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.quantified_assembly_component_usage.quantity">quantity : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.quantified_assembly_component_usage.wr:wr1">WR1: (NOT ('NUMBER' IN TYPEOF(quantity.value_component)))       OR (quantity.value_component &gt; 0);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_structure_schema.specified_higher_usage_occurrence">ENTITY <b>specified_higher_usage_occurrence</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#product_structure_schema.assembly_component_usage">assembly_component_usage</A>);<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.specified_higher_usage_occurrence.upper_usage">upper_usage : </A><A HREF="#product_structure_schema.assembly_component_usage">assembly_component_usage</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.specified_higher_usage_occurrence.next_usage">next_usage : </A><A HREF="#product_structure_schema.next_assembly_usage_occurrence">next_assembly_usage_occurrence</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.specified_higher_usage_occurrence.ur:ur1">UR1: </A>upper_usage, next_usage;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.specified_higher_usage_occurrence.wr:wr1">WR1: SELF :&lt;&gt;: upper_usage;</A><br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.specified_higher_usage_occurrence.wr:wr2">WR2: SELF\product_definition_relationship.relating_product_definition       :=: upper_usage.relating_product_definition;</A><br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.specified_higher_usage_occurrence.wr:wr3">WR3: SELF\product_definition_relationship.related_product_definition       :=: next_usage.related_product_definition;</A><br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.specified_higher_usage_occurrence.wr:wr4">WR4: (upper_usage.related_product_definition :=:       next_usage.relating_product_definition) OR       (SIZEOF (QUERY (pdr
+            &lt;* USEDIN (upper_usage.related_product_definition,       'PRODUCT_DEFINITION_SCHEMA.PRODUCT_DEFINITION_RELATIONSHIP.' +  
+            'RELATED_PRODUCT_DEFINITION') |        pdr.relating_product_definition :=:         next_usage.relating_product_definition))
+            = 1);</A><br>
+         &nbsp;&nbsp;<A NAME="product_structure_schema.specified_higher_usage_occurrence.wr:wr5">WR5: SIZEOF (['PRODUCT_STRUCTURE_SCHEMA.NEXT_ASSEMBLY_USAGE_OCCURRENCE',       'PRODUCT_STRUCTURE_SCHEMA.SPECIFIED_HIGHER_USAGE_OCCURRENCE']
+            * TYPEOF(upper_usage)) = 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;product_structure_schema<br></code></body>
+</HTML>

@@ -1,0 +1,367 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Design_product_data_management_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Design_product_data_management_mim</h2><code><br><br><a name="design_product_data_management_mim">SCHEMA <b>Design_product_data_management_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/classification_with_attributes/sys/e_exp_mim.htm#classification_with_attributes_mim">Classification_with_attributes_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1111<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/generic_material_aspects/sys/e_exp_mim.htm#generic_material_aspects_mim">Generic_material_aspects_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1681<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim">Information_rights_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1241<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/item_definition_structure/sys/e_exp_mim.htm#item_definition_structure_mim">Item_definition_structure_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1345<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/pre_defined_product_data_management_specializations/sys/e_exp_mim.htm#pre_defined_product_data_management_specializations_mim">Pre_defined_product_data_management_specializations_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1760<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_data_management/sys/e_exp_mim.htm#product_data_management_mim">Product_data_management_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1231<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/requirement_assignment/sys/e_exp_mim.htm#requirement_assignment_mim">Requirement_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1233<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/requirement_view_definition_relationship/sys/e_exp_mim.htm#requirement_view_definition_relationship_mim">Requirement_view_definition_relationship_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1142<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/specification_control/sys/e_exp_mim.htm#specification_control_mim">Specification_control_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1112<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/test_select_product/sys/e_exp_mim.htm#test_select_product_mim">Test_select_product_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1757<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/activity_method_assignment/sys/e_exp_mim.htm#activity_method_assignment_mim">Activity_method_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1249<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/attribute_classification/sys/e_exp_mim.htm#attribute_classification_mim">Attribute_classification_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1246<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/contract_schema/contract_schema.htm#contract_schema">contract_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/contract_schema/contract_schema.htm#contract_schema.contract_type">contract_type</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema">document_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema.document_type">document_type</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema">material_property_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-45<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.property_definition_relationship">property_definition_relationship</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema">product_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation_with_specified_source">product_definition_formation_with_specified_source</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema">product_structure_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-44<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.make_from_usage_option">make_from_usage_option</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.parametric_representation_context">parametric_representation_context</A>);
+         <br><br></code><code><br><A NAME="design_product_data_management_mim.design_action_method_items">TYPE </A><b>design_action_method_items</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/activity_method_assignment/sys/e_exp_mim.htm#activity_method_assignment_mim.action_method_items">action_method_items</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product">product</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation">product_definition_formation</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_action_request_item">TYPE </A><b>design_pdm_action_request_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/product_data_management/sys/e_exp_mim.htm#product_data_management_mim.pdm_action_request_item">pdm_action_request_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.versioned_action_request">versioned_action_request</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_approval_item">TYPE </A><b>design_pdm_approval_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/product_data_management/sys/e_exp_mim.htm#product_data_management_mim.pdm_approval_item">pdm_approval_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_directive">action_directive</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/certification_schema/certification_schema.htm#certification_schema.certification">certification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/configuration_management_schema/configuration_management_schema.htm#configuration_management_schema.configuration_item">configuration_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/contract_schema/contract_schema.htm#contract_schema.contract">contract</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema.date">date</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.directed_action">directed_action</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema.document">document</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/effectivity_schema/effectivity_schema.htm#effectivity_schema.effectivity">effectivity</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.executed_action">executed_action</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property_relationship">general_property_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group_relationship">group_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product">product</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation">product_definition_formation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation_relationship">product_definition_formation_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/requirement_assignment/sys/e_exp_mim.htm#requirement_assignment_mim.requirement_assignment">requirement_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/security_classification_schema/security_classification_schema.htm#security_classification_schema.security_classification">security_classification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_attribute_classification_item">TYPE </A><b>design_pdm_attribute_classification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/attribute_classification/sys/e_exp_mim.htm#attribute_classification_mim.attribute_classification_item">attribute_classification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_directive">action_directive</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_method">action_method</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/process_property_schema/process_property_schema.htm#process_property_schema.action_property">action_property</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/process_property_representation_schema/process_property_representation_schema.htm#process_property_representation_schema.action_property_representation">action_property_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_relationship">action_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_request_solution">action_request_solution</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_request_status">action_request_status</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.alternate_product_relationship">alternate_product_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/activity/sys/e_exp_mim.htm#activity_mim.applied_action_assignment">applied_action_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/work_request/sys/e_exp_mim.htm#work_request_mim.applied_action_request_assignment">applied_action_request_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/approval/sys/e_exp_mim.htm#approval_mim.applied_approval_assignment">applied_approval_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/certification/sys/e_exp_mim.htm#certification_mim.applied_certification_assignment">applied_certification_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/document_assignment/sys/e_exp_mim.htm#document_assignment_mim.applied_document_reference">applied_document_reference</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/document_assignment/sys/e_exp_mim.htm#document_assignment_mim.applied_document_usage_constraint_assignment">applied_document_usage_constraint_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/effectivity_application/sys/e_exp_mim.htm#effectivity_application_mim.applied_effectivity_assignment">applied_effectivity_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/event_assignment/sys/e_exp_mim.htm#event_assignment_mim.applied_event_occurrence_assignment">applied_event_occurrence_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_mim.htm#external_item_identification_assignment_mim.applied_external_identification_assignment">applied_external_identification_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/identification_assignment/sys/e_exp_mim.htm#identification_assignment_mim.applied_identification_assignment">applied_identification_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/person_organization_assignment/sys/e_exp_mim.htm#person_organization_assignment_mim.applied_organization_assignment">applied_organization_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/project/sys/e_exp_mim.htm#project_mim.applied_organizational_project_assignment">applied_organizational_project_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/person_organization_assignment/sys/e_exp_mim.htm#person_organization_assignment_mim.applied_person_and_organization_assignment">applied_person_and_organization_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/approval_schema/approval_schema.htm#approval_schema.approval">approval</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/approval_schema/approval_schema.htm#approval_schema.approval_person_organization">approval_person_organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/approval_schema/approval_schema.htm#approval_schema.approval_relationship">approval_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/approval_schema/approval_schema.htm#approval_schema.approval_status">approval_status</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/certification_schema/certification_schema.htm#certification_schema.certification">certification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.context_dependent_unit">context_dependent_unit</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/contract_schema/contract_schema.htm#contract_schema.contract">contract</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.date_and_time_assignment">date_and_time_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.date_assignment">date_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.derived_unit">derived_unit</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item">descriptive_representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/file_identification/sys/e_exp_mim.htm#file_identification_mim.document_file">document_file</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema.document_relationship">document_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/effectivity_schema/effectivity_schema.htm#effectivity_schema.effectivity">effectivity</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema.event_occurrence_relationship">event_occurrence_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.executed_action">executed_action</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property">general_property</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property_relationship">general_property_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group_relationship">group_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.information_right">information_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.information_usage_right">information_usage_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/multi_linguism/sys/e_exp_mim.htm#multi_linguism_mim.language">language</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.measure_representation_item">measure_representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.named_unit">named_unit</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.organization_relationship">organization_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.organizational_address">organizational_address</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.organizational_project_relationship">organizational_project_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.person_and_organization">person_and_organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/person_organization/sys/e_exp_mim.htm#person_organization_mim.person_and_organization_address">person_and_organization_address</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product">product</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_category">product_category</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept">product_concept</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/application_context_schema/application_context_schema.htm#application_context_schema.product_concept_context">product_concept_context</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/application_context_schema/application_context_schema.htm#application_context_schema.product_definition_context">product_definition_context</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation">product_definition_formation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation_relationship">product_definition_formation_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.property_definition_relationship">property_definition_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation">property_definition_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_context">representation_context</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/security_classification_schema/security_classification_schema.htm#security_classification_schema.security_classification">security_classification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/date_time_schema/date_time_schema.htm#date_time_schema.time_interval_relationship">time_interval_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.uncertainty_measure_with_unit">uncertainty_measure_with_unit</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.usage_association">usage_association</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.versioned_action_request">versioned_action_request</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_attribute_language_item">TYPE </A><b>design_pdm_attribute_language_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/multi_linguism/sys/e_exp_mim.htm#multi_linguism_mim.attribute_language_item">attribute_language_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.information_right">information_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.information_usage_right">information_usage_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.usage_association">usage_association</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_certification_item">TYPE </A><b>design_pdm_certification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/product_data_management/sys/e_exp_mim.htm#product_data_management_mim.pdm_certification_item">pdm_certification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.alternate_product_relationship">alternate_product_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.make_from_usage_option">make_from_usage_option</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation">product_definition_formation</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_classification_item">TYPE </A><b>design_pdm_classification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/product_data_management/sys/e_exp_mim.htm#product_data_management_mim.pdm_classification_item">pdm_classification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.information_right">information_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.information_usage_right">information_usage_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.usage_association">usage_association</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_contract_item">TYPE </A><b>design_pdm_contract_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/contract/sys/e_exp_mim.htm#contract_mim.contract_item">contract_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_directive">action_directive</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.alternate_product_relationship">alternate_product_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.directed_action">directed_action</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.organization">organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.person_and_organization">person_and_organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product">product</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation">product_definition_formation</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_date_and_time_item">TYPE </A><b>design_pdm_date_and_time_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/product_data_management/sys/e_exp_mim.htm#product_data_management_mim.pdm_date_and_time_item">pdm_date_and_time_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_directive">action_directive</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/approval_schema/approval_schema.htm#approval_schema.approval_person_organization">approval_person_organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/certification_schema/certification_schema.htm#certification_schema.certification">certification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/contract_schema/contract_schema.htm#contract_schema.contract">contract</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.directed_action">directed_action</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema.document">document</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/security_classification_schema/security_classification_schema.htm#security_classification_schema.security_classification">security_classification</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_date_item">TYPE </A><b>design_pdm_date_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/product_data_management/sys/e_exp_mim.htm#product_data_management_mim.pdm_date_item">pdm_date_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_directive">action_directive</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/approval_schema/approval_schema.htm#approval_schema.approval_person_organization">approval_person_organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/certification_schema/certification_schema.htm#certification_schema.certification">certification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/contract_schema/contract_schema.htm#contract_schema.contract">contract</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.directed_action">directed_action</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema.document">document</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.executed_action">executed_action</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/security_classification_schema/security_classification_schema.htm#security_classification_schema.security_classification">security_classification</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_document_reference_item">TYPE </A><b>design_pdm_document_reference_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/product_data_management/sys/e_exp_mim.htm#product_data_management_mim.pdm_document_reference_item">pdm_document_reference_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_mim.htm#external_item_identification_assignment_mim.applied_external_identification_assignment">applied_external_identification_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.assembly_component_usage">assembly_component_usage</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/classification_with_attributes/sys/e_exp_mim.htm#classification_with_attributes_mim.characterized_class">characterized_class</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/configuration_management_schema/configuration_management_schema.htm#configuration_management_schema.configuration_item">configuration_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item">descriptive_representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/external_reference_schema/external_reference_schema.htm#external_reference_schema.externally_defined_item">externally_defined_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group_relationship">group_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.information_right">information_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.information_usage_right">information_usage_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.material_designation">material_designation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.measure_representation_item">measure_representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product">product</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_category">product_category</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation">product_definition_formation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.usage_association">usage_association</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_groupable_item">TYPE </A><b>design_pdm_groupable_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/group/sys/e_exp_mim.htm#group_mim.groupable_item">groupable_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group_relationship">group_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation">product_definition_formation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation">property_definition_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_identification_item">TYPE </A><b>design_pdm_identification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/identification_assignment/sys/e_exp_mim.htm#identification_assignment_mim.identification_item">identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/configuration_management_schema/configuration_management_schema.htm#configuration_management_schema.configuration_item">configuration_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group_relationship">group_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.information_right">information_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.information_usage_right">information_usage_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.material_designation">material_designation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.organization">organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.person_and_organization">person_and_organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product">product</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_category">product_category</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept">product_concept</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation">product_definition_formation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.usage_association">usage_association</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_ir_usage_item">TYPE </A><b>design_pdm_ir_usage_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.ir_usage_item">ir_usage_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_directive">action_directive</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/certification/sys/e_exp_mim.htm#certification_mim.certification_item">certification_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/classification_assignment/sys/e_exp_mim.htm#classification_assignment_mim.classification_item">classification_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/document_assignment/sys/e_exp_mim.htm#document_assignment_mim.document_reference_item">document_reference_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/identification_assignment/sys/e_exp_mim.htm#identification_assignment_mim.identification_item">identification_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.organization">organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/person_organization_schema/person_organization_schema.htm#person_organization_schema.person_and_organization">person_and_organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation">product_definition_formation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/requirement_assignment/sys/e_exp_mim.htm#requirement_assignment_mim.requirement_assigned_item">requirement_assigned_item</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_multi_language_attribute_item">TYPE </A><b>design_pdm_multi_language_attribute_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/multi_linguism/sys/e_exp_mim.htm#multi_linguism_mim.multi_language_attribute_item">multi_language_attribute_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.information_right">information_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.information_usage_right">information_usage_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/information_rights/sys/e_exp_mim.htm#information_rights_mim.usage_association">usage_association</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_name_item">TYPE </A><b>design_pdm_name_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/name_assignment/sys/e_exp_mim.htm#name_assignment_mim.name_item">name_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/external_class/sys/e_exp_mim.htm#external_class_mim.external_class_library">external_class_library</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group_relationship">group_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product">product</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_organization_item">TYPE </A><b>design_pdm_organization_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/product_data_management/sys/e_exp_mim.htm#product_data_management_mim.pdm_organization_item">pdm_organization_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_directive">action_directive</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/classification_assignment/sys/e_exp_mim.htm#classification_assignment_mim.applied_classification_assignment">applied_classification_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/identification_assignment/sys/e_exp_mim.htm#identification_assignment_mim.applied_identification_assignment">applied_identification_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation_relationship">product_definition_formation_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_person_and_organization_item">TYPE </A><b>design_pdm_person_and_organization_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/product_data_management/sys/e_exp_mim.htm#product_data_management_mim.pdm_person_and_organization_item">pdm_person_and_organization_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/action_schema/action_schema.htm#action_schema.action_directive">action_directive</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/classification_assignment/sys/e_exp_mim.htm#classification_assignment_mim.applied_classification_assignment">applied_classification_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/identification_assignment/sys/e_exp_mim.htm#identification_assignment_mim.applied_identification_assignment">applied_identification_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation_relationship">product_definition_formation_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_requirement_assigned_item">TYPE </A><b>design_pdm_requirement_assigned_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/requirement_assignment/sys/e_exp_mim.htm#requirement_assignment_mim.requirement_assigned_item">requirement_assigned_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/configuration_management_schema/configuration_management_schema.htm#configuration_management_schema.configuration_item">configuration_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item">descriptive_representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product">product</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/product_class/sys/e_exp_mim.htm#product_class_mim.product_class">product_class</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation">product_definition_formation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_requirement_source_item">TYPE </A><b>design_pdm_requirement_source_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/requirement_assignment/sys/e_exp_mim.htm#requirement_assignment_mim.requirement_source_item">requirement_source_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group_relationship">group_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product">product</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation">product_definition_formation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.design_pdm_security_classification_item">TYPE </A><b>design_pdm_security_classification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/product_data_management/sys/e_exp_mim.htm#product_data_management_mim.pdm_security_classification_item">pdm_security_classification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/document_schema/document_schema.htm#document_schema.document">document</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.make_from_usage_option">make_from_usage_option</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_formation">product_definition_formation</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_mim.promissory_usage_in_product_model_assigned_item">TYPE </A><b>promissory_usage_in_product_model_assigned_item</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/product_concept_schema/product_concept_schema.htm#product_concept_schema.product_concept">product_concept</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Design_product_data_management_mim<br></code></body>
+</HTML>

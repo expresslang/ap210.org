@@ -1,0 +1,30 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Security_classification_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Security_classification_arm</h2><code><br><br><a name="security_classification_arm">SCHEMA <b>Security_classification_arm</b>;</a><br><br></code><code><br><A NAME="security_classification_arm.security_classification_item">TYPE </A><b>security_classification_item</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="security_classification_arm.security_classification">ENTITY <b>Security_classification</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="security_classification_arm.security_classification.classification_level">classification_level : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="security_classification_arm.security_classification.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="security_classification_arm.security_classification_assignment">ENTITY <b>Security_classification_assignment</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="security_classification_arm.security_classification_assignment.classification">classification : </A><A HREF="#security_classification_arm.security_classification">Security_classification</A>;<br>
+         &nbsp;&nbsp;<A NAME="security_classification_arm.security_classification_assignment.items">items : </A>SET[1:?] OF <A HREF="#security_classification_arm.security_classification_item">security_classification_item</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Security_classification_arm<br></code></body>
+</HTML>

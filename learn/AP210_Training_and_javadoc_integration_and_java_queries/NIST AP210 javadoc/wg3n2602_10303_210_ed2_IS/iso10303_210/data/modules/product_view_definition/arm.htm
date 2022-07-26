@@ -1,0 +1,43 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Product_view_definition_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Product_view_definition_arm</h2><code><br><br><a name="product_view_definition_arm">SCHEMA <b>Product_view_definition_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm">Product_version_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1018<br><br></code><code><br><A NAME="product_view_definition_arm.product_view_definition">ENTITY <b>Product_view_definition</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_view_definition_arm.product_view_definition.id">id : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="product_view_definition_arm.product_view_definition.name">name : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="product_view_definition_arm.product_view_definition.additional_characterization">additional_characterization : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="product_view_definition_arm.product_view_definition.initial_context">initial_context : </A><A HREF="#product_view_definition_arm.view_definition_context">View_definition_context</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_view_definition_arm.product_view_definition.additional_contexts">additional_contexts : </A>SET[0:?] OF <A HREF="#product_view_definition_arm.view_definition_context">View_definition_context</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_view_definition_arm.product_view_definition.defined_version">defined_version : </A><A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_view_definition_arm.product_view_definition.wr:wr1">WR1: NOT (initial_context IN additional_contexts);</A><br>
+         &nbsp;&nbsp;<A NAME="product_view_definition_arm.product_view_definition.wr:wr2">WR2: EXISTS(id) OR (TYPEOF(SELF\Product_view_definition) &lt;&gt; TYPEOF(SELF));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_view_definition_arm.view_definition_context">ENTITY <b>View_definition_context</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_view_definition_arm.view_definition_context.application_domain">application_domain : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="product_view_definition_arm.view_definition_context.life_cycle_stage">life_cycle_stage : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="product_view_definition_arm.view_definition_context.description">description : </A>
+         OPTIONAL 
+         STRING;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="product_view_definition_arm.view_definition_context.wr:wr1">WR1: (SIZEOF (USEDIN(SELF, 'PRODUCT_VIEW_DEFINITION_ARM.' +
+            'PRODUCT_VIEW_DEFINITION.INITIAL_CONTEXT')) &gt; 0) OR
+            (SIZEOF (USEDIN(SELF, 'PRODUCT_VIEW_DEFINITION_ARM.' +
+            'PRODUCT_VIEW_DEFINITION.ADDITIONAL_CONTEXTS')) &gt; 0);</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Product_view_definition_arm<br></code></body>
+</HTML>

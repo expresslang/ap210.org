@@ -1,0 +1,585 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Camera view 3D">
+      <META name="DC.Dates" content="">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Camera view 3D">
+      <META name="DC.Subject" content="module, camera model, camera image, hidden line removal, clipping, light source, projection, colour">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6621">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5307">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6563">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6564">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6565">
+      <META name="STEPMOD.module.rcs.date" content="Date">
+      <META name="STEPMOD.module.rcs.revision" content="Revision">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision">
+      <TITLE>ISO/TS 10303-1316:2009 Camera view 3D</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Camera view 3D</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1316:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.4 ARM subtype constraint definition</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.1 MIM entity definition</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Camera view 3D</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Camera_view_3d_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="camera_view_3d_arm">
+            SCHEMA Camera_view_3d_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm">Basic_geometry_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1652<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/presentation_hierarchy/sys/4_info_reqs.htm#presentation_hierarchy_arm">Presentation_hierarchy_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1330<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/colour/sys/4_info_reqs.htm#colour_arm">Colour_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1002<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Basic_geometry_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1652</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Presentation_hierarchy_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1330</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Colour_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1002</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="camera_view_3d_arm.clipping_element">4.2.1 clipping_element</a>
+         &nbsp;&nbsp;<a href="../../camera_view_3d/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>clipping_element</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#camera_view_3d_arm.clipping_operator">Clipping_operator</A></b>
+         and
+         <b><A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.plane">Plane</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            clipping_element =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#camera_view_3d_arm.clipping_operator">Clipping_operator</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.plane">Plane</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="camera_view_3d_arm.clipping_mode">4.2.2 clipping_mode</a>
+         &nbsp;&nbsp;<a href="../../camera_view_3d/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>clipping_mode</b> presents the modes of clipping.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            clipping_mode =
+            
+            ENUMERATION
+            
+            OF
+            <br>
+            &nbsp;&nbsp; 
+            (union,<br>&nbsp;&nbsp;&nbsp;&nbsp;intersection);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <p><u>Enumerated item definitions:</u></p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.clipping_mode.union">union:
+               </a></b>
+         	the clipping mode is union.
+         
+      </p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.clipping_mode.intersection">intersection:
+               </a></b>
+         	the clipping mode is intersection.
+         
+      </p>
+      <h2><a name="camera_view_3d_arm.cv3_view_element_select">4.2.3 cv3_view_element_select</a>
+         &nbsp;&nbsp;<a href="../../camera_view_3d/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>cv3_view_element_select</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/presentation_hierarchy/sys/4_info_reqs.htm#presentation_hierarchy_arm.view_element_select">view_element_select</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#camera_view_3d_arm.model_image_3d">Model_image_3d</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            cv3_view_element_select =
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/presentation_hierarchy/sys/4_info_reqs.htm#presentation_hierarchy_arm.view_element_select">view_element_select</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#camera_view_3d_arm.model_image_3d">Model_image_3d</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="camera_view_3d_arm.light_type">4.2.4 light_type</a>
+         &nbsp;&nbsp;<a href="../../camera_view_3d/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>light_type</b> presents the types of light.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            light_type =
+            
+            ENUMERATION
+            
+            OF
+            <br>
+            &nbsp;&nbsp; 
+            (ambient,<br>&nbsp;&nbsp;&nbsp;&nbsp;directional,<br>&nbsp;&nbsp;&nbsp;&nbsp;spot,<br>&nbsp;&nbsp;&nbsp;&nbsp;positional);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <p><u>Enumerated item definitions:</u></p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.light_type.ambient">ambient:
+               </a></b>
+         	the light is ambient;
+         
+      </p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.light_type.directional">directional:
+               </a></b>
+         	the light is directional;
+         
+      </p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.light_type.spot">spot:
+               </a></b>
+         	the light is spot;
+         
+      </p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.light_type.positional">positional:
+               </a></b>
+         	the light is positional.
+         
+      </p>
+      <h2><a name="camera_view_3d_arm.view_projection_type">4.2.5 view_projection_type</a>
+         &nbsp;&nbsp;<a href="../../camera_view_3d/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>view_projection_type</b> presents the types of view projection.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            view_projection_type =
+            
+            ENUMERATION
+            
+            OF
+            <br>
+            &nbsp;&nbsp; 
+            (central,<br>&nbsp;&nbsp;&nbsp;&nbsp;parallel);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <p><u>Enumerated item definitions:</u></p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.view_projection_type.central">central:
+               </a></b>
+         	the view projection type is central.
+         
+      </p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.view_projection_type.parallel">parallel:
+               </a></b>
+         	the view projection type is parallel.
+         
+      </p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="camera_view_3d_arm.camera_model_d3">4.3.1 Camera_model_d3</a>
+         &nbsp;&nbsp;<a href="../../camera_view_3d/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycamera_model_d3"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Camera_model_d3</b> is a type of
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Camera_model_d3<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;clipping : 
+            OPTIONAL 
+            <A HREF="#camera_view_3d_arm.clipping_operator">Clipping_operator</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;hidden_element_appearance : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.appearance_assignment">Appearance_assignment</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;hidden_line_removal : 
+            OPTIONAL 
+            BOOLEAN;<br>
+            
+            
+            
+            &nbsp;&nbsp;sources : 
+            OPTIONAL 
+            SET[1:?] OF <A HREF="#camera_view_3d_arm.light_source">Light_source</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;view_projection : <A HREF="#camera_view_3d_arm.view_projection_type">view_projection_type</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;view_window : <A HREF="../../../../data/modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.planar_box">Planar_box</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: NOT EXISTS(hidden_element_appearance) OR EXISTS(hidden_line_removal);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.camera_model_d3.clipping">clipping:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/camera_view_3d/sys/4_info_reqs.htm#camera_view_3d_arm.clipping_operator"><b>Clipping_operator</b></a>
+         	for the <b>Camera_model_d3</b>.
+         	There shall exist one or more
+         	<a href="../../../modules/camera_view_3d/sys/4_info_reqs.htm#camera_view_3d_arm.clipping_operator"><b>Clipping_operators</b></a>
+         	for the <b>Camera_model_d3</b>.
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.camera_model_d3.hidden_element_appearance">hidden_element_appearance:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.appearance_assignment"><b>Appearance_assignment</b></a>
+         	for the <b>Camera_model_d3</b>.
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.camera_model_d3.hidden_line_removal">hidden_line_removal:
+               </a></b>
+         	specifies a logical value.
+         
+      </p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.camera_model_d3.sources">sources:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/camera_view_3d/sys/4_info_reqs.htm#camera_view_3d_arm.light_source"><b>Light_source</b></a>
+         	for the <b>Camera_model_d3</b>.
+         	There shall exist one or more
+         	<a href="../../../modules/camera_view_3d/sys/4_info_reqs.htm#camera_view_3d_arm.light_source"><b>Light_sources</b></a>
+         	for the <b>Camera_model_d3</b>.
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.camera_model_d3.view_projection">view_projection:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/camera_view_3d/sys/4_info_reqs.htm#camera_view_3d_arm.view_projection_type"><b>view_projection_type</b></a>
+         	for the <b>Camera_model_d3</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.camera_model_d3.view_window">view_window:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.planar_box"><b>Planar_box</b></a>
+         	for the <b>Camera_model_d3</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.camera_model_d3.wr:wr1">WR1:
+               </a></b>
+         	If the <b>hidden_line_removal</b> is not set, then the <b>hidden_element_appearance</b> shall not be set as well.
+         
+      </p>
+      <h2><a name="camera_view_3d_arm.clipping_operator">4.3.2 Clipping_operator</a>
+         &nbsp;&nbsp;<a href="../../camera_view_3d/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityclipping_operator"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Clipping_operator</b> is a type of
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Clipping_operator<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;elements : SET[1:?] OF <A HREF="#camera_view_3d_arm.clipping_element">clipping_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;operator : <A HREF="#camera_view_3d_arm.clipping_mode">clipping_mode</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.clipping_operator.elements">elements:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/camera_view_3d/sys/4_info_reqs.htm#camera_view_3d_arm.clipping_element"><b>clipping_element</b></a>
+         	for the <b>Clipping_operator</b>.
+         	There shall exist one or more
+         	<a href="../../../modules/camera_view_3d/sys/4_info_reqs.htm#camera_view_3d_arm.clipping_element"><b>clipping_elements</b></a>
+         	for the <b>Clipping_operator</b>.
+         	
+         
+      </p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.clipping_operator.operator">operator:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/camera_view_3d/sys/4_info_reqs.htm#camera_view_3d_arm.clipping_mode"><b>clipping_mode</b></a>
+         	for the <b>Clipping_operator</b>.
+         
+      </p>
+      <h2><a name="camera_view_3d_arm.light_source">4.3.3 Light_source</a>
+         &nbsp;&nbsp;<a href="../../camera_view_3d/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitylight_source"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Light_source</b> is a type of
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Light_source<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;colour : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/colour/sys/4_info_reqs.htm#colour_arm.colour">Colour</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;light_type : <A HREF="#camera_view_3d_arm.light_type">light_type</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.light_source.colour">colour:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/colour/sys/4_info_reqs.htm#colour_arm.colour"><b>Colour</b></a>
+         	for the <b>Light_source</b>.
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.light_source.light_type">light_type:
+               </a></b>
+         	specifies a 
+         	<a href="../../../modules/camera_view_3d/sys/4_info_reqs.htm#camera_view_3d_arm.light_type"><b>light_type</b></a>
+         	for the <b>Light_source</b>.
+         
+      </p>
+      <h2><a name="camera_view_3d_arm.model_image_3d">4.3.4 Model_image_3d</a>
+         &nbsp;&nbsp;<a href="../../camera_view_3d/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitymodel_image_3d"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Model_image_3d</b> is a type of
+      	<a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element"><b>Detailed_geometric_model_element</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Model_image_3d<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;is_displaying : <A HREF="../../../../data/modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.presented_model_select">presented_model_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;source : <A HREF="#camera_view_3d_arm.camera_model_d3">Camera_model_d3</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;target : <A HREF="../../../../data/modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.planar_box">Planar_box</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.model_image_3d.is_displaying">is_displaying:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.presented_model_select"><b>presented_model_select</b></a>
+         	for the <b>Model_image_3d</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.model_image_3d.source">source:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/camera_view_3d/sys/4_info_reqs.htm#camera_view_3d_arm.camera_model_d3"><b>Camera_model_d3</b></a>
+         	for the <b>Model_image_3d</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="camera_view_3d_arm.model_image_3d.target">target:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/appearance_assignment/sys/4_info_reqs.htm#appearance_assignment_arm.planar_box"><b>Planar_box</b></a>
+         	for the <b>Model_image_3d</b>.
+         
+      </p>
+      <h2><a name="subtype_constraints">4.4 ARM subtype constraint definition</a></h2>
+      <p>
+         This subclause specifies the ARM subtype constraint for
+         this module. The subtype constraint places a constraint on the
+         possible super-type / subtype instantiations.
+         The ARM subtype constraint and definition is
+         specified below.
+         
+      </p>
+      <h2><A NAME="camera_view_3d_arm.cv3d_detailed_geometric_model_element_subtypes">4.4.1 cv3d_detailed_geometric_model_element_subtypes</A>
+         &nbsp;&nbsp;<a href="../../camera_view_3d/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#scconstraintcv3d_detailed_geometric_model_element_subtypes"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         The
+         <b>cv3d_detailed_geometric_model_element_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="camera_view_3d_arm.cv3d_detailed_geometric_model_element_subtypes">SUBTYPE_CONSTRAINT cv3d_detailed_geometric_model_element_subtypes</A> FOR <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.detailed_geometric_model_element">Detailed_geometric_model_element</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#camera_view_3d_arm.clipping_operator">Clipping_operator</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#camera_view_3d_arm.model_image_3d">Model_image_3d</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#camera_view_3d_arm.light_source">Light_source</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#camera_view_3d_arm.camera_model_d3">Camera_model_d3</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Camera_view_3d_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

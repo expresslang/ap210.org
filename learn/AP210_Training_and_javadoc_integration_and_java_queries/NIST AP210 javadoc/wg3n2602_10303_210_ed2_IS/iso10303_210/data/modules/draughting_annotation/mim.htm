@@ -1,0 +1,48 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Draughting_annotation_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Draughting_annotation_mim</h2><code><br><br><a name="draughting_annotation_mim">SCHEMA <b>Draughting_annotation_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/draughting_element/sys/e_exp_mim.htm#draughting_element_mim">Draughting_element_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1310<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema">draughting_element_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-101<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.dimension_curve_terminator">dimension_curve_terminator</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/draughting_element_schema/draughting_element_schema.htm#draughting_element_schema.terminator_symbol">terminator_symbol</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/aic_draughting_annotation/aic_draughting_annotation.htm#aic_draughting_annotation">aic_draughting_annotation</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO 10303-504<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema">presentation_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-46<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.annotation_symbol_occurrence">annotation_symbol_occurrence</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.pre_defined_symbol">pre_defined_symbol</A>);
+         <br><br></code><code><br><A NAME="draughting_annotation_mim.pre_defined_dimension_symbol">ENTITY <b>pre_defined_dimension_symbol</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.pre_defined_symbol">pre_defined_symbol</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_annotation_mim.pre_defined_dimension_symbol.wr:wr1">WR1: SELF.name IN [ 'arc length' , 'conical taper' , 'counterbore' , 'countersink' , 'depth' , 'diameter' , 'plus minus' ,
+            'radius' , 'slope' , 'spherical diameter' , 'spherical radius' , 'square'];</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_annotation_mim.pre_defined_geometrical_tolerance_symbol">ENTITY <b>pre_defined_geometrical_tolerance_symbol</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.pre_defined_symbol">pre_defined_symbol</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_annotation_mim.pre_defined_geometrical_tolerance_symbol.wr:wr1">WR1: SELF.name IN ['angularity' , 'basic dimension' , 'blanked datum reference' , 'circular runout' , 'circularity' , 'concentricity'
+            , 'cylindricity' , 'datum target identification' , 'diameter' , 'filled datum reference' , 'flatness' , 'least material condition'
+            , 'maximum material condition' , 'parallelism' , 'perpendicularity' , 'position' , 'profile of a line' , 'profile of a surface'
+            , 'projected tolerance zone' , 'regardless of feature size' , 'straightness' , 'symmetry' , 'total runout' ];</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="draughting_annotation_mim.pre_defined_surface_condition_symbol">ENTITY <b>pre_defined_surface_condition_symbol</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/presentation_definition_schema/presentation_definition_schema.htm#presentation_definition_schema.pre_defined_symbol">pre_defined_symbol</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="draughting_annotation_mim.pre_defined_surface_condition_symbol.wr:wr1">WR1: SELF.name IN ['000' , '010' , '020' , '030' , '040' , '050' , '060' , '070' , '001' , '011' , '021' , '031' , '041' ,
+            '051' , '061' , '071' , '100' , '110' , '120' , '130' , '140' , '150' , '160' , '170' , '101' , '111' , '121' , '131' , '141'
+            , '151' , '161' , '171' , '200' , '210' , '220' , '230' , '240' , '250' , '260' , '270' , '201' , '211' , '221' , '231' ,
+            '241' , '251' , '261' , '271'];</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Draughting_annotation_mim<br></code></body>
+</HTML>

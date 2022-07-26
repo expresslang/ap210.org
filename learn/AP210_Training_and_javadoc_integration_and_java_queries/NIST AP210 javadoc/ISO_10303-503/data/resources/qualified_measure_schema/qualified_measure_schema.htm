@@ -1,0 +1,107 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: qualified_measure_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: qualified_measure_schema</h2>
+      <p><i>Source : ISO 10303-45</i></p><code><br><br><a name="qualified_measure_schema">SCHEMA <b>qualified_measure_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/mathematical_functions_schema/mathematical_functions_schema.htm#mathematical_functions_schema">mathematical_functions_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-50<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/mathematical_functions_schema/mathematical_functions_schema.htm#mathematical_functions_schema.maths_value">maths_value</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema">measure_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.unit">unit</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.bag_to_set">bag_to_set</A>);
+         <br><br></code><code><br><A NAME="qualified_measure_schema.value_qualifier">TYPE </A><b>value_qualifier</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#qualified_measure_schema.precision_qualifier">precision_qualifier</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#qualified_measure_schema.type_qualifier">type_qualifier</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#qualified_measure_schema.uncertainty_qualifier">uncertainty_qualifier</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="qualified_measure_schema.descriptive_representation_item">ENTITY <b>descriptive_representation_item</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.descriptive_representation_item.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_schema.expanded_uncertainty">ENTITY <b>expanded_uncertainty</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#qualified_measure_schema.standard_uncertainty">standard_uncertainty</A>);<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.expanded_uncertainty.coverage_factor">coverage_factor : </A>REAL;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_schema.maths_value_qualification">ENTITY <b>maths_value_qualification</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.maths_value_qualification.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.maths_value_qualification.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.maths_value_qualification.qualified_maths_value">qualified_maths_value : </A><A HREF="#qualified_measure_schema.maths_value_with_unit">maths_value_with_unit</A>;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.maths_value_qualification.qualifiers">qualifiers : </A>SET[1:?] OF <A HREF="#qualified_measure_schema.value_qualifier">value_qualifier</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.maths_value_qualification.wr:wr1">WR1: SIZEOF(QUERY(temp &lt;* qualifiers |
+            'QUALIFIED_MEASURE_SCHEMA.PRECISION_QUALIFIER'
+            IN TYPEOF(temp))) &lt; 2;</A><br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.maths_value_qualification.wr:wr2">WR2: NOT ('REPRESENTATION_SCHEMA.REPRESENTATION_ITEM'
+            IN TYPEOF(SELF\maths_value_qualification.qualified_maths_value));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_schema.maths_value_representation_item">ENTITY <b>maths_value_representation_item</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#qualified_measure_schema.maths_value_with_unit">maths_value_with_unit</A>, <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_schema.maths_value_with_unit">ENTITY <b>maths_value_with_unit</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.maths_value_with_unit.value_component">value_component : </A><A HREF="../../../data/resources/mathematical_functions_schema/mathematical_functions_schema.htm#mathematical_functions_schema.maths_value">maths_value</A>;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.maths_value_with_unit.unit_component">unit_component : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.unit">unit</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_schema.measure_qualification">ENTITY <b>measure_qualification</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.measure_qualification.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.measure_qualification.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.measure_qualification.qualified_measure">qualified_measure : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.measure_qualification.qualifiers">qualifiers : </A>SET[1:?] OF <A HREF="#qualified_measure_schema.value_qualifier">value_qualifier</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.measure_qualification.wr:wr1">WR1: SIZEOF(QUERY(temp &lt;* qualifiers |
+            'QUALIFIED_MEASURE_SCHEMA.PRECISION_QUALIFIER'
+            IN TYPEOF(temp))) &lt; 2;</A><br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.measure_qualification.wr:wr2">WR2: NOT ('REPRESENTATION_SCHEMA.REPRESENTATION_ITEM'
+            IN TYPEOF(SELF\measure_qualification.qualified_measure));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_schema.measure_representation_item">ENTITY <b>measure_representation_item</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>, <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_schema.precision_qualifier">ENTITY <b>precision_qualifier</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.precision_qualifier.precision_value">precision_value : </A>INTEGER;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_schema.qualified_representation_item">ENTITY <b>qualified_representation_item</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>);<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.qualified_representation_item.qualifiers">qualifiers : </A>SET[1:?] OF <A HREF="#qualified_measure_schema.value_qualifier">value_qualifier</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.qualified_representation_item.wr:wr1">WR1: SIZEOF(QUERY(temp &lt;* qualifiers |
+            'QUALIFIED_MEASURE_SCHEMA.PRECISION_QUALIFIER'
+            IN TYPEOF(temp))) &lt; 2;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_schema.qualitative_uncertainty">ENTITY <b>qualitative_uncertainty</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#qualified_measure_schema.uncertainty_qualifier">uncertainty_qualifier</A>);<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.qualitative_uncertainty.uncertainty_value">uncertainty_value : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_schema.standard_uncertainty">ENTITY <b>standard_uncertainty</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (<A HREF="#qualified_measure_schema.expanded_uncertainty">expanded_uncertainty</A>)<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#qualified_measure_schema.uncertainty_qualifier">uncertainty_qualifier</A>);<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.standard_uncertainty.uncertainty_value">uncertainty_value : </A>REAL;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_schema.type_qualifier">ENTITY <b>type_qualifier</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.type_qualifier.name">name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="qualified_measure_schema.uncertainty_qualifier">ENTITY <b>uncertainty_qualifier</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#qualified_measure_schema.standard_uncertainty">standard_uncertainty</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#qualified_measure_schema.qualitative_uncertainty">qualitative_uncertainty</A>));<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.uncertainty_qualifier.measure_name">measure_name : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>;<br>
+         &nbsp;&nbsp;<A NAME="qualified_measure_schema.uncertainty_qualifier.description">description : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.text">text</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;qualified_measure_schema<br></code></body>
+</HTML>

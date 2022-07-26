@@ -1,0 +1,171 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Surface_conditions_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Surface_conditions_arm</h2><code><br><br><a name="surface_conditions_arm">SCHEMA <b>Surface_conditions_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/dimension_tolerance/sys/e_exp_arm.htm#dimension_tolerance_arm">Dimension_tolerance_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1050<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/generic_material_aspects/sys/e_exp_arm.htm#generic_material_aspects_arm">Generic_material_aspects_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1681<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/part_view_definition/sys/e_exp_arm.htm#part_view_definition_arm">Part_view_definition_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1023<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_arm.htm#value_with_unit_extension_arm">Value_with_unit_extension_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1753<br><br></code><code><br><A NAME="surface_conditions_arm.measuring_gauge_select">TYPE </A><b>measuring_gauge_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/part_view_definition/sys/e_exp_arm.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="surface_conditions_arm.sf_material_item_select">TYPE </A><b>sf_material_item_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/generic_material_aspects/sys/e_exp_arm.htm#generic_material_aspects_arm.material_item_select">material_item_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#surface_conditions_arm.coating_layer">Coating_layer</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="surface_conditions_arm.shaped_element_select">TYPE </A><b>shaped_element_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.item_shape">Item_shape</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element">Shape_element</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="surface_conditions_arm.texture_select">TYPE </A><b>texture_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#surface_conditions_arm.surface_texture">Surface_texture</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="surface_conditions_arm.coating_layer">ENTITY <b>Coating_layer</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element">Shape_element</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.coating_layer.thickness">thickness : </A>SET[0:1] OF <A HREF="../../../data/modules/dimension_tolerance/sys/e_exp_arm.htm#dimension_tolerance_arm.thickness_size_dimension">Thickness_size_dimension</A> FOR is_applied_to;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.coating_layer.wr:wr1">WR1: SIZEOF(USEDIN(SELF, 'GENERIC_MATERIAL_ASPECTS_ARM.MATERIAL_IDENTIFICATION.ITEMS'))=1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="surface_conditions_arm.contact_ratio">ENTITY <b>Contact_ratio</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#surface_conditions_arm.surface_condition">Surface_condition</A>);<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.contact_ratio.ratio_value">ratio_value : </A><A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.measure_item">Measure_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.contact_ratio.measuring_gauge">measuring_gauge : </A><A HREF="#surface_conditions_arm.measuring_gauge_select">measuring_gauge_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="surface_conditions_arm.extended_visual_appearance">ENTITY <b>Extended_visual_appearance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#surface_conditions_arm.visual_appearance">Visual_appearance</A>);<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.extended_visual_appearance.opacity">opacity : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.measure_item">Measure_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.extended_visual_appearance.orientation">orientation : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_arm.htm#value_with_unit_extension_arm.angle_data_element">Angle_data_element</A>;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.extended_visual_appearance.refraction_index">refraction_index : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.measure_item">Measure_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.extended_visual_appearance.texture_map">texture_map : </A><A HREF="../../../data/modules/file_identification/sys/e_exp_arm.htm#file_identification_arm.digital_file">Digital_file</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="surface_conditions_arm.hardness">ENTITY <b>Hardness</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#surface_conditions_arm.surface_condition">Surface_condition</A>);<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.hardness.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.hardness.depth">depth : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.measure_item">Measure_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.hardness.environment_condition">environment_condition : </A>SET[0:?] OF STRING;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.hardness.hardness_value">hardness_value : </A><A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.measure_item">Measure_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.hardness.measuring_method">measuring_method : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.hardness.measuring_position">measuring_position : </A>
+         OPTIONAL 
+         STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="surface_conditions_arm.surface_condition">ENTITY <b>Surface_condition</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#surface_conditions_arm.contact_ratio">Contact_ratio</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#surface_conditions_arm.hardness">Hardness</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#surface_conditions_arm.tactile_appearance">Tactile_appearance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#surface_conditions_arm.treatment_result">Treatment_result</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#surface_conditions_arm.visual_appearance">Visual_appearance</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#surface_conditions_arm.surface_texture">Surface_texture</A>));<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.surface_condition.value_determination">value_determination : </A>
+         OPTIONAL 
+         STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="surface_conditions_arm.surface_condition_association">ENTITY <b>Surface_condition_association</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.surface_condition_association.describing_surface_condition">describing_surface_condition : </A><A HREF="#surface_conditions_arm.surface_condition">Surface_condition</A>;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.surface_condition_association.described_element">described_element : </A><A HREF="#surface_conditions_arm.shaped_element_select">shaped_element_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="surface_conditions_arm.surface_texture">ENTITY <b>Surface_texture</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#surface_conditions_arm.surface_condition">Surface_condition</A>);<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.surface_texture.measuring_method">measuring_method : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.surface_texture.measuring_direction">measuring_direction : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/basic_curve/sys/e_exp_arm.htm#basic_curve_arm.measurement_path">Measurement_path</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="surface_conditions_arm.surface_texture_parameter">ENTITY <b>Surface_texture_parameter</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.surface_texture_parameter.parameter_value">parameter_value : </A><A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.measure_item">Measure_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.surface_texture_parameter.parameter_name">parameter_name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.surface_texture_parameter.described_texture">described_texture : </A><A HREF="#surface_conditions_arm.texture_select">texture_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="surface_conditions_arm.tactile_appearance">ENTITY <b>Tactile_appearance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#surface_conditions_arm.surface_condition">Surface_condition</A>);<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.tactile_appearance.id">id : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.tactile_appearance.name">name : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.tactile_appearance.depth">depth : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.measure_item">Measure_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.tactile_appearance.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="surface_conditions_arm.treatment_result">ENTITY <b>Treatment_result</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#surface_conditions_arm.surface_condition">Surface_condition</A>);<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.treatment_result.id">id : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.treatment_result.name">name : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.treatment_result.description">description : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.treatment_result.purpose">purpose : </A>
+         OPTIONAL 
+         STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="surface_conditions_arm.visual_appearance">ENTITY <b>Visual_appearance</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#surface_conditions_arm.surface_condition">Surface_condition</A>);<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.visual_appearance.id">id : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.visual_appearance.colour_id">colour_id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.visual_appearance.name">name : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.visual_appearance.colour_name">colour_name : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.visual_appearance.lustre">lustre : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.visual_appearance.transparency">transparency : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="surface_conditions_arm.visual_appearance.pattern">pattern : </A>
+         OPTIONAL 
+         STRING;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Surface_conditions_arm<br></code></body>
+</HTML>

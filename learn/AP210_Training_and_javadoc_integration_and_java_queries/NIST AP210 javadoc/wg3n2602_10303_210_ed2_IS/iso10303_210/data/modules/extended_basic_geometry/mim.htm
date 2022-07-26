@@ -1,0 +1,43 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Extended_basic_geometry_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Extended_basic_geometry_mim</h2><code><br><br><a name="extended_basic_geometry_mim">SCHEMA <b>Extended_basic_geometry_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/basic_geometry/sys/e_exp_mim.htm#basic_geometry_mim">Basic_geometry_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1652<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/geometric_model_relationship/sys/e_exp_mim.htm#geometric_model_relationship_mim">Geometric_model_relationship_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1403<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema">representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-43<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.mapped_item">mapped_item</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_map">representation_map</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema">product_property_representation_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.shape_representation_relationship">shape_representation_relationship</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema">geometry_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-42<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.vector">vector</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.bag_to_set">bag_to_set</A>);
+         <br><br></code><code><br><A NAME="extended_basic_geometry_mim.geometric_model_element_relationship">ENTITY <b>geometric_model_element_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>, <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>.<A NAME="extended_basic_geometry_mim.geometric_model_element_relationship.relating_representation_item">relating_representation_item : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item_relationship">representation_item_relationship</A>.<A NAME="extended_basic_geometry_mim.geometric_model_element_relationship.related_representation_item">related_representation_item : </A><A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.geometric_representation_item">geometric_representation_item</A>;<br>UNIQUE<br>
+         &nbsp;&nbsp;<A NAME="extended_basic_geometry_mim.geometric_model_element_relationship.ur:ur1">UR1: </A>relating_representation_item, related_representation_item;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_basic_geometry_mim.geometric_model_element_relationship.wr:wr1">WR1: SELF\representation_item_relationship.relating_representation_item :&lt;&gt;: 
+            SELF\representation_item_relationship.related_representation_item;</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Extended_basic_geometry_mim<br></code></body>
+</HTML>

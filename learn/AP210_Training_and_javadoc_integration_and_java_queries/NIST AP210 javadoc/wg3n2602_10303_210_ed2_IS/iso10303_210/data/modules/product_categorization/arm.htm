@@ -1,0 +1,48 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Product_categorization_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Product_categorization_arm</h2><code><br><br><a name="product_categorization_arm">SCHEMA <b>Product_categorization_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm">Product_identification_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1017<br><br></code><code><br><A NAME="product_categorization_arm.product_category">ENTITY <b>Product_category</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_categorization_arm.product_category.id">id : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="product_categorization_arm.product_category.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="product_categorization_arm.product_category.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_categorization_arm.product_category_assignment">ENTITY <b>Product_category_assignment</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_categorization_arm.product_category_assignment.category">category : </A><A HREF="#product_categorization_arm.product_category">Product_category</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_categorization_arm.product_category_assignment.products">products : </A>SET[1:?] OF <A HREF="../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_categorization_arm.product_category_hierarchy">ENTITY <b>Product_category_hierarchy</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="product_categorization_arm.product_category_hierarchy.super_category">super_category : </A><A HREF="#product_categorization_arm.product_category">Product_category</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_categorization_arm.product_category_hierarchy.sub_category">sub_category : </A><A HREF="#product_categorization_arm.product_category">Product_category</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_categorization_arm.types_of_product">FUNCTION <b>types_of_product</b></A><br>&nbsp;(obj : <A HREF="../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>) : SET OF STRING;
+         </code><pre>
+  LOCAL
+    category_assignments : BAG OF Product_category_assignment;
+    categories : SET OF STRING := [];
+    i : INTEGER;
+  END_LOCAL;
+
+  category_assignments := USEDIN(obj, 'PRODUCT_CATEGORIZATION_ARM.' + 'PRODUCT_CATEGORY_ASSIGNMENT.PRODUCTS');
+  REPEAT i := LOINDEX(category_assignments) TO HIINDEX(category_assignments) BY 1;
+    categories := categories + category_assignments[i].category.name;
+  END_REPEAT;
+  RETURN (categories);
+      </pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Product_categorization_arm<br></code></body>
+</HTML>

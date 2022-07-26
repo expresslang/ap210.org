@@ -1,0 +1,377 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Event">
+      <META name="DC.Dates" content="2004-11-09 17:36:49">
+      <META name="DC.Published" content="2004-12-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Event">
+      <META name="DC.Subject" content="module, event, event relationship">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N2952">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N1524">
+      <META name="SC4.version" content="1">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N2145">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N2146">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N2147">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2004-11-09 17:36:49">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.41">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.17">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.14">
+      <TITLE>ISO/TS 10303-1064:2004 Event</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Event</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1064:2004(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definition</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/f_guide.htm">
+                     F Application module implementation and usage guide</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Event</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Event_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="event_arm">
+            SCHEMA Event_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/date_time/sys/4_info_reqs.htm#date_time_arm">Date_time_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1010<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/date_time_assignment/sys/4_info_reqs.htm#date_time_assignment_arm">Date_time_assignment_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1014<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm">Value_with_unit_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1054<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Date_time_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1010</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Date_time_assignment_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1014</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Value_with_unit_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1054</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definition</a></h2>
+      <p>
+         This subclause specifies the ARM type
+         for this application module. The ARM type and
+         definition is specified below. 
+         
+      </p>
+      <h2><a name="event_arm.date_or_event">4.2.1 date_or_event</a>
+         &nbsp;&nbsp;<a href="../../event/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      A <b>date_or_event</b> type is a formal mechanism to refer either to a <a href="../../../modules/date_time/sys/4_info_reqs.htm#date_time_arm.calendar_date"><b>Calendar_date</b></a>, a <a href="../../../modules/date_time/sys/4_info_reqs.htm#date_time_arm.date_time"><b>Date_time</b></a>, or an <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event"><b>Event</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            date_or_event =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/date_time/sys/4_info_reqs.htm#date_time_arm.calendar_date">Calendar_date</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/date_time/sys/4_info_reqs.htm#date_time_arm.date_time">Date_time</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#event_arm.event">Event</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="event_arm.event">4.3.1 Event</a>
+         &nbsp;&nbsp;<a href="../../event/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityevent"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      An <b>Event</b> is the fact of the existence of a state at some point in time.
+      
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            The event may have occurred or may be not yet started.</small></p>
+      
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            The point in time where an event will start or started, may not be known or specified.
+            </small></p>
+      			
+         
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Event;<br>
+            
+            
+            
+            &nbsp;&nbsp;id : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;name : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;actual_start_date : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/date_time/sys/4_info_reqs.htm#date_time_arm.date_or_date_time_select">date_or_date_time_select</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;planned_start_date : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/date_time/sys/4_info_reqs.htm#date_time_arm.date_or_date_time_select">date_or_date_time_select</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="event_arm.event.id">id:
+               </a></b>
+         the identifier that distinguishes the <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event"><b>Event</b></a>.
+         				
+      </p>
+      <p class="expressdescription"><b><a name="event_arm.event.name">name:
+               </a></b>the 
+         words by which the event is known.
+      </p>
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            'Start of production' and 'break down of machine A' are examples of event names.</small></p>
+      <p class="expressdescription"><b><a name="event_arm.event.description">description:
+               </a></b>the 
+         text that provides further information  about the event. 
+         The value of the attribute need not be specified.
+      </p>
+      <p class="expressdescription"><b><a name="event_arm.event.actual_start_date">actual_start_date:
+               </a></b>
+         the <a href="../../../modules/date_time/sys/4_info_reqs.htm#date_time_arm.calendar_date"><b>Calendar_date</b></a> or <a href="../../../modules/date_time/sys/4_info_reqs.htm#date_time_arm.date_time"><b>Date_time</b></a> when the event started.
+         					The value of the attribute need not be specified.
+         				
+      </p>
+      <p class="expressdescription"><b><a name="event_arm.event.planned_start_date">planned_start_date:
+               </a></b>
+         the <a href="../../../modules/date_time/sys/4_info_reqs.htm#date_time_arm.calendar_date"><b>Calendar_date</b></a> or <a href="../../../modules/date_time/sys/4_info_reqs.htm#date_time_arm.date_time"><b>Date_time</b></a> when the event is or was planned to start.
+         					The value of the attribute need not be specified.
+         				
+      </p>
+      <h2><a name="event_arm.event_relationship">4.3.2 Event_relationship</a>
+         &nbsp;&nbsp;<a href="../../event/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityevent_relationship"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      An <b>Event_relationship</b> is a relationship which exists between two <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event"><b>Event</b></a>s. 
+      
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            An instance of this entity data type with <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event_relationship.relation_type"><b>relation_type</b></a> 'sequence' may be used to specify that an event shall end before another event starts.</small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Event_relationship;<br>
+            
+            
+            
+            &nbsp;&nbsp;relation_type : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;description : 
+            OPTIONAL 
+            STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;relating_event : <A HREF="#event_arm.event">Event</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;related_event : <A HREF="#event_arm.event">Event</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="event_arm.event_relationship.relation_type">relation_type:
+               </a></b>
+                the string that defines the kind of relationship that is specified.
+              
+      </p>
+      <p>Where applicable, the following values shall be used:</p>
+      <ul>
+         
+         <li>'actualization': The relationship specifies that the relating <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event"><b>Event</b></a> identifies a predicted or planned event and the related <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event"><b>Event</b></a> identifies the point in time when that event actually occurred. 
+            This relationship is valid if the <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event.actual_start_date"><b>actual_start_date</b></a> attribute of the relating <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event"><b>Event</b></a> is not specified and the <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event.actual_start_date"><b>actual_start_date</b></a> attribute of the related <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event"><b>Event</b></a> is specified, or, if both these attributes are specified and equal;
+         </li>
+         
+         <li>'exclusiveness': The relationship specifies that the relating and the related <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event"><b>Event</b></a> shall not have any overlap during their duration; 
+            
+         </li>
+         
+         <li>'sequence': The relationship specifies that the relating <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event"><b>Event</b></a> shall be completed before the related <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event"><b>Event</b></a> starts; 
+            
+         </li>
+         
+         <li>'simultaneity': The relationship specifies that that both the relating and related <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event"><b>Event</b></a> are considered as occurring during the same time period or shall be performed together in order to ensure consistency and
+            enhance efficiency. 
+            
+         </li>
+         
+      </ul>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            The criteria for 'simultaneity' and in particular the allowed delay between two events declared simultaneous, are user-dependent.
+            </small></p>
+      <p class="expressdescription"><b><a name="event_arm.event_relationship.description">description:
+               </a></b>the 
+         text that provides further information about the  <b>Event_relationship</b>. 
+         The value of the attribute need not be specified.
+      </p>
+      <p class="expressdescription"><b><a name="event_arm.event_relationship.relating_event">relating_event:
+               </a></b>
+         one of  the instances of <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event"><b>Event</b></a>
+         that is a part of the  relationship.
+         				
+      </p>
+      <p class="expressdescription"><b><a name="event_arm.event_relationship.related_event">related_event:
+               </a></b>
+          the other related instance of <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event"><b>Event</b></a> is a part of the relationship.  If one element of the relationship is dependent upon the other, this attribute shall be the
+         dependent one.
+         				
+      </p>
+      <h2><a name="event_arm.relative_event">4.3.3 Relative_event</a>
+         &nbsp;&nbsp;<a href="../../event/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityrelative_event"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Relative_event</b> is a type of <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event"><b>Event</b></a> the start of which will occur, respectively has occurred, with a time offset from the start of another <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event"><b>Event</b></a>.
+      			
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Relative_event<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#event_arm.event">Event</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;base_event : <A HREF="#event_arm.event">Event</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;offset : <A HREF="../../../../data/modules/value_with_unit/sys/4_info_reqs.htm#value_with_unit_arm.duration">Duration</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="event_arm.relative_event.base_event">base_event:
+               </a></b>
+         the <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.event"><b>Event</b></a> with respect which the relative event is based on.
+         				
+      </p>
+      <p class="expressdescription"><b><a name="event_arm.relative_event.offset">offset:
+               </a></b>
+         the difference in time between the start of both events. A negative offset specifies that the <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.relative_event"><b>Relative_event</b></a> occurs before the
+         <a href="../../../modules/event/sys/4_info_reqs.htm#event_arm.relative_event.base_event"><b>base_event</b></a>.
+         				
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Event_arm<br>(*
+         </code><br><br><p>&copy; ISO 2004 &#8212; All rights reserved</p>
+   </body>
+</HTML>

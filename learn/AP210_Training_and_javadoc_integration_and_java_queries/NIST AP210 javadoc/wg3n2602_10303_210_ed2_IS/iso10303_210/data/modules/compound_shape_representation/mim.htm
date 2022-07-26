@@ -1,0 +1,44 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Compound_shape_representation_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Compound_shape_representation_mim</h2>
+      <p><i>Source : </i></p><code><br><br><a name="compound_shape_representation_mim">SCHEMA <b>Compound_shape_representation_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/edge_based_wireframe/sys/e_exp_mim.htm#edge_based_wireframe_mim">Edge_based_wireframe_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1501<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/non_manifold_surface/sys/e_exp_mim.htm#non_manifold_surface_mim">Non_manifold_surface_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1324<br><br></code><code><br><A NAME="compound_shape_representation_mim.compound_shape_representation">ENTITY <b>compound_shape_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.shape_representation">shape_representation</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="compound_shape_representation_mim.compound_shape_representation.wr:wr1">WR1: ( 'GEOMETRY_SCHEMA.'+ 'GEOMETRIC_REPRESENTATION_CONTEXT'
+            IN TYPEOF ( SELF.context_of_items ) ) AND (
+            SELF.context_of_items\
+            geometric_representation_context.coordinate_space_dimension =3 );</A><br>
+         &nbsp;&nbsp;<A NAME="compound_shape_representation_mim.compound_shape_representation.wr:wr2">WR2: SIZEOF ( QUERY ( cbsr_i &lt;* SELF.items | SIZEOF (
+            ['GEOMETRIC_MODEL_SCHEMA.'+ 'EDGE_BASED_WIREFRAME_MODEL' ,
+            'GEOMETRIC_MODEL_SCHEMA.'+ 'FACE_BASED_SURFACE_MODEL' ,
+            'REPRESENTATION_SCHEMA.'+ 'MAPPED_ITEM' , 'GEOMETRY_SCHEMA.'+
+            'AXIS2_PLACEMENT_3D']* TYPEOF ( cbsr_i ) ) &lt;&gt;1 ) ) =0;</A><br>
+         &nbsp;&nbsp;<A NAME="compound_shape_representation_mim.compound_shape_representation.wr:wr3">WR3: SIZEOF ( QUERY ( cbsr_i &lt;* SELF.items | SIZEOF (
+            ['GEOMETRIC_MODEL_SCHEMA.'+ 'EDGE_BASED_WIREFRAME_MODEL' ,
+            'GEOMETRIC_MODEL_SCHEMA.'+ 'FACE_BASED_SURFACE_MODEL' ,
+            'REPRESENTATION_SCHEMA.'+ 'MAPPED_ITEM']* TYPEOF ( cbsr_i ) ) =1 ) ) &gt;0;</A><br>
+         &nbsp;&nbsp;<A NAME="compound_shape_representation_mim.compound_shape_representation.wr:wr4">WR4: SIZEOF ( QUERY ( cbsr_i &lt;* SELF.items | (
+            'REPRESENTATION_SCHEMA.'+ 'MAPPED_ITEM' IN TYPEOF ( cbsr_i ) )
+            AND ( SIZEOF ( ['COMPOUND_SHAPE_REPRESENTATION_MIM.'+
+            'COMPOUND_SHAPE_REPRESENTATION' , 'AIC_EDGE_BASED_WIREFRAME.'+
+            'EDGE_BASED_WIREFRAME_SHAPE_REPRESENTATION' ,
+            'AIC_NON_MANIFOLD_SURFACE.'+
+            'NON_MANIFOLD_SURFACE_SHAPE_REPRESENTATION']* TYPEOF (
+            cbsr_i\ mapped_item.mapping_source ) ) &lt;&gt;1 ) ) ) =0;</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Compound_shape_representation_mim<br></code></body>
+</HTML>

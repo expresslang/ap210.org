@@ -1,0 +1,68 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Project_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Project_arm</h2><code><br><br><a name="project_arm">SCHEMA <b>Project_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/date_time/sys/e_exp_arm.htm#date_time_arm">Date_time_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1010<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/date_time_assignment/sys/e_exp_arm.htm#date_time_assignment_arm">Date_time_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1014<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/event/sys/e_exp_arm.htm#event_arm">Event_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1064<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/event_assignment/sys/e_exp_arm.htm#event_assignment_arm">Event_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1364<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/person_organization/sys/e_exp_arm.htm#person_organization_arm">Person_organization_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1011<br><br></code><code><br><A NAME="project_arm.project_item">TYPE </A><b>project_item</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="project_arm.project">ENTITY <b>Project</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="project_arm.project.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="project_arm.project.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="project_arm.project.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="project_arm.project.responsible_organizations">responsible_organizations : </A>SET[0:?] OF <A HREF="../../../data/modules/person_organization/sys/e_exp_arm.htm#person_organization_arm.organization">Organization</A>;<br>
+         &nbsp;&nbsp;<A NAME="project_arm.project.planned_start_date">planned_start_date : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/event/sys/e_exp_arm.htm#event_arm.date_or_event">date_or_event</A>;<br>
+         &nbsp;&nbsp;<A NAME="project_arm.project.planned_end_date">planned_end_date : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/event/sys/e_exp_arm.htm#event_arm.date_or_event">date_or_event</A>;<br>
+         &nbsp;&nbsp;<A NAME="project_arm.project.actual_start_date">actual_start_date : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/date_time/sys/e_exp_arm.htm#date_time_arm.date_or_date_time_select">date_or_date_time_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="project_arm.project.actual_end_date">actual_end_date : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/date_time/sys/e_exp_arm.htm#date_time_arm.date_or_date_time_select">date_or_date_time_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="project_arm.project_assignment">ENTITY <b>Project_assignment</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="project_arm.project_assignment.assigned_project">assigned_project : </A><A HREF="#project_arm.project">Project</A>;<br>
+         &nbsp;&nbsp;<A NAME="project_arm.project_assignment.role">role : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="project_arm.project_assignment.items">items : </A>SET[1:?] OF <A HREF="#project_arm.project_item">project_item</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="project_arm.project_relationship">ENTITY <b>Project_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="project_arm.project_relationship.relation_type">relation_type : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="project_arm.project_relationship.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="project_arm.project_relationship.relating_project">relating_project : </A><A HREF="#project_arm.project">Project</A>;<br>
+         &nbsp;&nbsp;<A NAME="project_arm.project_relationship.related_project">related_project : </A><A HREF="#project_arm.project">Project</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Project_arm<br></code></body>
+</HTML>

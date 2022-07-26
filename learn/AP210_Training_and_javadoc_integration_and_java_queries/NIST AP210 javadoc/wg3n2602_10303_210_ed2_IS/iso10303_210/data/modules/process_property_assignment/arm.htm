@@ -1,0 +1,48 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Process_property_assignment_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Process_property_assignment_arm</h2><code><br><br><a name="process_property_assignment_arm">SCHEMA <b>Process_property_assignment_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/activity/sys/e_exp_arm.htm#activity_arm">Activity_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1047<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm">Foundation_representation_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1006<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/independent_property/sys/e_exp_arm.htm#independent_property_arm">Independent_property_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1036<br><br></code><code><br><A NAME="process_property_assignment_arm.characterized_activity_definition">TYPE </A><b>characterized_activity_definition</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/activity/sys/e_exp_arm.htm#activity_arm.activity">Activity</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/activity_method/sys/e_exp_arm.htm#activity_method_arm.activity_method">Activity_method</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="process_property_assignment_arm.activity_property">ENTITY <b>Activity_property</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_assignment_arm.activity_property.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="process_property_assignment_arm.activity_property.description">description : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="process_property_assignment_arm.activity_property.described_element">described_element : </A><A HREF="#process_property_assignment_arm.characterized_activity_definition">characterized_activity_definition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="process_property_assignment_arm.activity_property_representation">ENTITY <b>Activity_property_representation</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_assignment_arm.activity_property_representation.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="process_property_assignment_arm.activity_property_representation.property">property : </A><A HREF="#process_property_assignment_arm.activity_property">Activity_property</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_assignment_arm.activity_property_representation.rep">rep : </A><A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>;<br>
+         &nbsp;&nbsp;<A NAME="process_property_assignment_arm.activity_property_representation.role">role : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="process_property_assignment_arm.applied_independent_activity_property">ENTITY <b>Applied_independent_activity_property</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#process_property_assignment_arm.activity_property">Activity_property</A>);<br>
+         &nbsp;&nbsp;<A NAME="process_property_assignment_arm.applied_independent_activity_property.base_element_property">base_element_property : </A><A HREF="../../../data/modules/independent_property/sys/e_exp_arm.htm#independent_property_arm.independent_property">Independent_property</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/process_property_assignment/sys/e_exp_arm.htm#process_property_assignment_arm.activity_property">Activity_property</A>.<A NAME="process_property_assignment_arm.applied_independent_activity_property.name">name : </A>STRING := base_element_property.property_type;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Process_property_assignment_arm<br></code></body>
+</HTML>

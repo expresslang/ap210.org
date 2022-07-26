@@ -1,0 +1,1572 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Layered interconnect complex template">
+      <META name="DC.Dates" content="2009-06-06 18:24:13">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Layered interconnect complex template">
+      <META name="DC.Subject" content="module, layout template, footprint, padstack, breakout, electrical, electronic, pattern, shape, two dimensional">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6425">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5745">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-06-06 18:24:13">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.13">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.8">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.7">
+      <TITLE>ISO/TS 10303-1716:2009 Layered interconnect complex template</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Layered interconnect complex template</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1716:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.4 ARM subtype constraint definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.5 ARM function definition</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <h2><a name="mapping">5.1 Mapping specification</a></h2><a name="mappings"></a><p>
+         In the following, "Application element" designates any entity data
+         type defined in Clause <a href="4_info_reqs.htm">4</a>, any of its 
+         explicit attributes and any subtype constraint. 
+         "MIM element" designates any entity data type defined in 
+         Clause <a href="5_mim.htm#mim_express">5.2</a> or imported with a USE FROM
+         statement, from another EXPRESS schema, any of its 
+         attributes and any subtype constraint defined in Clause <a href="5_mim.htm#mim_express">5.2</a> or imported with a USE FROM
+         statement.
+         
+      </p>
+      <p>
+         This clause contains the mapping specification that defines how each 
+         application element of this part of ISO 10303 (see Clause <a href="4_info_reqs.htm">4</a>) maps to one
+         or more MIM elements (see Clause <a href="5_mim.htm#mim_express">5.2</a>).
+         
+      </p>
+      <p>
+         The mapping for each application element is specified in a separate subclause below. 
+         The mapping specification of an attribute of an ARM entity is a subclause of the clause that contains the mapping specification
+         of this entity.
+         Each mapping specification subclause contains up to five elements.
+         
+      </p>
+      <p><b>Title:</b>
+         The clause title contains:
+      </p>
+      <ul>
+         <li>the name of the considered ARM entity or subtype constraint, or </li>
+         <li>the name of the considered ARM entity atribute when this attribute refers to a type that is not an entity data type or a SELECT
+            type that contains or may contain entity data types, or
+         </li>
+         <li>a composite expression, &lt;attribute name&gt; to &lt;referred type&gt;, when this attribute refers to a type that is not an entity data
+            type or a SELECT type that contains or may contain entity data types.
+         </li>
+      </ul>
+      <p><b>MIM element:</b> 
+         This section contains, depending on the considered application element:
+      </p>
+      <ul>
+         <li>the name of one or more MIM entity data types;</li>
+         <li>the name of a MIM entity attribute, presented with the syntax &lt;entity name&gt;.&lt;attribute name&gt;, when the considered ARM attribute
+            refers to a type that is not an entity data type or a SELECT type that contains or may contain entity data types;
+         </li>
+         <li>the term PATH, when the considered ARM entity attribute refers to an entity data type or to a SELECT type that contains or
+            may contain entity data types;
+         </li>
+         <li>the term IDENTICAL MAPPING, when both application objects
+            involved in an application assertion map to the same instance of a MIM entity data type;
+         </li>
+         <li>the syntax /SUPERTYPE(&lt;supertype name&gt;)/, when the considered ARM entity is mapped as its supertype;</li>
+         <li>one or more constructs /SUBTYPE(&lt;subtype name&gt;)/, when the mapping of the considered ARM entity is the union of the mapping
+            of its subtypes.
+         </li>
+      </ul>
+      <p>
+         When the mapping of an application element involves more than one MIM element, each of these MIM elements is 
+         presented on a separate line in the mapping specification, enclosed between parentheses or brackets. 
+         
+      </p>
+      <p><b>Source:</b> This section contains:
+      </p>
+      <ul>
+         <li>the ISO standard number and part number in which the
+            MIM element is defined, for those MIM elements that are defined in a common
+            resource document;
+         </li>
+         <li>the ISO standard number and
+            part number of this part of ISO 10303, for those MIM elements that are defined in the MIM schema of this part.
+         </li>
+      </ul>
+      <p>
+         		This section is omitted when the keywords PATH or IDENTICAL MAPPING are used in the MIM element section.
+         
+      </p>
+      <p><b>Rules:</b> 
+         This section contains the name of one or more global rules that apply to the
+         population of the MIM entity data types listed in the MIM element section or
+         in the reference path. When no rule applies, this section is omitted.
+         		
+      </p>
+      <p>A reference to a
+         global rule may be followed by a reference to the subclause in
+         which the rule is defined.
+         
+      </p>
+      <p><b>Constraint:</b> 
+         This section contains the name of one or more subtype constraints that apply to the
+         population of the MIM entity data types listed in the MIM element section or
+         in the reference path. When no subtype constraint applies, this section is omitted.
+         
+      </p>
+      <p>
+         A reference to a subtype constraint may be followed by a reference to the subclause in
+         which the subtype constraint is defined.
+         
+      </p>
+      <p><b>Reference path:</b> This section contains:
+      </p>
+      <ul>
+         <li>the reference path to its supertypes in the common resources, 
+            for each MIM element created within this part of ISO 10303; 
+            
+         </li>
+         <li>
+            the specification of the relationships between MIM elements, when the mapping of an application element requires to relate
+            instances of several
+            MIM entity data types. In such a case, each line in the reference path
+            documents the role of a MIM element relative to the referring MIM
+            element or to the next referred MIM element. 
+            		
+         </li>
+      </ul>
+      <p>For the expression of reference paths and of the
+         constraints between MIM elements, the following notational conventions
+         apply:
+         
+      </p>
+      <table cellspacing="6">
+         <tbody>
+            <tr valign="top">
+               <td valign="top">[]</td>
+               <td valign="top">
+                  enclosed section constrains multiple MIM elements or
+                  sections of the reference path are required to satisfy an
+                  information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">()</td>
+               <td valign="top">
+                  enclosed section constrains multiple MIM elements or
+                  sections of the reference path are identified as alternatives
+                  within the mapping to satisfy an information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">{}</td>
+               <td valign="top">
+                  enclosed section constrains the reference path to satisfy
+                  an information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;&gt;</td>
+               <td valign="top">
+                  enclosed section constrains at one or more required
+                  reference path;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">||</td>
+               <td valign="top">enclosed section constrains the supertype entity;</td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">-&gt;</td>
+               <td valign="top">
+                  the attribute, whose name precedes the -&gt; symbol, references the entity or select type whose name follows the -&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;-</td>
+               <td valign="top">
+                  the entity or select type, whose name precedes the &lt;- symbol, is referenced by the entity attribute whose name follows the
+                  &lt;- symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">[i]</td>
+               <td valign="top">
+                  the attribute, whose name precedes the [i] symbol, is an aggregate; any element of that aggregate is referred to;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">[n]</td>
+               <td valign="top">
+                  the attribute, whose name precedes the [n] symbol, is an ordered aggregate; member n of that aggregate is referred to;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">=&gt;</td>
+               <td valign="top">
+                  the entity, whose name precedes the =&gt; symbol, is a supertype of the entity whose name follows the =&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;=</td>
+               <td valign="top">
+                  the entity, whose name precedes the &lt;= symbol, is a subtype of the entity whose name follows the &lt;= symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">=</td>
+               <td valign="top">
+                  the string, select, or enumeration type is constrained to a choice or value;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">\</td>
+               <td valign="top">
+                  the reference path expression continues on the next line;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">*</td>
+               <td valign="top">
+                  one or more instances of the relationship entity data type may be assembled in a
+                  relationship tree structure. The path between the relationship entity and the related entities, is enclosed with braces;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">--</td>
+               <td valign="top">
+                  the text following is a comment or introduces a clause reference;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">*&gt;</td>
+               <td valign="top">
+                  the select or enumeration type, whose name precedes the *&gt; symbol, is
+                  extended into the select or enumeration type whose name follows the *&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;*</td>
+               <td valign="top">
+                  the select or enumeration type, whose name precedes the &lt;* symbol, is an
+                  extension of the select or enumeration type whose name follows the &lt;* symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top" nowrap="t">!{}</td>
+               <td valign="top">
+                  section enclosed by {} indicates a negative constraint placed on the mapping.
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      The definition and use of mapping templates is not supported in the
+      present version of the application modules. However, use of predefined
+      templates /SUBTYPE/ and /SUPERTYPE/ is supported. 
+      
+      <h2><a name="aeentitydependent_electrical_isolation_removal_template">5.1.1 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_electrical_isolation_removal_template">Dependent_electrical_isolation_removal_template</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>dependent_electrical_isolation_removal_template</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1689</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dependent_electrical_isolation_removal_template &lt;=<br>electrical_isolation_removal_template &lt;=<br>material_removal_feature_template &lt;=<br>single_stratum_continuous_template &lt;=<br>single_stratum_template &lt;=<br>part_template_definition &lt;=<br>product_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydependent_electrical_isolation_removal_templateaaattributeassociated_itemassertion_toland_physical_template_or_inter_stratum_feature_template"></a>5.1.1.1 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_electrical_isolation_removal_template">Dependent_electrical_isolation_removal_template</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.land_physical_template_or_inter_stratum_feature_template">land_physical_template_or_inter_stratum_feature_template</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_electrical_isolation_removal_template.associated_item">associated_item</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dependent_electrical_isolation_removal_template &lt;=<br>electrical_isolation_removal_template &lt;=<br>material_removal_feature_template &lt;=<br>single_stratum_continuous_template &lt;=<br>single_stratum_template &lt;=<br>part_template_definition &lt;=<br>product_definition_shape &lt;=<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>property_definition_relationship<br>{property_definition_relationship<br>property_definition_relationship.name = 'associated item'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>part_template_definition<br>(part_template_definition =&gt;<br>geometric_template =&gt;<br>inter_stratum_feature_template)<br>(part_template_definition =&gt;<br>single_stratum_template =&gt;<br>single_stratum_continuous_template =&gt;<br>stratum_feature_template =&gt;<br>land_physical_template)<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydependent_electrical_isolation_removal_templateaaattributeassociated_itemassertion_tointer_stratum_feature_template"></a>5.1.1.2 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_electrical_isolation_removal_template">Dependent_electrical_isolation_removal_template</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_simple_template/sys/4_info_reqs.htm#layered_interconnect_simple_template_arm.inter_stratum_feature_template">Inter_stratum_feature_template</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_electrical_isolation_removal_template.associated_item">associated_item</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dependent_electrical_isolation_removal_template &lt;=<br>electrical_isolation_removal_template &lt;=<br>material_removal_feature_template &lt;=<br>single_stratum_continuous_template &lt;=<br>single_stratum_template &lt;=<br>part_template_definition &lt;=<br>product_definition_shape &lt;=<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>property_definition_relationship<br>{property_definition_relationship<br>property_definition_relationship.name = 'associated item'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>part_template_definition =&gt;<br>geometric_template =&gt;<br>inter_stratum_feature_template<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydependent_electrical_isolation_removal_templateaaattributeassociated_itemassertion_toland_physical_template"></a>5.1.1.3 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_electrical_isolation_removal_template">Dependent_electrical_isolation_removal_template</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_simple_template/sys/4_info_reqs.htm#layered_interconnect_simple_template_arm.land_physical_template">Land_physical_template</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_electrical_isolation_removal_template.associated_item">associated_item</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dependent_electrical_isolation_removal_template &lt;=<br>electrical_isolation_removal_template &lt;=<br>material_removal_feature_template &lt;=<br>single_stratum_continuous_template &lt;=<br>single_stratum_template &lt;=<br>part_template_definition &lt;=<br>product_definition_shape &lt;=<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>property_definition_relationship<br>{property_definition_relationship<br>property_definition_relationship.name = 'associated item'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>part_template_definition =&gt;<br>single_stratum_template =&gt;<br>single_stratum_continuous_template =&gt;<br>stratum_feature_template =&gt;<br>land_physical_template<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydependent_thermal_isolation_removal_template">5.1.2 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_thermal_isolation_removal_template">Dependent_thermal_isolation_removal_template</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>dependent_thermal_isolation_removal_template</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1689</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dependent_thermal_isolation_removal_template &lt;=<br>thermal_isolation_removal_template &lt;=<br>material_removal_structured_template &lt;=<br>single_stratum_structured_template &lt;=<br>structured_template &lt;=<br>geometric_template &lt;=<br>part_template_definition &lt;=				<br>product_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydependent_thermal_isolation_removal_templateaaattributeassociated_itemassertion_toland_physical_template"></a>5.1.2.1 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_thermal_isolation_removal_template">Dependent_thermal_isolation_removal_template</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_simple_template/sys/4_info_reqs.htm#layered_interconnect_simple_template_arm.land_physical_template">Land_physical_template</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_thermal_isolation_removal_template.associated_item">associated_item</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dependent_thermal_isolation_removal_template &lt;=<br>thermal_isolation_removal_template &lt;=<br>material_removal_structured_template &lt;=<br>single_stratum_structured_template &lt;=<br>structured_template &lt;=<br>geometric_template &lt;=<br>part_template_definition &lt;=				<br>product_definition_shape &lt;=<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>property_definition_relationship<br>{property_definition_relationship<br>property_definition_relationship.name = 'associated item'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>part_template_definition =&gt;<br>single_stratum_template =&gt;<br>single_stratum_continuous_template =&gt;<br>stratum_feature_template =&gt;<br>land_physical_template<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitythermal_isolation_removal_template">5.1.3 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.thermal_isolation_removal_template">Thermal_isolation_removal_template</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>thermal_isolation_removal_template</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1689</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>thermal_isolation_removal_template &lt;=<br>				material_removal_structured_template &lt;=<br>				single_stratum_structured_template &lt;=<br>				structured_template &lt;=<br>				geometric_template &lt;=<br>				part_template_definition &lt;=				<br>				product_definition<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycomplex_passage_padstack_definition">5.1.4 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.complex_passage_padstack_definition">Complex_passage_padstack_definition</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>complex_passage_padstack_definition</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>complex_passage_padstack_definition &lt;=<br>stratum_stack_dependent_template &lt;=<br>multi_stratum_structured_template &lt;=<br>structured_template &lt;=<br>geometric_template &lt;=<br>part_template_definition &lt;=<br>product_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydependent_template_location_in_padstack_definition">5.1.5 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_template_location_in_padstack_definition">Dependent_template_location_in_padstack_definition</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_specific_template_location</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_specific_template_location &lt;=<br>assembly_component_usage &lt;=<br>product_definition_usage &lt;=<br>product_definition_relationship<br>{characterized_product_definition = product_definition_relationship<br>characterized_product_definition<br>characterized_definition = characterized_product_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>{property_definition_relationship<br>property_definition_relationship.name = 'reference location'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydependent_template_location_in_padstack_definitionaaattributeassemblyassertion_tomulti_stratum_structured_template"></a>5.1.5.1 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_template_location_in_padstack_definition">Dependent_template_location_in_padstack_definition</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template">Multi_stratum_structured_template</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_template_location_in_padstack_definition.assembly">assembly</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_specific_template_location &lt;=<br>assembly_component_usage &lt;=<br>product_definition_usage &lt;=<br>product_definition_relationship<br>product_definition_relationship.relating_product_definition -&gt;<br>product_definition =&gt;<br>part_template_definition =&gt;<br>geometric_template =&gt;<br>structured_template =&gt;<br>multi_stratum_structured_template<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydependent_template_location_in_padstack_definitionaaattributereference_locationassertion_tolocation_stratum_technology_occurrence_or_stratum_technology"></a>5.1.5.2 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_template_location_in_padstack_definition">Dependent_template_location_in_padstack_definition</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.location_stratum_technology_occurrence_or_stratum_technology">location_stratum_technology_occurrence_or_stratum_technology</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_template_location_in_padstack_definition.reference_location">reference_location</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_specific_template_location &lt;=<br>assembly_component_usage &lt;=<br>product_definition_usage &lt;=<br>product_definition_relationship<br>characterized_product_definition = product_definition_relationship<br>characterized_product_definition<br>characterized_definition = characterized_product_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>{property_definition_relationship<br>property_definition_relationship.name = 'reference location'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition<br>(property_definition =&gt;<br>stratum_technology_occurrence)<br>(property_definition =&gt;<br>product_definition_shape =&gt;<br>stratum_technology)<br>(property_definition<br>property_definition.definition -&gt;<br>characterized_definition<br>characterized_definition = characterized_product_definition<br>characterized_product_definition<br>characterized_product_definition = product_definition_relationship<br>product_definition_relationship =&gt;<br>product_definition_usage =&gt;<br>assembly_component_usage)<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydependent_template_location_in_padstack_definitionaaattributereference_locationassertion_tostratum_technology_occurrence"></a>5.1.5.3 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_template_location_in_padstack_definition">Dependent_template_location_in_padstack_definition</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_template_location_in_padstack_definition.reference_location">reference_location</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_specific_template_location &lt;=<br>assembly_component_usage &lt;=<br>product_definition_usage &lt;=<br>product_definition_relationship<br>characterized_product_definition = product_definition_relationship<br>characterized_product_definition<br>characterized_definition = characterized_product_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>{property_definition_relationship<br>property_definition_relationship.name = 'reference location'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>stratum_technology_occurrence<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydependent_template_location_in_padstack_definitionaaattributereference_locationassertion_tostratum_technology"></a>5.1.5.4 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_template_location_in_padstack_definition">Dependent_template_location_in_padstack_definition</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_template_location_in_padstack_definition.reference_location">reference_location</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_specific_template_location &lt;=<br>assembly_component_usage &lt;=<br>product_definition_usage &lt;=<br>product_definition_relationship<br>characterized_product_definition = product_definition_relationship<br>characterized_product_definition<br>characterized_definition = characterized_product_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>{property_definition_relationship<br>property_definition_relationship.name = 'reference location'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>stratum_technology<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydependent_template_location_in_padstack_definitionaaattributereference_locationassertion_totemplate_location_in_structured_template"></a>5.1.5.5 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_template_location_in_padstack_definition">Dependent_template_location_in_padstack_definition</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.dependent_template_location_in_padstack_definition.reference_location">reference_location</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_specific_template_location &lt;=<br>assembly_component_usage &lt;=<br>product_definition_usage &lt;=<br>product_definition_relationship<br>characterized_product_definition = product_definition_relationship<br>characterized_product_definition<br>characterized_definition = characterized_product_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>{property_definition_relationship<br>property_definition_relationship.name = 'reference location'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition<br>property_definition.definition -&gt;<br>characterized_definition<br>characterized_definition = characterized_product_definition<br>characterized_product_definition<br>characterized_product_definition = product_definition_relationship<br>product_definition_relationship =&gt;<br>product_definition_usage =&gt;<br>assembly_component_usage<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydesign_specific_stratum_technology_mapping_relationship">5.1.6 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.design_specific_stratum_technology_mapping_relationship">Design_specific_stratum_technology_mapping_relationship</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>design_specific_stratum_technology_mapping_relationship</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{[design_specific_stratum_technology_mapping_relationship &lt;=<br>stratum_technology_mapping_relationship &lt;=<br>property_definition_relationship]<br>[design_specific_stratum_technology_mapping_relationship &lt;=<br>property_definition]}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydesign_specific_stratum_technology_mapping_relationshipaaattributescopeassertion_tolibrary_to_design_stack_model_mapping"></a>5.1.6.1 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.design_specific_stratum_technology_mapping_relationship">Design_specific_stratum_technology_mapping_relationship</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.library_to_design_stack_model_mapping">Library_to_design_stack_model_mapping</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.design_specific_stratum_technology_mapping_relationship.scope">scope</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>design_specific_stratum_technology_mapping_relationship &lt;=<br>property_definition<br>property_definition.definition -&gt;<br>characterized_definition<br>characterized_definition = characterized_product_definition<br>characterized_product_definition = product_definition_relationship<br>product_definition_relationship =&gt;<br>library_to_design_stack_model_mapping<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityinter_stratum_feature_template_location">5.1.7 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.inter_stratum_feature_template_location">Inter_stratum_feature_template_location</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>assembly_component_usage</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-44</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>assembly_component_usage &lt;=<br>product_definition_usage &lt;=<br>product_definition_relationship<br>{product_definition_relationship.name = 'tlist'}<br>{product_definition_relationship.related_product_definition -&gt;<br>product_definition =&gt;<br>part_template_definition =&gt;<br>geometric_template =&gt;<br>inter_stratum_feature_template}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityinter_stratum_feature_template_locationaaattributeassemblyassertion_tomulti_stratum_structured_template"></a>5.1.7.1 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.inter_stratum_feature_template_location">Inter_stratum_feature_template_location</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template">Multi_stratum_structured_template</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.inter_stratum_feature_template_location.assembly">assembly</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>assembly_component_usage &lt;=<br>product_definition_usage &lt;=<br>product_definition_relationship<br>product_definition_relationship.relating_product_definition -&gt;<br>product_definition =&gt;<br>part_template_definition =&gt;<br>geometric_template =&gt;<br>structured_template =&gt;<br>multi_stratum_structured_template<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityinter_stratum_feature_template_locationaaattributetemplateassertion_tointer_stratum_feature_template"></a>5.1.7.2 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.inter_stratum_feature_template_location">Inter_stratum_feature_template_location</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_simple_template/sys/4_info_reqs.htm#layered_interconnect_simple_template_arm.inter_stratum_feature_template">Inter_stratum_feature_template</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.inter_stratum_feature_template_location.template">template</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>assembly_component_usage &lt;=<br>product_definition_usage &lt;=<br>product_definition_relationship<br>product_definition_relationship.related_product_definition -&gt;<br>product_definition =&gt;<br>part_template_definition =&gt;<br>geometric_template =&gt;<br>inter_stratum_feature_template<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylibrary_stack_model">5.1.8 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.library_stack_model">Library_stack_model</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>library_stack_model</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{library_stack_model &lt;=<br>stratum_stack_model &lt;=<br>part_template_definition &lt;=<br>product_definition}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylibrary_to_design_stack_model_mapping">5.1.9 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.library_to_design_stack_model_mapping">Library_to_design_stack_model_mapping</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>library_to_design_stack_model_mapping</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>library_to_design_stack_model_mapping &lt;=<br>				product_definition_relationship<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylibrary_to_design_stack_model_mappingaaattributerelated_viewassertion_todesign_stack_model"></a>5.1.9.1 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.library_to_design_stack_model_mapping">Library_to_design_stack_model_mapping</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.design_stack_model">Design_stack_model</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.library_to_design_stack_model_mapping.related_view">related_view</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>library_to_design_stack_model_mapping &lt;=<br>					product_definition_relationship<br>					product_definition_relationship.related_product_definition -&gt;<br>					product_definition =&gt;<br>					part_template_definition =&gt;<br>					stratum_stack_model =&gt;<br>					design_stack_model<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylibrary_to_design_stack_model_mappingaaattributerelating_viewassertion_tolibrary_stack_model"></a>5.1.9.2 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.library_to_design_stack_model_mapping">Library_to_design_stack_model_mapping</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.library_stack_model">Library_stack_model</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.library_to_design_stack_model_mapping.relating_view">relating_view</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>library_to_design_stack_model_mapping &lt;=<br>					product_definition_relationship<br>					product_definition_relationship.relating_product_definition -&gt;<br>					product_definition =&gt;<br>					part_template_definition =&gt;<br>					stratum_stack_model =&gt;<br>					library_stack_model<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitymaterial_removal_structured_template">5.1.10 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.material_removal_structured_template">Material_removal_structured_template</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>material_removal_structured_template</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>material_removal_structured_template &lt;=<br>single_stratum_structured_template &lt;=<br>structured_template &lt;=<br>geometric_template &lt;=<br>part_template_definition &lt;=<br>product_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitymulti_stratum_special_symbol_template">5.1.11 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_special_symbol_template">Multi_stratum_special_symbol_template</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>multi_stratum_special_symbol_template</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>multi_stratum_special_symbol_template &lt;=<br>multi_stratum_structured_template &lt;=<br>structured_template &lt;=<br>geometric_template &lt;=<br>part_template_definition &lt;=<br>product_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitymulti_stratum_structured_template">5.1.12 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template">Multi_stratum_structured_template</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>multi_stratum_structured_template</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>multi_stratum_structured_template &lt;=<br>structured_template &lt;=<br>geometric_template &lt;=<br>part_template_definition &lt;=<br>product_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitymulti_stratum_structured_templateaaattributelocation"></a>5.1.12.1 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template.location">location</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>multi_stratum_structured_template &lt;=<br>structured_template &lt;=<br>geometric_template &lt;=<br>part_template_definition &lt;=<br>product_definition<br>characterized_product_definition = product_definition<br>characterized_product_definition<br>characterized_definition = characterized_product_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'location'}<br>property_definition.description<br>(property_definition.description = 'top')<br>(property_definition.description = 'bottom')<br>(property_definition.description = 'symmetrical')<br>(property_definition.description = 'swappable')<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypart_template_keepout_shape_allocation_to_stratum_stack">5.1.13 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.part_template_keepout_shape_allocation_to_stratum_stack">Part_template_keepout_shape_allocation_to_stratum_stack</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>part_template_keepout_shape_allocation_to_stratum_stack</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>part_template_keepout_shape_allocation_to_stratum_stack &lt;=<br>[characterized_object]<br>[property_definition]<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypart_template_keepout_shape_allocation_to_stratum_stackaaattributekeepout_shapeassertion_topart_template_keepout_shape_model"></a>5.1.13.1 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.part_template_keepout_shape_allocation_to_stratum_stack">Part_template_keepout_shape_allocation_to_stratum_stack</a>
+         to <A HREF="../../../../data/modules/part_template_shape_with_parameters/sys/4_info_reqs.htm#part_template_shape_with_parameters_arm.part_template_keepout_shape_model">Part_template_keepout_shape_model</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.part_template_keepout_shape_allocation_to_stratum_stack.keepout_shape">keepout_shape</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>part_template_keepout_shape_allocation_to_stratum_stack &lt;=<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation =&gt;<br>shape_representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypart_template_keepout_shape_allocation_to_stratum_stackaaattributekept_out_layersassertion_tostratum_technology_occurrence"></a>5.1.13.2 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.part_template_keepout_shape_allocation_to_stratum_stack">Part_template_keepout_shape_allocation_to_stratum_stack</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.part_template_keepout_shape_allocation_to_stratum_stack.kept_out_layers">kept_out_layers</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>part_template_keepout_shape_allocation_to_stratum_stack &lt;=<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>property_definition_relationship<br>{property_definition_relationship.name = 'kept out layers'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>stratum_technology_occurrence<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityphysical_unit_keepout_shape_allocation_to_stratum_stack">5.1.14 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.physical_unit_keepout_shape_allocation_to_stratum_stack">Physical_unit_keepout_shape_allocation_to_stratum_stack</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>physical_unit_keepout_shape_allocation_to_stratum_stack</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_unit_keepout_shape_allocation_to_stratum_stack &lt;=<br>[representation]<br>[representation_relationship]<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityphysical_unit_keepout_shape_allocation_to_stratum_stackaaattributekeepout_shapeassertion_tophysical_unit_keepout_shape_model"></a>5.1.14.1 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.physical_unit_keepout_shape_allocation_to_stratum_stack">Physical_unit_keepout_shape_allocation_to_stratum_stack</a>
+         to <A HREF="../../../../data/modules/physical_unit_shape_with_parameters/sys/4_info_reqs.htm#physical_unit_shape_with_parameters_arm.physical_unit_keepout_shape_model">Physical_unit_keepout_shape_model</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.physical_unit_keepout_shape_allocation_to_stratum_stack.keepout_shape">keepout_shape</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_unit_keepout_shape_allocation_to_stratum_stack &lt;=<br>representation_relationship<br>representation_relationship.rep_1 -&gt;<br>representation =&gt;<br>shape_representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityphysical_unit_keepout_shape_allocation_to_stratum_stackaaattributestack_modelassertion_tolibrary_stack_model"></a>5.1.14.2 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.physical_unit_keepout_shape_allocation_to_stratum_stack">Physical_unit_keepout_shape_allocation_to_stratum_stack</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.library_stack_model">Library_stack_model</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.physical_unit_keepout_shape_allocation_to_stratum_stack.stack_model">stack_model</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_unit_keepout_shape_allocation_to_stratum_stack &lt;=<br>representation_relationship<br>representation_relationship.rep_2 -&gt;<br>representation &lt;-<br>property_definition_representation.used_representation<br>property_definition_representation<br>{property_definition_representation.description = 'stack model'}<br>property_definition_representation.definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>part_template_definition =&gt;<br>stratum_stack_model =&gt;<br>library_stack_model<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityphysical_unit_keepout_shape_allocation_to_stratum_stackaaattributeswappable"></a>5.1.14.3 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.physical_unit_keepout_shape_allocation_to_stratum_stack.swappable">swappable</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_unit_keepout_shape_allocation_to_stratum_stack &lt;=<br>representation<br>representation.items[1] -&gt;<br>representation_item<br>{representation_item.name = 'swappable'}<br>representation_item =&gt;<br>descriptive_representation_item<br>{(descriptive_representation_item.description = 'TRUE')<br>(descriptive_representation_item.description = 'FALSE')} <br>descriptive_representation_item.description<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityphysical_unit_keepout_shape_allocation_to_stratum_stackaaattributekept_out_layersassertion_tostratum_technology_occurrence"></a>5.1.14.4 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.physical_unit_keepout_shape_allocation_to_stratum_stack">Physical_unit_keepout_shape_allocation_to_stratum_stack</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.physical_unit_keepout_shape_allocation_to_stratum_stack.kept_out_layers">kept_out_layers</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_unit_keepout_shape_allocation_to_stratum_stack &lt;=<br>representation &lt;-<br>representation_relationship.rep_1<br>{representation_relationship.name = 'kept out layers'}<br>representation_relationship.rep_2 -&gt;<br>representation &lt;-<br>property_definition_representation.used_representation<br>property_definition_representation.definition -&gt;<br>property_definition =&gt;<br>stratum_technology_occurrence<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityphysical_unit_keepout_shape_allocation_to_stratum_technology">5.1.15 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.physical_unit_keepout_shape_allocation_to_stratum_technology">Physical_unit_keepout_shape_allocation_to_stratum_technology</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>physical_unit_keepout_shape_allocation_to_stratum_technology</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_unit_keepout_shape_allocation_to_stratum_technology &lt;=<br>representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityphysical_unit_keepout_shape_allocation_to_stratum_technologyaaattributekeepout_shapeassertion_tophysical_unit_keepout_shape_model"></a>5.1.15.1 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.physical_unit_keepout_shape_allocation_to_stratum_technology">Physical_unit_keepout_shape_allocation_to_stratum_technology</a>
+         to <A HREF="../../../../data/modules/physical_unit_shape_with_parameters/sys/4_info_reqs.htm#physical_unit_shape_with_parameters_arm.physical_unit_keepout_shape_model">Physical_unit_keepout_shape_model</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.physical_unit_keepout_shape_allocation_to_stratum_technology.keepout_shape">keepout_shape</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_unit_keepout_shape_allocation_to_stratum_technology &lt;=<br>representation<br>representation &lt;-<br>representation_relationship.rep_1<br>{representation_relationship.name = 'keepout shape'}<br>representation_relationship.rep_2 -&gt;<br>representation =&gt;<br>shape_representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityphysical_unit_keepout_shape_allocation_to_stratum_technologyaaattributekept_out_technologiesassertion_tostratum_technology"></a>5.1.15.2 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.physical_unit_keepout_shape_allocation_to_stratum_technology">Physical_unit_keepout_shape_allocation_to_stratum_technology</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.physical_unit_keepout_shape_allocation_to_stratum_technology.kept_out_technologies">kept_out_technologies</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_unit_keepout_shape_allocation_to_stratum_technology &lt;=<br>representation &lt;-<br>representation_relationship.rep_1<br>{representation_relationship.name = 'kept out technologies'}<br>representation_relationship.rep_2 -&gt;<br>representation &lt;-<br>property_definition_representation.used_representation<br>property_definition_representation.definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>stratum_technology<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityrequirement_assignment">5.1.16 </a><a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</a></h2>
+      <p>
+         This application object,  
+         <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</a>, is defined in the module
+         <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">requirement_assignment</a>.
+         This mapping section extends the 
+         <a href="../../requirement_assignment/sys/5_mapping.htm#aeentityrequirement_assignment"> mapping of Requirement_assignment</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentityrequirement_assignmentaaattributeassigned_toassertion_tostructured_template"></a>5.1.16.1 <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template">Structured_template</A>
+         
+         (as <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment.assigned_to">assigned_to</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>requirement_assignment &lt;-<br>					requirement_assigned_object.assigned_group<br>					requirement_assigned_object<br>					requirement_assigned_object.items -&gt;<br>					requirement_assigned_item<br>requirement_assigned_item *&gt; lict_requirement_assigned_item<br>					lict_requirement_assigned_item = structured_template
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityrequirement_assignmentaaattributeassigned_toassertion_totemplate_location_in_structured_template"></a>5.1.16.2 <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>
+         
+         (as <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment.assigned_to">assigned_to</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>requirement_assignment &lt;-<br>					requirement_assigned_object.assigned_group<br>					requirement_assigned_object<br>					requirement_assigned_object.items -&gt;<br>					requirement_assigned_item<br>requirement_assigned_item *&gt; lict_requirement_assigned_item<br>					lict_requirement_assigned_item = assembly_component_usage
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystructured_template_planar_shape_model">5.1.17 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model">Structured_template_planar_shape_model</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>shape_representation</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-41</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{shape_representation &lt;=<br>representation<br>[representation.name = 'ppsm']<br>[(representation.description = 'footprint definition shape model')<br>(representation.description = 'breakout footprint definition shape model')<br>(representation.description = 'structured template planar shape model')]<br>[representation &lt;-<br>property_definition_representation.used_representation<br>property_definition_representation<br>{property_definition_representation =&gt;<br>shape_definition_representation}<br>property_definition_representation.definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>part_template_definition =&gt;<br>geometric_template =&gt;<br>structured_template]}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystructured_template_planar_shape_modelaaattributeshape_characterized_definitionassertion_tostructured_template"></a>5.1.17.1 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model">Structured_template_planar_shape_model</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template">Structured_template</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model.shape_characterized_definition">shape_characterized_definition</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>shape_representation &lt;=<br>representation &lt;-<br>property_definition_representation.used_representation<br>property_definition_representation<br>{property_definition_representation =&gt;<br>shape_definition_representation}<br>property_definition_representation.definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>part_template_definition =&gt;<br>geometric_template =&gt;<br>structured_template<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitynon_feature_shape_element">5.1.18 </a><a href="../../non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</a></h2>
+      <p>
+         This application object,  
+         <a href="../../non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</a>, is defined in the module
+         <a href="../../non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element">non_feature_shape_element</a>.
+         This mapping section extends the 
+         <a href="../../non_feature_shape_element/sys/5_mapping.htm#aeentitynon_feature_shape_element"> mapping of Non_feature_shape_element</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentitynon_feature_shape_elementaaattributescopeassertion_tostructured_template"></a>5.1.18.1 <a href="../../non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element">Non_feature_shape_element</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template">Structured_template</A>
+         
+         (as <a href="../../non_feature_shape_element/sys/4_info_reqs.htm#non_feature_shape_element_arm.non_feature_shape_element.scope">scope</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>shape_aspect<br>shape_aspect.of_shape -&gt;<br>product_definition_shape<br>product_definition_shape =&gt;<br>					part_template_definition =&gt;<br>					geometric_template =&gt;<br>					structured_template
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypadstack_definition">5.1.19 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.padstack_definition">Padstack_definition</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>padstack_definition</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>padstack_definition &lt;=<br>multi_stratum_structured_template &lt;=<br>structured_template &lt;=<br>geometric_template &lt;=<br>part_template_definition &lt;=<br>product_definition<br>{[product_definition<br>product_definition.formation -&gt;<br>product_definition_formation<br>product_definition_formation.of_product -&gt;<br>product &lt;-<br>product_related_product_category.products[i]<br>product_related_product_category &lt;=<br>product_category<br>product_category.name = 'template model']<br>[product_definition &lt;-<br>product_definition_context_association.definition<br>product_definition_context_association<br>{product_definition_context_association.role -&gt;<br>product_definition_context_role<br>product_definition_context_role.name = 'part definition type'}<br>product_definition_context_association.frame_of_reference -&gt;<br>product_definition_context &lt;=<br>application_context_element<br>application_context_element.name = 'template definition']}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_padstack_definition">5.1.20 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.passage_padstack_definition">Passage_padstack_definition</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>passage_padstack_definition</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_padstack_definition &lt;=<br>padstack_definition &lt;=				<br>multi_stratum_structured_template &lt;=<br>structured_template &lt;=<br>geometric_template &lt;=<br>part_template_definition &lt;=<br>product_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitytemplate_location_in_structured_template">5.1.21 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>assembly_component_usage</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-44</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{assembly_component_usage &lt;=<br>product_definition_usage &lt;=<br>product_definition_relationship<br>product_definition_relationship.name = 'tlist'}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitytemplate_location_in_structured_templateaaattributereference_designation"></a>5.1.21.1 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template.reference_designation">reference_designation</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>assembly_component_usage.reference_designator</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-44</td>
+         </tr>
+      </table>
+      <h2><a name="aeentitytemplate_location_in_structured_templateaaattributeplacement_status"></a>5.1.21.2 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template.placement_status">placement_status</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>product_definition_relationship.description</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-44</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>assembly_component_usage &lt;=<br>					product_definition_usage &lt;=<br>					product_definition_relationship<br>					(product_definition_relationship.description = 'is fixed')<br>					(product_definition_relationship.description = 'must be moved in design')<br>					(product_definition_relationship.description = 'may be moved in design')<br>					(product_definition_relationship.description = 'is unknown')<br>                
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitytemplate_location_in_structured_templateaaattributetemplateassertion_totemplate_definition"></a>5.1.21.3 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</a>
+         to <A HREF="../../../../data/modules/part_template/sys/4_info_reqs.htm#part_template_arm.template_definition">Template_definition</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template.template">template</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>assembly_component_usage &lt;=<br>product_definition_usage &lt;=<br>product_definition_relationship<br>product_definition_relationship.related_product_definition -&gt;<br>{product_definition &lt;-<br>product_definition_context_association.definition<br>product_definition_context_association<br>{product_definition_context_association.role -&gt;<br>product_definition_context_role<br>product_definition_context_role.name = 'part definition type'}<br>product_definition_context_association.frame_of_reference -&gt;<br>product_definition_context &lt;=<br>application_context_element<br>application_context_element.name = 'template definition'}<br>product_definition =&gt;<br>part_template_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitytemplate_location_in_structured_templateaaattributeassemblyassertion_tostructured_template"></a>5.1.21.4 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template">Structured_template</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template.assembly">assembly</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>assembly_component_usage &lt;=<br>product_definition_usage &lt;=<br>product_definition_relationship<br>product_definition_relationship.relating_product_definition -&gt;<br>product_definition =&gt;<br>part_template_definition =&gt;<br>geometric_template =&gt;<br>structured_template<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitytemplate_location_in_structured_template_transform">5.1.22 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template_transform">Template_location_in_structured_template_transform</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>mapped_item</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-43</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{mapped_item &lt;=<br>representation_item<br>representation_item.name = 'tlistt'}<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitytemplate_location_in_structured_template_transformaaattributetemplate_shapeassertion_topart_template_planar_shape_model"></a>5.1.22.1 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template_transform">Template_location_in_structured_template_transform</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.part_template_planar_shape_model">Part_template_planar_shape_model</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template_transform.template_shape">template_shape</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>mapped_item<br>					mapped_item.mapping_source -&gt;<br>					representation_map<br>					{representation_map<br>					representation_map.mapping_origin -&gt;<br>					representation_item<br>					[representation_item.name = 'origin']<br>					[representation_item =&gt;<br>					geometric_representation_item =&gt;<br>					placement =&gt;<br>					axis2_placement_2d]}<br>					representation_map.mapped_representation -&gt;<br>					{[representation<br>					representation.name = 'ppsm']<br>					[representation<br>					representation.items[i] -&gt;<br>					representation_item =&gt;<br>					geometric_representation_item =&gt;<br>					placement =&gt;<br>					axis2_placement_2d]<br>					[representation &lt;-<br>					property_definition_representation.used_representation<br>					property_definition_representation<br>					{property_definition_representation =&gt;<br>					shape_definition_representation}<br>					property_definition_representation.definition -&gt;<br>					property_definition =&gt;<br>					product_definition_shape =&gt;<br>					part_template_definition]<br>					[representation =&gt;<br>					shape_representation]}<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitytemplate_location_in_structured_template_transformaaattributetransformassertion_toaxis_placement_2d"></a>5.1.22.2 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template_transform">Template_location_in_structured_template_transform</a>
+         to <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.axis_placement_2d">Axis_placement_2d</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template_transform.transform">transform</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>mapped_item<br>mapped_item.mapping_target -&gt;<br>axis2_placement_2d<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitytemplate_location_in_structured_template_transformaaattributereference_locationassertion_totemplate_location_in_structured_template"></a>5.1.22.3 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template_transform">Template_location_in_structured_template_transform</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template_transform.reference_location">reference_location</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>mapped_item &lt;=<br>representation_item &lt;-<br>representation.items[i]<br>representation<br>{representation =&gt;<br>shape_representation}<br>representation &lt;-<br>property_definition_representation.used_representation<br>{property_definition_representation =&gt;<br>shape_definition_representation}<br>property_definition_representation<br>property_definition_representation.definition -&gt;<br>{property_definition =&gt;<br>product_definition_shape}<br>property_definition<br>property_definition.definition -&gt;<br>characterized_definition<br>characterized_definition = characterized_product_definition<br>characterized_product_definition<br>characterized_product_definition = product_definition_relationship<br>{product_definition_relationship<br>product_definition_relationship.name = 'tlist'}<br>product_definition_relationship =&gt;<br>product_definition_usage =&gt;<br>assembly_component_usage<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitytemplate_location_in_structured_template_transformaaattributeassembly_shapeassertion_tostructured_template_planar_shape_model"></a>5.1.22.4 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template_transform">Template_location_in_structured_template_transform</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model">Structured_template_planar_shape_model</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template_transform.assembly_shape">assembly_shape</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>mapped_item &lt;=<br>representation_item &lt;-<br>representation.items[i]<br>{[representation<br>representation.name = 'ppsm']<br>[representation =&gt;<br>shape_representation]<br>[representation &lt;-<br>property_definition_representation.used_representation<br>property_definition_representation<br>property_definition_representation.definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>part_template_definition =&gt;<br>geometric_template =&gt;<br>structured_template]}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypart_template_planar_keepout_shape_model">5.1.23 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.part_template_planar_keepout_shape_model">Part_template_planar_keepout_shape_model</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>shape_representation</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-41</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{shape_representation &lt;=<br>representation				<br>[representation.id = 'nfsm']<br>[representation.description = 'ptpksm']<br>[representation &lt;-<br>property_definition_representation.used_representation<br>property_definition_representation<br>{property_definition_representation =&gt;<br>shape_definition_representation}<br>property_definition_representation.definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>part_template_definition]}<br>{shape_representation &lt;=<br>representation<br>representation.context_of_items -&gt;<br>representation_context =&gt;<br>geometric_representation_context<br>geometric_representation_context.coordinate_space_dimension = 2}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypart_template_planar_keepout_shape_modelaaattributemodel_shapeassertion_topart_template_planar_shape_model"></a>5.1.23.1 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.part_template_planar_keepout_shape_model">Part_template_planar_keepout_shape_model</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.part_template_planar_shape_model">Part_template_planar_shape_model</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.part_template_planar_keepout_shape_model.model_shape">model_shape</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>shape_representation &lt;=<br>representation &lt;-<br>representation_relationship.rep_2<br>representation_relationship<br>{representation_relationship<br>representation_relationship.name = 'model shape'}<br>representation_relationship.rep_1 -&gt;<br>representation<br>representation =&gt;<br>shape_representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypart_template_planar_shape_model">5.1.24 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.part_template_planar_shape_model">Part_template_planar_shape_model</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>shape_representation</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-41</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{shape_representation &lt;=<br>representation				<br>[representation.name = 'ppsm']<br>[representation &lt;-<br>property_definition_representation.used_representation<br>property_definition_representation<br>{property_definition_representation =&gt;<br>shape_definition_representation}<br>property_definition_representation.definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>part_template_definition]}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitysingle_stratum_special_symbol_template">5.1.25 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.single_stratum_special_symbol_template">Single_stratum_special_symbol_template</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>single_stratum_special_symbol_template</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>single_stratum_special_symbol_template &lt;=<br>special_symbol_template &lt;=<br>part_template_definition &lt;=<br>product_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitysingle_stratum_structured_template">5.1.26 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.single_stratum_structured_template">Single_stratum_structured_template</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>single_stratum_structured_template</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>single_stratum_structured_template &lt;=<br>structured_template &lt;=<br>geometric_template &lt;=<br>part_template_definition &lt;=<br>product_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityspecial_symbol_template">5.1.27 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.special_symbol_template">Special_symbol_template</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>special_symbol_template</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>special_symbol_template &lt;=<br>part_template_definition &lt;=<br>product_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_specific_template_location">5.1.28 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.stratum_specific_template_location">Stratum_specific_template_location</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_specific_template_location</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{[stratum_specific_template_location &lt;=<br>assembly_component_usage &lt;=<br>product_definition_usage &lt;=<br>product_definition_relationship<br>product_definition_relationship.name = 'tlist']<br>[stratum_specific_template_location &lt;=<br>property_definition]}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_specific_template_locationaaattributebound_stratumassertion_tostratum_technology_occurrence"></a>5.1.28.1 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.stratum_specific_template_location">Stratum_specific_template_location</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.stratum_specific_template_location.bound_stratum">bound_stratum</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_specific_template_location &lt;=<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>property_definition_relationship<br>{property_definition_relationship<br>property_definition_relationship.name = 'bound stratum'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>stratum_technology_occurrence<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_specific_template_locationaaattributebound_stratumassertion_tostratum_technology"></a>5.1.28.2 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.stratum_specific_template_location">Stratum_specific_template_location</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.stratum_specific_template_location.bound_stratum">bound_stratum</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_specific_template_location &lt;=<br>property_definition<br>property_definition.definition -&gt; characterized_definition<br>characterized_definition = characterized_object <br>characterized_object =&gt;<br>stratum_technology<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_specific_template_locationaaattributebound_stratumassertion_tostratum_technology_occurrence_or_stratum_technology"></a>5.1.28.3 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.stratum_specific_template_location">Stratum_specific_template_location</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.stratum_technology_occurrence_or_stratum_technology">stratum_technology_occurrence_or_stratum_technology</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.stratum_specific_template_location.bound_stratum">bound_stratum</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_specific_template_location &lt;=<br>(property_definition<br>property_definition.definition -&gt; characterized_definition<br>characterized_definition = characterized_object <br>characterized_object =&gt;<br>stratum_technology)<br>(property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>property_definition_relationship<br>{property_definition_relationship<br>property_definition_relationship.name = 'bound stratum'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>stratum_technology_occurrence)<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_specific_template_locationaaattributetemplateassertion_tosingle_stratum_template"></a>5.1.28.4 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.stratum_specific_template_location">Stratum_specific_template_location</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_simple_template/sys/4_info_reqs.htm#layered_interconnect_simple_template_arm.single_stratum_template">Single_stratum_template</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.stratum_specific_template_location.template">template</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_specific_template_location &lt;=<br>assembly_component_usage &lt;=<br>product_definition_usage &lt;=<br>product_definition_relationship<br>product_definition_relationship.related_product_definition -&gt;<br>{product_definition &lt;-<br>product_definition_context_association.definition<br>product_definition_context_association<br>{product_definition_context_association.role -&gt;<br>product_definition_context_role<br>product_definition_context_role.name = 'part definition type'}<br>product_definition_context_association.frame_of_reference -&gt;<br>product_definition_context &lt;=<br>application_context_element<br>application_context_element.name = 'template definition'}<br>product_definition =&gt;<br>part_template_definition =&gt;<br>single_stratum_template<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_stack_dependent_template">5.1.29 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.stratum_stack_dependent_template">Stratum_stack_dependent_template</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_stack_dependent_template</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_stack_dependent_template &lt;=<br>multi_stratum_structured_template &lt;=<br>structured_template &lt;=<br>geometric_template &lt;=<br>part_template_definition &lt;=<br>product_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_stack_dependent_templateaaattributestackassertion_tolibrary_stack_model"></a>5.1.29.1 <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.stratum_stack_dependent_template">Stratum_stack_dependent_template</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/4_info_reqs.htm#layered_interconnect_complex_template_arm.library_stack_model">Library_stack_model</A>
+         
+         (as <a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.stratum_stack_dependent_template.stack">stack</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_stack_dependent_template &lt;=<br>multi_stratum_structured_template &lt;=<br>structured_template &lt;=<br>geometric_template &lt;=<br>part_template_definition &lt;=<br>product_definition_shape &lt;=<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>{property_definition_relationship<br>property_definition_relationship.name = 'stack'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>part_template_definition =&gt;<br>stratum_stack_model =&gt;<br>library_stack_model<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystructured_inter_stratum_feature_template">5.1.30 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_inter_stratum_feature_template">Structured_inter_stratum_feature_template</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>structured_inter_stratum_feature_template</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>structured_inter_stratum_feature_template &lt;=<br>stratum_stack_dependent_template &lt;=<br>multi_stratum_structured_template &lt;=<br>structured_template &lt;=<br>geometric_template &lt;=<br>part_template_definition &lt;=<br>product_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystructured_template">5.1.31 </a><a href="./4_info_reqs.htm#layered_interconnect_complex_template_arm.structured_template">Structured_template</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>structured_template</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>structured_template &lt;=<br>geometric_template &lt;=<br>part_template_definition &lt;=<br>product_definition<br></td>
+         </tr>
+      </table><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

@@ -1,0 +1,89 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Default_tolerance_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Default_tolerance_arm</h2><code><br><br><a name="default_tolerance_arm">SCHEMA <b>Default_tolerance_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm">Foundation_representation_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1006<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm">Measure_representation_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1118<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm">Shape_property_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1032<br><br></code><code><br><A NAME="default_tolerance_arm.cell_entry_select">TYPE </A><b>cell_entry_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#default_tolerance_arm.plus_minus_toleranced_datum">Plus_minus_toleranced_datum</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#default_tolerance_arm.upper_lower_toleranced_datum">Upper_lower_toleranced_datum</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="default_tolerance_arm.default_context_select">TYPE </A><b>default_context_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.item_shape">Item_shape</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="default_tolerance_arm.default_setting_select">TYPE </A><b>default_setting_select</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#default_tolerance_arm.general_tolerances">General_tolerances</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="default_tolerance_arm.general_tolerance_table_select">TYPE </A><b>general_tolerance_table_select</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#default_tolerance_arm.general_tolerance_table">General_tolerance_table</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="default_tolerance_arm.limit_select">TYPE </A><b>limit_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#default_tolerance_arm.significant_number_of_digits">Significant_number_of_digits</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#default_tolerance_arm.upper_lower_limit">Upper_lower_limit</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="default_tolerance_arm.default_setting_association">ENTITY <b>Default_setting_association</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.default_setting_association.default_value">default_value : </A>SET[0:?] OF <A HREF="#default_tolerance_arm.default_setting_select">default_setting_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.default_setting_association.default_context">default_context : </A><A HREF="#default_tolerance_arm.default_context_select">default_context_select</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="default_tolerance_arm.general_tolerance_table">ENTITY <b>General_tolerance_table</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.general_tolerance_table.tolerance_type">tolerance_type : </A>STRING;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.general_tolerance_table.cell">cell : </A>SET[1:?] OF <A HREF="#default_tolerance_arm.tolerance_table_cell">Tolerance_table_cell</A> FOR tolerance_table;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="default_tolerance_arm.general_tolerances">ENTITY <b>General_tolerances</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.general_tolerances.table_definition">table_definition : </A><A HREF="#default_tolerance_arm.general_tolerance_table_select">general_tolerance_table_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.general_tolerances.tolerance_class">tolerance_class : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="default_tolerance_arm.plus_minus_toleranced_datum">ENTITY <b>Plus_minus_toleranced_datum</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.plus_minus_toleranced_datum.tolerance_value">tolerance_value : </A><A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="default_tolerance_arm.significant_number_of_digits">ENTITY <b>Significant_number_of_digits</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.significant_number_of_digits.number_of_digits">number_of_digits : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="default_tolerance_arm.tolerance_table_cell">ENTITY <b>Tolerance_table_cell</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.tolerance_table_cell.cell_value">cell_value : </A><A HREF="#default_tolerance_arm.cell_entry_select">cell_entry_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.tolerance_table_cell.description">description : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.tolerance_table_cell.limit">limit : </A><A HREF="#default_tolerance_arm.limit_select">limit_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.tolerance_table_cell.tolerance_class">tolerance_class : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.tolerance_table_cell.tolerance_table">tolerance_table : </A><A HREF="#default_tolerance_arm.general_tolerance_table">General_tolerance_table</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="default_tolerance_arm.upper_lower_limit">ENTITY <b>Upper_lower_limit</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.upper_lower_limit.upper_limit">upper_limit : </A><A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>;<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.upper_lower_limit.lower_limit">lower_limit : </A><A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="default_tolerance_arm.upper_lower_toleranced_datum">ENTITY <b>Upper_lower_toleranced_datum</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.upper_lower_toleranced_datum.lower_tolerance_value">lower_tolerance_value : </A><A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>;<br>
+         &nbsp;&nbsp;<A NAME="default_tolerance_arm.upper_lower_toleranced_datum.upper_tolerance_value">upper_tolerance_value : </A><A HREF="../../../data/modules/measure_representation/sys/e_exp_arm.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Default_tolerance_arm<br></code></body>
+</HTML>

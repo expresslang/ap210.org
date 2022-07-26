@@ -1,0 +1,46 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Time_interval_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Time_interval_arm</h2><code><br><br><a name="time_interval_arm">SCHEMA <b>Time_interval_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/event/sys/e_exp_arm.htm#event_arm">Event_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1064<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm">Value_with_unit_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1054<br><br></code><code><br><A NAME="time_interval_arm.time_interval">ENTITY <b>Time_interval</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="time_interval_arm.time_interval.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="time_interval_arm.time_interval.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="time_interval_arm.time_interval.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="time_interval_arm.time_interval_relationship">ENTITY <b>Time_interval_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="time_interval_arm.time_interval_relationship.relation_type">relation_type : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="time_interval_arm.time_interval_relationship.description">description : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="time_interval_arm.time_interval_relationship.relating_time_interval">relating_time_interval : </A><A HREF="#time_interval_arm.time_interval">Time_interval</A>;<br>
+         &nbsp;&nbsp;<A NAME="time_interval_arm.time_interval_relationship.related_time_interval">related_time_interval : </A><A HREF="#time_interval_arm.time_interval">Time_interval</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="time_interval_arm.time_interval_with_bounds">ENTITY <b>Time_interval_with_bounds</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#time_interval_arm.time_interval">Time_interval</A>);<br>
+         &nbsp;&nbsp;<A NAME="time_interval_arm.time_interval_with_bounds.primary_bound">primary_bound : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/event/sys/e_exp_arm.htm#event_arm.date_or_event">date_or_event</A>;<br>
+         &nbsp;&nbsp;<A NAME="time_interval_arm.time_interval_with_bounds.secondary_bound">secondary_bound : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/event/sys/e_exp_arm.htm#event_arm.date_or_event">date_or_event</A>;<br>
+         &nbsp;&nbsp;<A NAME="time_interval_arm.time_interval_with_bounds.duration_from_primary_bound">duration_from_primary_bound : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.duration">Duration</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="time_interval_arm.time_interval_with_bounds.wr:wr1">WR1: NOT (EXISTS (secondary_bound) AND EXISTS (duration_from_primary_bound));</A><br>
+         &nbsp;&nbsp;<A NAME="time_interval_arm.time_interval_with_bounds.wr:wr2">WR2: EXISTS (primary_bound) OR EXISTS (secondary_bound);</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Time_interval_arm<br></code></body>
+</HTML>

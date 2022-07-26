@@ -1,0 +1,151 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: ISO13584_generic_expressions_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: ISO13584_generic_expressions_schema</h2>
+      <p><i>Source : ISO 13584-20</i></p><code><br><br><a name="iso13584_generic_expressions_schema">SCHEMA <b>ISO13584_generic_expressions_schema</b>;</a><br><br></code><code><br><A NAME="iso13584_generic_expressions_schema.binary_generic_expression">ENTITY <b>binary_generic_expression</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         <br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#iso13584_generic_expressions_schema.generic_expression">generic_expression</A>);<br>
+         &nbsp;&nbsp;<A NAME="iso13584_generic_expressions_schema.binary_generic_expression.operands">operands : </A>LIST[2:2] OF <A HREF="#iso13584_generic_expressions_schema.generic_expression">generic_expression</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="iso13584_generic_expressions_schema.environment">ENTITY <b>environment</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="iso13584_generic_expressions_schema.environment.syntactic_representation">syntactic_representation : </A><A HREF="#iso13584_generic_expressions_schema.generic_variable">generic_variable</A>;<br>
+         &nbsp;&nbsp;<A NAME="iso13584_generic_expressions_schema.environment.semantics">semantics : </A><A HREF="#iso13584_generic_expressions_schema.variable_semantics">variable_semantics</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="iso13584_generic_expressions_schema.generic_expression">ENTITY <b>generic_expression</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#iso13584_generic_expressions_schema.simple_generic_expression">simple_generic_expression</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#iso13584_generic_expressions_schema.unary_generic_expression">unary_generic_expression</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#iso13584_generic_expressions_schema.binary_generic_expression">binary_generic_expression</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#iso13584_generic_expressions_schema.multiple_arity_generic_expression">multiple_arity_generic_expression</A>));<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="iso13584_generic_expressions_schema.generic_expression.wr:wr1">WR1: is_acyclic(SELF);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="iso13584_generic_expressions_schema.generic_literal">ENTITY <b>generic_literal</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         <br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#iso13584_generic_expressions_schema.simple_generic_expression">simple_generic_expression</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="iso13584_generic_expressions_schema.generic_variable">ENTITY <b>generic_variable</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         <br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#iso13584_generic_expressions_schema.simple_generic_expression">simple_generic_expression</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="iso13584_generic_expressions_schema.generic_variable.interpretation">interpretation : </A><A HREF="#iso13584_generic_expressions_schema.environment">environment</A> FOR syntactic_representation;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="iso13584_generic_expressions_schema.multiple_arity_generic_expression">ENTITY <b>multiple_arity_generic_expression</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         <br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#iso13584_generic_expressions_schema.generic_expression">generic_expression</A>);<br>
+         &nbsp;&nbsp;<A NAME="iso13584_generic_expressions_schema.multiple_arity_generic_expression.operands">operands : </A>LIST[2:?] OF <A HREF="#iso13584_generic_expressions_schema.generic_expression">generic_expression</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="iso13584_generic_expressions_schema.simple_generic_expression">ENTITY <b>simple_generic_expression</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#iso13584_generic_expressions_schema.generic_literal">generic_literal</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#iso13584_generic_expressions_schema.generic_variable">generic_variable</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#iso13584_generic_expressions_schema.generic_expression">generic_expression</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="iso13584_generic_expressions_schema.unary_generic_expression">ENTITY <b>unary_generic_expression</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         <br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#iso13584_generic_expressions_schema.generic_expression">generic_expression</A>);<br>
+         &nbsp;&nbsp;<A NAME="iso13584_generic_expressions_schema.unary_generic_expression.operand">operand : </A><A HREF="#iso13584_generic_expressions_schema.generic_expression">generic_expression</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="iso13584_generic_expressions_schema.variable_semantics">ENTITY <b>variable_semantics</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         ;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="iso13584_generic_expressions_schema.acyclic">FUNCTION <b>acyclic</b></A><br>&nbsp;(arg1 : <A HREF="../../../data/resources/ISO13584_generic_expressions_schema/ISO13584_generic_expressions_schema.htm#iso13584_generic_expressions_schema.generic_expression">generic_expression</A>; arg2 : SET[0:?] OF <A HREF="../../../data/resources/ISO13584_generic_expressions_schema/ISO13584_generic_expressions_schema.htm#iso13584_generic_expressions_schema.generic_expression">generic_expression</A>) : BOOLEAN;
+         </code><pre>LOCAL
+	result: BOOLEAN := TRUE;
+END_LOCAL;
+
+IF ('ISO13584_GENERIC_EXPRESSIONS_SCHEMA.SIMPLE_GENERIC_EXPRESSION'
+	IN TYPEOF (arg1)) 
+THEN
+	RETURN (TRUE);
+END_IF;
+
+IF arg1 IN arg2 
+THEN 
+	RETURN (FALSE);
+END_IF;
+
+IF 'ISO13584_GENERIC_EXPRESSIONS_SCHEMA.UNARY_GENERIC_EXPRESSION' 
+	IN TYPEOF (arg1) 
+THEN 
+	RETURN 
+	(acyclic(arg1\unary_generic_expression.operand,arg2+[arg1]));
+END_IF;
+
+IF 'ISO13584_GENERIC_EXPRESSIONS_SCHEMA.BINARY_GENERIC_EXPRESSION' 
+	IN TYPEOF (arg1) 
+THEN 
+	RETURN 
+	(acyclic(arg1\binary_generic_expression.operands[1],arg2+[arg1])
+	AND
+	acyclic(arg1\binary_generic_expression.operands[2],arg2+[arg1]));
+END_IF;
+
+IF 
+'ISO13584_GENERIC_EXPRESSIONS_SCHEMA.MULTIPLE_ARITY_GENERIC_EXPRESSION' 
+	IN TYPEOF (arg1) 
+THEN 
+	result := TRUE;
+	REPEAT i := 1 TO 
+			SIZEOF (arg1\multiple_arity_generic_expression.operands);
+		result := result AND
+		acyclic(arg1\multiple_arity_generic_expression.operands[i], arg2+[arg1]);
+	END_REPEAT;
+
+	RETURN (result);
+END_IF;
+	RETURN (result);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="iso13584_generic_expressions_schema.is_acyclic">FUNCTION <b>is_acyclic</b></A><br>&nbsp;(arg : <A HREF="../../../data/resources/ISO13584_generic_expressions_schema/ISO13584_generic_expressions_schema.htm#iso13584_generic_expressions_schema.generic_expression">generic_expression</A>) : BOOLEAN;
+         </code><pre>RETURN (acyclic (arg, []));</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="iso13584_generic_expressions_schema.used_variables">FUNCTION <b>used_variables</b></A><br>&nbsp;(arg : <A HREF="../../../data/resources/ISO13584_generic_expressions_schema/ISO13584_generic_expressions_schema.htm#iso13584_generic_expressions_schema.generic_expression">generic_expression</A>) : SET[0:?] OF <A HREF="#iso13584_generic_expressions_schema.generic_variable">generic_variable</A>;
+         </code><pre>LOCAL
+	result : SET OF generic_variable := [];
+END_LOCAL;
+
+IF 'ISO13584_GENERIC_EXPRESSIONS_SCHEMA.GENERIC_VARIABLE' 
+	IN TYPEOF (arg) 
+THEN 
+	RETURN ([arg]);
+END_IF;
+
+IF 'ISO13584_GENERIC_EXPRESSIONS_SCHEMA.UNARY_GENERIC_EXPRESSION' 
+	IN TYPEOF (arg)
+THEN 
+	RETURN (used_variables (arg\unary_generic_expression.operand));
+END_IF;
+
+IF 'ISO13584_GENERIC_EXPRESSIONS_SCHEMA.BINARY_GENERIC_EXPRESSION'
+	IN TYPEOF (arg)
+THEN 
+	RETURN(used_variables(arg\binary_generic_expression.operands[1])
+		+ used_variables (arg\binary_generic_expression.operands[2]));
+END_IF;
+
+IF
+'ISO13584_GENERIC_EXPRESSIONS_SCHEMA.MULTIPLE_ARITY_GENERIC_EXPRESSION' 
+	IN TYPEOF (arg)
+THEN
+	REPEAT i := 1 TO 
+		SIZEOF(arg\multiple_arity_generic_expression.operands);
+		result := result + used_variables(
+			arg\multiple_arity_generic_expression.operands[i]);
+	END_REPEAT;
+	
+	RETURN (result);
+END_IF;
+RETURN ([ ]);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;ISO13584_generic_expressions_schema<br></code></body>
+</HTML>

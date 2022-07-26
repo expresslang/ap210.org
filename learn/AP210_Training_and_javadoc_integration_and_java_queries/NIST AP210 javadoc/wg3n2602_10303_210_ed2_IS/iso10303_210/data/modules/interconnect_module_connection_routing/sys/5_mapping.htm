@@ -1,0 +1,800 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Interconnect module connection routing">
+      <META name="DC.Dates" content="2009-05-27 11:06:20">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Interconnect module connection routing">
+      <META name="DC.Subject" content="module, layout, electrical, electronic, autoroute, route, connection, network, node, connection point, vertex, junction">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6392">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5661">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-27 11:06:20">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.62">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.57">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.51">
+      <TITLE>ISO/TS 10303-1684:2009 Interconnect module connection routing</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Interconnect module connection routing</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1684:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definition</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <h2><a name="mapping">5.1 Mapping specification</a></h2><a name="mappings"></a><p>
+         In the following, "Application element" designates any entity data
+         type defined in Clause <a href="4_info_reqs.htm">4</a>, any of its 
+         explicit attributes and any subtype constraint. 
+         "MIM element" designates any entity data type defined in 
+         Clause <a href="5_mim.htm#mim_express">5.2</a> or imported with a USE FROM
+         statement, from another EXPRESS schema, any of its 
+         attributes and any subtype constraint defined in Clause <a href="5_mim.htm#mim_express">5.2</a> or imported with a USE FROM
+         statement.
+         
+      </p>
+      <p>
+         This clause contains the mapping specification that defines how each 
+         application element of this part of ISO 10303 (see Clause <a href="4_info_reqs.htm">4</a>) maps to one
+         or more MIM elements (see Clause <a href="5_mim.htm#mim_express">5.2</a>).
+         
+      </p>
+      <p>
+         The mapping for each application element is specified in a separate subclause below. 
+         The mapping specification of an attribute of an ARM entity is a subclause of the clause that contains the mapping specification
+         of this entity.
+         Each mapping specification subclause contains up to five elements.
+         
+      </p>
+      <p><b>Title:</b>
+         The clause title contains:
+      </p>
+      <ul>
+         <li>the name of the considered ARM entity or subtype constraint, or </li>
+         <li>the name of the considered ARM entity atribute when this attribute refers to a type that is not an entity data type or a SELECT
+            type that contains or may contain entity data types, or
+         </li>
+         <li>a composite expression, &lt;attribute name&gt; to &lt;referred type&gt;, when this attribute refers to a type that is not an entity data
+            type or a SELECT type that contains or may contain entity data types.
+         </li>
+      </ul>
+      <p><b>MIM element:</b> 
+         This section contains, depending on the considered application element:
+      </p>
+      <ul>
+         <li>the name of one or more MIM entity data types;</li>
+         <li>the name of a MIM entity attribute, presented with the syntax &lt;entity name&gt;.&lt;attribute name&gt;, when the considered ARM attribute
+            refers to a type that is not an entity data type or a SELECT type that contains or may contain entity data types;
+         </li>
+         <li>the term PATH, when the considered ARM entity attribute refers to an entity data type or to a SELECT type that contains or
+            may contain entity data types;
+         </li>
+         <li>the term IDENTICAL MAPPING, when both application objects
+            involved in an application assertion map to the same instance of a MIM entity data type;
+         </li>
+         <li>the syntax /SUPERTYPE(&lt;supertype name&gt;)/, when the considered ARM entity is mapped as its supertype;</li>
+         <li>one or more constructs /SUBTYPE(&lt;subtype name&gt;)/, when the mapping of the considered ARM entity is the union of the mapping
+            of its subtypes.
+         </li>
+      </ul>
+      <p>
+         When the mapping of an application element involves more than one MIM element, each of these MIM elements is 
+         presented on a separate line in the mapping specification, enclosed between parentheses or brackets. 
+         
+      </p>
+      <p><b>Source:</b> This section contains:
+      </p>
+      <ul>
+         <li>the ISO standard number and part number in which the
+            MIM element is defined, for those MIM elements that are defined in a common
+            resource document;
+         </li>
+         <li>the ISO standard number and
+            part number of this part of ISO 10303, for those MIM elements that are defined in the MIM schema of this part.
+         </li>
+      </ul>
+      <p>
+         		This section is omitted when the keywords PATH or IDENTICAL MAPPING are used in the MIM element section.
+         
+      </p>
+      <p><b>Rules:</b> 
+         This section contains the name of one or more global rules that apply to the
+         population of the MIM entity data types listed in the MIM element section or
+         in the reference path. When no rule applies, this section is omitted.
+         		
+      </p>
+      <p>A reference to a
+         global rule may be followed by a reference to the subclause in
+         which the rule is defined.
+         
+      </p>
+      <p><b>Constraint:</b> 
+         This section contains the name of one or more subtype constraints that apply to the
+         population of the MIM entity data types listed in the MIM element section or
+         in the reference path. When no subtype constraint applies, this section is omitted.
+         
+      </p>
+      <p>
+         A reference to a subtype constraint may be followed by a reference to the subclause in
+         which the subtype constraint is defined.
+         
+      </p>
+      <p><b>Reference path:</b> This section contains:
+      </p>
+      <ul>
+         <li>the reference path to its supertypes in the common resources, 
+            for each MIM element created within this part of ISO 10303; 
+            
+         </li>
+         <li>
+            the specification of the relationships between MIM elements, when the mapping of an application element requires to relate
+            instances of several
+            MIM entity data types. In such a case, each line in the reference path
+            documents the role of a MIM element relative to the referring MIM
+            element or to the next referred MIM element. 
+            		
+         </li>
+      </ul>
+      <p>For the expression of reference paths and of the
+         constraints between MIM elements, the following notational conventions
+         apply:
+         
+      </p>
+      <table cellspacing="6">
+         <tbody>
+            <tr valign="top">
+               <td valign="top">[]</td>
+               <td valign="top">
+                  enclosed section constrains multiple MIM elements or
+                  sections of the reference path are required to satisfy an
+                  information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">()</td>
+               <td valign="top">
+                  enclosed section constrains multiple MIM elements or
+                  sections of the reference path are identified as alternatives
+                  within the mapping to satisfy an information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">{}</td>
+               <td valign="top">
+                  enclosed section constrains the reference path to satisfy
+                  an information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;&gt;</td>
+               <td valign="top">
+                  enclosed section constrains at one or more required
+                  reference path;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">||</td>
+               <td valign="top">enclosed section constrains the supertype entity;</td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">-&gt;</td>
+               <td valign="top">
+                  the attribute, whose name precedes the -&gt; symbol, references the entity or select type whose name follows the -&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;-</td>
+               <td valign="top">
+                  the entity or select type, whose name precedes the &lt;- symbol, is referenced by the entity attribute whose name follows the
+                  &lt;- symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">[i]</td>
+               <td valign="top">
+                  the attribute, whose name precedes the [i] symbol, is an aggregate; any element of that aggregate is referred to;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">[n]</td>
+               <td valign="top">
+                  the attribute, whose name precedes the [n] symbol, is an ordered aggregate; member n of that aggregate is referred to;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">=&gt;</td>
+               <td valign="top">
+                  the entity, whose name precedes the =&gt; symbol, is a supertype of the entity whose name follows the =&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;=</td>
+               <td valign="top">
+                  the entity, whose name precedes the &lt;= symbol, is a subtype of the entity whose name follows the &lt;= symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">=</td>
+               <td valign="top">
+                  the string, select, or enumeration type is constrained to a choice or value;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">\</td>
+               <td valign="top">
+                  the reference path expression continues on the next line;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">*</td>
+               <td valign="top">
+                  one or more instances of the relationship entity data type may be assembled in a
+                  relationship tree structure. The path between the relationship entity and the related entities, is enclosed with braces;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">--</td>
+               <td valign="top">
+                  the text following is a comment or introduces a clause reference;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">*&gt;</td>
+               <td valign="top">
+                  the select or enumeration type, whose name precedes the *&gt; symbol, is
+                  extended into the select or enumeration type whose name follows the *&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;*</td>
+               <td valign="top">
+                  the select or enumeration type, whose name precedes the &lt;* symbol, is an
+                  extension of the select or enumeration type whose name follows the &lt;* symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top" nowrap="t">!{}</td>
+               <td valign="top">
+                  section enclosed by {} indicates a negative constraint placed on the mapping.
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      The definition and use of mapping templates is not supported in the
+      present version of the application modules. However, use of predefined
+      templates /SUBTYPE/ and /SUPERTYPE/ is supported. 
+      
+      <h2><a name="aeentitydielectric_crossover_area">5.1.1 </a><a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.dielectric_crossover_area">Dielectric_crossover_area</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>dielectric_crossover_area</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1684</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>[dielectric_crossover_area &lt;=<br>shape_aspect_relationship]<br>[dielectric_crossover_area &lt;=<br>shape_aspect]<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydielectric_crossover_areaaaattributerelated_conceptassertion_tostratum_feature"></a>5.1.1.1 <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.dielectric_crossover_area">Dielectric_crossover_area</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature">Stratum_feature</A>
+         
+         (as <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.dielectric_crossover_area.related_concept">related_concept</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dielectric_crossover_area &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.related_shape_aspect -&gt;<br>shape_aspect =&gt;<br>stratum_feature<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydielectric_crossover_areaaaattributerelating_conceptassertion_tostratum_feature"></a>5.1.1.2 <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.dielectric_crossover_area">Dielectric_crossover_area</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature">Stratum_feature</A>
+         
+         (as <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.dielectric_crossover_area.relating_concept">relating_concept</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dielectric_crossover_area &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect =&gt;<br>stratum_feature<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydielectric_crossover_areaaaattributeresulting_dielectric_crossoverassertion_tostratum_feature"></a>5.1.1.3 <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.dielectric_crossover_area">Dielectric_crossover_area</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature">Stratum_feature</A>
+         
+         (as <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.dielectric_crossover_area.resulting_dielectric_crossover">resulting_dielectric_crossover</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dielectric_crossover_area &lt;=<br>shape_aspect &lt;-<br>shape_aspect_relationship.related_shape_aspect<br>shape_aspect_relationship<br>{shape_aspect_relationship<br>shape_aspect_relationship.name = 'resulting dielectric crossover'}<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect =&gt;<br>stratum_feature<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydielectric_crossover_areaaaattributeresulting_shapeassertion_togeometric_model"></a>5.1.1.4 <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.dielectric_crossover_area">Dielectric_crossover_area</a>
+         to <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>
+         
+         (as <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.dielectric_crossover_area.resulting_shape">resulting_shape</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>dielectric_crossover_area &lt;=<br>shape_aspect_relationship<br>shape_definition = shape_aspect_relationship<br>shape_definition<br>characterized_definition = shape_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydirect_stratum_component_join_implementation">5.1.2 </a><a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.direct_stratum_component_join_implementation">Direct_stratum_component_join_implementation</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>direct_stratum_component_join_implementation</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1684</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>direct_stratum_component_join_implementation &lt;=<br>shape_aspect_relationship<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydirect_stratum_component_join_implementationaaattributetopological_requirementassertion_tostratum_embedded_physical_component_join_relationship"></a>5.1.2.1 <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.direct_stratum_component_join_implementation">Direct_stratum_component_join_implementation</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_embedded_physical_component_join_relationship">Stratum_embedded_physical_component_join_relationship</A>
+         
+         (as <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.direct_stratum_component_join_implementation.topological_requirement">topological_requirement</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>direct_stratum_component_join_implementation &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.related_shape_aspect -&gt;<br>{shape_aspect<br>shape_aspect.name = 'stratum embedded physical component join'}<br>shape_aspect =&gt;<br>join_shape_aspect<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydirect_stratum_component_join_implementationaaattributeimplementing_jointassertion_tofabrication_joint"></a>5.1.2.2 <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.direct_stratum_component_join_implementation">Direct_stratum_component_join_implementation</a>
+         to <A HREF="../../../../data/modules/fabrication_joint/sys/4_info_reqs.htm#fabrication_joint_arm.fabrication_joint">Fabrication_joint</A>
+         
+         (as <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.direct_stratum_component_join_implementation.implementing_joint">implementing_joint</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>direct_stratum_component_join_implementation &lt;=<br>shape_aspect_relationship<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect =&gt;<br>component_feature_joint =&gt;<br>fabrication_joint<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityindirect_stratum_component_join_implementation">5.1.3 </a><a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.indirect_stratum_component_join_implementation">Indirect_stratum_component_join_implementation</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>indirect_stratum_component_join_implementation</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1684</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>indirect_stratum_component_join_implementation &lt;=<br>plated_inter_stratum_feature<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityindirect_stratum_component_join_implementationaaattributeindirect_topological_requirementassertion_tostratum_embedded_physical_component_join_relationship"></a>5.1.3.1 <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.indirect_stratum_component_join_implementation">Indirect_stratum_component_join_implementation</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_embedded_physical_component_join_relationship">Stratum_embedded_physical_component_join_relationship</A>
+         
+         (as <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.indirect_stratum_component_join_implementation.indirect_topological_requirement">indirect_topological_requirement</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>indirect_stratum_component_join_implementation &lt;=<br>plated_inter_stratum_feature &lt;=<br>inter_stratum_feature &lt;=<br>laminate_component &lt;=<br>assembly_component &lt;=<br>product_definition_shape &lt;-<br>shape_aspect.of_shape<br>shape_aspect &lt;-<br>shape_aspect_relationship.related_shape_aspect<br>shape_aspect_relationship<br>{shape_aspect_relationship<br>shape_aspect_relationship.name = 'indirect topological requirement'}<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>{shape_aspect<br>shape_aspect.name = 'stratum embedded physical component join'}<br>shape_aspect =&gt;<br>join_shape_aspect<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityindirect_stratum_component_join_implementationaaattributeimplementing_jointassertion_tofabrication_joint"></a>5.1.3.2 <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.indirect_stratum_component_join_implementation">Indirect_stratum_component_join_implementation</a>
+         to <A HREF="../../../../data/modules/fabrication_joint/sys/4_info_reqs.htm#fabrication_joint_arm.fabrication_joint">Fabrication_joint</A>
+         
+         (as <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.indirect_stratum_component_join_implementation.implementing_joint">implementing_joint</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>indirect_stratum_component_join_implementation &lt;=<br>plated_inter_stratum_feature &lt;=<br>inter_stratum_feature &lt;=<br>laminate_component &lt;=<br>assembly_component &lt;=<br>product_definition_shape &lt;-<br>shape_aspect.of_shape<br>shape_aspect &lt;-<br>shape_aspect_relationship.related_shape_aspect<br>shape_aspect_relationship<br>{shape_aspect_relationship<br>shape_aspect_relationship.name = 'implementing joint'}<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect =&gt;<br>component_feature_joint =&gt;<br>fabrication_joint<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityjunction_vertex_allocation">5.1.4 </a><a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.junction_vertex_allocation">Junction_vertex_allocation</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>shape_aspect_relationship</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-41</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{shape_aspect_relationship<br>shape_aspect_relationship.name = 'junction vertex allocation'}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityjunction_vertex_allocationaaattributeimplementation_pointassertion_totrace_junction_or_via"></a>5.1.4.1 <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.junction_vertex_allocation">Junction_vertex_allocation</a>
+         to <A HREF="../../../../data/modules/interconnect_module_connection_routing/sys/4_info_reqs.htm#interconnect_module_connection_routing_arm.trace_junction_or_via">trace_junction_or_via</A>
+         
+         (as <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.junction_vertex_allocation.implementation_point">implementation_point</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>shape_aspect_relationship<br>shape_aspect_relationship.related_shape_aspect -&gt;<br>shape_aspect<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityjunction_vertex_allocationaaattributeimplementation_pointassertion_toexplicitly_located_layer_connection_point"></a>5.1.4.2 <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.junction_vertex_allocation">Junction_vertex_allocation</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.explicitly_located_layer_connection_point">Explicitly_located_layer_connection_point</A>
+         
+         (as <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.junction_vertex_allocation.implementation_point">implementation_point</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>shape_aspect_relationship<br>shape_aspect_relationship.related_shape_aspect -&gt;<br>shape_aspect =&gt;<br>layer_connection_point<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityjunction_vertex_allocationaaattributerequired_vertexassertion_topart_connected_terminals_topological_junction"></a>5.1.4.3 <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.junction_vertex_allocation">Junction_vertex_allocation</a>
+         to <A HREF="../../../../data/modules/functional_assignment_to_part/sys/4_info_reqs.htm#functional_assignment_to_part_arm.part_connected_terminals_topological_junction">Part_connected_terminals_topological_junction</A>
+         
+         (as <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.junction_vertex_allocation.required_vertex">required_vertex</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>shape_aspect_relationship<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect<br>{shape_aspect<br>[shape_aspect.description = 'part connected terminals topological junction']<br>[shape_aspect.product_definitional = .TRUE.]}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityphysical_connectivity_abstraction_map">5.1.5 </a><a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.physical_connectivity_abstraction_map">Physical_connectivity_abstraction_map</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>shape_aspect_relationship</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-41</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{shape_aspect_relationship<br>shape_aspect_relationship.name = 'physical to topological abstraction map'}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityphysical_connectivity_abstraction_mapaaattributegeometric_context_based_definitionassertion_toconductive_interconnect_element_terminal_link"></a>5.1.5.1 <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.physical_connectivity_abstraction_map">Physical_connectivity_abstraction_map</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.conductive_interconnect_element_terminal_link">Conductive_interconnect_element_terminal_link</A>
+         
+         (as <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.physical_connectivity_abstraction_map.geometric_context_based_definition">geometric_context_based_definition</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>shape_aspect_relationship<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect =&gt;<br>conductive_interconnect_element_terminal_link<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityphysical_connectivity_abstraction_mapaaattributegeometric_context_based_definitionassertion_topassage_terminal_based_fabrication_joint_link"></a>5.1.5.2 <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.physical_connectivity_abstraction_map">Physical_connectivity_abstraction_map</a>
+         to <A HREF="../../../../data/modules/fabrication_joint/sys/4_info_reqs.htm#fabrication_joint_arm.passage_terminal_based_fabrication_joint_link">Passage_terminal_based_fabrication_joint_link</A>
+         
+         (as <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.physical_connectivity_abstraction_map.geometric_context_based_definition">geometric_context_based_definition</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>shape_aspect_relationship<br>shape_aspect_relationship.relating_shape_aspect -&gt;<br>shape_aspect =&gt;<br>passage_terminal_based_fabrication_joint_link<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityphysical_connectivity_abstraction_mapaaattributename_space_context_based_definitionassertion_topart_connected_terminals_element"></a>5.1.5.3 <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.physical_connectivity_abstraction_map">Physical_connectivity_abstraction_map</a>
+         to <A HREF="../../../../data/modules/functional_assignment_to_part/sys/4_info_reqs.htm#functional_assignment_to_part_arm.part_connected_terminals_element">Part_connected_terminals_element</A>
+         
+         (as <a href="./4_info_reqs.htm#interconnect_module_connection_routing_arm.physical_connectivity_abstraction_map.name_space_context_based_definition">name_space_context_based_definition</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>shape_aspect_relationship<br>shape_aspect_relationship.related_shape_aspect -&gt;<br>shape_aspect =&gt;<br>part_connected_terminals_element<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityphysical_connectivity_element">5.1.6 </a><a href="../../physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.physical_connectivity_element">Physical_connectivity_element</a></h2>
+      <p>
+         This application object,  
+         <a href="../../physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.physical_connectivity_element">Physical_connectivity_element</a>, is defined in the module
+         <a href="../../physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.physical_connectivity_element">physical_connectivity_definition</a>.
+         This mapping section extends the 
+         <a href="../../physical_connectivity_definition/sys/5_mapping.htm#aeentityphysical_connectivity_element"> mapping of Physical_connectivity_element</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentityphysical_connectivity_elementaaattributestart_terminusassertion_tointer_stratum_join_relationship"></a>5.1.6.1 <a href="../../physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.physical_connectivity_element">Physical_connectivity_element</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_join_relationship">Inter_stratum_join_relationship</A>
+         
+         (as <a href="../../physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.physical_connectivity_element.start_terminus">start_terminus</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_connectivity_element &lt;=<br>				shape_aspect_relationship<br>				{shape_aspect_relationship<br>				shape_aspect_relationship.name = 'start to end terminus'}<br>				shape_aspect_relationship.relating_shape_aspect -&gt;<br>				shape_aspect =&gt;<br>				join_shape_aspect<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityphysical_connectivity_elementaaattributestart_terminusassertion_toexplicitly_located_layer_connection_point"></a>5.1.6.2 <a href="../../physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.physical_connectivity_element">Physical_connectivity_element</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.explicitly_located_layer_connection_point">Explicitly_located_layer_connection_point</A>
+         
+         (as <a href="../../physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.physical_connectivity_element.start_terminus">start_terminus</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_connectivity_element &lt;=<br>				shape_aspect_relationship<br>				{shape_aspect_relationship<br>				shape_aspect_relationship.name = 'start to end terminus'}<br>				shape_aspect_relationship.relating_shape_aspect -&gt;<br>				shape_aspect =&gt;<br>				layer_connection_point<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityphysical_connectivity_elementaaattributeend_terminusassertion_tointer_stratum_join_relationship"></a>5.1.6.3 <a href="../../physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.physical_connectivity_element">Physical_connectivity_element</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.inter_stratum_join_relationship">Inter_stratum_join_relationship</A>
+         
+         (as <a href="../../physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.physical_connectivity_element.end_terminus">end_terminus</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_connectivity_element &lt;=<br>				shape_aspect_relationship<br>				{shape_aspect_relationship<br>				shape_aspect_relationship.name = 'start to end terminus'}<br>				shape_aspect_relationship.relating_shape_aspect -&gt;<br>				shape_aspect =&gt;<br>				join_shape_aspect<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityphysical_connectivity_elementaaattributeend_terminusassertion_toexplicitly_located_layer_connection_point"></a>5.1.6.4 <a href="../../physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.physical_connectivity_element">Physical_connectivity_element</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.explicitly_located_layer_connection_point">Explicitly_located_layer_connection_point</A>
+         
+         (as <a href="../../physical_connectivity_definition/sys/4_info_reqs.htm#physical_connectivity_definition_arm.physical_connectivity_element.end_terminus">end_terminus</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>physical_connectivity_element &lt;=<br>				shape_aspect_relationship<br>				{shape_aspect_relationship<br>				shape_aspect_relationship.name = 'start to end terminus'}<br>				shape_aspect_relationship.relating_shape_aspect -&gt;<br>				shape_aspect =&gt;<br>				layer_connection_point<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityrequirement_assignment">5.1.7 </a><a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</a></h2>
+      <p>
+         This application object,  
+         <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</a>, is defined in the module
+         <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">requirement_assignment</a>.
+         This mapping section extends the 
+         <a href="../../requirement_assignment/sys/5_mapping.htm#aeentityrequirement_assignment"> mapping of Requirement_assignment</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentityrequirement_assignmentaaattributeassigned_toassertion_tostratum_feature_conductive_join"></a>5.1.7.1 <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</a>
+         to <A HREF="../../../../data/modules/layered_interconnect_module_design/sys/4_info_reqs.htm#layered_interconnect_module_design_arm.stratum_feature_conductive_join">Stratum_feature_conductive_join</A>
+         
+         (as <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment.assigned_to">assigned_to</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>requirement_assignment &lt;-<br>					requirement_assigned_object.assigned_group<br>					requirement_assigned_object<br>					requirement_assigned_object.items -&gt;<br>					requirement_assigned_item<br>requirement_assigned_item *&gt; imcr_requirement_assigned_item<br>					imcr_requirement_assigned_item = stratum_feature_conductive_join
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityrequirement_assignmentaaattributeassigned_toassertion_todielectric_crossover_area"></a>5.1.7.2 <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</a>
+         to <A HREF="../../../../data/modules/interconnect_module_connection_routing/sys/4_info_reqs.htm#interconnect_module_connection_routing_arm.dielectric_crossover_area">Dielectric_crossover_area</A>
+         
+         (as <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment.assigned_to">assigned_to</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>requirement_assignment &lt;-<br>					requirement_assigned_object.assigned_group<br>					requirement_assigned_object<br>					requirement_assigned_object.items -&gt;<br>					requirement_assigned_item<br>requirement_assigned_item *&gt; imcr_requirement_assigned_item<br>					imcr_requirement_assigned_item = dielectric_crossover_area
+            </td>
+         </tr>
+      </table><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

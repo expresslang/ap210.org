@@ -1,0 +1,69 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Extended_date_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Extended_date_arm</h2><code><br><br><a name="extended_date_arm">SCHEMA <b>Extended_date_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/date_time/sys/e_exp_arm.htm#date_time_arm">Date_time_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1010<br><br></code><code><br><A NAME="extended_date_arm.date_select">TYPE </A><b>date_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/date_time/sys/e_exp_arm.htm#date_time_arm.calendar_date">Calendar_date</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_date_arm.date">Date</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_date_arm.ordinal_date">Ordinal_date</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_date_arm.week_of_year_and_day_date">Week_of_year_and_day_date</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_date_arm.year_month">Year_month</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_date_arm.day_in_week_number">TYPE </A><b>day_in_week_number</b> =
+         INTEGER;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_date_arm.day_in_week_number.wr:wr1">WR1: { 1 &lt;= SELF &lt;= 7 };</A><br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_date_arm.day_in_year_number">TYPE </A><b>day_in_year_number</b> =
+         INTEGER;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_date_arm.day_in_year_number.wr:wr1">WR1: {1 &lt;= SELF &lt;= 366};</A><br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_date_arm.extended_date_time_select">TYPE </A><b>extended_date_time_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/date_time/sys/e_exp_arm.htm#date_time_arm.date_or_date_time_select">date_or_date_time_select</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#extended_date_arm.date_select">date_select</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_date_arm.week_in_year_number">TYPE </A><b>week_in_year_number</b> =
+         INTEGER;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_date_arm.week_in_year_number.wr:wr1">WR1: { 1 &lt;= SELF &lt;= 53 };</A><br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="extended_date_arm.date">ENTITY <b>Date</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_date_arm.date.year_component">year_component : </A><A HREF="../../../data/modules/date_time/sys/e_exp_arm.htm#date_time_arm.year_number">year_number</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_date_arm.ordinal_date">ENTITY <b>Ordinal_date</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_date_arm.ordinal_date.day_component">day_component : </A><A HREF="#extended_date_arm.day_in_year_number">day_in_year_number</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_date_arm.ordinal_date.year_component">year_component : </A><A HREF="../../../data/modules/date_time/sys/e_exp_arm.htm#date_time_arm.year_number">year_number</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="extended_date_arm.ordinal_date.wr:wr1">WR1: ( NOT leap_year ( SELF  . year_component ) AND  { 1 &lt;= day_component &lt;= 365 } ) OR 
+            ( leap_year ( SELF . year_component ) AND { 1 &lt;= day_component &lt;= 366 } );</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_date_arm.week_of_year_and_day_date">ENTITY <b>Week_of_year_and_day_date</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_date_arm.week_of_year_and_day_date.day_component">day_component : </A>
+         OPTIONAL 
+         <A HREF="#extended_date_arm.day_in_week_number">day_in_week_number</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_date_arm.week_of_year_and_day_date.year_component">year_component : </A><A HREF="../../../data/modules/date_time/sys/e_exp_arm.htm#date_time_arm.year_number">year_number</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_date_arm.week_of_year_and_day_date.week_component">week_component : </A><A HREF="#extended_date_arm.week_in_year_number">week_in_year_number</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_date_arm.year_month">ENTITY <b>Year_month</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_date_arm.year_month.month_component">month_component : </A><A HREF="../../../data/modules/date_time/sys/e_exp_arm.htm#date_time_arm.month_in_year_number">month_in_year_number</A>;<br>
+         &nbsp;&nbsp;<A NAME="extended_date_arm.year_month.year_component">year_component : </A><A HREF="../../../data/modules/date_time/sys/e_exp_arm.htm#date_time_arm.year_number">year_number</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="extended_date_arm.leap_year">FUNCTION <b>leap_year</b></A><br>&nbsp;(year : <A HREF="../../../data/modules/date_time/sys/e_exp_arm.htm#date_time_arm.year_number">year_number</A>) : BOOLEAN;
+         </code><pre>IF ( ( ( ( year MOD  4 ) = 0 ) AND 
+        ( ( year MOD  100 ) &lt;&gt; 0 ) ) OR ( ( year MOD 400 ) = 0 ) ) 
+        THEN 
+          RETURN  ( TRUE ) ; 
+        ELSE 
+          RETURN ( FALSE ) ; 
+      END_IF ;</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Extended_date_arm<br></code></body>
+</HTML>

@@ -1,0 +1,50 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Plib_class_reference_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Plib_class_reference_mim</h2><code><br><br><a name="plib_class_reference_mim">SCHEMA <b>Plib_class_reference_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/external_class/sys/e_exp_mim.htm#external_class_mim">External_class_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1275<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_mim.htm#external_item_identification_assignment_mim">External_item_identification_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1128<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/external_reference_schema/external_reference_schema.htm#external_reference_schema">external_reference_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/external_reference_schema/external_reference_schema.htm#external_reference_schema.external_source">external_source</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/external_reference_schema/external_reference_schema.htm#external_reference_schema.pre_defined_item">pre_defined_item</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/person_organization_assignment/sys/e_exp_mim.htm#person_organization_assignment_mim">Person_organization_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1013<br><br></code><code><br><A NAME="plib_class_reference_mim.plib_class_identification_item">TYPE </A><b>plib_class_identification_item</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_mim.htm#external_item_identification_assignment_mim.external_identification_item">external_identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/external_class/sys/e_exp_mim.htm#external_class_mim.externally_defined_class">externally_defined_class</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="plib_class_reference_mim.plib_class_organization_item">TYPE </A><b>plib_class_organization_item</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/person_organization_assignment/sys/e_exp_mim.htm#person_organization_assignment_mim.organization_item">organization_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/classification_schema/classification_schema.htm#classification_schema.class">class</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="plib_class_reference_mim.known_source">ENTITY <b>known_source</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/external_reference_schema/external_reference_schema.htm#external_reference_schema.external_source">external_source</A>, <A HREF="../../../data/resources/external_reference_schema/external_reference_schema.htm#external_reference_schema.pre_defined_item">pre_defined_item</A>);<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Plib_class_reference_mim<br></code></body>
+</HTML>

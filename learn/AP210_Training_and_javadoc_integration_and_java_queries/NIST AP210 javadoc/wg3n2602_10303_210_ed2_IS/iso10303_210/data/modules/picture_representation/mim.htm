@@ -1,0 +1,86 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Picture_representation_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Picture_representation_mim</h2><code><br><br><a name="picture_representation_mim">SCHEMA <b>Picture_representation_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/binary_representation/sys/e_exp_mim.htm#binary_representation_mim">Binary_representation_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1369<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/presentation_hierarchy/sys/e_exp_mim.htm#presentation_hierarchy_mim">Presentation_hierarchy_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1330<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema">presentation_organization_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-46<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presentation_area">presentation_area</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presentation_size">presentation_size</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.area_in_set">area_in_set</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/presentation_resource_schema/presentation_resource_schema.htm#presentation_resource_schema">presentation_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-46<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/presentation_resource_schema/presentation_resource_schema.htm#presentation_resource_schema.planar_box">planar_box</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema">geometry_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-42<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_2d">axis2_placement_2d</A>);
+         <br><br></code><code><br>CONSTANT<br><A NAME="picture_representation_mim.pre_defined_picture_representation_types"></A>
+         &nbsp;&nbsp;pre_defined_picture_representation_types : SET[0:?] OF STRING := <br>
+         &nbsp;&nbsp;&nbsp;[ 'JPEG',<br>
+         &nbsp;&nbsp;&nbsp;&nbsp; 'PNG',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp; 'TIFF',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp; 'BMP',
+         <br>
+         &nbsp;&nbsp;&nbsp;&nbsp; 'GIF'];
+         <br>
+         END_CONSTANT;
+         <br></code><code><br><A NAME="picture_representation_mim.picture_representation_item_select">TYPE </A><b>picture_representation_item_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/geometry_schema/geometry_schema.htm#geometry_schema.axis2_placement_2d">axis2_placement_2d</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#picture_representation_mim.picture_representation_item">picture_representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/presentation_resource_schema/presentation_resource_schema.htm#presentation_resource_schema.planar_box">planar_box</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/presentation_appearance_schema/presentation_appearance_schema.htm#presentation_appearance_schema.styled_item">styled_item</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="picture_representation_mim.pr_external_identification_item">TYPE </A><b>pr_external_identification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_mim.htm#external_item_identification_assignment_mim.external_identification_item">external_identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#picture_representation_mim.externally_defined_picture_representation_item">externally_defined_picture_representation_item</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="picture_representation_mim.externally_defined_picture_representation_item">ENTITY <b>externally_defined_picture_representation_item</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#picture_representation_mim.picture_representation_item">picture_representation_item</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="picture_representation_mim.externally_defined_picture_representation_item.source">source : </A><A HREF="../../../data/modules/external_item_identification_assignment/sys/e_exp_mim.htm#external_item_identification_assignment_mim.applied_external_identification_assignment">applied_external_identification_assignment</A> FOR items;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="picture_representation_mim.externally_defined_picture_representation_item.wr:wr1">WR1: NOT (SELF\representation_item.name IN pre_defined_picture_representation_types);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="picture_representation_mim.picture_representation">ENTITY <b>picture_representation</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presentation_view">presentation_view</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>.<A NAME="picture_representation_mim.picture_representation.items">items : </A>SET[2:?] OF <A HREF="#picture_representation_mim.picture_representation_item_select">picture_representation_item_select</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="picture_representation_mim.picture_representation.size">size : </A><A HREF="../../../data/resources/presentation_organization_schema/presentation_organization_schema.htm#presentation_organization_schema.presentation_size">presentation_size</A> FOR unit;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="picture_representation_mim.picture_representation.wr:wr1">WR1: SIZEOF(QUERY(items &lt;* SELF\representation.items | 'PICTURE_REPRESENTATION_MIM.PICTURE_REPRESENTATION_ITEM' IN TYPEOF(items)))
+            = 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="picture_representation_mim.picture_representation_item">ENTITY <b>picture_representation_item</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#picture_representation_mim.externally_defined_picture_representation_item">externally_defined_picture_representation_item</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#picture_representation_mim.predefined_picture_representation_item">predefined_picture_representation_item</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.bytes_representation_item">bytes_representation_item</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="picture_representation_mim.predefined_picture_representation_item">ENTITY <b>predefined_picture_representation_item</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#picture_representation_mim.picture_representation_item">picture_representation_item</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="picture_representation_mim.predefined_picture_representation_item.wr:wr1">WR1: SELF\representation_item.name IN pre_defined_picture_representation_types;</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Picture_representation_mim<br></code></body>
+</HTML>

@@ -1,0 +1,150 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Date time">
+      <META name="DC.Dates" content="2008-10-02 11:56:34">
+      <META name="DC.Published" content="2004-12-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Date time">
+      <META name="DC.Subject" content="module, date, time, time shift">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N2912">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N1521">
+      <META name="SC4.version" content="1">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N2133">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N2134">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N2135">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2008-10-02 11:56:34">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.33">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.10">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.8">
+      <TITLE>ISO/TS 10303-1010:2004 Date time</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Date time</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1010:2004(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.1 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.2 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/f_guide.htm">
+                     F Application module implementation and usage guide</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="annexe-arm-express"></A></H2><code>
+         (*<br>ISO TC184/SC4/WG12&nbsp;N2913 - ISO/TS&nbsp;10303-1010 Date time - EXPRESS ARM<br>*)
+         </code><br><code><br><br><a name="date_time_arm">SCHEMA <b>Date_time_arm</b>;</a><br><br></code><code><br><A NAME="date_time_arm.date_or_date_time_select">TYPE </A><b>date_or_date_time_select</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#date_time_arm.calendar_date">Calendar_date</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#date_time_arm.date_time">Date_time</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="date_time_arm.day_in_month_number">TYPE </A><b>day_in_month_number</b> =
+         INTEGER
+               ;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.day_in_month_number.wr:wr1">WR1: {1 &lt;= SELF &lt;= 31};</A><br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="date_time_arm.hour_in_day">TYPE </A><b>hour_in_day</b> =
+         INTEGER
+               ;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.hour_in_day.wr:wr1">WR1: { 0 &lt;= SELF &lt; 24 };</A><br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="date_time_arm.minute_in_hour">TYPE </A><b>minute_in_hour</b> =
+         INTEGER
+               ;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.minute_in_hour.wr:wr1">WR1: { 0 &lt;= SELF &lt;= 59 };</A><br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="date_time_arm.month_in_year_number">TYPE </A><b>month_in_year_number</b> =
+         INTEGER
+               ;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.month_in_year_number.wr:wr1">WR1: { 1 &lt;= SELF &lt;= 12 };</A><br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="date_time_arm.offset_orientation">TYPE </A><b>offset_orientation</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (ahead,<br>&nbsp;&nbsp;&nbsp;&nbsp;exact,<br>&nbsp;&nbsp;&nbsp;&nbsp;behind);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="date_time_arm.second_in_minute">TYPE </A><b>second_in_minute</b> =
+         REAL
+               ;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.second_in_minute.wr:wr1">WR1: { 0 &lt;= SELF &lt;= 60.0 };</A><br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="date_time_arm.year_number">TYPE </A><b>year_number</b> =
+         INTEGER;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="date_time_arm.calendar_date">ENTITY <b>Calendar_date</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.calendar_date.year_component">year_component : </A><A HREF="#date_time_arm.year_number">year_number</A>;<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.calendar_date.month_component">month_component : </A><A HREF="#date_time_arm.month_in_year_number">month_in_year_number</A>;<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.calendar_date.day_component">day_component : </A><A HREF="#date_time_arm.day_in_month_number">day_in_month_number</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="date_time_arm.date_time">ENTITY <b>Date_time</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.date_time.date_component">date_component : </A><A HREF="#date_time_arm.calendar_date">Calendar_date</A>;<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.date_time.time_component">time_component : </A><A HREF="#date_time_arm.local_time">Local_time</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="date_time_arm.local_time">ENTITY <b>Local_time</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.local_time.hour_component">hour_component : </A><A HREF="#date_time_arm.hour_in_day">hour_in_day</A>;<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.local_time.minute_component">minute_component : </A>
+         OPTIONAL 
+         <A HREF="#date_time_arm.minute_in_hour">minute_in_hour</A>;<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.local_time.second_component">second_component : </A>
+         OPTIONAL 
+         <A HREF="#date_time_arm.second_in_minute">second_in_minute</A>;<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.local_time.zone">zone : </A><A HREF="#date_time_arm.time_offset">Time_offset</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="date_time_arm.time_offset">ENTITY <b>Time_offset</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.time_offset.hour_offset">hour_offset : </A>INTEGER;<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.time_offset.minute_offset">minute_offset : </A>
+         OPTIONAL 
+         INTEGER;<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.time_offset.sense">sense : </A><A HREF="#date_time_arm.offset_orientation">offset_orientation</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.time_offset.actual_minute_offset">actual_minute_offset : </A>INTEGER := NVL(minute_offset,0);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.time_offset.wr:wr1">WR1: { 0 &lt;= hour_offset &lt; 24 };</A><br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.time_offset.wr:wr2">WR2: { 0 &lt;= actual_minute_offset &lt;= 59 };</A><br>
+         &nbsp;&nbsp;<A NAME="date_time_arm.time_offset.wr:wr3">WR3: NOT (((hour_offset &lt;&gt; 0) OR (actual_minute_offset &lt;&gt;0)) AND (sense = exact));</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Date_time_arm<br></code><br><br><p>&copy; ISO 2004 &#8212; All rights reserved</p>
+   </body>
+</HTML>

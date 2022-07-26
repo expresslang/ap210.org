@@ -1,0 +1,547 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Model parameter">
+      <META name="DC.Dates" content="2009-05-04 09:24:18">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Model parameter">
+      <META name="DC.Subject" content="module, parameter, simulation model, product, category, schema, parameter assignment">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6446">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5709">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-04 09:24:18">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.63">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.55">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.54">
+      <TITLE>ISO/TS 10303-1703:2009 Model parameter</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Model parameter</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1703:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <h2><a name="mim_express">5.2 MIM EXPRESS short listing</a></h2>
+      <p>
+         This clause specifies the EXPRESS schema derived from the mapping
+         table. 
+         It uses elements from the common resources or from other application
+         modules and defines the EXPRESS constructs that are specific to this
+         part of ISO 10303.
+         
+      </p>
+      <p>
+         This clause constitutes the Module Interpreted Module (MIM) of the
+         application module.
+         
+      </p>
+      <p>This clause also
+         specifies the modifications that apply to the constructs 
+         imported from the common resources.
+      </p>
+      <p>The following restrictions apply to the use, in this schema, of constructs defined in common resources or in application
+         modules:
+      </p>
+      <ul>
+         <li>
+            use of a supertype entity does not make applicable any of its
+            specializations, unless the specialization is also imported in the
+            MIM schema;
+            
+         </li>
+         <li>
+            use of a SELECT type does not make applicable any of its listed types
+            unless the listed type is also imported in the MIM schema.
+            
+         </li>
+      </ul>
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="model_parameter_mim">
+            SCHEMA Model_parameter_mim;</a></code><h2><A NAME="interfaces"></A></h2>
+      <p></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/activity_method_assignment/sys/5_mim.htm#activity_method_assignment_mim">Activity_method_assignment_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1249<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/characteristic/sys/5_mim.htm#characteristic_mim">Characteristic_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1654<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/classification_with_attributes/sys/5_mim.htm#classification_with_attributes_mim">Classification_with_attributes_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1111<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/independent_property_representation/sys/5_mim.htm#independent_property_representation_mim">Independent_property_representation_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1038<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/group/sys/5_mim.htm#group_mim">Group_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1113<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema">product_definition_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category">product_related_product_category</A>);
+            <br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema">product_property_definition_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_definition">characterized_definition</A>);
+            <br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Activity_method_assignment_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1249</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Characteristic_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1654</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Classification_with_attributes_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1111</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Independent_property_representation_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1038</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Group_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1113</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>product_definition_schema</small></b></td>
+               <td width="127"><small>ISO 10303-41</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>product_property_definition_schema</small></b></td>
+               <td width="127"><small>ISO 10303-41</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="d_mim_expg.htm">D</a>, 
+            
+            Figures
+            <a href="../mimexpg1.htm">D.1</a>and <a href="../mimexpg2.htm">D.2</a>
+            for a graphical representation of this schema.            
+            </small></p>
+      <h2><a name="types">5.2.1 MIM type definitions</a></h2>
+      <p>
+         This subclause specifies the MIM types
+         for this application module. The MIM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="model_parameter_mim.mp_action_method_items">5.2.1.1 mp_action_method_items</a>
+         &nbsp;&nbsp;<a href="../../model_parameter/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>mp_action_method_items</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/activity_method_assignment/sys/5_mim.htm#activity_method_assignment_mim.action_method_items">action_method_items</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#model_parameter_mim.test_method_based_parameter_assignment">test_method_based_parameter_assignment</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            mp_action_method_items =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/activity_method_assignment/sys/5_mim.htm#activity_method_assignment_mim.action_method_items">action_method_items</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#model_parameter_mim.test_method_based_parameter_assignment">test_method_based_parameter_assignment</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="model_parameter_mim.mp_document_reference_item">5.2.1.2 mp_document_reference_item</a>
+         &nbsp;&nbsp;<a href="../../model_parameter/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>mp_document_reference_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/document_assignment/sys/5_mim.htm#document_assignment_mim.document_reference_item">document_reference_item</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#model_parameter_mim.model_parameter">model_parameter</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            mp_document_reference_item =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/document_assignment/sys/5_mim.htm#document_assignment_mim.document_reference_item">document_reference_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#model_parameter_mim.model_parameter">model_parameter</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="model_parameter_mim.mp_groupable_item">5.2.1.3 mp_groupable_item</a>
+         &nbsp;&nbsp;<a href="../../model_parameter/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>mp_groupable_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/group/sys/5_mim.htm#group_mim.groupable_item">groupable_item</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="../../../../data/resources/group_schema/group_schema.htm#group_schema.group_relationship">group_relationship</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            mp_groupable_item =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/group/sys/5_mim.htm#group_mim.groupable_item">groupable_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/resources/group_schema/group_schema.htm#group_schema.group_relationship">group_relationship</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">5.2.2 MIM entity definitions</a></h2>
+      <p>
+         This subclause specifies the MIM entities for this
+         module. The MIM entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="model_parameter_mim.category_model_parameter">5.2.2.1 category_model_parameter</a>
+         &nbsp;&nbsp;<a href="../../model_parameter/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>category_model_parameter</b> is a type of 
+         	<a href="../../../modules/model_parameter/sys/5_mim.htm#model_parameter_mim.model_parameter"><b>model_parameter</b></a>
+         	that implements the ARM concept of  
+         	<a href="../../../modules/model_parameter/sys/4_info_reqs.htm#model_parameter_arm.category_model_parameter"><b>Category_model_parameter</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY category_model_parameter<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#model_parameter_mim.model_parameter">model_parameter</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="model_parameter_mim.default_value_property_definition_representation">5.2.2.2 default_value_property_definition_representation</a>
+         &nbsp;&nbsp;<a href="../../model_parameter/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>default_value_property_definition_representation</b> is a type of 
+         	<a href="../../../resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation"><b>property_definition_representation</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY default_value_property_definition_representation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation">property_definition_representation</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="model_parameter_mim.model_parameter">5.2.2.3 model_parameter</a>
+         &nbsp;&nbsp;<a href="../../model_parameter/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         A <b>model_parameter</b> is a type of 
+         <a href="../../../resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item"><b>descriptive_representation_item</b></a>,
+         of 
+         <a href="../../../resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.group_assignment"><b>group_assignment</b></a>
+         and of
+         <a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property"><b>general_property</b></a>
+         that implements the ARM concept of  <a href="../../../modules/model_parameter/sys/4_info_reqs.htm#model_parameter_arm.model_parameter"><b>Model_parameter</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY model_parameter<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property">general_property</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="model_parameter_mim.model_parameter_with_unit">5.2.2.4 model_parameter_with_unit</a>
+         &nbsp;&nbsp;<a href="../../model_parameter/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>model_parameter_with_unit</b> is a type of
+      	<a href="../../../modules/model_parameter/sys/5_mim.htm#model_parameter_mim.model_parameter"><b>model_parameter</b></a>
+      	that implements the ARM concept of
+      	<a href="../../../modules/model_parameter/sys/4_info_reqs.htm#model_parameter_arm.model_parameter_with_unit"><b>Model_parameter_with_unit</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY model_parameter_with_unit<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#model_parameter_mim.model_parameter">model_parameter</A>);<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: NOT ('MODEL_PARAMETER_MIM.SCHEMA_BASED_MODEL_PARAMETER' IN TYPEOF(SELF));<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="model_parameter_mim.model_parameter_with_unit.wr:wr1">WR1:
+               </a></b>
+         	A <b>model_parameter_with_unit</b> shall not also be a 
+         	<a href="../../../modules/model_parameter/sys/5_mim.htm#model_parameter_mim.schema_based_model_parameter"><b>schema_based_model_parameter</b></a>.	
+         
+      </p>
+      <h2><a name="model_parameter_mim.parameter_assignment">5.2.2.5 parameter_assignment</a>
+         &nbsp;&nbsp;<a href="../../model_parameter/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      A <b>parameter_assignment</b> is a type of 
+      <a href="../../../resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation"><b>property_definition_representation</b></a> 
+      and of <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY parameter_assignment<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation">property_definition_representation</A>, <A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="model_parameter_mim.parameter_assignment_override">5.2.2.6 parameter_assignment_override</a>
+         &nbsp;&nbsp;<a href="../../model_parameter/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>parameter_assignment_override</b> is a type of 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation"><b>representation</b></a> 
+      	and of  
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship"><b>representation_relationship</b></a> 
+      	that implements the ARM concept of  <a href="../../../modules/model_parameter/sys/4_info_reqs.htm#model_parameter_arm.parameter_assignment_override"><b>Parameter_assignment_override</b></a>.  
+      	The attribute <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship.rep_1"><b>rep_1</b></a> 
+      	inherited from  
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship"><b>representation_relationship</b></a> 
+      	references the parameter assignment that is being overridden.  The attribute 
+      	<a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship.rep_2"><b>rep_2</b></a> 
+      	inherited from  <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship"><b>representation_relationship</b></a> 
+      	reference the replacing attribute.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY parameter_assignment_override<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>, <A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>.rep_1 : <A HREF="#model_parameter_mim.parameter_assignment">parameter_assignment</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship">representation_relationship</A>.rep_2 : <A HREF="#model_parameter_mim.parameter_assignment">parameter_assignment</A>;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: rep_1, rep_2;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SELF\representation_relationship.rep_1 &lt;&gt; SELF\representation_relationship.rep_2;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="model_parameter_mim.parameter_assignment_override.rep_1">rep_1:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/model_parameter/sys/5_mim.htm#model_parameter_mim.parameter_assignment"><b>parameter_assignment</b></a>
+         	for the <b>parameter_assignment_override</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="model_parameter_mim.parameter_assignment_override.rep_2">rep_2:
+               </a></b>
+         	specifies a role of the
+         	<a href="../../../modules/model_parameter/sys/5_mim.htm#model_parameter_mim.parameter_assignment"><b>parameter_assignment</b></a>
+         	for the <b>parameter_assignment_override</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="model_parameter_mim.parameter_assignment_override.ur:ur1">UR1:
+               </a></b>
+         The combination of <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship.rep_1"><b>rep_1</b></a> and <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship.rep_2"><b>rep_2</b></a> shall be unique within a population of <b>parameter_assignment_override</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="model_parameter_mim.parameter_assignment_override.wr:wr1">WR1:
+               </a></b>
+         The <b>parameter_assignment_override</b> shall only be a representation, or  <a href="../../../resources/representation_schema/representation_schema.htm#representation_schema.representation_relationship"><b>representation_relationship</b></a>, in addition to itself.
+         
+      </p>
+      <h2><a name="model_parameter_mim.product_specific_parameter_value_assignment">5.2.2.7 product_specific_parameter_value_assignment</a>
+         &nbsp;&nbsp;<a href="../../model_parameter/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      A <b>product_specific_parameter_value_assignment</b> is a type of
+       <a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object"><b>characterized_object</b></a> and of  <a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category"><b>product_related_product_category</b></a> 
+      that implements the ARM concept of
+       <a href="../../../modules/model_parameter/sys/4_info_reqs.htm#model_parameter_arm.product_specific_parameter_value_assignment"><b>Product_specific_parameter_value_assignment</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY product_specific_parameter_value_assignment<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>, <A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_related_product_category">product_related_product_category</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="model_parameter_mim.schema_based_model_parameter">5.2.2.8 schema_based_model_parameter</a>
+         &nbsp;&nbsp;<a href="../../model_parameter/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         A <b>schema_based_model_parameter</b> is a type of <a href="../../../modules/model_parameter/sys/5_mim.htm#model_parameter_mim.model_parameter"><b>model_parameter</b></a> that implements the ARM concept of  <a href="../../../modules/model_parameter/sys/4_info_reqs.htm#model_parameter_arm.schema_based_model_parameter"><b>Schema_based_model_parameter</b></a>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY schema_based_model_parameter<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#model_parameter_mim.model_parameter">model_parameter</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="model_parameter_mim.test_method_based_parameter_assignment">5.2.2.9 test_method_based_parameter_assignment</a>
+         &nbsp;&nbsp;<a href="../../model_parameter/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      A <b>test_method_based_parameter_assignment</b> is a type of <a href="../../../modules/model_parameter/sys/5_mim.htm#model_parameter_mim.parameter_assignment"><b>parameter_assignment</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY test_method_based_parameter_assignment<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#model_parameter_mim.parameter_assignment">parameter_assignment</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="model_parameter_mim.valid_range_property_definition_representation">5.2.2.10 valid_range_property_definition_representation</a>
+         &nbsp;&nbsp;<a href="../../model_parameter/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         	A <b>valid_range_property_definition_representation</b> is a type of 
+         	<a href="../../../resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation"><b>property_definition_representation</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY valid_range_property_definition_representation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_property_representation_schema/product_property_representation_schema.htm#product_property_representation_schema.property_definition_representation">property_definition_representation</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Model_parameter_mim<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

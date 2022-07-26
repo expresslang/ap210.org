@@ -1,0 +1,81 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Assembly_module_with_interconnect_component_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Assembly_module_with_interconnect_component_arm</h2><code><br><br><a name="assembly_module_with_interconnect_component_arm">SCHEMA <b>Assembly_module_with_interconnect_component_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/assembly_module_design/sys/e_exp_arm.htm#assembly_module_design_arm">Assembly_module_design_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1636<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/interconnect_module_usage_view/sys/e_exp_arm.htm#interconnect_module_usage_view_arm">Interconnect_module_usage_view_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1686<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/interface_component/sys/e_exp_arm.htm#interface_component_arm">Interface_component_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1691<br><br></code><code><br><A NAME="assembly_module_with_interconnect_component_arm.amwic_assembled_feature_select">TYPE </A><b>amwic_assembled_feature_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/assembly_module_design/sys/e_exp_arm.htm#assembly_module_design_arm.assembled_feature_select">assembled_feature_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#assembly_module_with_interconnect_component_arm.interconnect_component_interface_terminal">Interconnect_component_interface_terminal</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_module_with_interconnect_component_arm.interconnect_component_join_terminal">Interconnect_component_join_terminal</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_module_with_interconnect_component_arm.interconnect_module_component_surface_feature">Interconnect_module_component_surface_feature</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_module_with_interconnect_component_arm.interconnect_module_component_terminal">Interconnect_module_component_terminal</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="assembly_module_with_interconnect_component_arm.conductive_interconnect_terminal_or_interconnect_component_join_terminal">TYPE </A><b>conductive_interconnect_terminal_or_interconnect_component_join_terminal</b> =
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#assembly_module_with_interconnect_component_arm.interconnect_component_interface_terminal">Interconnect_component_interface_terminal</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#assembly_module_with_interconnect_component_arm.interconnect_component_join_terminal">Interconnect_component_join_terminal</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/assembly_module_design/sys/e_exp_arm.htm#assembly_module_design_arm.movable_packaged_component_join_terminal">Movable_packaged_component_join_terminal</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="assembly_module_with_interconnect_component_arm.design_view_terminal_component_shape_relationship">ENTITY <b>Design_view_terminal_component_shape_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_interconnect_component_arm.design_view_terminal_component_shape_relationship.associating_component_shape">associating_component_shape : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_interconnect_component_arm.design_view_terminal_component_shape_relationship.associated_usage">associated_usage : </A><A HREF="#assembly_module_with_interconnect_component_arm.conductive_interconnect_terminal_or_interconnect_component_join_terminal">conductive_interconnect_terminal_or_interconnect_component_join_terminal</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_interconnect_component_arm.design_view_terminal_component_shape_relationship.associated_terminal_shape_definition">associated_terminal_shape_definition : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>;<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_interconnect_component_arm.design_view_terminal_component_shape_relationship.associated_usage_placement">associated_usage_placement : </A><A HREF="../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.axis_placement">Axis_placement</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_with_interconnect_component_arm.interconnect_component_interface_terminal">ENTITY <b>Interconnect_component_interface_terminal</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/interface_component/sys/e_exp_arm.htm#interface_component_arm.physical_component_interface_terminal">Physical_component_interface_terminal</A>);<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_interconnect_component_arm.interconnect_component_interface_terminal.connection">connection : </A>
+         OPTIONAL 
+         <A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_arm.htm#physical_unit_design_view_arm.connection_zone_in_design_view">Connection_zone_in_design_view</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_interconnect_component_arm.interconnect_component_interface_terminal.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_with_interconnect_component_arm.interconnect_component_join_terminal">ENTITY <b>Interconnect_component_join_terminal</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_component_feature/sys/e_exp_arm.htm#physical_component_feature_arm.physical_component_terminal">Physical_component_terminal</A>, <A HREF="../../../data/modules/feature_and_connection_zone/sys/e_exp_arm.htm#feature_and_connection_zone_arm.shape_feature">Shape_feature</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/feature_and_connection_zone/sys/e_exp_arm.htm#feature_and_connection_zone_arm.shape_feature">Shape_feature</A>.<A NAME="assembly_module_with_interconnect_component_arm.interconnect_component_join_terminal.connection_area">connection_area : </A>
+         OPTIONAL 
+         SET[1:1] OF <A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_arm.htm#physical_unit_design_view_arm.connection_zone_in_design_view">Connection_zone_in_design_view</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/component_feature/sys/e_exp_arm.htm#component_feature_arm.component_feature">Component_feature</A>.<A NAME="assembly_module_with_interconnect_component_arm.interconnect_component_join_terminal.associated_component">associated_component : </A><A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_arm.htm#physical_unit_design_view_arm.physical_component">Physical_component</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_interconnect_component_arm.interconnect_component_join_terminal.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_interconnect_component_arm.interconnect_component_join_terminal.wr:wr2">WR2: NOT EXISTS(SELF\Component_feature.definition) OR
+            NOT( 'FUNCTIONAL_ASSIGNMENT_TO_PART_ARM.PART_TERMINAL' IN TYPEOF(SELF\Component_feature.definition));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_with_interconnect_component_arm.interconnect_module_component">ENTITY <b>Interconnect_module_component</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_arm.htm#physical_unit_design_view_arm.physical_component">Physical_component</A>, <A HREF="../../../data/modules/generic_product_occurrence/sys/e_exp_arm.htm#generic_product_occurrence_arm.single_instance">Single_instance</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/generic_product_occurrence/sys/e_exp_arm.htm#generic_product_occurrence_arm.definition_based_product_occurrence">Definition_based_product_occurrence</A>.<A NAME="assembly_module_with_interconnect_component_arm.interconnect_module_component.derived_from">derived_from : </A><A HREF="../../../data/modules/interconnect_module_usage_view/sys/e_exp_arm.htm#interconnect_module_usage_view_arm.layered_interconnect_module_usage_view">Layered_interconnect_module_usage_view</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_interconnect_component_arm.interconnect_module_component.wr:wr1">WR1: NOT EXISTS(SELF\Product_view_definition.name);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_with_interconnect_component_arm.interconnect_module_component_surface_feature">ENTITY <b>Interconnect_module_component_surface_feature</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_component_feature/sys/e_exp_arm.htm#physical_component_feature_arm.physical_component_feature">Physical_component_feature</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/component_feature/sys/e_exp_arm.htm#component_feature_arm.component_feature">Component_feature</A>.<A NAME="assembly_module_with_interconnect_component_arm.interconnect_module_component_surface_feature.definition">definition : </A><A HREF="../../../data/modules/interconnect_module_usage_view/sys/e_exp_arm.htm#interconnect_module_usage_view_arm.interconnect_module_surface_feature">Interconnect_module_surface_feature</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_interconnect_component_arm.interconnect_module_component_surface_feature.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="assembly_module_with_interconnect_component_arm.interconnect_module_component_terminal">ENTITY <b>Interconnect_module_component_terminal</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/physical_component_feature/sys/e_exp_arm.htm#physical_component_feature_arm.physical_component_terminal">Physical_component_terminal</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/component_feature/sys/e_exp_arm.htm#component_feature_arm.component_feature">Component_feature</A>.<A NAME="assembly_module_with_interconnect_component_arm.interconnect_module_component_terminal.definition">definition : </A><A HREF="../../../data/modules/interconnect_module_usage_view/sys/e_exp_arm.htm#interconnect_module_usage_view_arm.interconnect_module_terminal">Interconnect_module_terminal</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/component_feature/sys/e_exp_arm.htm#component_feature_arm.component_feature">Component_feature</A>.<A NAME="assembly_module_with_interconnect_component_arm.interconnect_module_component_terminal.associated_component">associated_component : </A><A HREF="#assembly_module_with_interconnect_component_arm.interconnect_module_component">Interconnect_module_component</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="assembly_module_with_interconnect_component_arm.interconnect_module_component_terminal.wr:wr1">WR1: NOT EXISTS(SELF\Shape_element.description);</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Assembly_module_with_interconnect_component_arm<br></code></body>
+</HTML>

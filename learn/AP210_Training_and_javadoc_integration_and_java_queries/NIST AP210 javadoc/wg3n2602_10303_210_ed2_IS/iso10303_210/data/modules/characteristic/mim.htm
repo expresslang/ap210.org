@@ -1,0 +1,83 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Characteristic_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Characteristic_mim</h2><code><br><br><a name="characteristic_mim">SCHEMA <b>Characteristic_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/basic_data_representation/sys/e_exp_mim.htm#basic_data_representation_mim">Basic_data_representation_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1773<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/document_assignment/sys/e_exp_mim.htm#document_assignment_mim">Document_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1122<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/extended_measure_representation/sys/e_exp_mim.htm#extended_measure_representation_mim">Extended_measure_representation_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1106<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/external_library/sys/e_exp_mim.htm#external_library_mim">External_library_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1778<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/value_with_unit_extension/sys/e_exp_mim.htm#value_with_unit_extension_mim">Value_with_unit_extension_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1753<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/external_properties/sys/e_exp_mim.htm#external_properties_mim">External_properties_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1129<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema">group_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>);
+         <br><br></code><code><br><A NAME="characteristic_mim.c_document_reference_item">TYPE </A><b>c_document_reference_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/document_assignment/sys/e_exp_mim.htm#document_assignment_mim.document_reference_item">document_reference_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="characteristic_mim.characteristic_data_column_header">ENTITY <b>characteristic_data_column_header</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property">general_property</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="characteristic_mim.characteristic_data_column_header_link">ENTITY <b>characteristic_data_column_header_link</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property_relationship">general_property_relationship</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="characteristic_mim.characteristic_data_table_header">ENTITY <b>characteristic_data_table_header</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property">general_property</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="characteristic_mim.characteristic_data_table_header_decomposition">ENTITY <b>characteristic_data_table_header_decomposition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.general_property_relationship">general_property_relationship</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="characteristic_mim.characteristic_type">ENTITY <b>characteristic_type</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="characteristic_mim.null_representation_item">ENTITY <b>null_representation_item</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation_item">representation_item</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="characteristic_mim.range_characteristic">ENTITY <b>range_characteristic</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/qualified_measure_schema/qualified_measure_schema.htm#qualified_measure_schema.descriptive_representation_item">descriptive_representation_item</A>, <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.representation">representation</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="characteristic_mim.range_characteristic.wr:wr1">WR1: NOT(SELF\representation.name IN ['tolerance', 'minimum tolerance', 'maximum tolerance', 
+            'nominal tolerance', 'plus minus tolerance', 'symmetrical tolerance', 'statistical tolerance']);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="characteristic_mim.row_representation_item">ENTITY <b>row_representation_item</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>.<A NAME="characteristic_mim.row_representation_item.item_element">item_element : </A><A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.list_representation_item">list_representation_item</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="characteristic_mim.table_representation_item">ENTITY <b>table_representation_item</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="characteristic_mim.table_representation_item.wr:wr1">WR1: SIZEOF(QUERY(itet &lt;* SELF\compound_representation_item.item_element |
+            NOT('CHARACTERISTIC_MIM.ROW_REPRESENTATION_ITEM' IN TYPEOF(itet))
+            )) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="characteristic_mim.c_compound_representation_item_subtypes">SUBTYPE_CONSTRAINT <b>c_compound_representation_item_subtypes</b></A>&nbsp;FOR <A HREF="../../../data/resources/representation_schema/representation_schema.htm#representation_schema.compound_representation_item">compound_representation_item</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#characteristic_mim.row_representation_item">row_representation_item</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#characteristic_mim.table_representation_item">table_representation_item</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Characteristic_mim<br></code></body>
+</HTML>

@@ -1,0 +1,575 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Document properties">
+      <META name="DC.Dates" content="2009-05-20 00:43:50">
+      <META name="DC.Published" content="">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Document properties">
+      <META name="DC.Subject" content="module, document property">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6036">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N1562">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6603">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6604">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6605">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-20 00:43:50">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.46">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.22">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.14">
+      <TITLE>ISO/TS 10303-1126:2009 Document properties</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Document properties</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1126:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Document properties</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Document_properties_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="document_properties_arm">
+            SCHEMA Document_properties_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm">Document_definition_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1123<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/file_identification/sys/4_info_reqs.htm#file_identification_arm">File_identification_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1127<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm">Foundation_representation_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1006<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm">Measure_representation_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1118<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/property_assignment/sys/4_info_reqs.htm#property_assignment_arm">Property_assignment_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1030<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Document_definition_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1123</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>File_identification_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1127</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Foundation_representation_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1006</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Measure_representation_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1118</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Property_assignment_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1030</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>and <a href="../armexpg2.htm">C.2</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="document_properties_arm.descriptive_or_numerical">4.2.1 descriptive_or_numerical</a>
+         &nbsp;&nbsp;<a href="../../document_properties/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>descriptive_or_numerical</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#document_properties_arm.descriptive_document_property">Descriptive_document_property</A></b>
+         and
+         <b><A HREF="#document_properties_arm.numerical_document_property">Numerical_document_property</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            descriptive_or_numerical =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#document_properties_arm.descriptive_document_property">Descriptive_document_property</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#document_properties_arm.numerical_document_property">Numerical_document_property</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="document_properties_arm.document_property_item">4.2.2 document_property_item</a>
+         &nbsp;&nbsp;<a href="../../document_properties/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>document_property_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/property_assignment/sys/4_info_reqs.htm#property_assignment_arm.property_assignment_select">property_assignment_select</A></b> type. 
+         
+         It adds the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.document_definition">Document_definition</A></b>
+         and
+         <b><A HREF="../../../../data/modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.file">File</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            That extension involves that a <a href="../../../modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.document_definition"><b>Document_definition</b></a> or a <a href="../../../modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.file"><b>File</b></a> can be assigned any kind of property.
+            The purpose of the entity data types defined in the present module is to specify the properties and their representation that
+            are specific to documents and to files.
+            </small></p>
+      
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            document_property_item =
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/property_assignment/sys/4_info_reqs.htm#property_assignment_arm.property_assignment_select">property_assignment_select</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.document_definition">Document_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.file">File</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="document_properties_arm.assigned_document_property">4.3.1 Assigned_document_property</a>
+         &nbsp;&nbsp;<a href="../../document_properties/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityassigned_document_property"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      An <b>Assigned_document_property</b> is a type of <a href="../../../modules/property_assignment/sys/4_info_reqs.htm#property_assignment_arm.assigned_property"><b>Assigned_property</b></a> that identifies a property assigned to a document definition or to a file.
+      
+      
+      <p>
+         When the <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.assigned_document_property"><b>Assigned_document_property</b></a> is applied to a 
+             <a href="../../../modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.digital_document_definition"><b>Digital_document_definition</b></a>
+             through the <a href="../../../modules/property_assignment/sys/4_info_reqs.htm#property_assignment_arm.assigned_property.described_element"><b>described_element</b></a> attribute, the
+             <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.assigned_document_property"><b>Assigned_document_property</b></a> applies to all instances of
+             <a href="../../../modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.digital_file"><b>Digital_file</b></a>
+             that are components of the 
+             <a href="../../../modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.digital_document_definition"><b>Digital_document_definition</b></a>.
+           
+      </p>
+      
+        
+      <p>
+         When the <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.assigned_document_property"><b>Assigned_document_property</b></a> is applied to a 
+             <a href="../../../modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.physical_document_definition"><b>Physical_document_definition</b></a>
+             through the <a href="../../../modules/property_assignment/sys/4_info_reqs.htm#property_assignment_arm.assigned_property.described_element"><b>described_element</b></a> attribute, the
+             <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.assigned_document_property"><b>Assigned_document_property</b></a> applies to all instances of
+             <a href="../../../modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.hardcopy"><b>Hardcopy</b></a>
+             that are components of the 
+             <a href="../../../modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.physical_document_definition"><b>Physical_document_definition</b></a>.
+           
+      </p>
+      
+        
+      <p>
+         When the <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.assigned_document_property"><b>Assigned_document_property</b></a> is applied to a 
+             <a href="../../../modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.file"><b>File</b></a>  
+             through the <a href="../../../modules/property_assignment/sys/4_info_reqs.htm#property_assignment_arm.assigned_property.described_element"><b>described_element</b></a> attribute, the
+             <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.assigned_document_property"><b>Assigned_document_property</b></a> applies to the individual 
+             <a href="../../../modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.file"><b>File</b></a>.
+           
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Assigned_document_property<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/property_assignment/sys/4_info_reqs.htm#property_assignment_arm.assigned_property">Assigned_property</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/property_assignment/sys/4_info_reqs.htm#property_assignment_arm.assigned_property">Assigned_property</A>.described_element : <A HREF="#document_properties_arm.document_property_item">document_property_item</A>;<br>DERIVE<br>
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/property_assignment/sys/4_info_reqs.htm#property_assignment_arm.assigned_property">Assigned_property</A>.name : STRING := 'document property';<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(['DOCUMENT_PROPERTIES_ARM.DOCUMENT_DEFINITION', 'DOCUMENT_PROPERTIES_ARM.FILE']*TYPEOF(SELF\Assigned_property.described_element))
+            = 1;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="document_properties_arm.assigned_document_property.described_element">described_element:
+               </a></b>
+         the element to which the property is assigned.
+         
+                 
+      </p>
+      <p class="expressdescription"><b><a name="document_properties_arm.assigned_document_property.name">name:
+               </a></b>
+         the words by which the <b>Assigned_document_property</b> is known.  The inherited name of the property is constrained to be 'document property'
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="document_properties_arm.assigned_document_property.wr:wr1">WR1:
+               </a></b>
+         The <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.assigned_document_property"><b>Assigned_document_property</b></a> shall be assigned to a <a href="../../../modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.document_definition"><b>Document_definition</b></a> or to a <a href="../../../modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.file"><b>File</b></a>.
+         
+      </p>
+      <h2><a name="document_properties_arm.descriptive_document_property">4.3.2 Descriptive_document_property</a>
+         &nbsp;&nbsp;<a href="../../document_properties/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydescriptive_document_property"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Descriptive_document_property</b> is a type of <a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.string_representation_item"><b>String_representation_item</b></a> that specifies a text based
+      characteristics of a  
+        <a href="../../../modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.document_definition"><b>Document_definition</b></a>
+      or of a
+          <a href="../../../modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.file"><b>File</b></a>.   
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Descriptive_document_property<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.string_representation_item">String_representation_item</A>);<br>INVERSE<br>
+            &nbsp;&nbsp;valued_characteristic : SET[1:1] OF <A HREF="#document_properties_arm.document_property_representation">Document_property_representation</A> FOR items;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="document_properties_arm.descriptive_document_property.valued_characteristic">valued_characteristic:
+               </a></b>
+         the <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.document_property_representation"><b>Document_property_representation</b></a> that contains the <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.descriptive_document_property"><b>Descriptive_document_property</b></a>.
+         
+      </p>
+      <h2><a name="document_properties_arm.document_property_representation">4.3.3 Document_property_representation</a>
+         &nbsp;&nbsp;<a href="../../document_properties/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitydocument_property_representation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Document_property_representation</b> is a type of <a href="../../../modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation"><b>Representation</b></a> that conveys the parameters of a particular aspect of an <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.assigned_document_property"><b>Assigned_document_property</b></a>.
+      
+      <p>Where applicable, the following values shall be used for the inherited name attribute of the <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.document_property_representation"><b>Document_property_representation</b></a>:
+      </p>
+      
+      <ul>
+         
+         <li>
+            'document content': a category of parameters that precise characteristics of the data contained in a document definition or
+            in a file;
+            
+         </li>
+         
+         <li>
+            'document creation': a category of parameters that detail the context of creation of a document definition or file;
+            
+         </li>
+         
+         <li>
+            'document format': a category of parameters that describe the format of a document definition or of a file;
+            
+         </li>
+         
+         <li>
+            'document size': a category of parameters that detail the size of a document definition or of a file.
+            
+         </li>
+         
+      </ul>
+      
+      <p>The following characteristics may be items of a <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.document_property_representation"><b>Document_property_representation</b></a> with name 'document content':
+      </p>
+      
+      <ul>
+         
+         <li>
+            A <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.descriptive_document_property"><b>Descriptive_document_property</b></a> with name 'detail level' specifying the level of detail that is provided;
+            
+            <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+                  An example value for the 'detail level' property is 'rough 3d shape' - a 3D shape model without edge rounds and fillets.</small></p>
+            
+         </li>      
+         
+         
+         <li>
+            A <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.descriptive_document_property"><b>Descriptive_document_property</b></a> with name 'geometry type' specifying the kind or kinds of geometry that is contained;
+            
+            <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+                  examples of geometry type are:
+                  '3D wireframe model', '2D shape', 'surface model', 'closed volume', 'solid model', 'solid and surface model', 
+                  '2D drawing'.</small></p>
+            
+         </li>
+         
+         <li>
+            A <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.descriptive_document_property"><b>Descriptive_document_property</b></a> with name 'real world scale' specifying a text representation of the scale used.
+            
+         </li>
+         
+      </ul>
+      
+      <p>The following characteristics shall be an item of a <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.document_property_representation"><b>Document_property_representation</b></a> with name 'document creation':
+      </p>
+      
+      <ul>
+         
+         <li>
+            A <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.descriptive_document_property"><b>Descriptive_document_property</b></a> with name 'creating system' specifying the name of the computer application  or the machine that was used to generate the
+            document definition or the file.
+            
+         </li>
+         
+      </ul>
+      
+      <p>The following characteristics may be items of a <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.document_property_representation"><b>Document_property_representation</b></a> with name 'document creation':
+      </p>
+      
+      <ul>
+         
+         <li>
+            A <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.descriptive_document_property"><b>Descriptive_document_property</b></a> with name 'operating system' specifying the name of the operating system that was used;
+            
+         </li>
+         
+         <li>
+            A <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.descriptive_document_property"><b>Descriptive_document_property</b></a> with name 'creating interface' specifying the name of the computer application used.
+            
+            <p class="example"><small><a name="example_3">EXAMPLE&nbsp;3</a>&nbsp;&nbsp;
+                  
+                  An example value for the 'creating interface' property is 'Postscript Printer Driver' indicating that a Postscript Printer
+                  Driver was used to print a hardcopy.
+                  </small></p>
+            
+         </li>
+         
+      </ul>
+      
+      
+      <p>The following characteristics may be items of a <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.document_property_representation"><b>Document_property_representation</b></a> with name 'document format':
+      </p>
+      
+      <ul>
+         
+         <li>
+            A <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.descriptive_document_property"><b>Descriptive_document_property</b></a> with name 'data format' specifying the name of the standard that defines the data structure used.
+            Where applicable the following values shall be used:
+            'DXF', 'IGES', 'ISO 10303-203', 'ISO 10303-214', 'TIFF CCITT GR4','VDAFS','VOXEL';
+            
+         </li>
+         
+         <li>
+            A <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.descriptive_document_property"><b>Descriptive_document_property</b></a> with name 'character code' specifying the character code used.
+            Where applicable the following values shall be used:
+            'US ASCII 7bit', 'ISO 646', 'ISO 8859-1', 'EBCDIC', 'binary';
+            
+         </li>
+         
+         <li>
+            A <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.descriptive_document_property"><b>Descriptive_document_property</b></a> with name 'size format standard' specifying the standard size used.
+            
+            <p class="example"><small><a name="example_4">EXAMPLE&nbsp;4</a>&nbsp;&nbsp;
+                  'A0' and 'A4' are examples of standard sizes of paper sheets.
+                  </small></p>
+            
+         </li>
+         
+      </ul>
+      
+      
+      <p>The following characteristics may be items of a <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.document_property_representation"><b>Document_property_representation</b></a> with name 'document size':
+      </p>
+      
+      <ul>
+         
+         <li>
+            A <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.numerical_document_property"><b>Numerical_document_property</b></a> with name 'page count' specifying the number of pages in a <a href="../../../modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.physical_document_definition"><b>Physical_document_definition</b></a> or a Hardcopy;
+            
+         </li>
+         
+         <li>
+            A <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.numerical_document_property"><b>Numerical_document_property</b></a> with name 'file size' specifying the size of a digital file or of a <a href="../../../modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.digital_document_definition"><b>Digital_document_definition</b></a>.
+            
+         </li>
+         
+      </ul>
+      
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Document_property_representation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation">Representation</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/foundation_representation/sys/4_info_reqs.htm#foundation_representation_arm.representation">Representation</A>.items : SET[1:?] OF <A HREF="#document_properties_arm.descriptive_or_numerical">descriptive_or_numerical</A>;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(QUERY( pr &lt;* USEDIN(SELF, 'PROPERTY_ASSIGNMENT_ARM.PROPERTY_DEFINITION_REPRESENTATION.REP') | 'DOCUMENT_PROPERTIES_ARM.ASSIGNED_PROPERTY'
+            IN TYPEOF (pr\Property_representation.property)))&gt; 0;<br> 
+            &nbsp;&nbsp;WR2: SELF\Representation.context_of_items.kind = 'document parameters';<br> 
+            &nbsp;&nbsp;WR3: SIZEOF(QUERY(it1 &lt;* SELF\Representation.items | SIZEOF(QUERY(it2 &lt;* SELF\Representation.items | it1.name = it2.name))
+            &gt; 1 ))= 0;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="document_properties_arm.document_property_representation.items">items:
+               </a></b>
+         the set of things of the <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.document_property_representation"><b>Document_property_representation</b></a> shall be of type <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.descriptive_document_property"><b>Descriptive_document_property</b></a> or <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.numerical_document_property"><b>Numerical_document_property</b></a>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="document_properties_arm.document_property_representation.wr:wr1">WR1:
+               </a></b>
+         There shall be at least one 
+         <a href="../../../modules/property_assignment/sys/4_info_reqs.htm#property_assignment_arm.property_representation"><b>Property_representation</b></a>  
+         that references
+         <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.document_property_representation"><b>Document_property_representation</b></a> 
+         as 
+         <a href="../../../modules/property_assignment/sys/4_info_reqs.htm#property_assignment_arm.property_representation"><b>Property_representation</b></a>.<a href="../../../modules/property_assignment/sys/4_info_reqs.htm#property_assignment_arm.property_definition_representation.rep"><b>rep</b></a>
+         and has 
+         <a href="../../../modules/property_assignment/sys/4_info_reqs.htm#property_assignment_arm.assigned_property"><b>Assigned_property</b></a> 
+         in role of 
+         <a href="../../../modules/property_assignment/sys/4_info_reqs.htm#property_assignment_arm.property_representation"><b>Property_representation</b></a>.<a href="../../../modules/property_assignment/sys/4_info_reqs.htm#property_assignment_arm.property_representation.property"><b>property</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="document_properties_arm.document_property_representation.wr:wr2">WR2:
+               </a></b>
+         the context of the <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.document_property_representation"><b>Document_property_representation</b></a> shall be of kind 'document parameters'.
+         
+      </p>
+      <p class="expressdescription"><b><a name="document_properties_arm.document_property_representation.wr:wr3">WR3:
+               </a></b>
+         there shall not be two items of the <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.document_property_representation"><b>Document_property_representation</b></a> with the same name.
+         
+      </p>
+      <h2><a name="document_properties_arm.numerical_document_property">4.3.4 Numerical_document_property</a>
+         &nbsp;&nbsp;<a href="../../document_properties/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitynumerical_document_property"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Numerical_document_property</b> is a type of <a href="../../../modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit"><b>Numerical_item_with_unit</b></a> that specifies a numerical characteristic of a  
+        <a href="../../../modules/document_definition/sys/4_info_reqs.htm#document_definition_arm.document_definition"><b>Document_definition</b></a>
+      or of a
+          <a href="../../../modules/file_identification/sys/4_info_reqs.htm#file_identification_arm.file"><b>File</b></a>.   
+        
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+                The size of a digital file expressed in Megabytes is an example of <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.numerical_document_property"><b>Numerical_document_property</b></a>.
+              </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Numerical_document_property<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>);<br>INVERSE<br>
+            &nbsp;&nbsp;valued_characteristic : SET[1:1] OF <A HREF="#document_properties_arm.document_property_representation">Document_property_representation</A> FOR items;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="document_properties_arm.numerical_document_property.valued_characteristic">valued_characteristic:
+               </a></b>
+         the <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.document_property_representation"><b>Document_property_representation</b></a> that contains the <a href="../../../modules/document_properties/sys/4_info_reqs.htm#document_properties_arm.numerical_document_property"><b>Numerical_document_property</b></a>.
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Document_properties_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

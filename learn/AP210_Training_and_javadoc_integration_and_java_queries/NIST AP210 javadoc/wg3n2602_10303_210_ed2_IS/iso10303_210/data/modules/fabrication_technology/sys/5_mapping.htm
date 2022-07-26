@@ -1,0 +1,2698 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Fabrication technology">
+      <META name="DC.Dates" content="2009-05-27 11:06:20">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Fabrication technology">
+      <META name="DC.Subject" content="module, fabrication, technology, parameters, templates, patterns, stackup model">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6371">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5646">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-27 11:06:20">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.145">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.102">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.68">
+      <TITLE>ISO/TS 10303-1670:2009 Fabrication technology</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Fabrication technology</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1670:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.4 ARM function definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#subtype_constraints">5.2.3 MIM subtype constraint definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <h2><a name="mapping">5.1 Mapping specification</a></h2><a name="mappings"></a><p>
+         In the following, "Application element" designates any entity data
+         type defined in Clause <a href="4_info_reqs.htm">4</a>, any of its 
+         explicit attributes and any subtype constraint. 
+         "MIM element" designates any entity data type defined in 
+         Clause <a href="5_mim.htm#mim_express">5.2</a> or imported with a USE FROM
+         statement, from another EXPRESS schema, any of its 
+         attributes and any subtype constraint defined in Clause <a href="5_mim.htm#mim_express">5.2</a> or imported with a USE FROM
+         statement.
+         
+      </p>
+      <p>
+         This clause contains the mapping specification that defines how each 
+         application element of this part of ISO 10303 (see Clause <a href="4_info_reqs.htm">4</a>) maps to one
+         or more MIM elements (see Clause <a href="5_mim.htm#mim_express">5.2</a>).
+         
+      </p>
+      <p>
+         The mapping for each application element is specified in a separate subclause below. 
+         The mapping specification of an attribute of an ARM entity is a subclause of the clause that contains the mapping specification
+         of this entity.
+         Each mapping specification subclause contains up to five elements.
+         
+      </p>
+      <p><b>Title:</b>
+         The clause title contains:
+      </p>
+      <ul>
+         <li>the name of the considered ARM entity or subtype constraint, or </li>
+         <li>the name of the considered ARM entity atribute when this attribute refers to a type that is not an entity data type or a SELECT
+            type that contains or may contain entity data types, or
+         </li>
+         <li>a composite expression, &lt;attribute name&gt; to &lt;referred type&gt;, when this attribute refers to a type that is not an entity data
+            type or a SELECT type that contains or may contain entity data types.
+         </li>
+      </ul>
+      <p><b>MIM element:</b> 
+         This section contains, depending on the considered application element:
+      </p>
+      <ul>
+         <li>the name of one or more MIM entity data types;</li>
+         <li>the name of a MIM entity attribute, presented with the syntax &lt;entity name&gt;.&lt;attribute name&gt;, when the considered ARM attribute
+            refers to a type that is not an entity data type or a SELECT type that contains or may contain entity data types;
+         </li>
+         <li>the term PATH, when the considered ARM entity attribute refers to an entity data type or to a SELECT type that contains or
+            may contain entity data types;
+         </li>
+         <li>the term IDENTICAL MAPPING, when both application objects
+            involved in an application assertion map to the same instance of a MIM entity data type;
+         </li>
+         <li>the syntax /SUPERTYPE(&lt;supertype name&gt;)/, when the considered ARM entity is mapped as its supertype;</li>
+         <li>one or more constructs /SUBTYPE(&lt;subtype name&gt;)/, when the mapping of the considered ARM entity is the union of the mapping
+            of its subtypes.
+         </li>
+      </ul>
+      <p>
+         When the mapping of an application element involves more than one MIM element, each of these MIM elements is 
+         presented on a separate line in the mapping specification, enclosed between parentheses or brackets. 
+         
+      </p>
+      <p><b>Source:</b> This section contains:
+      </p>
+      <ul>
+         <li>the ISO standard number and part number in which the
+            MIM element is defined, for those MIM elements that are defined in a common
+            resource document;
+         </li>
+         <li>the ISO standard number and
+            part number of this part of ISO 10303, for those MIM elements that are defined in the MIM schema of this part.
+         </li>
+      </ul>
+      <p>
+         		This section is omitted when the keywords PATH or IDENTICAL MAPPING are used in the MIM element section.
+         
+      </p>
+      <p><b>Rules:</b> 
+         This section contains the name of one or more global rules that apply to the
+         population of the MIM entity data types listed in the MIM element section or
+         in the reference path. When no rule applies, this section is omitted.
+         		
+      </p>
+      <p>A reference to a
+         global rule may be followed by a reference to the subclause in
+         which the rule is defined.
+         
+      </p>
+      <p><b>Constraint:</b> 
+         This section contains the name of one or more subtype constraints that apply to the
+         population of the MIM entity data types listed in the MIM element section or
+         in the reference path. When no subtype constraint applies, this section is omitted.
+         
+      </p>
+      <p>
+         A reference to a subtype constraint may be followed by a reference to the subclause in
+         which the subtype constraint is defined.
+         
+      </p>
+      <p><b>Reference path:</b> This section contains:
+      </p>
+      <ul>
+         <li>the reference path to its supertypes in the common resources, 
+            for each MIM element created within this part of ISO 10303; 
+            
+         </li>
+         <li>
+            the specification of the relationships between MIM elements, when the mapping of an application element requires to relate
+            instances of several
+            MIM entity data types. In such a case, each line in the reference path
+            documents the role of a MIM element relative to the referring MIM
+            element or to the next referred MIM element. 
+            		
+         </li>
+      </ul>
+      <p>For the expression of reference paths and of the
+         constraints between MIM elements, the following notational conventions
+         apply:
+         
+      </p>
+      <table cellspacing="6">
+         <tbody>
+            <tr valign="top">
+               <td valign="top">[]</td>
+               <td valign="top">
+                  enclosed section constrains multiple MIM elements or
+                  sections of the reference path are required to satisfy an
+                  information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">()</td>
+               <td valign="top">
+                  enclosed section constrains multiple MIM elements or
+                  sections of the reference path are identified as alternatives
+                  within the mapping to satisfy an information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">{}</td>
+               <td valign="top">
+                  enclosed section constrains the reference path to satisfy
+                  an information requirement;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;&gt;</td>
+               <td valign="top">
+                  enclosed section constrains at one or more required
+                  reference path;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">||</td>
+               <td valign="top">enclosed section constrains the supertype entity;</td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">-&gt;</td>
+               <td valign="top">
+                  the attribute, whose name precedes the -&gt; symbol, references the entity or select type whose name follows the -&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;-</td>
+               <td valign="top">
+                  the entity or select type, whose name precedes the &lt;- symbol, is referenced by the entity attribute whose name follows the
+                  &lt;- symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">[i]</td>
+               <td valign="top">
+                  the attribute, whose name precedes the [i] symbol, is an aggregate; any element of that aggregate is referred to;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">[n]</td>
+               <td valign="top">
+                  the attribute, whose name precedes the [n] symbol, is an ordered aggregate; member n of that aggregate is referred to;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">=&gt;</td>
+               <td valign="top">
+                  the entity, whose name precedes the =&gt; symbol, is a supertype of the entity whose name follows the =&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;=</td>
+               <td valign="top">
+                  the entity, whose name precedes the &lt;= symbol, is a subtype of the entity whose name follows the &lt;= symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">=</td>
+               <td valign="top">
+                  the string, select, or enumeration type is constrained to a choice or value;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">\</td>
+               <td valign="top">
+                  the reference path expression continues on the next line;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">*</td>
+               <td valign="top">
+                  one or more instances of the relationship entity data type may be assembled in a
+                  relationship tree structure. The path between the relationship entity and the related entities, is enclosed with braces;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">--</td>
+               <td valign="top">
+                  the text following is a comment or introduces a clause reference;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">*&gt;</td>
+               <td valign="top">
+                  the select or enumeration type, whose name precedes the *&gt; symbol, is
+                  extended into the select or enumeration type whose name follows the *&gt; symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top">&lt;*</td>
+               <td valign="top">
+                  the select or enumeration type, whose name precedes the &lt;* symbol, is an
+                  extension of the select or enumeration type whose name follows the &lt;* symbol;
+                  
+               </td>
+            </tr>
+            <tr valign="top">
+               <td valign="top" nowrap="t">!{}</td>
+               <td valign="top">
+                  section enclosed by {} indicates a negative constraint placed on the mapping.
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      The definition and use of mapping templates is not supported in the
+      present version of the application modules. However, use of predefined
+      templates /SUBTYPE/ and /SUPERTYPE/ is supported. 
+      
+      <h2><a name="aeentityclassification_assignment">5.1.1 </a><a href="../../classification_assignment/sys/4_info_reqs.htm#classification_assignment_arm.classification_assignment">Classification_assignment</a></h2>
+      <p>
+         This application object,  
+         <a href="../../classification_assignment/sys/4_info_reqs.htm#classification_assignment_arm.classification_assignment">Classification_assignment</a>, is defined in the module
+         <a href="../../classification_assignment/sys/4_info_reqs.htm#classification_assignment_arm.classification_assignment">classification_assignment</a>.
+         This mapping section extends the 
+         <a href="../../classification_assignment/sys/5_mapping.htm#aeentityclassification_assignment"> mapping of Classification_assignment</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentityclassification_assignmentaaattributeitemsassertion_tostratum_technology_occurrence_relationship"></a>5.1.1.1 <a href="../../classification_assignment/sys/4_info_reqs.htm#classification_assignment_arm.classification_assignment">Classification_assignment</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_relationship">Stratum_technology_occurrence_relationship</A>
+         
+         (as <a href="../../classification_assignment/sys/4_info_reqs.htm#classification_assignment_arm.classification_assignment.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_classification_assignment.items[i] -&gt; classification_item<br>classification_item *&gt; ft_classification_item<br>	       classification_item_extended = stratum_technology_occurrence_relationship
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityallocated_passage_minimum_annular_ring">5.1.2 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.allocated_passage_minimum_annular_ring">Allocated_passage_minimum_annular_ring</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>allocated_passage_minimum_annular_ring</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>allocated_passage_minimum_annular_ring &lt;=<br>				characterized_object<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityallocated_passage_minimum_annular_ringaaattributesupported_external_minimum_annular_ringassertion_tolength_data_element"></a>5.1.2.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.allocated_passage_minimum_annular_ring">Allocated_passage_minimum_annular_ring</a>
+         to <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.allocated_passage_minimum_annular_ring.supported_external_minimum_annular_ring">supported_external_minimum_annular_ring</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>allocated_passage_minimum_annular_ring &lt;=<br>				characterized_object<br>				characterized_definition = characterized_object<br>				characterized_definition &lt;-<br>				property_definition.definition<br>				{property_definition.name = 'supported external minimum annular ring'}<br>				property_definition &lt;-<br>				property_definition_representation.definition<br>				property_definition_representation<br>				property_definition_representation.used_representation -&gt;<br>				representation<br>				representation.items[i] -&gt;<br>				representation_item =&gt;<br>				measure_representation_item &lt;=<br>				measure_with_unit =&gt;<br>				length_measure_with_unit<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityallocated_passage_minimum_annular_ringaaattributesupported_internal_minimum_annular_ringassertion_tolength_data_element"></a>5.1.2.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.allocated_passage_minimum_annular_ring">Allocated_passage_minimum_annular_ring</a>
+         to <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.allocated_passage_minimum_annular_ring.supported_internal_minimum_annular_ring">supported_internal_minimum_annular_ring</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>allocated_passage_minimum_annular_ring &lt;=<br>				characterized_object<br>				characterized_definition = characterized_object<br>				characterized_definition &lt;-<br>				property_definition.definition<br>				{property_definition.name = 'supported internal minimum annular ring'}<br>				property_definition &lt;-<br>				property_definition_representation.definition<br>				property_definition_representation<br>				property_definition_representation.used_representation -&gt;<br>				representation<br>				representation.items[i] -&gt;<br>				representation_item =&gt;<br>				measure_representation_item &lt;=<br>				measure_with_unit =&gt;<br>				length_measure_with_unit<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityallocated_passage_minimum_annular_ringaaattributeunsupported_minimum_annular_ringassertion_tolength_data_element"></a>5.1.2.3 <a href="./4_info_reqs.htm#fabrication_technology_arm.allocated_passage_minimum_annular_ring">Allocated_passage_minimum_annular_ring</a>
+         to <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.allocated_passage_minimum_annular_ring.unsupported_minimum_annular_ring">unsupported_minimum_annular_ring</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>allocated_passage_minimum_annular_ring &lt;=<br>				characterized_object<br>				characterized_definition = characterized_object<br>				characterized_definition &lt;-<br>				property_definition.definition<br>				{property_definition.name = 'unsupported minimum annular ring'}<br>				property_definition &lt;-<br>				property_definition_representation.definition<br>				property_definition_representation<br>				property_definition_representation.used_representation -&gt;<br>				representation<br>				representation.items[i] -&gt;<br>				representation_item =&gt;<br>				measure_representation_item &lt;=<br>				measure_with_unit =&gt;<br>				length_measure_with_unit<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityallocated_passage_minimum_annular_ringaaattributeminimum_fabrication_allowanceassertion_tolength_data_element"></a>5.1.2.4 <a href="./4_info_reqs.htm#fabrication_technology_arm.allocated_passage_minimum_annular_ring">Allocated_passage_minimum_annular_ring</a>
+         to <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.allocated_passage_minimum_annular_ring.minimum_fabrication_allowance">minimum_fabrication_allowance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>allocated_passage_minimum_annular_ring &lt;=<br>				characterized_object<br>				characterized_definition = characterized_object<br>				characterized_definition &lt;-<br>				property_definition.definition<br>				{property_definition.name = 'minimum fabrication allowance'}<br>				property_definition &lt;-<br>				property_definition_representation.definition<br>				property_definition_representation<br>				property_definition_representation.used_representation -&gt;<br>				representation<br>				representation.items[i] -&gt;<br>				representation_item =&gt;<br>				measure_representation_item &lt;=<br>				measure_with_unit =&gt;<br>				length_measure_with_unit<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityallocated_passage_minimum_annular_ringaaattributeassociated_passage_allocationassertion_topassage_technology_allocation_to_stack_model"></a>5.1.2.5 <a href="./4_info_reqs.htm#fabrication_technology_arm.allocated_passage_minimum_annular_ring">Allocated_passage_minimum_annular_ring</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.passage_technology_allocation_to_stack_model">Passage_technology_allocation_to_stack_model</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.allocated_passage_minimum_annular_ring.associated_passage_allocation">associated_passage_allocation</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>allocated_passage_minimum_annular_ring &lt;=<br>				characterized_object<br>				characterized_definition = characterized_object<br>				characterized_definition &lt;-<br>				property_definition.definition<br>				property_definition &lt;-<br>				property_definition_relationship.related_property_definition<br>				property_definition_relationship<br>				{property_definition_relationship<br>				property_definition_relationship.name = 'associated passage allocation'}<br>				property_definition_relationship.relating_property_definition -&gt;<br>				property_definition =&gt;<br>				product_definition_shape =&gt;<br>				part_template_definition =&gt;<br>				stratum_sub_stack =&gt;<br>				passage_technology_allocation_to_stack_model<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityallocated_passage_minimum_annular_ringaaattributeassociated_stratum_technology_occurrenceassertion_tostratum_technology_occurrence"></a>5.1.2.6 <a href="./4_info_reqs.htm#fabrication_technology_arm.allocated_passage_minimum_annular_ring">Allocated_passage_minimum_annular_ring</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.allocated_passage_minimum_annular_ring.associated_stratum_technology_occurrence">associated_stratum_technology_occurrence</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>allocated_passage_minimum_annular_ring &lt;=<br>				characterized_object<br>				characterized_definition = characterized_object<br>				characterized_definition &lt;-<br>				property_definition.definition<br>				property_definition &lt;-<br>				property_definition_relationship.related_property_definition<br>				property_definition_relationship<br>				{property_definition_relationship<br>				property_definition_relationship.name = 'associated stratum technology occurrence'}<br>				property_definition_relationship.relating_property_definition -&gt;<br>				property_definition =&gt;<br>				stratum_technology_occurrence<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityassigned_property">5.1.3 </a><a href="../../property_assignment/sys/4_info_reqs.htm#property_assignment_arm.assigned_property">Assigned_property</a></h2>
+      <p>
+         This application object,  
+         <a href="../../property_assignment/sys/4_info_reqs.htm#property_assignment_arm.assigned_property">Assigned_property</a>, is defined in the module
+         <a href="../../property_assignment/sys/4_info_reqs.htm#property_assignment_arm.assigned_property">property_assignment</a>.
+         This mapping section extends the 
+         <a href="../../property_assignment/sys/5_mapping.htm#aeentityassigned_property"> mapping of Assigned_property</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentityassigned_propertyaaattributedescribed_elementassertion_tostratum_technology"></a>5.1.3.1 <a href="../../property_assignment/sys/4_info_reqs.htm#property_assignment_arm.assigned_property">Assigned_property</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</A>
+         
+         (as <a href="../../property_assignment/sys/4_info_reqs.htm#property_assignment_arm.assigned_property.described_element">described_element</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>property_definition<br>property_definition.definition -&gt;<br>characterized_definition<br>characterized_definition<br>				characterized_definition = characterized_object<br>				characterized_object =&gt;<br>				stratum_technology
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityassigned_propertyaaattributedescribed_elementassertion_topassage_technology"></a>5.1.3.2 <a href="../../property_assignment/sys/4_info_reqs.htm#property_assignment_arm.assigned_property">Assigned_property</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</A>
+         
+         (as <a href="../../property_assignment/sys/4_info_reqs.htm#property_assignment_arm.assigned_property.described_element">described_element</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>property_definition<br>property_definition.definition -&gt;<br>characterized_definition<br>characterized_definition<br>				characterized_definition = characterized_object<br>				characterized_object =&gt;<br>				passage_technology
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitycopy_stratum_technology_occurrence_relationship">5.1.4 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.copy_stratum_technology_occurrence_relationship">Copy_stratum_technology_occurrence_relationship</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>copy_stratum_technology_occurrence_relationship</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{copy_stratum_technology_occurrence_relationship &lt;=<br>            	derived_stratum_technology_occurrence_relationship &lt;=<br>	            stratum_technology_occurrence_relationship<br>    	        [stratum_technology_occurrence_relationship &lt;=<br>				property_definition_relationship]<br>				[stratum_technology_occurrence_relationship &lt;=<br>				property_definition]}<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_component_termination_passage_definition">5.1.5 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.default_component_termination_passage_definition">Default_component_termination_passage_definition</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>passage_technology</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1698</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>{characterized_object<br>characterized_object.description = 'default component termination passage definition'}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_component_termination_passage_definitionaaattributeallowed_component_terminal_extentassertion_tolength_tolerance_characteristic"></a>5.1.5.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.default_component_termination_passage_definition">Default_component_termination_passage_definition</a>
+         to <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.default_component_termination_passage_definition.allowed_component_terminal_extent">allowed_component_terminal_extent</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'allowed component terminal extent'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_component_termination_passage_definitionaaattributeas_finished_deposition_thicknessassertion_tolength_tolerance_characteristic"></a>5.1.5.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.default_component_termination_passage_definition">Default_component_termination_passage_definition</a>
+         to <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.default_component_termination_passage_definition.as_finished_deposition_thickness">as_finished_deposition_thickness</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'as finished deposition thickness'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_component_termination_passage_definitionaaattributeas_finished_passage_extentassertion_tovalue_limit"></a>5.1.5.3 <a href="./4_info_reqs.htm#fabrication_technology_arm.default_component_termination_passage_definition">Default_component_termination_passage_definition</a>
+         to <A HREF="../../../../data/modules/extended_measure_representation/sys/4_info_reqs.htm#extended_measure_representation_arm.value_limit">Value_limit</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.default_component_termination_passage_definition.as_finished_passage_extent">as_finished_passage_extent</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'as finished passage extent'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>[measure_representation_item]<br>[qualified_representation_item<br>{qualified_representation_item.qualifiers[1] -&gt;<br>value_qualifier = type_qualifier<br>type_qualifier<br>type_qualifier.name = 'maximum'}]<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_component_termination_passage_definitionaaattributeas_finished_passage_extentassertion_tovalue_range"></a>5.1.5.4 <a href="./4_info_reqs.htm#fabrication_technology_arm.default_component_termination_passage_definition">Default_component_termination_passage_definition</a>
+         to <A HREF="../../../../data/modules/extended_measure_representation/sys/4_info_reqs.htm#extended_measure_representation_arm.value_range">Value_range</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.default_component_termination_passage_definition.as_finished_passage_extent">as_finished_passage_extent</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'as finished passage extent'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>compound_representation_item =&gt;<br>value_range<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_component_termination_passage_definitionaaattributeas_finished_passage_extentassertion_tonumerical_item_with_unit"></a>5.1.5.5 <a href="./4_info_reqs.htm#fabrication_technology_arm.default_component_termination_passage_definition">Default_component_termination_passage_definition</a>
+         to <A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.default_component_termination_passage_definition.as_finished_passage_extent">as_finished_passage_extent</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'as finished passage extent'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>measure_representation_item<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_tapered_blind_via_definition">5.1.6 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.default_tapered_blind_via_definition">Default_tapered_blind_via_definition</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>passage_technology</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1698</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>{characterized_object<br>characterized_object.description = 'default tapered blind via definition'}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_tapered_blind_via_definitionaaattributeas_finished_interior_passage_extentassertion_tolength_tolerance_characteristic"></a>5.1.6.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.default_tapered_blind_via_definition">Default_tapered_blind_via_definition</a>
+         to <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.default_tapered_blind_via_definition.as_finished_interior_passage_extent">as_finished_interior_passage_extent</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'as finished interior passage extent'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_unsupported_passage_definition">5.1.7 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.default_unsupported_passage_definition">Default_unsupported_passage_definition</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>passage_technology</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1698</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>{characterized_object<br>characterized_object = 'default unsupported passage definition'}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_unsupported_passage_definitionaaattributeas_finished_passage_extentassertion_tovalue_limit"></a>5.1.7.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.default_unsupported_passage_definition">Default_unsupported_passage_definition</a>
+         to <A HREF="../../../../data/modules/extended_measure_representation/sys/4_info_reqs.htm#extended_measure_representation_arm.value_limit">Value_limit</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.default_unsupported_passage_definition.as_finished_passage_extent">as_finished_passage_extent</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'as finished passage extent'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>[measure_representation_item]<br>[qualified_representation_item<br>{qualified_representation_item.qualifiers[1] -&gt;<br>value_qualifier = type_qualifier<br>type_qualifier<br>type_qualifier.name = 'maximum'}]<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_unsupported_passage_definitionaaattributeas_finished_passage_extentassertion_tovalue_range"></a>5.1.7.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.default_unsupported_passage_definition">Default_unsupported_passage_definition</a>
+         to <A HREF="../../../../data/modules/extended_measure_representation/sys/4_info_reqs.htm#extended_measure_representation_arm.value_range">Value_range</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.default_unsupported_passage_definition.as_finished_passage_extent">as_finished_passage_extent</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'as finished passage extent'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>compound_representation_item =&gt;<br>value_range<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_unsupported_passage_definitionaaattributeas_finished_passage_extentassertion_tonumerical_item_with_unit"></a>5.1.7.3 <a href="./4_info_reqs.htm#fabrication_technology_arm.default_unsupported_passage_definition">Default_unsupported_passage_definition</a>
+         to <A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.default_unsupported_passage_definition.as_finished_passage_extent">as_finished_passage_extent</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'as finished passage extent'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>measure_representation_item<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_via_definition">5.1.8 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.default_via_definition">Default_via_definition</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>passage_technology</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1698</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>{characterized_object<br>(characterized_object.description = 'default via definition')<br>(characterized_object.description = 'default tapered blind via definition')}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_via_definitionaaattributeas_finished_passage_extentassertion_tovalue_limit"></a>5.1.8.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.default_via_definition">Default_via_definition</a>
+         to <A HREF="../../../../data/modules/extended_measure_representation/sys/4_info_reqs.htm#extended_measure_representation_arm.value_limit">Value_limit</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.default_via_definition.as_finished_passage_extent">as_finished_passage_extent</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'as finished passage extent'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>[measure_representation_item]<br>[qualified_representation_item<br>{qualified_representation_item.qualifiers[1] -&gt;<br>value_qualifier = type_qualifier<br>type_qualifier<br>type_qualifier.name = 'maximum'}]<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_via_definitionaaattributeas_finished_passage_extentassertion_tovalue_range"></a>5.1.8.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.default_via_definition">Default_via_definition</a>
+         to <A HREF="../../../../data/modules/extended_measure_representation/sys/4_info_reqs.htm#extended_measure_representation_arm.value_range">Value_range</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.default_via_definition.as_finished_passage_extent">as_finished_passage_extent</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'as finished passage extent'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>compound_representation_item =&gt;<br>value_range<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_via_definitionaaattributeas_finished_passage_extentassertion_tonumerical_item_with_unit"></a>5.1.8.3 <a href="./4_info_reqs.htm#fabrication_technology_arm.default_via_definition">Default_via_definition</a>
+         to <A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.default_via_definition.as_finished_passage_extent">as_finished_passage_extent</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'as finished passage extent'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>measure_representation_item<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydefault_via_definitionaaattributeas_finished_deposition_thicknessassertion_tolength_tolerance_characteristic"></a>5.1.8.4 <a href="./4_info_reqs.htm#fabrication_technology_arm.default_via_definition">Default_via_definition</a>
+         to <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.default_via_definition.as_finished_deposition_thickness">as_finished_deposition_thickness</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'as finished deposition thickness'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityderived_stratum_technology_occurrence_relationship">5.1.9 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.derived_stratum_technology_occurrence_relationship">Derived_stratum_technology_occurrence_relationship</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>derived_stratum_technology_occurrence_relationship</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{derived_stratum_technology_occurrence_relationship &lt;=<br>	            stratum_technology_occurrence_relationship<br>    	        [stratum_technology_occurrence_relationship &lt;=<br>				property_definition_relationship]<br>				[stratum_technology_occurrence_relationship &lt;=<br>				property_definition]}<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydesign_stack_model">5.1.10 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.design_stack_model">Design_stack_model</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>design_stack_model</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{design_stack_model &lt;=<br>stratum_stack_model &lt;=<br>part_template_definition &lt;=<br>product_definition}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydesign_stack_modelaaattributemodel_thicknessassertion_tolength_tolerance_characteristic"></a>5.1.10.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.design_stack_model">Design_stack_model</a>
+         to <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.design_stack_model.model_thickness">model_thickness</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>design_stack_model &lt;=<br>stratum_stack_model &lt;=<br>part_template_definition &lt;=<br>product_definition<br>characterized_product_definition = product_definition<br>characterized_product_definition<br>characterized_definition = characterized_product_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>{property_definition.name = 'model thickness'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityfootprint_library_stratum_technology">5.1.11 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.footprint_library_stratum_technology">Footprint_library_stratum_technology</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>footprint_library_stratum_technology</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>footprint_library_stratum_technology &lt;=<br>            	stratum_technology &lt;=<br>				characterized_object<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydesign_layer_technology">5.1.12 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.design_layer_technology">Design_layer_technology</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_technology</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology &lt;=<br>characterized_object<br>{characterized_object<br>characterized_object.description = 'design layer'}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydesign_layer_technologyaaattributedesign_layer_purpose"></a>5.1.12.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.design_layer_technology.design_layer_purpose">design_layer_purpose</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>property_definition.description</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-45</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>{property_definition.name = 'layer purpose'}<br>property_definition.description<br>(property_definition.description = 'power or ground')<br>(property_definition.description = 'other signal')<br>(property_definition.description = 'lands only')<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydocument_assignment">5.1.13 </a><a href="../../document_assignment/sys/4_info_reqs.htm#document_assignment_arm.document_assignment">Document_assignment</a></h2>
+      <p>
+         This application object,  
+         <a href="../../document_assignment/sys/4_info_reqs.htm#document_assignment_arm.document_assignment">Document_assignment</a>, is defined in the module
+         <a href="../../document_assignment/sys/4_info_reqs.htm#document_assignment_arm.document_assignment">document_assignment</a>.
+         This mapping section extends the 
+         <a href="../../document_assignment/sys/5_mapping.htm#aeentitydocument_assignment"> mapping of Document_assignment</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentitydocument_assignmentaaattributeis_assigned_toassertion_topassage_technology"></a>5.1.13.1 <a href="../../document_assignment/sys/4_info_reqs.htm#document_assignment_arm.document_assignment">Document_assignment</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</A>
+         
+         (as <a href="../../document_assignment/sys/4_info_reqs.htm#document_assignment_arm.document_assignment.is_assigned_to">is_assigned_to</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;
+               If the assignment is not a partial document assignment.
+             
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_document_reference<br>applied_document_reference.items[i] -&gt;<br>       document_reference_item<br>document_reference_item *&gt; ft_document_reference_item<br>						ft_document_reference_item = passage_technology
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;
+               If the assignment is a partial document assignment.
+             
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_document_usage_constraint_assignment<br>applied_document_usage_constraint_assignment.items[i] -&gt;<br>       document_reference_item<br>document_reference_item *&gt; ft_document_reference_item<br>						ft_document_reference_item = passage_technology
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydocument_assignmentaaattributeis_assigned_toassertion_tostratum_technology"></a>5.1.13.2 <a href="../../document_assignment/sys/4_info_reqs.htm#document_assignment_arm.document_assignment">Document_assignment</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</A>
+         
+         (as <a href="../../document_assignment/sys/4_info_reqs.htm#document_assignment_arm.document_assignment.is_assigned_to">is_assigned_to</a>)
+         
+      </h2>
+      <p></p>#1:&nbsp;&nbsp;&nbsp;
+               If the assignment is not a partial document assignment.
+             
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_document_reference<br>applied_document_reference.items[i] -&gt;<br>       document_reference_item<br>document_reference_item *&gt; ft_document_reference_item<br>						ft_document_reference_item = stratum_technology
+            </td>
+         </tr>
+      </table>
+      <p></p>#2:&nbsp;&nbsp;&nbsp;
+               If the assignment is a partial document assignment.
+             
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_document_usage_constraint_assignment<br>applied_document_usage_constraint_assignment.items[i] -&gt;<br>       document_reference_item<br>document_reference_item *&gt; ft_document_reference_item<br>						ft_document_reference_item = stratum_technology
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydocumentation_layer_technology">5.1.14 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.documentation_layer_technology">Documentation_layer_technology</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_technology</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology &lt;=<br>characterized_object<br>{characterized_object<br>characterized_object.description = 'documentation layer'}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitydocumentation_layer_technologyaaattributepre_defined_documentation_layer_purposeassertion_topredefined_documentation_layer_purpose"></a>5.1.14.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.documentation_layer_technology">Documentation_layer_technology</a>
+         to Predefined_documentation_layer_purpose
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.documentation_layer_technology.pre_defined_documentation_layer_purpose">pre_defined_documentation_layer_purpose</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>{property_definition.name = 'layer purpose'}<br>property_definition.description<br>(property_definition.description = 'soldermask')<br>(property_definition.description = 'solderpaste')<br>(property_definition.description = 'silkscreen')<br>(property_definition.description = 'generic layer')<br>(property_definition.description = 'glue')<br>(property_definition.description = 'gluemask')<br>(property_definition.description = 'pastemask')<br>(property_definition.description = 'finish coating')<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityequivalent_stackup_model_definition">5.1.15 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.equivalent_stackup_model_definition">Equivalent_stackup_model_definition</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>equivalent_stackup_model_definition</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>[equivalent_stackup_model_definition &lt;=<br>				product_definition]<br>				[equivalent_stackup_model_definition &lt;=<br>				product_definition_relationship]<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityequivalent_stackup_model_definitionaaattributeprimary_stackup_modelassertion_tostratum_stack_model"></a>5.1.15.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.equivalent_stackup_model_definition">Equivalent_stackup_model_definition</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_stack_model">Stratum_stack_model</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.equivalent_stackup_model_definition.primary_stackup_model">primary_stackup_model</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>product_definition_relationship.relating_product_definition</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-41</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>equivalent_stackup_model_definition &lt;=<br>			    	product_definition_relationship<br>					product_definition_relationship.relating_product_definition -&gt; <br>					product_definition =&gt;<br>					part_template_definition =&gt;					<br>					stratum_stack_model<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityequivalent_stackup_model_definitionaaattributeequivalent_stackup_modelassertion_tostratum_stack_model"></a>5.1.15.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.equivalent_stackup_model_definition">Equivalent_stackup_model_definition</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_stack_model">Stratum_stack_model</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.equivalent_stackup_model_definition.equivalent_stackup_model">equivalent_stackup_model</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>product_definition_relationship.relating_product_definition</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-41</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>equivalent_stackup_model_definition &lt;=<br>			    	product_definition_relationship<br>					product_definition_relationship.related_product_definition -&gt; <br>					product_definition =&gt;<br>					part_template_definition =&gt;					<br>					stratum_stack_model<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityequivalent_stackup_model_definitionaaattributeequivalent_sub_stacksassertion_toequivalent_sub_stack_definition"></a>5.1.15.3 <a href="./4_info_reqs.htm#fabrication_technology_arm.equivalent_stackup_model_definition">Equivalent_stackup_model_definition</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.equivalent_sub_stack_definition">Equivalent_sub_stack_definition</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.equivalent_stackup_model_definition.equivalent_sub_stacks">equivalent_sub_stacks</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>product_definition_relationship.relating_product_definition</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-41</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>equivalent_stackup_model_definition &lt;=<br>					product_definition &lt;-<br>					product_definition_relationship.related_product_definition<br>					{product_definition_relationship<br>					product_definition_relationship.name = 'equivalent sub stack'}<br>					product_definition_relationship<br>					product_definition_relationship.relating_product_definition -&gt;<br>					product_definition =&gt;<br>					equivalent_sub_stack_definition<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityequivalent_sub_stack_definition">5.1.16 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.equivalent_sub_stack_definition">Equivalent_sub_stack_definition</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>equivalent_sub_stack_definition</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>equivalent_sub_stack_definition &lt;=<br>				product_definition<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityequivalent_sub_stack_definitionaaattributeequivalent_stackassertion_tolocal_linear_stack"></a>5.1.16.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.equivalent_sub_stack_definition">Equivalent_sub_stack_definition</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.local_linear_stack">Local_linear_stack</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.equivalent_sub_stack_definition.equivalent_stack">equivalent_stack</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>product_definition_relationship.relating_product_definition</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-41</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>equivalent_sub_stack_definition &lt;=<br>					product_definition &lt;-<br>					product_definition_relationship.related_product_definition<br>					{product_definition_relationship<br>					product_definition_relationship.name = 'equivalent stack'}<br>					product_definition_relationship<br>					product_definition_relationship.relating_product_definition -&gt;<br>					product_definition =&gt;<br>					part_template_definition =&gt;<br>					stratum_sub_stack =&gt;<br>					local_linear_stack<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityequivalent_sub_stack_definitionaaattributeprimary_stoassertion_tostratum_technology_occurrence"></a>5.1.16.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.equivalent_sub_stack_definition">Equivalent_sub_stack_definition</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.equivalent_sub_stack_definition.primary_sto">primary_sto</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>product_definition_relationship.relating_product_definition</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-41</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>equivalent_sub_stack_definition &lt;=<br>					product_definition<br>					characterized_product_definition = product_definition<br>					characterized_product_definition<br>					characterized_definition = characterized_product_definition<br>					characterized_definition &lt;-<br>					property_definition.definition					<br>					property_definition &lt;-<br>					property_definition_relationship.related_property_definition<br>					{property_definition_relationship<br>					property_definition_relationship.name = 'primary sto'}<br>					property_definition_relationship.relating_property_definition -&gt;<br>					property_definition =&gt;<br>					stratum_technology_occurrence<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityequivalent_sub_stack_definitionaaattributeprimary_sto_linkassertion_tostratum_technology_occurrence_link"></a>5.1.16.3 <a href="./4_info_reqs.htm#fabrication_technology_arm.equivalent_sub_stack_definition">Equivalent_sub_stack_definition</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_link">Stratum_technology_occurrence_link</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.equivalent_sub_stack_definition.primary_sto_link">primary_sto_link</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>product_definition_relationship.relating_product_definition</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-41</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>equivalent_sub_stack_definition &lt;=<br>					product_definition<br>					characterized_product_definition = product_definition<br>					characterized_product_definition<br>					characterized_definition = characterized_product_definition<br>					characterized_definition &lt;-<br>					property_definition.definition					<br>					property_definition &lt;-<br>					property_definition_relationship.related_property_definition<br>					{property_definition_relationship<br>					property_definition_relationship.name = 'primary sto link'}<br>					property_definition_relationship.relating_property_definition -&gt;<br>					property_definition =&gt;<br>					stratum_technology_occurrence_relationship =&gt;<br>					stratum_technology_occurrence_link<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityexternal_source_identification">5.1.17 </a><a href="../../external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_source_identification">External_source_identification</a></h2>
+      <p>
+         This application object,  
+         <a href="../../external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_source_identification">External_source_identification</a>, is defined in the module
+         <a href="../../external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_source_identification">external_item_identification_assignment</a>.
+         This mapping section extends the 
+         <a href="../../external_item_identification_assignment/sys/5_mapping.htm#aeentityexternal_source_identification"> mapping of External_source_identification</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentityexternal_source_identificationaaattributeitemassertion_todocumentation_layer_technology"></a>5.1.17.1 <a href="../../external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_source_identification">External_source_identification</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.documentation_layer_technology">Documentation_layer_technology</A>
+         
+         (as <a href="../../external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_source_identification.item">item</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_external_identification_assignment.items[i]-&gt; external_identification_item<br>external_identification_item *&gt; ft_external_identification_item<br>				ft_external_identification_item = stratum_technology <br>				{stratum_technology &lt;=<br>				characterized_object<br>				{characterized_object<br>				characterized_object.description = 'documentation layer'}}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityexternal_source_identificationaaattributeitemassertion_todesign_layer_technology"></a>5.1.17.2 <a href="../../external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_source_identification">External_source_identification</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.design_layer_technology">Design_layer_technology</A>
+         
+         (as <a href="../../external_item_identification_assignment/sys/4_info_reqs.htm#external_item_identification_assignment_arm.external_source_identification.item">item</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>applied_external_identification_assignment.items[i]-&gt; external_identification_item<br>external_identification_item *&gt; ft_external_identification_item<br>				ft_external_identification_item = stratum_technology <br>				{stratum_technology &lt;=<br>				characterized_object<br>				{characterized_object<br>				characterized_object.description = 'design layer'}}
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityimpedance_measurement_setup_requirement">5.1.18 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_measurement_setup_requirement">Impedance_measurement_setup_requirement</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>impedance_measurement_setup_requirement</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>impedance_measurement_setup_requirement &lt;=<br>predefined_requirement_view_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityimpedance_measurement_setup_requirementaaattributecharacterized_stackupassertion_tostratum_sub_stack"></a>5.1.18.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_measurement_setup_requirement">Impedance_measurement_setup_requirement</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_sub_stack">Stratum_sub_stack</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_measurement_setup_requirement.characterized_stackup">characterized_stackup</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>impedance_measurement_setup_requirement &lt;=<br>predefined_requirement_view_definition &lt;=<br>product_definition &lt;-<br>product_definition_relationship.related_product_definition<br>{product_definition_relationship<br>product_definition_relationship.name = 'test bench'}<br>product_definition_relationship.relating_product_definition -&gt;<br>product_definition =&gt;<br>part_template_definition =&gt;<br>stratum_sub_stack<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityimpedance_measurement_setup_requirementaaattributemeasurement_stratum_1assertion_tostratum_technology_occurrence"></a>5.1.18.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_measurement_setup_requirement">Impedance_measurement_setup_requirement</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_measurement_setup_requirement.measurement_stratum_1">measurement_stratum_1</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>impedance_measurement_setup_requirement &lt;=<br>predefined_requirement_view_definition &lt;=<br>product_definition<br>characterized_product_definition = product_definition<br>characterized_product_definition<br>characterized_definition = characterized_product_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>{property_definition_relationship<br>property_definition_relationship.name = 'measurement stratum 1'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>stratum_technology_occurrence            <br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityimpedance_measurement_setup_requirementaaattributemeasurement_stratum_2assertion_tostratum_technology_occurrence"></a>5.1.18.3 <a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_measurement_setup_requirement">Impedance_measurement_setup_requirement</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_measurement_setup_requirement.measurement_stratum_2">measurement_stratum_2</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>impedance_measurement_setup_requirement &lt;=<br>predefined_requirement_view_definition &lt;=<br>product_definition<br>characterized_product_definition = product_definition<br>characterized_product_definition<br>characterized_definition = characterized_product_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>{property_definition_relationship<br>property_definition_relationship.name = 'measurement stratum 2'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>stratum_technology_occurrence            <br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityimpedance_measurement_setup_requirementaaattributereference_stratumassertion_tostratum_technology_occurrence"></a>5.1.18.4 <a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_measurement_setup_requirement">Impedance_measurement_setup_requirement</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_measurement_setup_requirement.reference_stratum">reference_stratum</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>impedance_measurement_setup_requirement &lt;=<br>predefined_requirement_view_definition &lt;=<br>product_definition<br>characterized_product_definition = product_definition<br>characterized_product_definition<br>characterized_definition = characterized_product_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>{property_definition_relationship<br>property_definition_relationship.name = 'reference stratum'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>stratum_technology_occurrence            <br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityimpedance_requirement">5.1.19 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_requirement">Impedance_requirement</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>impedance_requirement</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1716</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>impedance_requirement &lt;=<br>predefined_requirement_view_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityimpedance_requirementaaattributefrequency_rangeassertion_tovalue_range"></a>5.1.19.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_requirement">Impedance_requirement</a>
+         to <A HREF="../../../../data/modules/extended_measure_representation/sys/4_info_reqs.htm#extended_measure_representation_arm.value_range">Value_range</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_requirement.frequency_range">frequency_range</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>impedance_requirement &lt;=<br>predefined_requirement_view_definition &lt;=<br>product_definition			<br>characterized_product_definition = product_definition<br>characterized_product_definition<br>characterized_definition = characterized_product_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'frequency range'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>compound_representation_item =&gt;<br>value_range<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityimpedance_requirementaaattributetest_benchassertion_toimpedance_measurement_setup_requirement"></a>5.1.19.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_requirement">Impedance_requirement</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.impedance_measurement_setup_requirement">Impedance_measurement_setup_requirement</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_requirement.test_bench">test_bench</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>impedance_requirement &lt;=<br>predefined_requirement_view_definition &lt;=<br>product_definition &lt;-<br>product_definition_relationship.related_product_definition<br>{product_definition_relationship<br>product_definition_relationship.name = 'test bench'}<br>product_definition_relationship.relating_product_definition -&gt;<br>product_definition =&gt;<br>predefined_requirement_view_definition =&gt;<br>impedance_measurement_setup_requirement<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityimpedance_requirementaaattributetest_methodassertion_totest_specification"></a>5.1.19.3 <a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_requirement">Impedance_requirement</a>
+         to <A HREF="../../../../data/modules/specification_document/sys/4_info_reqs.htm#specification_document_arm.test_specification">Test_specification</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_requirement.test_method">test_method</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>impedance_requirement &lt;=<br>predefined_requirement_view_definition &lt;=<br>product_definition &lt;-<br>product_definition_relationship.related_product_definition<br>{product_definition_relationship<br>product_definition_relationship.name = 'test method'}<br>product_definition_relationship.relating_product_definition -&gt;<br>product_definition =&gt;<br>specification_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityimpedance_requirementaaattributeimpedance_valueassertion_totolerance_characteristic"></a>5.1.19.4 <a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_requirement">Impedance_requirement</a>
+         to <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.tolerance_characteristic">Tolerance_characteristic</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.impedance_requirement.impedance_value">impedance_value</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>impedance_requirement &lt;=<br>predefined_requirement_view_definition &lt;=<br>product_definition			<br>characterized_product_definition = product_definition<br>characterized_product_definition<br>characterized_definition = characterized_product_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'impedance value'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation.used_representation -&gt;<br>representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityinverse_copy_stratum_technology_occurrence_relationship">5.1.20 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.inverse_copy_stratum_technology_occurrence_relationship">Inverse_copy_stratum_technology_occurrence_relationship</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>inverse_copy_stratum_technology_occurrence_relationship</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{inverse_copy_stratum_technology_occurrence_relationship &lt;=<br>            	derived_stratum_technology_occurrence_relationship &lt;=<br>	            stratum_technology_occurrence_relationship<br>    	        [stratum_technology_occurrence_relationship &lt;=<br>				property_definition_relationship]<br>				[stratum_technology_occurrence_relationship &lt;=<br>				property_definition]}<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocal_linear_stack">5.1.21 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.local_linear_stack">Local_linear_stack</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>local_linear_stack</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>local_linear_stack &lt;=<br>stratum_sub_stack &lt;=<br>part_template_definition &lt;=<br>product_definition_shape &lt;=<br>property_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitylocal_linear_stackaaattributestratum_technology_sequenceassertion_tostratum_technology_occurrence_link"></a>5.1.21.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.local_linear_stack">Local_linear_stack</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_link">Stratum_technology_occurrence_link</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.local_linear_stack.stratum_technology_sequence">stratum_technology_sequence</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>local_linear_stack &lt;=<br>stratum_sub_stack &lt;=                <br>part_template_definition &lt;=<br>product_definition_shape &lt;=<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>{property_definition_relationship<br>property_definition_relationship.name = 'stratum technology sequence'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>stratum_technology_occurrence_relationship =&gt;<br>stratum_technology_occurrence_link<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitymaterial_identification">5.1.22 </a><a href="../../generic_material_aspects/sys/4_info_reqs.htm#generic_material_aspects_arm.material_identification">Material_identification</a></h2>
+      <p>
+         This application object,  
+         <a href="../../generic_material_aspects/sys/4_info_reqs.htm#generic_material_aspects_arm.material_identification">Material_identification</a>, is defined in the module
+         <a href="../../generic_material_aspects/sys/4_info_reqs.htm#generic_material_aspects_arm.material_identification">generic_material_aspects</a>.
+         This mapping section extends the 
+         <a href="../../generic_material_aspects/sys/5_mapping.htm#aeentitymaterial_identification"> mapping of Material_identification</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentitymaterial_identificationaaattributeitemsassertion_tostratum_technology"></a>5.1.22.1 <a href="../../generic_material_aspects/sys/4_info_reqs.htm#generic_material_aspects_arm.material_identification">Material_identification</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</A>
+         
+         (as <a href="../../generic_material_aspects/sys/4_info_reqs.htm#generic_material_aspects_arm.material_identification.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>material_designation.definitions[i] -&gt; characterized_definition<br>characterized_definition<br>				characterized_definition = characterized_object<br>				characterized_object =&gt;<br>				stratum_technology
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitymaterial_identificationaaattributeitemsassertion_topassage_technology"></a>5.1.22.2 <a href="../../generic_material_aspects/sys/4_info_reqs.htm#generic_material_aspects_arm.material_identification">Material_identification</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</A>
+         
+         (as <a href="../../generic_material_aspects/sys/4_info_reqs.htm#generic_material_aspects_arm.material_identification.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>material_designation.definitions[i] -&gt; characterized_definition<br>characterized_definition<br>				characterized_definition = characterized_object<br>				characterized_object =&gt;<br>				passage_technology
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_deposition_material_identification">5.1.23 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.passage_deposition_material_identification">Passage_deposition_material_identification</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>passage_deposition_material_identification</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_deposition_material_identification &lt;=<br>			material_designation<br>		
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_deposition_material_identificationaaattributeitemsassertion_topassage_technology"></a>5.1.23.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_deposition_material_identification">Passage_deposition_material_identification</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_deposition_material_identification.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_deposition_material_identification &lt;=<br>				material_designation			<br>				material_designation.definitions[i] -&gt; characterized_definition<br>				characterized_definition = characterized_object<br>				characterized_object =&gt;<br>				passage_technology<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_filling_material_identification">5.1.24 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.passage_filling_material_identification">Passage_filling_material_identification</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>passage_filling_material_identification</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_filling_material_identification &lt;=<br>			material_designation<br>		
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_filling_material_identificationaaattributeitemsassertion_topassage_technology"></a>5.1.24.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_filling_material_identification">Passage_filling_material_identification</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_filling_material_identification.items">items</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_filling_material_identification &lt;=<br>				material_designation			<br>				passage_filling_material_identification<br>				material_designation.definitions[i] -&gt; characterized_definition<br>				characterized_definition = characterized_object<br>				characterized_object =&gt;<br>				passage_technology<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technology">5.1.25 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>passage_technology</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technologyaaattributeplated_passage"></a>5.1.25.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology.plated_passage">plated_passage</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>{property_definition.name = 'plated passage'}<br>{(property_definition.description = 'true')<br>(property_definition.description = 'false')}<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technologyaaattributeas_finished_passage_extentassertion_tovalue_limit"></a>5.1.25.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</a>
+         to <A HREF="../../../../data/modules/extended_measure_representation/sys/4_info_reqs.htm#extended_measure_representation_arm.value_limit">Value_limit</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology.as_finished_passage_extent">as_finished_passage_extent</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'as finished passage extent'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>[measure_representation_item]<br>[qualified_representation_item<br>{qualified_representation_item.qualifiers[1] -&gt;<br>value_qualifier = type_qualifier<br>type_qualifier<br>type_qualifier.name = 'maximum'}]<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technologyaaattributeas_finished_passage_extentassertion_tovalue_range"></a>5.1.25.3 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</a>
+         to <A HREF="../../../../data/modules/extended_measure_representation/sys/4_info_reqs.htm#extended_measure_representation_arm.value_range">Value_range</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology.as_finished_passage_extent">as_finished_passage_extent</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'as finished passage extent'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>compound_representation_item =&gt;<br>value_range<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technologyaaattributeas_finished_passage_extentassertion_tonumerical_item_with_unit"></a>5.1.25.4 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</a>
+         to <A HREF="../../../../data/modules/measure_representation/sys/4_info_reqs.htm#measure_representation_arm.numerical_item_with_unit">Numerical_item_with_unit</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology.as_finished_passage_extent">as_finished_passage_extent</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'as finished passage extent'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>measure_representation_item<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technologyaaattributeas_finished_deposition_thicknessassertion_tolength_tolerance_characteristic"></a>5.1.25.5 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</a>
+         to <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology.as_finished_deposition_thickness">as_finished_deposition_thickness</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'as finished deposition thickness'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technologyaaattributemaximum_aspect_ratio"></a>5.1.25.6 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology.maximum_aspect_ratio">maximum_aspect_ratio</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'maximum aspect ratio'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt; <br>representation_item =&gt; <br>measure_representation_item &lt;= <br>measure_with_unit =&gt; <br>ratio_measure_with_unit &lt;= <br>measure_with_unit<br>measure_with_unit.value_component -&gt; <br>measure_value <br>measure_value = positive_ratio_measure <br>positive_ratio_measure<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technologyaaattributeminimum_finished_sizeassertion_tolength_data_element"></a>5.1.25.7 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</a>
+         to <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology.minimum_finished_size">minimum_finished_size</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'minimum finished size'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt; <br>representation_item =&gt; <br>measure_representation_item &lt;= <br>measure_with_unit =&gt; <br>length_measure_with_unit<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technologyaaattributepassage_terminus_condition"></a>5.1.25.8 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology.passage_terminus_condition">passage_terminus_condition</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>{property_definition.name = 'passage terminus condition'}<br>{(property_definition.description = 'bilateral complete removal')<br>(property_definition.description = 'bilateral bond')<br>(property_definition.description = 'unilateral bond')}<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technologyaaattributeminimum_fabrication_allowanceassertion_tolength_data_element"></a>5.1.25.9 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</a>
+         to <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology.minimum_fabrication_allowance">minimum_fabrication_allowance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'minimum fabrication allowance'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt; <br>representation_item =&gt; <br>measure_representation_item &lt;= <br>measure_with_unit =&gt; <br>length_measure_with_unit<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technologyaaattributeminimum_finished_feature_sizeassertion_tolength_data_element"></a>5.1.25.10 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</a>
+         to <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology.minimum_finished_feature_size">minimum_finished_feature_size</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'minimum finished feature size'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt; <br>representation_item =&gt; <br>measure_representation_item &lt;= <br>measure_with_unit =&gt; <br>length_measure_with_unit<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technologyaaattributesupported_external_minimum_annular_ringassertion_tolength_data_element"></a>5.1.25.11 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</a>
+         to <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology.supported_external_minimum_annular_ring">supported_external_minimum_annular_ring</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'supported external minimum annular ring'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt; <br>representation_item =&gt; <br>measure_representation_item &lt;= <br>measure_with_unit =&gt; <br>length_measure_with_unit<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technologyaaattributesupported_internal_minimum_annular_ringassertion_tolength_data_element"></a>5.1.25.12 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</a>
+         to <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology.supported_internal_minimum_annular_ring">supported_internal_minimum_annular_ring</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'supported internal minimum annular ring'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt; <br>representation_item =&gt; <br>measure_representation_item &lt;= <br>measure_with_unit =&gt; <br>length_measure_with_unit<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technologyaaattributeunsupported_minimum_annular_ringassertion_tolength_data_element"></a>5.1.25.13 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</a>
+         to <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology.unsupported_minimum_annular_ring">unsupported_minimum_annular_ring</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'unsupported minimum annular ring'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt; <br>representation_item =&gt; <br>measure_representation_item &lt;= <br>measure_with_unit =&gt; <br>length_measure_with_unit<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technology_allocation_to_stack_model">5.1.26 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology_allocation_to_stack_model">Passage_technology_allocation_to_stack_model</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>passage_technology_allocation_to_stack_model</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology_allocation_to_stack_model &lt;=<br>stratum_sub_stack &lt;=<br>part_template_definition &lt;=<br>product_definition_shape &lt;=<br>property_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technology_allocation_to_stack_modelaaattributeallocated_technologyassertion_topassage_technology"></a>5.1.26.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology_allocation_to_stack_model">Passage_technology_allocation_to_stack_model</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology_allocation_to_stack_model.allocated_technology">allocated_technology</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology_allocation_to_stack_model &lt;=<br>stratum_sub_stack &lt;=<br>part_template_definition &lt;=<br>product_definition_shape &lt;=<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>{property_definition_relationship<br>property_definition_relationship.name = 'allocated technology'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>passage_technology<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technology_allocation_to_stack_modelaaattributesingle_stratum_passage_locationassertion_tostratum_technology_occurrence"></a>5.1.26.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology_allocation_to_stack_model">Passage_technology_allocation_to_stack_model</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology_allocation_to_stack_model.single_stratum_passage_location">single_stratum_passage_location</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology_allocation_to_stack_model &lt;=<br>stratum_sub_stack &lt;=<br>part_template_definition &lt;=<br>product_definition_shape &lt;=<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>{property_definition_relationship<br>property_definition_relationship.name = 'single stratum passage location'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>stratum_technology_occurrence<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitypassage_technology_allocation_to_stack_modelaaattributetarget_stratumassertion_tostratum_technology_occurrence"></a>5.1.26.3 <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology_allocation_to_stack_model">Passage_technology_allocation_to_stack_model</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.passage_technology_allocation_to_stack_model.target_stratum">target_stratum</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>passage_technology_allocation_to_stack_model &lt;=<br>stratum_sub_stack &lt;=<br>part_template_definition &lt;=<br>product_definition_shape &lt;=<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>{property_definition_relationship<br>property_definition_relationship.name = 'target stratum'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>stratum_technology_occurrence<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityrequirement_assignment">5.1.27 </a><a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</a></h2>
+      <p>
+         This application object,  
+         <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</a>, is defined in the module
+         <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">requirement_assignment</a>.
+         This mapping section extends the 
+         <a href="../../requirement_assignment/sys/5_mapping.htm#aeentityrequirement_assignment"> mapping of Requirement_assignment</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentityrequirement_assignmentaaattributeassigned_toassertion_tostratum_technology"></a>5.1.27.1 <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</A>
+         
+         (as <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment.assigned_to">assigned_to</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>requirement_assignment &lt;-<br>					requirement_assigned_object.assigned_group<br>					requirement_assigned_object<br>					requirement_assigned_object.items -&gt;<br>					requirement_assigned_item<br>requirement_assigned_item *&gt; ft_requirement_assigned_item<br>					ft_requirement_assigned_item = stratum_technology
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityrequirement_assignmentaaattributeassigned_toassertion_topassage_technology"></a>5.1.27.2 <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.passage_technology">Passage_technology</A>
+         
+         (as <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment.assigned_to">assigned_to</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>requirement_assignment &lt;-<br>					requirement_assigned_object.assigned_group<br>					requirement_assigned_object<br>					requirement_assigned_object.items -&gt;<br>					requirement_assigned_item<br>requirement_assigned_item *&gt; ft_requirement_assigned_item<br>					ft_requirement_assigned_item = passage_technology
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityrequirement_assignmentaaattributeassigned_toassertion_tostratum_technology_occurrence"></a>5.1.27.3 <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</A>
+         
+         (as <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment.assigned_to">assigned_to</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>requirement_assignment &lt;-<br>					requirement_assigned_object.assigned_group<br>					requirement_assigned_object<br>					requirement_assigned_object.items -&gt;<br>					requirement_assigned_item<br>requirement_assigned_item *&gt; ft_requirement_assigned_item<br>					ft_requirement_assigned_item = stratum_technology_occurrence
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentityrequirement_assignmentaaattributeassigned_toassertion_tostratum_technology_occurrence_relationship"></a>5.1.27.4 <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_relationship">Stratum_technology_occurrence_relationship</A>
+         
+         (as <a href="../../requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment.assigned_to">assigned_to</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>requirement_assignment &lt;-<br>					requirement_assigned_object.assigned_group<br>					requirement_assigned_object<br>					requirement_assigned_object.items -&gt;<br>					requirement_assigned_item<br>requirement_assigned_item *&gt; ft_requirement_assigned_item<br>					ft_requirement_assigned_item = stratum_technology_occurrence_relationship
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_stack_model">5.1.28 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_stack_model">Stratum_stack_model</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_stack_model</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{stratum_stack_model &lt;=<br>part_template_definition &lt;=<br>product_definition}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_sub_stack">5.1.29 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_sub_stack">Stratum_sub_stack</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_sub_stack</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_sub_stack &lt;=<br>part_template_definition &lt;=<br>product_definition_shape &lt;=<br>property_definition<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_sub_stackaaattributestratum_technology_sequenceassertion_tostratum_technology_occurrence_link"></a>5.1.29.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_sub_stack">Stratum_sub_stack</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_link">Stratum_technology_occurrence_link</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_sub_stack.stratum_technology_sequence">stratum_technology_sequence</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_sub_stack &lt;=                <br>part_template_definition &lt;=<br>product_definition_shape &lt;=<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>{property_definition_relationship<br>property_definition_relationship.name = 'stratum technology sequence'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>stratum_technology_occurrence_relationship =&gt;<br>stratum_technology_occurrence_link<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_sub_stackaaattributestack_thicknessassertion_tolength_tolerance_characteristic"></a>5.1.29.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_sub_stack">Stratum_sub_stack</a>
+         to <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_sub_stack.stack_thickness">stack_thickness</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_sub_stack &lt;=                <br>part_template_definition &lt;=<br>product_definition<br>characterized_product_definition = product_definition<br>characterized_product_definition<br>characterized_definition = characterized_product_definition<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>{property_definition.name = 'stack thickness'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_sub_stackaaattributeassociated_stackupassertion_todesign_stack_model"></a>5.1.29.3 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_sub_stack">Stratum_sub_stack</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.design_stack_model">Design_stack_model</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_sub_stack.associated_stackup">associated_stackup</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_sub_stack &lt;=                <br>part_template_definition &lt;=<br>product_definition_shape &lt;=<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>{property_definition_relationship<br>property_definition_relationship.name = 'associated stackup'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>part_template_definition =&gt;<br>stratum_stack_model =&gt;<br>design_stack_model<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_surface_technology">5.1.30 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_surface_technology">Stratum_surface_technology</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_surface_technology</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_surface_technology &lt;=<br>shape_aspect<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_surface_technologyaaattributeassociated_technologyassertion_tostratum_technology"></a>5.1.30.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_surface_technology">Stratum_surface_technology</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_surface_technology.associated_technology">associated_technology</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_technology</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_surface_technology &lt;=<br>shape_aspect<br>shape_aspect.of_shape -&gt;<br>product_definition_shape =&gt;<br>stratum_technology<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology">5.1.31 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_technology</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>[stratum_technology &lt;=<br>characterized_object]<br>[stratum_technology &lt;=<br>product_definition_shape]<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technologyaaattributelaminate_stiffness_class"></a>5.1.31.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology.laminate_stiffness_class">laminate_stiffness_class</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>property_definition.description</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-45</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>{property_definition.name = 'laminate stiffness class'}<br>property_definition.description<br>(property_definition.description = 'fluid like with constant thickness')<br>(property_definition.description = 'fluid like with varying thickness')<br>(property_definition.description = 'stiff laminate')<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technologyaaattributelayer_position"></a>5.1.31.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology.layer_position">layer_position</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>descriptive_representation_item</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-45</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>{property_definition.name = 'layer position'}<br>property_definition.description<br>(property_definition.description = 'secondary')<br>(property_definition.description = 'all')<br>(property_definition.description = 'external')<br>(property_definition.description = 'primary')<br>(property_definition.description = 'internal')<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technologyaaattributemaximum_feature_size_requirementassertion_tolength_data_element"></a>5.1.31.3 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</a>
+         to <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology.maximum_feature_size_requirement">maximum_feature_size_requirement</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>{property_definition.name = 'maximum feature size requirement'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>{representation<br>representation.name = 'physical characteristics representation'}<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>measure_representation_item &lt;=<br>measure_with_unit =&gt;<br>length_measure_with_unit<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technologyaaattributestratum_thicknessassertion_tolength_tolerance_characteristic"></a>5.1.31.4 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</a>
+         to <A HREF="../../../../data/modules/characteristic/sys/4_info_reqs.htm#characteristic_arm.length_tolerance_characteristic">Length_tolerance_characteristic</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology.stratum_thickness">stratum_thickness</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>property_definition<br>{property_definition.name = 'stratum thickness'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>{representation<br>representation.description = 'length tolerance'}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technologyaaattributeminimum_finished_feature_sizeassertion_tolength_data_element"></a>5.1.31.5 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</a>
+         to <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology.minimum_finished_feature_size">minimum_finished_feature_size</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'minimum finished feature size'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>{representation<br>representation.name = 'physical characteristics representation'}<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>measure_representation_item &lt;=<br>measure_with_unit =&gt;<br>length_measure_with_unit<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technologyaaattributeminimum_finished_feature_spacingassertion_tolength_data_element"></a>5.1.31.6 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</a>
+         to <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology.minimum_finished_feature_spacing">minimum_finished_feature_spacing</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'minimum finished feature spacing'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>{representation<br>representation.name = 'physical characteristics representation'}<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>measure_representation_item &lt;=<br>measure_with_unit =&gt;<br>length_measure_with_unit<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technologyaaattributeminimum_aspect_ratio"></a>5.1.31.7 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology.minimum_aspect_ratio">minimum_aspect_ratio</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology &lt;=<br>characterized_object<br>characterized_definition = characterized_object<br>characterized_definition &lt;-<br>property_definition.definition<br>{property_definition.name = 'minimum aspect ratio'}<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>{representation<br>representation.name = 'physical characteristics representation'}<br>representation.items[i] -&gt; <br>representation_item =&gt; <br>measure_representation_item &lt;= <br>measure_with_unit =&gt; <br>ratio_measure_with_unit &lt;= <br>measure_with_unit<br>measure_with_unit.value_component -&gt; <br>measure_value <br>measure_value = positive_ratio_measure <br>positive_ratio_measure<br>				
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_occurrence">5.1.32 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_technology_occurrence</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{stratum_technology_occurrence &lt;=<br>property_definition}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_occurrenceaaattributename"></a>5.1.32.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence.name">name</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>property_definition.name</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-41</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology_occurrence &lt;=<br>property_definition<br>property_definition.name<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_occurrenceaaattributedefinitionassertion_tostratum_technology"></a>5.1.32.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence.definition">definition</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology_occurrence &lt;=<br>property_definition<br>property_definition.definition -&gt;<br>characterized_definition<br>characterized_definition = characterized_object<br>characterized_object =&gt;<br>stratum_technology<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_occurrenceaaattributeprimaryassertion_tostratum_surface_technology"></a>5.1.32.3 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_surface_technology">Stratum_surface_technology</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence.primary">primary</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology_occurrence &lt;=<br>property_definition &lt;-<br>property_definition_relationship.related_property_definition<br>{property_definition_relationship<br>property_definition_relationship.name = 'primary'}<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition<br>property_definition.definition -&gt;<br>characterized_definition<br>characterized_definition = shape_definition<br>shape_definition = shape_aspect<br>shape_aspect =&gt;<br>stratum_surface_technology<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_occurrenceaaattributerotationassertion_toangle_data_element"></a>5.1.32.4 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</a>
+         to <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.angle_data_element">Angle_data_element</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence.rotation">rotation</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology_occurrence &lt;=<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>representation.items[i] -&gt;<br>representation_item<br>representation_item =&gt;<br>measure_representation_item &lt;=<br>measure_with_unit =&gt;<br>plane_angle_measure_with_unit<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_occurrence_link">5.1.33 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_link">Stratum_technology_occurrence_link</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_technology_occurrence_link</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{stratum_technology_occurrence_link &lt;=<br>	            stratum_technology_occurrence_relationship<br>    	        [stratum_technology_occurrence_relationship &lt;=<br>				property_definition_relationship]<br>				[stratum_technology_occurrence_relationship &lt;=<br>				property_definition]}<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_occurrence_linkaaattributebase_stratum_technology_occurrence"></a>5.1.33.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_link.base_stratum_technology_occurrence">base_stratum_technology_occurrence</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology_occurrence_link &lt;=<br>stratum_technology_occurrence_relationship &lt;=<br>property_definition<br>property_definition.name<br>{(property_definition.name = 'independent')<br>(property_definition.name = 'precedent')<br>(property_definition.name = 'subsequent')}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_occurrence_relationship">5.1.34 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_relationship">Stratum_technology_occurrence_relationship</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_technology_occurrence_relationship</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{[stratum_technology_occurrence_relationship &lt;=<br>				property_definition_relationship]<br>				[stratum_technology_occurrence_relationship &lt;=<br>				property_definition]}<br>			
+            </td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_occurrence_relationshipaaattributesto_1assertion_tostratum_technology_occurrence"></a>5.1.34.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_relationship">Stratum_technology_occurrence_relationship</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_relationship.sto_1">sto_1</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology_occurrence_relationship &lt;=                <br>property_definition_relationship<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>stratum_technology_occurrence<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_occurrence_relationshipaaattributesto_2assertion_tostratum_technology_occurrence"></a>5.1.34.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_relationship">Stratum_technology_occurrence_relationship</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence">Stratum_technology_occurrence</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_relationship.sto_2">sto_2</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology_occurrence_relationship &lt;=                <br>property_definition_relationship<br>property_definition_relationship.related_property_definition -&gt;<br>property_definition =&gt;<br>stratum_technology_occurrence<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_occurrence_relationshipaaattributescopeassertion_tostratum_stack_model"></a>5.1.34.3 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_relationship">Stratum_technology_occurrence_relationship</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_stack_model">Stratum_stack_model</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_relationship.scope">scope</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology_occurrence_relationship &lt;=                <br>property_definition<br>property_definition.definition -&gt;<br>characterized_definition<br>characterized_definition = characterized_product_definition<br>characterized_product_definition = product_definition<br>product_definition =&gt;<br>part_template_definition =&gt;<br>stratum_stack_model<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_occurrence_feature_constraint">5.1.35 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_feature_constraint">Stratum_technology_occurrence_feature_constraint</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_technology_occurrence_feature_constraint</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{stratum_technology_occurrence_feature_constraint &lt;=<br>stratum_technology_occurrence_relationship &lt;=<br>property_definition_relationship}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_occurrence_feature_constraintaaattributedifference_distanceassertion_tolength_data_element"></a>5.1.35.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_feature_constraint">Stratum_technology_occurrence_feature_constraint</a>
+         to <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_feature_constraint.difference_distance">difference_distance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology_occurrence_feature_constraint &lt;=<br>stratum_technology_occurrence_relationship &lt;=<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>{representation<br>representation.name = 'difference distance'}<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>measure_representation_item &lt;=<br>measure_with_unit =&gt;<br>length_measure_with_unit<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_occurrence_feature_constraintaaattributeintersection_distanceassertion_tolength_data_element"></a>5.1.35.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_feature_constraint">Stratum_technology_occurrence_feature_constraint</a>
+         to <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_feature_constraint.intersection_distance">intersection_distance</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology_occurrence_feature_constraint &lt;=<br>stratum_technology_occurrence_relationship &lt;=<br>property_definition &lt;-<br>property_definition_representation.definition<br>property_definition_representation<br>property_definition_representation.used_representation -&gt;<br>representation<br>{representation<br>representation.name = 'intersection distance'}<br>representation.items[i] -&gt;<br>representation_item =&gt;<br>measure_representation_item &lt;=<br>measure_with_unit =&gt;<br>length_measure_with_unit<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_occurrence_swap_relationship">5.1.36 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_occurrence_swap_relationship">Stratum_technology_occurrence_swap_relationship</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_technology_occurrence_swap_relationship</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{stratum_technology_occurrence_swap_relationship &lt;=<br>stratum_technology_occurrence_relationship &lt;=<br>property_definition_relationship}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_mapping_relationship">5.1.37 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_mapping_relationship">Stratum_technology_mapping_relationship</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_technology_mapping_relationship</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{stratum_technology_mapping_relationship &lt;=<br>property_definition_relationship}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_mapping_relationshipaaattributesource_stratum_technologyassertion_tofootprint_library_stratum_technology"></a>5.1.37.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_mapping_relationship">Stratum_technology_mapping_relationship</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.footprint_library_stratum_technology">Footprint_library_stratum_technology</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_mapping_relationship.source_stratum_technology">source_stratum_technology</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology_mapping_relationship &lt;=<br>property_definition_relationship<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>stratum_technology =&gt;<br>footprint_library_stratum_technology<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_mapping_relationshipaaattributetarget_stratum_technologyassertion_tostratum_technology"></a>5.1.37.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_mapping_relationship">Stratum_technology_mapping_relationship</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_mapping_relationship.target_stratum_technology">target_stratum_technology</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology_mapping_relationship &lt;=<br>property_definition_relationship<br>property_definition_relationship.related_property_definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>stratum_technology<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_swap_relationship">5.1.38 </a><a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_swap_relationship">Stratum_technology_swap_relationship</a></h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>stratum_technology_swap_relationship</td>
+         </tr>
+         <tr valign="top">
+            <td>Source:</td>
+            <td>ISO 10303-1670</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>{stratum_technology_swap_relationship &lt;=<br>property_definition_relationship}<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_swap_relationshipaaattributeprimary_stratum_technologyassertion_tostratum_technology"></a>5.1.38.1 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_swap_relationship">Stratum_technology_swap_relationship</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_swap_relationship.primary_stratum_technology">primary_stratum_technology</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology_swap_relationship &lt;=<br>property_definition_relationship<br>property_definition_relationship.relating_property_definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>stratum_technology<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentitystratum_technology_swap_relationshipaaattributesecondary_stratum_technologyassertion_tostratum_technology"></a>5.1.38.2 <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_swap_relationship">Stratum_technology_swap_relationship</a>
+         to <A HREF="../../../../data/modules/fabrication_technology/sys/4_info_reqs.htm#fabrication_technology_arm.stratum_technology">Stratum_technology</A>
+         
+         (as <a href="./4_info_reqs.htm#fabrication_technology_arm.stratum_technology_swap_relationship.secondary_stratum_technology">secondary_stratum_technology</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>stratum_technology_swap_relationship &lt;=<br>property_definition_relationship<br>property_definition_relationship.related_property_definition -&gt;<br>property_definition =&gt;<br>product_definition_shape =&gt;<br>stratum_technology<br></td>
+         </tr>
+      </table>
+      <h2><a name="aeentityusage_concept_usage_relationship">5.1.39 </a><a href="../../part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship">Usage_concept_usage_relationship</a></h2>
+      <p>
+         This application object,  
+         <a href="../../part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship">Usage_concept_usage_relationship</a>, is defined in the module
+         <a href="../../part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship">part_feature_location</a>.
+         This mapping section extends the 
+         <a href="../../part_feature_location/sys/5_mapping.htm#aeentityusage_concept_usage_relationship"> mapping of Usage_concept_usage_relationship</a>,
+         to include assertions defined in this module.  
+         
+      </p>
+      <p></p>
+      <p></p>
+      <h2><a name="aeentityusage_concept_usage_relationshipaaattributeassociated_usageassertion_toland_template_terminal"></a>5.1.39.1 <a href="../../part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship">Usage_concept_usage_relationship</a>
+         to Land_template_terminal
+         
+         (as <a href="../../part_feature_location/sys/4_info_reqs.htm#part_feature_location_arm.usage_concept_usage_relationship.associated_usage">associated_usage</a>)
+         
+      </h2>
+      <p></p>
+      <p></p>
+      <table>
+         <tr valign="top">
+            <td>MIM element:</td>
+            <td>PATH</td>
+         </tr>
+         <tr valign="top">
+            <td>Reference path:&nbsp;&nbsp;</td>
+            <td>usage_concept_usage_relationship &lt;=<br>item_identified_representation_usage<br>item_identified_representation_usage.definition -&gt;<br>represented_definition <br>represented_definition = shape_aspect                <br>shape_aspect<br>usage_concept_usage_relationship &lt;=<br>					item_identified_representation_usage<br>					item_identified_representation_usage.definition -&gt;<br>					represented_definition <br>					represented_definition = shape_aspect                <br>					shape_aspect<br>					shape_aspect =&gt; <br>					land_template_terminal
+            </td>
+         </tr>
+      </table><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

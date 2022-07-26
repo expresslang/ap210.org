@@ -1,0 +1,164 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Value with unit">
+      <META name="DC.Dates" content="2004-11-09 17:36:52">
+      <META name="DC.Published" content="2004-12-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Value with unit">
+      <META name="DC.Subject" content="module, measure value, unit, uncertainty">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N2975">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N1300">
+      <META name="SC4.version" content="1">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N2153">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N2154">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N2155">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2004-11-09 17:36:52">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.37">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.15">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.9">
+      <TITLE>ISO/TS 10303-1054:2004 Value with unit</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Value with unit</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1054:2004(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.1 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.2 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="annexe-arm-express"></A></H2><code>
+         (*<br>ISO TC184/SC4/WG12&nbsp;N2976 - ISO/TS&nbsp;10303-1054 Value with unit - EXPRESS ARM<br>*)
+         </code><br><code><br><br><a name="value_with_unit_arm">SCHEMA <b>Value_with_unit_arm</b>;</a><br><br></code><code><br><A NAME="value_with_unit_arm.any_number_value">TYPE </A><b>any_number_value</b> =
+         NUMBER;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="value_with_unit_arm.any_string_value">TYPE </A><b>any_string_value</b> =
+         STRING;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="value_with_unit_arm.length_measure">TYPE </A><b>length_measure</b> =
+         REAL;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="value_with_unit_arm.measure_value">TYPE </A><b>measure_value</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#value_with_unit_arm.any_number_value">any_number_value</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#value_with_unit_arm.any_string_value">any_string_value</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#value_with_unit_arm.length_measure">length_measure</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#value_with_unit_arm.plane_angle_measure">plane_angle_measure</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="value_with_unit_arm.plane_angle_measure">TYPE </A><b>plane_angle_measure</b> =
+         REAL;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="value_with_unit_arm.amount_of_substance_unit">ENTITY <b>Amount_of_substance_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#value_with_unit_arm.unit">Unit</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.context_dependent_unit">ENTITY <b>Context_dependent_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#value_with_unit_arm.unit">Unit</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_arm.context_dependent_unit.wr:wr1">WR1: EXISTS(SELF\Unit.name);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.conversion_based_unit">ENTITY <b>Conversion_based_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#value_with_unit_arm.unit">Unit</A>);<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_arm.conversion_based_unit.conversion_factor">conversion_factor : </A><A HREF="#value_with_unit_arm.value_with_unit">Value_with_unit</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_arm.conversion_based_unit.wr:wr1">WR1: EXISTS(SELF\Unit.name);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.derived_unit">ENTITY <b>Derived_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#value_with_unit_arm.unit">Unit</A>);<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_arm.derived_unit.elements">elements : </A>SET[1:?] OF <A HREF="#value_with_unit_arm.derived_unit_element">Derived_unit_element</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.derived_unit_element">ENTITY <b>Derived_unit_element</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_arm.derived_unit_element.base_unit">base_unit : </A><A HREF="#value_with_unit_arm.unit">Unit</A>;<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_arm.derived_unit_element.exponent">exponent : </A>REAL;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.duration">ENTITY <b>Duration</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#value_with_unit_arm.value_with_unit">Value_with_unit</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_arm.duration.wr:wr1">WR1: 'VALUE_WITH_UNIT_ARM.' + 'TIME_UNIT' IN TYPEOF(SELF\Value_with_unit.unit);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.electric_current_unit">ENTITY <b>Electric_current_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#value_with_unit_arm.unit">Unit</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.length_unit">ENTITY <b>Length_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#value_with_unit_arm.unit">Unit</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.luminous_intensity_unit">ENTITY <b>Luminous_intensity_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#value_with_unit_arm.unit">Unit</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.mass_unit">ENTITY <b>Mass_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#value_with_unit_arm.unit">Unit</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.plane_angle_unit">ENTITY <b>Plane_angle_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#value_with_unit_arm.unit">Unit</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.ratio_unit">ENTITY <b>Ratio_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#value_with_unit_arm.unit">Unit</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.solid_angle_unit">ENTITY <b>Solid_angle_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#value_with_unit_arm.unit">Unit</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.thermodynamic_temperature_unit">ENTITY <b>Thermodynamic_temperature_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#value_with_unit_arm.unit">Unit</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.time_unit">ENTITY <b>Time_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#value_with_unit_arm.unit">Unit</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.uncertainty_with_unit">ENTITY <b>Uncertainty_with_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#value_with_unit_arm.value_with_unit">Value_with_unit</A>);<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_arm.uncertainty_with_unit.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_arm.uncertainty_with_unit.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.unit">ENTITY <b>Unit</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#value_with_unit_arm.amount_of_substance_unit">Amount_of_substance_unit</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#value_with_unit_arm.electric_current_unit">Electric_current_unit</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#value_with_unit_arm.length_unit">Length_unit</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#value_with_unit_arm.luminous_intensity_unit">Luminous_intensity_unit</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#value_with_unit_arm.mass_unit">Mass_unit</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#value_with_unit_arm.plane_angle_unit">Plane_angle_unit</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#value_with_unit_arm.ratio_unit">Ratio_unit</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#value_with_unit_arm.solid_angle_unit">Solid_angle_unit</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#value_with_unit_arm.thermodynamic_temperature_unit">Thermodynamic_temperature_unit</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#value_with_unit_arm.time_unit">Time_unit</A>));<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_arm.unit.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_arm.unit.si_unit">si_unit : </A>BOOLEAN;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_arm.value_with_unit">ENTITY <b>Value_with_unit</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_arm.value_with_unit.unit">unit : </A><A HREF="#value_with_unit_arm.unit">Unit</A>;<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_arm.value_with_unit.value_component">value_component : </A><A HREF="#value_with_unit_arm.measure_value">measure_value</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Value_with_unit_arm<br></code><br><br><p>&copy; ISO 2004 &#8212; All rights reserved</p>
+   </body>
+</HTML>

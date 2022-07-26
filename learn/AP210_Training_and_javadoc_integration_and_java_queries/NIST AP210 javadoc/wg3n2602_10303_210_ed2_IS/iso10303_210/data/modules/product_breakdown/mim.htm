@@ -1,0 +1,81 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Product_breakdown_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Product_breakdown_mim</h2><code><br><br><a name="product_breakdown_mim">SCHEMA <b>Product_breakdown_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema">group_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema">management_resources_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.group_assignment">group_assignment</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema">product_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema">product_property_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema">product_structure_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-44<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.product_definition_usage">product_definition_usage</A>);
+         <br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_view_definition_relationship/sys/e_exp_mim.htm#product_view_definition_relationship_mim">Product_view_definition_relationship_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1041<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/property_assignment/sys/e_exp_mim.htm#property_assignment_mim">Property_assignment_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1030<br><br></code><code><br><A NAME="product_breakdown_mim.product_definition_or_breakdown_element_usage">TYPE </A><b>product_definition_or_breakdown_element_usage</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.product_definition_usage">product_definition_usage</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="product_breakdown_mim.product_definition_or_product_definition_relationship">TYPE </A><b>product_definition_or_product_definition_relationship</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT<br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/product_structure_schema/product_structure_schema.htm#product_structure_schema.product_definition_usage">product_definition_usage</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="product_breakdown_mim.breakdown_context">ENTITY <b>breakdown_context</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_breakdown_mim.breakdown_element_group_assignment">ENTITY <b>breakdown_element_group_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.group_assignment">group_assignment</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.group_assignment">group_assignment</A>.<A NAME="product_breakdown_mim.breakdown_element_group_assignment.assigned_group">assigned_group : </A><A HREF="#product_breakdown_mim.product_definition_element_relationship">product_definition_element_relationship</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_mim.breakdown_element_group_assignment.items">items : </A>SET[1:1] OF <A HREF="#product_breakdown_mim.product_definition_or_breakdown_element_usage">product_definition_or_breakdown_element_usage</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_breakdown_mim.breakdown_element_realization">ENTITY <b>breakdown_element_realization</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.characterized_object">characterized_object</A>, <A HREF="#product_breakdown_mim.product_definition_element_relationship">product_definition_element_relationship</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_breakdown_mim.breakdown_element_usage">ENTITY <b>breakdown_element_usage</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_breakdown_mim.breakdown_of">ENTITY <b>breakdown_of</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_breakdown_mim.product_definition_element_relationship">ENTITY <b>product_definition_element_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="product_breakdown_mim.product_definition_group_assignment">ENTITY <b>product_definition_group_assignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.group_assignment">group_assignment</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/resources/management_resources_schema/management_resources_schema.htm#management_resources_schema.group_assignment">group_assignment</A>.<A NAME="product_breakdown_mim.product_definition_group_assignment.assigned_group">assigned_group : </A><A HREF="#product_breakdown_mim.product_definition_element_relationship">product_definition_element_relationship</A>;<br>
+         &nbsp;&nbsp;<A NAME="product_breakdown_mim.product_definition_group_assignment.items">items : </A>SET[1:1] OF <A HREF="#product_breakdown_mim.product_definition_or_product_definition_relationship">product_definition_or_product_definition_relationship</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Product_breakdown_mim<br></code></body>
+</HTML>

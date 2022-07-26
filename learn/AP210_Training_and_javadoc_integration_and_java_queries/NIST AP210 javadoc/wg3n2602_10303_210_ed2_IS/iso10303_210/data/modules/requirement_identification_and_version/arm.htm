@@ -1,0 +1,41 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Requirement_identification_and_version_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Requirement_identification_and_version_arm</h2><code><br><br><a name="requirement_identification_and_version_arm">SCHEMA <b>Requirement_identification_and_version_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/identification_assignment/sys/e_exp_arm.htm#identification_assignment_arm">Identification_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1021<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/product_version_relationship/sys/e_exp_arm.htm#product_version_relationship_arm">Product_version_relationship_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1020<br><br></code><code><br><A NAME="requirement_identification_and_version_arm.requirement_identification_and_version_identification_item">TYPE </A><b>requirement_identification_and_version_identification_item</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/identification_assignment/sys/e_exp_arm.htm#identification_assignment_arm.identification_item">identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#requirement_identification_and_version_arm.requirement">Requirement</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#requirement_identification_and_version_arm.requirement_version">Requirement_version</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="requirement_identification_and_version_arm.requirement">ENTITY <b>Requirement</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="requirement_identification_and_version_arm.requirement_version">ENTITY <b>Requirement_version</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>.<A NAME="requirement_identification_and_version_arm.requirement_version.of_product">of_product : </A><A HREF="#requirement_identification_and_version_arm.requirement">Requirement</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="requirement_identification_and_version_arm.requirement_version_relationship">ENTITY <b>Requirement_version_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/product_version_relationship/sys/e_exp_arm.htm#product_version_relationship_arm.product_version_relationship">Product_version_relationship</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_version_relationship/sys/e_exp_arm.htm#product_version_relationship_arm.product_version_relationship">Product_version_relationship</A>.relating_version&nbsp;RENAMED&nbsp;<A NAME="requirement_identification_and_version_arm.requirement_version_relationship.predecessor">predecessor : </A><A HREF="#requirement_identification_and_version_arm.requirement_version">Requirement_version</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/product_version_relationship/sys/e_exp_arm.htm#product_version_relationship_arm.product_version_relationship">Product_version_relationship</A>.related_version&nbsp;RENAMED&nbsp;<A NAME="requirement_identification_and_version_arm.requirement_version_relationship.successor">successor : </A><A HREF="#requirement_identification_and_version_arm.requirement_version">Requirement_version</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Requirement_identification_and_version_arm<br></code></body>
+</HTML>

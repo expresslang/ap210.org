@@ -1,0 +1,435 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Requirement decomposition">
+      <META name="DC.Dates" content="2009-05-04 10:06:52">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Requirement decomposition">
+      <META name="DC.Subject" content="module, requirement, structure, decomposition, combinatorial, requirement dependencies, requirement relationship, constraint">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6542">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5805">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-04 10:06:52">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.85">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.70">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.60">
+      <TITLE>ISO/TS 10303-1740:2009 Requirement decomposition</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Requirement decomposition</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1740:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.4 ARM function definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#subtype_constraints">5.2.3 MIM subtype constraint definition</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <h2><a name="mim_express">5.2 MIM EXPRESS short listing</a></h2>
+      <p>
+         This clause specifies the EXPRESS schema derived from the mapping
+         table. 
+         It uses elements from the common resources or from other application
+         modules and defines the EXPRESS constructs that are specific to this
+         part of ISO 10303.
+         
+      </p>
+      <p>
+         This clause constitutes the Module Interpreted Module (MIM) of the
+         application module.
+         
+      </p>
+      <p>This clause also
+         specifies the modifications that apply to the constructs 
+         imported from the common resources.
+      </p>
+      <p>The following restrictions apply to the use, in this schema, of constructs defined in common resources or in application
+         modules:
+      </p>
+      <ul>
+         <li>
+            use of a supertype entity does not make applicable any of its
+            specializations, unless the specialization is also imported in the
+            MIM schema;
+            
+         </li>
+         <li>
+            use of a SELECT type does not make applicable any of its listed types
+            unless the listed type is also imported in the MIM schema.
+            
+         </li>
+      </ul>
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="requirement_decomposition_mim">
+            SCHEMA Requirement_decomposition_mim;</a></code><h2><A NAME="interfaces"></A></h2>
+      <p></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/conductivity_material_aspects/sys/5_mim.htm#conductivity_material_aspects_mim">Conductivity_material_aspects_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1756<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/elemental_geometric_shape/sys/5_mim.htm#elemental_geometric_shape_mim">Elemental_geometric_shape_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1004<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/functional_specification/sys/5_mim.htm#functional_specification_mim">Functional_specification_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1679<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/production_rule/sys/5_mim.htm#production_rule_mim">Production_rule_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1739<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/requirement_view_definition_relationship/sys/5_mim.htm#requirement_view_definition_relationship_mim">Requirement_view_definition_relationship_mim</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1142<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema">material_property_definition_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-45<br>&nbsp;&nbsp;(<A HREF="../../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.property_definition_relationship">property_definition_relationship</A>);
+            <br><br></code></p>
+      <p><code>
+            REFERENCE FROM 
+            <A HREF="../../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>
+            
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.bag_to_set">bag_to_set</A>);
+            <br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Conductivity_material_aspects_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1756</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Elemental_geometric_shape_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1004</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Functional_specification_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1679</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Production_rule_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1739</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Requirement_view_definition_relationship_mim</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1142</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>material_property_definition_schema</small></b></td>
+               <td width="127"><small>ISO 10303-45</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>support_resource_schema</small></b></td>
+               <td width="127"><small>ISO 10303-41</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="d_mim_expg.htm">D</a>, 
+            
+            Figures
+            <a href="../mimexpg1.htm">D.1</a>and <a href="../mimexpg2.htm">D.2</a>
+            for a graphical representation of this schema.            
+            </small></p>
+      <h2><a name="types">5.2.1 MIM type definitions</a></h2>
+      <p>
+         This subclause specifies the MIM types
+         for this application module. The MIM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="requirement_decomposition_mim.rd_document_reference_item">5.2.1.1 rd_document_reference_item</a>
+         &nbsp;&nbsp;<a href="../../requirement_decomposition/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>rd_document_reference_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/document_assignment/sys/5_mim.htm#document_assignment_mim.document_reference_item">document_reference_item</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#requirement_decomposition_mim.predefined_requirement_view_definition">predefined_requirement_view_definition</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            rd_document_reference_item =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/document_assignment/sys/5_mim.htm#document_assignment_mim.document_reference_item">document_reference_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#requirement_decomposition_mim.predefined_requirement_view_definition">predefined_requirement_view_definition</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="requirement_decomposition_mim.rd_groupable_item">5.2.1.2 rd_groupable_item</a>
+         &nbsp;&nbsp;<a href="../../requirement_decomposition/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>rd_groupable_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/group/sys/5_mim.htm#group_mim.groupable_item">groupable_item</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#requirement_decomposition_mim.predefined_requirement_view_definition">predefined_requirement_view_definition</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            rd_groupable_item =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/group/sys/5_mim.htm#group_mim.groupable_item">groupable_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#requirement_decomposition_mim.predefined_requirement_view_definition">predefined_requirement_view_definition</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="requirement_decomposition_mim.rd_requirement_assigned_item">5.2.1.3 rd_requirement_assigned_item</a>
+         &nbsp;&nbsp;<a href="../../requirement_decomposition/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>rd_requirement_assigned_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/requirement_assignment/sys/5_mim.htm#requirement_assignment_mim.requirement_assigned_item">requirement_assigned_item</A></b> type. 
+         
+         It adds the data 
+         
+         types
+         <b><A HREF="../../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A></b>
+         and
+         <b><A HREF="../../../../data/resources/group_schema/group_schema.htm#group_schema.group_relationship">group_relationship</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            rd_requirement_assigned_item =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/requirement_assignment/sys/5_mim.htm#requirement_assignment_mim.requirement_assigned_item">requirement_assigned_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/resources/group_schema/group_schema.htm#group_schema.group_relationship">group_relationship</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">5.2.2 MIM entity definitions</a></h2>
+      <p>
+         This subclause specifies the MIM entities for this
+         module. The MIM entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="requirement_decomposition_mim.material_electrical_conductivity_category">5.2.2.1 material_electrical_conductivity_category</a>
+         &nbsp;&nbsp;<a href="../../requirement_decomposition/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         A <b>material_electrical_conductivity_category</b> is a type of
+         <a href="../../../resources/group_schema/group_schema.htm#group_schema.group"><b>group</b></a> 
+         that specifies the attribute 
+         <a href="../../../modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.material_electrical_conductivity_requirement.electrical_conductivity_characteristic"><b>electrical_conductivity_characteristic</b></a> for the ARM
+         concept of  <a href="../../../modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.material_electrical_conductivity_requirement"><b>Material_electrical_conductivity_requirement</b></a>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY material_electrical_conductivity_category<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/group_schema/group_schema.htm#group_schema.group">group</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="requirement_decomposition_mim.operational_requirement_relationship">5.2.2.2 operational_requirement_relationship</a>
+         &nbsp;&nbsp;<a href="../../requirement_decomposition/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>operational_requirement_relationship</b> is a type of 
+      	<a href="../../../resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition"><b>property_definition</b></a> 
+      	and a type of
+      	<a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship"><b>product_definition_relationship</b></a>
+      	that implements the ARM concept of
+      	<a href="../../../modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.operational_requirement_relationship"><b>Operational_requirement_relationship</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY operational_requirement_relationship<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>, <A HREF="../../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.property_definition">property_definition</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="requirement_decomposition_mim.predefined_requirement_view_definition">5.2.2.3 predefined_requirement_view_definition</a>
+         &nbsp;&nbsp;<a href="../../requirement_decomposition/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      
+      <p>
+         
+         A <b>predefined_requirement_view_definition</b> is a type of 
+         <a href="../../../resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition"><b>product_definition</b></a> that implements the ARM
+         concepts of:
+         
+      </p>
+      <ul> 
+         
+         <li> <a href="../../../modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.constraint_occurrence"><b>Constraint_occurrence</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.design_characteristic_occurrence"><b>Design_characteristic_occurrence</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.predefined_requirement_view_definition"><b>Predefined_requirement_view_definition</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/assembly_physical_interface_requirement/sys/4_info_reqs.htm#assembly_physical_interface_requirement_arm.interface_requirement"><b>Interface_requirement</b></a>;
+         </li>
+         
+         <li> <a href="../../../modules/requirement_decomposition/sys/4_info_reqs.htm#requirement_decomposition_arm.material_electrical_conductivity_requirement"><b>Material_electrical_conductivity_requirement</b></a>.
+         </li>
+         
+      </ul>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY predefined_requirement_view_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="subtype_constraints">5.2.3 MIM subtype constraint definition</a></h2>
+      <p>
+         This subclause specifies the MIM subtype constraint for
+         this module. The subtype constraint places a constraint on the
+         possible super-type / subtype instantiations.
+         The MIM subtype constraint and definition is
+         specified below.
+         
+      </p>
+      <h2><A NAME="requirement_decomposition_mim.rd_model_parameter_subtypes">5.2.3.1 rd_model_parameter_subtypes</A>
+         &nbsp;&nbsp;<a href="../../requirement_decomposition/mimexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The
+         <b>rd_model_parameter_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/model_parameter/sys/5_mim.htm#model_parameter_mim.model_parameter">model_parameter</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="requirement_decomposition_mim.rd_model_parameter_subtypes">SUBTYPE_CONSTRAINT rd_model_parameter_subtypes</A> FOR <A HREF="../../../../data/modules/model_parameter/sys/5_mim.htm#model_parameter_mim.model_parameter">model_parameter</A>;<br>
+            &nbsp;&nbsp;category_model_parameter;<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Requirement_decomposition_mim<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

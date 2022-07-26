@@ -1,0 +1,1014 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Network functional design view">
+      <META name="DC.Dates" content="2009-05-04 09:27:51">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Network functional design view">
+      <META name="DC.Subject" content="module, network, synthesis, simulation, function, design, terminal">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6449">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5712">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-04 09:27:51">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.54">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.58">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.50">
+      <TITLE>ISO/TS 10303-1704:2009 Network functional design view</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Network functional design view</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1704:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.4 ARM subtype constraint definition</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.5 ARM function definition</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definition</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.2 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Network functional design view</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Network_functional_design_view_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="network_functional_design_view_arm">
+            SCHEMA Network_functional_design_view_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/assembly_structure/sys/4_info_reqs.htm#assembly_structure_arm">Assembly_structure_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1026<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm">Functional_usage_view_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1705<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/generic_product_occurrence/sys/4_info_reqs.htm#generic_product_occurrence_arm">Generic_product_occurrence_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1762<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm">Requirement_assignment_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1233<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Assembly_structure_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1026</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Functional_usage_view_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1705</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Generic_product_occurrence_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1762</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Requirement_assignment_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1233</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>, <a href="../armexpg2.htm">C.2</a>and <a href="../armexpg3.htm">C.3</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="network_functional_design_view_arm.bus_structural_definition_or_node">4.2.1 bus_structural_definition_or_node</a>
+         &nbsp;&nbsp;<a href="../../network_functional_design_view/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>bus_structural_definition_or_node</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#network_functional_design_view_arm.bus_structural_definition">Bus_structural_definition</A></b>
+         and
+         <b><A HREF="#network_functional_design_view_arm.functional_unit_network_node_definition">Functional_unit_network_node_definition</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            bus_structural_definition_or_node =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#network_functional_design_view_arm.bus_structural_definition">Bus_structural_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#network_functional_design_view_arm.functional_unit_network_node_definition">Functional_unit_network_node_definition</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="network_functional_design_view_arm.nfdv_pa_or_parameter_assignment_override">4.2.2 nfdv_pa_or_parameter_assignment_override</a>
+         &nbsp;&nbsp;<a href="../../network_functional_design_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>nfdv_pa_or_parameter_assignment_override</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/model_parameter/sys/4_info_reqs.htm#model_parameter_arm.parameter_assignment">Parameter_assignment</A></b>
+         and
+         <b><A HREF="../../../../data/modules/model_parameter/sys/4_info_reqs.htm#model_parameter_arm.parameter_assignment_override">Parameter_assignment_override</A></b>.
+         
+      </p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            nfdv_pa_or_parameter_assignment_override =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/model_parameter/sys/4_info_reqs.htm#model_parameter_arm.parameter_assignment">Parameter_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/model_parameter/sys/4_info_reqs.htm#model_parameter_arm.parameter_assignment_override">Parameter_assignment_override</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="network_functional_design_view_arm.nfdw_requirement_assignment_item">4.2.3 nfdw_requirement_assignment_item</a>
+         &nbsp;&nbsp;<a href="../../network_functional_design_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>nfdw_requirement_assignment_item</b> type is an extension
+         of the 
+         <b><A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment_item">requirement_assignment_item</A></b> type. 
+         
+         It adds the data 
+         
+         type
+         <b><A HREF="#network_functional_design_view_arm.functional_unit">Functional_unit</A></b>
+         to the list of alternate data types.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.
+            </small></p>
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            nfdw_requirement_assignment_item =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT
+            BASED_ON 
+            <A HREF="../../../../data/modules/requirement_assignment/sys/4_info_reqs.htm#requirement_assignment_arm.requirement_assignment_item">requirement_assignment_item</A>
+            WITH 
+            <br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#network_functional_design_view_arm.functional_unit">Functional_unit</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="network_functional_design_view_arm.bus_element_link">4.3.1 Bus_element_link</a>
+         &nbsp;&nbsp;<a href="../../network_functional_design_view/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitybus_element_link"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      A <b>Bus_element_link</b> is a means to describe the relationship between two elements of a bus that are linked by network nodes or structural definitions.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Bus_element_link;<br>
+            
+            
+            
+            &nbsp;&nbsp;precedent_element : <A HREF="#network_functional_design_view_arm.bus_structural_definition_or_node">bus_structural_definition_or_node</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;subsequent_element : <A HREF="#network_functional_design_view_arm.bus_structural_definition_or_node">bus_structural_definition_or_node</A>;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: precedent_element, subsequent_element;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: precedent_element &lt;&gt; subsequent_element;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.bus_element_link.precedent_element">precedent_element:
+               </a></b>
+         	an attribute describes the first 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_structural_definition_or_node"><b>bus_structural_definition_or_node</b></a> 
+         	of the  <b>Bus_element_link</b>. It may be a 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_node_definition"><b>Functional_unit_network_node_definition</b></a> 
+         	or a 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_structural_definition"><b>Bus_structural_definition</b></a>
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.bus_element_link.subsequent_element">subsequent_element:
+               </a></b>
+         	an attribute describes the other 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_structural_definition_or_node"><b>bus_structural_definition_or_node</b></a> 
+         	of the  <b>Bus_element_link</b>. It may be a 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_node_definition"><b>Functional_unit_network_node_definition</b></a> 
+         	or a <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_structural_definition"><b>Bus_structural_definition</b></a>
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.bus_element_link.ur:ur1">UR1:
+               </a></b>
+         The combination of <b>precedent_element</b> and <b>subsequent_element</b> shall be unique with a population of <b>Bus_element_links</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.bus_element_link.wr:wr1">WR1:
+               </a></b>
+         The <b>precedent_element</b> and the <b>subsequent_element</b> can not be equal.
+         
+      </p>
+      <h2><a name="network_functional_design_view_arm.bus_structural_definition">4.3.2 Bus_structural_definition</a>
+         &nbsp;&nbsp;<a href="../../network_functional_design_view/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitybus_structural_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         
+           A <b>Bus_structural_definition</b> is the aggregate or <b>composition</b> of the mathematical or logical structure of the bus.  If a bus were to be represented by a graph, the <b>Bus_structural_definition</b> would be a root node for the bus in that representation.
+         
+         
+      </p>
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            A bus is a <b>composition</b> concept. Once defined, the bus definition can be used in various connectivity 
+            related aspects of the design. Several of the possible usages are conflicting and rules are provided to 
+            ensure unambiguous data. The structure of the reference model prohibits certain conflicting usages from 
+            occurring simultaneously.
+            </small></p>
+      
+      <p class="note"><small><a name="note_2">NOTE&nbsp;2</a>&nbsp;&nbsp;
+            
+            Ordered definition of buses is supported in this part of ISO 10303 by interpreting the name of the
+            bus element as indicating the position in the sequence, using normal ASCII ordering
+            for regular expressions. Spaces are not allowed in names.
+            </small></p>
+      
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Bus_structural_definition;<br>
+            
+            
+            
+            &nbsp;&nbsp;bus_name : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;composition : SET[1:?] OF <A HREF="#network_functional_design_view_arm.bus_element_link">Bus_element_link</A>;<br>INVERSE<br>
+            &nbsp;&nbsp;external_bus_access : SET[0:1] OF <A HREF="#network_functional_design_view_arm.functional_unit_network_terminal_definition_bus_assignment">Functional_unit_network_terminal_definition_bus_assignment</A> FOR connected_bus;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: bus_name;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: consistent_bus_structural_definition(composition);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.bus_structural_definition.bus_name">bus_name:
+               </a></b>
+         specifies the string identifying the <b>Bus_structural_definition</b>.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            A project may establish project wide default names for buses. The identifier should then be globally 
+            unique within that project.
+            </small></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.bus_structural_definition.composition">composition:
+               </a></b>
+         a set of <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_element_link"><b>Bus_element_link</b></a> for the <b>Bus_structural_definition</b>. There shall be one or more  <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_element_link"><b>Bus_element_link</b></a> for each <b>Bus_structural_definition</b>. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.bus_structural_definition.external_bus_access">external_bus_access:
+               </a></b>
+         	specifies an inverse relationship that specifies that the existence of the  <b>Bus_structural_definition</b> 
+         	is dependent on the existence of the 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_terminal_definition_bus_assignment"><b>Functional_unit_network_terminal_definition_bus_assignment</b></a> 
+         	that specifies the <b>Bus_structural_definition</b>
+         	as its 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_terminal_definition_bus_assignment.connected_bus"><b>connected_bus</b></a>. 
+         	There shall be zero or one  
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_terminal_definition_bus_assignment"><b>Functional_unit_network_terminal_definition_bus_assignment</b></a>
+         	for a particular <b>Bus_structural_definition</b>. 
+         	The value of this attribute need not be specified.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.bus_structural_definition.ur:ur1">UR1:
+               </a></b>
+         The <b>bus_name</b> shall be unique within a population of <b>Bus_structural_definitions</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.bus_structural_definition.wr:wr1">WR1:
+               </a></b>
+         The <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_element_link"><b>Bus_element_links</b></a> must be defined consistently for a <b>composition</b>.
+         
+      </p>
+      <h2><a name="network_functional_design_view_arm.functional_unit">4.3.3 Functional_unit</a>
+         &nbsp;&nbsp;<a href="../../network_functional_design_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityfunctional_unit"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         A <b>Functional_unit</b> is a type of <a href="../../../modules/generic_product_occurrence/sys/4_info_reqs.htm#generic_product_occurrence_arm.definition_based_product_occurrence"><b>Definition_based_product_occurrence</b></a>.
+          A <b>Functional_unit</b> is an occurrence of 
+         a <a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_definition"><b>Functional_unit_definition</b></a> in the 
+         composition of a <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_definition"><b>Functional_unit_network_definition</b></a>.
+         Property values may be defined in the definition or may be specified in this Application Object.
+         
+      </p>
+      
+      <p class="example"><small><a name="example_1">EXAMPLE&nbsp;1</a>&nbsp;&nbsp;
+            
+            Resistance, Capacitance, Inductance primitive models for a specific simulation engine contain only the underlying linear equations
+            to characterize the dynamic behaviour and there is an infinite number
+            of values for the controlling variable. The specific value assigned is applied at the <b>Functional_unit</b>.
+            </small></p>
+      
+      <p class="example"><small><a name="example_2">EXAMPLE&nbsp;2</a>&nbsp;&nbsp;
+            
+            A processor model is obtained from a simulation model supplier with fixed value parameters. In this case the values would
+            not be modified in the <b>Functional_unit</b>.
+            </small></p>
+      
+      <p class="example"><small><a name="example_3">EXAMPLE&nbsp;3</a>&nbsp;&nbsp;
+            
+            Figure 1 is an illustration of a multi-level hierarchical network showing hierarchical decomposition relationships.  
+            	In the illustration, the upper portion is a network definition, while the lines between the upper portion and the lower portion
+            	represent the identification that the lower portion is the definition of two of the blocks in the upper portion.
+            	The upper portion is a two bit adder.  It is composed of two one bit adders, by reference.  The definition of a one bit adder
+            is shown in
+            	the lower portion.  The one bit adder is composed of two NOR gates, two AND gates and one OR gate.  Each gate may be further
+            	decomposed but for clarity is not in this illustration.  The three levels of hierarchical decomposition are the upper level,
+            	the lower level and the leaf elements, the gates.  The leaf elements are not dependent on the upper levels but each upper
+            	level is dependent on the lower levels.
+            </small></p>
+      	
+      <p class="note"><small><a name="note_1">NOTE&nbsp;1</a>&nbsp;&nbsp;
+            
+            		It is necessary to understand that the illustration in Figure 1 is a composite of several schematic elements for illustration
+            		purposes and would not appear this way in a schematic editor.  For clarity, only ADDER2 is shown defined by the ADDER but
+            of
+            		course both ADDER1 and ADDER2 are defined by the ADDER.
+            	</small></p>
+      <br><br><a name="figure_fu"></a><div align="center"><IMG src="../fu.gif" border="0" alt="Figure 1&nbsp;&#8212;&nbsp;&nbsp;Schematic presentation of network definition with Functional_units"></div><br><div align="center"><b>Figure 1&nbsp;&#8212;&nbsp;&nbsp;Schematic presentation of network definition with Functional_units</b></div><br>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Functional_unit<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/generic_product_occurrence/sys/4_info_reqs.htm#generic_product_occurrence_arm.definition_based_product_occurrence">Definition_based_product_occurrence</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/generic_product_occurrence/sys/4_info_reqs.htm#generic_product_occurrence_arm.definition_based_product_occurrence">Definition_based_product_occurrence</A>.derived_from RENAMED definition : <A HREF="../../../../data/modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_definition">Functional_unit_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>.id RENAMED reference_designation : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;functional_property : 
+            OPTIONAL 
+            SET[1:?] OF <A HREF="#network_functional_design_view_arm.nfdv_pa_or_parameter_assignment_override">nfdv_pa_or_parameter_assignment_override</A>;<br>DERIVE<br>
+            &nbsp;&nbsp;composed_network : <A HREF="#network_functional_design_view_arm.functional_unit_network_definition">Functional_unit_network_definition</A> := SELF\Product_occurrence.occurrence_contexts[1].relating_view;<br>
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>.defined_version : <A HREF="../../../../data/modules/product_version/sys/4_info_reqs.htm#product_version_arm.product_version">Product_version</A> := SELF\Definition_based_product_occurrence.derived_from.defined_version;<br>INVERSE<br>
+            &nbsp;&nbsp;access_mechanisms : SET[1:?] OF <A HREF="#network_functional_design_view_arm.functional_unit_terminal">Functional_unit_terminal</A> FOR accessed_functional_unit;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: reference_designation, composed_network;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: SIZEOF(SELF\Product_occurrence.occurrence_contexts) = 1;<br> 
+            &nbsp;&nbsp;WR2: EXISTS(composed_network);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit.definition">definition:
+               </a></b>
+         specifies the role of the <a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_definition"><b>Functional_unit_definition</b></a> for the <b>Functional_unit</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit.reference_designation">reference_designation:
+               </a></b>
+         specifies the name that identifies the <b>Functional_unit</b>, in the context of the <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_definition"><b>Functional_unit_network_definition</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit.functional_property">functional_property:
+               </a></b>
+         	specifies the role of the 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.nfdv_pa_or_parameter_assignment_override"><b>nfdv_pa_or_parameter_assignment_override</b></a> 
+         	for the <b>Functional_unit</b>. 
+         	There shall be one or more  
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.nfdv_pa_or_parameter_assignment_override"><b>nfdv_pa_or_parameter_assignment_override</b></a> 
+         	for the <b>Functional_unit</b>. 
+         	The value of this attribute need not be specified.  
+         	When a member of 
+         		<a href="../../../modules/model_parameter/sys/4_info_reqs.htm#model_parameter_arm.parameter_assignment_override"><b>Parameter_assignment_override</b></a> is provided,
+         	the interpretation shall be that the value provided for that member replaces the value provided by the member of  
+         	<a href="../../../modules/model_parameter/sys/4_info_reqs.htm#model_parameter_arm.parameter_assignment"><b>Parameter_assignment</b></a> 
+         	for the  
+         	<a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_definition"><b>Functional_unit_definition</b></a> 
+         	in the role of <b>definition</b> when the 
+         	<a href="../../../modules/model_parameter/sys/4_info_reqs.htm#model_parameter_arm.product_specific_parameter_value_assignment.assigned_parameter"><b>assigned_parameter</b></a> 
+         	are identical.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit.composed_network">composed_network:
+               </a></b>
+         specifies the role of the <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_definition"><b>Functional_unit_network_definition</b></a> for the <b>Functional_unit</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit.defined_version">defined_version:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>Product_view_definition</b></a> 
+         	shall be redeclared as the 
+         	<a href="../../../modules/product_version/sys/4_info_reqs.htm#product_version_arm.product_version"><b>Product_version</b></a> 
+         	for the <b>Functional_unit</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit.access_mechanisms">access_mechanisms:
+               </a></b>
+         an inverse relationship that specifies that the existence of the <b>Functional_unit</b> is dependent on the 
+         existence of the  <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal"><b>Functional_unit_terminal</b></a>
+          that specifies the <b>Functional_unit</b> as its 
+          <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal.accessed_functional_unit"><b>accessed_functional_unit</b></a>. 
+          There shall be one or more  <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal"><b>Functional_unit_terminals</b></a> 
+          for a 
+         <b>Functional_unit</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit.ur:ur1">UR1:
+               </a></b>
+         	The combination of <b>reference_designation</b> and <b>composed_network</b> shall be unique within a 
+         	population of <b>Functional_units</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit.wr:wr1">WR1:
+               </a></b>
+         The size of <a href="../../../modules/generic_product_occurrence/sys/4_info_reqs.htm#generic_product_occurrence_arm.product_occurrence.occurrence_contexts"><b>occurrence_contexts</b></a>
+         inherited from <a href="../../../modules/generic_product_occurrence/sys/4_info_reqs.htm#generic_product_occurrence_arm.product_occurrence"><b>Product_occurrence</b></a> shall be one.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit.wr:wr2">WR2:
+               </a></b>
+         The <b>composed_network</b> shall be provided.
+         
+      </p>
+      <h2><a name="network_functional_design_view_arm.functional_unit_network_definition">4.3.4 Functional_unit_network_definition</a>
+         &nbsp;&nbsp;<a href="../../network_functional_design_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityfunctional_unit_network_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Functional_unit_network_definition</b> is a type of 
+      	<a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_definition"><b>Functional_unit_definition</b></a>. 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Functional_unit_network_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_definition">Functional_unit_definition</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;usage_view : <A HREF="../../../../data/modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_usage_view">Functional_unit_usage_view</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_definition.usage_view">usage_view:
+               </a></b>
+         specifies the role of the <a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_usage_view"><b>Functional_unit_usage_view</b></a> for the <b>Functional_unit_network_definition</b>.
+         
+      </p>
+      <h2><a name="network_functional_design_view_arm.functional_unit_network_node_definition">4.3.5 Functional_unit_network_node_definition</a>
+         &nbsp;&nbsp;<a href="../../network_functional_design_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityfunctional_unit_network_node_definition"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      <p>
+         	A <b>Functional_unit_network_node_definition</b> is a type of 
+         	<a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>Product_view_definition</b></a>.
+         	A <b>Functional_unit_network_node_definition</b> is the definition of a node in the 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_definition"><b>Functional_unit_network_definition</b></a>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Functional_unit_network_node_definition<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;associated_functional_unit_definition : <A HREF="#network_functional_design_view_arm.functional_unit_network_definition">Functional_unit_network_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>.additional_characterization RENAMED functional_unit_network_node_name : STRING;<br>DERIVE<br>
+            &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>.defined_version : <A HREF="../../../../data/modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_version">Functional_version</A> := associated_functional_unit_definition.defined_version;<br>
+            &nbsp;&nbsp;valid_conservative_node : LOGICAL := ( ( SIZEOF (USEDIN ( SELF ,
+            'NETWORK_FUNCTIONAL_DESIGN_VIEW_ARM.BUS_ELEMENT_LINK.PRECEDENT_ELEMENT' ) )
+            + SIZEOF ( USEDIN ( SELF ,
+            'NETWORK_FUNCTIONAL_DESIGN_VIEW_ARM.BUS_ELEMENT_LINK.SUBSEQUENT_ELEMENT' )
+            ) + SIZEOF (USEDIN ( SELF ,
+            'NETWORK_FUNCTIONAL_DESIGN_VIEW_ARM.FUNCTIONAL_UNIT_TERMINAL_NODE_ASSIGNMENT.COMPOSED_NODE'
+            )) + SIZEOF ( external_node_access ) ) &gt; 1 );<br>INVERSE<br>
+            &nbsp;&nbsp;external_node_access : SET[0:1] OF <A HREF="#network_functional_design_view_arm.functional_unit_network_terminal_definition_node_assignment">Functional_unit_network_terminal_definition_node_assignment</A> FOR composed_node;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: functional_unit_network_node_name, associated_functional_unit_definition;<br>WHERE<br> 
+            &nbsp;&nbsp;WR1: EXISTS(valid_conservative_node);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_node_definition.associated_functional_unit_definition">associated_functional_unit_definition:
+               </a></b>
+         	specifies the 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_definition"><b>Functional_unit_network_definition</b></a> 
+         	that the <b>Functional_unit_network_node_definition</b> is helping to compose.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_node_definition.functional_unit_network_node_name">functional_unit_network_node_name:
+               </a></b>
+         	an attribute identifies the <b>Functional_unit_network_node_definition</b> in the context of the <b>associated_functional_unit_definition</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_node_definition.defined_version">defined_version:
+               </a></b>
+         	an attribute inherited from the
+         	<a href="../../../modules/product_view_definition/sys/4_info_reqs.htm#product_view_definition_arm.product_view_definition"><b>Product_view_definition</b></a>
+         	shall be redeclared as the 
+         	<a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_version"><b>Functional_version</b></a> 
+         	for the <b>Functional_unit_network_node_definition</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_node_definition.valid_conservative_node">valid_conservative_node:
+               </a></b>
+         	an attribute is TRUE only if the sum of usages of <b>Functional_unit_network_node_definition</b> in 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_element_link"><b>Bus_element_link</b></a>
+         	as 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_element_link.precedent_element"><b>precedent_element</b></a> 
+         	or
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_element_link.subsequent_element"><b>subsequent_element</b></a>, 
+         	and in 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal_node_assignment"><b>Functional_unit_terminal_node_assignment</b></a>
+         	as 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal_node_assignment.composed_node"><b>composed_node</b></a>,
+         	and size of <b>external_node_access</b> is greater than one.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_node_definition.external_node_access">external_node_access:
+               </a></b>
+         	specifies an inverse relationship that specifies that the existence of the  <b>Functional_unit_network_node_definition</b> 
+         	is dependent on the existence of the 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_terminal_definition_node_assignment"><b>Functional_unit_network_terminal_definition_node_assignment</b></a> 
+         	that specifies the <b>Functional_unit_network_node_definition</b>
+         	as its 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_terminal_definition_node_assignment.composed_node"><b>composed_node</b></a>. 
+         	There shall be no more than one  
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_terminal_definition_node_assignment"><b>Functional_unit_network_terminal_definition_node_assignment</b></a>
+         	for a particular <b>Functional_unit_network_node_definition</b>. 
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_node_definition.ur:ur1">UR1:
+               </a></b>
+         	The combination of <b>functional_unit_network_node_name</b> and <b>associated_functional_unit_definition</b> shall be unique within a population of <b>Functional_unit_network_node_definitions</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_node_definition.wr:wr1">WR1:
+               </a></b>
+         	The <b>valid_conservative_node</b> shall be provided.
+         
+      </p>
+      <p><u>Informal propositions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_node_definition.wr:ip1">IP1:
+               </a></b>
+         	A member of <b>Functional_unit_network_node_definition</b> that is helping to compose an approved electrical or thermal network definition shall be referenced by at least one of the
+         following:
+         	a member of 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_element_link"><b>Bus_element_link</b></a>; 
+         	a member of 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal_node_assignment"><b>Functional_unit_terminal_node_assignment</b></a>. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_node_definition.wr:ip2">IP2:
+               </a></b>
+         	A member of <b>Functional_unit_network_node_definition</b> that is helping to compose an approved electrical or thermal network definition shall be referenced by at least two of the
+         following:
+         	a member of 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_element_link"><b>Bus_element_link</b></a>; 
+         	a member of 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal_node_assignment"><b>Functional_unit_terminal_node_assignment</b></a>; 
+         	no more than one member of 
+         	<a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_terminal_definition_node_assignment"><b>Functional_unit_network_terminal_definition_node_assignment</b></a>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_node_definition.wr:ip3">IP3:
+               </a></b>
+         	Each member of <b>Functional_unit_network_node_definition</b> shall be referenced by no more than one member of 
+         	<a href="../../../modules/functional_decomposition_with_nodal_representation_to_packaged_mapping/sys/4_info_reqs.htm#functional_decomposition_with_nodal_representation_to_packaged_mapping_arm.aggregate_connectivity_requirement"><b>Aggregate_connectivity_requirement</b></a> 
+         	for a specific physical partition.
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            		Some nodes are not connected to external terminals.
+            	</small></p>
+      <h2><a name="network_functional_design_view_arm.functional_unit_network_terminal_definition_bus_assignment">4.3.6 Functional_unit_network_terminal_definition_bus_assignment</a>
+         &nbsp;&nbsp;<a href="../../network_functional_design_view/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityfunctional_unit_network_terminal_definition_bus_assignment"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+      A <b>Functional_unit_network_terminal_definition_bus_assignment</b> is the relationship between the structural 
+      definition of a bus and the terminal definition of a network to which the bus is assigned.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Functional_unit_network_terminal_definition_bus_assignment;<br>
+            
+            
+            
+            &nbsp;&nbsp;connected_bus : <A HREF="#network_functional_design_view_arm.bus_structural_definition">Bus_structural_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;connected_terminal : <A HREF="../../../../data/modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_usage_view_terminal_definition">Functional_unit_usage_view_terminal_definition</A>;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: connected_bus, connected_terminal;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_terminal_definition_bus_assignment.connected_bus">connected_bus:
+               </a></b>
+         specifies the role of the <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_structural_definition"><b>Bus_structural_definition</b></a> for the 
+         <b>Functional_unit_network_terminal_definition_bus_assignment</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_terminal_definition_bus_assignment.connected_terminal">connected_terminal:
+               </a></b>
+         specifies the role of the <a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_usage_view_terminal_definition"><b>Functional_unit_usage_view_terminal_definition</b></a> for the 
+         <b>Functional_unit_network_terminal_definition_bus_assignment</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_terminal_definition_bus_assignment.ur:ur1">UR1:
+               </a></b>
+         The combination of<b>connected_bus</b> and <b>connected_terminal</b> shall be unique within a population of <b>Functional_unit_network_terminal_definition_bus_assignments</b>.
+         
+      </p>
+      <h2><a name="network_functional_design_view_arm.functional_unit_network_terminal_definition_node_assignment">4.3.7 Functional_unit_network_terminal_definition_node_assignment</a>
+         &nbsp;&nbsp;<a href="../../network_functional_design_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityfunctional_unit_network_terminal_definition_node_assignment"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+       A 
+      <b>Functional_unit_network_terminal_definition_node_assignment</b> is the assignment relationship between a 
+      node definition of the functional unit network definition and a terminal definition of that network 
+      definition. This assignment provides visibility into the node definition from higher levels in the functional 
+      decomposition.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Functional_unit_network_terminal_definition_node_assignment;<br>
+            
+            
+            
+            &nbsp;&nbsp;composed_node : <A HREF="#network_functional_design_view_arm.functional_unit_network_node_definition">Functional_unit_network_node_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;connected_terminal : <A HREF="../../../../data/modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_usage_view_terminal_definition">Functional_unit_usage_view_terminal_definition</A>;<br>UNIQUE<br>
+            &nbsp;&nbsp;UR1: composed_node, connected_terminal;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_terminal_definition_node_assignment.composed_node">composed_node:
+               </a></b>
+         specifies the role of the <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_node_definition"><b>Functional_unit_network_node_definition</b></a> for the 
+         <b>Functional_unit_network_terminal_definition_node_assignment</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_terminal_definition_node_assignment.connected_terminal">connected_terminal:
+               </a></b>
+         specifies the role of the <a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_usage_view_terminal_definition"><b>Functional_unit_usage_view_terminal_definition</b></a> for the 
+         <b>Functional_unit_network_terminal_definition_node_assignment</b>.
+         
+      </p>
+      <p><u>Formal propositions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_network_terminal_definition_node_assignment.ur:ur1">UR1:
+               </a></b>
+         The combination of <b>composed_node</b> and <b>connected_terminal</b> shall be unique within a population of <b>Functional_unit_network_terminal_definition_node_assignments</b>.
+         
+      </p>
+      <h2><a name="network_functional_design_view_arm.functional_unit_terminal">4.3.8 Functional_unit_terminal</a>
+         &nbsp;&nbsp;<a href="../../network_functional_design_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityfunctional_unit_terminal"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+       A <b>Functional_unit_terminal</b> is an access mechanism for a <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit"><b>Functional_unit</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Functional_unit_terminal;<br>
+            
+            
+            
+            &nbsp;&nbsp;accessed_functional_unit : <A HREF="#network_functional_design_view_arm.functional_unit">Functional_unit</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;definition : <A HREF="../../../../data/modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_usage_view_terminal_definition">Functional_unit_usage_view_terminal_definition</A>;<br>INVERSE<br>
+            &nbsp;&nbsp;bus_assignment : SET[0:1] OF <A HREF="#network_functional_design_view_arm.functional_unit_terminal_bus_assignment">Functional_unit_terminal_bus_assignment</A> FOR connected_terminal;<br>
+            &nbsp;&nbsp;node_assignment : SET[0:1] OF <A HREF="#network_functional_design_view_arm.functional_unit_terminal_node_assignment">Functional_unit_terminal_node_assignment</A> FOR connected_terminal;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_terminal.accessed_functional_unit">accessed_functional_unit:
+               </a></b>
+         specifies the <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit"><b>Functional_unit</b></a>
+         whose functionality is accessed by the <b>Functional_unit_terminal</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_terminal.definition">definition:
+               </a></b>
+         specifies the role of the <a href="../../../modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_usage_view_terminal_definition"><b>Functional_unit_usage_view_terminal_definition</b></a> for the 
+         <b>Functional_unit_terminal</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_terminal.bus_assignment">bus_assignment:
+               </a></b>
+         an inverse relationship that specifies that the existence of the <b>Functional_unit_terminal</b> is dependent 
+         on the existence of the  <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal_bus_assignment"><b>Functional_unit_terminal_bus_assignment</b></a>
+         that specifies the <b>Functional_unit_terminal</b> as its <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal_bus_assignment.connected_terminal"><b>connected_terminal</b></a>. There shall be no more than one 
+          <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal_bus_assignment"><b>Functional_unit_terminal_bus_assignment</b></a> for a <b>Functional_unit_terminal</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_terminal.node_assignment">node_assignment:
+               </a></b>
+         an inverse relationship that specifies that the existence of the <b>Functional_unit_terminal</b> is dependent 
+         on the existence of the  <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal_node_assignment"><b>Functional_unit_terminal_node_assignment</b></a>
+         that specifies the <b>Functional_unit_terminal</b> as its <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal_node_assignment.connected_terminal"><b>connected_terminal</b></a>. There shall be no more than one 
+          <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal_node_assignment"><b>Functional_unit_terminal_node_assignment</b></a> for a <b>Functional_unit_terminal</b>.
+         
+      </p>
+      <h2><a name="network_functional_design_view_arm.functional_unit_terminal_bus_assignment">4.3.9 Functional_unit_terminal_bus_assignment</a>
+         &nbsp;&nbsp;<a href="../../network_functional_design_view/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityfunctional_unit_terminal_bus_assignment"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         
+          A <b>Functional_unit_terminal_bus_assignment</b> is the relationship 
+         between the structural definition of a bus and a terminal that is assigned to the bus. The members of <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal"><b>Functional_unit_terminal</b></a> that are assigned to the same bus by this application object are defined to be connected to each 
+         other.
+         
+         
+      </p>
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            There are cardinality constraints levied to ensure that the cardinality as resolved through all the references 
+            is identical.
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Functional_unit_terminal_bus_assignment;<br>
+            
+            
+            
+            &nbsp;&nbsp;connected_bus : <A HREF="#network_functional_design_view_arm.bus_structural_definition">Bus_structural_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;connected_terminal : <A HREF="#network_functional_design_view_arm.functional_unit_terminal">Functional_unit_terminal</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_terminal_bus_assignment.connected_bus">connected_bus:
+               </a></b>
+         specifies the role of the <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_structural_definition"><b>Bus_structural_definition</b></a> for the <b>Functional_unit_terminal_bus_assignment</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_terminal_bus_assignment.connected_terminal">connected_terminal:
+               </a></b>
+         specifies the role of the <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal"><b>Functional_unit_terminal</b></a> for the <b>Functional_unit_terminal_bus_assignment</b>.
+         
+      </p>
+      <h2><a name="network_functional_design_view_arm.functional_unit_terminal_node_assignment">4.3.10 Functional_unit_terminal_node_assignment</a>
+         &nbsp;&nbsp;<a href="../../network_functional_design_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityfunctional_unit_terminal_node_assignment"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      
+       A <b>Functional_unit_terminal_node_assignment</b> is the assignment 
+      relationship between a <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_node_definition"><b>Functional_unit_network_node_definition</b></a> and a <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal"><b>Functional_unit_terminal</b></a>. 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Functional_unit_terminal_node_assignment;<br>
+            
+            
+            
+            &nbsp;&nbsp;composed_node : <A HREF="#network_functional_design_view_arm.functional_unit_network_node_definition">Functional_unit_network_node_definition</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;connected_terminal : <A HREF="#network_functional_design_view_arm.functional_unit_terminal">Functional_unit_terminal</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_terminal_node_assignment.composed_node">composed_node:
+               </a></b>
+         specifies the role of the <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_network_node_definition"><b>Functional_unit_network_node_definition</b></a> for the 
+         <b>Functional_unit_terminal_node_assignment</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.functional_unit_terminal_node_assignment.connected_terminal">connected_terminal:
+               </a></b>
+         specifies the role of the <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.functional_unit_terminal"><b>Functional_unit_terminal</b></a> for the <b>Functional_unit_terminal_node_assignment</b>.
+         
+      </p>
+      <h2><a name="subtype_constraints">4.4 ARM subtype constraint definition</a></h2>
+      <p>
+         This subclause specifies the ARM subtype constraint for
+         this module. The subtype constraint places a constraint on the
+         possible super-type / subtype instantiations.
+         The ARM subtype constraint and definition is
+         specified below.
+         
+      </p>
+      <h2><A NAME="network_functional_design_view_arm.functional_unit_definition_subtypes">4.4.1 functional_unit_definition_subtypes</A>
+         &nbsp;&nbsp;<a href="../../network_functional_design_view/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#scconstraintfunctional_unit_definition_subtypes"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      <p>
+         The
+         <b>functional_unit_definition_subtypes</b> 
+         constraint specifies a constraint that applies to instances of subtypes of
+         <b><A HREF="../../../../data/modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_definition">Functional_unit_definition</A></b>.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br><A NAME="network_functional_design_view_arm.functional_unit_definition_subtypes">SUBTYPE_CONSTRAINT functional_unit_definition_subtypes</A> FOR <A HREF="../../../../data/modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_definition">Functional_unit_definition</A>;<br>
+            &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#network_functional_design_view_arm.functional_unit_network_definition">Functional_unit_network_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/functional_usage_view/sys/4_info_reqs.htm#functional_usage_view_arm.functional_unit_usage_view">Functional_unit_usage_view</A>);<br>      
+            END_SUBTYPE_CONSTRAINT;<br>(*
+            </code></p>
+      <h2><a name="functions">4.5 ARM function definition</a></h2>
+      <p>
+         This subclause specifies the ARM function for 
+         this module. The ARM function and definition is
+         specified below.
+         
+      </p>
+      <h2><A NAME="network_functional_design_view_arm.consistent_bus_structural_definition">4.5.1 consistent_bus_structural_definition</A></h2>
+      The <b>consistent_bus_structural_definition</b> function checks if the specified bus structure is correct.
+      
+      <p>
+         It returns True if the size of the set of <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_element_link"><b>Bus_element_links</b></a>
+         specified by the <b>input</b> is smaller by one than the size of the set composed of
+         <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_element_link.precedent_element"><b>precedent_elements</b></a>
+         and <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_element_link.subsequent_element"><b>subsequent_elements</b></a>
+         of members of <b>input</b>, and if there does not exist an item that is refered by more than two members of <b>input</b>
+         as a <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_element_link.precedent_element"><b>precedent_element</b></a>
+         or a <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_element_link.subsequent_element"><b>subsequent_element</b></a>.
+         
+      </p>
+      
+      <p>
+         It returns False otherwise.
+         
+      </p>
+      
+      <p><u>EXPRESS specification:</u></p><code>
+         *)<br>
+         FUNCTION consistent_bus_structural_definition&nbsp;(input : SET[0:?] OF <A HREF="#network_functional_design_view_arm.bus_element_link">Bus_element_link</A>) :BOOLEAN;
+         </code><pre>LOCAL
+      vertex        : SET OF bus_structural_definition_or_node := [];
+      edge          : INTEGER := SIZEOF(input);
+      vc            : INTEGER := 0;
+      vertex_degree : INTEGER := 0;
+    END_LOCAL;
+
+    REPEAT i := 1 TO SIZEOF(input) BY 1;
+      vertex := vertex + input[i].precedent_element;
+      vertex := vertex + input[i].subsequent_element;
+    END_REPEAT;
+    vc := SIZEOF(vertex);
+    IF (vc &lt;&gt; (edge + 1)) THEN
+      RETURN(FALSE);
+    END_IF;
+    REPEAT i := 1 TO vc BY 1;
+      vertex_degree := 0;
+      REPEAT j := 1 TO SIZEOF(input) BY 1;
+        IF input[j].precedent_element = vertex[i] THEN
+          vertex_degree := vertex_degree + 1;
+        END_IF;
+        IF input[j].subsequent_element = vertex[i] THEN
+          vertex_degree := vertex_degree + 1;
+        END_IF;
+      END_REPEAT;
+      IF (vertex_degree &gt; 2) THEN
+        RETURN(FALSE);
+      END_IF;
+    END_REPEAT;
+    RETURN(TRUE);</pre><code>
+         END_FUNCTION;
+         <br>(*
+         </code><p><u>Argument definitions:</u></p>
+      <p class="expressdescription"><b><a name="network_functional_design_view_arm.consistent_bus_structural_definition.input">input:
+               </a></b>
+         the specified set of <a href="../../../modules/network_functional_design_view/sys/4_info_reqs.htm#network_functional_design_view_arm.bus_element_link"><b>Bus_element_links</b></a>.
+         
+      </p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Network_functional_design_view_arm<br>(*
+         </code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

@@ -1,0 +1,57 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Value_with_unit_extension_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Value_with_unit_extension_mim</h2><code><br><br><a name="value_with_unit_extension_mim">SCHEMA <b>Value_with_unit_extension_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/value_with_unit/sys/e_exp_mim.htm#value_with_unit_mim">Value_with_unit_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1054<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/resources/ISO13584_generic_expressions_schema/ISO13584_generic_expressions_schema.htm#iso13584_generic_expressions_schema">ISO13584_generic_expressions_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 13584-20<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/ISO13584_generic_expressions_schema/ISO13584_generic_expressions_schema.htm#iso13584_generic_expressions_schema.environment">environment</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/ISO13584_generic_expressions_schema/ISO13584_generic_expressions_schema.htm#iso13584_generic_expressions_schema.generic_literal">generic_literal</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/ISO13584_generic_expressions_schema/ISO13584_generic_expressions_schema.htm#iso13584_generic_expressions_schema.variable_semantics">variable_semantics</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema">measure_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.derive_dimensional_exponents">derive_dimensional_exponents</A>);
+         <br><br></code><code><br><A NAME="value_with_unit_extension_mim.dielectric_constant_measure_with_unit">ENTITY <b>dielectric_constant_measure_with_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.ratio_measure_with_unit">ratio_measure_with_unit</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_extension_mim.expression_conversion_based_unit">ENTITY <b>expression_conversion_based_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.context_dependent_unit">context_dependent_unit</A>, <A HREF="../../../data/resources/ISO13584_generic_expressions_schema/ISO13584_generic_expressions_schema.htm#iso13584_generic_expressions_schema.variable_semantics">variable_semantics</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_extension_mim.expression_conversion_based_unit.associated_variable_environment">associated_variable_environment : </A><A HREF="../../../data/resources/ISO13584_generic_expressions_schema/ISO13584_generic_expressions_schema.htm#iso13584_generic_expressions_schema.environment">environment</A> FOR semantics;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_extension_mim.loss_tangent_measure_with_unit">ENTITY <b>loss_tangent_measure_with_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.ratio_measure_with_unit">ratio_measure_with_unit</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_extension_mim.polar_complex_number_literal">ENTITY <b>polar_complex_number_literal</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/ISO13584_generic_expressions_schema/ISO13584_generic_expressions_schema.htm#iso13584_generic_expressions_schema.generic_literal">generic_literal</A>);<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_extension_mim.polar_complex_number_literal.radius">radius : </A>REAL;<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_extension_mim.polar_complex_number_literal.angle">angle : </A>REAL;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_extension_mim.polar_complex_number_literal.wr:wr1">WR1: radius &gt;= 0;</A><br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_extension_mim.polar_complex_number_literal.wr:wr2">WR2: { 0 &lt;= angle &lt; 2*PI };</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_extension_mim.scattering_parameter">ENTITY <b>scattering_parameter</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#value_with_unit_extension_mim.polar_complex_number_literal">polar_complex_number_literal</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_extension_mim.scattering_parameter.wr:wr1">WR1: SIZEOF(TYPEOF(SELF) - (TYPEOF(SELF\polar_complex_number_literal ||
+            SELF\scattering_parameter))) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_extension_mim.thermal_resistance_measure_with_unit">ENTITY <b>thermal_resistance_measure_with_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_extension_mim.thermal_resistance_measure_with_unit.wr:wr1">WR1: 'VALUE_WITH_UNIT_EXTENSION_MIM.THERMAL_RESISTANCE_UNIT' IN TYPEOF(SELF\measure_with_unit.unit_component);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="value_with_unit_extension_mim.thermal_resistance_unit">ENTITY <b>thermal_resistance_unit</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.derived_unit">derived_unit</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="value_with_unit_extension_mim.thermal_resistance_unit.wr:wr1">WR1: derive_dimensional_exponents(SELF) = 
+            dimensional_exponents ( -1.0, -1.0, -3.0, 0.0, 1.0, 0.0, 0.0 );</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Value_with_unit_extension_mim<br></code></body>
+</HTML>

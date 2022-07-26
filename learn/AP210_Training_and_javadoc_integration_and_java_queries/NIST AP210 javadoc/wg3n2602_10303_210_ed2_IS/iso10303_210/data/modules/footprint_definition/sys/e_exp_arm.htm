@@ -1,0 +1,341 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Footprint definition">
+      <META name="DC.Dates" content="2009-05-04 09:10:05">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Thurman, Thomas">
+      <META name="DC.Description" content="The application module Footprint definition">
+      <META name="DC.Subject" content="module, footprint, breakout, package, padstack, footprint breakout">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6377">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5604">
+      <META name="SC4.version" content="2">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6566">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6567">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6568">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-05-04 09:10:05">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.32">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.18">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.8">
+      <TITLE>ISO/TS 10303-1646:2009 Footprint definition</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Footprint definition</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1646:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.2 ARM entity definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#subtype_constraints">4.3 ARM subtype constraint definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#functions">4.4 ARM function definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.1 MIM entity definitions</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#subtype_constraints">5.2.2 MIM subtype constraint definition</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="annexe-arm-express"></A></H2><code>
+         (*<br>ISO TC184/SC4/WG12&nbsp;N6378 - ISO/TS&nbsp;10303-1646 Footprint definition - EXPRESS ARM<br>Supersedes 
+         ISO TC184/SC4/WG12&nbsp;N5605<br>*)
+         </code><br><code><br><br><a name="footprint_definition_arm">SCHEMA <b>Footprint_definition_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm">Layered_interconnect_complex_template_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1716<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/package/sys/e_exp_arm.htm#package_arm">Package_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1707<br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm">Characterizable_object_arm</A>&nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1765<br>&nbsp;&nbsp;(<A HREF="../../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm.bag_to_set">bag_to_set</A>);
+         <br><br></code><code><br><A NAME="footprint_definition_arm.breakout_footprint_definition">ENTITY <b>Breakout_footprint_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#footprint_definition_arm.generic_footprint_definition">Generic_footprint_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.breakout_footprint_definition.reference_footprint">reference_footprint : </A><A HREF="#footprint_definition_arm.footprint_definition">Footprint_definition</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.breakout_footprint_definition.breakout_traces">breakout_traces : </A>SET[1:?] OF <A HREF="#footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition">Stratum_feature_template_location_in_breakout_footprint_definition</A> FOR assembly;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.breakout_footprint_definition.wr:wr1">WR1: SELF\Multi_stratum_structured_template.location = reference_footprint\Multi_stratum_structured_template.location;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="footprint_definition_arm.breakout_footprint_definition_shape_model">ENTITY <b>Breakout_footprint_definition_shape_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model">Structured_template_planar_shape_model</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model">Structured_template_planar_shape_model</A>.<A NAME="footprint_definition_arm.breakout_footprint_definition_shape_model.shape_characterized_definition">shape_characterized_definition : </A>SET[1:1] OF <A HREF="#footprint_definition_arm.breakout_footprint_definition">Breakout_footprint_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.breakout_footprint_definition_shape_model.reference_shape">reference_shape : </A><A HREF="#footprint_definition_arm.footprint_definition_shape_model">Footprint_definition_shape_model</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.breakout_footprint_definition_shape_model.wr:wr1">WR1: reference_shape.shape_characterized_definition[1] :=: shape_characterized_definition[1].reference_footprint;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="footprint_definition_arm.footprint_definition">ENTITY <b>Footprint_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#footprint_definition_arm.generic_footprint_definition">Generic_footprint_definition</A>);<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition.reference_package">reference_package : </A>
+         OPTIONAL 
+         <A HREF="../../../../data/modules/physical_unit_usage_view/sys/e_exp_arm.htm#physical_unit_usage_view_arm.part_usage_view">Part_usage_view</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition.wr:wr1">WR1: SIZEOF (QUERY(shape &lt;* SELF\Structured_template.shapes |
+            NOT ('LAYERED_INTERCONNECT_COMPLEX_TEMPLATE_ARM.FOOTPRINT_DEFINITION_SHAPE_MODEL' IN TYPEOF(shape))
+            )) = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition.wr:wr2">WR2: SIZEOF (QUERY(tlist &lt;* SELF\Structured_template.templates |
+            ('FOOTPRINT_DEFINITION_ARM.FOOTPRINT_DEFINITION' IN TYPEOF(tlist.template))
+            )) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="footprint_definition_arm.footprint_definition_shape_model">ENTITY <b>Footprint_definition_shape_model</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model">Structured_template_planar_shape_model</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model">Structured_template_planar_shape_model</A>.<A NAME="footprint_definition_arm.footprint_definition_shape_model.shape_characterized_definition">shape_characterized_definition : </A>SET[1:1] OF <A HREF="#footprint_definition_arm.footprint_definition">Footprint_definition</A>;<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition_shape_model.reference_shape">reference_shape : </A>
+         OPTIONAL 
+         <A HREF="../../../../data/modules/shape_parameters/sys/e_exp_arm.htm#shape_parameters_arm.physical_unit_shape_model_select">physical_unit_shape_model_select</A>;<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition_shape_model.reference_seating_plane_placement">reference_seating_plane_placement : </A>
+         OPTIONAL 
+         <A HREF="../../../../data/modules/part_feature_location/sys/e_exp_arm.htm#part_feature_location_arm.usage_concept_usage_relationship">Usage_concept_usage_relationship</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition_shape_model.wr:wr1">WR1: NOT (SIZEOF(['PHYSICAL_UNIT_3D_SHAPE_ARM.PHYSICAL_UNIT_3D_SHAPE_MODEL',
+            'PHYSICAL_UNIT_2D_SHAPE_ARM.PHYSICAL_UNIT_PLANAR_SHAPE_MODEL'] * TYPEOF(reference_shape)) = 1) OR 
+            NOT ('PHYSICAL_UNIT_USAGE_VIEW_ARM.PART_USAGE_VIEW' IN TYPEOF(reference_shape\Physical_unit_shape_model.shape_characterized_definition))
+            OR
+            NOT ('LAYERED_INTERCONNECT_COMPLEX_TEMPLATE_ARM.FOOTPRINT_DEFINITION' IN TYPEOF(shape_characterized_definition[1])) OR   
+            
+            (shape_characterized_definition[1]\Footprint_definition.reference_package :=: reference_shape\Physical_unit_shape_model.shape_characterized_definition);</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition_shape_model.wr:wr2">WR2: NOT (SIZEOF(['PHYSICAL_UNIT_3D_SHAPE_ARM.PHYSICAL_UNIT_3D_SHAPE_MODEL',
+            'PHYSICAL_UNIT_2D_SHAPE_ARM.PHYSICAL_UNIT_PLANAR_SHAPE_MODEL'] * TYPEOF(reference_shape)) = 1) OR 
+            ('PHYSICAL_UNIT_USAGE_VIEW_ARM.PART_USAGE_VIEW' IN TYPEOF(reference_shape\Physical_unit_shape_model.shape_characterized_definition));</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition_shape_model.wr:wr3">WR3: NOT EXISTS(SELF\Representation.description);</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition_shape_model.wr:wr4">WR4: NOT EXISTS(reference_shape) OR EXISTS(shape_characterized_definition[1]\Footprint_definition.reference_package);</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition_shape_model.wr:wr5">WR5: NOT EXISTS(reference_seating_plane_placement) OR EXISTS(reference_shape);</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition_shape_model.wr:wr6">WR6: NOT EXISTS(reference_seating_plane_placement) OR ('PACKAGE_ARM.PACKAGE' IN TYPEOF(shape_characterized_definition[1]\Footprint_definition.reference_package));</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition_shape_model.wr:wr7">WR7: NOT EXISTS(reference_seating_plane_placement) OR ('NON_FEATURE_SHAPE_ELEMENT_ARM.SEATING_PLANE' IN 
+            TYPEOF(reference_seating_plane_placement\Usage_concept_usage_relationship.associated_usage));</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition_shape_model.wr:wr8">WR8: NOT EXISTS(reference_seating_plane_placement) OR 
+            ((reference_seating_plane_placement\Usage_concept_usage_relationship.associating_usage_shape\Usage_view_level_non_feature_shape_model.model_shape)
+            =
+            reference_shape);</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition_shape_model.wr:wr9">WR9: NOT EXISTS(reference_seating_plane_placement) OR 
+            ((reference_seating_plane_placement\Usage_concept_usage_relationship.associated_usage\Non_feature_shape_element.scope) =
+            shape_characterized_definition[1]\Footprint_definition.reference_package);</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition_shape_model.wr:wr10">WR10: NOT EXISTS(reference_seating_plane_placement) OR ('PHYSICAL_UNIT_3D_SHAPE_ARM.PHYSICAL_UNIT_3D_SHAPE_MODEL' IN 
+            TYPEOF(reference_seating_plane_placement\Usage_concept_usage_relationship.associating_usage_shape\Usage_view_level_non_feature_shape_model.model_shape));</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition_shape_model.wr:wr11">WR11: NOT (EXISTS(reference_seating_plane_placement) AND ('PHYSICAL_UNIT_2D_SHAPE_ARM.PHYSICAL_UNIT_PLANAR_SHAPE_MODEL' IN
+            TYPEOF(reference_shape)));</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.footprint_definition_shape_model.wr:wr12">WR12: NOT ('PHYSICAL_UNIT_2D_SHAPE_ARM.PHYSICAL_UNIT_PLANAR_SHAPE_MODEL' IN TYPEOF(reference_shape)) OR
+            (SELF\Geometric_model.context_of_items = reference_shape\Geometric_model.context_of_items);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="footprint_definition_arm.generic_footprint_definition">ENTITY <b>Generic_footprint_definition</b></A><br>
+         &nbsp;&nbsp;ABSTRACT SUPERTYPE
+         
+         OF&nbsp;(ONEOF&nbsp;(<A HREF="#footprint_definition_arm.footprint_definition">Footprint_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#footprint_definition_arm.breakout_footprint_definition">Breakout_footprint_definition</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template">Multi_stratum_structured_template</A>);<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.generic_footprint_definition.padstack_based_location">padstack_based_location : </A><A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.template_arrangement">template_arrangement</A> := get_template_arrangement(padstacks);<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.generic_footprint_definition.padstacks">padstacks : </A>SET[1:?] OF <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A> := QUERY(tlict &lt;* SELF\Structured_template.templates |
+         ('LAYERED_INTERCONNECT_COMPLEX_TEMPLATE_ARM.PADSTACK_DEFINITION' IN TYPEOF(tlict.template)));<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.generic_footprint_definition.single_stratum_components">single_stratum_components : </A>SET[0:?] OF <A HREF="../../../../data/modules/layered_interconnect_simple_template/sys/e_exp_arm.htm#layered_interconnect_simple_template_arm.single_stratum_template">Single_stratum_template</A> := fd_get_single_stratum_components(SELF\Structured_template.templates);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.generic_footprint_definition.wr:wr1">WR1: SIZEOF(QUERY(ps &lt;* SELF\Structured_template.templates | (ps\Template_location_in_structured_template.template\Multi_stratum_structured_template.location
+            &lt;&gt; SELF\Multi_stratum_structured_template.location)
+            AND (ps\Template_location_in_structured_template.template\Multi_stratum_structured_template.location &lt;&gt; template_arrangement.symmetrical)))
+            = 0;</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.generic_footprint_definition.wr:wr2">WR2: ((SELF\Multi_stratum_structured_template.location = template_arrangement.top) AND (SELF\Product_view_definition.initial_context\View_definition_context.description
+            = 'top')) OR 
+            (NOT (SELF\Multi_stratum_structured_template.location = template_arrangement.top) AND NOT (SELF\Product_view_definition.initial_context\View_definition_context.description
+            = 'top'));</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.generic_footprint_definition.wr:wr3">WR3: ((SELF\Multi_stratum_structured_template.location = template_arrangement.bottom) AND (SELF\Product_view_definition.initial_context\View_definition_context.description
+            = 'bottom')) OR 
+            (NOT (SELF\Multi_stratum_structured_template.location = template_arrangement.bottom) AND NOT (SELF\Product_view_definition.initial_context\View_definition_context.description
+            = 'bottom'));</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.generic_footprint_definition.wr:wr4">WR4: ((SELF\Multi_stratum_structured_template.location = template_arrangement.symmetrical) AND (SELF\Product_view_definition.initial_context\View_definition_context.description
+            = 'symmetrical')) OR 
+            (NOT (SELF\Multi_stratum_structured_template.location = template_arrangement.symmetrical) AND NOT (SELF\Product_view_definition.initial_context\View_definition_context.description
+            = 'symmetrical'));</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.generic_footprint_definition.wr:wr5">WR5: ((SELF\Multi_stratum_structured_template.location = template_arrangement.swappable) AND (SELF\Product_view_definition.initial_context\View_definition_context.description
+            = 'swappable')) OR 
+            (NOT (SELF\Multi_stratum_structured_template.location = template_arrangement.swappable) AND NOT (SELF\Product_view_definition.initial_context\View_definition_context.description
+            = 'swappable'));</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.generic_footprint_definition.wr:wr6">WR6: NOT (SIZEOF(single_stratum_components) = 0) OR (SELF\Multi_stratum_structured_template.location = padstack_based_location);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="footprint_definition_arm.package_footprint_relationship_definition">ENTITY <b>Package_footprint_relationship_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.package_footprint_relationship_definition.associated_model">associated_model : </A>SET[1:1] OF <A HREF="../../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A> := fd_get_amodel(SELF);<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.package_footprint_relationship_definition.related_models">related_models : </A>SET[2:2] OF <A HREF="../../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A> := fd_get_rmodels(related_elements);<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.package_footprint_relationship_definition.related_transforms">related_transforms : </A>SET[2:2] OF <A HREF="../../../../data/modules/contextual_shape_positioning/sys/e_exp_arm.htm#contextual_shape_positioning_arm.geometric_model_relationship_with_transformation">Geometric_model_relationship_with_transformation</A> := fd_get_transforms(associated_model, related_models);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.package_footprint_relationship_definition.related_elements">related_elements : </A>SET[2:2] OF <A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A> FOR related_view;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.package_footprint_relationship_definition.wr:wr1">WR1: SIZEOF(QUERY(re &lt;* related_elements | 
+            ('PACKAGE_ARM.PACKAGE' IN TYPEOF(re\View_definition_relationship.relating_view))
+            )) = 1;</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.package_footprint_relationship_definition.wr:wr2">WR2: SIZEOF(QUERY(re &lt;* related_elements | 
+            ('FOOTPRINT_DEFINITION_ARM.FOOTPRINT_DEFINITION' IN TYPEOF(re\View_definition_relationship.relating_view))
+            )) = 1;</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.package_footprint_relationship_definition.wr:wr3">WR3: SIZEOF(related_models) = 2;</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.package_footprint_relationship_definition.wr:wr4">WR4: SIZEOF(associated_model) = 1;</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.package_footprint_relationship_definition.wr:wr5">WR5: SIZEOF(QUERY(rm &lt;* related_models |
+            ('PHYSICAL_UNIT_2D_SHAPE_ARM.PHYSICAL_UNIT_PLANAR_SHAPE_MODEL' IN TYPEOF(rm))
+            )) = 1;</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.package_footprint_relationship_definition.wr:wr6">WR6: SIZEOF(QUERY(rm &lt;* related_models |
+            ('FOOTPRINT_DEFINITION_ARM.FOOTPRINT_DEFINITION_SHAPE_MODEL' IN TYPEOF(rm))
+            )) = 1;</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.package_footprint_relationship_definition.wr:wr7">WR7: 'LAYERED_2D_SHAPE_ARM.PLANAR_SHAPE_MODEL' IN TYPEOF(associated_model[1]);</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.package_footprint_relationship_definition.wr:wr8">WR8: SIZEOF(related_transforms) = 2;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="footprint_definition_arm.part_feature_based_template_location">ENTITY <b>Part_feature_based_template_location</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>);<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.part_feature_based_template_location.reference_feature">reference_feature : </A><A HREF="../../../../data/modules/physical_unit_usage_view/sys/e_exp_arm.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A>;<br>DERIVE<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.part_feature_based_template_location.all_reference_feature">all_reference_feature : </A>SET[1:?] OF <A HREF="../../../../data/modules/physical_unit_usage_view/sys/e_exp_arm.htm#physical_unit_usage_view_arm.part_feature">Part_feature</A> := bag_to_set(USEDIN
+         (SELF\Template_location_in_structured_template.assembly,
+         'LAYERED_INTERCONNECT_COMPLEX_TEMPLATE_ARM.TEMPLATE_LOCATION_IN_STRUCTURED_TEMPLATE.ASSEMBLY'));<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>.<A NAME="footprint_definition_arm.part_feature_based_template_location.reference_designation">reference_designation : </A>STRING := reference_feature\Shape_element.element_name;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.part_feature_based_template_location.wr:wr1">WR1: SIZEOF(QUERY( arf &lt;* all_reference_feature | NOT(reference_feature.associated_definition :=: arf.associated_definition)))
+            = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition">ENTITY <b>Stratum_feature_template_location_in_breakout_footprint_definition</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.stratum_specific_template_location">Stratum_specific_template_location</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>.<A NAME="footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition.assembly">assembly : </A><A HREF="#footprint_definition_arm.breakout_footprint_definition">Breakout_footprint_definition</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>.<A NAME="footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition.template">template : </A><A HREF="../../../../data/modules/layered_interconnect_simple_template/sys/e_exp_arm.htm#layered_interconnect_simple_template_arm.stratum_feature_template">Stratum_feature_template</A>;<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition.original_padstack">original_padstack : </A><A HREF="#footprint_definition_arm.part_feature_based_template_location">Part_feature_based_template_location</A>;<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition.breakout_padstack">breakout_padstack : </A><A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition.wr:wr1">WR1: original_padstack.assembly :=: assembly.reference_footprint;</A><br>
+         &nbsp;&nbsp;<A NAME="footprint_definition_arm.stratum_feature_template_location_in_breakout_footprint_definition.wr:wr2">WR2: breakout_padstack.assembly :=: assembly;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="footprint_definition_arm.multi_stratum_structured_template_subtypes">SUBTYPE_CONSTRAINT <b>multi_stratum_structured_template_subtypes</b></A>&nbsp;FOR <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.multi_stratum_structured_template">Multi_stratum_structured_template</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.padstack_definition">Padstack_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#footprint_definition_arm.generic_footprint_definition">Generic_footprint_definition</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.multi_stratum_special_symbol_template">Multi_stratum_special_symbol_template</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br><A NAME="footprint_definition_arm.structured_template_planar_shape_model_subtypes">SUBTYPE_CONSTRAINT <b>structured_template_planar_shape_model_subtypes</b></A>&nbsp;FOR <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.structured_template_planar_shape_model">Structured_template_planar_shape_model</A>;<br>
+         &nbsp;&nbsp;ONEOF&nbsp;(<A HREF="#footprint_definition_arm.breakout_footprint_definition_shape_model">Breakout_footprint_definition_shape_model</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#footprint_definition_arm.footprint_definition_shape_model">Footprint_definition_shape_model</A>);<br>      
+         END_SUBTYPE_CONSTRAINT;<br></code><code><br><A NAME="footprint_definition_arm.fd_get_amodel">FUNCTION <b>fd_get_amodel</b></A><br>&nbsp;(input : <A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>) : SET[0:?] OF <A HREF="../../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>;
+         </code><pre>LOCAL
+      gm : SET OF Geometric_model := [];
+      is : SET OF Item_shape := [];
+      sda : SET OF Shape_description_association := [];      
+    END_LOCAL;
+    
+    is := bag_to_set(USEDIN(input,'SHAPE_PROPERTY_ASSIGNMENT_ARM.ITEM_SHAPE.DESCRIBED_ELEMENT'));
+
+    IF (SIZEOF(is) &gt;= 0) THEN
+      REPEAT i := 1 TO HIINDEX(is);
+      sda := sda + bag_to_set(USEDIN(input,'SHAPE_PROPERTY_ASSIGNMENT_ARM.SHAPE_DESCRIPTION_ASSOCIATION.REPRESENTED_CHARACTERISTIC'));
+      END_REPEAT;
+     IF (SIZEOF(sda) &gt;= 0) THEN
+       REPEAT i := 1 TO HIINDEX(sda);
+       gm := gm + sda[i]\Shape_description_association.representation;
+       END_REPEAT;    
+       RETURN (gm);
+     END_IF;
+    END_IF;
+    RETURN(?);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="footprint_definition_arm.fd_get_components">FUNCTION <b>fd_get_components</b></A><br>&nbsp;(input : SET[2:2] OF <A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>) : SET[0:?] OF <A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>;
+         </code><pre>LOCAL
+      pvd : SET OF Product_view_definition := [];
+    END_LOCAL;
+    REPEAT i := 1 TO HIINDEX(input);
+      pvd := pvd + input[i]\View_definition_relationship.relating_view;
+    END_REPEAT;
+    RETURN (pvd);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="footprint_definition_arm.fd_get_rmodels">FUNCTION <b>fd_get_rmodels</b></A><br>&nbsp;(input : SET[2:2] OF <A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>) : SET[0:?] OF <A HREF="../../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>;
+         </code><pre>LOCAL
+      gm : SET OF Geometric_model := [];
+      pvd : SET OF Product_view_definition := [];
+    END_LOCAL;
+      pvd := fd_get_components(input);
+    IF (SIZEOF(pvd) &gt;= 0) THEN      
+      REPEAT i := 1 TO HIINDEX(pvd);
+        gm := gm + fd_get_amodel(pvd[i]);
+      END_REPEAT;
+      RETURN (gm);
+    END_IF;
+    RETURN(?);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="footprint_definition_arm.fd_get_single_stratum_components">FUNCTION <b>fd_get_single_stratum_components</b></A><br>&nbsp;(input : SET[0:?] OF <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>) : SET[0:?] OF <A HREF="../../../../data/modules/layered_interconnect_simple_template/sys/e_exp_arm.htm#layered_interconnect_simple_template_arm.single_stratum_template">Single_stratum_template</A>;
+         </code><pre>LOCAL
+      sst : SET OF Single_stratum_template := [];
+    END_LOCAL;
+    REPEAT i := 1 TO HIINDEX(input);
+      IF ('LAYERED_INTERCONNECT_SIMPLE_TEMPLATE_ARM.SINGLE_STRATUM_TEMPLATE' IN TYPEOF(input[i]\Template_location_in_structured_template.template))
+      THEN      
+        sst := sst + input[i]\Template_location_in_structured_template.template;
+      END_IF;
+    END_REPEAT;
+    RETURN (sst);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="footprint_definition_arm.fd_get_transforms">FUNCTION <b>fd_get_transforms</b></A><br>&nbsp;(input1 : SET[1:1] OF <A HREF="../../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>; input2 : SET[2:2] OF <A HREF="../../../../data/modules/elemental_geometric_shape/sys/e_exp_arm.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>) : SET[0:?] OF <A HREF="../../../../data/modules/contextual_shape_positioning/sys/e_exp_arm.htm#contextual_shape_positioning_arm.geometric_model_relationship_with_transformation">Geometric_model_relationship_with_transformation</A>;
+         </code><pre>LOCAL
+      gmrwt : SET OF Geometric_model_relationship_with_transformation := [];
+    END_LOCAL;
+    gmrwt := bag_to_set(USEDIN(input1[1],'EXTENDED_BASIC_GEOMETRY_ARM.GEOMETRIC_MODEL_RELATIONSHIP.REP_1'));
+    REPEAT i := 1 TO HIINDEX(gmrwt);
+      IF NOT
+        ((gmrwt[i]\Geometric_model_relationship.rep_2 IN input2)
+         AND
+        ('EXTENDED_BASIC_GEOMETRY_ARM.GEOMETRIC_MODEL_RELATIONSHIP_WITH_TRANSFORMATION' IN TYPEOF(gmrwt[i])))
+      THEN
+       RETURN(?);
+      END_IF;
+    END_REPEAT;
+    RETURN(gmrwt);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br><A NAME="footprint_definition_arm.get_template_arrangement">FUNCTION <b>get_template_arrangement</b></A><br>&nbsp;(input : SET[0:?] OF <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.template_location_in_structured_template">Template_location_in_structured_template</A>) : <A HREF="../../../../data/modules/layered_interconnect_complex_template/sys/e_exp_arm.htm#layered_interconnect_complex_template_arm.template_arrangement">template_arrangement</A>;
+         </code><pre>LOCAL
+      tlist          : SET OF Template_location_in_structured_template := 
+        (QUERY(inx &lt;* input | ('LAYERED_INTERCONNECT_COMPLEX_TEMPLATE_ARM.MULTI_STRATUM_STRUCTURED_TEMPLATE' IN TYPEOF(inx.template))));
+      pabt           : BAG OF STRING := [];
+      pabb           : BAG OF STRING := [];
+      pabsymmetrical : BAG OF STRING := [];
+      pabswappable   : BAG OF STRING := [];
+    END_LOCAL;
+
+    REPEAT i := 1 TO SIZEOF(tlist) BY 1;
+      IF (tlist[i].template\Multi_stratum_structured_template.location = template_arrangement.top) THEN
+        pabt := pabt + 'top';
+      END_IF;
+      IF (tlist[i].template\Multi_stratum_structured_template.location = template_arrangement.bottom) THEN
+        pabb := pabb + 'bottom';
+      END_IF;
+      IF (tlist[i].template\Multi_stratum_structured_template.location = template_arrangement.symmetrical) THEN
+        pabsymmetrical := pabsymmetrical + 'symmetrical';
+      END_IF;
+      IF (tlist[i].template\Multi_stratum_structured_template.location = template_arrangement.swappable) THEN
+        pabswappable := pabswappable + 'swappable';
+      END_IF;
+    END_REPEAT;
+    IF ((SIZEOF(pabt) &gt; 0) AND (SIZEOF(pabb) = 0)) THEN
+      RETURN(template_arrangement.top);
+    END_IF;
+    IF ((SIZEOF(pabb) &gt; 0) AND (SIZEOF(pabt) = 0)) THEN
+      RETURN(template_arrangement.bottom);
+    END_IF;
+    IF ((SIZEOF(pabb) = 0) AND (SIZEOF(pabt) = 0) AND (SIZEOF(pabsymmetrical) &gt; 0)) THEN
+      RETURN(template_arrangement.symmetrical);
+    END_IF;
+    IF ((SIZEOF(pabb) = 0) AND (SIZEOF(pabt) = 0) AND (SIZEOF(pabsymmetrical) = 0) AND (SIZEOF(pabswappable) &gt; 0)) THEN
+      RETURN(template_arrangement.swappable);
+    END_IF;
+    RETURN(?);</pre><code>
+         END_FUNCTION;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Footprint_definition_arm<br></code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

@@ -1,0 +1,52 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Functional_decomposition_to_design_mim</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Functional_decomposition_to_design_mim</h2><code><br><br><a name="functional_decomposition_to_design_mim">SCHEMA <b>Functional_decomposition_to_design_mim</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/design_management/sys/e_exp_mim.htm#design_management_mim">Design_management_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1661<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/physical_unit_design_view/sys/e_exp_mim.htm#physical_unit_design_view_mim">Physical_unit_design_view_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1728<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/network_functional_design_view/sys/e_exp_mim.htm#network_functional_design_view_mim">Network_functional_design_view_mim</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1704<br><br></code><code><br><A NAME="functional_decomposition_to_design_mim.fdtd_groupable_item">TYPE </A><b>fdtd_groupable_item</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/group/sys/e_exp_mim.htm#group_mim.groupable_item">groupable_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/network_functional_design_view/sys/e_exp_mim.htm#network_functional_design_view_mim.component_functional_unit">component_functional_unit</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="functional_decomposition_to_design_mim.fdtd_managed_design_object">TYPE </A><b>fdtd_managed_design_object</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/design_management/sys/e_exp_mim.htm#design_management_mim.managed_design_object">managed_design_object</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition_relationship">product_definition_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/resources/material_property_definition_schema/material_property_definition_schema.htm#material_property_definition_schema.property_definition_relationship">property_definition_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="functional_decomposition_to_design_mim.design_composition_path">ENTITY <b>design_composition_path</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/group/sys/e_exp_mim.htm#group_mim.applied_group_assignment">applied_group_assignment</A>, <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="functional_decomposition_to_design_mim.reference_composition_path">ENTITY <b>reference_composition_path</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/group/sys/e_exp_mim.htm#group_mim.applied_group_assignment">applied_group_assignment</A>, <A HREF="../../../data/resources/product_definition_schema/product_definition_schema.htm#product_definition_schema.product_definition">product_definition</A>);<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Functional_decomposition_to_design_mim<br></code></body>
+</HTML>

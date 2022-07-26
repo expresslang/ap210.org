@@ -1,0 +1,35 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Composite_material_aspects_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Composite_material_aspects_arm</h2><code><br><br><a name="composite_material_aspects_arm">SCHEMA <b>Composite_material_aspects_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/part_and_zone_laminate_tables/sys/e_exp_arm.htm#part_and_zone_laminate_tables_arm">Part_and_zone_laminate_tables_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1770<br><br></code><code><br><A NAME="composite_material_aspects_arm.compma_material_item_select">TYPE </A><b>compma_material_item_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/generic_material_aspects/sys/e_exp_arm.htm#generic_material_aspects_arm.material_item_select">material_item_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../data/modules/stock_material/sys/e_exp_arm.htm#stock_material_arm.anisotropic_material">Anisotropic_material</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/stock_material/sys/e_exp_arm.htm#stock_material_arm.braided_assembly">Braided_assembly</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/stock_material/sys/e_exp_arm.htm#stock_material_arm.isotropic_material">Isotropic_material</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/part_and_zone_laminate_tables/sys/e_exp_arm.htm#part_and_zone_laminate_tables_arm.laminate_table">Laminate_table</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../data/modules/stock_material/sys/e_exp_arm.htm#stock_material_arm.woven_assembly">Woven_assembly</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="composite_material_aspects_arm.composite_material_identification">ENTITY <b>Composite_material_identification</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/modules/generic_material_aspects/sys/e_exp_arm.htm#generic_material_aspects_arm.material_identification">Material_identification</A>);<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/generic_material_aspects/sys/e_exp_arm.htm#generic_material_aspects_arm.material_identification">Material_identification</A>.items&nbsp;RENAMED&nbsp;<A NAME="composite_material_aspects_arm.composite_material_identification.composite_items">composite_items : </A>SET[1:?] OF <A HREF="../../../data/modules/generic_material_aspects/sys/e_exp_arm.htm#generic_material_aspects_arm.material_item_select">material_item_select</A>;<br>
+         &nbsp;&nbsp;SELF\<A HREF="../../../data/modules/generic_material_aspects/sys/e_exp_arm.htm#generic_material_aspects_arm.material_identification">Material_identification</A>.material_name&nbsp;RENAMED&nbsp;<A NAME="composite_material_aspects_arm.composite_material_identification.composite_material_name">composite_material_name : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Composite_material_aspects_arm<br></code></body>
+</HTML>

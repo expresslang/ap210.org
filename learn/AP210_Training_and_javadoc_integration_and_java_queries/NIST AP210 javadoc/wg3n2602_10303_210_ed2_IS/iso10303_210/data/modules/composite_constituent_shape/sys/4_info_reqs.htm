@@ -1,0 +1,934 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Composite constituent shape">
+      <META name="DC.Dates" content="2008-09-26 11:23:49">
+      <META name="DC.Published" content="2008-12-19">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Composite constituent shape">
+      <META name="DC.Subject" content="module, composites, shape">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N5319">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N4674">
+      <META name="SC4.version" content="1">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N5268">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N5269">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N5270">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2008-09-26 11:23:49">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.13">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.7">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.4">
+      <TITLE>ISO/TS 10303-1767:2008 Composite constituent shape</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Composite constituent shape</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1767:2008(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#entities">4.3 ARM entity definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#entities">5.2.1 MIM entity definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="arm">4 Information requirements</A></H2>
+      <p>
+         This clause specifies the information requirements for the 
+         <b>Composite constituent shape</b>
+         application module. The information requirements are specified as the
+         Application Reference Model (ARM) of this application module.
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;A graphical representation of the information
+            requirements is given in 
+            Annex <a href="./c_arm_expg.htm">C</a>.
+            </small></p>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;The mapping specification is specified in 
+            <a href="./5_mapping.htm#mapping">5.1</a>. It shows how
+            the information requirements are met by using common resources and
+            constructs defined or imported in the MIM schema of this application
+            module. 
+            </small></p>
+      <p>
+         The following EXPRESS specification begins the 
+         <b>Composite_constituent_shape_arm</b>
+         schema and identifies the necessary external references.
+         
+      </p>
+      
+      <p></p><u>EXPRESS specification: </u><code><br><br>
+         *)<br><a name="composite_constituent_shape_arm">
+            SCHEMA Composite_constituent_shape_arm;</a><br>(*<br></code><h2><A NAME="interfaces">4.1 Required AM ARMs</A></h2>
+      <p>          
+         The following EXPRESS interface statements specify the elements
+         imported from the ARMs of other application modules.
+         
+      </p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>*)<br>
+            USE FROM
+            <A HREF="../../../../data/modules/advanced_boundary_representation/sys/4_info_reqs.htm#advanced_boundary_representation_arm">Advanced_boundary_representation_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1514<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/construction_geometry/sys/4_info_reqs.htm#construction_geometry_arm">Construction_geometry_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1131<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/edge_based_wireframe/sys/4_info_reqs.htm#edge_based_wireframe_arm">Edge_based_wireframe_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1501<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/elemental_topology/sys/4_info_reqs.htm#elemental_topology_arm">Elemental_topology_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1005<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/geometrically_bounded_surface/sys/4_info_reqs.htm#geometrically_bounded_surface_arm">Geometrically_bounded_surface_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1507<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/geometrically_bounded_wireframe/sys/4_info_reqs.htm#geometrically_bounded_wireframe_arm">Geometrically_bounded_wireframe_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1510<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/manifold_surface/sys/4_info_reqs.htm#manifold_surface_arm">Manifold_surface_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1509<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/shell_based_wireframe/sys/4_info_reqs.htm#shell_based_wireframe_arm">Shell_based_wireframe_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1502<br><br></code></p>
+      <p><code>
+            USE FROM
+            <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm">Value_with_unit_extension_arm</A>;
+            &nbsp;&nbsp;&nbsp;--&nbsp;
+            ISO/TS&nbsp;10303-1753<br>(*<br><br></code></p>
+      <p class="note"><small>
+            NOTE&nbsp;1&nbsp;&nbsp;
+            The schemas referenced above are specified in the following 
+            part of ISO 10303:
+            </small></p>
+      <blockquote>
+         <table>
+            <tr>
+               <td width="266"><b><small>Advanced_boundary_representation_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1514</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Construction_geometry_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1131</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Edge_based_wireframe_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1501</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Elemental_topology_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1005</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Geometrically_bounded_surface_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1507</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Geometrically_bounded_wireframe_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1510</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Manifold_surface_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1509</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Shell_based_wireframe_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1502</small></td>
+            </tr>
+            <tr>
+               <td width="266"><b><small>Value_with_unit_extension_arm</small></b></td>
+               <td width="127"><small>ISO/TS&nbsp;10303-1753</small></td>
+            </tr>
+         </table>
+      </blockquote>
+      <p class="note"><small>
+            NOTE&nbsp;2&nbsp;&nbsp;
+            
+            See Annex <a href="c_arm_expg.htm">C</a>, 
+            
+            Figures
+            <a href="../armexpg1.htm">C.1</a>, <a href="../armexpg2.htm">C.2</a>and <a href="../armexpg3.htm">C.3</a>
+            for a graphical representation of this schema.
+            </small></p>
+      <h2><a name="types">4.2 ARM type definitions</a></h2>
+      <p>
+         This subclause specifies the ARM types
+         for this application module. The ARM types and 
+         definitions are specified below.         
+         
+      </p>
+      <h2><a name="composite_constituent_shape_arm.boundary_class_zone">4.2.1 boundary_class_zone</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>boundary_class_zone</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="#composite_constituent_shape_arm.boundary_curve_representation">Boundary_curve_representation</A></b>
+         and
+         <b><A HREF="#composite_constituent_shape_arm.loop">Loop</A></b>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            boundary_class_zone =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#composite_constituent_shape_arm.boundary_curve_representation">Boundary_curve_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#composite_constituent_shape_arm.loop">Loop</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="composite_constituent_shape_arm.composite_assembly_shape">4.2.2 composite_assembly_shape</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>composite_assembly_shape</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/advanced_boundary_representation/sys/4_info_reqs.htm#advanced_boundary_representation_arm.advanced_brep_shape_representation">Advanced_brep_shape_representation</A></b>, <b><A HREF="../../../../data/modules/edge_based_wireframe/sys/4_info_reqs.htm#edge_based_wireframe_arm.edge_based_wireframe_shape_representation">Edge_based_wireframe_shape_representation</A></b>, <b><A HREF="../../../../data/modules/faceted_boundary_representation/sys/4_info_reqs.htm#faceted_boundary_representation_arm.faceted_brep_shape_representation">Faceted_brep_shape_representation</A></b>, <b><A HREF="../../../../data/modules/geometrically_bounded_surface/sys/4_info_reqs.htm#geometrically_bounded_surface_arm.geometrically_bounded_surface_shape_representation">Geometrically_bounded_surface_shape_representation</A></b>, <b><A HREF="../../../../data/modules/geometrically_bounded_wireframe/sys/4_info_reqs.htm#geometrically_bounded_wireframe_arm.geometrically_bounded_wireframe_shape_representation">Geometrically_bounded_wireframe_shape_representation</A></b>, <b><A HREF="../../../../data/modules/manifold_surface/sys/4_info_reqs.htm#manifold_surface_arm.manifold_surface_shape_representation">Manifold_surface_shape_representation</A></b>, <b><A HREF="../../../../data/modules/shell_based_wireframe/sys/4_info_reqs.htm#shell_based_wireframe_arm.shell_based_wireframe_shape_representation">Shell_based_wireframe_shape_representation</A></b>
+         
+         and
+         
+         <b><A HREF="#composite_constituent_shape_arm.three_d_geometry_set">Three_d_geometry_set</A></b>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            composite_assembly_shape =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/advanced_boundary_representation/sys/4_info_reqs.htm#advanced_boundary_representation_arm.advanced_brep_shape_representation">Advanced_brep_shape_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/edge_based_wireframe/sys/4_info_reqs.htm#edge_based_wireframe_arm.edge_based_wireframe_shape_representation">Edge_based_wireframe_shape_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/faceted_boundary_representation/sys/4_info_reqs.htm#faceted_boundary_representation_arm.faceted_brep_shape_representation">Faceted_brep_shape_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/geometrically_bounded_surface/sys/4_info_reqs.htm#geometrically_bounded_surface_arm.geometrically_bounded_surface_shape_representation">Geometrically_bounded_surface_shape_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/geometrically_bounded_wireframe/sys/4_info_reqs.htm#geometrically_bounded_wireframe_arm.geometrically_bounded_wireframe_shape_representation">Geometrically_bounded_wireframe_shape_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/manifold_surface/sys/4_info_reqs.htm#manifold_surface_arm.manifold_surface_shape_representation">Manifold_surface_shape_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/shell_based_wireframe/sys/4_info_reqs.htm#shell_based_wireframe_arm.shell_based_wireframe_shape_representation">Shell_based_wireframe_shape_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#composite_constituent_shape_arm.three_d_geometry_set">Three_d_geometry_set</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="composite_constituent_shape_arm.core_shape">4.2.3 core_shape</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>core_shape</b> type allows for the designation of the data 
+         
+         types
+         <b><A HREF="../../../../data/modules/advanced_boundary_representation/sys/4_info_reqs.htm#advanced_boundary_representation_arm.advanced_brep_shape_representation">Advanced_brep_shape_representation</A></b>, <b><A HREF="#composite_constituent_shape_arm.beveled_sheet_representation">Beveled_sheet_representation</A></b>
+         
+         and
+         
+         <b><A HREF="../../../../data/modules/faceted_boundary_representation/sys/4_info_reqs.htm#faceted_boundary_representation_arm.faceted_brep_shape_representation">Faceted_brep_shape_representation</A></b>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            core_shape =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/advanced_boundary_representation/sys/4_info_reqs.htm#advanced_boundary_representation_arm.advanced_brep_shape_representation">Advanced_brep_shape_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#composite_constituent_shape_arm.beveled_sheet_representation">Beveled_sheet_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/faceted_boundary_representation/sys/4_info_reqs.htm#faceted_boundary_representation_arm.faceted_brep_shape_representation">Faceted_brep_shape_representation</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="composite_constituent_shape_arm.ply_laminate_shape">4.2.4 ply_laminate_shape</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>ply_laminate_shape</b> type is an
+         extensible list of alternate data types
+         that allows for the designation of the data 
+         
+         types
+         <b><A HREF="#composite_constituent_shape_arm.composite_sheet_representation">Composite_sheet_representation</A></b>
+         and
+         <b><A HREF="#composite_constituent_shape_arm.three_d_geometry_set">Three_d_geometry_set</A></b>.
+         
+         
+      </p>
+      <p class="note"><small>
+            NOTE&nbsp;&nbsp;
+            The list of entity data types may be
+            extended in application modules that use the constructs of
+            this module.                 
+            </small></p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            ply_laminate_shape =
+            
+            EXTENSIBLE
+            
+            GENERIC_ENTITY
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#composite_constituent_shape_arm.composite_sheet_representation">Composite_sheet_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#composite_constituent_shape_arm.three_d_geometry_set">Three_d_geometry_set</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="composite_constituent_shape_arm.ply_piece_shape">4.2.5 ply_piece_shape</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      <p>
+         The <b>ply_piece_shape</b> type allows for the designation of the data 
+         
+         type
+         <b><A HREF="#composite_constituent_shape_arm.ply_shape">Ply_shape</A></b>.
+         
+      </p>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            ply_piece_shape =
+            
+            
+            SELECT<br>
+            &nbsp;&nbsp;&nbsp;(<A HREF="#composite_constituent_shape_arm.ply_shape">Ply_shape</A>);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <h2><a name="composite_constituent_shape_arm.projection_method">4.2.6 projection_method</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a></h2>
+      	A <b>projection_method</b> lists the methods of a projection.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            TYPE 
+            projection_method =
+            
+            ENUMERATION
+            
+            OF
+            <br>
+            &nbsp;&nbsp; 
+            (projection_reference,<br>&nbsp;&nbsp;&nbsp;&nbsp;surface_normal);<br>
+            END_TYPE; <br>
+            (*
+            </code></p>
+      <p><u>Enumerated item definitions:</u></p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.projection_method.projection_reference">projection_reference:
+               </a></b>
+         	the projection method is a projection reference.
+         
+      </p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.projection_method.surface_normal">surface_normal:
+               </a></b>
+         	the projection method is a surface normal.
+         
+      </p>
+      <h2><a name="entities">4.3 ARM entity definitions</a></h2>
+      <p>
+         This subclause specifies the ARM entities for this
+         module. Each ARM application entity is an atomic element that
+         embodies a unique application concept and contains attributes
+         specifying the data elements of the entity. The ARM
+         entities and definitions are specified below. 
+         
+      </p>
+      <h2><a name="composite_constituent_shape_arm.beveled_sheet_representation">4.3.1 Beveled_sheet_representation</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitybeveled_sheet_representation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Beveled_sheet_representation</b> is a type of 
+      	<a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.constituent_shape_representation"><b>Constituent_shape_representation</b></a>
+      	that has a significant thickness, and whose edge is beveled at a constant angle around its entire perimeter. 
+      	It is an extension of the concept of a thin sheet to products, such as honeycomb core, that have significant
+      	thickness but can be formed to mate with a curved surface.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Beveled_sheet_representation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#composite_constituent_shape_arm.constituent_shape_representation">Constituent_shape_representation</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;bevel_angle : <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.angle_data_element">Angle_data_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;boundary_surface : <A HREF="#composite_constituent_shape_arm.composite_sheet_representation">Composite_sheet_representation</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;vertical_profile_height : <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.beveled_sheet_representation.bevel_angle">bevel_angle:
+               </a></b>
+         	specifies the angle from the plane normal to the defining surface of part's profile to the 	beveled surface.
+         
+      </p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.beveled_sheet_representation.boundary_surface">boundary_surface:
+               </a></b>
+         	specifies the base exterior boundary and defining surface of the part.
+         
+      </p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.beveled_sheet_representation.vertical_profile_height">vertical_profile_height:
+               </a></b>
+         	specifies the vertical height of the part's profile from the base boundary to
+         	where the bevel begins.
+         
+      </p>
+      <h2><a name="composite_constituent_shape_arm.boundary_curve_representation">4.3.2 Boundary_curve_representation</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityboundary_curve_representation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Boundary_curve_representation</b> is a set of curves that define the sheet edge. These curves define a
+      	closed area but are not necessarily restrained topologically. The curves that encompass the other curves
+      	are the outer boundary, while curves that define a closed area within the outer boundary are cutouts. 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Boundary_curve_representation;<br>
+            
+            
+            
+            &nbsp;&nbsp;bounds : SET[1:?] OF <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.curve">Curve</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.boundary_curve_representation.bounds">bounds:
+               </a></b>
+         	a set of 
+         	<a href="../../../modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.curve"><b>Curve</b></a> 
+         	objects that defines the boundary aspect. 
+         
+      </p>
+      <h2><a name="composite_constituent_shape_arm.composite_sheet_representation">4.3.3 Composite_sheet_representation</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitycomposite_sheet_representation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Composite_sheet_representation</b> is a type of 
+      	<a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.constituent_shape_representation"><b>Constituent_shape_representation</b></a> 
+      	that defines a sheet product. 
+      	A sheet product is a product whose thickness is constant and small in comparison to its
+      	length and width. Most sheet products will conform to the surface on which they are placed. The shape
+      	of a sheet product can be represented in a 3-dimensional model of the actual shape, as a shape projected
+      	onto the layup surface, or as a shape projected into a 2-dimensional plane.
+      	
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+            A typical composite sheet is 0.1 to 0.4 millimeters thick while its length and width are much greater
+            	than 25 millimeters.</small></p>
+      	A <b>Composite_sheet_representation</b> may be one of the following: 
+      	
+      <ul>
+         		
+         <li><a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.face_based_sheet_representation"><b>Face_based_sheet_representation</b></a>, 
+         </li>
+         		
+         <li><a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.geometric_sheet_representation"><b>Geometric_sheet_representation</b></a>.
+         </li>
+         	
+      </ul>
+      
+              
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Composite_sheet_representation<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#composite_constituent_shape_arm.face_based_sheet_representation">Face_based_sheet_representation</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#composite_constituent_shape_arm.geometric_sheet_representation">Geometric_sheet_representation</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#composite_constituent_shape_arm.constituent_shape_representation">Constituent_shape_representation</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="composite_constituent_shape_arm.constituent_shape_representation">4.3.4 Constituent_shape_representation</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityconstituent_shape_representation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+              A <b>Constituent_shape_representation</b> is a type of 
+              <a href="../../../modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model"><b>Geometric_model</b></a>.
+              that defines the shape of composite part constituents. 
+              A <b>Constituent_shape_representation</b> is one of the
+      		following: 
+      	
+      <ul>
+         		
+         <li><a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.three_d_geometry_set"><b>Three_d_geometry_set</b></a>,
+         </li>
+         		
+         <li><a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.composite_sheet_representation"><b>Composite_sheet_representation</b></a>,
+         </li>
+         		
+         <li><a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.beveled_sheet_representation"><b>Beveled_sheet_representation</b></a>.
+         </li>
+         	
+      </ul>
+      
+              
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Constituent_shape_representation<br>
+            &nbsp;&nbsp;ABSTRACT SUPERTYPE
+            
+            OF&nbsp;(ONEOF&nbsp;(<A HREF="#composite_constituent_shape_arm.three_d_geometry_set">Three_d_geometry_set</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#composite_constituent_shape_arm.composite_sheet_representation">Composite_sheet_representation</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#composite_constituent_shape_arm.beveled_sheet_representation">Beveled_sheet_representation</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.geometric_model">Geometric_model</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="composite_constituent_shape_arm.face_based_sheet_representation">4.3.5 Face_based_sheet_representation</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityface_based_sheet_representation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+              A <b>Face_based_sheet_representation</b> is a type of 
+              <a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.composite_sheet_representation"><b>Composite_sheet_representation</b></a> 
+              that is defined topologically.        
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Face_based_sheet_representation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#composite_constituent_shape_arm.composite_sheet_representation">Composite_sheet_representation</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;face_surface : <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.surface">Surface</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;inner_bounds : 
+            OPTIONAL 
+            SET[1:?] OF <A HREF="#composite_constituent_shape_arm.loop">Loop</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;outer_bound : <A HREF="#composite_constituent_shape_arm.loop">Loop</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.face_based_sheet_representation.face_surface">face_surface:
+               </a></b>
+         	the basis surface for the face.
+         
+      </p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.face_based_sheet_representation.inner_bounds">inner_bounds:
+               </a></b>
+               a set of topologically defined loops that define any cutouts in the sheet. The value of this attribute need not be specified.
+             
+      </p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.face_based_sheet_representation.outer_bound">outer_bound:
+               </a></b>
+         	the topologically defined loop that is the outer edge of the sheet.
+         
+      </p>
+      <h2><a name="composite_constituent_shape_arm.flat_pattern_ply_shape">4.3.6 Flat_pattern_ply_shape</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityflat_pattern_ply_shape"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Flat_pattern_ply_shape</b> is a type of
+      	<a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.ply_shape"><b>Ply_shape</b></a>
+      	It defines the edge boundary of a ply in a plane. 
+      	When the shape is laid up in the assembly, it will have the proper size to define the desired ply shape.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Flat_pattern_ply_shape<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#composite_constituent_shape_arm.ply_shape">Ply_shape</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;wrapup_origin_on_flat_pattern : <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.cartesian_point">Cartesian_point</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;wrapup_origin_on_surface : <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.cartesian_point">Cartesian_point</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.flat_pattern_ply_shape.wrapup_origin_on_flat_pattern">wrapup_origin_on_flat_pattern:
+               </a></b>
+         	the point of the flat pattern plane that corresponds directly
+         	to the <b>wrapup_origin_on_surface</b>. 
+         
+      </p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.flat_pattern_ply_shape.wrapup_origin_on_surface">wrapup_origin_on_surface:
+               </a></b>
+         	the point on the basis surface that corresponds directly to the
+         	<b>wrapup_origin_on_flat_pattern</b>.
+         
+      </p>
+      <h2><a name="composite_constituent_shape_arm.geometric_sheet_representation">4.3.7 Geometric_sheet_representation</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitygeometric_sheet_representation"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Geometric_sheet_representation</b> is a type of
+      	<a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.composite_sheet_representation"><b>Composite_sheet_representation</b></a>
+      	that is defined by a surface and a set of curves. 
+      	These curves are related in the application to that surface. 
+      	The curves define a closed area but are not necessarily restrained topologically. 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Geometric_sheet_representation<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#composite_constituent_shape_arm.composite_sheet_representation">Composite_sheet_representation</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;basis_surface : <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.surface">Surface</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;cutouts : 
+            OPTIONAL 
+            SET[1:?] OF <A HREF="#composite_constituent_shape_arm.boundary_curve_representation">Boundary_curve_representation</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;outer_edge : <A HREF="#composite_constituent_shape_arm.boundary_curve_representation">Boundary_curve_representation</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.geometric_sheet_representation.basis_surface">basis_surface:
+               </a></b>
+         	the 
+         	<a href="../../../modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.surface"><b>Surface</b></a>
+         	used to define shape and having some known context to the part being represented. 
+         	The surface may be the layup surface, inner-mold-line surface, outer-mold-line surface, or other. 
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.geometric_sheet_representation.cutouts">cutouts:
+               </a></b>
+               the cutouts specifies the sets of curves that define the areas to be removed from the interior of the part. 
+               The value of this attribute need not be specified.
+             
+      </p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.geometric_sheet_representation.outer_edge">outer_edge:
+               </a></b>
+         	the set of curves that define the outside edge (or boundary) of the part.
+         
+      </p>
+      <h2><a name="composite_constituent_shape_arm.laid_ply_shape">4.3.8 Laid_ply_shape</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitylaid_ply_shape"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Laid_ply_shape</b> is a type of
+      	<a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.ply_shape"><b>Ply_shape</b></a>
+      	that defines the shape of the ply in the actual 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/4_info_reqs.htm#part_and_zone_laminate_tables_arm.ply_laminate"><b>Ply_laminate</b></a>. 
+      	This is the physical shape that will stair up and down over the build-up of previously laid plies.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Laid_ply_shape<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#composite_constituent_shape_arm.ply_shape">Ply_shape</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="composite_constituent_shape_arm.loop">4.3.9 Loop</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityloop"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Loop</b> is a type of
+      	<a href="../../../modules/elemental_topology/sys/4_info_reqs.htm#elemental_topology_arm.detailed_topological_model_element"><b>Detailed_topological_model_element</b></a>.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Loop<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../../data/modules/elemental_topology/sys/4_info_reqs.htm#elemental_topology_arm.detailed_topological_model_element">Detailed_topological_model_element</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <h2><a name="composite_constituent_shape_arm.ply_shape">4.3.10 Ply_shape</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityply_shape"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Ply_shape</b> is the association of a geometric representation to define the shape of a 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/4_info_reqs.htm#part_and_zone_laminate_tables_arm.ply"><b>Ply</b></a>.
+      		
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            			Each type of <b>Ply_shape</b> can be generated from, or related to, another <b>Ply_shape</b>.
+            		</small></p> 
+      		
+      <p class="example"><small><a name="example_">EXAMPLE&nbsp;</a>&nbsp;&nbsp;
+             
+            			A 
+            			<a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.flat_pattern_ply_shape"><b>Flat_pattern_ply_shape</b></a> 
+            			can be generated from a 
+            			<a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.laid_ply_shape"><b>Laid_ply_shape</b></a>; 
+            			and a 
+            			<a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.view_ply_shape"><b>View_ply_shape</b></a>;
+            			can be projected to the surface and create a 
+            			<a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.surface_ply_shape"><b>Surface_ply_shape</b></a>.
+            		</small></p>
+      	A <b>Ply_shape</b> may be one of the following: 
+      	
+      <ul>
+         		
+         <li><a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.projected_ply_shape"><b>Projected_ply_shape</b></a>,
+         </li>
+         		
+         <li><a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.laid_ply_shape"><b>Laid_ply_shape</b></a>,
+         </li> 
+         		
+         <li><a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.flat_pattern_ply_shape"><b>Flat_pattern_ply_shape</b></a>.
+         </li> 
+         	
+      </ul>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Ply_shape<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#composite_constituent_shape_arm.projected_ply_shape">Projected_ply_shape</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#composite_constituent_shape_arm.laid_ply_shape">Laid_ply_shape</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#composite_constituent_shape_arm.flat_pattern_ply_shape">Flat_pattern_ply_shape</A>));<br>
+            
+            
+            
+            &nbsp;&nbsp;defining_model : <A HREF="#composite_constituent_shape_arm.composite_sheet_representation">Composite_sheet_representation</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;basis : 
+            OPTIONAL 
+            <A HREF="#composite_constituent_shape_arm.ply_shape">Ply_shape</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.ply_shape.defining_model">defining_model:
+               </a></b>
+         	the geometric representation used for the <b>Ply_shape</b>.
+         
+      </p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.ply_shape.basis">basis:
+               </a></b>
+              the shape representation that the <b>Ply_shape</b> is derived from or that is used as its basis of definition. 
+              The value of this attribute need not be specified.
+             
+      </p>
+      <h2><a name="composite_constituent_shape_arm.projected_ply_shape">4.3.11 Projected_ply_shape</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityprojected_ply_shape"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Projected_ply_shape</b> is a type of
+      	<a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.ply_shape"><b>Ply_shape</b></a>
+      	that has its shape modeled by a projection on a surface or a plane. 
+      	The surface has some defined context for the 
+      	<a href="../../../modules/part_and_zone_laminate_tables/sys/4_info_reqs.htm#part_and_zone_laminate_tables_arm.ply"><b>Ply</b></a>.
+      		
+      <p class="note"><small><a name="note_">NOTE&nbsp;</a>&nbsp;&nbsp;
+            
+            			A <b>Projected_ply_shape</b> is some projection of the actual ply. 
+            			Projected shapes do not represent the build-up of the surface but all lie on the same surface or plane. 
+            			These shapes are defined during ply layout in design.
+            		</small></p>
+      	A <b>Projected_ply_shape</b> may be one of the following: 
+      	
+      <ul>
+         		
+         <li><a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.view_ply_shape"><b>View_ply_shape</b></a>,
+         </li>
+         		
+         <li><a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.surface_ply_shape"><b>Surface_ply_shape</b></a>.
+         </li>
+         	
+      </ul>
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Projected_ply_shape<br>
+            &nbsp;&nbsp;SUPERTYPE OF&nbsp;(ONEOF&nbsp;(<A HREF="#composite_constituent_shape_arm.view_ply_shape">View_ply_shape</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#composite_constituent_shape_arm.surface_ply_shape">Surface_ply_shape</A>))<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#composite_constituent_shape_arm.ply_shape">Ply_shape</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;method : <A HREF="#composite_constituent_shape_arm.projection_method">projection_method</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;projection_direction : 
+            OPTIONAL 
+            <A HREF="../../../../data/modules/elemental_geometric_shape/sys/4_info_reqs.htm#elemental_geometric_shape_arm.direction">Direction</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.projected_ply_shape.method">method:
+               </a></b>
+         	identifies the reference direction used in projecting the shape on the surface.
+         	The value of method shall be one of the following:
+         	
+      </p>
+      <ul>
+         	 	
+         <li><a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.projection_method.projection_reference"><b>projection_reference</b></a>;
+         </li>
+         		
+         <li><a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.projection_method.surface_normal"><b>surface_normal</b></a>.
+         </li>
+         	
+      </ul>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.projected_ply_shape.projection_direction">projection_direction:
+               </a></b>
+            the direction from the given representation to the actual 
+            <a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.laid_ply_shape"><b>Laid_ply_shape</b></a>.   
+            The value of this attribute need not be specified.
+         
+      </p>
+      <h2><a name="composite_constituent_shape_arm.surface_ply_shape">4.3.12 Surface_ply_shape</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitysurface_ply_shape"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Surface_ply_shape</b> is a type of
+      	<a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.projected_ply_shape"><b>Projected_ply_shape</b></a>
+      	that is defined on a surface defining some aspect of a composite part.
+      	The surface may be the layup surface, the outer mold line (OML), or the inner mold line (IML). 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Surface_ply_shape<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#composite_constituent_shape_arm.projected_ply_shape">Projected_ply_shape</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;offset : <A HREF="../../../../data/modules/value_with_unit_extension/sys/4_info_reqs.htm#value_with_unit_extension_arm.length_data_element">Length_data_element</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;surface_role : STRING;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.surface_ply_shape.offset">offset:
+               </a></b>
+         	the distance from the modeled surface to the layup surface of the part. 
+         	The offset distance would be zero if the modeled surface is the layup surface.
+         
+      </p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.surface_ply_shape.surface_role">surface_role:
+               </a></b>
+         	the context of the surface defined to the actual part and should be limited to
+         	text defining contexts such as 'layup surface', 'outer mold line', and 'inner mold line'.
+         
+      </p>
+      <h2><a name="composite_constituent_shape_arm.three_d_geometry_set">4.3.13 Three_d_geometry_set</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg2.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentitythree_d_geometry_set"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>Three_d_geometry_set</b> is a type of
+      	<a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.constituent_shape_representation"><b>Constituent_shape_representation</b></a>
+      	that defines 3D boundary curve and surface geometry without topology. 
+      	The surfaces used in the representation have a defined model surface context. 
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY Three_d_geometry_set<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#composite_constituent_shape_arm.constituent_shape_representation">Constituent_shape_representation</A>);<br>
+            
+            
+            
+            &nbsp;&nbsp;basis_role : STRING;<br>
+            
+            
+            
+            &nbsp;&nbsp;basis_surface : <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.surface">Surface</A>;<br>
+            
+            
+            
+            &nbsp;&nbsp;defining_boundary : SET[1:?] OF <A HREF="../../../../data/modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.curve">Curve</A>;<br>
+            END_ENTITY;<br>(*
+            </code></p>
+      <p><u>Attribute definitions:</u></p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.three_d_geometry_set.basis_role">basis_role:
+               </a></b>
+         	the context of the basis surface for the part. 'layup surface', 'outer mold line', and 'inner mold line' are specific contexts.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.three_d_geometry_set.basis_surface">basis_surface:
+               </a></b>
+         	the 
+         	<a href="../../../modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.surface"><b>Surface</b></a> 
+         	used to define the part shape. 
+         	The context of the surface is defined in the attribute <b>basis_role</b>.
+         
+         
+      </p>
+      <p class="expressdescription"><b><a name="composite_constituent_shape_arm.three_d_geometry_set.defining_boundary">defining_boundary:
+               </a></b>
+         	the set of 
+         	<a href="../../../modules/basic_geometry/sys/4_info_reqs.htm#basic_geometry_arm.curve"><b>Curve</b></a>
+         	objects that define the edge aspect of a part.
+         
+      </p>
+      <h2><a name="composite_constituent_shape_arm.view_ply_shape">4.3.14 View_ply_shape</a>
+         &nbsp;&nbsp;<a href="../../composite_constituent_shape/armexpg3.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><a href="./5_mapping.htm#aeentityview_ply_shape"><img align="middle" border="0" alt="Mapping table" src="../../../../images/mapping.gif"></a></h2>
+      	A <b>View_ply_shape</b> is a type of
+      	<a href="../../../modules/composite_constituent_shape/sys/4_info_reqs.htm#composite_constituent_shape_arm.projected_ply_shape"><b>Projected_ply_shape</b></a>
+      	in which the projection is to a plane such as a drawing view. 
+      	The projection direction establishes the relationship of the plane to the actual part.
+      
+      <p></p>
+      <p><u>EXPRESS specification:</u></p>
+      <p><code>
+            *)<br>
+            ENTITY View_ply_shape<br>
+            &nbsp;&nbsp;SUBTYPE OF (<A HREF="#composite_constituent_shape_arm.projected_ply_shape">Projected_ply_shape</A>);<br>
+            END_ENTITY;<br>(*
+            </code></p><code><br><br>
+         *)<br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Composite_constituent_shape_arm<br>(*
+         </code><br><br><p>&copy; ISO 2008 &#8212; All rights reserved</p>
+   </body>
+</HTML>

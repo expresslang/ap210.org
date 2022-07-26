@@ -1,0 +1,109 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Information_rights_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Information_rights_arm</h2><code><br><br><a name="information_rights_arm">SCHEMA <b>Information_rights_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/contract/sys/e_exp_arm.htm#contract_arm">Contract_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1062<br><br></code><code>
+         USE FROM
+         <A HREF="../../../data/modules/management_resource_information/sys/e_exp_arm.htm#management_resource_information_arm">Management_resource_information_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1288<br><br></code><code><br><A NAME="information_rights_arm.information_usage_right_item">TYPE </A><b>information_usage_right_item</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="information_rights_arm.right_approval_item">TYPE </A><b>right_approval_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/management_resource_information/sys/e_exp_arm.htm#management_resource_information_arm.mri_approval_item">mri_approval_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#information_rights_arm.applied_information_usage_right">Applied_information_usage_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#information_rights_arm.information_usage_right">Information_usage_right</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="information_rights_arm.right_contract_item">TYPE </A><b>right_contract_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/contract/sys/e_exp_arm.htm#contract_arm.contract_item">contract_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#information_rights_arm.information_usage_right">Information_usage_right</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="information_rights_arm.right_date_item">TYPE </A><b>right_date_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/management_resource_information/sys/e_exp_arm.htm#management_resource_information_arm.mri_date_or_date_time_item">mri_date_or_date_time_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#information_rights_arm.information_usage_right">Information_usage_right</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="information_rights_arm.right_person_organization_item">TYPE </A><b>right_person_organization_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../data/modules/management_resource_information/sys/e_exp_arm.htm#management_resource_information_arm.mri_organization_or_person_in_organization_item">mri_organization_or_person_in_organization_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="#information_rights_arm.information_usage_right">Information_usage_right</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="information_rights_arm.applied_information_usage_right">ENTITY <b>Applied_information_usage_right</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="information_rights_arm.applied_information_usage_right.item">item : </A>SET[1:?] OF <A HREF="#information_rights_arm.information_usage_right_item">information_usage_right_item</A>;<br>
+         &nbsp;&nbsp;<A NAME="information_rights_arm.applied_information_usage_right.right_applied">right_applied : </A><A HREF="#information_rights_arm.information_usage_right">Information_usage_right</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="information_rights_arm.information_right">ENTITY <b>Information_right</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="information_rights_arm.information_right.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="information_rights_arm.information_right.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="information_rights_arm.information_right.description">description : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="information_rights_arm.information_right.restriction">restriction : </A>
+         OPTIONAL 
+         STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="information_rights_arm.information_usage_right">ENTITY <b>Information_usage_right</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="information_rights_arm.information_usage_right.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="information_rights_arm.information_usage_right.name">name : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="information_rights_arm.information_usage_right.comment">comment : </A>
+         OPTIONAL 
+         STRING;<br>
+         &nbsp;&nbsp;<A NAME="information_rights_arm.information_usage_right.grants_right">grants_right : </A>SET[1:?] OF <A HREF="#information_rights_arm.information_right">Information_right</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="information_rights_arm.information_usage_right_relationship">ENTITY <b>Information_usage_right_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="information_rights_arm.information_usage_right_relationship.relating">relating : </A><A HREF="#information_rights_arm.information_usage_right">Information_usage_right</A>;<br>
+         &nbsp;&nbsp;<A NAME="information_rights_arm.information_usage_right_relationship.related">related : </A><A HREF="#information_rights_arm.information_usage_right">Information_usage_right</A>;<br>
+         &nbsp;&nbsp;<A NAME="information_rights_arm.information_usage_right_relationship.relation_type">relation_type : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Information_rights_arm<br></code></body>
+</HTML>

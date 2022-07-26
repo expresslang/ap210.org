@@ -1,0 +1,33 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: Contract_arm</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: Contract_arm</h2><code><br><br><a name="contract_arm">SCHEMA <b>Contract_arm</b>;</a><br><br></code><code><br><A NAME="contract_arm.contract_item">TYPE </A><b>contract_item</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT;<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="contract_arm.contract">ENTITY <b>Contract</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="contract_arm.contract.id">id : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="contract_arm.contract.purpose">purpose : </A>STRING;<br>
+         &nbsp;&nbsp;<A NAME="contract_arm.contract.kind">kind : </A>STRING;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="contract_arm.contract_assignment">ENTITY <b>Contract_assignment</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="contract_arm.contract_assignment.assigned_contract">assigned_contract : </A><A HREF="#contract_arm.contract">Contract</A>;<br>
+         &nbsp;&nbsp;<A NAME="contract_arm.contract_assignment.items">items : </A>SET[1:?] OF <A HREF="#contract_arm.contract_item">contract_item</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="contract_arm.contract_relationship">ENTITY <b>Contract_relationship</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="contract_arm.contract_relationship.relating_contract">relating_contract : </A><A HREF="#contract_arm.contract">Contract</A>;<br>
+         &nbsp;&nbsp;<A NAME="contract_arm.contract_relationship.related_contract">related_contract : </A><A HREF="#contract_arm.contract">Contract</A>;<br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Contract_arm<br></code></body>
+</HTML>

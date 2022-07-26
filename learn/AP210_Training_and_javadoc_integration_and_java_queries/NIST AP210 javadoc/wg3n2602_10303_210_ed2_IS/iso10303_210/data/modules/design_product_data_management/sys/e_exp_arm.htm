@@ -1,0 +1,417 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="schema.DC" href="http://www.dublincore.org/documents/2003/02/04/dces/">
+      <META name="DC.Title" content="Product data representation and exchange: Application module: Design product data management">
+      <META name="DC.Dates" content="2009-04-30 12:12:10">
+      <META name="DC.Published" content="2009-07-01">
+      <META name="DC.Contributor" content="Nettles, Darla">
+      <META name="DC.Creator" content="Frechette, Simon">
+      <META name="DC.Description" content="The application module Design product data management">
+      <META name="DC.Subject" content="module, product data management, approval, identification, test select">
+      <META name="DC.Identifier" content="ISO TC184/SC4/WG12 N6230">
+      <META name="DC.Replaces" content="ISO TC184/SC4/WG12 N5346">
+      <META name="SC4.version" content="3">
+      <META name="SC4.checklist.internal_review" content="ISO TC184/SC4/WG12 N6563">
+      <META name="SC4.checklist.project_leader" content="ISO TC184/SC4/WG12 N6564">
+      <META name="SC4.checklist.convener" content="ISO TC184/SC4/WG12 N6565">
+      <META name="STEPMOD.module.rcs.date" content="Date: 2009-04-30 12:12:10">
+      <META name="STEPMOD.module.rcs.revision" content="Revision: 1.41">
+      <META name="PART1000.module.rcs.revision" content="$Revision: $">
+      <META name="PART1000.module.rcs.date" content="$Date: $">
+      <META name="STEPMOD.arm.rcs.revision" content="Revision: 1.20">
+      <META name="STEPMOD.mim.rcs.revision" content="Revision: 1.21">
+      <TITLE>ISO/TS 10303-1628:2009 Design product data management</TITLE>
+   </HEAD>
+   <body>
+      <TABLE cellspacing="0" border="0" width="100%">
+         <TR>
+            <TD><small></small></TD>
+         </TR>
+         <TR>
+            <TD valign="MIDDLE"><B>
+                  Application module:
+                  Design product data management</B></TD>
+            <TD valign="MIDDLE" align="RIGHT"><b>ISO/TS 10303-1628:2009(E) <br>
+                  &copy; ISO
+                  </b></TD>
+         </TR>
+      </TABLE>
+      <TABLE border="1" cellspacing="1" width="100%">
+         <TR>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/cover.htm">Cover page</A><BR><A HREF="../sys/contents.htm">Table of contents</A><BR><A HREF="../sys/cover.htm#copyright">Copyright</A><BR><A HREF="../sys/foreword.htm">Foreword</A><BR><A HREF="../sys/introduction.htm">Introduction</A><BR><A HREF="../sys/1_scope.htm">1 Scope</A><BR><A HREF="../sys/2_refs.htm">2 Normative references</A><BR><A HREF="../sys/3_defs.htm">
+                     
+                     3 Terms, definitions and abbreviations
+                     </A></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/4_info_reqs.htm">4 Information requirements</A><BR><small>          
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#interfaces">4.1 Required AM ARMs</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#types">4.2 ARM type definitions</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/4_info_reqs.htm#rules">4.3 ARM rule definitions</A><BR></small><A HREF="../sys/5_main.htm">5 Module interpreted model</A><BR><small>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mapping.htm#mapping">5.1 Mapping specification</A><BR>
+                     &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#mim_express">5.2 MIM EXPRESS short listing</A><BR>
+                     &nbsp; &nbsp; &nbsp;<A HREF="../sys/5_mim.htm#types">5.2.1 MIM type definitions</A><BR></small></p>
+            </TD>
+            <TD valign="TOP">
+               <p class="toc"><A HREF="../sys/a_short_names.htm">A MIM short names</A><BR><A HREF="../sys/b_obj_reg.htm">B Information object
+                     registration</A><BR><A HREF="../sys/c_arm_expg.htm">
+                     C ARM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../armexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><br><A HREF="../sys/d_mim_expg.htm">
+                     D MIM EXPRESS-G
+                     </A>
+                  &nbsp;&nbsp;<a href="../mimexpg1.htm"><img align="middle" border="0" alt="EXPRESS-G" src="../../../../images/expg.gif"></a><BR><A HREF="../sys/e_exp.htm">E Computer interpretable listings</A><BR><A HREF="../sys/biblio.htm#bibliography">Bibliography</A><BR><A HREF="../sys/modindex.htm">Index</A><BR></p>
+            </TD>
+         </TR>
+      </TABLE>
+      <H2><A NAME="annexe-arm-express"></A></H2><code>
+         (*<br>ISO TC184/SC4/WG12&nbsp;N6231 - ISO/TS&nbsp;10303-1628 Design product data management - EXPRESS ARM<br>Supersedes 
+         ISO TC184/SC4/WG12&nbsp;N5347<br>*)
+         </code><br><code><br><br><a name="design_product_data_management_arm">SCHEMA <b>Design_product_data_management_arm</b>;</a><br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/classification_with_attributes/sys/e_exp_arm.htm#classification_with_attributes_arm">Classification_with_attributes_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1111<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/generic_material_aspects/sys/e_exp_arm.htm#generic_material_aspects_arm">Generic_material_aspects_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1681<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm">Information_rights_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1241<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/item_definition_structure/sys/e_exp_arm.htm#item_definition_structure_arm">Item_definition_structure_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1345<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/pre_defined_product_data_management_specializations/sys/e_exp_arm.htm#pre_defined_product_data_management_specializations_arm">Pre_defined_product_data_management_specializations_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1760<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/product_data_management/sys/e_exp_arm.htm#product_data_management_arm">Product_data_management_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1231<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/requirement_assignment/sys/e_exp_arm.htm#requirement_assignment_arm">Requirement_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1233<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/requirement_view_definition_relationship/sys/e_exp_arm.htm#requirement_view_definition_relationship_arm">Requirement_view_definition_relationship_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1142<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/specification_control/sys/e_exp_arm.htm#specification_control_arm">Specification_control_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1112<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/test_select_product/sys/e_exp_arm.htm#test_select_product_arm">Test_select_product_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1757<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/activity_method_assignment/sys/e_exp_arm.htm#activity_method_assignment_arm">Activity_method_assignment_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1249<br><br></code><code>
+         USE FROM
+         <A HREF="../../../../data/modules/attribute_classification/sys/e_exp_arm.htm#attribute_classification_arm">Attribute_classification_arm</A>;
+         &nbsp;&nbsp;&nbsp;-- ISO/TS&nbsp;10303-1246<br><br></code><code><br><A NAME="design_product_data_management_arm.design_activity_method_item">TYPE </A><b>design_activity_method_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/activity_method_assignment/sys/e_exp_arm.htm#activity_method_assignment_arm.activity_method_item">activity_method_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/document_and_version_identification/sys/e_exp_arm.htm#document_and_version_identification_arm.document">Document</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/document_and_version_identification/sys/e_exp_arm.htm#document_and_version_identification_arm.document_version">Document_version</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_approval_item">TYPE </A><b>design_approval_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/product_data_management/sys/e_exp_arm.htm#product_data_management_arm.pdm_approval_item">pdm_approval_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/certification/sys/e_exp_arm.htm#certification_arm.certification">Certification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm.document_definition">Document_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/effectivity/sys/e_exp_arm.htm#effectivity_arm.effectivity">Effectivity</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/group/sys/e_exp_arm.htm#group_arm.group">Group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/group/sys/e_exp_arm.htm#group_arm.group_relationship">Group_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/independent_property/sys/e_exp_arm.htm#independent_property_arm.independent_property_relationship">Independent_property_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/configuration_item/sys/e_exp_arm.htm#configuration_item_arm.product_configuration">Product_configuration</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/requirement_assignment/sys/e_exp_arm.htm#requirement_assignment_arm.requirement_assignment">Requirement_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/security_classification/sys/e_exp_arm.htm#security_classification_arm.security_classification">Security_classification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_version_relationship/sys/e_exp_arm.htm#product_version_relationship_arm.supplied_part_relationship">Supplied_part_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/work_order/sys/e_exp_arm.htm#work_order_arm.work_order">Work_order</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_affected_item_select">TYPE </A><b>design_pdm_affected_item_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/product_data_management/sys/e_exp_arm.htm#product_data_management_arm.pdm_affected_item_select">pdm_affected_item_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/work_request/sys/e_exp_arm.htm#work_request_arm.work_request">Work_request</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_assigned_name_select">TYPE </A><b>design_pdm_assigned_name_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/name_assignment/sys/e_exp_arm.htm#name_assignment_arm.assigned_name_select">assigned_name_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/group/sys/e_exp_arm.htm#group_arm.group">Group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/group/sys/e_exp_arm.htm#group_arm.group_relationship">Group_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_certification_item">TYPE </A><b>design_pdm_certification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/product_data_management/sys/e_exp_arm.htm#product_data_management_arm.pdm_certification_item">pdm_certification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/product_replacement/sys/e_exp_arm.htm#product_replacement_arm.alternate_product_relationship">Alternate_product_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_classification_item">TYPE </A><b>design_pdm_classification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/classification_assignment/sys/e_exp_arm.htm#classification_assignment_arm.classification_item">classification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm.characterizable_object">Characterizable_object</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/classification_with_attributes/sys/e_exp_arm.htm#classification_with_attributes_arm.classified_element_select">classified_element_select</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm.information_right">Information_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm.information_usage_right">Information_usage_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm.information_usage_right_relationship">Information_usage_right_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_classified_attribute_select">TYPE </A><b>design_pdm_classified_attribute_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/attribute_classification/sys/e_exp_arm.htm#attribute_classification_arm.classified_attribute_select">classified_attribute_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/activity/sys/e_exp_arm.htm#activity_arm.activity">Activity</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/activity_method/sys/e_exp_arm.htm#activity_method_arm.activity_method">Activity_method</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/work_request/sys/e_exp_arm.htm#work_request_arm.activity_method_assignment">Activity_method_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/process_property_assignment/sys/e_exp_arm.htm#process_property_assignment_arm.activity_property">Activity_property</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/process_property_assignment/sys/e_exp_arm.htm#process_property_assignment_arm.activity_property_representation">Activity_property_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/activity/sys/e_exp_arm.htm#activity_arm.activity_relationship">Activity_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/person_organization/sys/e_exp_arm.htm#person_organization_arm.address_assignment">Address_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/work_request/sys/e_exp_arm.htm#work_request_arm.affected_items_assignment">Affected_items_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_structure/sys/e_exp_arm.htm#product_structure_arm.alternate_part_relationship">Alternate_part_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/activity/sys/e_exp_arm.htm#activity_arm.applied_activity_assignment">Applied_activity_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/approval/sys/e_exp_arm.htm#approval_arm.approval">Approval</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/approval/sys/e_exp_arm.htm#approval_arm.approval_assignment">Approval_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/approval/sys/e_exp_arm.htm#approval_arm.approval_relationship">Approval_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/approval/sys/e_exp_arm.htm#approval_arm.approval_status">Approval_status</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/approval/sys/e_exp_arm.htm#approval_arm.approving_person_organization">Approving_person_organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/property_assignment/sys/e_exp_arm.htm#property_assignment_arm.assigned_property">Assigned_property</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/certification/sys/e_exp_arm.htm#certification_arm.certification">Certification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/certification/sys/e_exp_arm.htm#certification_arm.certification_assignment">Certification_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.context_dependent_unit">Context_dependent_unit</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/contract/sys/e_exp_arm.htm#contract_arm.contract">Contract</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/date_time_assignment/sys/e_exp_arm.htm#date_time_assignment_arm.date_or_date_time_assignment">Date_or_date_time_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/document_properties/sys/e_exp_arm.htm#document_properties_arm.descriptive_document_property">Descriptive_document_property</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/file_identification/sys/e_exp_arm.htm#file_identification_arm.digital_file">Digital_file</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/document_assignment/sys/e_exp_arm.htm#document_assignment_arm.document_assignment">Document_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/document_structure/sys/e_exp_arm.htm#document_structure_arm.document_definition_relationship">Document_definition_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm.document_location_identification">Document_location_identification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/document_properties/sys/e_exp_arm.htm#document_properties_arm.document_property_representation">Document_property_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/effectivity/sys/e_exp_arm.htm#effectivity_arm.effectivity">Effectivity</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/effectivity_application/sys/e_exp_arm.htm#effectivity_application_arm.effectivity_assignment">Effectivity_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/event_assignment/sys/e_exp_arm.htm#event_assignment_arm.event_assignment">Event_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/event/sys/e_exp_arm.htm#event_arm.event_relationship">Event_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/external_item_identification_assignment/sys/e_exp_arm.htm#external_item_identification_assignment_arm.external_item_identification">External_item_identification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/external_item_identification_assignment/sys/e_exp_arm.htm#external_item_identification_assignment_arm.external_source_identification">External_source_identification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/file_identification/sys/e_exp_arm.htm#file_identification_arm.file_location_identification">File_location_identification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/document_structure/sys/e_exp_arm.htm#document_structure_arm.file_relationship">File_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/group/sys/e_exp_arm.htm#group_arm.group">Group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/group/sys/e_exp_arm.htm#group_arm.group_relationship">Group_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/file_identification/sys/e_exp_arm.htm#file_identification_arm.hardcopy">Hardcopy</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/identification_assignment/sys/e_exp_arm.htm#identification_assignment_arm.identification_assignment">Identification_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/independent_property/sys/e_exp_arm.htm#independent_property_arm.independent_property">Independent_property</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/independent_property/sys/e_exp_arm.htm#independent_property_arm.independent_property_relationship">Independent_property_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/independent_property_representation/sys/e_exp_arm.htm#independent_property_representation_arm.independent_property_representation">Independent_property_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm.information_right">Information_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm.information_usage_right">Information_usage_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm.information_usage_right_relationship">Information_usage_right_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/multi_linguism/sys/e_exp_arm.htm#multi_linguism_arm.language">Language</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_concept_identification/sys/e_exp_arm.htm#product_concept_identification_arm.market">Market</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/document_properties/sys/e_exp_arm.htm#document_properties_arm.numerical_document_property">Numerical_document_property</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/person_organization_assignment/sys/e_exp_arm.htm#person_organization_assignment_arm.organization_or_person_in_organization_assignment">Organization_or_person_in_organization_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/person_organization/sys/e_exp_arm.htm#person_organization_arm.organization_relationship">Organization_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/part_view_definition/sys/e_exp_arm.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/document_assignment/sys/e_exp_arm.htm#document_assignment_arm.partial_document_assignment">Partial_document_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/person_organization/sys/e_exp_arm.htm#person_organization_arm.person_in_organization">Person_in_organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_concept_identification/sys/e_exp_arm.htm#product_concept_identification_arm.product_concept">Product_concept</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_version_relationship/sys/e_exp_arm.htm#product_version_relationship_arm.product_version_relationship">Product_version_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/project/sys/e_exp_arm.htm#project_arm.project_assignment">Project_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/project/sys/e_exp_arm.htm#project_arm.project_relationship">Project_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/property_assignment/sys/e_exp_arm.htm#property_assignment_arm.property_representation">Property_representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation">Representation</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_context">Representation_context</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_item">Representation_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/security_classification/sys/e_exp_arm.htm#security_classification_arm.security_classification">Security_classification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/time_interval/sys/e_exp_arm.htm#time_interval_arm.time_interval_relationship">Time_interval_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.uncertainty_with_unit">Uncertainty_with_unit</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.unit">Unit</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/value_with_unit/sys/e_exp_arm.htm#value_with_unit_arm.value_with_unit">Value_with_unit</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.view_definition_context">View_definition_context</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/work_order/sys/e_exp_arm.htm#work_order_arm.work_order">Work_order</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/work_request/sys/e_exp_arm.htm#work_request_arm.work_request">Work_request</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/work_request/sys/e_exp_arm.htm#work_request_arm.work_request_status">Work_request_status</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_contract_item">TYPE </A><b>design_pdm_contract_item</b> =
+         
+         EXTENSIBLE
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/contract/sys/e_exp_arm.htm#contract_arm.contract_item">contract_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/person_organization/sys/e_exp_arm.htm#person_organization_arm.organization_or_person_in_organization_select">organization_or_person_in_organization_select</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/work_order/sys/e_exp_arm.htm#work_order_arm.work_order">Work_order</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_date_or_date_time_item">TYPE </A><b>design_pdm_date_or_date_time_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/product_data_management/sys/e_exp_arm.htm#product_data_management_arm.pdm_date_or_date_time_item">pdm_date_or_date_time_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/contract/sys/e_exp_arm.htm#contract_arm.contract">Contract</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm.document_definition">Document_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/security_classification/sys/e_exp_arm.htm#security_classification_arm.security_classification">Security_classification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/work_order/sys/e_exp_arm.htm#work_order_arm.work_order">Work_order</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_documented_element_select">TYPE </A><b>design_pdm_documented_element_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/product_data_management/sys/e_exp_arm.htm#product_data_management_arm.pdm_documented_element_select">pdm_documented_element_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/classification_with_attributes/sys/e_exp_arm.htm#classification_with_attributes_arm.class_with_attributes">Class_with_attributes</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/external_item_identification_assignment/sys/e_exp_arm.htm#external_item_identification_assignment_arm.external_item_identification">External_item_identification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/group/sys/e_exp_arm.htm#group_arm.group">Group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/group/sys/e_exp_arm.htm#group_arm.group_relationship">Group_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm.information_right">Information_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm.information_usage_right">Information_usage_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm.information_usage_right_relationship">Information_usage_right_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/generic_material_aspects/sys/e_exp_arm.htm#generic_material_aspects_arm.material_identification">Material_identification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/foundation_representation/sys/e_exp_arm.htm#foundation_representation_arm.representation_item">Representation_item</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_groupable_item">TYPE </A><b>design_pdm_groupable_item</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/group/sys/e_exp_arm.htm#group_arm.groupable_item">groupable_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/group/sys/e_exp_arm.htm#group_arm.group_relationship">Group_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_identification_item">TYPE </A><b>design_pdm_identification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/product_data_management/sys/e_exp_arm.htm#product_data_management_arm.pdm_identification_item">pdm_identification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/group/sys/e_exp_arm.htm#group_arm.group">Group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/group/sys/e_exp_arm.htm#group_arm.group_relationship">Group_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm.information_right">Information_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm.information_usage_right">Information_usage_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm.information_usage_right_relationship">Information_usage_right_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/generic_material_aspects/sys/e_exp_arm.htm#generic_material_aspects_arm.material_identification">Material_identification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/person_organization/sys/e_exp_arm.htm#person_organization_arm.organization">Organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_concept_identification/sys/e_exp_arm.htm#product_concept_identification_arm.product_concept">Product_concept</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/configuration_item/sys/e_exp_arm.htm#configuration_item_arm.product_configuration">Product_configuration</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_information_usage_right_item">TYPE </A><b>design_pdm_information_usage_right_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm.information_usage_right_item">information_usage_right_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/certification/sys/e_exp_arm.htm#certification_arm.certification_item">certification_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm.characterizable_object">Characterizable_object</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/classification_assignment/sys/e_exp_arm.htm#classification_assignment_arm.classification_item">classification_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/document_assignment/sys/e_exp_arm.htm#document_assignment_arm.documented_element_select">documented_element_select</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/identification_assignment/sys/e_exp_arm.htm#identification_assignment_arm.identification_item">identification_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/person_organization/sys/e_exp_arm.htm#person_organization_arm.organization">Organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/person_organization/sys/e_exp_arm.htm#person_organization_arm.person_in_organization">Person_in_organization</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/requirement_assignment/sys/e_exp_arm.htm#requirement_assignment_arm.requirement_assignment_item">requirement_assignment_item</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/work_order/sys/e_exp_arm.htm#work_order_arm.work_order">Work_order</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_material_item_select">TYPE </A><b>design_pdm_material_item_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/generic_material_aspects/sys/e_exp_arm.htm#generic_material_aspects_arm.material_item_select">material_item_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/part_view_definition/sys/e_exp_arm.htm#part_view_definition_arm.part_view_definition">Part_view_definition</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_organization_or_person_in_organization_item">TYPE </A><b>design_pdm_organization_or_person_in_organization_item</b> =
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/person_organization_assignment/sys/e_exp_arm.htm#person_organization_assignment_arm.organization_or_person_in_organization_item">organization_or_person_in_organization_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/alias_identification/sys/e_exp_arm.htm#alias_identification_arm.alias_identification">Alias_identification</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/classification_assignment/sys/e_exp_arm.htm#classification_assignment_arm.classification_assignment">Classification_assignment</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/classification_with_attributes/sys/e_exp_arm.htm#classification_with_attributes_arm.classification_association">Classification_association</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm.document_definition">Document_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_version_relationship/sys/e_exp_arm.htm#product_version_relationship_arm.supplied_part_relationship">Supplied_part_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/work_order/sys/e_exp_arm.htm#work_order_arm.work_order">Work_order</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_requirement_assignment_item">TYPE </A><b>design_pdm_requirement_assignment_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/requirement_assignment/sys/e_exp_arm.htm#requirement_assignment_arm.requirement_assignment_item">requirement_assignment_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_class/sys/e_exp_arm.htm#product_class_arm.product_class">Product_class</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/configuration_item/sys/e_exp_arm.htm#configuration_item_arm.product_configuration">Product_configuration</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_requirement_source_item">TYPE </A><b>design_pdm_requirement_source_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/requirement_assignment/sys/e_exp_arm.htm#requirement_assignment_arm.requirement_source_item">requirement_source_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/characterizable_object/sys/e_exp_arm.htm#characterizable_object_arm.characterizable_object">Characterizable_object</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/group/sys/e_exp_arm.htm#group_arm.group">Group</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/group/sys/e_exp_arm.htm#group_arm.group_relationship">Group_relationship</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_identification/sys/e_exp_arm.htm#product_identification_arm.product">Product</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/shape_property_assignment/sys/e_exp_arm.htm#shape_property_assignment_arm.shape_element">Shape_element</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_view_definition_relationship/sys/e_exp_arm.htm#product_view_definition_relationship_arm.view_definition_relationship">View_definition_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_security_classification_item">TYPE </A><b>design_pdm_security_classification_item</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/product_data_management/sys/e_exp_arm.htm#product_data_management_arm.pdm_security_classification_item">pdm_security_classification_item</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/document_definition/sys/e_exp_arm.htm#document_definition_arm.document_definition">Document_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_version/sys/e_exp_arm.htm#product_version_arm.product_version">Product_version</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/product_view_definition/sys/e_exp_arm.htm#product_view_definition_arm.product_view_definition">Product_view_definition</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/assembly_structure/sys/e_exp_arm.htm#assembly_structure_arm.promissory_usage">Promissory_usage</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.design_pdm_string_select">TYPE </A><b>design_pdm_string_select</b> =
+         
+         EXTENSIBLE
+         
+         GENERIC_ENTITY
+         
+         
+         SELECT
+         BASED_ON
+         <A HREF="../../../../data/modules/multi_linguism/sys/e_exp_arm.htm#multi_linguism_arm.string_select">string_select</A>
+         WITH 
+         <br>
+         &nbsp;&nbsp;&nbsp;(<A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm.information_right">Information_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm.information_usage_right">Information_usage_right</A>, <br>&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="../../../../data/modules/information_rights/sys/e_exp_arm.htm#information_rights_arm.information_usage_right_relationship">Information_usage_right_relationship</A>);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="design_product_data_management_arm.product_occurrence_usage">RULE&nbsp;<b>product_occurrence_usage</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../../data/modules/generic_product_occurrence/sys/4_info_reqs.htm#generic_product_occurrence_arm.product_occurrence">Product_occurrence</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="design_product_data_management_arm.product_occurrence_usage.wr:wr1">WR1: SIZEOF(QUERY( po &lt;* Product_occurrence |
+            NOT (
+            (SIZEOF(USEDIN(po,'ASSEMBLY_STRUCTURE_ARM.PRODUCT_OCCURRENCE_DEFINITION_RELATIONSHIP.RELATED_VIEW')) +
+            SIZEOF(USEDIN(po,'PRODUCT_BREAKDOWN_ARM.PRODUCT_DEFINITION_ELEMENT_RELATIONSHIP.PRODUCT'))) &gt; 0
+            )
+            )) = 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="design_product_data_management_arm.unique_document_id">RULE&nbsp;<b>unique_document_id</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../../data/modules/document_and_version_identification/sys/4_info_reqs.htm#document_and_version_identification_arm.document">Document</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="design_product_data_management_arm.unique_document_id.wr:wr1">WR1: SIZEOF(QUERY (p1 &lt;* Document | SIZEOF(QUERY (p2 &lt;* Document | 
+            (NOT(p1 :=: p2) AND (p1.id = p2.id)))) &gt; 0 )) = 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="design_product_data_management_arm.unique_part_id">RULE&nbsp;<b>unique_part_id</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../../data/modules/part_and_version_identification/sys/4_info_reqs.htm#part_and_version_identification_arm.part">Part</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="design_product_data_management_arm.unique_part_id.wr:wr1">WR1: SIZEOF(QUERY (p1 &lt;* Part | SIZEOF(QUERY (p2 &lt;* Part | 
+            (NOT(p1 :=: p2) AND (p1.id = p2.id)))) &gt; 0 )) = 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="design_product_data_management_arm.unique_product_version_id">RULE&nbsp;<b>unique_product_version_id</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../../data/modules/product_identification/sys/4_info_reqs.htm#product_identification_arm.product">Product</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="design_product_data_management_arm.unique_product_version_id.wr:wr1">WR1: SIZEOF(QUERY (p &lt;* Product | 
+            (SIZEOF (QUERY (pv1 &lt;*
+            USEDIN(p,'PRODUCT_VIEW_DEFINITION_ARM.PRODUCT_VERSION.OF_PRODUCT') |  
+            (SIZEOF (QUERY (pv2 &lt;*
+            USEDIN(p,'PRODUCT_VIEW_DEFINITION_ARM.PRODUCT_VERSION.OF_PRODUCT')
+            |  pv1.id = pv2.id)) &gt; 1)
+            )) &gt; 0)
+            )) = 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="design_product_data_management_arm.unique_product_view_definition_id">RULE&nbsp;<b>unique_product_view_definition_id</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../../data/modules/product_version/sys/4_info_reqs.htm#product_version_arm.product_version">Product_version</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="design_product_data_management_arm.unique_product_view_definition_id.wr:wr1">WR1: SIZEOF(QUERY (pv &lt;* Product_version | 
+            (SIZEOF (QUERY (pvd1 &lt;*
+            USEDIN(pv,'PRODUCT_VIEW_DEFINITION_ARM.PRODUCT_VIEW_DEFINITION.DEFINED_VERSION') |  
+            (SIZEOF (QUERY (pvd2 &lt;*
+            USEDIN(pv,'PRODUCT_VIEW_DEFINITION_ARM.PRODUCT_VIEW_DEFINITION.DEFINED_VERSION')
+            |  pvd1.id = pvd2.id)) &gt; 1)
+            )) &gt; 0)
+            )) = 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br><A NAME="design_product_data_management_arm.unique_requirement_id">RULE&nbsp;<b>unique_requirement_id</b></A>&nbsp;FOR <br>
+         (<A HREF="../../../../data/modules/requirement_identification_and_version/sys/4_info_reqs.htm#requirement_identification_and_version_arm.requirement">Requirement</A>);<br></code><code>WHERE<br>
+         &nbsp;&nbsp;<A NAME="design_product_data_management_arm.unique_requirement_id.wr:wr1">WR1: SIZEOF(QUERY (p1 &lt;* Requirement | SIZEOF(QUERY (p2 &lt;* Requirement | 
+            (NOT(p1 :=: p2) AND (p1.id = p2.id)))) &gt; 0 )) = 0;</A><br></code><code>
+         END_RULE;
+         </code><br><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;Design_product_data_management_arm<br></code><br><br><p>&copy; ISO 2009 &#8212; All rights reserved</p>
+   </body>
+</HTML>

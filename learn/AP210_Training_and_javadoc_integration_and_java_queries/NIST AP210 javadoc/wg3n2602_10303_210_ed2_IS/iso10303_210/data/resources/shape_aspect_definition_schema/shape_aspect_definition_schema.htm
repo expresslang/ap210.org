@@ -1,0 +1,145 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+   <HEAD>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <TITLE>Integrated Resource: shape_aspect_definition_schema</TITLE>
+   </HEAD>
+   <body>
+      <h2>Schema: shape_aspect_definition_schema</h2>
+      <p><i>Source : ISO 10303-47</i></p><code><br><br><a name="shape_aspect_definition_schema">SCHEMA <b>shape_aspect_definition_schema</b>;</a><br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema">product_property_definition_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema">measure_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>);
+         <br><br></code><code>
+         REFERENCE FROM 
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema">support_resource_schema</A>&nbsp;&nbsp;&nbsp;-- ISO 10303-41<br>&nbsp;&nbsp;(<A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.bag_to_set">bag_to_set</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.label">label</A>,<br>
+         &nbsp;&nbsp;
+         <A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>);
+         <br><br></code><code><br><A NAME="shape_aspect_definition_schema.limit_condition">TYPE </A><b>limit_condition</b> =
+         
+         ENUMERATION
+         
+         OF
+         <br>
+         &nbsp;&nbsp; 
+         (maximum_material_condition,<br>&nbsp;&nbsp;&nbsp;&nbsp;least_material_condition,<br>&nbsp;&nbsp;&nbsp;&nbsp;regardless_of_feature_size);<br>
+         END_TYPE; 
+         <br></code><code><br><A NAME="shape_aspect_definition_schema.apex">ENTITY <b>apex</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_aspect_definition_schema.derived_shape_aspect">derived_shape_aspect</A>);<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.centre_of_symmetry">ENTITY <b>centre_of_symmetry</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_aspect_definition_schema.derived_shape_aspect">derived_shape_aspect</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.centre_of_symmetry.wr:wr1">WR1: SIZEOF
+            (QUERY(sadr&lt;*SELF\derived_shape_aspect.deriving_relationships|
+            NOT('SHAPE_ASPECT_DEFINITION_SCHEMA.SYMMETRIC_SHAPE_ASPECT'
+            IN TYPEOF
+            (sadr\shape_aspect_relationship.related_shape_aspect))))=0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.common_datum">ENTITY <b>common_datum</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_aspect_definition_schema.composite_shape_aspect">composite_shape_aspect</A>, <A HREF="#shape_aspect_definition_schema.datum">datum</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.common_datum.wr:wr1">WR1: SIZEOF (SELF\composite_shape_aspect.component_relationships) = 2;</A><br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.common_datum.wr:wr2">WR2: SIZEOF (QUERY ( sar &lt;* SELF\composite_shape_aspect.component_relationships| 
+            NOT (('SHAPE_ASPECT_DEFINITION_SCHEMA.DATUM' IN TYPEOF (sar.related_shape_aspect)) AND 
+            NOT ('SHAPE_ASPECT_DEFINITION_SCHEMA.COMMON_DATUM' IN TYPEOF (sar.related_shape_aspect))) )) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.composite_shape_aspect">ENTITY <b>composite_shape_aspect</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.composite_shape_aspect.component_relationships">component_relationships : </A>SET[2:?] OF <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A> FOR relating_shape_aspect;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.datum">ENTITY <b>datum</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.datum.identification">identification : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.datum.established_by_relationships">established_by_relationships : </A>SET[1:?] OF <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A> FOR related_shape_aspect;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.datum.wr:wr1">WR1: ('SHAPE_ASPECT_DEFINITION_SCHEMA.COMMON_DATUM' IN TYPEOF(SELF)) XOR
+            ((SIZEOF(QUERY(x &lt;* SELF\datum.established_by_relationships |
+            ('SHAPE_ASPECT_DEFINITION_SCHEMA.DATUM_FEATURE' IN TYPEOF(x\shape_aspect_relationship.relating_shape_aspect)))) = 1) XOR
+            (SIZEOF(QUERY(x &lt;* SELF\datum.established_by_relationships |
+            ('SHAPE_ASPECT_DEFINITION_SCHEMA.DATUM_TARGET' IN TYPEOF(x\shape_aspect_relationship.relating_shape_aspect)))) &gt;= 1));</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.datum_feature">ENTITY <b>datum_feature</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.datum_feature.feature_basis_relationship">feature_basis_relationship : </A>SET[1:?] OF <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A> FOR relating_shape_aspect;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.datum_feature.wr:wr1">WR1: SIZEOF(QUERY(sar &lt;* SELF\datum_feature.feature_basis_relationship 
+            | ('SHAPE_ASPECT_DEFINITION_SCHEMA.DATUM' IN TYPEOF
+            (sar\shape_aspect_relationship.related_shape_aspect)))) = 1;</A><br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.datum_feature.wr:wr2">WR2: SELF\shape_aspect.product_definitional = TRUE;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.datum_reference">ENTITY <b>datum_reference</b></A>;<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.datum_reference.precedence">precedence : </A>INTEGER;<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.datum_reference.referenced_datum">referenced_datum : </A><A HREF="#shape_aspect_definition_schema.datum">datum</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.datum_reference.wr:wr1">WR1: precedence &gt; 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.datum_target">ENTITY <b>datum_target</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.datum_target.target_id">target_id : </A><A HREF="../../../data/resources/support_resource_schema/support_resource_schema.htm#support_resource_schema.identifier">identifier</A>;<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.datum_target.target_basis_relationship">target_basis_relationship : </A>SET[1:?] OF <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A> FOR relating_shape_aspect;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.datum_target.wr:wr1">WR1: SIZEOF(QUERY(sar &lt;* SELF\datum_target.target_basis_relationship 
+            | ('SHAPE_ASPECT_DEFINITION_SCHEMA.DATUM' IN TYPEOF
+            (sar\shape_aspect_relationship.related_shape_aspect)))) = 1;</A><br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.datum_target.wr:wr2">WR2: SELF\shape_aspect.product_definitional = TRUE;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.derived_shape_aspect">ENTITY <b>derived_shape_aspect</b></A><br>
+         &nbsp;&nbsp;SUPERTYPE OF 
+         (ONEOF&nbsp;(<A HREF="#shape_aspect_definition_schema.apex">apex</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#shape_aspect_definition_schema.centre_of_symmetry">centre_of_symmetry</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#shape_aspect_definition_schema.geometric_alignment">geometric_alignment</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#shape_aspect_definition_schema.geometric_intersection">geometric_intersection</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#shape_aspect_definition_schema.parallel_offset">parallel_offset</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#shape_aspect_definition_schema.perpendicular_to">perpendicular_to</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#shape_aspect_definition_schema.extension">extension</A>,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="#shape_aspect_definition_schema.tangent">tangent</A>))<br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.derived_shape_aspect.deriving_relationships">deriving_relationships : </A>SET[1:?] OF <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A> FOR relating_shape_aspect;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.derived_shape_aspect.wr:wr1">WR1: SIZEOF (QUERY (dr &lt;*
+            SELF\derived_shape_aspect.deriving_relationships |
+            NOT ('SHAPE_ASPECT_DEFINITION_SCHEMA.' +
+            'SHAPE_ASPECT_DERIVING_RELATIONSHIP'
+            IN TYPEOF (dr)))) = 0;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.extension">ENTITY <b>extension</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_aspect_definition_schema.derived_shape_aspect">derived_shape_aspect</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.extension.wr:wr1">WR1: SIZEOF (SELF\derived_shape_aspect.deriving_relationships)= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.geometric_alignment">ENTITY <b>geometric_alignment</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_aspect_definition_schema.derived_shape_aspect">derived_shape_aspect</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.geometric_alignment.wr:wr1">WR1: SIZEOF (SELF\derived_shape_aspect.deriving_relationships)&gt; 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.geometric_intersection">ENTITY <b>geometric_intersection</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_aspect_definition_schema.derived_shape_aspect">derived_shape_aspect</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.geometric_intersection.wr:wr1">WR1: SIZEOF (SELF\derived_shape_aspect.deriving_relationships)&gt; 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.parallel_offset">ENTITY <b>parallel_offset</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_aspect_definition_schema.derived_shape_aspect">derived_shape_aspect</A>);<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.parallel_offset.offset">offset : </A><A HREF="../../../data/resources/measure_schema/measure_schema.htm#measure_schema.measure_with_unit">measure_with_unit</A>;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.parallel_offset.wr:wr1">WR1: SIZEOF (SELF\derived_shape_aspect.deriving_relationships)= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.perpendicular_to">ENTITY <b>perpendicular_to</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_aspect_definition_schema.derived_shape_aspect">derived_shape_aspect</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.perpendicular_to.wr:wr1">WR1: SIZEOF (SELF\derived_shape_aspect.deriving_relationships)= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.referenced_modified_datum">ENTITY <b>referenced_modified_datum</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_aspect_definition_schema.datum_reference">datum_reference</A>);<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.referenced_modified_datum.modifier">modifier : </A><A HREF="#shape_aspect_definition_schema.limit_condition">limit_condition</A>;<br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.shape_aspect_deriving_relationship">ENTITY <b>shape_aspect_deriving_relationship</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.shape_aspect_deriving_relationship.wr:wr1">WR1: 'SHAPE_ASPECT_DEFINITION_SCHEMA.DERIVED_SHAPE_ASPECT' IN
+            TYPEOF
+            (SELF\SHAPE_ASPECT_RELATIONSHIP.RELATING_SHAPE_ASPECT);</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.symmetric_shape_aspect">ENTITY <b>symmetric_shape_aspect</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect">shape_aspect</A>);<br>INVERSE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.symmetric_shape_aspect.basis_relationships">basis_relationships : </A>SET[1:?] OF <A HREF="../../../data/resources/product_property_definition_schema/product_property_definition_schema.htm#product_property_definition_schema.shape_aspect_relationship">shape_aspect_relationship</A> FOR relating_shape_aspect;<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.symmetric_shape_aspect.wr:wr1">WR1: SIZEOF (QUERY (x&lt;*SELF\symmetric_shape_aspect.basis_relationships |
+            'SHAPE_ASPECT_DEFINITION_SCHEMA.CENTRE_OF_SYMMETRY' IN TYPEOF 
+            (x\shape_aspect_relationship.related_shape_aspect)))&gt;=1;</A><br>
+         
+         END_ENTITY;<br></code><code><br><A NAME="shape_aspect_definition_schema.tangent">ENTITY <b>tangent</b></A><br>
+         &nbsp;&nbsp;SUBTYPE OF (<A HREF="#shape_aspect_definition_schema.derived_shape_aspect">derived_shape_aspect</A>);<br>WHERE<br>
+         &nbsp;&nbsp;<A NAME="shape_aspect_definition_schema.tangent.wr:wr1">WR1: SIZEOF (SELF\derived_shape_aspect.deriving_relationships)= 1;</A><br>
+         
+         END_ENTITY;<br></code><code><br>
+         END_SCHEMA;&nbsp;&nbsp;--&nbsp;shape_aspect_definition_schema<br></code></body>
+</HTML>
