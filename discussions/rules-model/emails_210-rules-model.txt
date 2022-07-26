@@ -1,0 +1,218 @@
+I placed a modified Design_rules.ppt and a new file rule_model_parameter.txt that is a starting point for Mike Benda. Hopefully I will get all the  mods identified there in today, but the hours are ticking away. I modified the Design_rules.ppt because the express was obsolete. Note that in order to make transmittal of rule definition and results easy, for wd34 I had made both of those types of Ee_product_definition in their own right.  the details are in the txt file.
+
+Tom (7.12.2003)
+
+===================================================================================================================
+
+Getting more done on support for rules.
+I added the entire contents of part 50 to the aim.
+Suggest you get a copy of part 50 and 13584-20 for reference. still working on the restructure of recursion on ee_rule_function. 
+
+Tom (9.24.2003)
+
+===================================================================================================================
+
+Based on the powerpoint slide of the generic rule template, here is where the recursion should go. My question is that it doesn't seem to make sense for a parameter to be a function call.
+
+here is the express:
+
+  ENTITY ee_rule_simple_clause
+    SUBTYPE OF (managed_design_object);
+      rule_function : ee_rule_function;
+      parameter     : SET[1:?] OF parameter_assignment;
+  END_ENTITY; -- ee_rule_simple_clause
+
+This express assigns a specific value to the declared parameters for the function. Here is the express for the calling complex clause (only used for premise)
+
+ENTITY ee_rule_complex_clause
+    SUBTYPE OF (managed_design_object);
+      conjunctive_content : SET[1:?] OF ee_rule_simple_clause;
+      identifier          : STRING;
+    UNIQUE
+      ur1 : identifier;
+  END_ENTITY; -- ee_rule_complex_clause
+
+I need to know how the recursion stops before going any further. which is to say, where is the parameter_assignment for the termination of the recursion.
+
+I will double check the bnf.  maybe that will provide a clue. 
+
+Tom (9.24.2003)
+
+===================================================================================================================
+
+ok,
+I got the recursion structure validated as to where we were going to put that.
+
+What about the requirement for Parameter to be a database attribute? Please provide an example.
+
+Tom (9.25.2003)
+
+===================================================================================================================
+
+three things:
+1-ok,
+ 'height, 2.00' is an instance of the new AO Schema_based_model_parameter being assigned a value of 2.00 by parameter_assignment.
+-----------------------------------------------------------------------------------------------------
+
+2-Where is the 'for each component' specified in the bnf or generic rule template? (I don't see a looping construct yet!)
+
+-----------------------------------------------------------------------------------------------------
+3-The bnf does not allow recursion on the simple conclusion. The model permits recursion on the conclusion.  do we need to fix this?
+
+Tom
+
+
+
+                                                                                                                                    
+                      "Smith, Gregory                                                                                               
+                      L"                       To:       <trthurma@rockwellcollins.com>                                             
+                      <gregory.l.smith@        cc:       <Manas.Bajaj@angostura.marc.gatech.edu>, <thurman.tom@mcleod.net>          
+                      boeing.com>              Subject:  RE: adding recursion to AP 210 rule structure                              
+                                                                                                                                    
+                      09/25/2003 12:01                                                                                              
+                      PM                                                                                                            
+    
+Tom
+
+The datebase attribute was meant to be a attribute defined within a standard (or database)
+
+For example
+
+ for each component
+ (max, height, 2.00) 'looking for heights over 2.00 inches
+
+the height (yes, I know, not the exact AP210 attribute) would be the database or standard attribute
+
+we could handle these as strings if required - but I am not certain that is the correct way to do it
+
+Greg
+
+(9.25.2003)
+
+===================================================================================================================
+
+Next question:
+Where does the binary expression come into play?  I seem to recall some discussion of that at the offsite.
+
+Expected answer:
+I would expect the formalism that the following return TRUE or FALSE: Ee_rule_complex_clause, Ee_rule_simple_clause.
+
+
+Ee_rule_function doesn't have to as you show below.
+
+Please concur/ correct as appropriate.
+
+Tom
+
+
+                                                                                                                                    
+                      "Smith, Gregory                                                                                               
+                      L"                       To:       <trthurma@rockwellcollins.com>                                             
+                      <gregory.l.smith@        cc:       <Manas.Bajaj@angostura.marc.gatech.edu>, <thurman.tom@mcleod.net>          
+                      boeing.com>              Subject:  RE: adding recursion to AP 210 rule structure                              
+                                                                                                                                    
+                      09/25/2003 01:49                                                                                              
+                      PM                                                                                                            
+                                                                                                                                    
+                                                                                                                                    
+
+
+
+
+Tom,
+
+number 2 -
+Looping constructs should not be treated any different than a function
+
+for example
+
+             (foreach, c, component) - loop for each component,
+         (greater, c.height, 2.00)
+         (writewarning, "some message")
+      (next)
+
+             (for, x, 1, 100) - loop x 1 to 100
+
+      (next)
+etc.
+
+number 3 -
+The BNF for a conclusion is:
+             <conclusion> ::= <simple conclusion> { And <simple conclusion>
+}*        - so multiple conclusions are allowed
+             <simple conclusion> ::= <function> <parameter>*
+- so zero or more parameters are allowed
+      <parameter> ::= <simple conclusion> | <constant> | <database
+attribute>  - parmeter can be a simpleconclusion, so
+
+we can have recursion
+
+Note that Or is not supported in conclusions as it should be implemented as multiple rules.
+
+Please send me the design_rules power point files as I have lost my copy!
+
+Thanks
+Greg
+
+
+Should be allowed, note that
+             <simple conclusion> ::= <conclusion function> <conclusion
+parameter>
+
+should be
+             <simple conclusion> ::= <conclusion function> <conclusion
+
+parameter>*
+
+and
+
+(9.25.2003)
+
+=================================================================================================================
+
+Greg & Manas,
+I believe we have sufficient structure now to support the basics. After asking Mike K. a few questions, I added some notes to the examples provided by Greg in the
+file:
+rule_model_parameter.txt
+in the August-2003 directory in Eclipse.
+
+These notes serve to clarify the application of a function, and the assignment of actual data to the function parameters.
+
+
+Note
+Last week, we formalized the notion that a rule variable
+(Ee_rule_model_xx_parameter) in AP 210 only exists (is declared) in the context of the Ee_rule_function.
+
+We did this with Ee_rule_function, Analytical_model, and Ee_product_category.
+
+Tom (9.29.2003)
+
+=================================================================================================================
+
+I changed all Ee_rulexx names to Rulexx names.
+see sedszilla 973 for details.
+
+Tom (9.29.2003)
+
+=================================================================================================================
+
+Greg & Manas,
+We have updated the 210 rules model per discussions with Greg and in accordance with new approach to Model_parameter. This update addresses all the comments in the Eclipse rules_model_parameter.txt file, so let me know of any inconsistencies. (The rules_model_parameter.txt file is on version 1.8) Please use the text file as a reference only.
+
+Note in particular the following:
+Model_parameter is now an ABS. One may build a complex instance of subtypes of Mp to satisfy your requirements, but that is up to you. Rule_function must be referenced by an instance of Rule_function_domain_parameter or Rule_function_range_parameter. So if you want to exchange a Schema_based_model_parameter you need to include that as part of the complex instance with Rule_function_domain_parameter or Rule_function_range_parameter.
+
+The recursion is built using the Rule_general_clause.  Rule_simple_clause is not recursive.
+
+All this is undergoing final mapping table checks with Mike.
+
+Tom (9.30.2003)
+
+=================================================================================================================
+
+
+
+
+
+
+
