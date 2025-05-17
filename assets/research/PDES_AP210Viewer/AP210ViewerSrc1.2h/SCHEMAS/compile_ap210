@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ $# -eq 0 ]; then
+	echo "usage: express2sdai_dis <express file>"
+	exit 1;
+fi
+
+file=$1
+expxfront -force -validate -intermed sdai_parse_data $* || exit 1
+expfront -force -rose $* || exit 1
+gendict_dis sdai_parse_data 
+rm sdai_parse_data.rose

@@ -1,0 +1,229 @@
+<project name="AP210NativeTestcases" default="build_repository" basedir="..">
+
+	<target name="build_repository"
+	        depends="init,Convert_MGC_Designs"
+	        description="generate all step files">
+	</target>
+
+	<target name="validate_repository"
+	        depends="init,Validate_MGC_Designs"
+	        description="validate all step files">
+	</target>
+
+	<target name="Validate_MGC_Designs"
+	        depends="init,Validate_SurfaceMountFlasherMGC"
+	        description="generate all MGC step files">
+	</target>
+
+	<target name="Validate_SurfaceMountFlasherMGC"
+	        depends="init"
+	        description="Validate SurfaceMountFlasherMGC step files">
+		<property name="SMFDESIGN" value="SurfaceMountFlasher" />
+		<echo>"${SMFDESIGN}"</echo>
+		<property name="SMFINPUT" value="${REPOSITORYDIR}${SMFDESIGN}MGC.stp" />
+		<echo>"${SMFINPUT}"</echo>
+		<echo>"${EXPRESSO}"</echo>
+		<echo>"-op validate -source-schema ${AP210SCHEMA} -input ${SMFDESIGN}MGC.stp -input-encoding p21"</echo>
+		<exec dir="${REPOSITORYDIR}" executable="${EXPRESSO}" output="dir.txt">
+			<arg line="-op validate -source-schema ${AP210SCHEMA} -input ${SMFDESIGN}MGC.stp -input-encoding p21" />
+		</exec>
+		<!--
+     <exec dir="${REPOSITORYDIR}" executable="${EXPRESSO}" os="Windows 2000" output="dir.txt">
+        <arg line="-op validate -source-schema ${AP210SCHEMA} -input ${SMFDESIGN}MGC.stp -input-encoding p21"/>
+     </exec>
+     -->
+	</target>
+
+	<target name="Convert_MGC_Designs"
+	        depends="init,SurfaceMountFlasherMGC,Cable_DBMGC,ThruHoleFlasherMGC"
+	        description="generate all MGC step files">
+	</target>
+
+
+	<target name="SurfaceMountFlasherMGC"
+	        depends="init, SurfaceMountFlasherNoPCBMGC"
+	        description="generate SurfaceMountFlasherMGC step files">
+		<echo>"${LKSOFTEXT}"</echo>
+		<property name="SMFDESIGN" value="SurfaceMountFlasher" />
+		<echo>"${SMFDESIGN}"</echo>
+		<delete>
+			<fileset dir="${REPOSITORYDIR}" includes="${SMFDESIGN}MGC.stp" />
+		</delete>
+		<!--
+      java ParserFramework <pcb_path> <geometry_file> <step_file> [-log_no] [-yes_ARM]|[-no_ARM] [-no_pcb] [-yes_library]
+      forked process inorder to pickup the new value of java.ext.dirs
+     -->
+		<java classname="jsdaix.ap210.converter.mentor.ParserFramework"
+		      fork="true"
+		      dir="${LKSOFT}"
+		      output="${REPOSITORYDIR}/${SMFDESIGN}MGC.log">
+
+			<sysproperty key="java.ext.dirs" value="${LKSOFT}\ext" />
+			<jvmarg value="-Xmx512m" />
+			<arg value="${PROJECT_HOME}/${SMFDESIGN}/${SMFDESIGN}MGC/pcb" />
+			<arg value="ascii_geoms_file" />
+			<arg value="${REPOSITORYDIR}/${SMFDESIGN}MGC.stp" />
+		</java>
+	</target>
+
+	<target name="SurfaceMountFlasherNoPCBMGC"
+	        depends="init"
+	        description="generate SurfaceMountFlasherMGC step files">
+		<echo>"${LKSOFTEXT}"</echo>
+		<property name="SMFDESIGN" value="SurfaceMountFlasher" />
+		<echo>"${SMFDESIGN}"</echo>
+		<delete>
+			<fileset dir="${REPOSITORYDIR}"
+			         includes="${SMFDESIGN}NoPCBMGC.stp" />
+		</delete>
+		<!--
+      java ParserFramework <pcb_path> <geometry_file> <step_file> [-log_no] [-yes_ARM]|[-no_ARM] [-no_pcb] [-yes_library]
+      forked process inorder to pickup the new value of java.ext.dirs
+     -->
+		<java classname="jsdaix.ap210.converter.mentor.ParserFramework"
+		      fork="true"
+		      dir="${LKSOFT}"
+		      output="${REPOSITORYDIR}/${SMFDESIGN}NoPCBMGC.log">
+
+			<sysproperty key="java.ext.dirs" value="${LKSOFT}\ext" />
+			<jvmarg value="-Xmx512m" />
+			<arg value="${PROJECT_HOME}/${SMFDESIGN}/${SMFDESIGN}MGC/pcb" />
+			<arg value="ascii_geoms_file" />
+			<arg value="${REPOSITORYDIR}/${SMFDESIGN}NoPCBMGC.stp" />
+			<arg value="-no_pcb" />
+		</java>
+	</target>
+
+	<target name="ThruHoleFlasherMGC"
+	        depends="init, ThruHoleFlasherNoPCBMGC"
+	        description="generate ThruHoleFlasherMGC step files">
+		<echo>"${LKSOFTEXT}"</echo>
+		<property name="TMFDESIGN" value="ThruHoleFlasher" />
+		<echo>"${TMFDESIGN}"</echo>
+		<delete>
+			<fileset dir="${REPOSITORYDIR}" includes="${TMFDESIGN}MGC.stp" />
+		</delete>
+		<!--
+      java ParserFramework <pcb_path> <geometry_file> <step_file> [-log_no] [-yes_ARM]|[-no_ARM] [-no_pcb] [-yes_library]
+      forked process inorder to pickup the new value of java.ext.dirs
+     -->
+		<java classname="jsdaix.ap210.converter.mentor.ParserFramework"
+		      fork="true"
+		      dir="${LKSOFT}"
+		      output="${REPOSITORYDIR}/${TMFDESIGN}MGC.log">
+
+			<sysproperty key="java.ext.dirs" value="${LKSOFT}\ext" />
+			<jvmarg value="-Xmx512m" />
+			<arg value="${PROJECT_HOME}/${TMFDESIGN}/${TMFDESIGN}MGC/pcb" />
+			<arg value="ascii_geoms_file" />
+			<arg value="${REPOSITORYDIR}/${TMFDESIGN}MGC.stp" />
+		</java>
+	</target>
+
+	<target name="ThruHoleFlasherNoPCBMGC"
+	        depends="init"
+	        description="generate ThruHoleFlasherMGC step files">
+		<echo>"${LKSOFTEXT}"</echo>
+		<property name="TMFDESIGN" value="ThruHoleFlasher" />
+		<echo>"${TMFDESIGN}"</echo>
+		<delete>
+			<fileset dir="${REPOSITORYDIR}"
+			         includes="${TMFDESIGN}NoPCBMGC.stp" />
+		</delete>
+		<!--
+      java ParserFramework <pcb_path> <geometry_file> <step_file> [-log_no] [-yes_ARM]|[-no_ARM] [-no_pcb] [-yes_library]
+      forked process inorder to pickup the new value of java.ext.dirs
+     -->
+		<java classname="jsdaix.ap210.converter.mentor.ParserFramework"
+		      fork="true"
+		      dir="${LKSOFT}"
+		      output="${REPOSITORYDIR}/${TMFDESIGN}NoPCBMGC.log">
+
+			<sysproperty key="java.ext.dirs" value="${LKSOFT}\ext" />
+			<jvmarg value="-Xmx512m" />
+			<arg value="${PROJECT_HOME}/${TMFDESIGN}/${TMFDESIGN}MGC/pcb" />
+			<arg value="ascii_geoms_file" />
+			<arg value="${REPOSITORYDIR}/${TMFDESIGN}NoPCBMGC.stp" />
+			<arg value="-no_pcb" />
+		</java>
+	</target>
+
+	<target name="Cable_DBMGC"
+	        depends="init, Cable_DBNoPCBMGC"
+	        description="generate Cable_DBMGC step files">
+		<echo>"${LKSOFTEXT}"</echo>
+		<property name="CDBDESIGN" value="Cable_DB" />
+		<echo>"${CDBDESIGN}"</echo>
+		<delete>
+			<fileset dir="${REPOSITORYDIR}" includes="${CDBDESIGN}MGC.stp" />
+		</delete>
+		<!--
+      java ParserFramework <pcb_path> <geometry_file> <step_file> [-log_no] [-yes_ARM]|[-no_ARM] [-no_pcb] [-yes_library]
+     -->
+		<java classname="jsdaix.ap210.converter.mentor.ParserFramework"
+		      fork="true"
+		      dir="${LKSOFT}"
+		      output="${REPOSITORYDIR}/${CDBDESIGN}MGC.log">
+
+			<sysproperty key="java.ext.dirs" value="${LKSOFT}\ext" />
+			<jvmarg value="-Xmx512m" />
+			<arg value="${PROJECT_HOME}/${CDBDESIGN}/${CDBDESIGN}MGC/pcb" />
+			<arg value="ascii_geoms_file" />
+			<arg value="${REPOSITORYDIR}/${CDBDESIGN}MGC.stp" />
+		</java>
+	</target>
+
+	<target name="Cable_DBNoPCBMGC"
+	        depends="init"
+	        description="generate Cable_DBMGC step files">
+		<echo>"${LKSOFTEXT}"</echo>
+		<property name="CDBDESIGN" value="Cable_DB" />
+		<echo>"${CDBDESIGN}"</echo>
+		<delete>
+			<fileset dir="${REPOSITORYDIR}"
+			         includes="${CDBDESIGN}NoPCBMGC.stp" />
+		</delete>
+		<!--
+      java ParserFramework <pcb_path> <geometry_file> <step_file> [-log_no] [-yes_ARM]|[-no_ARM] [-no_pcb] [-yes_library]
+     -->
+		<java classname="jsdaix.ap210.converter.mentor.ParserFramework"
+		      fork="true"
+		      dir="${LKSOFT}"
+		      output="${REPOSITORYDIR}/${CDBDESIGN}NoPCBMGC.log">
+
+			<sysproperty key="java.ext.dirs" value="${LKSOFT}\ext" />
+			<jvmarg value="-Xmx512m" />
+			<arg value="${PROJECT_HOME}/${CDBDESIGN}/${CDBDESIGN}MGC/pcb" />
+			<arg value="ascii_geoms_file" />
+			<arg value="${REPOSITORYDIR}/${CDBDESIGN}NoPCBMGC.stp" />
+			<arg value="-no_pcb" />
+		</java>
+
+	</target>
+	<target name="clean_repository"
+	        depends="init"
+	        description="delete generated step files">
+		<delete>
+			<fileset dir="${REPOSITORYDIR}" includes="*.*" />
+		</delete>
+	</target>
+
+	<target name="init" description="initialize variables">
+		<tstamp />
+		<property name="REPOSITORYDIR"
+		          value="${basedir}\${ant.project.name}\Repository" />
+		<property name="REPOSITORY" value="${REPOSITORYDIR}/**" />
+		<property name="LKSOFT"
+		          value="C:\Program Files\LKSoft\MentorBoardStation-AP210Translator_v2_1_1" />
+		<property name="LKSOFTEXT" value="${LKSOFT}/ext" />
+		<property name="PROJECT_HOME" value="${basedir}\${ant.project.name}" />
+		<property name="EXPRESSENGINE"
+		          value="C:\Program Files\Express Engine" />
+		<property name="EXPRESSO" value="${EXPRESSENGINE}\expresso" />
+		<property name="AP210SCHEMA"
+		          value="${EXPRESSENGINE}\schemas\electronic_assembly_interconnect_and_packaging_design_wd1_34.exp" />
+
+	</target>
+
+
+</project>

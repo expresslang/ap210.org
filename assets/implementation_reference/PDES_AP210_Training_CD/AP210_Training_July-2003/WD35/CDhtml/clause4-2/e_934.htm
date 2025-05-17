@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>True_profile</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.934 True_profile</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A True_profile is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A True_profile is a definition that characterizes the theoretically exact shape of a <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>boundary_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>profile_representation</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>profiled_surface</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.934.1 boundary_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The boundary_definition is an inverse relationship that specifies that the existence of the True_profile is dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_742.htm"
+>Profile_boundary_definition</A
+> that specifies the True_profile as its basic_profile.  There shall be one or more Profile_boundary_definition for a True_profile.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.934.2 profile_representation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The profile_representation specifies one of a <A
+CLASS="INTERNALREF"
+HREF="e_80.htm"
+>Bound_volume_shape</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_302.htm"
+>Dimension_set</A
+>, an <A
+CLASS="INTERNALREF"
+HREF="e_316.htm"
+>Ee_document</A
+>, or an <A
+CLASS="INTERNALREF"
+HREF="e_334.htm"
+>Ee_rule_function</A
+> that represents the True_profile.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.934.3 profiled_surface</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The profiled_surface specifies the <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+> that is characterized by the True_profile</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY true_profile
+  SUBTYPE OF (managed_design_object);
+    profiled_surface       : physical_feature_or_part_template;
+    profile_representation : true_profile_representations;
+  INVERSE
+    boundary_definition : SET [1:?] OF profile_boundary_definition FOR 
+                          basic_profile;
+END_ENTITY; -- true_profile
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

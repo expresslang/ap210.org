@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Positional_boundary_and_profile_boundary_member_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.699 Positional_boundary_and_profile_boundary_member_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Positional_boundary_and_profile_boundary_member_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Positional_boundary_and_profile_boundary_member_relationship is a relationship that associates a <A
+CLASS="INTERNALREF"
+HREF="e_750.htm"
+>Profile_related_positional_boundary</A
+> with the <A
+CLASS="INTERNALREF"
+HREF="e_917.htm"
+>Tolerance_zone_boundary_member</A
+> from which the 
+Profile_related_positional_boundary is offset. </DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>base_profile_tolerance_zone_boundary_member</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>offset</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>offset_positional_boundary</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.699.1 base_profile_tolerance_zone_boundary_member</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The base_profile_tolerance_zone_boundary_member specifies the <A
+CLASS="INTERNALREF"
+HREF="e_917.htm"
+>Tolerance_zone_boundary_member</A
+>
+from which the <A
+CLASS="INTERNALREF"
+HREF="e_750.htm"
+>Profile_related_positional_boundary</A
+> specified as the offset_positional_boundary is offset.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.699.2 offset</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The offset is an inverse relationship that specifies that the existence of the 
+Positional_boundary_and_profile_boundary_member_relationship is dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_700.htm"
+>Positional_boundary_offset</A
+> that specifies the 
+Positional_boundary_and_profile_boundary_member_relationship as its offset_boundary_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.699.3 offset_positional_boundary</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The offset_positional_boundary specifies the <A
+CLASS="INTERNALREF"
+HREF="e_750.htm"
+>Profile_related_positional_boundary</A
+> that is offset from the <A
+CLASS="INTERNALREF"
+HREF="e_917.htm"
+>Tolerance_zone_boundary_member</A
+> that is specified as the 
+base_profile_tolerance_zone_boundary_member.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY positional_boundary_and_profile_boundary_member_relationship
+  SUBTYPE OF (managed_design_object);
+    offset_positional_boundary                  : profile_related_positional_boundary;
+    base_profile_tolerance_zone_boundary_member : tolerance_zone_boundary_member;
+  INVERSE
+    offset : positional_boundary_offset FOR offset_boundary_relationship;
+END_ENTITY; -- positional_boundary_and_profile_boundary_member_relationship
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

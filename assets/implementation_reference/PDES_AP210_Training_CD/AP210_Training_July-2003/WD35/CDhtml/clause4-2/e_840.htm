@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Statistical_dimensional_tolerance</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.840 Statistical_dimensional_tolerance</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Statistical_dimensional_tolerance is a type of <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+> that specifies design requirements that are based on sound statistics. Associated with the Statistical_dimensional_tolerance is the requirement that a specified level of process control be maintained during the manufacture of the <A
+CLASS="INTERNALREF"
+HREF="e_664.htm"
+>Physical_unit</A
+>. A Statistical_dimensional_tolerance may specify another Dimensional_characteristic as an alternate to the Statistical_dimensional_tolerance in the event that the specified level of process control cannot be met.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Statistical tolerancing is discussed in 2.16 of ASME Y14.5M.</DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>alternate_dimension</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>statistical_control_requirement</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.840.1 alternate_dimension</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The alternate_dimension specifies the <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+> that shall be used if the specified level of process control cannot be met. The alternate_dimension need not be specified for a Statistical_dimensional_tolerance.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.840.2 statistical_control_requirement</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The statistical_control_requirement specifies the <A
+CLASS="INTERNALREF"
+HREF="e_330.htm"
+>Ee_requirement_occurrence</A
+> that states the statistical process control requirements that the manufacturing facility shall meet for the Statistical_dimensional_tolerance.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>If a Dimensional_characteristic is specified as an alternate_dimension, the specified Dimensional_characteristic shall not be a Statistical_dimensional_tolerance.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>If a Dimensional_characteristic is specified as an alternate_dimension, the Dimensional_characteristic shall characterize the same Shape_element or Shape_element_locating_relationship as characterized by the Statistical_dimensional_tolerance.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY statistical_dimensional_tolerance
+  SUBTYPE OF (dimensional_characteristic);
+    alternate_dimension             : OPTIONAL dimensional_characteristic;
+    statistical_control_requirement : ee_requirement_occurrence;
+END_ENTITY; -- statistical_dimensional_tolerance
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

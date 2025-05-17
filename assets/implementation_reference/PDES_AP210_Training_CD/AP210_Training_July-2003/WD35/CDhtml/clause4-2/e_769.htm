@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Requirement_allocation</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.769 Requirement_allocation</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Requirement_allocation is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Requirement_allocation is the allocation of requirement 
+occurrences to the items in the product that meet the requirements.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>allocated_requirement</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>target_product_object</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.769.1 allocated_requirement</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The allocated_requirement specifies the <A
+CLASS="INTERNALREF"
+HREF="e_330.htm"
+>Ee_requirement_occurrence</A
+> that is being allocated in the Requirement_allocation.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.769.2 target_product_object</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The target_product_object specifies either an <A
+CLASS="INTERNALREF"
+HREF="e_319.htm"
+>Ee_product</A
+>, an <A
+CLASS="INTERNALREF"
+HREF="e_322.htm"
+>Ee_product_configuration</A
+>, an <A
+CLASS="INTERNALREF"
+HREF="e_323.htm"
+>Ee_product_definition</A
+>, an <A
+CLASS="INTERNALREF"
+HREF="e_328.htm"
+>Ee_product_version</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_613.htm"
+>Part_feature</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_652.htm"
+>Physical_connectivity_definition</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_654.htm"
+>Physical_connectivity_element</A
+>, or one of an <A
+CLASS="INTERNALREF"
+HREF="e_34.htm"
+>Assembly_component</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_117.htm"
+>Component_external_reference</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_118.htm"
+>Component_feature</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_119.htm"
+>Component_feature_external_reference</A
+>, an <A
+CLASS="INTERNALREF"
+HREF="e_330.htm"
+>Ee_requirement_occurrence</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_845.htm"
+>Stratum</A
+>,
+ or one of an <A
+CLASS="INTERNALREF"
+HREF="e_471.htm"
+>Inter_stratum_feature</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_483.htm"
+>Laminate_component</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_851.htm"
+>Stratum_feature</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_868.htm"
+>Stratum_surface</A
+> as the target for the Requirement_allocation. 
+There shall be one or more Ee_product, Ee_product_configuration, Ee_product_definition, Ee_product_version, Part_feature, Physical_connectivity_definition, Assembly_component, Component_external_reference, Component_feature, Component_feature_external_reference, Ee_requirement_occurrence, Stratum, Inter_stratum_feature, Laminate_component, Stratum_feature, or Stratum_surface for the Requirement_allocation.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY requirement_allocation
+  SUBTYPE OF (managed_design_object);
+    target_product_object : SET [1:?] OF product_object_select;
+    allocated_requirement : ee_requirement_occurrence;
+END_ENTITY; -- requirement_allocation
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Shape_element_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.816 Shape_element_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Shape_element_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Shape_element_relationship is one of a <A
+CLASS="INTERNALREF"
+HREF="e_602.htm"
+>Parallel_shape_element_relationship</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_645.htm"
+>Perpendicular_shape_element_relationship</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_811.htm"
+>Shape_element_boundary_relationship</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_813.htm"
+>Shape_element_constituent_relationship</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_562.htm"
+>Non_feature_shape_element_relationship</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_814.htm"
+>Shape_element_deriving_relationship</A
+>.
+Additionally, a Shape_element_relationship may be a <A
+CLASS="INTERNALREF"
+HREF="e_229.htm"
+>Datum_feature_usage_in_datum_relationship</A
+>. A Shape_element_relationship is an association between two <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>description</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>name</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>related_shape_element</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>relating_shape_element</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.816.1 description</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The description specifies the descriptive label that relates the nature of the Shape_element_relationship. The description need not be specified for a Shape_element_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.816.2 name</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The name specifies the identifying label for the Shape_element_relationship. The name need not be specified for a Shape_element_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.816.3 related_shape_element</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The related_shape_element specifies the <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> to which the relating_shape_element refers for the 
+Shape_element_relationship. If one Shape_element of the relationship is dependent upon the other, this attribute shall be the 
+dependent one.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.816.4 relating_shape_element</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The relating_shape_element specifies the <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> that relates to another, for the 
+Shape_element_relationship.&#13;</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>If the Shape_element_relationship is a
+Datum_feature_usage_in_datum_relationship it shall not also be a
+Parallel_shape_element_relationship, a
+Perpendicular_shape_element_relationship, a
+Shape_element_boundary_relationship, or a
+Shape_element_constituent_relationship.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY shape_element_relationship
+  ABSTRACT SUPERTYPE OF (ONEOF (parallel_shape_element_relationship,
+      perpendicular_shape_element_relationship,
+      datum_difference,
+      non_feature_shape_element_relationship,
+      shape_element_boundary_relationship,
+      shape_element_constituent_relationship,
+      shape_element_deriving_relationship) ANDOR 
+      datum_feature_usage_in_datum_relationship)
+  SUBTYPE OF (managed_design_object);
+    relating_shape_element : shape_element;
+    description            : OPTIONAL label;
+    related_shape_element  : shape_element;
+    name                   : OPTIONAL label;
+END_ENTITY; -- shape_element_relationship
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

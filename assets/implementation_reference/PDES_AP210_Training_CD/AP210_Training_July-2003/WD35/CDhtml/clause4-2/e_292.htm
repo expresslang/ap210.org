@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Dimensional_characteristic_representation</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.299 Dimensional_characteristic_representation</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Dimensional_characteristic_representation is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. 
+A Dimensional_characteristic_representation is an association between a <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+> and the <A
+CLASS="INTERNALREF"
+HREF="e_809.htm"
+>Shape_dimension_representation</A
+> that represents the Dimensional_characteristic.&#13;</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>auxiliary_dimension_representation</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>dimension</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>representation</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.299.1 auxiliary_dimension_representation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The auxiliary_dimension_representation specifies the boolean value that indicates whether the associated <A
+CLASS="INTERNALREF"
+HREF="e_809.htm"
+>Shape_dimension_representation</A
+> is to be considered a requirement for the associated <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+> or is specified for informational purposes only. A value of TRUE indicates that the associated Shape_dimension_representation is for informational purposes only. A value of FALSE indicates that the associated Shape_dimension_representation is to be considered a requirement.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Auxiliary dimension is defined in 3.1.1.3 of ISO 129.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.299.2 dimension</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The dimension specifies either a <A
+CLASS="INTERNALREF"
+HREF="e_293.htm"
+>Dimensional_location</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_294.htm"
+>Dimensional_size</A
+> that is represented by the specified <A
+CLASS="INTERNALREF"
+HREF="e_809.htm"
+>Shape_dimension_representation</A
+> for the Dimensional_characteristic_representation.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.299.3 representation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The representation specifies the <A
+CLASS="INTERNALREF"
+HREF="e_809.htm"
+>Shape_dimension_representation</A
+> that represents the specified <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+> for the Dimensional_characteristic_representation.&#13;</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY dimensional_characteristic_representation
+  SUBTYPE OF (managed_design_object);
+    representation                     : shape_dimension_representation;
+    dimension                          : dimensional_location_or_dimensional_size;
+    auxiliary_dimension_representation : BOOLEAN;
+END_ENTITY; -- dimensional_characteristic_representation
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

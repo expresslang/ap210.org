@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Line_width_class</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.515 Line_width_class</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Line_width_class is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.  A Line_width_class is a category which assigns a name to a length range for classification purposes.  The Data_element used as the basis for the range shall be a Length_data_element.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: The Line_width_class may be exchanged so that tolerances may be applied to all members of the 
+same class, and specified only once.  E.g., all lines with a design width greater than 50 
+mils and less than 75 mils are in the 'big' class.  All members of 'big' shall have a 
+tolerance of +5/-5 mils.  Other Application Objects must be populated in order to apply the
+tolerances to the class.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>class_member</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>class_name</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.515.1 class_member</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The class_member specifies the role of the Range_characteristic for the Line_width_class.
+The Range_characteristic shall provide length data.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.515.2 class_name</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The class_name specifies the name for the Line_width_class.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY line_width_class
+  SUBTYPE OF (managed_design_object);
+    class_member : range_characteristic;
+    class_name   : ee_name;
+WHERE
+ wr1: SIZEOF(QUERY( np &#60;* class_member\coordinated_characteristic.component_characteristic |
+      NOT('AP210_ARM.LENGTH_DATA_ELEMENT' IN TYPEOF(np\characteristic.property_value))
+         )) = 0;
+END_ENTITY; -- line_width_class
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

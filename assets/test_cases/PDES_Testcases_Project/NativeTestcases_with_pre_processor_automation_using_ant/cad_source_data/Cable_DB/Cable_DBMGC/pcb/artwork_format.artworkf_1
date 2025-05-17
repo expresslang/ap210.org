@@ -1,0 +1,35 @@
+//////////////////////////////////////////////////////////////////////////////
+//      
+// $Id: artwork_format.artworkf,v 1.1 1994/08/12 15:20:59 bill Rel $
+//
+// $Log: artwork_format.artworkf,v $
+// Revision 1.1  1994/08/12  15:20:59  bill
+// SMR #940811-1  Added $$define_photop_block_end_char and
+// $$define_photop_machine_stop_code statements.
+//
+// Revision 1.0  1993/01/30  19:02:05  swdev
+// No changes - forcing version to 1.0
+//
+// Revision 0.1  1992/10/21  16:31:52  bill
+// The define_artwork_format statement was revised to add
+// origin coordinates of 0,0.
+//
+// Revision 0.0  1992/07/29  19:47:37  jima
+// Initial Revision.
+//
+//////////////////////////////////////////////////////////////////////////////
+
+$$define_photoplot_circle(@OFF ,32) ;
+$$define_photoplot_end('') ;
+$$define_photoplot_format( 2  ,  4 , @XY_Duplicate , @D01_Duplicate ) ;
+$$define_photoplot_g_code( @PRESENT ) ;
+$$define_photoplot_header( @H1  , '*%*FSLAX24Y24Z24*%*') ;
+$$define_photoplot_header( @H2  , '') ;
+$$define_photoplot_leading( @ABSENT ) ;
+$$define_photoplot_mode( @ABSOLUTE ) ;
+$$define_photoplot_record( 80 ) ;
+$$define_photoplot_trailing( @PRESENT ) ;
+$$define_photoplot_units( @Inch  ,  1.000 ) ;
+$$define_photop_block_end_char( '*' ) ;
+$$define_photop_machine_stop_code( 'M02' ) ;
+$$define_artwork_format(  20.000000 ,  20.000000,  0.0,  0.0 ) ;

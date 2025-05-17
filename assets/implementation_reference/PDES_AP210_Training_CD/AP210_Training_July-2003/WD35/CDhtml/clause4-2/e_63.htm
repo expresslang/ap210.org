@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Bare_die_edge_segment_surface</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.63 Bare_die_edge_segment_surface</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Bare_die_edge_segment_surface is a type of <A
+CLASS="INTERNALREF"
+HREF="e_65.htm"
+>Bare_die_surface</A
+>.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY bare_die_edge_segment_surface
+  SUBTYPE OF (bare_die_surface);
+    composed_surface : bare_die_edge_surface;
+    start_vertex     : edge_segment_vertex;
+    end_vertex       : edge_segment_vertex;
+    SELF\part_feature.associated_definition   : bare_die;
+WHERE
+ wr1: start_vertex :&#60;&#62;: end_vertex;
+ wr2: SELF\part_feature.associated_definition :=:
+      composed_surface\part_feature.associated_definition;
+END_ENTITY; -- bare_die_edge_segment_surface
+
+--tt tc1wd9 added 
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

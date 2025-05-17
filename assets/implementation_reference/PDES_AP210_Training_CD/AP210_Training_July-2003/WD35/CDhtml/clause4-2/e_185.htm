@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Connection_zone</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.185 Connection_zone</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+>A Connection_zone is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Connection_zone is an area on the surface of a design object that 
+may be used to establish electrical or physical connectivity with another design object.  A Connection_zone shape is defined in the shape definition of the feature that references the Connection_zone.  Since more than one feature may reference the same shape but for different positions, more than one feature may reference the same Connection_zone.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>zone_shape_1</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>zone_shape_2</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>representation_colour</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.185.1 zone_shape_1</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The zone_shape_1 is an inverse relationship that specifies that the Connection_zone is existent dependent on the <A
+CLASS="INTERNALREF"
+HREF="Connection_zone_shape.htm"
+>Connection_zone_shape</A
+> that specifies the Connection_zone. There shall be zero or more zone_shape_1 for a Connection_zone.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.185.2 zone_shape_2</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The zone_shape_2 is an inverse relationship that specifies that the Connection_zone is existent dependent on the <A
+CLASS="INTERNALREF"
+HREF="Connection_zone_shape.htm"
+>Connection_zone_shape</A
+> that specifies the Connection_zone. There shall be zero or more zone_shape_2 for a Connection_zone.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.185.3 representation_colour</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The representation_colour specifies the <A
+CLASS="INTERNALREF"
+HREF="e_315.htm"
+>Ee_colour</A
+> that depicts the area constituting the Connection_zone.  The representation_colour need not be specified.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>All points in a Connection_zone shall be topologically connected.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>A particular instance of Connection_zone shall be referenced by at least one shape instantiation.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY connection_zone
+  SUBTYPE OF (managed_design_object);
+    representation_colour : OPTIONAL ee_colour;
+INVERSE
+    zone_shape_1            : SET [0:1] OF 
+         design_view_connection_zone_position_relationship for 
+                         associated_usage;
+    zone_shape_2            : SET [0:1] OF 
+         usage_view_connection_zone_terminal_shape_relationship for 
+                         associated_usage;
+WHERE
+  WR1: SIZEOF(USEDIN(SELF,'AP210_ARM.ASSEMBLY_MODULE_TERMINAL.TERMINAL_CONNECTION_ZONE')) + 
+       SIZEOF(USEDIN(SELF,'AP210_ARM.BARE_DIE_TERMINAL.EXTERNAL_CONNECTION_AREA') )+ 
+       SIZEOF(USEDIN(SELF,'AP210_ARM.COMPONENT_TERMINATION_PASSAGE_TEMPLATE_TERMINAL.TERMINAL_CONNECTION_ZONE') )+
+       SIZEOF(USEDIN(SELF,'AP210_ARM.CONDUCTIVE_INTERCONNECT_ELEMENT_TERMINAL.CONNECTION')) +
+       SIZEOF(USEDIN(SELF,'AP210_ARM.INTERCONNECT_COMPONENT_INTERFACE_TERMINAL.CONNECTION')) + 
+       SIZEOF(USEDIN(SELF,'AP210_ARM.INTERCONNECT_COMPONENT_JOIN_TERMINAL.CONNECTION')) + 
+       SIZEOF(USEDIN(SELF,'AP210_ARM.INTERCONNECT_MODULE_TERMINAL.TERMINAL_CONNECTION_ZONE')) +
+       SIZEOF(USEDIN(SELF,'AP210_ARM.LAND_TEMPLATE_TERMINAL.TERMINAL_CONNECTION_ZONE')) +
+       SIZEOF(USEDIN(SELF,'AP210_ARM.PACKAGE_TERMINAL.EXTERNAL_CONNECTION_ZONE')) + 
+       SIZEOF(USEDIN(SELF,'AP210_ARM.PACKAGE_TERMINAL.INTERNAL_CONNECTION_ZONE')) + 
+       SIZEOF(USEDIN(SELF,'AP210_ARM.PRINTED_PART_TEMPLATE_TERMINAL.TERMINAL_CONNECTION_ZONE')) + 
+       SIZEOF(USEDIN(SELF,'AP210_ARM.VIA_TEMPLATE_TERMINAL.TERMINAL_CONNECTION_ZONE')) + 
+       SIZEOF(USEDIN(SELF,'AP210_ARM.PART_MOUNTING_FEATURE.MOUNTING_AREA'))  &#62;= 0;
+  WR2: SIZEOF(zone_shape_1) + SIZEOF(zone_shape_2) = 1;
+  END_ENTITY; -- connection_zone
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

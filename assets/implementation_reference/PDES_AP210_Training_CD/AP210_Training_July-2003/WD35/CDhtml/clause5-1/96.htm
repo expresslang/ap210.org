@@ -1,0 +1,493 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>stratum</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><TABLE
+CLASS="UOFMAPPINGSUBTBL"
+BORDER="1"
+><CAPTION
+><A
+NAME="60875"
+></A
+>Table 96 - Mapping table for stratum UoF</CAPTION
+><THEAD
+CLASS="MAPPINGSUBTBLCOLUMNS"
+><TR
+><TH
+>Application element</TH
+><TH
+>AIM element</TH
+><TH
+>Source</TH
+><TH
+>Reference path</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="60884"
+></A
+>DESIGN_LAYER_STRATUM</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>stratum</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>stratum &#60;=<BR>product_definition<BR>{product_definition<BR>product_definition.name = `design layer'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>primary_design_layer_stratum</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product_definition.description</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>stratum &#60;=<BR>product_definition<BR>product_definition.description<BR>{(product_definition.description = `primary design layer stratum')<BR>(product_definition.description = `non primary design layer stratum')}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>design_layer_stratum&nbsp;to<BR>design_layer_technology<BR>(as of_technology)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>stratum &#60;=<BR>product_definition<BR>characterized_product_definition = product_definition<BR>characterized_product_definition<BR>characterized_definition = characterized_product_definition<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition &#60;-<BR>property_definition_relationship.related_property_definition<BR>{property_definition_relationship<BR>property_definition_relationship.name = `technology usage'}<BR>property_definition_relationship<BR>property_definition_relationship.relating_property_definition -&#62;<BR>property_definition<BR>property_definition.definition -&#62;<BR>characterized_definition<BR>characterized_definition = characterized_object<BR>{characterized_object<BR>characterized_object.description = `design layer'}<BR>characterized_object =&#62;<BR>stratum_technology<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="60932"
+></A
+>DOCUMENTATION_LAYER_STRATUM</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>stratum</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>stratum &#60;=<BR>product_definition<BR>{product_definition<BR>product_definition.name = `documentation layer'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>documentation_layer_stratum&nbsp;to<BR>documentation_layer_technology<BR>(as of_technology)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>stratum &#60;=<BR>product_definition<BR>characterized_product_definition = product_definition<BR>characterized_product_definition<BR>characterized_definition = characterized_product_definition<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition &#60;-<BR>property_definition_relationship.related_property_definition<BR>{property_definition_relationship<BR>property_definition_relationship.name = `technology usage'}<BR>property_definition_relationship<BR>property_definition_relationship.relating_property_definition -&#62;<BR>property_definition<BR>property_definition.definition -&#62;<BR>characterized_definition<BR>characterized_definition = characterized_object<BR>{characterized_object<BR>characterized_object.description = `documentation layer'}<BR>characterized_object =&#62;<BR>stratum_technology<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="60969"
+></A
+>LAYER</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>layer</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>layer &#60;=<BR>shape_aspect<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>name</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>shape_aspect.name</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>layer &#60;=<BR>shape_aspect<BR>shape_aspect.name<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>layer&nbsp;to<BR>external_definition<BR>(as layer_usage)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>layer<BR>document_assigned_item = layer<BR>document_assigned_item &#60;-<BR>applied_document_reference.items[i]<BR>applied_document_reference &#60;=<BR>document_reference<BR>document_reference.assigned_document -&#62;<BR>document &#60;-<BR>document_usage_constraint.source<BR>document_usage_constraint<BR>{document_usage_constraint<BR>document_usage_constraint.subject_element = `layer definition'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>layer&nbsp;to<BR>inter_stratum_extent<BR>(as extent)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>layer &#60;=<BR>shape_aspect<BR>shape_aspect.of_shape -&#62;<BR>product_definition_shape &#60;=<BR>property_definition<BR>property_definition.definition -&#62;<BR>characterized_definition<BR>characterized_definition = characterized_product_definition<BR>characterized_product_definition<BR>characterized_product_definition = product_definition_relationship<BR>product_definition_relationship<BR>{product_definition_relationship<BR>product_definition_relationship.name = `inter stratum extent'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="61020"
+></A
+>STRATUM</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>stratum</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>stratum &#60;=<BR>product_definition<BR>{product_definition<BR>(product_definition.name = `design layer')<BR>(product_definition.name = `documentation layer')<BR>(product_definition.name = `generic stratum')}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>name</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>product_definition.id</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>stratum &#60;=<BR>product_definition<BR>product_definition.id<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>stratum&nbsp;to<BR>external_definition<BR>(as stratum_usage)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>(stratum<BR>document_assigned_item = stratum<BR>document_assigned_item &#60;-<BR>applied_document_reference.items[i]<BR>applied_document_reference &#60;=<BR>document_reference<BR>document_reference.assigned_document -&#62;<BR>document &#60;-<BR>document_usage_constraint.source<BR>document_usage_constraint<BR>{document_usage_constraint<BR>document_usage_constraint.subject_element = `stratum definition'})<BR>(stratum &#60;=<BR>product_definition<BR>characterized_product_definition = product_definition<BR>characterized_product_definition<BR>characterized_definition = characterized_product_definition<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition &#60;-<BR>property_definition_relationship.related_property_definition<BR>{property_definition_relationship<BR>property_definition_relationship.name = `stratum usage'}<BR>property_definition_relationship.relating_property_definition -&#62;<BR>property_definition<BR>property_definition.definition -&#62;<BR>characterized_definition<BR>characterized_definition = characterized_object<BR>characterized_object =&#62;<BR>external_definition)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>stratum&nbsp;to<BR>stratum_technology<BR>(as of_technology)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>stratum &#60;=<BR>product_definition<BR>characterized_product_definition = product_definition<BR>characterized_product_definition<BR>characterized_definition = characterized_product_definition<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition &#60;-<BR>property_definition_relationship.related_property_definition<BR>{property_definition_relationship<BR>property_definition_relationship.name = `technology usage'}<BR>property_definition_relationship<BR>property_definition_relationship.relating_property_definition -&#62;<BR>property_definition<BR>property_definition.definition -&#62;<BR>characterized_definition<BR>characterized_definition = characterized_object<BR>characterized_object =&#62;<BR>stratum_technology<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="61100"
+></A
+>STRATUM_AVERAGE_SURFACE</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>stratum_surface</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>{stratum_surface &#60;=<BR>shape_aspect<BR>shape_aspect.description = `average surface'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>stratum_average_surface&nbsp;to<BR>stratum<BR>(as of_stratum)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>stratum_surface &#60;=<BR>shape_aspect<BR>shape_aspect.of_shape -&#62;<BR>product_definition_shape<BR>product_definition_shape &#60;=<BR>property_definition<BR>property_definition.definition -&#62;<BR>characterized_definition<BR>characterized_definition = characterized_product_definition<BR>characterized_product_definition<BR>characterized_product_definition = product_definition<BR>product_definition<BR>product_definition =&#62;<BR>stratum<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="61127"
+></A
+>STRATUM_SURFACE</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>stratum_surface</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>stratum_surface &#60;=<BR>shape_aspect<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>name</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>stratum_surface<BR>stratum_surface &#60;=<BR>shape_aspect<BR>{shape_aspect<BR>(shape_aspect.description = `primary surface')<BR>(shape_aspect.description = `secondary surface')}<BR>shape_aspect.description<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>stratum_surface&nbsp;to<BR>stratum<BR>(as of_stratum)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>stratum_surface<BR>stratum_surface &#60;=<BR>shape_aspect<BR>shape_aspect.of_shape -&#62;<BR>product_definition_shape<BR>product_definition_shape &#60;=<BR>property_definition<BR>property_definition.definition -&#62;<BR>characterized_definition<BR>characterized_definition = characterized_product_definition<BR>characterized_product_definition<BR>characterized_product_definition = product_definition<BR>product_definition<BR>product_definition =&#62;<BR>stratum<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="61167"
+></A
+>STRATUM_TECHNOLOGY</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>stratum_technology</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>stratum_technology &#60;=<BR>characterized_object<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>laminate_stiffness_class</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>descriptive_representation_item</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>45</TD
+><TD
+VALIGN="top"
+>stratum_technology &#60;=<BR>characterized_object<BR>characterized_definition = characterized_object<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition &#60;-<BR>property_definition_representation.definition<BR>property_definition_representation<BR>property_definition_representation.used_representation -&#62;<BR>representation<BR>{representation<BR>representation.name = `physical characteristics representation'}<BR>representation.items[i] -&#62;<BR>{representation_item<BR>representation_item.name = `laminate stiffness class'}<BR>representation_item =&#62;<BR>descriptive_representation_item<BR>{descriptive_representation_item<BR>(descriptive_representation_item.description = `fluid like')<BR>(descriptive_representation_item.description = `conformal coat')<BR>(descriptive_representation_item.description = `stiff laminate')}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>name</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>characterized_object.name</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>stratum_technology &#60;=<BR>characterized_object<BR>characterized_object.name<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>layer_position</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>descriptive_representation_item</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>45</TD
+><TD
+VALIGN="top"
+>stratum_technology &#60;=<BR>characterized_object<BR>characterized_definition = characterized_object<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition &#60;-<BR>property_definition_representation.definition<BR>property_definition_representation<BR>property_definition_representation.used_representation -&#62;<BR>representation<BR>{representation<BR>representation.name = `physical characteristics representation'}<BR>representation.items[i] -&#62;<BR>{representation_item<BR>representation_item.name = `layer position'}<BR>representation_item =&#62;<BR>descriptive_representation_item<BR>{descriptive_representation_item<BR>(descriptive_representation_item.description = `secondary')<BR>(descriptive_representation_item.description = `all')<BR>(descriptive_representation_item.description = `external')<BR>(descriptive_representation_item.description = `primary')<BR>(descriptive_representation_item.description = `internal')}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>stratum_technology&nbsp;to<BR>ee_material<BR>(as stratum_material)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>stratum_technology &#60;=<BR>characterized_object<BR>characterized_definition = characterized_object<BR>characterized_definition &#60;-<BR>material_designation.definitions[i]<BR>material_designation<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>stratum_technology&nbsp;to<BR>length_data_element<BR>(as maximum_feature_size_requirement)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>stratum_technology &#60;=<BR>characterized_object<BR>characterized_definition = characterized_object<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition &#60;-<BR>property_definition_representation.definition<BR>property_definition_representation<BR>property_definition_representation.used_representation -&#62;<BR>representation<BR>{representation<BR>representation.name = `physical characteristics representation'}<BR>representation.items[i] -&#62;<BR>{representation_item<BR>representation_item.name = `maximum feature size requirement'}<BR>representation_item =&#62;<BR>measure_representation_item &#60;=<BR>measure_with_unit =&#62;<BR>length_measure_with_unit<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>stratum_technology&nbsp;to<BR>length_data_element<BR>(as maximum_stratum_thickness)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>stratum_technology &#60;=<BR>characterized_object<BR>characterized_definition = characterized_object<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition &#60;-<BR>property_definition_representation.definition<BR>property_definition_representation<BR>property_definition_representation.used_representation -&#62;<BR>representation<BR>{representation<BR>representation.name = `physical characteristics representation'}<BR>representation.items[i] -&#62;<BR>{representation_item<BR>representation_item.name = `maximum thickness'}<BR>representation_item =&#62;<BR>measure_representation_item &#60;=<BR>measure_with_unit =&#62;<BR>length_measure_with_unit<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>stratum_technology&nbsp;to<BR>length_data_element<BR>(as minimum_stratum_thickness)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>stratum_technology &#60;=<BR>characterized_object<BR>characterized_definition = characterized_object<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition &#60;-<BR>property_definition_representation.definition<BR>property_definition_representation<BR>property_definition_representation.used_representation -&#62;<BR>representation<BR>{representation<BR>representation.name = `physical characteristics representation'}<BR>representation.items[i] -&#62;<BR>{representation_item<BR>representation_item.name = `minimum thickness'}<BR>representation_item =&#62;<BR>measure_representation_item &#60;=<BR>measure_with_unit =&#62;<BR>length_measure_with_unit<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>stratum_technology&nbsp;to<BR>length_data_element<BR>(as minimum_finished_feature_size)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>stratum_technology &#60;=<BR>characterized_object<BR>characterized_definition = characterized_object<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition &#60;-<BR>property_definition_representation.definition<BR>property_definition_representation<BR>property_definition_representation.used_representation -&#62;<BR>representation<BR>{representation<BR>representation.name = `physical characteristics representation'}<BR>representation.items[i] -&#62;<BR>{representation_item<BR>representation_item.name = `minimum finished feature size'}<BR>representation_item =&#62;<BR>measure_representation_item &#60;=<BR>measure_with_unit =&#62;<BR>length_measure_with_unit<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>stratum_technology&nbsp;to<BR>length_data_element<BR>(as minimum_finished_feature_spacing)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>stratum_technology &#60;=<BR>characterized_object<BR>characterized_definition = characterized_object<BR>characterized_definition &#60;-<BR>property_definition.definition<BR>property_definition &#60;-<BR>property_definition_representation.definition<BR>property_definition_representation<BR>property_definition_representation.used_representation -&#62;<BR>representation<BR>{representation<BR>representation.name = `physical characteristics representation'}<BR>representation.items[i] -&#62;<BR>{representation_item<BR>representation_item.name = `minimum finished feature spacing'}<BR>representation_item =&#62;<BR>measure_representation_item &#60;=<BR>measure_with_unit =&#62;<BR>length_measure_with_unit<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>stratum_technology&nbsp;to<BR>process_specification<BR>(as specification)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>stratum_technology &#60;=<BR>characterized_object<BR>document_assigned_item = characterized_object<BR>document_assigned_item &#60;-<BR>applied_document_reference.items[i]<BR>applied_document_reference<BR>applied_document_reference &#60;=<BR>document_reference<BR>document_reference.assigned_document -&#62;<BR>{document<BR>document.kind -&#62;<BR>document_type<BR>document_type.product_data_type = `process specification'}<BR>document =&#62;<BR>ee_specification<BR></TD
+></TR
+></TBODY
+></TABLE
+></BODY
+></HTML
+>

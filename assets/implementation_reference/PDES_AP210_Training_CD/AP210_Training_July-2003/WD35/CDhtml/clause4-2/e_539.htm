@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Mating_connector_placement_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.539 Mating_connector_placement_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Mating_connector_placement_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.  A Mating_connector_placement_relationship is the association between the connector that the interface connector on the assembly must mate with in the next higher assembly, and the resultant placement of that mating connector in the assembly being designed for test and evaluation.  The evaluation may include fit checks and evaluation of other material properties.  The application of Mating_connector_placement_relationship is limited to three-dimensional geometric systems.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>connector_placement</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>interface_context</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>placed_connector</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.539.1 connector_placement</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The connector_placement specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_56.htm"
+>Axis_placement</A
+>
+for the Mating_connector_placement_relationship.  The Axis_placement shall be an Axis2_placement_3d.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.539.2 interface_context</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The interface_context specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_556.htm"
+>Next_higher_assembly_interface_requirement</A
+> for the 
+Mating_connector_placement_relationship.  The coordinated system of the shape representing the Next_higher_assembly_interface_requirement shall be congruent with the coordinate system of the assembly being designed.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.539.3 placed_connector</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The placed_connector specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_538.htm"
+>Mating_connector_component</A
+> for the Mating_connector_placement_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY mating_connector_placement_relationship
+  SUBTYPE OF (managed_design_object);
+    placed_connector    : mating_connector_component;
+    interface_context   : next_higher_assembly_interface_requirement;
+    connector_placement : axis_placement;
+END_ENTITY; -- mating_connector_placement_relationship
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

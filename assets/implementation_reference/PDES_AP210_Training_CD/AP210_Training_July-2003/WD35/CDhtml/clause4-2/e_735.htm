@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Printed_part_template_material</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.735 Printed_part_template_material</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Printed_part_template_material is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Printed_part_template_material is the <A
+CLASS="INTERNALREF"
+HREF="e_318.htm"
+>Ee_material</A
+> characterized in <A
+CLASS="INTERNALREF"
+HREF="e_728.htm"
+>Printed_part_cross_section_template</A
+>, for the realization of the <A
+CLASS="INTERNALREF"
+HREF="e_845.htm"
+>Stratum</A
+> containing part of the <A
+CLASS="INTERNALREF"
+HREF="e_721.htm"
+>Printed_component</A
+> during fabrication of the <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+>.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: A Printed_component may span more than one Stratum, as defined by the <A
+CLASS="INTERNALREF"
+HREF="e_730.htm"
+>Printed_part_template</A
+>.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>maximum_thickness</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>minimum_thickness</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>required_material</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.735.1 maximum_thickness</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The maximum_thickness specifies the maximum <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> for the thickness of the Printed_part_template_material.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.735.2 minimum_thickness</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The minimum_thickness specifies the minimum <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> for the thickness of the Printed_part_template_material.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.735.3 required_material</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The required_material specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_318.htm"
+>Ee_material</A
+> for the 
+Printed_part_template_material.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY printed_part_template_material
+  SUBTYPE OF (managed_design_object);
+--tt tc1 correction
+--    maximum_thickness : length_data_element;
+--    required_material : ee_material;
+--    minimum_thickness : length_data_element;
+    maximum_width     : OPTIONAL length_data_element;
+    minimum_width     : OPTIONAL length_data_element;
+    required_material : stratum_technology;
+  INVERSE
+    boundary : 
+	SET [0:4] OF template_material_cross_section_boundary FOR 
+	associated_definition;
+--tt tc1wd8 correction added
+WHERE
+ wr1: SIZEOF(QUERY( temp &#60;* (USEDIN(SELF,
+      'AP210_ARM.TEMPLATE_MATERIAL_CROSS_SECTION_BOUNDARY.' +
+      'ASSOCIATED_DEFINITION'))| temp\shape_element.name = 'top')) &#60;= 1;
+ wr2: SIZEOF(QUERY( temp &#60;* (USEDIN(SELF,
+      'AP210_ARM.TEMPLATE_MATERIAL_CROSS_SECTION_BOUNDARY.' +
+      'ASSOCIATED_DEFINITION'))| temp\shape_element.name = 'bottom')) &#60;= 1;
+ wr3: SIZEOF(QUERY( temp &#60;* (USEDIN(SELF,
+      'AP210_ARM.TEMPLATE_MATERIAL_CROSS_SECTION_BOUNDARY.' +
+      'ASSOCIATED_DEFINITION'))| temp\shape_element.name = 'left')) &#60;= 1;
+ wr4: SIZEOF(QUERY( temp &#60;* (USEDIN(SELF,
+      'AP210_ARM.TEMPLATE_MATERIAL_CROSS_SECTION_BOUNDARY.' +
+      'ASSOCIATED_DEFINITION'))| temp\shape_element.name = 'right')) &#60;= 1;
+END_ENTITY; -- printed_part_template_material
+
+--tt tc1 correction add
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

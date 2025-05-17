@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Profile_boundary_definition</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.742 Profile_boundary_definition</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Profile_boundary_definition is a type of <A
+CLASS="INTERNALREF"
+HREF="e_78.htm"
+>Boundary_zone_definition_with_specified_size</A
+> that characterizes a <A
+CLASS="INTERNALREF"
+HREF="e_915.htm"
+>Tolerance_zone_boundary</A
+>
+of a <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> that is defined by either a <A
+CLASS="INTERNALREF"
+HREF="e_744.htm"
+>Profile_of_any_line_tolerance</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_747.htm"
+>Profile_of_any_surface_tolerance</A
+>. A Profile_boundary_definition may be a <A
+CLASS="INTERNALREF"
+HREF="e_743.htm"
+>Profile_boundary_definition_with_offsets</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>basic_profile</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>defined_zone_boundary</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.742.1 basic_profile</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The basic_profile specifies the <A
+CLASS="INTERNALREF"
+HREF="e_934.htm"
+>True_profile</A
+> that characterizes the theoretically exact profile of the toleranced <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+> along which the <A
+CLASS="INTERNALREF"
+HREF="e_926.htm"
+>Tolerance_zone_opposing_boundary_set</A
+> is disposed.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.742.2 defined_zone_boundary</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The defined_zone_boundary specifies the <A
+CLASS="INTERNALREF"
+HREF="e_926.htm"
+>Tolerance_zone_opposing_boundary_set</A
+> that is characterized by the Profile_boundary_definition. If a Tolerance_zone_implicit_boundary_set is specified as the defined_zone_boundary, the <A
+CLASS="INTERNALREF"
+HREF="e_915.htm"
+>Tolerance_zone_boundary</A
+> is equally disposed about the <A
+CLASS="INTERNALREF"
+HREF="e_934.htm"
+>True_profile</A
+>.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The Tolerance_zone_definition specified as the zone_definition shall be specified as the tolerance_zone_or_boundary_definition by either a Profile_of_any_line_tolerance or a Profile_of_any_surface_tolerance.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY profile_boundary_definition
+  SUPERTYPE OF (profile_boundary_definition_with_offsets)
+  SUBTYPE OF (boundary_zone_definition_with_specified_size);
+    basic_profile                                                 : true_profile;
+    SELF\tolerance_zone_boundary_definition.defined_zone_boundary : 
+	tolerance_zone_opposing_boundary_set;
+END_ENTITY; -- profile_boundary_definition
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

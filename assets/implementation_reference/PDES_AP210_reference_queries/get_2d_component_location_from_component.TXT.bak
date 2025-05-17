@@ -1,0 +1,61 @@
+FUNCTION get_2d_component_location_from_component(
+    input1 : assembly_component;
+    input2 : physical_unit_planar_shape ) : component_2d_location;
+--input1 is the component.
+--input2 is the design shape.
+--evaluating purpose differences between the properties of the component shape and that of the design shape are beyond the scope of this function.
+--This function doesn't reference the physical_unit because the pups references it, resolving all questions about the relationship between the component and the view the component helps compose.  This function applies to both design and usage views and both assembly and interconnect.  The implication is that the caller must resolve the question of which pups to reference for the design or usage view before calling this function.
+
+--return value is the component_2d_location that locates the component shape in the view shape.
+
+--example usage: get_2d_component_location_from_component(#2200,#3300);
+
+--initialize variables
+    LOCAL
+--get the shape that reference this component    
+--in most cases this is a complex instance of assembly_component_2d_shape and another shape; see reference below.
+--in the AIM implementation, the complex instance is handled with two instances of property_definition_representation pointing to the shape_representation instead of actually having a complex instance.
+      ac2ds : SET OF assembly_component_2d_shape := input1.component_2d_shape;
+      ca2dps : SET OF component_assembly_2d_position := [];
+      c2dls : SET OF component_2d_location := [];
+    END_LOCAL;
+
+--get the component location
+--first get the position object
+    REPEAT i := 1 TO SIZEOF(ac2ds) BY 1;
+     ca2dps := ca2dps + USEDIN(ac2ds[i],
+     'AP210_ARM.COMPONENT_ASSEMBLY_2D_POSITION.COMPONENT_MODEL');
+    END_REPEAT;
+
+--get the location object (this is dependent on the pups)    
+    REPEAT i := 1 TO SIZEOF(ca2dps) BY 1;
+      IF (input2 = ca2dps[i].assembly_model)
+      THEN
+        c2dls := c2dls + ca2dps[i].transformation;
+      END_IF;
+    END_REPEAT;
+--there should be only one component_2d_location for a specific pups!
+    IF (SIZEOF(c2dls) = 1)
+     THEN
+      RETURN(c2dls[SIZEOF(c2dls)]);
+     ELSE
+      RETURN(?);
+    END_IF;
+(* for reference ::::::
+here is the SUPER/SUBTYPE tree for shape (from wd44) we are interested in:
+note that the assembly_component_2d_shape is also allowed to be
+a complex instance with ptps, fds,pds,pups.
+ ENTITY planar_projected_shape
+    SUPERTYPE OF (ONEOF ((assembly_component_2d_shape ANDOR
+ (ONEOF (part_template_planar_shape,
+ footprint_definition_shape,
+ padstack_definition_shape,
+ physical_unit_planar_shape))),
+ design_intent_modification_planar_shape,
+ stratum_feature_planar_shape,
+ stratum_planar_shape))
+    SUBTYPE OF (planar_shape,
+ feature_shape_definition);
+*)
+    
+END_FUNCTION; -- get_2d_component_location_from_component

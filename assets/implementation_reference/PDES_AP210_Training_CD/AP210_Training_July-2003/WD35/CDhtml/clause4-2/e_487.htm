@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Laminate_group_component_make_from_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.487 Laminate_group_component_make_from_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Laminate_group_laminate_group_component_make_from_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_126.htm"
+>Component_make_from_relationship</A
+>. A Laminate_group_laminate_group_component_make_from_relationship is the association between 
+one <A
+CLASS="INTERNALREF"
+HREF="e_40.htm"
+>Assembly_group_component</A
+> and another Assembly_group_component, where 
+one Assembly_group_component from full or partial reuse of the other.  A Laminate_group_laminate_group_component_make_from_relationship also supports mapping of a Stratum in the reference design to a Stratum in this design.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The main use of this concept is use of multi-layer breakout definitions for complex integrated circuits where there is a mapping from a Stratum in the reference_footprint.reference_layout to a stratum in this layout. </DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>resultant_component</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>reusable_component</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.487.1 resultant_component</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The resultant_component specifies the <A
+CLASS="INTERNALREF"
+HREF="e_40.htm"
+>Assembly_group_component</A
+> that results from the reuse in the Laminate_group_laminate_group_component_make_from_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.487.2 reusable_component</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The reusable_component specifies the <A
+CLASS="INTERNALREF"
+HREF="e_40.htm"
+>Assembly_group_component</A
+>  that is reused to create the resultant_component in the Laminate_group_laminate_group_component_make_from_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY laminate_group_component_make_from_relationship
+  SUBTYPE OF (component_make_from_relationship);
+    SELF\component_make_from_relationship.reusable_component  : assembly_group_component;
+    SELF\component_make_from_relationship.resultant_component : assembly_group_component;
+    stratum_mapping : SET [1:?] OF stratum_make_from_relationship;
+WHERE
+   WR1: SIZEOF(QUERY( sar &#60;* SELF\component_make_from_relationship.reusable_component.assembly |
+      NOT('AP210_ARM.LAMINATE_COMPONENT' IN TYPEOF(sar.related_component))
+            )) = 0;
+   WR2: SIZEOF(QUERY( sar &#60;* SELF\component_make_from_relationship.resultant_component.components |
+      NOT('AP210_ARM.LAMINATE_COMPONENT' IN TYPEOF(sar.related_component))
+            )) = 0;
+END_ENTITY; -- laminate_group_component_make_from_relationship
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

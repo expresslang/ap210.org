@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Datum_based_length_measure</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.219 Datum_based_length_measure</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Datum_based_length_measure is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Datum_based_length_measure is a dimensional measure of 
+length that is taken from a defined <A
+CLASS="INTERNALREF"
+HREF="e_214.htm"
+>Datum</A
+>.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>dblm</SPAN
+> illustrates the usage of a Datum_based_length_measure.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>measure</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>measure_orientation</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>of_datum</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.219.1 measure</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The measure specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> for 
+the Datum_based_length_measure.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.219.2 measure_orientation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The measure_orientation specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_304.htm"
+>Direction</A
+> for the 
+Datum_based_length_measure or specifies the role of the string 'normal' or specifies the role of the string 'reversed'.  'Normal' shall be interpreted as a description equivalent to the three dimensional concept of a vector parallel to the normal of the plane that is the datum upon which the Datum_based_length_measure is based.  'Reversed' shall be interpreted as a description equivalent to the three dimensional concept of a vector anti-parallel to the normal of the plane that is the datum upon which the Datum_based_length_measure is based.
+For the case that the Datum is a Datum_plane, the Direction vector shall be in the XZ plane of the Datum_plane, where the Z axis is the normal vector of the Datum_plane.  The measure_orientation is measured from the X axis in the XZ plane.  For the two-dimensional case, the Datum_plane if used, is considered to be congruent with the XY coordinate system.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The use of descriptive items allows the information to be conveyed when the geometric context is 2d, since orientation only supports a description within a 3d geometric context.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.219.3 of_datum</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The of_datum specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_232.htm"
+>Datum_plane</A
+> for the 
+Datum_based_length_measure.  A Datum_plane is required in order to support equivalent description between the 2d and 3d shape representation cases.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY datum_based_length_measure
+  SUBTYPE OF (managed_design_object);
+    measure             : length_data_element;
+    measure_orientation : descriptive_or_geometric_orientation;
+    of_datum            : datum_plane;
+END_ENTITY; -- datum_based_length_measure
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

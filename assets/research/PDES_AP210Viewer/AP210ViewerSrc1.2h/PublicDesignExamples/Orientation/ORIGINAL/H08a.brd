@@ -1,0 +1,53 @@
+.HEADER 
+board_file   2.0   "EMpilot 3D Test"   
+02/09/00.13:03:00   1
+test_design   THOU
+.END_HEADER
+# A simple square board
+.BOARD_OUTLINE
+62.00000
+0    -1000.00000   1000.00000       0.000
+0    -1000.00000   -1000.00000       0.000
+0    1000.00000   -1000.00000       0.000
+0    1000.0000   500.0000 0.000
+0    500.0000   500.0000 0.000
+0    500.00000   1000.00000       0.000
+0    -1000.00000   1000.00000       0.000
+.END_BOARD_OUTLINE
+.PLACEMENT
+# Components on top of board
+H08A              TRANSISTOR              TT0
+0.00000          0.00000          0.000            TOP       
+PLACED
+H08A              TRANSISTOR              TT90
+500.00000          -500.00000          90.000            TOP       
+PLACED
+H08A              TRANSISTOR              TT180
+-500.00000          -500.00000          180.000            TOP       
+PLACED
+H08A              TRANSISTOR              TT270
+-500.00000          500.00000          270.000            TOP       
+PLACED
+H08A              TRANSISTOR              TT360
+500.00000          500.00000          360.000            TOP       
+PLACED
+# Components on bottom of board
+H08A              TRANSISTOR              TB0
+0.00000          0.00000          0.000            BOTTOM       
+PLACED
+# something weird is going on with the display of TB90
+H08A              TRANSISTOR              TB90
+500.00000          -500.00000          90.000            BOTTOM       
+PLACED
+# TB180 causes the viewer to have a Tessellation error.
+H08A              TRANSISTOR              TB180
+-500.00000          -500.00000          180.000            BOTTOM       
+PLACED
+# something weird is going on with the display of TB270
+H08A              TRANSISTOR              TB270
+-500.00000          500.00000          270.000            BOTTOM       
+PLACED
+H08A              TRANSISTOR              TB360
+500.00000          500.00000          360.000            BOTTOM       
+PLACED
+.END_PLACEMENT

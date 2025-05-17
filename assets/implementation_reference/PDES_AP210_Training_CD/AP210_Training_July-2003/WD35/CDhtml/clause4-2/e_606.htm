@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Partially_routed_physical_network</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.636 Partially_routed_physical_network</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Partially_routed_physical_network is a type of <A
+CLASS="INTERNALREF"
+HREF="e_660.htm"
+>Physical_network</A
+>. A Partially_routed_physical_network is a description of an incompletely specified mapping from requirements to layout.  The set of unrouted elements shall be a subset of the total requirement set.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>unrouted_connectivity_requirement_element</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.636.1 unrouted_connectivity_requirement_element</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The unrouted_connectivity_requirement_element specifies the <A
+CLASS="INTERNALREF"
+HREF="e_137.htm"
+>Component_terminal</A
+> that are not yet implemented by circuitry layout for the Partially_routed_physical_network. There shall be two or more Component_terminal for a Partially_routed_physical_network.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY partially_routed_physical_network
+  SUBTYPE OF (physical_network);
+    unrouted_connectivity_requirement_element  : SET [1:?] OF unrouted_join_relationship;
+(*
+WHERE
+  WR1: SIZEOF(unrouted_connectivity_requirement_element *
+       SELF\physical_network.connectivity_requirement_element) =
+       SIZEOF(unrouted_connectivity_requirement_element);
+check for true subset of connections
+*)
+END_ENTITY; -- partially_routed_physical_network
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

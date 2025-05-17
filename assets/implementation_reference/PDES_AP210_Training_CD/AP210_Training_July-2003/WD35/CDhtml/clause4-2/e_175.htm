@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Conductive_interconnect_element_with_user_defined_single_transition</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.175 Conductive_interconnect_element_with_user_defined_single_transition</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Conductive_interconnect_element_with_user_defined_single_transition is a type of <A
+CLASS="INTERNALREF"
+HREF="e_171.htm"
+>Conductive_interconnect_element</A
+>.
+The Conductive_interconnect_element_with_user_defined_single_transition supports the specification of custom start and end shape templates and separately specified left_curve_shape_representation and right_curve_shape_representation (which are either Bounding_curve or Trimmed_line).<DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>For examples of the curves that can be used, see <A
+CLASS="INTERNALREF"
+HREF="e_79.htm"
+>Bounding_curve</A
+>.</LI
+><LI
+CLASS="NOTEINGROUP"
+>The electrical properties of the Conductive_interconnect_element_with_user_defined_single_transition may be assigned using a requirement allocation structure. </LI
+></OL
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>bc1</SPAN
+> illustrates a detail of a layout drawing that shows a transition on a trace. The segment "l" is supported in this part of ISO 10303 as a member of Conductive_interconnect_element_with_user_defined_single_transition.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>end_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>end_terminus</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>left_curve_shape_representation</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>right_curve_shape_representation</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>start_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>start_terminus</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.175.1 end_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The end_definition specifies one role of the <A
+CLASS="INTERNALREF"
+HREF="e_930.htm"
+>Trace_template</A
+> for the 
+Conductive_interconnect_element_with_user_defined_single_transition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.175.2 end_terminus </H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The end_terminus specifies one role of the <A
+CLASS="INTERNALREF"
+HREF="e_499.htm"
+>Layer_connection_point</A
+> for the 
+Conductive_interconnect_element_with_user_defined_single_transition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.175.3 left_curve_shape_representation </H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The left_curve_shape_representation specifies one role of either a <A
+CLASS="INTERNALREF"
+HREF="e_79.htm"
+>Bounding_curve</A
+> or <A
+CLASS="INTERNALREF"
+HREF="e_933.htm"
+>Trimmed_line</A
+> for the 
+Conductive_interconnect_element_with_user_defined_single_transition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.175.4 right_curve_shape_representation </H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The right_curve_shape_representation specifies one role of either a <A
+CLASS="INTERNALREF"
+HREF="e_79.htm"
+>Bounding_curve</A
+> or <A
+CLASS="INTERNALREF"
+HREF="e_933.htm"
+>Trimmed_line</A
+> for the 
+Conductive_interconnect_element_with_user_defined_single_transition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.175.5 start_definition </H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The start_definition specifies one role of the <A
+CLASS="INTERNALREF"
+HREF="e_930.htm"
+>Trace_template</A
+> for the 
+Conductive_interconnect_element_with_user_defined_single_transition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.175.6 start_terminus </H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The start_terminus specifies one role of the <A
+CLASS="INTERNALREF"
+HREF="e_499.htm"
+>Layer_connection_point</A
+> for the 
+Conductive_interconnect_element_with_user_defined_single_transition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY conductive_interconnect_element_with_user_defined_single_transition
+  SUBTYPE OF (conductive_interconnect_element);
+    SELF\conductive_interconnect_element.
+         composed_conductor          : stratum_feature;
+    start_definition                 : trace_template;
+    end_definition                   : trace_template;
+    left_curve_shape_representation  : trimmed_or_bounding_curve;
+    right_curve_shape_representation : trimmed_or_bounding_curve;
+    start_terminus                   : layer_connection_point;
+    end_terminus                     : layer_connection_point;
+END_ENTITY; -- conductive_interconnect_element_with_user_defined_single_transition
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

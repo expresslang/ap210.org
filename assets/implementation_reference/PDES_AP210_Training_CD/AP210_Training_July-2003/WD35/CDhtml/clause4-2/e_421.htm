@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Geometric_tolerance</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.419 Geometric_tolerance</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Geometric_tolerance is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Geometric_tolerance is one of a <A
+CLASS="INTERNALREF"
+HREF="e_423.htm"
+>Geometric_tolerance_without_referenced_datum_system</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_425.htm"
+>Geometric_tolerance_with_referenced_datum_system</A
+>. Additionally a Geometric_tolerance may be one of a <A
+CLASS="INTERNALREF"
+HREF="e_701.htm"
+>Position_tolerance</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_744.htm"
+>Profile_of_any_line_tolerance</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_747.htm"
+>Profile_of_any_surface_tolerance</A
+>. A Geometric_tolerance may be <A
+CLASS="INTERNALREF"
+HREF="e_424.htm"
+>Geometric_tolerance_with_applied_material_condition_property</A
+>. Additionally, a Geometric_tolerance may be a <A
+CLASS="INTERNALREF"
+HREF="e_841.htm"
+>Statistical_geometric_tolerance</A
+>.
+
+A Geometric_tolerance is a specification or partial specification of a design requirement on one or more of the form, location, or orientation characteristics of a <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+>. This type of design requirement is specified in terms of a <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> within which the toleranced Shape_element must reside; or in the case of a <A
+CLASS="INTERNALREF"
+HREF="e_76.htm"
+>Boundary_based_position_tolerance</A
+>, a boundary that the toleranced Shape_element must not violate.
+
+A Geometric_tolerance_with_referenced_datum_system participates in specifying a design requirement when the requirement is on one or more characteristics such as location of the toleranced Shape_element in relation to a <A
+CLASS="INTERNALREF"
+HREF="e_236.htm"
+>Datum_system</A
+>. In such cases, the Tolerance_zone is located and/or oriented, and thus the toleranced Shape_element is located and/or oriented, in relation to the Datum_system.
+
+In some cases the design requirement is such that the boundary of the Tolerance_zone is on a per unit basis.
+<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: The design requirement on the flatness of a surface is such that the surface should not deviate by more than 0.5 mm in any 10 mm by 10 mm area. A Geometric_tolerance that defines a <A
+CLASS="INTERNALREF"
+HREF="e_921.htm"
+>Tolerance_zone_definition_with_per_unit_size_specification</A
+> participates in specifying this type of requirement.</DIV
+>
+
+In some cases a design requirement on the geometric characteristic or characteristics of a Shape_element is such that it is dependent upon the produced size of the Shape_element, or upon the produced size of the Shape_element from which it is derived.  A Geometric_tolerance_with_applied_material_condition_property specifies this type of requirement.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>tolerance_zone_or_boundary_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>toleranced_shape_element</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.419.1 tolerance_zone_or_boundary_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The tolerance_zone_or_boundary_definition specifies either a Conical_tolerance_zone_boundary_diametrical_size_characteristic, a <A
+CLASS="INTERNALREF"
+HREF="e_699.htm"
+>Positional_boundary_member_definition</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_751.htm"
+>Profile_related_positional_boundary_definition</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_920.htm"
+>Tolerance_zone_definition</A
+> that defines the constraints placed on the <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> specified as the toleranced_shape_element.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.419.2 toleranced_shape_element</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The toleranced_shape_element specifies either a Centre_Axis, <A
+CLASS="INTERNALREF"
+HREF="e_92.htm"
+>Centre_plane</A
+>, <A
+CLASS="INTERNALREF"
+HREF="e_93.htm"
+>Centre_point</A
+>, <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+>, or <A
+CLASS="INTERNALREF"
+HREF="e_884.htm"
+>Tangent_plane</A
+> to which the Geometric_tolerance is applied.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The Geometric_tolerance shall either be a Geometric_tolerance_with_referenced_datum_system or a Geometric_tolerance_without_referenced_datum_system.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The Geometric_tolerance shall be specified by at most one Simultaneous_geometric_tolerance_requirement as one of the grouped_geometric_tolerances.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR3: </SPAN
+>There shall be exactly one Ee_requirement_occurrence with the description of "Geometric Dimensioning and Tolerancing Reference" that specifies at least one Ee_specification as the requirement_specification.</DIV
+></DIV
+><DIV
+CLASS="INFORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Informal constraints:</P
+><DIV
+CLASS="INFORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>IP1: </SPAN
+>There shall be exactly one Ee_requirement_occurrence with the description of "Geometric Dimensioning and Tolerancing Reference" that specifies at least one Ee_specification as the requirement_specification. The Ee_specification shall reference those standards by which the geometric dimensioning and tolerancing data is to be interpreted.</DIV
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: An Ee_requirement_occurrence with a description of "Geometric Dimensioning and Tolerancing Reference" specifies an Ee_specification as the requirement_specification. The Ee_specification may specify "Technical drawings -- Geometrical tolerancing -- Tolerancing of form, orientation, location and run-out -- Generalities, definitions, symbols, indications on drawings" as the document_name, 1995 as the year of the creation_date, "ISO" as the publisher, and an Ee_document_identifier as the base_identifier that has an assigned_value of "1101" and an identifier_name of "document number".</DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY geometric_tolerance
+  ABSTRACT SUPERTYPE OF (((ONEOF (
+      geometric_tolerance_with_referenced_datum_system,
+      geometric_tolerance_without_referenced_datum_system) ANDOR ONEOF (
+      profile_of_any_line_tolerance,position_tolerance,
+      profile_of_any_surface_tolerance)) ANDOR 
+      geometric_tolerance_with_applied_material_condition_property) ANDOR
+      statistical_geometric_tolerance)
+  SUBTYPE OF (managed_design_object);
+    tolerance_zone_or_boundary_definition : constraining_element_definitions;
+    toleranced_shape_element              : toleranceable_shape_element;
+END_ENTITY; -- geometric_tolerance
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

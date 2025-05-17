@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Part_device_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.607 Part_device_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Part_device_terminal is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Part_device_terminal is the surface area on an occurrence of a <A
+CLASS="INTERNALREF"
+HREF="e_59.htm"
+>Bare_die</A
+> in a <A
+CLASS="INTERNALREF"
+HREF="e_580.htm"
+>Packaged_part</A
+> that shall allow access to the function of an occurrence of the Bare_die.  A Part_device_terminal is included to support detaild modeling and analysis of the internal connection to a Packaged_part_terminal.  No connection between Part_device_terminals is supported in this part of ISO 10303.  Connections between Bare_die are supported only within Assembly_module.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>terminated_device</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>used_bare_die_terminal</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.607.1 terminated_device</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The terminated_device specifies the <A
+CLASS="INTERNALREF"
+HREF="e_610.htm"
+>Part_device</A
+> that has this 
+Part_device_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.607.2 used_bare_die_terminal</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The used_bare_die_terminal specifies the <A
+CLASS="INTERNALREF"
+HREF="e_66.htm"
+>Bare_die_terminal</A
+> that shall be used by the Part_device_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the terminated_device and the used_bare_die_terminal shall be unique within a 
+population of Part_device_terminals.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY part_device_terminal
+  SUBTYPE OF (managed_design_object);
+    used_bare_die_terminal : minimally_defined_bare_die_terminal;
+    terminated_device      : part_device;
+  UNIQUE
+    ur1 : used_bare_die_terminal, terminated_device;
+END_ENTITY; -- part_device_terminal
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

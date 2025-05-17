@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Layout_macro_floor_plan_template</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.507 Layout_macro_floor_plan_template</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Layout_macro_floor_plan_template is a type of <A
+CLASS="INTERNALREF"
+HREF="e_730.htm"
+>Printed_part_template</A
+>. A Layout_macro_floor_plan_template is part of a recursive definition or a geometric subroutine.  A Layout_macro_floor_plan_template provides a layout shape and a set of terminal definitions for floor planning and layout purposes.  The application compiler will replace the layout shape provided by this application object with the detailed definition specified by the Layout_macro_definition referenced by the macro_definition attribute.<DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>An occurrence of this object is a <A
+CLASS="INTERNALREF"
+HREF="e_504.htm"
+>Layout_macro_component</A
+>
+that is instantiated during floor planning layout during the design process for the interconnect substrate.</LI
+><LI
+CLASS="NOTEINGROUP"
+>The shape of the Layout_macro_floor_plan_template should encompass the shape of the macro definition.</LI
+></OL
+></DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>access_maps</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>macro_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.507.1 access_mechanisms</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The access_maps specifies the Layout_macro_definition_terminal_to_usage_terminal_assignment 
+that relates the Printed_part_template_terminal that is an access_mechanisms inherited from the Printed_part_template with the fabrication features in the detailed definition.
+There shall be one or more 
+Layout_macro_definition_terminal_to_usage_terminal_assignment for a Layout_macro_floor_plan_template.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.507.2 characterized_material</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The macro_definition is an inverse relationship that specifies that the existence of the Layout_macro_floor_plan_template is dependent on the  existence of a Layout_macro_definition that specifies the Layout_macro_floor_plan_template as a floor_layout_view.
+There shall be zero or one Layout_macro_definition for a Layout_macro_floor_plan_template.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY layout_macro_floor_plan_template
+  SUBTYPE OF (printed_part_template);
+    access_maps : SET [1:?] OF 
+                 layout_macro_definition_terminal_to_usage_terminal_assignment;
+INVERSE
+    macro_definition : SET [0:1] OF layout_macro_definition FOR 
+                        floor_layout_view;
+WHERE
+WR1: NOT(EXISTS (SELF\printed_part_template.of_stratum_technology))
+     AND 
+     NOT(EXISTS (SELF\printed_part_template.material_stack)) 
+     AND 
+     NOT(EXISTS (SELF\printed_part_template.printed_part_template_stack));
+END_ENTITY; -- layout_macro_floor_plan_template
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,28 @@
+FUNCTION get_mounting_classification_parameter_assignment_from_product(
+    input1 : product) : string;
+--input1 is the product we are interested in.
+--return value is the string for the mounting classification parameter for that product.
+--we are using specific names because of the differeing way to handle the property typing.
+--the return values are needed to be fully resolved types.
+--This method avoids need to scan product categories etc...
+--This method assumes that Ee_product_category does not apply parameter_assignment for mounting classification.
+
+--example usage: get_mounting_classification_parameter_assignment_from_product(#2200,'Mounting Classification');
+--returns string
+
+--initialize variables
+    LOCAL
+--get the ee_product_specific_parameter_value_assignment that reference this product.
+      eepspva : BAG OF ee_product_specific_parameter_value_assignment := USEDIN(input1,
+      'AP210_ARM.EE_PRODUCT_SPECIFIC_PARAMETER_VALUE_ASSIGNMENT.OF_PRODUCT');
+    END_LOCAL;
+
+--get the value
+    REPEAT i := 1 TO SIZEOF(eepspva) BY 1;
+      IF (
+         (eepspva[i].assigned_parameter.assigned_parameter.type_name = 'Mounting Classification')
+      THEN
+        RETURN(eepspva[i].assigned_parameter.parameter_value.property_value)
+    END_REPEAT;   
+    RETURN('');
+END_FUNCTION; -- get_mounting_classification_parameter_assignment_from_product

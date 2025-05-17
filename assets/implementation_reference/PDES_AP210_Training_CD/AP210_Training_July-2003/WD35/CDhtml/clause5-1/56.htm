@@ -1,0 +1,371 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>interconnect_functional_requirement_allocation</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><TABLE
+CLASS="UOFMAPPINGSUBTBL"
+BORDER="1"
+><CAPTION
+><A
+NAME="26143"
+></A
+>Table 56 - Mapping table for interconnect_functional_requirement_allocation UoF</CAPTION
+><THEAD
+CLASS="MAPPINGSUBTBLCOLUMNS"
+><TR
+><TH
+>Application element</TH
+><TH
+>AIM element</TH
+><TH
+>Source</TH
+><TH
+>Reference path</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="26152"
+></A
+>ASSEMBLY_MODULE</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>physical_unit</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>physical_unit &#60;=<BR>product_definition<BR>{product_definition<BR>[product_definition.name = `assembly module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical design']}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="26167"
+></A
+>CONNECTIVITY_ALLOCATION_TO_PHYSICAL_NETWORK</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>property_definition_relationship</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>{property_definition_relationship<BR>property_definition_relationship.name = `connectivity allocation to physical network'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>connectivity_allocation&nbsp;to<BR>aggregate_connectivity_requirement<BR>(as connectivity_requirement)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>property_definition_relationship<BR>property_definition_relationship.relating_property_definition -&#62;<BR>property_definition<BR>property_definition.definition -&#62;<BR>characterized_definition = characterized_product_definition<BR>characterized_product_definition = product_definition_relationship<BR>product_definition_relationship<BR>{product_definition_relationship.name = `aggregate connectivity requirement'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>connectivity_allocation&nbsp;to<BR>physical_network<BR>(as implementation)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>property_definition_relationship<BR>property_definition_relationship.related_property_definition -&#62;<BR>property_definition =&#62;<BR>product_definition_shape &#60;-<BR>shape_aspect.of_shape<BR>shape_aspect =&#62;<BR>physical_network<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="26198"
+></A
+>INTERCONNECT_MODULE</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>physical_unit</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>physical_unit &#60;=<BR>product_definition<BR>{product_definition<BR>[product_definition.name = `interconnect module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical design']}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>interconnect_module&nbsp;to<BR>assembly_module<BR>(as assembly_design_requirement)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>physical_unit &#60;=<BR>product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>{product_definition_relationship<BR>product_definition_relationship.name = `assembly design requirement'}<BR>product_definition_relationship.relating_product_definition -&#62;<BR>product_definition<BR>{product_definition<BR>[product_definition =&#62;<BR>physical_unit]<BR>[product_definition.name = `assembly module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical design']}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="26232"
+></A
+>PART_CONNECTED_TERMINALS_DEFINITION</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>part_connected_terminals_definition</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>part_connected_terminals_definition &#60;=<BR>shape_aspect<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>name</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>shape_aspect.name</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>part_connected_terminals_definition &#60;=<BR>shape_aspect<BR>shape_aspect.name<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>part_connected_terminals_definition&nbsp;to<BR>part_terminal<BR>(as connected_terminals)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>part_connected_terminals_definition &#60;=<BR>shape_aspect &#60;-<BR>shape_aspect_relationship.relating_shape_aspect<BR>shape_aspect_relationship<BR>{shape_aspect_relationship<BR>shape_aspect_relationship.name  = `member connected terminal'}<BR>shape_aspect_relationship.related_shape_aspect -&#62;<BR>shape_aspect =&#62;<BR>(assembly_module_terminal)<BR>(minimally_defined_bare_die_terminal)<BR>(interconnect_module_terminal)<BR>(packaged_part_terminal)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>part_connected_terminals_definition&nbsp;to<BR>Interconnect_module_usage_view<BR>(as associated_definition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>part_connected_terminals_definition &#60;=<BR>shape_aspect<BR>shape_aspect.of_shape -&#62;<BR>product_definition_shape &#60;=<BR>property_definition<BR>property_definition.definition -&#62;<BR>characterized_definition<BR>characterized_definition = characterized_product_definition<BR>characterized_product_definition<BR>characterized_product_definition = product_definition<BR>{product_definition<BR>[product_definition.name = `interconnect module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical design usage']}<BR>product_definition =&#62;<BR>(physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit =&#62;<BR>library_defined_physical_unit)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="26293"
+></A
+>PHYSICAL_COMPONENT_TERMINAL</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>(component_terminal) (component_interface_terminal) </TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210 210</TD
+><TD
+VALIGN="top"
+>(component_terminal &#60;=<BR>shape_aspect<BR>{shape_aspect<BR>(shape_aspect.description = `interconnect module component stratum based terminal')<BR>(shape_aspect.description = `minimally defined component terminal')<BR>})<BR>(component_interface_terminal &#60;=<BR>shape_aspect)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="26307"
+></A
+>PHYSICAL_NODE_REQUIREMENT_TO_IMPLEMENTING_COMPONENT_ALLOCATION</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>physical_node_requirement_to_implementing_component_allocation</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>{[physical_node_requirement_to_implementing_component_allocation &#60;=<BR>shape_aspect]<BR>[physical_node_requirement_to_implementing_component_allocation &#60;=<BR>shape_aspect_relationship]}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>physical_node_requirement_to_implementing_component_allocation&nbsp;to<BR>assembly_component<BR>(as implementation_component)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>physical_node_requirement_to_implementing_component_allocation &#60;=<BR>shape_aspect_relationship.related_shape_aspect -&#62;<BR>shape_aspect.of_shape -&#62;<BR>product_definition_shape &#60;=<BR>property_definition<BR>property_definition.definition -&#62;<BR>characterized_definition = characterized_product_definition<BR>characterized_product_definition = product_definition<BR>{[product_definition =&#62;<BR>component_definition]<BR>[product_definition.description != `laminate component']}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>physical_node_requirement_to_implementing_component_allocation&nbsp;to<BR>assembly_joint<BR>(as implementation_joint_set)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>physical_node_requirement_to_implementing_component_allocation &#60;=<BR>shape_aspect &#60;-<BR>shape_aspect_relationship.related_shape_aspect<BR>{shape_aspect_relationship<BR>shape_aspect_relationship.name = `implementation joint'}<BR>shape_aspect_relationship.relating_shape_aspect -&#62;<BR>shape_aspect =&#62;<BR>assembly_joint<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>physical_node_requirement_to_implementing_component_allocation&nbsp;to<BR>interface_mounted_join<BR>(as implementation_interface_joint_set)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>physical_node_requirement_to_implementing_component_allocation &#60;=<BR>shape_aspect &#60;-<BR>shape_aspect_relationship.related_shape_aspect<BR>{shape_aspect_relationship<BR>shape_aspect_relationship.name = `implementation interface joint'}<BR>shape_aspect_relationship.relating_shape_aspect -&#62;<BR>shape_aspect =&#62;<BR>interface_mounted_join<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>physical_node_requirement_to_implementing_component_allocation&nbsp;to<BR>physical_connectivity_definition<BR>(as physical_node_requirement)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>physical_node_requirement_to_implementing_component_allocation &#60;=<BR>shape_aspect_relationship.relating_shape_aspect -&#62;<BR>shape_aspect =&#62;<BR>physical_connectivity_definition<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="26366"
+></A
+>TEST_REQUIREMENT_ALLOCATION</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>requirement_allocation_group</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>{[requirement_allocation_group &#60;=<BR>property_definition_relationship]<BR>[property_definition_relationship<BR>property_definition_relationship.name = `test requirement allocation']<BR>[requirement_allocation_group &#60;=<BR>group]}<BR>requirement_allocation_group &#60;-<BR>group_assignment.assigned_group<BR>group_assignment =&#62;<BR>applied_group_assignment<BR>{applied_group_assignment<BR>applied_group_assignment.items[i] -&#62;<BR>group_assigned_item<BR>group_assigned_item = product_definition_formation}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>test_requirement_allocation&nbsp;to<BR>ee_product_version<BR>(as target_product_object)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>requirement_allocation_group<BR>requirement_allocation_group &#60;=<BR>group &#60;-<BR>group_assignment.assigned_group<BR>group_assignment =&#62;<BR>applied_group_assignment<BR>applied_group_assignment.items[i] -&#62;<BR>group_assigned_item = product_definition_formation<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>test_requirement_allocation&nbsp;to<BR>test_requirement_occurrence<BR>(as allocated_requirement)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>requirement_allocation_group &#60;=<BR>property_definition_relationship<BR>property_definition_relationship.relating_property_definition -&#62;<BR>property_definition =&#62;<BR>{property_definition.description = `test requirement'}<BR>requirements_property<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>test_requirement_allocation&nbsp;to<BR>part_feature_model_port_assignment<BR>(as analytical_model_based_test_access)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>requirement_allocation_group &#60;=<BR>group &#60;-<BR>group_assignment.assigned_group<BR>group_assignment =&#62;<BR>applied_group_assignment<BR>applied_group_assignment.items[i] -&#62;<BR>property_definition_representation<BR>{property_definition_representation<BR>property_definition_representation.name = `part feature model port assignment'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>test_requirement_allocation&nbsp;to<BR>functional_usage_view_to_part_terminal_assignment<BR>(as functional_specification_based_test_access)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>requirement_allocation_group &#60;=<BR>group &#60;-<BR>group_assignment.assigned_group<BR>group_assignment =&#62;<BR>applied_group_assignment<BR>applied_group_assignment.items[i] -&#62;<BR>shape_aspect_relationship<BR>{shape_aspect_relationship<BR>shape_aspect_relationship.name = `functional terminal allocation'}<BR></TD
+></TR
+></TBODY
+></TABLE
+></BODY
+></HTML
+>

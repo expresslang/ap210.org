@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Footprint_definition</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.388 Footprint_definition</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Footprint_definition is a type of <A
+CLASS="INTERNALREF"
+HREF="e_323.htm"
+>Ee_product_definition</A
+>.  A Footprint_definition is a mating reference layout item for a specific Package shape.  It identifies the reference Package shape, and a reference breakout.
+The reference breakout is only significant for the metal pattern that is on the top layer.  The specific Stratum stackup for the reference breakout is of no significance.  The Package is identified by a query on shape and then on the Physical_unit_planar_shape that references a Package.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: It is expected that Vias and Via_dependent_land and Land will be used to support the reference layout, as well as copper shapes to suport getting from the mating contact to the breakout terminal.
+In the case of top surface breakout patterns, the join terminals of the reference layout which are typically Via terminals provide the capability to define the standard connection to the pattern.  It is the usual case that there is only layout metal on the top layer.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY footprint_definition
+  SUBTYPE OF (ee_product_definition);
+    reference_breakout  : OPTIONAL SET [1:?] OF assembly_group_component;
+INVERSE
+    padstack  : SET [1:?] OF padstack_location_in_footprint_definition FOR footprint;
+    shape : footprint_definition_shape FOR shape_characterized_footprint_definition;
+WHERE
+ WR1: SIZEOF (QUERY( prpc &#60;* 
+   USEDIN(SELF\ee_product_definition.version.versioned_item,
+       'AP210_ARM.EE_PRODUCT_RELATED_PRODUCT_CATEGORY.OF_PRODUCT') | 
+              (prpc.name = 'template model')
+             )) &#62;= 0;
+END_ENTITY; -- footprint_definition
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

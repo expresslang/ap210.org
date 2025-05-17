@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Component_interface_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.125 Component_interface_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Component_interface_terminal is a type of <A
+CLASS="INTERNALREF"
+HREF="e_118.htm"
+>Component_feature</A
+>. A Component_interface_terminal is one of an <A
+CLASS="INTERNALREF"
+HREF="e_431.htm"
+>Interconnect_component_interface_terminal</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_578.htm"
+>Packaged_connector_component_interface_terminal</A
+>. A Component_interface_terminal is 
+one termination of an interface component.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: An example of this is one terminal on a socket or connector, available for mating to a terminal of an external connector 
+or to a terminal of a component installed in the socket.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_component</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.125.1 associated_component</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_component specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_462.htm"
+>Interface_component</A
+> for the Component_interface_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY component_interface_terminal
+  ABSTRACT SUPERTYPE OF (ONEOF (
+      packaged_connector_component_interface_terminal,
+      interconnect_component_interface_terminal))
+  SUBTYPE OF (physical_component_feature);
+--tt tc1 wd12 modified
+--tt tc1 wd9 modified
+    SELF\component_feature.associated_component : interface_component;
+END_ENTITY; -- component_interface_terminal
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

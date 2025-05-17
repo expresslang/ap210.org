@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Geometric_tolerance_qualifier</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.420 Geometric_tolerance_qualifier</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Geometric_tolerance_qualifier is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Geometric_tolerance_qualifier is either a <A
+CLASS="INTERNALREF"
+HREF="e_710.htm"
+>Pre_defined_geometric_tolerance_qualifier</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_945.htm"
+>User_defined_geometric_tolerance_qualifier</A
+>. A Geometric_tolerance_qualifier is a description that qualifies one or more <A
+CLASS="INTERNALREF"
+HREF="e_421.htm"
+>Geometric_tolerance</A
+>.
+<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Qualifying notes are described in 5.3 of ISO/DIS 1101.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>qualified_geometric_tolerances</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.420.1 qualified_geometric_tolerances</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The qualified_geometric_tolerances specifies the <A
+CLASS="INTERNALREF"
+HREF="e_421.htm"
+>Geometric_tolerance</A
+> to which the Geometric_tolerance_qualifier applies. There shall be one or more Geometric_tolerance for a Geometric_tolerance_qualifier.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY geometric_tolerance_qualifier
+  ABSTRACT SUPERTYPE OF (ONEOF (
+      pre_defined_geometric_tolerance_qualifier,
+      user_defined_geometric_tolerance_qualifier))
+  SUBTYPE OF (managed_design_object);
+    qualified_geometric_tolerances : SET [1:?] OF geometric_tolerance;
+END_ENTITY; -- geometric_tolerance_qualifier
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Part_linear_array_feature_link</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.616 Part_linear_array_feature_link</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Part_linear_array_feature_link is a type of a <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>precedent_element</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>referenced_by</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>subsequent_element</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.616.1 precedent_element</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The precedent_element specifies a <A
+CLASS="INTERNALREF"
+HREF="e_619.htm"
+>Part_linear_array_feature</A
+> for the Part_linear_array_feature_link.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.616.2 referenced_by</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The referenced_by is an inverse relationship that specifies that the existence of the Part_linear_array_feature_link is dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_623.htm"
+>Part_rectangular_array_feature</A
+> that specifies the Part_linear_array_feature_link as its element.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.616.3 subsequent_element</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The subsequent_element specifies a <A
+CLASS="INTERNALREF"
+HREF="e_619.htm"
+>Part_linear_array_feature</A
+> for the Part_linear_array_feature_link.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY part_linear_array_feature_link
+  SUBTYPE OF (managed_design_object);
+    precedent_element : part_linear_array_feature;
+    subsequent_element : part_linear_array_feature;
+INVERSE
+  referenced_by : part_rectangular_array_feature FOR
+                  element;
+END_ENTITY; -- part_linear_array_feature_link
+
+--tt tc1wd9 modified supertype constraint
+--tt tc1wd8 added supertype constraint
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

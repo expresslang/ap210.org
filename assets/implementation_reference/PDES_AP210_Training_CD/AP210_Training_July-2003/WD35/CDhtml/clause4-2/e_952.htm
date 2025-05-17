@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Via_template</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.952 Via_template</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Via_template is a type of <A
+CLASS="INTERNALREF"
+HREF="e_474.htm"
+>Inter_stratum_feature_template</A
+>.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: A Via_template provides a template for a plated passage that supports the 
+realization of connectivity.  The access_mechanisms attribute relates the 
+Via_template to two or more terminals, thereby capturing complete 
+connectivity information.  </DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>access_mechanisms</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>of_passage_technology</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.952.1 access_mechanisms</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The access_mechanisms is an inverse relationship that specifies that the existence of the Via_template is dependent on the existence 
+of the <A
+CLASS="INTERNALREF"
+HREF="e_953.htm"
+>Via_template_terminal</A
+> that specifies the Via_template as its 
+associated_definition. There shall be two or more Via_template_terminals for a Via_template.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.952.2 of_passage_technology</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The of_passage_technology specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_256.htm"
+>Default_via_definition</A
+> for the Via_template.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY via_template
+  SUBTYPE OF (inter_stratum_feature_template);
+    SELF\inter_stratum_feature_template.of_passage_technology : 
+	default_via_definition;
+  INVERSE
+    access_mechanisms : SET [2:?] OF via_template_terminal FOR 
+                        associated_definition;
+END_ENTITY; -- via_template
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

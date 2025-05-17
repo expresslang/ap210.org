@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Dimension_related_positional_boundary</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.295 Dimension_related_positional_boundary</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Dimension_related_positional_boundary is a type of <A
+CLASS="INTERNALREF"
+HREF="e_695.htm"
+>Positional_boundary</A
+> that is a theoretical boundary 
+that is composed of a set of one or more <A
+CLASS="INTERNALREF"
+HREF="e_698.htm"
+>Positional_boundary_member</A
+>. Each Positional_boundary_member 
+is defined by a separate <A
+CLASS="INTERNALREF"
+HREF="e_76.htm"
+>Boundary_based_position_tolerance</A
+> in conjunction with a <A
+CLASS="INTERNALREF"
+HREF="e_294.htm"
+>Dimensional_size</A
+>. </DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>boundary_members</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>constrained_physical_feature</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.295.1 boundary_members</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The boundary_members specifies the <A
+CLASS="INTERNALREF"
+HREF="e_698.htm"
+>Positional_boundary_member</A
+> that comprise the 
+Dimension_related_positional_boundary. There shall be one or more Positional_boundary_member 
+specified as the boundary_members for the Dimension_related_positional_boundary.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.295.2 constrained_physical_feature</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The constrained_physical_feature specifies the <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+> that is to be constrained 
+by the Dimension_related_positional_boundary.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The Positional_boundary_definition specified as the boundary_definition shall be a
+ Dimension_related_positional_boundary_definition.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The attribute boundary_definition is declared in the Positional_boundary entity of which this entity 
+is a subtype.</DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY dimension_related_positional_boundary
+  SUBTYPE OF (positional_boundary);
+    boundary_members             : SET [1:?] OF positional_boundary_member;
+    constrained_physical_feature : physical_feature_or_part_template;
+END_ENTITY; -- dimension_related_positional_boundary
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

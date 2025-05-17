@@ -1,0 +1,86 @@
+$set_transcript_mode(@bottom);
+//
+//  BOARD STATION RELEASE 8.0 TECHNOLOGY FILE FORMAT 1.1
+//
+//  Board Technology
+//
+$$define_technology( "PCB");
+//
+//  Trace Endcode Type
+//
+$$set_endcode( @Round );
+//
+//  Board Rule
+//
+$$define_rule_board( @DOUBLE); 
+//
+//  Physical Layers
+//
+$$define_physical_layer(   1, "LAYER_1", "SIGNAL_1", "PAD_1");
+$$define_physical_layer(   2, "LAYER_2", "SIGNAL_2", "PAD_2");
+//
+//  Materials 
+//
+//
+//  Pad Rules
+//
+//
+//  Via Rules
+//
+//
+//  Pad Rules Noconnect
+//
+//
+//  Via Rules Underpad
+//
+//
+//  Jumper Mode
+//
+$$set_jumper_mode( @off );
+//
+//
+//  Default Jumper Part
+//
+//
+//  Net Rules
+//
+$$define_net_rules( "net_rules", 0.025, 0.0095, 0.0095, 0.0095, 0.0095, 0.0095, 0.0095, "v023c043", "LAYER_1, LAYER_2", "v023c043", , , 0.0095, 0.0095, 0.0095, 0.0095);
+$$define_net_rules( "DEFAULT_NET_TYPE", 0.025, 0.0095, 0.0095, 0.0095, 0.0095, 0.0095, 0.0095, "v023c043", "LAYER_1, LAYER_2", "v023c043", , , 0.0095, 0.0095, 0.0095, 0.0095);
+//
+//  Layer Xsection 
+//
+//
+//  Layer Rules
+//
+$$define_layer_rules( "LAYER_1", @ON, @None, , , @Bend );
+$$define_layer_rules( "LAYER_2", @ON, @None, , , @Bend );
+//
+//  HDI Electrical Rules
+//
+//
+//  Component Types
+//
+$$define_component_type( "0603_vp" );
+$$define_component_type( "0805_vp" );
+$$define_component_type( "c1210" );
+$$define_component_type( "epad" );
+$$define_component_type( "rm2512" );
+$$define_component_type( "soic" );
+//
+//
+//  Component Types Clearances
+//
+//
+//
+//  Testpoint Rules
+//
+$$setup_testpoint_rules( @None, @ComponentBlockOff, @PadstackSubstitutionOff, @ProbeSurfaceMountPadsOn, @SnapOff, @TraceShoveAllowedOff, 0.0, 0.0, 4 );
+$$setup_testpoint_override_rules( , , , , , , 0.0, 0.0, 0.0, 0.0, 0.0 );
+$$setup_probe_clearance_overrides( @OverrideProbeClearancesOff, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, @EdgeToEdge );
+$$setup_default_testpoint_requirements( 1, @FloodSignalNetsOff, 1, @FloodPowerNetsOff, @PinReqsWithinStubLengthOff, 0.000, 0.000 );
+$$setup_testpoint_candidate_priorities( 0, 0, 0, 0, 0, 0 );
+$$setup_testpoint_candidate_modes( @Terminator, @UseSymbolPinPriorityOff, @UseViaPriorityOff, @InsertionNearPinsOff, @MapNoConnectPinsOff, @MapNonFunctionalPinsOff );
+$$setup_symbol_pin_priority([],[]);
+$$setup_via_priority([],[]);
+
+//DFM solder paste mask generation

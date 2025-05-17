@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Datum_axis_related_orientation</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.217 Datum_axis_related_orientation</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Datum_axis_related_orientation is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Datum_axis_related_orientation is a definition that characterizes the orientation of a <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> in relation to a <A
+CLASS="INTERNALREF"
+HREF="e_215.htm"
+>Datum_axis</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>orientation_type</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>orienting_relationship</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.217.1 orientation_type</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The orientation_type specifies a label that indicates the manner in which the specified <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> is oriented with respect to the 
+specified <A
+CLASS="INTERNALREF"
+HREF="e_215.htm"
+>Datum_axis</A
+>. The orientation_type shall either be "centred_on_arc", or "centred_on_radial".</DIV
+></DIV
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: In the polar coordinate method of bidirectional positional tolerancing the bidirectional tolerance zone consists of two tolerance zones. 
+One that is bounded by a pair of parallel planes that is centred along a radial from the datum axis and another that is bounded by a pair 
+of concentric cylindrical arc boundaries that are centred along a cylindrical arc the origin of which is the datum axis. An orientation_type 
+of "centred_on_radial" corresponds to the first tolerance zone and "centred_on_arc" corresponds to the second tolerance zone.</DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The polar method of bidirectional positional tolerancing is discussed in 5.9.2 of ASME Y14.5M.</DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.217.2 orienting_relationship</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The orienting_relationship specifies the <A
+CLASS="INTERNALREF"
+HREF="e_216.htm"
+>Datum_axis_and_tolerance_zone_orienting_relationship</A
+> that associates the <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+>
+with the <A
+CLASS="INTERNALREF"
+HREF="e_215.htm"
+>Datum_axis</A
+> with which it is oriented. The specified Datum_axis_and_tolerance_zone_orienting_relationship is characterized by 
+the Datum_axis_related_orientation.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The Datum_axis_related_orientation shall be specified as the zone_orientation by exactly one 
+Tolerance_zone_definition_with_specified_orientation. </DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY datum_axis_related_orientation
+  SUBTYPE OF (managed_design_object);
+    orienting_relationship : datum_axis_and_tolerance_zone_orienting_relationship;
+    orientation_type       : centre_type;
+END_ENTITY; -- datum_axis_related_orientation
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

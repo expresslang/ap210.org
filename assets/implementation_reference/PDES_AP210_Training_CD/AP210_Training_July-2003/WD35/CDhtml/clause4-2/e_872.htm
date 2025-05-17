@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Stratum_technology_link</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.872 Stratum_technology_link</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Stratum_technology_link is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>precedent_stratum_technology</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>subsequent_stratum_technology</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>precedent_stratum_technology_link</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.872.1 precedent_stratum_technology</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The precedent_stratum_technology specifies a <A
+CLASS="INTERNALREF"
+HREF="e_871.htm"
+>Stratum_technology</A
+> for the Stratum_technology_link.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.872.2 subsequent_stratum_technology</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The subsequent_stratum_technology specifies a <A
+CLASS="INTERNALREF"
+HREF="e_871.htm"
+>Stratum_technology</A
+> for the Stratum_technology_link.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.872.3 precedent_stratum_technology_link</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The precedent_stratum_technology_link specifies the role of a <A
+CLASS="INTERNALREF"
+HREF="e_872.htm"
+>Stratum_technology_link</A
+> for the Stratum_technology_link. The precedent_stratum_technology_link need not be specified for a particular Stratum_technology_link.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The precedent_stratum_technology shall not be the subsequent_stratum_technology within a population of Stratum_technology_link.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The Stratum_technology_link shall not be in a circular definition.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY stratum_technology_link
+--tt tc1 wd9 modified
+ SUPERTYPE OF ( printed_part_template_link)
+ SUBTYPE OF (managed_design_object);
+   precedent_stratum_technology : stratum_technology;
+   subsequent_stratum_technology : stratum_technology;
+   precedent_stratum_technology_link : OPTIONAL stratum_technology_link;
+WHERE
+ WR1: precedent_stratum_technology :&#60;&#62;: subsequent_stratum_technology;
+--tt tc1 wd9 modified
+ WR2: NOT(EXISTS(precedent_stratum_technology_link)) OR
+           (precedent_stratum_technology_link :&#60;&#62;: SELF);
+-- Stratum_technology_link shall be acyclic.
+END_ENTITY; -- stratum_technology_link
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

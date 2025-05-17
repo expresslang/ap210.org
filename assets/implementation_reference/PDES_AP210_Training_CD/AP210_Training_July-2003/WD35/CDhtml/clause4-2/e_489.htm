@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Laminate_text_string_component</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.489 Laminate_text_string_component</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Laminate_text_string_component is a type of <A
+CLASS="INTERNALREF"
+HREF="e_483.htm"
+>Laminate_component</A
+> and is a type of <A
+CLASS="INTERNALREF"
+HREF="e_29.htm"
+>Array_placement_group</A
+>.  A Laminate_text_string_component conveys a complete one line message to the viewer.
+A Laminate_text_string_component is composed by associating one or more individual instances of <A
+CLASS="INTERNALREF"
+HREF="e_488.htm"
+>Laminate_text_component</A
+> to the Laminate_text_string_component using one instance of <A
+CLASS="INTERNALREF"
+HREF="e_878.htm"
+>Sub_assembly_relationship</A
+>.
+The Laminate_text_string_component itself does not directly refer to a font definition.  The usage_definition inherited from the supertype <A
+CLASS="INTERNALREF"
+HREF="e_34.htm"
+>Assembly_component</A
+> is unnecessary since this Application Object is defined by the composition of Laminate_text_component contributing to it.
+The position of the Laminate_text_string_component shall be interpreted as a constraint on the position of the individual components contributing to it.  The position of the Laminate_text_string_component shall be interpreted as the insertion point for the message.
+The Laminate_text_string_component may have an orientation with respect to the design coordinate system, in which case the components composing the Laminate_text_string_component shall have a corresponding orientation.
+The  <A
+CLASS="INTERNALREF"
+HREF="e_56.htm"
+>Axis_placement</A
+> or <A
+CLASS="INTERNALREF"
+HREF="e_88.htm"
+>Cartesian_transformation_operator_2d</A
+> which locates the Laminate_text_string_component shall be interpreted as a local coordinate system in order that any orientation shall be applied consistently to all components.
+An implementation shall ensure that adjacent characters that use different fonts still meet the requirement that <A
+CLASS="INTERNALREF"
+HREF="e_851.htm"
+>Stratum_feature</A
+> instances are disjoint.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: If multi-line messages are required, multiple instances of Laminate_text_string_component will be needed, one for each line of the message.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>message</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>of_horizontal_justification</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>of_vertical_justification</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.489.1 message</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The message specifies the message content, a string, for the Laminate_text_string_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.489.2 of_horizontal_justification</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The horizontal_justification specifies either "left", "right", or "centre" for the beginning point of the message with respect to the position of the  <A
+CLASS="INTERNALREF"
+HREF="e_56.htm"
+>Axis_placement</A
+> or <A
+CLASS="INTERNALREF"
+HREF="e_88.htm"
+>Cartesian_transformation_operator_2d</A
+> that is the insertion point for the text.  The "left" indicates that the left edge of the bounding box of the first character of the message is aligned with the 'Y' axis of the Axis_placement.  The "right" indicates that the right edge of the bounding box of the last character of the message is aligned with the 'Y' axis of the Axis_placement.  The "centre" indicates that the left edge of the bounding box of the first character of the message and the right edge of the bounding box of the last character of the message are equally displaced on either side of the 'Y' axis of the Axis_placement.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.489.3 of_vertical_justification</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The vertical_justification specifies either "top", "bottom", or "centre" for the beginning point of the message with respect to the position of the  <A
+CLASS="INTERNALREF"
+HREF="e_56.htm"
+>Axis_placement</A
+> or <A
+CLASS="INTERNALREF"
+HREF="e_88.htm"
+>Cartesian_transformation_operator_2d</A
+> that is the insertion point for the text.  The "top" indicates that the top edge of the bounding box of the first character of the message is aligned with the 'X' axis of the Axis_placement.  The "bottom" indicates that the bottom edge of the bounding box of the last character of the message is aligned with the 'X' axis of the Axis_placement.  The "centre" indicates that the top edge of the bounding box of the first character of the message and the bottom edge of the bounding box of the last character of the message are equally displaced on either side of the 'X' axis of the Axis_placement.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY laminate_text_string_component
+  SUBTYPE OF (array_placement_group, laminate_component);
+    message                     : message_content;
+    of_horizontal_justification : horizontal_justification;
+    of_vertical_justification   : vertical_justification;
+END_ENTITY; -- laminate_text_string_component
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

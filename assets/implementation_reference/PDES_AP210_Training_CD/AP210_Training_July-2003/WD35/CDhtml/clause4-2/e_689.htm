@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Plated_inter_stratum_feature</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.687 Plated_inter_stratum_feature</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Plated_inter_stratum_feature is a type of <A
+CLASS="INTERNALREF"
+HREF="e_471.htm"
+>Inter_stratum_feature</A
+> with deposited metal on its walls that makes an electrical connection between conductive patterns on internal <A
+CLASS="INTERNALREF"
+HREF="e_275.htm"
+>Design_layer_stratum</A
+>, external Design_layer_stratum, or both, of a printed circuit board. A 
+Plated_inter_stratum_feature is one of a <A
+CLASS="INTERNALREF"
+HREF="e_685.htm"
+>Plated_cutout</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_686.htm"
+>Plated_cutout_edge_segment</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_687.htm"
+>Plated_interconnect_module_edge</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_688.htm"
+>Plated_interconnect_module_edge_segment</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_690.htm"
+>Plated_passage</A
+>, or additionally may be a <A
+CLASS="INTERNALREF"
+HREF="e_661.htm"
+>Physical_network_supporting_inter_stratum_feature</A
+>.<DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>A cross-section illustration of Plated_inter_stratum_feature that is the result of a wet chemistry process is shown in figure  <SPAN
+CLASS="INTERNALREF"
+>pisf</SPAN
+>.  An expanded view of one section of the feature is shown in figure  <SPAN
+CLASS="INTERNALREF"
+>pisf2</SPAN
+>.</LI
+><LI
+CLASS="NOTEINGROUP"
+>Plated_inter_stratum_features that completely pass through the PCB are sometimes known as plated through 
+holes.</LI
+><LI
+CLASS="NOTEINGROUP"
+>Plated_inter_stratum_features are features that may be custom designed for this design by creating custom <A
+CLASS="INTERNALREF"
+HREF="e_474.htm"
+>Inter_stratum_feature_template</A
+> shapes.</LI
+></OL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>Each Plated_inter_stratum_feature shall reference a Passage_technology that has the attribute plated_passage set to TRUE.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY plated_inter_stratum_feature
+ABSTRACT SUPERTYPE OF (ONEOF (plated_cutout,
+      plated_interconnect_module_edge,plated_cutout_edge_segment,
+      plated_interconnect_module_edge_segment,plated_passage) ANDOR 
+      physical_network_supporting_inter_stratum_feature)
+  SUBTYPE OF (inter_stratum_feature);
+END_ENTITY; -- plated_inter_stratum_feature
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

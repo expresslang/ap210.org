@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Inter_stratum_feature_edge_segment_template</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.433 Inter_stratum_feature_edge_segment_template</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Inter_stratum_feature_edge_segment_template is a type of <A
+CLASS="INTERNALREF"
+HREF="e_474.htm"
+>Inter_stratum_feature_template</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>composed_edge</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>end_vertex</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>start_vertex</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.433.1 composed_edge</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The composed_edge specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_473.htm"
+>Inter_stratum_feature_edge_template</A
+> the Inter_stratum_feature_edge_segment_template is helping to compose.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.433.2 end_vertex</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The end_vertex specifies one role of the <A
+CLASS="INTERNALREF"
+HREF="e_312.htm"
+>Edge_segment_vertex</A
+> for the Inter_stratum_feature_edge_segment_template.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.433.3 start_vertex</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The start_vertex specifies one role of the <A
+CLASS="INTERNALREF"
+HREF="e_312.htm"
+>Edge_segment_vertex</A
+> for the Inter_stratum_feature_edge_segment_template.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The end_vertex shall not be the start_vertex.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY inter_stratum_feature_edge_segment_template
+  SUBTYPE OF (inter_stratum_feature_template);
+    composed_edge : inter_stratum_feature_edge_template;
+    start_vertex  : edge_segment_vertex;
+    end_vertex    : edge_segment_vertex;
+   reference_path : trimmed_line;
+    cross_section : OPTIONAL edge_segment_cross_section;
+WHERE
+  WR1: EXISTS (cross_section) XOR (SIZEOF (
+ USEDIN(SELF\part_template,
+ 'AP210_ARM.PART_TEMPLATE_3D_SHAPE.' +
+ 'SHAPE_CHARACTERIZED_PART_TEMPLATE')
+) &#62;= 0);
+(* start_vertex and end_vertex associated points shall be in the domain of the path. *)
+ WR2: EXISTS(reference_path.start_point) AND EXISTS(reference_path.end_point);
+ WR3: NOT(EXISTS(start_vertex\datum_point.location_in_2d)) OR
+      (reference_path.start_point :=: start_vertex\datum_point.location_in_2d);
+ WR4: NOT(EXISTS(start_vertex\datum_point.location_in_3d)) OR
+      (reference_path.start_point :=: start_vertex\datum_point.location_in_3d);
+ WR5: NOT(EXISTS(end_vertex\datum_point.location_in_2d)) OR
+      (reference_path.end_point :=: start_vertex\datum_point.location_in_2d);
+ WR6: NOT(EXISTS(end_vertex\datum_point.location_in_3d)) OR
+      (reference_path.end_point :=: start_vertex\datum_point.location_in_3d);
+ WR7: start_vertex :&#60;&#62;: end_vertex;
+END_ENTITY; -- inter_stratum_feature_edge_segment_template
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

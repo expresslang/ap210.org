@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Dimension_along_curve</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.291 Dimension_along_curve</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Dimension_along_curve is a type of <A
+CLASS="INTERNALREF"
+HREF="e_293.htm"
+>Dimensional_location</A
+> that defines the location of a <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> in relationship to another Shape_element and in which a Shape_element is specified as the path along which the Dimension_along_curve characterizes this relationship.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>path</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.291.1 path</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The path specifies the <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> along which the relationship between the two Shape_elements is characterized by the Dimension_along_curve.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of located_elements inherited from Dimensional_location and path shall be unique within a population of Dimension_along_curve.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+> The dimension_type of the Dimension_location_with_direction_vector shall be either "arc_length", or "linear".
+<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The attribute dimension_type is declared in the Dimensional_characteristic entity of which this entity is a subtype.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY dimension_along_curve
+  SUBTYPE OF (dimensional_location);
+    path : shape_element;
+  UNIQUE
+    ur1 : located_elements, path;
+END_ENTITY; -- dimension_along_curve
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

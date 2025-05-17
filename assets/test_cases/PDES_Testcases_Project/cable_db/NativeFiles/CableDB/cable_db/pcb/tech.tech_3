@@ -1,0 +1,71 @@
+$set_transcript_mode(@bottom);
+//
+//  BOARD STATION RELEASE 8.0 TECHNOLOGY FILE FORMAT 1.1
+//
+//  Board Technology
+//
+$$define_technology( "PCB");
+//
+//  Trace Endcode Type
+//
+$$set_endcode( @Round );
+//
+//  Board Rule
+//
+$$define_rule_board( @DOUBLE); 
+//
+//  Physical Layers
+//
+$$define_physical_layer(   1, "PHYSICAL_1", "PAD_1", "SIGNAL_1");
+$$define_physical_layer(   2, "PHYSICAL_2", "PAD_2", "SIGNAL_2");
+//
+//  Materials 
+//
+//
+//  Pad Rules
+//
+//
+//  Via Rules
+//
+//
+//  Pad Rules Noconnect
+//
+//
+//  Via Rules Underpad
+//
+//
+//  Net Rules
+//
+$$define_net_rules( "DEFAULT_NET_TYPE", 0.012, 0.005, 0.005, 0.005, 0.005, 0.005, 0.005, "VIA028", "PHYSICAL_1, PHYSICAL_2", "VIA028");
+//
+//  Layer Xsection 
+//
+//
+//  Layer Rules
+//
+$$define_layer_rules( "PHYSICAL_1", @ON, @Horizontal, , , @Bend );
+$$define_layer_rules( "PHYSICAL_2", @ON, @Vertical, , , @Bend );
+//
+//  HDI Electrical Rules
+//
+//
+//  Component Types
+//
+//
+//
+//  Component Types Clearances
+//
+//
+//
+//  Testpoint Rules
+//
+$$setup_testpoint_rules( @None, @ComponentBlockOn, @PadstackSubstitutionOff, @ProbeSurfaceMountPadsOff, @SnapOff, @TraceShoveAllowedOff, 0.0, 0.0, 4 );
+$$setup_testpoint_override_rules( , , , , , , 0.0, 0.0, 0.0, 0.0, 0.0 );
+$$setup_probe_clearance_overrides( @OverrideProbeClearancesOff, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, @EdgeToEdge );
+$$setup_default_testpoint_requirements( 1, @FloodSignalNetsOff, 1, @FloodPowerNetsOff, @PinReqsWithinStubLengthOff, 0.000, 0.000 );
+$$setup_testpoint_candidate_priorities( 0, 0, 0, 0, 0, 0 );
+$$setup_testpoint_candidate_modes( @Terminator, @UseSymbolPinPriorityOff, @UseViaPriorityOff, @InsertionNearPinsOff, @MapNoConnectPinsOff, @MapNonFunctionalPinsOff );
+$$setup_symbol_pin_priority([],[]);
+$$setup_via_priority([],[]);
+
+//DFM solder paste mask generation

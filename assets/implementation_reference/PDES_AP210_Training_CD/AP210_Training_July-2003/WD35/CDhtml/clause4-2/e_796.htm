@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Runout_tolerance_zone_definition_with_specified_angle</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.796 Runout_tolerance_zone_definition_with_specified_angle</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Runout_tolerance_zone_definition_with_specified_angle is a type of <A
+CLASS="INTERNALREF"
+HREF="e_920.htm"
+>Tolerance_zone_definition</A
+> that is defined by either a <A
+CLASS="INTERNALREF"
+HREF="e_103.htm"
+>Circular_runout_tolerance</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_929.htm"
+>Total_runout_tolerance</A
+>, and in which the <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> is oriented with respect to a <A
+CLASS="INTERNALREF"
+HREF="e_303.htm"
+>Directed_axis</A
+>. The Directed_axis is coincident with the <A
+CLASS="INTERNALREF"
+HREF="e_215.htm"
+>Datum_axis</A
+> about which the Tolerance_zone is centred.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Circular run-out tolerance in a specified direction is described in 14.13.4 of ISO 1101.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>runout_orientation</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.796.1 runout_orientation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The runout_orientation specifies the <A
+CLASS="INTERNALREF"
+HREF="e_798.htm"
+>Runout_zone_orientation</A
+> that defines the orientation of the <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> relative to a specified <A
+CLASS="INTERNALREF"
+HREF="e_303.htm"
+>Directed_axis</A
+> for the Runout_tolerance_zone_definition_with_specified_angle.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The Tolerance_zone specified as the oriented_zone by the Runout_tolerance_zone_orienting_relationship that is specified as the oriented_relationship by the Runout_zone_orientation that is specified as the runout_orientation, shall be the same instance of Tolerance_zone as specified as the defined_tolerance_zone.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The Runout_tolerance_zone_definition_with_specified_angle shall be specified as the tolerance_zone_or_boundary_definition by exactly one Geometric_tolerance, and that Geometric_tolerance shall be either a Circular_runout_tolerance or a Total_runout_tolerance.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR3: </SPAN
+>The instance of Centre_axis specified as the axis_to_be_oriented by the Directed_axis to which the Tolerance_zone is oriented shall be a Datum_axis that is in the Datum_system the definition of which is specified as the datum_system_definition by the associated Circular_runout_tolerance or Total_runout_tolerance.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY runout_tolerance_zone_definition_with_specified_angle
+  SUBTYPE OF (tolerance_zone_definition);
+    runout_orientation : runout_zone_orientation;
+END_ENTITY; -- runout_tolerance_zone_definition_with_specified_angle
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

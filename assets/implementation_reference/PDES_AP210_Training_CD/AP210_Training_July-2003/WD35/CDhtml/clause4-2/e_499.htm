@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Layer_connection_point</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.499 Layer_connection_point</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Layer_connection_point is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Layer_connection_point is either a <A
+CLASS="INTERNALREF"
+HREF="e_258.htm"
+>Dependently_located_layer_connection_point</A
+> or an <A
+CLASS="INTERNALREF"
+HREF="e_360.htm"
+>Explicitly_located_layer_connection_point</A
+> that resides on the surface of a <A
+CLASS="INTERNALREF"
+HREF="e_275.htm"
+>Design_layer_stratum</A
+> in 
+the <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+> and is defined in the coordinate system of the Interconnect_module.  The Layer_connection_point Application Object is an intersection concept between the topology requirements, placement requiremets defined in a geometric coordinate system and the Stratum material definition.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: A Layer_connection_point may be placed in an area where the conductive material is removed since there is no information contained in this Application Object regarding vertical material processes.
+It is the abstraction in this standard to separate lateral material description from the vertical material modification processes.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>join_path</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>name</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>resident_design_layer_stratum</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.499.1 join_path</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The join_path is an inverse relationship that specifies that the existence of the Layer_connection_point is dependent on the existence of 
+the <A
+CLASS="INTERNALREF"
+HREF="e_479.htm"
+>Join_relationship</A
+> that specifies the Layer_connection_point as its 
+points_to_be_connected. There shall be one or more Join_relationship for a Layer_connection_point.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.499.2 name</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The name identifies a Layer_connection_point. </DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.499.3 resident_design_layer_stratum</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The resident_design_layer_stratum specifies the <A
+CLASS="INTERNALREF"
+HREF="e_275.htm"
+>Design_layer_stratum</A
+> upon which the Layer_connection_point is located.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The name, in combination with the resident_design_layer_stratum, shall be unique within a population of Layer_connection_point.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>For each member of Cartesian_point associated with a Design_layer_stratum, there shall be no more than 
+one Layer_connection_point associated with that Cartesian_point.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>Each member of Layer_connection_point shall be specified by no more than one member of Physical_network.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY layer_connection_point
+  ABSTRACT SUPERTYPE OF (ONEOF (
+      explicitly_located_layer_connection_point,
+      dependently_located_layer_connection_point))
+  SUBTYPE OF (managed_design_object);
+    location_2d                   : OPTIONAL cartesian_point;
+    location_3d                   : OPTIONAL cartesian_point;
+    name                          : ee_name;
+    resident_design_layer_stratum : design_layer_stratum;
+DERIVE
+   referencing_network : SET OF physical_network :=
+     QUERY(ijp &#60;* inter_join_path | SIZEOF(USEDIN(ijp,
+     'AP210_ARM.PHYSICAL_NETWORK.' +
+      'INTERCONNECT_MODULE_NETWORK_TOPOLOGY_ELEMENT') + 
+     USEDIN(intra_join_path,
+     'AP210_ARM.PHYSICAL_NETWORK.' +
+      'INTERCONNECT_MODULE_NETWORK_TOPOLOGY_ELEMENT')) &#62; 0);
+INVERSE
+    inter_join_path            : SET [0:1] OF inter_stratum_join_relationship FOR 
+            points_to_be_connected;
+    intra_join_path            : intra_stratum_join_relationship FOR 
+            points_to_be_connected;
+UNIQUE 
+   ur1 : name, resident_design_layer_stratum;
+WHERE
+  wr1: EXISTS(location_2d) OR EXISTS(location_3d);
+  wr2: NOT(EXISTS(location_2d)) OR
+       (location_2d\shape_item.
+        geometric_context.dimensionality = two_dimensional);
+  wr3: NOT(EXISTS(location_2d)) OR
+       (location_3d\shape_item.
+       geometric_context.dimensionality = three_dimensional);
+  wr4: SIZEOF(referencing_network) &#60;= 1;
+END_ENTITY; -- layer_connection_point
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

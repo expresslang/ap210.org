@@ -1,0 +1,596 @@
+Updated 9/30/2003
+List of rule AOs in 210 ARM now:
+Rule_action.sgm \
+Rule_adoption.sgm \
+Rule_based_constraint_occurrence.sgm \
+Rule_based_evaluated_characteristic.sgm \
+Rule_binary_function.sgm \
+Rule_change_request.sgm \
+Rule_complex_clause.sgm \
+Rule_conclusion_definition.sgm \
+Rule_creation.sgm \
+Rule_definition.sgm \
+Rule_expiration.sgm \
+Rule_function.sgm \
+Rule_function_domain_parameter.sgm \
+Rule_function_range_parameter.sgm \
+Rule_general_clause.sgm \
+Rule_justification.sgm \
+Rule_modification.sgm \
+Rule_premise_definition.sgm \
+Rule_priority.sgm \
+Rule_rejection.sgm \
+Rule_request.sgm \
+Rule_set.sgm \
+Rule_set_group.sgm \
+Rule_simple_clause.sgm \
+Rule_submission.sgm \
+Rule_supersedence.sgm \
+Rule_version.sgm \
+
+List of rule entities in 210 aim now:
+rule_action \
+rule_complex_clause \
+rule_conclusion_definition \
+rule_definition \
+rule_binary_function_definition \
+rule_function_definition \
+rule_function_domain_parameter \
+rule_function_range_parameter \
+rule_general_clause \
+rule_premise_definition \
+rule_replacement_from_assignment \
+rule_replacement_to_assignment \
+rule_set \
+rule_simple_clause \
+
+
+List of rule Global rules in 210 aim now:
+rule_action_unique_constraint \
+rule_conclusion_definition_unique_constraint \
+rule_function_unique_constraint \
+rule_premise_definition_unique_constraint \
+rule_supersedence_constraint \
+
+
+Includes interpretation from discussion with Mike K.
+this includes EXPRESS to handle binary function explicitly.
+I got rid of 'ee' on front of rules!
+
+
+This file is not actually part of the training presentation but provides design
+intent for what is essentially a beyond wd36 rules model.
+This update is to bring in the recursion and also identify the rule_function_model_parameter additions
+This file defines a schema_based_model_parameter based on an Express Schema.
+also includes some existing AOs that are useful for rules.
+
+The evaluation_ee_product_definition would be the Ee_product_definition sent between the rules engine and the viewer,
+or stored in a pdm system.
+
+ENTITY evaluation_ee_product_definition
+    SUBTYPE OF (ee_product_definition);
+      evaluated_product_definition : ee_product_definition;
+      evaluation_data              : SET[1:?] OF evaluated_characteristic;
+    WHERE
+      WR1 : TYPEOF(SELF) <> TYPEOF(evaluated_product_definition);
+END_ENTITY; -- evaluation_ee_product_definition
+
+ENTITY schema_based_model_parameter
+    SUBTYPE OF (model_parameter);
+      entity_name : STRING;
+      attribute_name : OPTIONAL STRING;
+DERIVE
+      schema_identifier : STRING := SELF\model_parameter.type_name;
+    UNIQUE
+      ur1 : schema_identifier,entity_name,attribute_name;
+END_ENTITY; -- schema_based_model_parameter
+
+ENTITY parameter_assignment
+    SUBTYPE OF (managed_design_object);
+      parameter_value    : scalar_or_coordinated_characteristics;
+      assigned_parameter : model_parameter;
+END_ENTITY; -- parameter_assignment
+
+MOD MOD
+ENTITY rule_function
+    SUBTYPE OF (managed_design_object);
+      identifier         : STRING;
+      reference_document : ee_document;
+      source_code        : ee_specification;
+INVERSE
+      domain_parameter   : SET[1:?] OF rule_function_domain_parameter FOR accessed_function;
+      range_parameter    : SET[1:?] OF rule_function_range_parameter FOR accessed_function;
+    UNIQUE
+      ur1 : identifier, reference_document;
+END_ENTITY; -- rule_function
+END MOD END MOD
+
+NEW
+ENTITY rule_binary_function
+    SUBTYPE OF (rule_function);
+(* this rule really needs to use an EXPRESS function but too late,,, Manas?
+WHERE
+ WR1: SIZEOF(QUERY ( bp <* range_parameter |
+    NOT('BOOLEAN_PROPERTY' IN TYPEOF(get_range_property_type(bp\model_parameter.valid_range))))) = 0;
+*)    
+END_ENTITY; -- rule_binary_function
+NEW
+FUNCTION get_range_property_type (coordinated_characteristic) : STRING;
+--return the strings representing the property types in the coordinated characteristics that 
+--define the valid range.  It should be just 'BOOLEAN_PROPERTY'.
+RETURN('BOOLEAN_PROPERTY');
+end_function;
+
+why does a simple clause have an assigned_parameter?
+Because that is where the constraints are declared, 
+or where the variable assignments that are the results of the rule
+firing are made.  So how do I predict that if l=3 that I should
+always assign y=4?
+
+MOD MOD MOD MOD
+ENTITY rule_simple_clause
+    SUBTYPE OF (managed_design_object);
+      rule_function : rule_binary_function;
+      parameter     : SET[1:?] OF parameter_assignment_or_rule_general_clause;
+END_ENTITY; -- rule_simple_clause
+END MOD END MOD END MOD
+
+TYPE parameter_assignment_or_rule_general_clause = SELECT
+     (parameter_assignment,
+      rule_general_clause);
+END_TYPE;
+
+ENTITY rule_general_clause
+   SUBTYPE OF (managed_design_object);
+   rule_function : rule_function;
+   parameter : SET [1:?] OF parameter_assignment_or_rule_general_clause;
+WHERE
+  WR1: acyclic(SELF,parameter);   
+END_ENTITY;         
+
+ENTITY rule_based_constraint_occurrence
+    SUBTYPE OF (constraint_occurrence);
+      design_constraint : rule_definition;
+END_ENTITY; -- rule_based_constraint_occurrence
+
+ENTITY planned_characteristic
+    SUBTYPE OF (managed_design_object);
+      reference_requirement              : requirement_allocation_select;
+      planned_coordinated_characteristic : coordinated_characteristic;
+END_ENTITY; -- planned_characteristic
+
+ENTITY evaluated_characteristic
+    SUPERTYPE OF (rule_based_evaluated_characteristic)
+    SUBTYPE OF (managed_design_object);
+      planned_product_data          : planned_characteristic;
+      product_data_status           : evaluation_type;
+      product_characterization_data : OPTIONAL SET[1:?] OF coordinated_characteristic;
+      evaluation_result             : evaluation_result_value;
+END_ENTITY; -- evaluated_characteristic
+
+ENTITY rule_based_evaluated_characteristic
+    SUBTYPE OF (evaluated_characteristic);
+      evaluating_rule : rule_version;
+END_ENTITY; -- rule_based_evaluated_characteristic
+
+MOD MOD MOD MOD
+ENTITY model_parameter
+    SUPERTYPE OF (datum_difference_based_model_parameter....)
+    SUBTYPE OF (managed_design_object);
+      parameter_id       : STRING;
+      type_name          : STRING;
+      unit_of_measure    : OPTIONAL STRING;
+      reference_document : ee_document;
+      valid_range        : OPTIONAL SET[1:?] OF coordinated_characteristic;
+      default_value      : OPTIONAL scalar_or_coordinated_characteristics;
+END_ENTITY; -- model_parameter
+END MOD END MOD END MOD END MOD
+
+NEW.......
+entity rule_function_domain_parameter
+   SUBTYPE OF (model_parameter);
+   accessed_function : rule_function;
+UNIQUE
+  ur1: SELF\model_parameter.parameter_id,associated_function;   
+end_entity;   
+
+NEW.......
+entity rule_function_range_parameter
+   SUBTYPE OF (model_parameter);
+   accessed_function : rule_function;
+UNIQUE
+  ur1: SELF\model_parameter.parameter_id,associated_function;   
+end_entity;   
+
+
+notes:
+/////////////////////////////////////////////////////////////////////////////
+
+I could envision the following:
+
+             (for, x, 1, 2) - loop x 1 to 2
+             (writeln, "hello world")
+             (next)
+
+executing as:
+             (for, x, 1, 2) 			returning true, side
+effect x = 1
+             (writeln, "hello world")	returning true, side effect
+message written 
+             (next)				returning true
+
+             (for, x, 1, 2) 			returning true, side
+effect x = 2
+             (writeln, "hello world")	returning true, side effect
+message written 
+             (next)				returning true
+
+             (for, x, 1, 2) 			returning false
+             at this point the following clauses are not evaluated
+
+Note the execution environment would enable the looping.
+
+So I agree that these simple clauses should return true or false.  The
+maintain the execution of the rule
+
+However, Since a simple clause could contain a simple clause 
+
+	(greaterthan, (max, 2, 3), (max, 3, 4) )
+
+The simple clause max, is going to return a number
+
+So not all simple clauses return a true/false
+
+When we wrote the rules for PreAMP, Boeing and Rockwell - there was an
+'unwritten' guideline that
+SimpleClauses had to evaluate to booleans - otherwise the rules may not
+run.
+
+SimpleClauses that were nested within SimpleClauses did not necessarily
+need to return booleans.
+
+However, as STEP is only representing the rule and not executing the
+rules this should not be a problem.
+The original Backup-Naur form did not care what was returned.
+
+So this is what we have now:
+ <premise> ::= <complex clause> { Or <complex clause> }*
+ <complex clause> ::= <simple clause> { And <simple clause> }*
+ <simple clause> ::= <function> <parameter>*
+ <parameter> ::= <simple clause> | <constant> | <variable> | <feature>
+
+ <conclusion> ::= <simple clause> { And <simple clause> }*
+
+ <variable>	- alphanumeric pattern instantiated as feature object
+when rule is fired (e.g., component1, layer2, net3).
+ <feature>	- data base attribute/class/instance (e.g.,  factory,
+equipment, component).
+ <constant>	- number, integer or floating point, boolean, string,
+etc.
+ <function> - Any system provided function that returns a value for
+testing or comparison (e.g., logical, math)
+
+Maybe we need to change to:
+ <premise> ::= <complex clause> { Or <complex clause> }*
+ <complex clause> ::= <simple clause> { And <simple clause> }*
+ <simple clause> ::= <binary function> <parameter>*
+ <parameter> ::= <clause> | <constant> | <variable> | <feature>
+ <clause> ::= <function> <parameter>*
+
+ <conclusion> ::= <simple clause> { And <simple clause> }*
+
+ <variable>	- alphanumeric pattern instantiated as feature object
+when rule is fired (e.g., component1, layer2, net3).
+ <feature>	- data base attribute/class/instance (e.g.,  factory,
+equipment, component).
+ <constant>	- number, integer or floating point, boolean, string,
+etc.
+ <function> - Any system provided function that returns a value for
+testing or comparison (e.g., logical, math)
+ <binary function> - Any system provided function that returns a boolen
+
+Thoughts? Manas?
+
+Greg
+
+-----Original Message-----
+From: trthurma@rockwellcollins.com [mailto:trthurma@rockwellcollins.com]
+Sent: Thursday, September 25, 2003 12:28 PM
+To: Smith, Gregory L
+Cc: Manas.Bajaj@angostura.marc.gatech.edu; thurman.tom@mcleod.net
+Subject: RE: adding recursion to AP 210 rule structure
+
+
+
+Next question:
+Where does the binary expression come into play?  I seem to recall some
+discussion of that at the offsite.
+
+Expected answer:
+I would expect the formalism that the following return TRUE or FALSE:
+rule_complex_clause,
+rule_simple_clause.
+
+
+rule_function doesn't have to as you show below.
+
+Please concur/ correct as appropriate.
+
+Tom
+
+
+ 
+
+                      "Smith, Gregory
+
+                      L"                       To:
+<trthurma@rockwellcollins.com>
+
+                      <gregory.l.smith@        cc:
+<Manas.Bajaj@angostura.marc.gatech.edu>, <thurman.tom@mcleod.net>
+
+                      boeing.com>              Subject:  RE: adding
+recursion to AP 210 rule structure                              
+ 
+
+                      09/25/2003 01:49
+
+                      PM
+
+ 
+
+ 
+
+
+
+
+
+Tom,
+
+number 2 -
+Looping constructs should not be treated any different than a function
+
+for example
+
+             (foreach, c, component) - loop for each component,
+[NOTE c is the instance, component is the Schema_based_model_parameter,
+and the function application applies the Schema_based_model_parameter.
+foreach loops over all instances (c) in the model and if the instance is
+a component, it returns true.
+Note: what about the functions 'isa' and 'kindof' from SDAI?]
+         (greater, c.height, 2.00)
+[    NOTE
+        c is the instance, height is the Schema_based_model_parameter,
+        and the dot "." is the Parameter_assignment of the instance to
+        the Schema_based_model_parameter]     
+         (writewarning, "some message")
+      (next)
+
+             (for, x, 1, 100) - loop x 1 to 100
+
+      (next)
+etc.
+
+number 3 -
+The BNF for a conclusion is:
+             <conclusion> ::= <simple conclusion> { And <simple
+conclusion>
+}*        - so multiple conclusions are allowed
+             <simple conclusion> ::= <function> <parameter>*
+- so zero or more parameters are allowed
+      <parameter> ::= <simple conclusion> | <constant> | <database
+attribute>  - parmeter can be a simpleconclusion, so
+
+we can have recursion
+
+Note that Or is not supported in conclusions as it should be implemented
+as multiple rules.
+
+Please send me the design_rules power point files as I have lost my
+copy!
+
+Thanks
+Greg
+
+
+Should be allowed, note that
+             <simple conclusion> ::= <conclusion function> <conclusion
+parameter>
+
+should be
+             <simple conclusion> ::= <conclusion function> <conclusion
+parameter>*
+
+and
+
+
+
+
+-----Original Message-----
+From: trthurma@rockwellcollins.com [mailto:trthurma@rockwellcollins.com]
+Sent: Thursday, September 25, 2003 10:28 AM
+To: Smith, Gregory L
+Cc: Manas.Bajaj@angostura.marc.gatech.edu; thurman.tom@mcleod.net
+Subject: RE: adding recursion to AP 210 rule structure
+
+
+
+three things:
+1-ok,
+ 'height, 2.00' is an instance of the new AO
+Schema_based_model_parameter
+being assigned a value of 2.00 by parameter_assignment.
+------------------------------------------------------------------------
+-----------------------------
+
+2-Where is the 'for each component' specified in the bnf or generic rule
+template?
+(I don't see a looping construct yet!)
+
+------------------------------------------------------------------------
+-----------------------------
+3-The bnf does not allow recursion on the simple conclusion.
+The model permits recursion on the conclusion.  do we need to fix this?
+
+Tom
+
+
+
+
+
+                      "Smith, Gregory
+
+                      L"                       To:
+<trthurma@rockwellcollins.com>
+
+                      <gregory.l.smith@        cc:
+<Manas.Bajaj@angostura.marc.gatech.edu>, <thurman.tom@mcleod.net>
+
+                      boeing.com>              Subject:  RE: adding
+recursion to AP 210 rule structure
+
+
+                      09/25/2003 12:01
+
+                      PM
+
+
+
+
+
+
+
+
+
+Tom
+
+The datebase attribute was meant to be a attribute defined within a
+standard (or database)
+
+For example
+
+ for each component
+ (max, height, 2.00) 'looking for heights over 2.00 inches
+
+the height (yes, I know, not the exact AP210 attribute) would be the
+database or standard attribute
+
+we could handle these as strings if required - but I am not certain that
+is the correct way to do it
+
+Greg
+
+-----Original Message-----
+From: trthurma@rockwellcollins.com [mailto:trthurma@rockwellcollins.com]
+Sent: Thursday, September 25, 2003 9:49 AM
+To: Smith, Gregory L
+Cc: Manas.Bajaj@angostura.marc.gatech.edu; thurman.tom@mcleod.net
+Subject: RE: adding recursion to AP 210 rule structure
+
+
+
+ok,
+I got the recursion structure validated as to where we were going to put
+that.
+
+What about the requirement for Parameter to be a database attribute?
+Please provide an example.
+
+Tom
+
+
+
+
+                      "Smith, Gregory
+
+                      L"                       To:
+<trthurma@rockwellcollins.com>, <Manas.Bajaj@angostura.marc.gatech.edu>,
+
+                      <gregory.l.smith@         <thurman.tom@mcleod.net>
+
+                      boeing.com>              cc:
+
+                                               Subject:  RE: adding
+recursion to AP 210 rule structure
+                      09/24/2003 10:34
+
+                      PM
+
+
+
+
+
+
+
+
+
+sure, how about Max( Min(4, 5), Min(4, 3) )
+
+where the parameters to Max are two Min function calls
+
+and the parameters to Min are two integers.
+
+Greg
+
+-----Original Message-----
+From: trthurma@rockwellcollins.com [mailto:trthurma@rockwellcollins.com]
+Sent: Wednesday, September 24, 2003 4:05 PM
+To: Smith, Gregory L; Manas.Bajaj@angostura.marc.gatech.edu;
+thurman.tom@mcleod.net
+Subject: adding recursion to AP 210 rule structure
+
+
+Based on the powerpoint slide of the generic rule template,
+here is where the recursion should go.
+My question is that it doesn't seem to make sense for a parameter to be
+a
+function call.
+
+here is the express:
+
+  ENTITY rule_simple_clause
+    SUBTYPE OF (managed_design_object);
+      rule_function : rule_function;
+      parameter     : SET[1:?] OF parameter_assignment;
+  END_ENTITY; -- rule_simple_clause
+
+This express assigns a specific value to the declared parameters for the
+function.
+Here is the express for the calling complex clause (only used for
+premise)
+
+ENTITY rule_complex_clause
+    SUBTYPE OF (managed_design_object);
+      conjunctive_content : SET[1:?] OF rule_simple_clause;
+      identifier          : STRING;
+    UNIQUE
+      ur1 : identifier;
+  END_ENTITY; -- rule_complex_clause
+
+I need to know how the recursion stops before going any further.
+which is to say, where is the parameter_assignment for the termination
+of
+the recursion.
+
+I will double check the bnf.  maybe that will provide a clue.
+Tom
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

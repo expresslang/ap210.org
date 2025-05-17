@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Interconnect_module_component</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.442 Interconnect_module_component</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+>An Interconnect_module_component is a type of <A
+CLASS="INTERNALREF"
+HREF="e_34.htm"
+>Assembly_component</A
+>.
+An Interconnect_module_component is an instance of an Interconnect_module_usage_view.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The Interconnect_module_component can be, for example, a circuit board in an assembly.  
+Alternatively, it could be the substrate for a multi-chip module.
+This entity is included specifically so that the assembly design definition can be queried 
+directly to determine which component in the assembly is the substrate.  The 
+Interconnect_module_component is likely the target of connectivity 
+requirement information as allocated to various components.  
+An Interconnect_module_component does not include all the internal details of the 
+design of the <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+>.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>usage_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.442.1 usage_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The usage_definition specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_458.htm"
+>Interconnect_module_usage_view</A
+> for the Interconnect_module_component.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The usage_view specifies the definitions of the terminals and other interface elements of the <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+>.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>An Interconnect_module_component shall not be mounted onto itself.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY interconnect_module_component
+  SUPERTYPE OF(interconnect_module_macro_component)
+  SUBTYPE OF (physical_component);
+    SELF\assembly_component.usage_definition : interconnect_module_usage_view;
+END_ENTITY; -- interconnect_module_component
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

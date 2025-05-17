@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Singular_dimension_representation</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.829 Singular_dimension_representation</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Singular_dimension_representation is a type of <A
+CLASS="INTERNALREF"
+HREF="e_809.htm"
+>Shape_dimension_representation</A
+> that explicitly describes 
+one or more <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+> with a single value. A Singular_dimension_representation is one of a <A
+CLASS="INTERNALREF"
+HREF="e_541.htm"
+>Maximum_dimension_representation</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_547.htm"
+>Minimum_dimension_representation</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_899.htm"
+>Theoretically_exact_dimension_representation</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>dimension_value</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.829.1 dimension_value</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The dimension_value specifies the <A
+CLASS="INTERNALREF"
+HREF="e_211.htm"
+>Data_element</A
+> that describes the <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+> for which the Singular_dimension_representation is a representation.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY singular_dimension_representation
+  ABSTRACT SUPERTYPE OF (ONEOF (
+      theoretically_exact_dimension_representation,
+      maximum_dimension_representation,
+	minimum_dimension_representation))
+  SUBTYPE OF (shape_dimension_representation);
+    dimension_value : data_element;
+END_ENTITY; -- singular_dimension_representation
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

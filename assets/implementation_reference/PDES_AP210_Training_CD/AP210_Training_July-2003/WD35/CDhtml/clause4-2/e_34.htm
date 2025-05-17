@@ -1,0 +1,332 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Assembly_component</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.34 Assembly_component</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+An Assembly_component is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. An Assembly_component may be one of an <A
+CLASS="INTERNALREF"
+HREF="e_44.htm"
+>Assembly_module_component</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_61.htm"
+>Bare_die_component</A
+>, an <A
+CLASS="INTERNALREF"
+HREF="e_435.htm"
+>Interconnect_module_component</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_483.htm"
+>Laminate_component</A
+>,
+a <A
+CLASS="INTERNALREF"
+HREF="e_574.htm"
+>Packaged_component</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_721.htm"
+>Printed_component</A
+>, or additionally may be an <A
+CLASS="INTERNALREF"
+HREF="e_40.htm"
+>Assembly_group_component</A
+>, or 
+additionally may be a <A
+CLASS="INTERNALREF"
+HREF="e_821.htm"
+>Shield</A
+>, or additionally may be a <A
+CLASS="INTERNALREF"
+HREF="e_900.htm"
+>Thermal_component</A
+>, or 
+additionally may be a <A
+CLASS="INTERNALREF"
+HREF="e_777.htm"
+>Routed_interconnect_component</A
+>, or 
+additionally may be an <A
+CLASS="INTERNALREF"
+HREF="e_462.htm"
+>Interface_component</A
+>. An 
+Assembly_component is the occurrence of a <A
+CLASS="INTERNALREF"
+HREF="e_664.htm"
+>Physical_unit</A
+> or <A
+CLASS="INTERNALREF"
+HREF="e_624.htm"
+>Part_template</A
+> in an 
+assembly. An Assembly_component 
+may inclusage_definitione additional product data over that defined in Physical_unit or Part_template.  An Assembly_component that is no other type is intended to be an instance of a Physical_unit and not of a Part_template.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>ac</SPAN
+> illustrates a detail of an assembly drawing that shows the Assembly_component in relation to a cross-sectional view of the Interconnect_module_component. Figure  <SPAN
+CLASS="INTERNALREF"
+>pusage_definitionv</SPAN
+> illustrates a complete assembly showing multiple Assembly_component.</DIV
+><DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>An Assembly_component may be assembled onto an Interconnect_module_component in the realization of an <A
+CLASS="INTERNALREF"
+HREF="e_43.htm"
+>Assembly_module</A
+>. An Assembly_component may be an occurrence of an <A
+CLASS="INTERNALREF"
+HREF="e_51.htm"
+>Assembly_module_usage_view</A
+>. An Assembly_component may be an occurrence of an <A
+CLASS="INTERNALREF"
+HREF="e_458.htm"
+>Interconnect_module_usage_view</A
+>. For the purposes of this model, the current interpretation is to treat an embedded component as a Packaged_component. The <A
+CLASS="INTERNALREF"
+HREF="e_438.htm"
+>Interconnect_module_component_terminal</A
+> that mates with the <A
+CLASS="INTERNALREF"
+HREF="e_575.htm"
+>Packaged_component_join_terminal</A
+> of the embedded component is not visible when the Assembly_module is assembled, but the Interconnect_module_component_terminal is still logically the interface to the Interconnect_module_component for the embedded component.
+
+The manufacturing view supports the fact that the embedded component is installed during part of the sequential manufacturing process for the <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+>.</LI
+><LI
+CLASS="NOTEINGROUP"
+>An Assembly_component may be a floor-planning symbol if the definition is an Assembly_module or an Interconnect_module.
+If the Assembly_component is used in this manner, then the actual components will be inclusage_definitioned in the design in a later
+iteration that results from inclusage_definitioning the detailed components from the Assembly_module or Interconnect_module using a 
+computer processor. The processor may choose to support traceability by using the <A
+CLASS="INTERNALREF"
+HREF="e_126.htm"
+>Component_make_from_relationship</A
+> to specify what component of the Assembly_module or Interconnect_module
+corresponds to the component in the design.</LI
+><LI
+CLASS="NOTEINGROUP"
+>Parameters may be assigned to Assembly_component by the Planned_characteristic object through the Assembly_requirements_allocation.</LI
+></OL
+></DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>assembly</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>component_2d_shape</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>component_3d_shape</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>usage_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.34.1 assembly</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The assembly is an inverse relationship that specifies that the existence of the Assembly_component is dependent on the existence of 
+the <A
+CLASS="INTERNALREF"
+HREF="e_39.htm"
+>Assembly_composition_relationship</A
+>
+that specifies the Assembly_component as its component. There shall be one or more 
+Assembly_composition_relationship for an Assembly_component.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: This cardinality supports multiple versions of the design, with the same member of Assembly_component.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.34.2 component_2d_shape</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The component_2d_shape is an inverse relationship that specifies that there shall be no more than one <A
+CLASS="INTERNALREF"
+HREF="e_35.htm"
+>Assembly_component_2d_shape</A
+> that 
+specifies the Assembly_component as its shape_characterized_component. 
+The component_2d_shape need not be supplied for a particular Assembly_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.34.3 component_3d_shape</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The component_3d_shape is an inverse relationship that specifies that there shall be no
+more than one <A
+CLASS="INTERNALREF"
+HREF="e_36.htm"
+>Assembly_component_3d_shape</A
+> that 
+specifies the Assembly_component as its shape_characterized_component. 
+The component_3d_shape need not be supplied for a particular Assembly_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.34.4 usage_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The usage_definition specifies either a <A
+CLASS="INTERNALREF"
+HREF="e_624.htm"
+>Part_template</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_664.htm"
+>Physical_unit</A
+> for the Assembly_component.  The usage_definition need not be supplied for an Assembly_component.
+The usage_definition is optional because some types of Assembly_component are defined through another mechanism.  The types of Assembly_component for which usage_definition is required inclusage_definitione the explicit statement of that requirement in their definition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>If the usage_definition exists, then only a Footprint_occurrence shall reference a Footprint_definition and only a Padstack_occurrence shall reference a Padstack_definition.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>All members of assembly shall be for the same product.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR3: </SPAN
+>No more than one member of assembly shall be for a version of the product.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR4: </SPAN
+>An Assembly_component shall not be both a Laminate_component and an Interface_component.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY assembly_component
+  ABSTRACT SUPERTYPE OF (((ONEOF (
+      physical_component,
+      printed_component,
+      laminate_component) 
+      ANDOR shield) 
+      ANDOR thermal_component)
+      ANDOR assembly_group_component)
+  SUBTYPE OF (managed_design_object);
+    usage_definition : OPTIONAL physical_unit_or_part_template_or_fp_or_pd;
+  INVERSE
+    assembly                   : SET [1:?] OF assembly_composition_relationship FOR 
+                                 component;
+    component_2d_shape         : SET [0:1] OF assembly_component_2d_shape FOR 
+                                 shape_characterized_component;
+    component_3d_shape         : SET [0:1] OF assembly_component_3d_shape FOR 
+                                 shape_characterized_component;
+    component_non_planar_shape : SET [0:1] OF assembly_component_non_planar_shape FOR 
+                                 shape_characterized_component;
+WHERE
+  WR1: NOT(EXISTS(usage_definition)) OR
+       (
+       (('AP210_ARM.FOOTPRINT_OCCURRENCE' IN TYPEOF(SELF)) AND 
+        ('AP210_ARM.FOOTPRINT_DEFINITION' IN TYPEOF(usage_definition))) OR
+        (NOT ('AP210_ARM.FOOTPRINT_OCCURRENCE' IN TYPEOF(SELF)) 
+         AND NOT('AP210_ARM.FOOTPRINT_DEFINITION' IN TYPEOF(usage_definition))) OR
+        (('AP210_ARM.PADSTACK_OCCURRENCE' IN TYPEOF(SELF)) AND 
+          ('AP210_ARM.PADSTACK_DEFINITION' IN TYPEOF(usage_definition))) OR
+        (NOT ('AP210_ARM.PADSTACK_OCCURRENCE' IN TYPEOF(SELF)) AND 
+          NOT('AP210_ARM.PADSTACK_DEFINITION' IN TYPEOF(usage_definition)))
+       );
+END_ENTITY; -- assembly_component
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

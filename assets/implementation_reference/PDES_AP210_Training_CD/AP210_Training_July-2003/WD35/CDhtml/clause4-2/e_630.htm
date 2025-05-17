@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Part_template_or_physical_unit_2d_shape_representation_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.626 Part_template_or_physical_unit_2d_shape_representation_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Part_template_or_physical_unit_2d_shape_representation_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>principal_part_shape</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>related_part_shape</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.626.1 principal_part_shape</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The principal_part_shape specifies the role of a <A
+CLASS="INTERNALREF"
+HREF="e_633.htm"
+>Part_template_planar_shape</A
+> or a <A
+CLASS="INTERNALREF"
+HREF=" Physical_unit_planar_shape.htm"
+> Physical_unit_planar_shape</A
+> for the Part_template_or_physical_unit_2d_shape_representation_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.626.2 related_part_shape</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The related_part_shape specifies the role of a <A
+CLASS="INTERNALREF"
+HREF="e_633.htm"
+>Part_template_planar_shape</A
+> or a <A
+CLASS="INTERNALREF"
+HREF=" Physical_unit_planar_shape.htm"
+> Physical_unit_planar_shape</A
+> for the Part_template_or_physical_unit_2d_shape_representation_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of principal_part_shape and related_part_shape shall be unique within a population of Part_template_or_physical_unit_2d_shape_representation_relationship.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The principal_part_shape shall not be the related_part_shape within a population of Part_template_or_physical_unit_2d_shape_representation_relationship.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The principal_part_shape and related_part_shape shall be for the same definition or item and exist in the same  <A
+CLASS="INTERNALREF"
+HREF="e_86.htm"
+>Cartesian_coordinate_system</A
+> within a population of Part_template_or_physical_unit_2d_shape_representation_relationship.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY part_template_or_physical_unit_2d_shape_representation_relationship 
+  SUBTYPE OF (managed_design_object);
+    principal_part_shape  : part_template_or_physical_unit_2d_shape_select;
+    related_part_shape    : part_template_or_physical_unit_2d_shape_select;
+UNIQUE
+ ur1: principal_part_shape, related_part_shape;
+WHERE
+ WR1: principal_part_shape :&#60;&#62;: related_part_shape;
+(*
+ WR2: principal_part_shape and related_part_shape shall be for the same definition
+or item and exist in the same Cartesian_coordinate_system.
+*)
+END_ENTITY; -- part_template_or_physical_unit_2d_-
+            -- shape_representation_relationship 
+
+--tt tc1 correction added
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

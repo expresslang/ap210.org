@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Ee_material</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.318 Ee_material</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Ee_material is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. An Ee_material is the tangible nature of a manufactured or natural product.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>material_name</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>registration_document</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.318.1 material_name</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The material_name specifies the descriptive label that is registered for the Ee_material in the 
+registration_document, and that represents the name of the Ee_material.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.318.2 registration_document</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The registration_document specifies a dictionary of registered materials in which the 
+material_name is found.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.318.3 electrical_conductivity_classification</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The electrical_conductivity_classification specifies either conductive, non_conductive, resistive, 
+semi_conductive. The electrical_conductivity_classification need not be specified for a particular 
+Ee_material.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.318.4 optical_conductivity_classification</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The optical_conductivity_classification specifies either conductive, non_conductive, resistive, or 
+semi_conductive. The optical_conductivity_classification need not be specified for a particular 
+Ee_material.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.318.5 thermal_conductivity_classification</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The thermal_conductivity_classification specifies either conductive, non_conductive, resistive, or 
+semi_conductive. The thermal_conductivity_classification need not be specified for a particular 
+Ee_material.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of material_name and registration_document shall be unique within a population of 
+Ee_materials.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>At least one of the following shall be provided:
+electrical_conductivity_classification,
+optical_conductivity_classification,
+thermal_conductivity_classification.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY ee_material
+  SUBTYPE OF (managed_design_object);
+    material_name                          : STRING;
+-- tt tc1 wd8 deleted
+--  material_description                   : OPTIONAL nomenclature;
+--  coordinated_material_property          : OPTIONAL SET [1:?] OF 
+--                                           coordinated_characteristic;
+    electrical_conductivity_classification : OPTIONAL material_conductivity_classification;
+    optical_conductivity_classification    : OPTIONAL material_conductivity_classification;
+    registration_document                  : ee_document;
+    thermal_conductivity_classification    : OPTIONAL material_conductivity_classification;
+UNIQUE
+  ur1: material_name, registration_document;
+END_ENTITY; -- ee_material
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

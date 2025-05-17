@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Component_terminal_to_pca_terminal_assignment</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.142 Component_terminal_to_pca_terminal_assignment</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Component_terminal_to_pca_terminal_assignment is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A 
+Component_terminal_to_pca_terminal_assignment 
+is the relationship between a <A
+CLASS="INTERNALREF"
+HREF="e_640.htm"
+>Pca_terminal</A
+> and one of an <A
+CLASS="INTERNALREF"
+HREF="e_45.htm"
+>Assembly_module_component_terminal</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_125.htm"
+>Component_interface_terminal</A
+>, or an <A
+CLASS="INTERNALREF"
+HREF="e_438.htm"
+>Interconnect_module_component_terminal</A
+>, to provide 
+traceability from the data 
+in the design view to the data in the usage view for the design organization for archival purposes.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>assigned_terminal</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>usage_view_terminal</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.142.1 assigned_terminal</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The assigned_terminal specifies one of an <A
+CLASS="INTERNALREF"
+HREF="e_45.htm"
+>Assembly_module_component_terminal</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_125.htm"
+>Component_interface_terminal</A
+>, or an <A
+CLASS="INTERNALREF"
+HREF="e_438.htm"
+>Interconnect_module_component_terminal</A
+> for the 
+Component_terminal_to_pca_terminal_assignment.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.142.2 usage_view_terminal</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The usage_view_terminal specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_640.htm"
+>Pca_terminal</A
+> for the 
+Component_terminal_to_pca_terminal_assignment.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The usage_view_terminal shall be unique within a population of 
+Component_terminal_to_pca_terminal_assignments.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY component_terminal_to_pca_terminal_assignment
+  SUBTYPE OF (component_feature_to_physical_usage_view_assignment);
+DERIVE
+               usage_view_terminal : pca_terminal :=
+    SELF\component_feature_to_physical_usage_view_assignment.
+    defined_part_feature; 
+                 assigned_terminal : pca_interface_select :=
+    SELF\component_feature_to_physical_usage_view_assignment.
+    assigned_design_object;
+  UNIQUE
+    ur1 : usage_view_terminal;
+END_ENTITY; -- component_terminal_to_pca_terminal_assignment
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

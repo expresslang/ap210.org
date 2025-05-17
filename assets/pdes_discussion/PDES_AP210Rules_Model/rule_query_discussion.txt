@@ -1,0 +1,24 @@
+created: 10/9/2003
+comments:
+During review of difficulty with current rules model, it occurred to me that part of
+the problem is that there is a query function that executes first and
+puts data up on the 'fact' instance data set.
+I see a Rule_mapping_function as mapping instance data in compliance with schema 1 to
+instance data in compliance with schema 2.
+
+So the question is: do you want to consider a Rule_function that is called a Rule_query_function or
+a Rule_mapping_function?
+
+It looks like the rules have the need for a query.
+XSLT, Express-X and SQL are examples of implementations of queries, and should we define a UoF that would allow
+you to specify what the query is.  It is easily as complex as the rules and maybe more so.
+
+There is an argument that it could be included in the rules UoF.  
+We think it is better to have an independent UoF. 
+It is not within the scope of the rules uof to do the query because it has independent value.
+
+source domain :--> query :-> target domain == view 
+now the view includes the reference path parts.
+
+for existing rules UoF, every cell would be a name value pair??
+

@@ -1,0 +1,202 @@
+SCHEMA limd;
+ENTITY Dependent_thermal_isolation_removal_component
+    SUBTYPE OF (Material_removal_structured_component);
+    derived_from : Dependent_thermal_isolation_removal_template;
+  DERIVE
+    associated_land : Land := land_get_associated_land_for_thermal_removal(SELF);
+    WHERE
+      WR1 : associated_land\Land.derived_from :=:
+            derived_from\Dependent_thermal_isolation_removal_template.associated_item;
+END_ENTITY;
+ENTITY Dependent_thermal_isolation_removal_template;
+   associated_item : Land_template;
+END_ENTITY;
+
+ENTITY Land_template;
+ id : STRING;
+END_ENTITY;
+ 
+ENTITY  Material_removal_structured_component
+        SUBTYPE OF (Structured_layout_component);
+END_ENTITY;
+
+ENTITY Structured_layout_component_sub_assembly_relationship;
+      relating_view : Structured_layout_component;
+      related_view : Assembly_component;
+      first_location : Template_location_in_structured_template;
+END_ENTITY;
+
+ENTITY Structured_layout_component
+     SUBTYPE OF (Assembly_component);
+END_ENTITY;
+
+ENTITY Assembly_component;
+id: STRING;
+END_ENTITY;
+
+ENTITY Land
+     SUBTYPE OF (Stratum_feature_template_component);
+     derived_from : Land_template;
+END_ENTITY;
+
+ENTITY Material_removal_laminate_component
+     SUBTYPE OF (Assembly_component);
+  design_intent : SET[1:?] OF stratum_feature_template_component_or_stratum;
+END_ENTITY;
+
+TYPE stratum_feature_template_component_or_stratum = SELECT(
+   Stratum_feature_template_component,
+   Stratum);
+ END_TYPE;
+
+ENTITY Stratum;
+id: STRING;
+END_ENTITY;
+
+ENTITY Stratum_feature;
+id: STRING;
+resident_stratum : Stratum;
+END_ENTITY;
+
+ENTITY Stratum_feature_template_component
+  SUBTYPE OF (Laminate_component);
+  implementation_or_resident_stratum : stratum_feature_or_stratum;
+  resident_stratum : Stratum;
+END_ENTITY;
+
+ TYPE stratum_feature_or_stratum = SELECT(
+   Stratum_feature,
+   Stratum);
+ END_TYPE;
+
+ENTITY Template_location_in_structured_template;
+id: STRING;
+END_ENTITY;
+
+
+ENTITY Laminate_component
+     SUBTYPE OF (Assembly_component);
+END_ENTITY;
+
+ENTITY Footprint_occurrence
+        SUBTYPE OF (Structured_layout_component);
+END_ENTITY;
+
+ENTITY Padstack_occurrence
+        SUBTYPE OF (Structured_layout_component);
+END_ENTITY;
+
+
+FUNCTION land_get_associated_land_for_thermal_removal (
+             input : Dependent_thermal_isolation_removal_component) : Land;
+--limitation of component_mrlc is that only first member is checked to see what stratum it is for.
+--should not be a problem as related mrlc shall be for only one stratum.
+LOCAL
+ assembly_relationships_for_associated_structure : SET OF Structured_layout_component_sub_assembly_relationship := [];
+ assembly_relationship : SET OF Structured_layout_component_sub_assembly_relationship :=
+         bag_to_set(USEDIN(input, 'LIMD.STRUCTURED_LAYOUT_COMPONENT_SUB_ASSEMBLY_RELATIONSHIP.RELATED_VIEW'));
+ associated_structure : Structured_layout_component;
+ component_mrlc : SET OF Material_removal_laminate_component := [];
+ component_relationship : SET OF Structured_layout_component_sub_assembly_relationship :=
+         bag_to_set(USEDIN(input, 'LIMD.STRUCTURED_LAYOUT_COMPONENT_SUB_ASSEMBLY_RELATIONSHIP.RELATING_VIEW'));
+ first_location : Template_location_in_structured_template := assembly_relationship[1]\Structured_layout_component_sub_assembly_relationship.first_location;
+ resident_stratum : stratum := stratum('a');
+ resident_sftc : Stratum_feature_template_component := Stratum_feature_template_component(resident_stratum, resident_stratum) || Laminate_component() || Assembly_component('assembly component');
+ default_land_template : Land_template := Land_template('land template 1');
+ --default_land will cause the associated rule to fail if there is no real land associated with the thermal relief.
+ default_land : Land := Land(default_land_template) || resident_sftc;
+END_LOCAL;
+--determine resident_stratum;
+--critical to just use resident stratum as the individual isolation features might be against different stratum features (different power areas).
+ REPEAT i := 1 TO SIZEOF(component_relationship) BY 1;
+   component_mrlc := component_mrlc + component_relationship[i]\Structured_layout_component_sub_assembly_relationship.related_view;
+ END_REPEAT;
+CASE TRUE OF
+  ('LIMD.STRATUM' IN TYPEOF(component_mrlc[1]\Material_removal_laminate_component.design_intent[1])) : 
+   resident_stratum := component_mrlc[1]\Material_removal_laminate_component.design_intent[1];
+
+  ('LIMD.STRATUM_FEATURE_TEMPLATE_COMPONENT' IN TYPEOF(component_mrlc[1]\Material_removal_laminate_component.design_intent[1])) :
+  BEGIN
+   resident_sftc := component_mrlc[1]\Material_removal_laminate_component.design_intent[1];
+   CASE TRUE OF
+     ('LIMD.STRATUM_FEATURE' IN TYPEOF(resident_sftc\Stratum_feature_template_component.implementation_or_resident_stratum)) :
+     resident_stratum := resident_sftc\Stratum_feature_template_component.implementation_or_resident_stratum\Stratum_feature.resident_stratum;
+     ('LIMD.STRATUM' IN TYPEOF(resident_sftc\Stratum_feature_template_component.implementation_or_resident_stratum)) :
+     resident_stratum := resident_sftc\Stratum_feature_template_component.implementation_or_resident_stratum;
+     OTHERWISE :
+      RETURN(default_land);
+   END_CASE;
+  END;
+  OTHERWISE :
+   RETURN(default_land);
+END_CASE;
+--determine first_location;
+--if there is more than one assembly_relationship return default_land since that is invalid;
+ IF SIZEOF(assembly_relationship) <> 1 THEN RETURN(default_land);
+ END_IF;
+ 
+--determine associated_land;
+--associated land is on same stratum;
+
+   associated_structure := assembly_relationship[1]\Structured_layout_component_sub_assembly_relationship.relating_view;
+   assembly_relationships_for_associated_structure := 
+                   bag_to_set(USEDIN(associated_structure, 'LIMD.STRUCTURED_LAYOUT_COMPONENT_SUB_ASSEMBLY_RELATIONSHIP.RELATING_VIEW')) - assembly_relationship;
+--this assembly relationship is excluded since we are querying for other relationships
+
+CASE TRUE OF
+  ('LIMD.FOOTPRINT_OCCURRENCE' IN TYPEOF(associated_structure)) :
+--if part of footprint then associated_land has same first_location;
+  BEGIN   
+   REPEAT i := 1 TO SIZEOF(assembly_relationships_for_associated_structure) BY 1;
+    IF ((first_location :=: assembly_relationships_for_associated_structure[i]\Structured_layout_component_sub_assembly_relationship.first_location) AND
+       ('LIMD.LAND' IN TYPEOF(assembly_relationships_for_associated_structure[i]\Structured_layout_component_sub_assembly_relationship.related_view)) AND
+       (assembly_relationships_for_associated_structure[i]\Structured_layout_component_sub_assembly_relationship.related_view\Stratum_feature_template_component.resident_stratum
+            :=: resident_stratum))
+    THEN
+        RETURN(assembly_relationships_for_associated_structure[i]\Structured_layout_component_sub_assembly_relationship.related_view);
+    END_IF;
+   END_REPEAT;
+  --if no land is found return default to ensure rule fails.
+   RETURN(default_land);
+  END;
+  
+     ('LIMD.PADSTACK_OCCURRENCE' IN TYPEOF(associated_structure)) :
+  BEGIN
+   REPEAT i := 1 TO SIZEOF(assembly_relationships_for_associated_structure) BY 1;
+    IF (('LIMD.LAND' IN TYPEOF(assembly_relationships_for_associated_structure[i]\Structured_layout_component_sub_assembly_relationship.related_view)) AND
+        (assembly_relationships_for_associated_structure[i]\Structured_layout_component_sub_assembly_relationship.related_view\Stratum_feature_template_component.resident_stratum
+             :=: resident_stratum))
+    THEN
+        RETURN(assembly_relationships_for_associated_structure[i]\Structured_layout_component_sub_assembly_relationship.related_view);
+     END_IF;
+   END_REPEAT;
+  --if no land is found return default to ensure rule fails.
+   RETURN(default_land);
+  END;
+  
+  OTHERWISE :
+  --if no land is found return default to ensure rule fails.
+   RETURN(default_land);
+END_CASE;
+--should not get here but if so return default to ensure rule fails.
+ RETURN(default_land);
+END_FUNCTION;
+
+  FUNCTION bag_to_set(
+    the_bag : BAG OF GENERIC : intype
+  ) : SET OF GENERIC : intype;
+
+    LOCAL
+      the_set : SET OF GENERIC : intype := [];
+      i       : INTEGER;
+    END_LOCAL;
+
+    IF SIZEOF(the_bag) > 0 THEN
+      REPEAT i := 1 TO HIINDEX(the_bag);
+        the_set := the_set + the_bag[i];
+      END_REPEAT;
+    END_IF;
+    RETURN(the_set);
+  END_FUNCTION;
+
+END_SCHEMA;

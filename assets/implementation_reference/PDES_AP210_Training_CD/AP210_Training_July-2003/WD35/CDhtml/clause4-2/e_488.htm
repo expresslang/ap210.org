@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Laminate_text_component</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.488 Laminate_text_component</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Laminate_text_component is a type of <A
+CLASS="INTERNALREF"
+HREF="e_483.htm"
+>Laminate_component</A
+> that is designed to be interpreted as a single character portion of a text message by a human or by an artificial vision system.
+A Laminate_text_component may be used to help compose a <A
+CLASS="INTERNALREF"
+HREF="e_489.htm"
+>Laminate_text_string_component</A
+> to form a complete message.
+The composition will be defined by an instance of <A
+CLASS="INTERNALREF"
+HREF="e_40.htm"
+>Assembly_group_component</A
+> that relates all necessary members of Laminate_component to compose the message embodied in the instance of Laminate_text_string_component.
+Each Stratum_feature referenced by the stratum_feature_implementation shall be on the same <A
+CLASS="INTERNALREF"
+HREF="e_845.htm"
+>Stratum</A
+>.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>ltc</SPAN
+> illustrates possible arrangements and orientation of the Laminate_text_string_component in the material of the <A
+CLASS="INTERNALREF"
+HREF="e_845.htm"
+>Stratum</A
+>.  The figure includes multiple Laminate_text_component members presenting characters.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>of_character</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>stratum_feature_implementation</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>usage_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.488.1 of_character</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The of_character specifies the message content, a character, for the Laminate_text_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.488.2 stratum_feature_implementation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The stratum_feature_implementation specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_851.htm"
+>Stratum_feature</A
+> for the Laminate_text_component.  There may be more than one Stratum_feature for the Laminate_text_component.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Multiple Stratum_feature may exist in the case that the shape of the character is disjoint, but they are all on the same Stratum.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.488.3 usage_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The usage_definition specifies the <A
+CLASS="INTERNALREF"
+HREF="e_636.htm"
+>Part_text_template</A
+>
+that contains the font definition and associated parameters to be used for the Laminate_text_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY laminate_text_component
+  SUBTYPE OF (laminate_component);
+    of_character                             : STRING (1) FIXED;
+    SELF\assembly_component.usage_definition : part_text_template;
+    stratum_feature_implementation           : SET [1:?] OF stratum_feature;
+END_ENTITY; -- laminate_text_component
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Frozen_assignment</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.394 Frozen_assignment</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Frozen_assignment is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Frozen_assignment is the specification that one or more <A
+CLASS="INTERNALREF"
+HREF="e_395.htm"
+>Frozen_design_object</A
+> must be unchanged during further design activity.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>assigned_approval</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>frozen_item</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.394.1 assigned_approval</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>An assigned_approval specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_314.htm"
+>Ee_approval</A
+> for the Frozen_assignment.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.394.2 frozen_item</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The frozen_item specifies a <A
+CLASS="INTERNALREF"
+HREF="e_395.htm"
+>Frozen_design_object</A
+>
+for which the design is to remain unchanged in the Frozen_assignment. There shall be one or more Frozen_design_object for a Frozen_assignment.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>Each Frozen_assignment shall not be referenced by any Frozen_assignment.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY frozen_assignment
+  SUBTYPE OF (managed_design_object);
+    frozen_item       : SET [1:?] OF frozen_design_object;
+    assigned_approval : ee_approval;
+END_ENTITY; -- frozen_assignment
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

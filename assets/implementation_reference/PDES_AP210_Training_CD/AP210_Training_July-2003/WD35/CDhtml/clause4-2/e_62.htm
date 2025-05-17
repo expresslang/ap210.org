@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Bare_die_component_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.62 Bare_die_component_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Bare_die_component_terminal is a type of <A
+CLASS="INTERNALREF"
+HREF="e_137.htm"
+>Component_terminal</A
+> that is an instance of a <A
+CLASS="INTERNALREF"
+HREF="e_66.htm"
+>Bare_die_terminal</A
+>.  The Bare_die_component_terminal is the area on the bare die instance onto which an enterprise will place bond wires, joining the active areas on the die instance to the next level of assembly.  It is not necessarily the shape of the land itself on the die.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_component</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.62.1 associated_component</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_component specifies the <A
+CLASS="INTERNALREF"
+HREF="e_61.htm"
+>Bare_die_component</A
+> to which the Bare_die_component_terminal provides electrical access.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.62.2 definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The definition specifies the role of the Bare_die_terminal for the Bare_die_component_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY bare_die_component_terminal
+  SUBTYPE OF (physical_component_terminal);
+    SELF\component_feature.definition           : bare_die_terminal;
+    SELF\component_feature.associated_component : bare_die_component;
+END_ENTITY; -- bare_die_component_terminal
+
+--tt tc1wd9 added 
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

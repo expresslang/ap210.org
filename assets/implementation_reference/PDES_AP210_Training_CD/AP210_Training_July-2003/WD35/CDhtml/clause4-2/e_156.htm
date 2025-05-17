@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Composite_feature_locating_position_tolerance</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.157 Composite_feature_locating_position_tolerance</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Composite_feature_locating_position_tolerance is a type of <A
+CLASS="INTERNALREF"
+HREF="e_703.htm"
+>Position_tolerance_with_referenced_datum_system</A
+>. The Composite_feature_locating_position_tolerance is used in conjunction with one to three <A
+CLASS="INTERNALREF"
+HREF="e_157.htm"
+>Composite_feature_relating_position_tolerance</A
+> to apply a less restrictive specification on the location of a <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> group with respect to one or more <A
+CLASS="INTERNALREF"
+HREF="e_214.htm"
+>Datum</A
+> than on the location and orientation of those Shape_element within the group with respect to each other. The <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> defined by the Composite_feature_locating_position_tolerance is located relative to the <A
+CLASS="INTERNALREF"
+HREF="e_236.htm"
+>Datum_system</A
+> the definition of which is specified as the datum_system_definition.</DIV
+></DIV
+><DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>The attribute datum_system_definition is declared in the Geometric_tolerance_with_referenced_datum_system entity of which this entity is a subtype.</LI
+><LI
+CLASS="NOTEINGROUP"
+>Composite positional tolerancing is discussed in 5.4.1 of ASME Y14.5M.</LI
+></OL
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The Composite_feature_locating_position_tolerance shall not also be a Composite_feature_relating_position_tolerance.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>The Composite_feature_locating_position_tolerance shall be specified as the refined_control by exactly one Composite_feature_relating_position_tolerance.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR3: </SPAN
+>The Shape_element that is specified as the toleranced_shape_element shall be a Composite_group_shape_element.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The attribute toleranced_shape_element is declared in the Geometric_tolerance entity of which this entity is a subtype.</DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY composite_feature_locating_position_tolerance
+  SUBTYPE OF (position_tolerance_with_referenced_datum_system);
+END_ENTITY; -- composite_feature_locating_position_tolerance
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>
