@@ -1,0 +1,236 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Analytical_model_port</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.17 Analytical_model_port</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+An Analytical_model_port is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. An Analytical_model_port may be
+an <A
+CLASS="INTERNALREF"
+HREF="e_21.htm"
+>Analytical_model_vector_port</A
+>, or 
+additionally may be a <A
+CLASS="INTERNALREF"
+HREF="e_290.htm"
+>Digital_analytical_model_port</A
+>. An Analytical_model_port describes an interface point for 
+an <A
+CLASS="INTERNALREF"
+HREF="e_14.htm"
+>Analytical_model</A
+>. <DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: These points are the points at which a simulator allows a user to stimulate an instance of an 
+Analytical_model or to evaluate the response of an instance of an Analytical_model to a stimulus in an 
+experiment. In this context, instance includes the reference to the Analytical_model and the literals 
+required for the parameters. A simulator that enforces conservative laws enforces that the energy entering 
+an instance of an Analytical_model must be the same as that leaving the instance of the Analytical_model.
+The structure of the port is not visible merely by accessing this information.  The subtypes of this object 
+provide more visibility into the underlying structure as appropriate.  Members of the subtype tree of
+this object are populated as needed by an application in order to disclose the appropriate level of
+detail.  The specialization in the subtypes of this object occur as a result of being more specific
+about certain properties of the port.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>accessed_analytical_model</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>distributed_properties</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>nominal_signal_flow_direction</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>port_name</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>port_type</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>unit_of_measure</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.17.1 accessed_analytical_model</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The accessed_analytical_model specifies the <A
+CLASS="INTERNALREF"
+HREF="e_14.htm"
+>Analytical_model</A
+> that contains this Analytical_model_port.<DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>Containment in this case explicitly states that if a member of Analytical_model is deleted from the 
+information base then the members of Analytical_model_port that are contained in that member of 
+Analytical_model are also deleted.</LI
+><LI
+CLASS="NOTEINGROUP"
+>Containment in this case also explicitly states that the visibility of the name of an Analytical_model_port is 
+limited to the Analytical_model that is the accessed_analytical_model. </LI
+></OL
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.17.2 distributed_properties</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The distributed_properties specifies that the properties are either a distributed or a lumped element 
+approximation for the Analytical_model_port. A value of TRUE means that the properties are distributed 
+for the Analytical_model_port. A value of FALSE means that the properties are not distributed. <DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Multiple modes should be handled by assigning each mode a different port.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.17.3 nominal_signal_flow_direction</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The nominal_signal_flow_direction specifies either BIDIRECTIONAL, INPUT_DIRECTION, 
+NOT_APPLICABLE, OUTPUT_DIRECTION, or UNKNOWN_DIRECTION for the 
+Analytical_model_port. The nominal_signal_flow_direction need not be specified for a particular 
+Analytical_model_port.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.17.4 port_name</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The port_name specifies the string that represents an identifier, understandable by the end user, 
+for this Analytical_model_port.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The port_name is documented in the reference_document for the <A
+CLASS="INTERNALREF"
+HREF="e_14.htm"
+>Analytical_model</A
+>.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.17.5 port_type</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The port_type specifies one of a boolean_property_type, a logical_property_type, a 
+physical_property_type, a numeric_property_type, or a string_property_type for this Analytical_model_port.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.17.6 unit_of_measure</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The unit_of_measure specifies the string for the descriptive label for the unit of measure of the value of a 
+property associated with the simulated physical phenomenon exchanged through a member of the Analytical_model_port. The unit_of_measure need not be 
+specified for a particular Analytical_model_port. 
+The representation of the unit_of_measure is in accordance with ISO 10303-41.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the port_name and the accessed_analytical_model shall be unique within a population of Analytical_model_port.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY analytical_model_port
+  SUPERTYPE OF (analytical_model_vector_port ANDOR digital_analytical_model_port)
+  SUBTYPE OF (managed_design_object);
+    accessed_analytical_model     : analytical_model;
+    port_name                     : ee_name;
+    unit_of_measure               : OPTIONAL STRING;
+    port_type                     : model_parameter_type;
+    distributed_properties        : BOOLEAN;
+    nominal_signal_flow_direction : OPTIONAL signal_flow_direction;
+  UNIQUE
+    ur1 : port_name, accessed_analytical_model;
+END_ENTITY; -- analytical_model_port
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

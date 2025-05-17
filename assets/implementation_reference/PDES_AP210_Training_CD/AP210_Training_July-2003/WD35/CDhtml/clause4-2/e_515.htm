@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Linear_array_placement_group_component</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.516 Linear_array_placement_group_component</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Linear_array_placement_group_component is a type of a <A
+CLASS="INTERNALREF"
+HREF="e_29.htm"
+>Array_placement_group</A
+>.
+The placement_uncertainty relates to the originating CAD system uncertainty, not a material processing tolerance.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>element</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>initial_node_positive_x_displacement</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>terminus_node_positive_x_displacement</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.516.1 element</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The element specifies the role of an <A
+CLASS="INTERNALREF"
+HREF="e_38.htm"
+>Assembly_component_placement_link</A
+> for the Linear_array_placement_group_component. There shall be one or more Assembly_component_placement_link for a Linear_array_placement_group_component.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.516.2 initial_node_positive_x_displacement</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The initial_node_positive_x_displacement specifies a <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> for the Linear_array_placement_group_component. The initial_node_positive_x_displacement is the offset in the positive x direction from the local origin of the first element of the array.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.516.3 terminus_node_positive_x_displacement</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The terminus_node_positive_x_displacement specifies a <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> for the Linear_array_placement_group_component.  The terminun_node_positive_x_displacement is the offset in the positive x direction of the last element of the array.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY linear_array_placement_group_component
+  SUBTYPE OF (array_placement_group);
+  element : SET [1:?] OF assembly_component_placement_link;
+  initial_node_positive_x_displacement : length_data_element;
+  terminus_node_positive_x_displacement : length_data_element;
+  location_uncertainty : length_data_element;
+END_ENTITY; -- linear_array_placement_group_component 
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

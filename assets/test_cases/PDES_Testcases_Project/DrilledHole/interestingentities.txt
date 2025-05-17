@@ -1,0 +1,46 @@
+#153=PROPERTY_DEFINITION_REPRESENTATION(#136,#127);
+#136=PROPERTY_DEFINITION('','',#65);
+#65=PASSAGE_TECHNOLOGY('156 mil non-plated hole',
+'default unsupported passage definition',#206,.F.);
+/* Drilled hole */
+#127=REPRESENTATION('physical characteristics representation',(#249,#132),
+#267);
+/* Drilled hole description of passage */
+#249=DESCRIPTIVE_REPRESENTATION_ITEM('plated passage','false');
+/* Drilled hole radius */
+#132=(
+LENGTH_MEASURE_WITH_UNIT()
+MEASURE_REPRESENTATION_ITEM()
+MEASURE_WITH_UNIT(LENGTH_MEASURE(156.),#166)
+REPRESENTATION_ITEM('minimum as finished passage extent')
+);
+#267=REPRESENTATION_CONTEXT('','');
+#129=REPRESENTATION('',(#237),#267);
+#237=AXIS2_PLACEMENT_2D('',#103,#184);
+#184=DIRECTION('',(1.,0.));
+#103=CARTESIAN_POINT('',(0.,0.));
+
+/* Drilled hole location */
+#106=CARTESIAN_POINT('',(-400.,650.));
+#58=CARTESIAN_TRANSFORMATION_OPERATOR_2D('','','',#187,#190,#106,1.);
+#52=MAPPED_ITEM('component assembly 2d position',#49,#58);
+#49=REPRESENTATION_MAP(#242,#116);
+#242=AXIS2_PLACEMENT_2D('origin',#101,$);
+/* Drilled hole */
+#116=GEOMETRICALLY_BOUNDED_2D_WIREFRAME_REPRESENTATION(
+'planar projected shape',(#242,#68),#173);
+#67=CIRCLE('',#243,78.);
+#68=GEOMETRIC_CURVE_SET('',(#67));
+#61=SHAPE_DEFINITION_REPRESENTATION(#203,#116);
+#203=PRODUCT_DEFINITION_SHAPE('','',#214);
+#214=COMPONENT_DEFINITION('','non-plated thru-hole',#117,#262);
+/* Drilled hole NAU0 */
+#64=NEXT_ASSEMBLY_USAGE_OCCURRENCE('','assembly composition','',#247,#214,
+$);
+#247=PHYSICAL_UNIT('','interconnect module',#117,#265);
+#265=PRODUCT_DEFINITION_CONTEXT('physical design',#271,'as designed');
+#246=PHYSICAL_UNIT('','assembly module',#118,#265);
+#117=PRODUCT_DEFINITION_FORMATION('1','',#119);
+#119=PRODUCT('ATX_interconnect','','',(#269));
+#269=PRODUCT_CONTEXT('',#271,'mechanical');
+

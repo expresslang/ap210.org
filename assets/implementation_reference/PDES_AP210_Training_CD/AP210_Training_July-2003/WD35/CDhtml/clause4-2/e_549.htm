@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Model_parameter</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.549 Model_parameter</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Model_parameter is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.  A Model_parameter is a formally declared variable of the <A
+CLASS="INTERNALREF"
+HREF="e_14.htm"
+>Analytical_model</A
+> provided for an external application to populate at execution time in a computing environment.  The base type of the variable is defined by the base type of the default_value or valid_range data.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: In Spice, temperature is a Model_parameter that may be set at the execution time.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>default_value</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>reference_document</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>type_name</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>unit_of_measure</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>valid_range</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.549.1 default_value</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The default_value specifies either a <A
+CLASS="INTERNALREF"
+HREF="e_98.htm"
+>Characteristic</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_197.htm"
+>Coordinated_characteristic</A
+> for the parameter.
+The default_value need not be specified for a particular Model_parameter.
+When a collection of data types needs to be defined, so that an instance of the collection may be referenced, the Coordinated_characteristic is used. The <A
+CLASS="INTERNALREF"
+HREF="e_367.htm"
+>External_definition</A
+> specifies the reference_document to define the semantics of the collection.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.549.2 reference_document</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The reference_document specifies either an <A
+CLASS="INTERNALREF"
+HREF="e_316.htm"
+>Ee_document</A
+> or an identifier for the standard document that contains the reference for the Model_parameter.  The reference_document shall define the mapping between the parameter_type string values and the semantics to be applied by a simulator, except for the case of physical_property_type which is predefined in this part of ISO 10303.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.549.3 type_name</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The type_name specifies the string used as the human-interpretable type name for the Model_parameter.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.549.4 unit_of_measure</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The unit_of_measure specifies the string used as the descriptive label for the unit of measure associated 
+with the Model_parameter. The unit_of_measure need not be specified for a particular Model_parameter. 
+The representation of units described in ISO 10303-41 shall be used.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.549.5 valid_range</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The valid_range specifies the <A
+CLASS="INTERNALREF"
+HREF="e_197.htm"
+>Coordinated_characteristic</A
+> of the Model_parameter. The valid_range need not be specified 
+for a particular Model_parameter. There may be more than one Coordinated_characteristic for a Model_parameter. The 
+valid_ranges need not be contiguous.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The base units of the valid_range and default_value are the same type.</DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the reference_document and the type_name shall be unique within a population of 
+Model_parameter.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY model_parameter
+  SUPERTYPE OF (datum_difference_based_model_parameter)
+  SUBTYPE OF (managed_design_object);
+    type_name          : STRING;
+    unit_of_measure    : OPTIONAL STRING;
+    reference_document : ee_document;
+    valid_range        : OPTIONAL SET [1:?] OF coordinated_characteristic;
+    default_value      : OPTIONAL scalar_or_coordinated_characteristics;
+UNIQUE
+  ur1: type_name, reference_document;
+END_ENTITY; -- model_parameter
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

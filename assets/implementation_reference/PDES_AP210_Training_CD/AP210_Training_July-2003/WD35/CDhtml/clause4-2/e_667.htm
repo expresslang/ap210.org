@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Physical_unit_design_view</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.667 Physical_unit_design_view</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Physical_unit_design_view is a type of <A
+CLASS="INTERNALREF"
+HREF="e_664.htm"
+>Physical_unit</A
+>. A 
+Physical_unit_design_view may be one or both of an <A
+CLASS="INTERNALREF"
+HREF="e_43.htm"
+>Assembly_module</A
+> or an <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+>. A Physical_unit_design_view shall fully describe a specifically 
+designed item in sufficient detail to permit production of that item in a manufacturing process and analysis of that item's response to a simulated environment in a computer based experimental environment.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>pudv</SPAN
+> illustrates an assembly design view.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>usage_view</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.667.1 usage_view</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The usage_view specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_672.htm"
+>Physical_unit_usage_view</A
+> for the Physical_unit_design_view. The usage_view provides 
+sufficient detail to allow the <A
+CLASS="INTERNALREF"
+HREF="e_664.htm"
+>Physical_unit</A
+> to be utilized in its 
+next assembly, but does not provide sufficient detail to allow reproduction of the Physical_unit. The 
+usage_view specifies the features visible in the next assembly and the terminals of the Physical_unit, if 
+there are any.  The usage_view shall not be supplied for the Layout_macro_definition but shall be supplied for all other types of
+Physical_unit_design_view.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY physical_unit_design_view
+--tt tc1 wd11 modified
+  SUPERTYPE OF (ONEOF(assembly_module, 
+                      interconnect_module))
+  SUBTYPE OF (physical_unit);
+    usage_view : OPTIONAL physical_unit_usage_view;
+WHERE
+ WR1: ('AP210_ARM.LAYOUT_MACRO_DEFINITION' IN TYPEOF(SELF)) OR
+      EXISTS(usage_view);
+END_ENTITY; -- physical_unit_design_view
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

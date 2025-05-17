@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Requirement_composition</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.770 Requirement_composition</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Requirement_composition is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Requirement_composition helps to compose an aggregation of <A
+CLASS="INTERNALREF"
+HREF="e_330.htm"
+>Ee_requirement_occurrence</A
+> into a group in order to construct a requirements structure.<DIV
+CLASS="EXAMPLEGROUP"
+><P
+>EXAMPLES:</P
+><OL
+><LI
+CLASS="EXAMPLEINGROUP"
+>A requirements table is a typical example of a requirements structure.</LI
+><LI
+CLASS="EXAMPLEINGROUP"
+>A Requirement_composition would be used to convey an aggregate requirement that is the result of combining two requirements.</LI
+></OL
+></DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>composition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>element</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.770.1 composition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The composition specifies the <A
+CLASS="INTERNALREF"
+HREF="e_772.htm"
+>Requirement_group_occurrence</A
+> for the aggregation for the Requirement_composition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.770.2 element</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The element specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_330.htm"
+>Ee_requirement_occurrence</A
+> for the Requirement_composition. There shall be one or more Ee_requirement_occurrence for a Requirement_composition.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY requirement_composition
+  SUBTYPE OF (managed_design_object);
+    element     : SET [1:?] OF ee_requirement_occurrence;
+    composition : requirement_group_occurrence;
+END_ENTITY; -- requirement_composition
+
+--tt tc1 wd9 added
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

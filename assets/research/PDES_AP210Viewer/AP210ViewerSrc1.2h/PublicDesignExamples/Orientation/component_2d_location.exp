@@ -1,0 +1,44 @@
+(*
+ * ---------------------------------------------------------------------
+ *  ArmElem: component_2d_location
+ *  AimElem: component_location
+ * ---------------------------------------------------------------------
+ *)
+
+
+(*  If this is a backside mounted component, negate the x value of the first axis vector and build a second axis vector  *)
+
+COMPOSE c2dl : arm::component_2d_location;
+WHEN EXISTS( c2dl.mounting_surface ) AND
+     (c2dl.mounting_surface.definition IS arm::interconnect_module_secondary_surface);
+BEGIN_COMPOSE
+LOCAL
+  cto2d : aim::cartesian_transformation_operator_2d;
+  d1 : aim::direction;
+  d2 : aim::direction;
+END_LOCAL;
+
+  cto2d := get_target( c2dl.transformation );
+    
+  IF NOT EXISTS( cto2d.axis1 )
+  THEN
+    NEW d1;
+    d1.name := '';
+    NEW d1.direction_ratios;
+    d1.direction_ratios += -1.0;
+    d1.direction_ratios += 0.0;
+
+    cto2d.axis1 := d1;
+  ELSE
+    cto2d.axis1.direction_ratios[1] := -cto2d.axis1.direction_ratios[1];
+  END_IF;
+
+  NEW d2;
+  d2.name := '';
+  NEW d2.direction_ratios;
+  d2.direction_ratios += cto2d.axis1.direction_ratios[2];
+  d2.direction_ratios += -cto2d.axis1.direction_ratios[1];
+
+  cto2d.axis2 := d2;
+
+END_COMPOSE;

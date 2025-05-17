@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Altered_package_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.9 Altered_package_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Altered_package_terminal is a type of <A
+CLASS="INTERNALREF"
+HREF="e_591.htm"
+>Package_terminal</A
+>. An Altered_package_terminal is one or more of a <A
+CLASS="INTERNALREF"
+HREF="e_512.htm"
+>Length_trimmed_terminal</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_817.htm"
+>Shape_formed_terminal</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_881.htm"
+>Surface_prepped_terminal</A
+>. An 
+Altered_package_terminal describes a 
+Package_terminal that is the result of a modification process. Material or shape properties are different from the reference terminal.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: The modification process may be performed prior to installing the 
+occurrence of the <A
+CLASS="INTERNALREF"
+HREF="e_580.htm"
+>Packaged_part</A
+> onto a Printed circuit board.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>terminal_to_be_altered</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.9.1 associated_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_definition specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_8.htm"
+>Altered_package</A
+> for the Altered_package_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.9.2 terminal_to_be_altered</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The terminal_to_be_altered specifies the <A
+CLASS="INTERNALREF"
+HREF="e_591.htm"
+>Package_terminal</A
+> that will be modified for the Altered_package_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>A Package_terminal shall not be in the role of terminal_to_be_altered for itself either directly or indirectly.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY altered_package_terminal
+  ABSTRACT SUPERTYPE OF ((shape_formed_terminal ANDOR 
+      surface_prepped_terminal) ANDOR length_trimmed_terminal)
+  SUBTYPE OF (package_terminal);
+    terminal_to_be_altered                  : package_terminal;
+    SELF\part_feature.associated_definition : altered_package;
+END_ENTITY; -- altered_package_terminal
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

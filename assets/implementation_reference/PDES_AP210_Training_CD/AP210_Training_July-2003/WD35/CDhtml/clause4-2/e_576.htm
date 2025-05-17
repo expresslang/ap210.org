@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Packaged_connector</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.587 Packaged_connector</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Packaged_connector is a type of <A
+CLASS="INTERNALREF"
+HREF="e_580.htm"
+>Packaged_part</A
+> whose 
+functionality between certain terminals is defined to be a short by this part of ISO 10303. The short shall be 
+between the interface terminal and the join terminal specified by a member of <A
+CLASS="INTERNALREF"
+HREF="e_579.htm"
+>Packaged_connector_terminal_relationship</A
+>.  The short is a logical abstraction for CAD purposes.  The detailed functional properties of the connector are defined in the connector specification.
+<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: One use for a Packaged_connector is to provide access to the physical network of the printed circuit 
+assembly from an external source.</DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>pc</SPAN
+> illustrates a Packaged_connector and its usage in a design context as a <A
+CLASS="INTERNALREF"
+HREF="e_577.htm"
+>Packaged_connector_component</A
+>.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>characterized_connector_terminal_relationship</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.587.1 characterized_connector_terminal_relationship</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The characterized_connector_terminal_relationship is an inverse relationship that specifies that the 
+existence of the Packaged_connector is dependent on 
+the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_579.htm"
+>Packaged_connector_terminal_relationship</A
+> that specifies the Packaged_connector as its 
+connector. There shall be one or more Packaged_connector_terminal_relationship for a 
+Packaged_connector.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY packaged_connector
+  SUBTYPE OF (packaged_part);
+  INVERSE
+    characterized_connector_terminal_relationship : 
+       SET [1:?] OF packaged_connector_terminal_relationship FOR connector;
+END_ENTITY; -- packaged_connector
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

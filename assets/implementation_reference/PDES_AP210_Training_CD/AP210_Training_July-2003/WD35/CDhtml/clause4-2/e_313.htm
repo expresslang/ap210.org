@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Edge_shape</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.313 Edge_shape</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Edge_shape is a type of <A
+CLASS="INTERNALREF"
+HREF="e_678.htm"
+>Planar_shape</A
+>
+and a type of <A
+CLASS="INTERNALREF"
+HREF="e_372.htm"
+>Feature_shape_definition</A
+>.
+An Edge_shape may be one or more of
+a <A
+CLASS="INTERNALREF"
+HREF="e_69.htm"
+>Bevel_edge_feature_shape</A
+>,
+a <A
+CLASS="INTERNALREF"
+HREF="e_759.htm"
+>Radius_edge_feature_shape</A
+>,
+or a <A
+CLASS="INTERNALREF"
+HREF="e_843.htm"
+>Step_edge_feature_shape</A
+>.
+Edge_shape is provied to describe parametric data necessary to fabricate commonly
+used shapes on segments of interconnect substrates.
+Edge_shape applies to the entire arc length of the feature that is referencing it.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY edge_shape
+  ABSTRACT SUPERTYPE OF (ONEOF (
+      bevel_edge_feature_shape,
+      step_edge_feature_shape,
+      radius_edge_feature_shape))
+  SUBTYPE OF (planar_shape, feature_shape_definition);
+(*
+tt tc1 wd9 deleted
+  local_path_datum : inter_stratum_feature_edge_segment_template;
+*)
+WHERE
+  WR1: SIZEOF(QUERY ( escss &#60;* USEDIN (SELF, 
+      'AP210_ARM.VOLUME_SHAPE_INTERSECTION.SURFACE_INTERSECTION_RESULT')|
+       NOT ('AP210_ARM.EDGE_SEGMENT_CROSS_SECTION' IN TYPEOF (escss))
+         )) = 0;
+END_ENTITY; -- edge_shape
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

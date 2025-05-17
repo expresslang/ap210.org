@@ -1,0 +1,28 @@
+FUNCTION get_category_from_product(
+    input1 : product) : SET OF string;
+--input1 is the product we are interested in.
+--return value is the set of ee_product_category names for that product.
+--example usage: get_category_from_product(#2200);
+--returns ("connector")
+--will not return AP 210 specific categories!
+
+--initialize variables
+    LOCAL
+--get the ee_product_related_product_category that reference this product.
+      eeprpc : BAG OF ee_product_related_product_category := 
+      QUERY( cat <* USEDIN(input1,
+      'AP210_ARM.EE_PRODUCT_RELATED_PRODUCT_CATEGORY.OF_PRODUCT') |
+      cat.reference_document.document_name = "RC SFM Requirements document");
+--The exact name of the reference document will likely change to something more formal.      
+      cats : SET OF string := [];
+    END_LOCAL;
+
+--get the category names
+    REPEAT i := 1 TO SIZEOF(eeprpc) BY 1;
+      cats := cats + eeprpc[i].name
+    END_REPEAT;   
+    RETURN(cats);
+--this function does not yet recurse through the ee_product_category hierarchy since we don't need that
+--for the SFM project
+--it is assumed that each category we are dealing with directly addresses the product.    
+END_FUNCTION; -- get_category_from_product

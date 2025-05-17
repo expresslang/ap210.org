@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Volume_shape_intersection</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.960 Volume_shape_intersection</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Volume_shape_intersection is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Volume_shape_intersection may be one of <A
+CLASS="INTERNALREF"
+HREF="e_311.htm"
+>Edge_segment_cross_section</A
+>, or <A
+CLASS="INTERNALREF"
+HREF="e_716.htm"
+>Pre_defined_perpendicular_datum_plane_symbol_3d_2d_relationship</A
+>
+, or <A
+CLASS="INTERNALREF"
+HREF="e_714.htm"
+>Pre_defined_perpendicular_datum_axis_symbol_3d_2d_relationship</A
+>
+, or <A
+CLASS="INTERNALREF"
+HREF="e_712.htm"
+>Pre_defined_parallel_datum_axis_symbol_3d_2d_relationship</A
+>
+. A Volume_shape_intersection is the projection into two dimensions 
+of a three-dimensional shape based on the intersection of a plane with the three-dimensional shape.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>orientation_intersection_plane</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>planar_shape_origin</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>projected_volume</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>surface_projection_result</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.960.1 orientation_intersection_plane</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The orientation_intersection_plane specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_58.htm"
+>Axis_placement_3d</A
+> for the Volume_shape_intersection.  The Z axis of the Axis_placement_3d shall define the normal of the plane.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.960.2 planar_shape_origin</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The planar_shape_origin specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_57.htm"
+>Axis_placement_2d</A
+> for the Volume_shape_intersection.  The Axis_placement_2d shall define the two dimensional coordinate system.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.960.3 projected_volume</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The projected_volume specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_80.htm"
+>Bound_volume_shape</A
+> for the Volume_shape_intersection.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.960.4 surface_projection</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The surface_intersection_result specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_677.htm"
+>Planar_projected_shape</A
+> for the Volume_shape_intersection.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY volume_shape_intersection
+  SUPERTYPE OF (ONEOF(edge_segment_cross_section,
+pre_defined_perpendicular_datum_plane_symbol_3d_2d_relationship,
+pre_defined_perpendicular_datum_axis_symbol_3d_2d_relationship,
+pre_defined_parallel_datum_axis_symbol_3d_2d_relationship))
+  SUBTYPE OF (managed_design_object);
+    surface_intersection_result    : planar_shape;
+    projected_volume               : bound_volume_shape;
+    orientation_intersection_plane : axis_placement_3d;
+    planar_shape_origin            : axis_placement_2d;
+(*
+WHERE
+   WR1: orientation_intersection_plane in projected_volume;
+   WR2: planar_shape_origin in surface_intersection_result;
+   WR3: The AO instance referenced by surface_intersection_result shall
+        be the AO instance referenced by projected_volume;
+*)
+END_ENTITY; -- volume_shape_intersection
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

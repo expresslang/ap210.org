@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Stratum_feature</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.851 Stratum_feature</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Stratum_feature is a type of <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+>. A Stratum_feature may be either a <A
+CLASS="INTERNALREF"
+HREF="e_170.htm"
+>Conductive_filled_area</A
+> or 
+a <A
+CLASS="INTERNALREF"
+HREF="e_176.htm"
+>Conductor</A
+>, or additionally may be a <A
+CLASS="INTERNALREF"
+HREF="e_375.htm"
+>Fiducial_stratum_feature</A
+>. A Stratum_feature is a shape realized in the material of the <A
+CLASS="INTERNALREF"
+HREF="e_845.htm"
+>Stratum</A
+>.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>sf</SPAN
+> illustrates several types of Stratum_feature.  The Conductors shown are purposely distorted in aspect ratio because Conductors are enclosed shapes.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>feature_of_size</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>name</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>resident_stratum</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.851.1 feature_of_size</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The feature_of_size specifies whether or not the 
+Stratum_feature interfaces with a feature of another product in an assembly context. A value 
+of TRUE indicates that the Stratum_feature interfaces with a feature of another product. A value of FALSE indicates that the 
+Stratum_feature does not interface with a feature of another product.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Certain tolerance information depends on knowledge of a particular feature interfacing with features of a 
+mating product.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.851.2 name</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The name specifies the identifier of the Stratum_feature.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.851.3 resident_stratum</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The resident_stratum specifies the <A
+CLASS="INTERNALREF"
+HREF="e_845.htm"
+>Stratum</A
+> being composed by the Stratum_feature.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the name and the resident_stratum shall be unique within a population of 
+Stratum_features.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY stratum_feature
+  SUPERTYPE OF (ONEOF (conductor,conductive_filled_area) ANDOR 
+      fiducial_stratum_feature)
+  SUBTYPE OF (physical_feature_or_part_template);
+    resident_stratum        : stratum;
+    SELF\shape_element.name : ee_name;
+    feature_of_size         : BOOLEAN;
+  UNIQUE
+    ur1 : name, resident_stratum;
+END_ENTITY; -- stratum_feature
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

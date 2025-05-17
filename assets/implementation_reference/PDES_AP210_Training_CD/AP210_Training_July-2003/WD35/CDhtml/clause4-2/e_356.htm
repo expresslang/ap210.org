@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Evaluated_characteristic</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.356 Evaluated_characteristic</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Evaluated_characteristic is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.  The Evaluated_characteristic provides a mechanism to validate or evaluate a <A
+CLASS="INTERNALREF"
+HREF="e_679.htm"
+>Planned_characteristic</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>planned_product_data</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>product_characterization_data</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>product_data_status</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.356.1 planned_product_data</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The planned_product_data specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_679.htm"
+>Planned_characteristic</A
+> for an Evaluated_characteristic.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.356.2 product_characterization_data</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The product_characterization_data specifies one or more <A
+CLASS="INTERNALREF"
+HREF="e_197.htm"
+>Coordinated_characteristic</A
+> for an Evaluated_characteristic.  The product_characterization_data need not be provided for a specific Evaluated_characteristic.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.356.3 product_data_status</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The product_data_status provides a status of  valid, invalid, not_evaluatable, or  to_be_evaluated for an Evaluated_characteristic.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY evaluated_characteristic
+  SUPERTYPE OF (rule_based_evaluated_characteristic)
+  SUBTYPE OF (managed_design_object);
+    planned_product_data          : planned_characteristic;
+    product_data_status           : evaluation_type;
+    product_characterization_data : OPTIONAL SET [1:?] OF coordinated_characteristic;
+    evaluation_result             : evaluation_result_value;
+END_ENTITY; -- evaluated_characteristic
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

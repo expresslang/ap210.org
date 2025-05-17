@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Assembly_separation_requirement_allocation</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.54 Assembly_separation_requirement_allocation</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+An Assembly_separation_requirement_allocation is a type of <A
+CLASS="INTERNALREF"
+HREF="e_53.htm"
+>Assembly_requirement_allocation</A
+>. An Assembly_separation_requirement_allocation provides for the physical spacing required among components of the assembly.
+The Assembly_separation_requirement_allocation is for the purpose of specifying separation between items based on the <A
+CLASS="INTERNALREF"
+HREF="e_330.htm"
+>Ee_requirement_occurrence</A
+>. <DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Multiple members of this entity may be populated in order to specify all the sets with which a given set 
+will be disjoint, either thermally or electromagnetically.</DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: A typical usage of this AO is to reference a member of <A
+CLASS="INTERNALREF"
+HREF="e_509.htm"
+>Layout_spacing_requirement_occurrence</A
+> as the requirement inherited from Assembly_requirement_allocation.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>disjoint_assignment</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.54.1 disjoint_assignment</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The disjoint_assignment specifies either an <A
+CLASS="INTERNALREF"
+HREF="e_34.htm"
+>Assembly_component</A
+> or a <A
+CLASS="INTERNALREF"
+HREF="e_118.htm"
+>Component_feature</A
+> for the Assembly_separation_requirement_allocation. There
+shall be one or more Assembly_component or Component_feature for the Assembly_separation_requirement_allocation.  The disjoint_assignment shall be applied pairwise.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="INFORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Informal constraints:</P
+><DIV
+CLASS="INFORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>IP1: </SPAN
+>The value of <A
+CLASS="INTERNALREF"
+HREF="e_511.htm"
+>Length_data_element</A
+> shall be specified as a characteristic of the <A
+CLASS="INTERNALREF"
+HREF="e_330.htm"
+>Ee_requirement_occurrence</A
+> from Assembly_requirement_allocation.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY assembly_separation_requirement_allocation
+  SUBTYPE OF (assembly_requirement_allocation);
+    disjoint_assignment : SET [1:?] OF component_or_feature;
+END_ENTITY; -- assembly_separation_requirement_allocation
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

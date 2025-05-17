@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Planar_shape</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.678 Planar_shape</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Planar_shape is a type of <A
+CLASS="INTERNALREF"
+HREF="e_808.htm"
+>Shape_definition</A
+> that lies on a two-dimensional 
+plane.
+A Planar_shape may be one of
+a <A
+CLASS="INTERNALREF"
+HREF="geometrically_bounded_2d_wireframe.htm"
+>geometrically_bounded_2d_wireframe</A
+>,
+a <A
+CLASS="INTERNALREF"
+HREF="shell_based_2d_wireframe.htm"
+>shell_based_2d_wireframe</A
+>,
+an <A
+CLASS="INTERNALREF"
+HREF="edge_based_2d_wireframe.htm"
+>edge_based_2d_wireframe</A
+>,
+or a <A
+CLASS="INTERNALREF"
+HREF="csg_2d_shape.htm"
+>csg_2d_shape</A
+>.
+A Planar_shape may also be either a Planar_projected_shape or a Physical_unit_planar_keepout_shape.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: A Planar_projected_shape is a physical shape, while a Physical_unit_planar_keepout_shape is a keepout region constraint shape.
+The Application Object name for Planar_projected_shape is consistent with the previous edition of this standard.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY planar_shape 
+  ABSTRACT SUPERTYPE OF (ONEOF(
+   geometrically_bounded_2d_wireframe,
+   shell_based_2d_wireframe,
+   edge_based_2d_wireframe,
+   csg_2d_shape ) ANDOR
+   (ONEOF(planar_projected_shape,
+    physical_unit_planar_keepout_shape)))
+     SUBTYPE OF (shape_definition); 
+ WHERE
+     WR1 : SELF\shape_definition.geometric_context.dimensionality 
+                                                       = two_dimensional;
+END_ENTITY; -- planar_shape
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

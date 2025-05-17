@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Date_and_time</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.213 Date_and_time</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Date_and_time is a type of <A
+CLASS="INTERNALREF"
+HREF="e_212.htm"
+>Date</A
+> that includes the clock time 
+together with the calendar Date. Resolution to the second is provided by this object.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>hour</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>minute</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>second</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>time_zone</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.213.1 hour</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The hour specifies the integer for the period of clock time consisting of sixty minutes, for the 
+Date_and_time.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.213.2 minute</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The minute specifies the integer for the period of clock time consisting of sixty seconds, for the 
+Date_and_time.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.213.3 second</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The second specifies the integer for the second portion of the clock time for the Date_and_time.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.213.4 time_zone</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The time_zone specifies the integer number of hours that the local time is offset from coordinated universal 
+time, and the direction of the offset, for the Date_and_time.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY date_and_time
+  SUBTYPE OF (date);
+    hour      : INTEGER;
+    minute    : INTEGER;
+    second    : INTEGER;
+    time_zone : INTEGER;
+-- tt tc1 wd9 added
+    time_zone_sense : ahead_or_behind;
+END_ENTITY; -- date_and_time
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

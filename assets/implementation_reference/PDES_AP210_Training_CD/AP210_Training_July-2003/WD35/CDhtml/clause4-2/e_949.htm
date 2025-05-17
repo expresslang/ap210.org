@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Via_and_contact_size_dependent_non_functional_land</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.949 Via_and_contact_size_dependent_non_functional_land</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Via_and_contact_size_dependent_non_functional_land is a type of <A
+CLASS="INTERNALREF"
+HREF="e_563.htm"
+>Non_functional_land</A
+> whose shape is dependent on a <A
+CLASS="INTERNALREF"
+HREF="e_947.htm"
+>Via</A
+> as well as the size of a <A
+CLASS="INTERNALREF"
+HREF="Component terminal.htm"
+>Component terminal</A
+>.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The shape is primarily a function of the mating terminal.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>interface_access_mechanism</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>reference_via</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>usage_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.949.1 interface_access_mechanism</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The interface_access_mechanism is an inverse relationship that specifies that the existence of the Via_and_contact_size_dependent_non_functional_land is dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_564.htm"
+>Non_functional_land_interface_terminal</A
+> that specifies the Via_and_contact_size_dependent_non_functional_land as its associated_component.  This relationship is for external access only.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.949.2 reference_via</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The reference_via specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_947.htm"
+>Via</A
+> for the 
+Via_and_contact_size_dependent_non_functional_land.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.949.3 usage_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The usage_definition specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_255.htm"
+>Default_via_based_land_physical_template</A
+> for the 
+Via_and_contact_size_dependent_non_functional_land.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY via_and_contact_size_dependent_non_functional_land
+  SUBTYPE OF (non_functional_land);
+    reference_via                            : via;
+    SELF\assembly_component.usage_definition : 
+	default_attachment_size_and_via_based_land_physical_template;
+INVERSE
+   interface_access_mechanism : non_functional_land_interface_terminal FOR associated_component;
+END_ENTITY; -- via_and_contact_size_dependent_non_functional_land
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

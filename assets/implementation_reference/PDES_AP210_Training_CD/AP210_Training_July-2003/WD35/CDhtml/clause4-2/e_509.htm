@@ -1,0 +1,233 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Layout_spacing_requirement_occurrence</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.509 Layout_spacing_requirement_occurrence</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Layout_spacing_requirement_occurrence is a type of <A
+CLASS="INTERNALREF"
+HREF="e_330.htm"
+>Ee_requirement_occurrence</A
+> that describes the physical spacing between one of an assembly_module_assembly_component,
+an assembly_module_component_feature,
+an interconnect_module_cutout,
+an interconnect_module_fill_area,
+an interconnect_module_design_intent_modification,
+an interconnect_module_inter_stratum_feature,
+an interconnect_module_cutout_edge_segment,
+an interconnect_module_interconnect_module_edge,
+an interconnect_module_interconnect_module_edge_segment,
+an interconnect_module_plated_cutout,
+an interconnect_module_plated_cutout_edge_segment,
+an interconnect_module_plated_interconnect_module_edge,
+an interconnect_module_plated_interconnect_module_edge_segment,
+an interconnect_module_plated_passage,
+a category consisting of the union of an interconnect_module_plated_passage category and an interconnect_module_plated_unsupported_passage category,
+an interconnect_module_unsupported_passage,
+an interconnect_module_stratum_feature,
+or an interconnect_module_via, and another of these categories of design objects.  
+A Layout_spacing_requirement_occurrence may be a Layer_qualified_layout_spacing_requirement_occurrence.
+The requirement shall be imposed between the boundaries of members of the the relevant categories or between centroids.
+ 
+The category names correspond to the category of equivalent application object names. <DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Support for requirements between boundaries and centroids is not supported by this part of ISO 10303.</DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Assembly_module_assembly_component corresponds to <A
+CLASS="INTERNALREF"
+HREF="e_34.htm"
+>Assembly_component</A
+> category. 
+Assembly_module_component_feature corresponds to <A
+CLASS="INTERNALREF"
+HREF="e_118.htm"
+>Component_feature</A
+> category.
+Interconnect_module_cutout corresponds to <A
+CLASS="INTERNALREF"
+HREF="e_208.htm"
+>Cutout</A
+> category. 
+Interconnect_module_fill_area corresponds to <A
+CLASS="INTERNALREF"
+HREF="e_378.htm"
+>Fill_area</A
+> category. 
+Interconnect_module_inter_stratum_feature corresponds to <A
+CLASS="INTERNALREF"
+HREF="e_471.htm"
+>Inter_stratum_feature</A
+> category.  
+Interconnect_module_stratum_feature corresponds to <A
+CLASS="INTERNALREF"
+HREF="e_851.htm"
+>Stratum_feature</A
+> category. 
+Interconnect_module_via corresponds to <A
+CLASS="INTERNALREF"
+HREF="e_947.htm"
+>Via</A
+> category.  </DIV
+>
+Any subtype of an item in a category shall qualify as part of that category.<DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>This part of ISO 10303 supports several spacing requirements in this Application Object.</LI
+><LI
+CLASS="NOTEINGROUP"
+>A pair of categories is used for this requirement occurrence.</LI
+></OL
+></DIV
+><DIV
+CLASS="EXAMPLEGROUP"
+><P
+>EXAMPLES:</P
+><OL
+><LI
+CLASS="EXAMPLEINGROUP"
+>In domain terms, when a Via to Via spacing is to be greater than 5 mm, the encoding will be that the spacing between the reference_design_object_category whose value is interconnect_module_via and the dependent_design_object_category whose value is interconnect_module_via shall be greater than 5 mm.</LI
+><LI
+CLASS="EXAMPLEINGROUP"
+>In domain terms, when the distance from a cutout to a trace must be greater than 5 mm, the encoding will 
+be that the spacing between the reference_design_object_category whose value is interconnect_module_cutout and the dependent_design_object_category whose value is interconnect_module_stratum_feature shall be greater than 5 mm.</LI
+></OL
+></DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>dependent_design_object_category</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>required_coordinated_characteristic</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>reference_design_object_category</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>of_spacing_type</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.509.1 dependent_design_object_category</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The dependent_design_object_category specifies one role of either an assembly_module_assembly_component, an assembly_module_component_feature, an interconnect_module_cutout, an interconnect_module_fill_area, an interconnect_module_inter_stratum_feature, an interconnect_module_stratum_feature, or an interconnect_module_via, for the Layout_spacing_requirement_occurrence.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.509.2 required_coordinated_characteristic</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The required_coordinated_characteristic inherited from the Ee_requirement_occurrence supertype specifies the Tolerance_characteristic for the Layout_spacing_requirement_occurrence.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.509.3 reference_design_object_category</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The reference_design_object_category specifies one role of either an assembly_module_assembly_component, an 
+assembly_module_component_feature, an interconnect_module_cutout, an interconnect_module_fill_area, 
+an interconnect_module_inter_stratum_feature, an interconnect_module_stratum_feature, or an 
+interconnect_module_via, for the Layout_spacing_requirement_occurrence.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.509.4 of_spacing_type</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The of_spacing_type is either "centroid", or "nearest_boundary", or "furthest_boundary" for the Layout_spacing_requirement_occurrence.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the reference_design_object_category and the dependent_design_object_category shall 
+be unique within a population of Layout_spacing_requirement_occurrences.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY layout_spacing_requirement_occurrence
+  SUPERTYPE OF (layer_qualified_layout_spacing_requirement_occurrence)
+  SUBTYPE OF (ee_requirement_occurrence);
+    reference_design_object_category : pca_product_design_object_category;
+    dependent_design_object_category : pca_product_design_object_category;
+   SELF\ee_requirement_occurrence.required_coordinated_characteristic :
+                                         tolerance_characteristic;
+    of_spacing_type                     : spacing_type;
+UNIQUE
+  ur1: reference_design_object_category, dependent_design_object_category;
+WHERE
+  wr1: 'AP210_ARM.LENGTH_DATA_ELEMENT' IN
+          TYPEOF(SELF\ee_requirement_occurrence.
+           required_coordinated_characteristic[1].component_characteristic[1]);
+END_ENTITY; -- layout_spacing_requirement_occurrence
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

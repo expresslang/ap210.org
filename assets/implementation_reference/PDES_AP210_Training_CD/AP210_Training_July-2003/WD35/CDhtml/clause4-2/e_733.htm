@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Printed_part_template_join_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.733 Printed_part_template_join_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Printed_part_template_join_terminal is a type of <A
+CLASS="INTERNALREF"
+HREF="e_737.htm"
+>Printed_part_template_terminal</A
+> an occurrence of which provides access to the functionality 
+of the <A
+CLASS="INTERNALREF"
+HREF="e_730.htm"
+>Printed_part_template</A
+> from within a printed circuit board.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Join is a concept that explicitly states the purpose is for completing the network connections internal to a 
+physical design.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>internal_connector_function</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.733.1 internal_connector_function</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The internal_connector_function is an inverse relationship that specifies the <A
+CLASS="INTERNALREF"
+HREF="e_727.htm"
+>Printed_connector_template_terminal_relationship</A
+> that specifies the Printer_part_template_join_terminal as its 
+join_terminal. There shall be no more than one Printed_connector_template_terminal_relationship for a 
+Printed_part_template_join_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY printed_part_template_join_terminal
+  SUBTYPE OF (printed_part_template_terminal);
+  INVERSE
+    internal_connector_function : SET [0:1] OF 
+                                  printed_connector_template_terminal_relationship FOR 
+                                  join_terminal;
+END_ENTITY; -- printed_part_template_join_terminal
+
+--tt tc1 wd9 added
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

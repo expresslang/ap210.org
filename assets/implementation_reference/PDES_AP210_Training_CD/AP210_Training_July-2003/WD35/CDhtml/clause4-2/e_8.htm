@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Altered_package</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.8 Altered_package</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Altered_package is a type of <A
+CLASS="INTERNALREF"
+HREF="e_573.htm"
+>Package</A
+>. An Altered_package 
+describes a Package that has been modified in some manner from a reference Package.  The material or shape properties of the Altered_packaged are different from the reference Package.<DIV
+CLASS="EXAMPLEGROUP"
+><P
+>EXAMPLES:</P
+><OL
+><LI
+CLASS="EXAMPLEINGROUP"
+>Examples of alteration include trimming of the terminals, prebending of the terminals, tinning of the 
+terminals for solderability, or more than one of these.</LI
+><LI
+CLASS="EXAMPLEINGROUP"
+>Figure  <SPAN
+CLASS="INTERNALREF"
+>prepac</SPAN
+> illustrates some of the different forms a package may take when it is installed into an assembly.  The original form on the left is in the role of to_be_altered for the forms on the right.  The altered forms are identified and tracked by an enterprise.</LI
+></OL
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Most Altered_packages are a result of terminal alteration.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>package_to_be_altered</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.8.1 package_to_be_altered</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The package_to_be_altered specifies the <A
+CLASS="INTERNALREF"
+HREF="e_573.htm"
+>Package</A
+> that is a reference for the Altered_package.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>A Package shall not be in the role of package_to_be_altered for itself.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY altered_package
+  SUBTYPE OF (package);
+             of_geometric_status : geometric_status;
+    modified_terminal_separation : OPTIONAL length_data_element;
+           package_to_be_altered : package;
+END_ENTITY; -- altered_package
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

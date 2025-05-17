@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Assembly_material_composition_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.42 Assembly_material_composition_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+>An Assembly_material_composition_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. An Assembly_material_composition_relationship
+ is the association between a <A
+CLASS="INTERNALREF"
+HREF="e_667.htm"
+>Physical_unit_design_view</A
+> and <A
+CLASS="INTERNALREF"
+HREF="e_318.htm"
+>Ee_material</A
+> for 
+the purpose of bulk material callout.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: This application object is intended solely to support raw material callout whose shape is not explicitly modeled in the product model.</DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Solder identified as a bonding agent may be aggregated for the assembly using this Application Object.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>as_required</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>assembly</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>component_material</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>quantity</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>security_code</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.42.1 as_required</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The as_required specifies the LOGICAL type for the Assembly_material_composition_relationship. This 
+type permits a user to specify that the amount of material to be supplied with the product may be 
+determined at assembly on an item by item basis, where the item referred to is a real product delivered to a 
+customer.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Adhesives, insulation and wire may all be cases where the value of the attribute is TRUE.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.42.2 assembly</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The assembly specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_667.htm"
+>Physical_unit_design_view</A
+> for the Assembly_material_composition_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.42.3 component_material</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The component_material specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_531.htm"
+>Material_definition</A
+> for the 
+Assembly_material_composition_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.42.4 quantity</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The quantity specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_211.htm"
+>Data_element</A
+> for the Assembly_material_composition_relationship. The quantity need not be specified for the Assembly_material_composition_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.42.5 security_code</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The security_code specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_804.htm"
+>Security_classification</A
+> for the Assembly_material_composition_relationship.  The security_code is optional and need not be supplied.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>For an occurrence of a bulk material product, units shall be specified as one of the following: length_unit; 
+amount_of_substance_unit; mass_unit; volume_unit; area_unit.</DIV
+></DIV
+><DIV
+CLASS="INFORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Informal constraints:</P
+><DIV
+CLASS="INFORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>IP1: </SPAN
+>Wire used for jumpers that are explicitly defined shall be specified as a member of Interconnect_component.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY assembly_material_composition_relationship
+  SUBTYPE OF (managed_design_object);
+    quantity           : OPTIONAL data_element;
+    assembly           : physical_unit_design_view;
+    component_material : material_definition;
+    security_code      : OPTIONAL security_classification;
+    as_required        : LOGICAL;
+END_ENTITY; -- assembly_material_composition_relationship
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

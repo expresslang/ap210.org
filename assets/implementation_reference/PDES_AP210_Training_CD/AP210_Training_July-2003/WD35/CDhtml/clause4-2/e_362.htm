@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Externally_defined_dimension_representation</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.363 Externally_defined_dimension_representation</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Externally_defined_dimension_representation is a type of <A
+CLASS="INTERNALREF"
+HREF="e_809.htm"
+>Shape_dimension_representation</A
+> the interpretation of which is dependent on definitions supported externally to this part of ISO 10303.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>definitions</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>dimension_value</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.363.1 definitions</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The definitions specify the <A
+CLASS="INTERNALREF"
+HREF="e_367.htm"
+>External_definition</A
+> that represents the <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+>. There shall be one or more External_definition specified as definitions for an Externally_defined_dimension_representation.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.363.2 dimension_value</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The dimension_value specifies the <A
+CLASS="INTERNALREF"
+HREF="e_211.htm"
+>Data_element</A
+> that in conjunction with the <A
+CLASS="INTERNALREF"
+HREF="e_367.htm"
+>External_definition</A
+>, that are specified as the definitions, represent the associated <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+>. The dimension_value need not be specified for an Externally_defined_dimension_representation.
+<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE:  The system of limits and fits specifies a way in which to represent dimensions and is defined in ISO 286.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY externally_defined_dimension_representation
+  SUBTYPE OF (shape_dimension_representation);
+    definitions     : SET [1:?] OF external_definition;
+    dimension_value : OPTIONAL data_element;
+END_ENTITY; -- externally_defined_dimension_representation
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

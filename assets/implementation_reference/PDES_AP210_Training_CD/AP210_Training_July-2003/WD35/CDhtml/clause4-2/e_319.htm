@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Ee_product</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.319 Ee_product</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Ee_product is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. An Ee_product is an item that is intended to be produced by or employed in a process.  For the purposes of this part of ISO 10303, an Ee_product may be the result of a human endeavour that is not necessarily a manufacturing process.  This standard predefines a small number of product classes for standardization purposes.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>design_owner</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>product_classification</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>product_nomenclature</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>part_number</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>product_version</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>standard_product_indicator</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.319.1 design_owner</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The design_owner specifies either the <A
+CLASS="INTERNALREF"
+HREF="e_570.htm"
+>Organization</A
+> or the <A
+CLASS="INTERNALREF"
+HREF="e_647.htm"
+>Person_and_organization</A
+> that is responsible for the Ee_product.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.319.2 product_classification</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The product_classification is an inverse relationship that specifies that the existence of the Ee_product is dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_326.htm"
+>Ee_product_related_product_category</A
+> that specifies the Ee_product as its of_product.  The classifications specified by this Application Object are considered to be predefined in this standard.  The predefined classifications are assembly, bare_die, functionality, interconnect, material, package, physical network design, piece part, printed part, requirements model, simulation model, standard part, technology specific model, and template model.  <DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Those classifications may be related to specific types of Ee_product_definition that are technology specific, or for which there are no commonly understood domain term, or where there are many domain terms that may apply. </DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.319.3 product_nomenclature</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The product_nomenclature specifies the name by which the Ee_product is commonly known within an 
+organization.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.319.4 part_number</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The part_number specifies the name used as the specific identification of an Ee_product for a particular 
+organization.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.319.5 product_version</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The product_version is an inverse relationship that specifies that the existence of the Ee_product is dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_328.htm"
+>Ee_product_version</A
+> that specifies the Ee_product as its versioned_item. There shall be one or more Ee_product_version for an Ee_product.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.319.6 standard_product_indicator</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The standard_product_indicator specifies whether or not an Ee_product is considered to be a standard Product for a company, industry or other organization.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of design_owner and part_number shall be unique within a population of Ee_products.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>Each product that is referenced by a predefined product category shall be a product for the required subtype of Ee_product_definition.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: If a product is classified as a package, there shall be an <A
+CLASS="INTERNALREF"
+HREF="e_323.htm"
+>Ee_product_definition</A
+> that references the Ee_product through the version.versioned_item path.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY ee_product
+  SUBTYPE OF (managed_design_object);
+    description                : OPTIONAL text;
+    product_nomenclature       : ee_name;
+    part_number                : ee_name;
+    design_owner               : person_organization;
+    standard_product_indicator : OPTIONAL BOOLEAN;
+  INVERSE
+    product_version        : SET [1:?] OF ee_product_version FOR versioned_item;
+    product_classification : SET [1:?] OF ee_product_related_product_category FOR of_product;
+  UNIQUE
+    ur1 : design_owner, part_number;
+WHERE
+    WR1 : assigned_product_category_correlation(product_version,product_classification);
+END_ENTITY; -- ee_product
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

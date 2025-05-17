@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Boundary_based_position_tolerance</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.77 Boundary_based_position_tolerance</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Boundary_based_position_tolerance is a type of <A
+CLASS="INTERNALREF"
+HREF="e_703.htm"
+>Position_tolerance_with_referenced_datum_system</A
+> and a type of <A
+CLASS="INTERNALREF"
+HREF="e_424.htm"
+>Geometric_tolerance_with_applied_material_condition_property</A
+>. The Boundary_based_position_tolerance defines a <A
+CLASS="INTERNALREF"
+HREF="e_915.htm"
+>Tolerance_zone_boundary</A
+> that is offset from either the least material condition boundary or the maximum material condition boundary depending on the value of the applied_material_condition_property_name.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The attribute applied_material_condition_property_name is declared in the Geometric_tolerance_with_applied_material_condition_property entity of which this entity is a subtype.</DIV
+>
+The least material condition boundary and the maximum material condition boundary are established either by one or more <A
+CLASS="INTERNALREF"
+HREF="e_291.htm"
+>Dimensional_characteristic</A
+> or by a <A
+CLASS="INTERNALREF"
+HREF="e_747.htm"
+>Profile_of_any_surface_tolerance</A
+>. If the Boundary_based_position_tolerance specifies an applied_material_condition_property_name of "maximum_material_principle", the Tolerance_zone_boundary is offset from the maximum material condition boundary by half of the offset value and in the direction away from the least material condition boundary. If the Boundary_based_position_tolerance specifies an applied_material_condition_property_name of "least_material_requirement", then the Tolerance_zone_boundary is offset from the least material condition boundary by half of the offset value and in the direction away from the maximum material condition boundary.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Boundary based position tolerances are discussed in 5.10.1 and 6.5.5.1 of ASME Y14.5M.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>profile_control</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.77.1 profile_control</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The profile_control specifies a <A
+CLASS="INTERNALREF"
+HREF="e_749.htm"
+>Profile_of_any_surface_tolerance_with_referenced_datum_system</A
+> that defines a <A
+CLASS="INTERNALREF"
+HREF="e_915.htm"
+>Tolerance_zone_boundary</A
+> that establishes the least material condition boundary and the maximum material condition boundary from which the <A
+CLASS="INTERNALREF"
+HREF="e_695.htm"
+>Positional_boundary</A
+> defined by the Boundary_based_position_tolerance is based. A profile_control need not be specified for a Boundary_based_position_tolerance.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The Shape_element specified as the toleranced_shape_element shall be a Physical_feature_or_part_template.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The attribute toleranced_shape_element is declared in the Geometric_tolerance entity of which this entity is a subtype.</DIV
+></DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>If a Profile_of_any_surface_tolerance_with_referenced_datum_system is specified as the profile_control, both the Profile_of_any_surface_tolerance_with_referenced_datum_system and the Boundary_based_position_tolerance shall specify the same instance of Physical_feature_or_part_template as their toleranced_shape_element.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR3: </SPAN
+>If a Profile_of_any_surface_tolerance_with_referenced_datum_system is specified as the profile_control, the Datum in the Datum_system of the Profile_of_any_surface_tolerance_with_referenced_datum_system shall be in the Datum_system of the Boundary_based_position_tolerance and shall be assigned the same datum precedence.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR4: </SPAN
+>If the Boundary_based_position_tolerance specifies a Profile_of_any_surface_tolerance as the profile_control, the Boundary_based_position_tolerance shall specify a Profile_related_positional_boundary_definition as the tolerance_zone_or_boundary_definition; otherwise, the Boundary_based_position_tolerance shall specify a Positional_boundary_member_definition as the tolerance_zone_or_boundary_definition.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY boundary_based_position_tolerance
+  SUBTYPE OF (position_tolerance_with_referenced_datum_system, 
+      geometric_tolerance_with_applied_material_condition_property);
+    profile_control : 
+	OPTIONAL profile_of_any_surface_tolerance_with_referenced_datum_system;
+END_ENTITY; -- boundary_based_position_tolerance
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Thermal_requirement_allocation</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.907 Thermal_requirement_allocation</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Thermal_requirement_allocation is a type of <A
+CLASS="INTERNALREF"
+HREF="e_53.htm"
+>Assembly_requirement_allocation</A
+> for which the <A
+CLASS="INTERNALREF"
+HREF="e_330.htm"
+>Ee_requirement_occurrence</A
+> has thermal 
+characteristics. A 
+Thermal_requirement_allocation is the relationship between the <A
+CLASS="INTERNALREF"
+HREF="e_908.htm"
+>Thermal_requirement_occurrence</A
+> and the <A
+CLASS="INTERNALREF"
+HREF="e_900.htm"
+>Thermal_component</A
+> that satisfies it.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>assembly_assignment</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>requirement</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.907.1 assembly_assignment</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The assembly_assignment specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_900.htm"
+>Thermal_component</A
+> for the Thermal_requirement_allocation.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.907.2 requirement</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The requirement specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_908.htm"
+>Thermal_requirement_occurrence</A
+> for the Thermal_requirement_allocation.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY thermal_requirement_allocation
+  SUBTYPE OF (assembly_requirement_allocation);
+    SELF\assembly_requirement_allocation.assembly_assignment : thermal_component;
+    SELF\assembly_requirement_allocation.requirement         : 
+	thermal_requirement_occurrence;
+END_ENTITY; -- thermal_requirement_allocation
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

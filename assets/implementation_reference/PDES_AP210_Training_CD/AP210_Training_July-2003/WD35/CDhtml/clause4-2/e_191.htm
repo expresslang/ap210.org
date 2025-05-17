@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Connectivity_allocation</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.191 Connectivity_allocation</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Connectivity_allocation is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Connectivity_allocation is the relationship between a functional 
+connectivity requirement and its implementation. The collection of functional terminals in the functional decomposition that are connected is allocated to one equivalent physical node.  That equivalent physical node is an implementation in the Connectivity_allocation.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: This part of ISO 10303 supports the capability to specify the paths through the functional decomposition that are reachable via terminals associated with given nodes. This is a statement of transitive closure for connectivity across the decomposition.  This part of ISO 10303 does not separately represent a fully resolved functional node.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>connectivity_requirement</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>implementation</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.191.1 connectivity_requirement</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The connectivity_requirement specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_7.htm"
+>Aggregate_connectivity_requirement</A
+> for the Connectivity_allocation.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The connectivity_requirement effectively specifies one equivalent functional node.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.191.2 implementation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The implementation specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_652.htm"
+>Physical_connectivity_definition</A
+> for the Connectivity_allocation.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The implementation shall be unique within a population of Connectivity_allocations.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY connectivity_allocation
+  SUBTYPE OF (managed_design_object);
+    implementation           : physical_connectivity_definition;
+    connectivity_requirement : aggregate_connectivity_requirement;
+  UNIQUE
+    ur1 : implementation;
+END_ENTITY; -- connectivity_allocation
+
+--tt tc1 wd12 added
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

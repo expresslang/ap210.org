@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Ee_rule_function</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.334 Ee_rule_function</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Ee_rule_function is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. An 
+Ee_rule_function is a formal specification for a process 
+that includes the source code and instance values for the process. An Ee_rule_function has a unique combination of identifier and reference_document.
+An Ee_rule_function shall have at least one parameter.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Source code is the computer-interpretable expressions that form a part of the Ee_rule_function.  The attribute source_code is the relationship of these expressions to the Ee_rule_function.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>identifier</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>parameter</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>reference_document</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>source_code</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.334.1 identifier</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The identifier specifies the name for the Ee_rule_function.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.334.2 parameter</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The parameter specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_549.htm"
+>Model_parameter</A
+> for an Ee_rule_function.
+There shall be one or more Model_parameter specified for a particular Ee_rule_function.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.334.3 reference_document</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The reference_document specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_316.htm"
+>Ee_document</A
+> for an Ee_rule_function.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.334.4 source_code</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The source_code specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_338.htm"
+>Ee_specification</A
+> for an Ee_rule_function.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the identifier and the reference_document shall be unique within a population of Ee_rule_functions.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY ee_rule_function
+  SUBTYPE OF (managed_design_object);
+    identifier         : STRING;
+    parameter          : SET [1:?] OF model_parameter;
+    reference_document : ee_document;
+    source_code        : ee_specification;
+  UNIQUE
+    ur1 : identifier, reference_document;
+END_ENTITY; -- ee_rule_function
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

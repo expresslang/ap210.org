@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Marking</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.526 Marking</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Marking is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. 
+A Marking is the specification of what, where, and how information that is placed on a <A
+CLASS="INTERNALREF"
+HREF="e_664.htm"
+>Physical_unit</A
+> for 
+identification purposes is applied.  Marking in this part of ISO 10303 is considered to not be part of the definition of a <A
+CLASS="INTERNALREF"
+HREF="e_845.htm"
+>Stratum</A
+>. 
+Marking is text that is applied to a material object.  The message_representation_text shall be an item in the message_representation.  <DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Laminate_text_component is text that is realized through the manufacturing process.  Reference designators that are created on the board during etching are members of Laminate_text_component.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>marked_device_shape</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>marked_message</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>marking_material</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>marking_specification</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>message_representation</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>message_representation_text</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>placement</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.526.1 marked_device_shape</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The marked_device_shape specifies either a <A
+CLASS="INTERNALREF"
+HREF="e_666.htm"
+>Physical_unit_3d_shape</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_670.htm"
+>Physical_unit_planar_shape</A
+> that is the shape definition for the physical device that receives the Marking.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.526.2 marked_message</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The marked_message specifies either a <A
+CLASS="INTERNALREF"
+HREF="e_177.htm"
+>Configuration_controlled_message</A
+> or <A
+CLASS="INTERNALREF"
+HREF="e_874.htm"
+>Structured_text</A
+> for Marking.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.526.3 marking_material</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The marking_material specifies the <A
+CLASS="INTERNALREF"
+HREF="e_318.htm"
+>Ee_material</A
+> used in the 
+Marking.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.526.4 marking_specification</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The marking_specification specifies the <A
+CLASS="INTERNALREF"
+HREF="e_338.htm"
+>Ee_specification</A
+>
+of the process and format for properly applying the Marking.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.526.5 message_representation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The message_representation specifies role of the <A
+CLASS="INTERNALREF"
+HREF="e_372.htm"
+>Feature_shape_definition</A
+> for the 
+Marking.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.526.6 message_representation_text</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The message_representation_text specifies role of the <A
+CLASS="INTERNALREF"
+HREF="e_876.htm"
+>Styled_text</A
+> for the 
+Marking.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.526.7 placement</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The placement specifies the <A
+CLASS="INTERNALREF"
+HREF="e_56.htm"
+>Axis_placement</A
+> of the 
+Marking.  The placement specifies the placement of the message_representation in the marked_device_shape.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY marking
+  SUBTYPE OF (managed_design_object);
+    marked_message         : marked_message_select;
+    marked_device_shape    : view_shape_select;
+    marking_material       : ee_material;
+    placement              : axis_placement;
+    message_representation : feature_shape_definition;
+    message_representation_text : styled_text;
+    marking_specification  : ee_specification;
+WHERE
+ WR1: SIZEOF(QUERY(st &#60;* 
+       message_representation\shape_definition.element | 
+       st = message_representation_text)) = 1;
+ WR2: SIZEOF(QUERY(ap &#60;* 
+       marked_device_shape\shape_definition.element | 
+       ap = placement)) = 1;
+ WR3: SIZEOF(TYPEOF(marked_device_shape) * 
+      ['AP210_ARM.PHYSICAL_UNIT_3D_SHAPE',
+       'AP210_ARM.PHYSICAL_UNIT_PLANAR_SHAPE'])= 1;
+END_ENTITY; -- marking
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

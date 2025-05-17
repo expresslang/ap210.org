@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Fill_area_style_hatching</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.379 Fill_area_style_hatching</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Fill_area_style_hatching is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Fill_area_style_hatching is the parallel line hatch style of a <A
+CLASS="INTERNALREF"
+HREF="e_378.htm"
+>Fill_area</A
+>.  All units associated with Fill_area_style_hatching are defined in the global units for the  <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+> being designed.  The geometric reference for Fill_area_style_hatching shall be the origin of the Interconnect_module being designed.  When this Application Object is used to help compose a <A
+CLASS="INTERNALREF"
+HREF="e_274.htm"
+>Design_intent_modification_styled_area_representation</A
+> or to help compose a <A
+CLASS="INTERNALREF"
+HREF="e_860.htm"
+>Stratum_feature_styled_area_representation</A
+>, only the  <A
+CLASS="INTERNALREF"
+HREF="e_206.htm"
+>Curve_style_font</A
+> shall be referenced by the curve_font attribute of the Curve_style Application Object referenced by hatch_line_appearance.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: In order to obtain cross-hatch, two instances of Fill_are_style_hatching are required, with complementary angles.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>hatch_line_angle</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>hatch_line_appearance</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>pattern_start</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>point_of_reference_hatch_line</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>start_of_next_hatch_line</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.379.1 hatch_line_angle</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The hatch_line_angle specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_23.htm"
+>Angle_data_element</A
+> for the Fill_area_style_hatching.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.379.2 hatch_line_appearance</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The hatch_line_appearance specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_205.htm"
+>Curve_style</A
+> for the Fill_area_style_hatching.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The curve style may include a discontiguous geometric shape, in which case the hatch cannot be used to represent product data which is contiguous in nature.</DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: The curve style may be a dashed line and in that case each of the dashes would correspond to a differenct  <A
+CLASS="INTERNALREF"
+HREF="e_851.htm"
+>Stratum_feature</A
+>.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.379.3 pattern_start</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The pattern_start specifies the <A
+CLASS="INTERNALREF"
+HREF="e_87.htm"
+>Cartesian_point</A
+> for the beginning of the pattern of Fill_area_style_hatching.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.379.4 point_of_reference_hatch_line</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The point_of_reference_hatch_line specifies the <A
+CLASS="INTERNALREF"
+HREF="e_87.htm"
+>Cartesian_point</A
+> for the point of reference and located on the initial hatch line for the Fill_area_style_hatching.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.379.5 start_of_next_hatch_line</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The start_of_next_hatch_line specifies the <A
+CLASS="INTERNALREF"
+HREF="e_946.htm"
+>Vector</A
+> from the end Cartesian_point of the present hatch line to the beginning Cartesian_point of the next hatch line for the Fill_area_style_hatching.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY fill_area_style_hatching
+  SUBTYPE OF (managed_design_object);
+    hatch_line_appearance         : curve_style;
+    start_of_next_hatch_line      : vector;
+    point_of_reference_hatch_line : cartesian_point;
+    pattern_start                 : cartesian_point;
+    hatch_line_angle              : angle_data_element;
+END_ENTITY; -- fill_area_style_hatching
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

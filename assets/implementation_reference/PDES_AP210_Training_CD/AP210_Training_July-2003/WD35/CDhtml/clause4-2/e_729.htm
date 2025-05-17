@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Printed_part_cross_section_template_terminal</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.729 Printed_part_cross_section_template_terminal</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Printed_part_cross_section_template_terminal is a type of <A
+CLASS="INTERNALREF"
+HREF="e_737.htm"
+>Printed_part_template_terminal</A
+> that is the 
+terminal of the <A
+CLASS="INTERNALREF"
+HREF="e_728.htm"
+>Printed_part_cross_section_template</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associated_definition</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.729.1 associated_definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_definition specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_728.htm"
+>Printed_part_cross_section_template</A
+> for the Printed_part_cross_section_template_terminal.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY printed_part_cross_section_template_terminal
+  SUBTYPE OF (printed_part_template_terminal);
+    cross_section_definition : printed_part_cross_section_template;
+    material_to_left_of_terminal : OPTIONAL printed_part_template_material_link;
+    material_to_right_of_terminal : OPTIONAL printed_part_template_material_link;
+    material_to_top_of_terminal : OPTIONAL printed_part_template_material_link;
+    material_to_bottom_of_terminal : OPTIONAL printed_part_template_material_link;
+UNIQUE
+  UR1: cross_section_definition, 
+       material_to_left_of_terminal,
+       material_to_right_of_terminal,
+       material_to_top_of_terminal,
+       material_to_bottom_of_terminal;
+WHERE
+  WR1: (SELF\printed_part_template_terminal.connection_zone_category = 
+           curve_edge_segment) OR
+   (SELF\printed_part_template_terminal.connection_zone_category = 
+            area_edge_segment);
+  WR2: NOT(EXISTS (material_to_left_of_terminal) AND 
+           EXISTS (material_to_right_of_terminal)) OR
+   (material_to_left_of_terminal :&#60;&#62;: material_to_right_of_terminal);
+  WR3: NOT(EXISTS (material_to_left_of_terminal) AND 
+           EXISTS (material_to_top_of_terminal)) OR
+   (material_to_left_of_terminal :&#60;&#62;: material_to_top_of_terminal);
+  WR4: NOT(EXISTS (material_to_left_of_terminal) AND 
+           EXISTS (material_to_bottom_of_terminal)) OR
+   (material_to_left_of_terminal :&#60;&#62;: material_to_bottom_of_terminal);
+  WR5: NOT(EXISTS (material_to_right_of_terminal) AND 
+           EXISTS (material_to_top_of_terminal)) OR
+   (material_to_right_of_terminal :&#60;&#62;: material_to_top_of_terminal);
+  WR6: NOT(EXISTS (material_to_right_of_terminal) AND 
+           EXISTS (material_to_bottom_of_terminal)) OR
+   (material_to_right_of_terminal :&#60;&#62;: material_to_bottom_of_terminal);
+  WR7: NOT(EXISTS (material_to_top_of_terminal) AND 
+           EXISTS (material_to_bottom_of_terminal)) OR
+   (material_to_top_of_terminal :&#60;&#62;: material_to_bottom_of_terminal);
+END_ENTITY; -- printed_part_cross_section_template_terminal
+
+--tt tc1 wd9 modified
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

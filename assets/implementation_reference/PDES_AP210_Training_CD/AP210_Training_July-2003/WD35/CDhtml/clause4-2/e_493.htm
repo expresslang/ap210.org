@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Land_physical_template</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.493 Land_physical_template</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Land_physical_template is a type of <A
+CLASS="INTERNALREF"
+HREF="e_861.htm"
+>Stratum_feature_template</A
+>. A Land_physical_template may be a <A
+CLASS="INTERNALREF"
+HREF="e_250.htm"
+>Default_land_physical_template</A
+>.  If the material the Land_physical_template is composed of it conductive, the Land_physical_template provides the functionality of a short among its terminals.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>lpt</SPAN
+> illustrates explicit geometry that represents simplified Land_physical_template.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>access_mechanisms</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>pre_defined_classification_code</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.493.1 access_mechanisms</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The access_mechanisms is an inverse relationship that specifies that the existence of the Land_physical_template is dependent on the 
+existence of the <A
+CLASS="INTERNALREF"
+HREF="e_495.htm"
+>Land_template_join_terminal</A
+> that 
+specifies the Land_physical_template as its associated_definition. There shall be one or more 
+Land_template_join_terminal for a Land_physical_template.  Fabrication and assembly tolerances define the required shapes and variances for the terminal shapes.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.493.2 pre_defined_classification_code</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The pre_defined_classification_code specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_367.htm"
+>External_definition</A
+> for the Land_physical_template. The pre_defined_classification_code need not be specified for a specific Land_physical_template.<DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>IEC 61182-1 provides a set of <A
+CLASS="INTERNALREF"
+HREF="e_490.htm"
+>Land</A
+> identifiers.  See figure  <SPAN
+CLASS="INTERNALREF"
+>lpt3</SPAN
+>.</LI
+><LI
+CLASS="NOTEINGROUP"
+>The Land_template, <A
+CLASS="INTERNALREF"
+HREF="e_942.htm"
+>Usage_concept_usage_relationship</A
+>, and the Geometric Dimensioning and Tolerancing capabilities of this part of ISO 10303 may be used to unambiguously exchange the shape of both pre-defined Land patterns that include only geometry (as from IEC 61182-1) and enterprise defined patterns.  
+When this facility is used to create more than one equivalent Land definition, it may not be possible to maintain knowledge of the connection functionality of the Land definition.  This is because Land is an atomic concept in this part of ISO 10303.</LI
+><LI
+CLASS="NOTEINGROUP"
+>The <A
+CLASS="INTERNALREF"
+HREF="e_40.htm"
+>Assembly_group_component</A
+>, <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+>, and the Geometric Dimensioning and Tolerancing capabilities of this part of ISO 10303 may be used to unambiguously exchange both the shape and connection knowledge of Land patterns that include pre-defined geometry (as from IEC 61182-1) and enterprise defined geometry that have explicit definitions of the fabrication and assembly constraints.</LI
+><LI
+CLASS="NOTEINGROUP"
+>The Land_physical_template inherit material property data from Part_template.</LI
+></OL
+></DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The pre_defined_classification_code shall be unique within a population of Land_physical_templates.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY land_physical_template
+  SUPERTYPE OF (default_land_physical_template)
+  SUBTYPE OF (stratum_feature_template);
+    pre_defined_classification_code : OPTIONAL external_definition;
+  INVERSE
+    access_mechanisms : SET [1:?] OF land_template_terminal FOR 
+                        associated_definition;
+  UNIQUE
+    ur1 : pre_defined_classification_code;
+WHERE
+  wr1: SIZEOF(QUERY(ltjt &#60;* access_mechanisms |
+       NOT('AP210_ARM.LAND_TEMPLATE_JOIN_TERMINAL' IN TYPEOF(ltjt))
+         )) = 0;
+END_ENTITY; -- land_physical_template
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

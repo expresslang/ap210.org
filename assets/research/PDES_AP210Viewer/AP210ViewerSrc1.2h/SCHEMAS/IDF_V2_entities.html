@@ -1,0 +1,686 @@
+<!DOCTYPE HTML PUBLIC "-//W3C/DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+	<TITLE>Description of the entities in the IDF_V2 schema</TITLE>
+	<META NAME="GENERATOR" CONTENT="STEP Tools[tm] EXPRESS-X Compiler Pretty Printer 2.0 Feb 14 1999">
+</HEAD>
+<BODY>
+<CODE>
+<H2>
+Entities in the schema  <I>
+IDF_V2</I>
+</H2>
+<BR>
+<a NAME = "IDF_V2.idf_data">
+<B>
+ENTITY</B>
+ <I>
+idf_data</I>
+;<BR>
+<UL><a NAME = "IDF_V2.idf_data.board_file">
+<I>
+board_file</I>
+ : OPTIONAL <a href="IDF_V2_entities.html#IDF_V2.board_data" target=display_frame>board_data</a>;<BR>
+<a NAME = "IDF_V2.idf_data.library_file">
+<I>
+library_file</I>
+ : OPTIONAL <a href="IDF_V2_entities.html#IDF_V2.library_data" target=display_frame>library_data</a>;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.board_data">
+<B>
+ENTITY</B>
+ <I>
+board_data</I>
+;<BR>
+<UL><a NAME = "IDF_V2.board_data.board_board_header">
+<I>
+board_board_header</I>
+ : <a href="IDF_V2_entities.html#IDF_V2.board_header" target=display_frame>board_header</a>;<BR>
+<a NAME = "IDF_V2.board_data.board_board_outline">
+<I>
+board_board_outline</I>
+ : OPTIONAL <a href="IDF_V2_entities.html#IDF_V2.board_outline" target=display_frame>board_outline</a>;<BR>
+<a NAME = "IDF_V2.board_data.board_other_outline">
+<I>
+board_other_outline</I>
+ : OPTIONAL <B>
+SET [1:?] OF</B>
+ <a href="IDF_V2_entities.html#IDF_V2.other_outline" target=display_frame>other_outline</a>;<BR>
+<a NAME = "IDF_V2.board_data.board_route_outline">
+<I>
+board_route_outline</I>
+ : OPTIONAL <B>
+SET [1:?] OF</B>
+ <a href="IDF_V2_entities.html#IDF_V2.route_outline" target=display_frame>route_outline</a>;<BR>
+<a NAME = "IDF_V2.board_data.board_place_outline">
+<I>
+board_place_outline</I>
+ : OPTIONAL <B>
+SET [1:?] OF</B>
+ <a href="IDF_V2_entities.html#IDF_V2.place_outline" target=display_frame>place_outline</a>;<BR>
+<a NAME = "IDF_V2.board_data.board_route_keepout">
+<I>
+board_route_keepout</I>
+ : OPTIONAL <B>
+SET [1:?] OF</B>
+ <a href="IDF_V2_entities.html#IDF_V2.route_keepout" target=display_frame>route_keepout</a>;<BR>
+<a NAME = "IDF_V2.board_data.board_via_keepout">
+<I>
+board_via_keepout</I>
+ : OPTIONAL <B>
+SET [1:?] OF</B>
+ <a href="IDF_V2_entities.html#IDF_V2.via_keepout" target=display_frame>via_keepout</a>;<BR>
+<a NAME = "IDF_V2.board_data.board_place_keepout">
+<I>
+board_place_keepout</I>
+ : OPTIONAL <B>
+SET [1:?] OF</B>
+ <a href="IDF_V2_entities.html#IDF_V2.place_keepout" target=display_frame>place_keepout</a>;<BR>
+<a NAME = "IDF_V2.board_data.board_place_region">
+<I>
+board_place_region</I>
+ : OPTIONAL <B>
+SET [1:?] OF</B>
+ <a href="IDF_V2_entities.html#IDF_V2.place_region" target=display_frame>place_region</a>;<BR>
+<a NAME = "IDF_V2.board_data.board_drilled_holes">
+<I>
+board_drilled_holes</I>
+ : OPTIONAL <B>
+SET [1:?] OF</B>
+ <a href="IDF_V2_entities.html#IDF_V2.drilled_holes" target=display_frame>drilled_holes</a>;<BR>
+<a NAME = "IDF_V2.board_data.board_placement">
+<I>
+board_placement</I>
+ : OPTIONAL <B>
+SET [1:?] OF</B>
+ <a href="IDF_V2_entities.html#IDF_V2.placement" target=display_frame>placement</a>;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.library_data">
+<B>
+ENTITY</B>
+ <I>
+library_data</I>
+;<BR>
+<UL><a NAME = "IDF_V2.library_data.library_library_header">
+<I>
+library_library_header</I>
+ : <a href="IDF_V2_entities.html#IDF_V2.library_header" target=display_frame>library_header</a>;<BR>
+<a NAME = "IDF_V2.library_data.library_electrical">
+<I>
+library_electrical</I>
+ : OPTIONAL <B>
+SET [1:?] OF</B>
+ <a href="IDF_V2_entities.html#IDF_V2.electrical" target=display_frame>electrical</a>;<BR>
+<a NAME = "IDF_V2.library_data.library_mechanical">
+<I>
+library_mechanical</I>
+ : OPTIONAL <B>
+SET [1:?] OF</B>
+ <a href="IDF_V2_entities.html#IDF_V2.mechanical" target=display_frame>mechanical</a>;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.board_header">
+<B>
+ENTITY</B>
+ <I>
+board_header</I>
+;<BR>
+<UL><a NAME = "IDF_V2.board_header.idf_version_number">
+<I>
+idf_version_number</I>
+ : <B>
+STRING</B>
+;<BR>
+<a NAME = "IDF_V2.board_header.source_system_identification">
+<I>
+source_system_identification</I>
+ : <B>
+STRING</B>
+;<BR>
+<a NAME = "IDF_V2.board_header.date">
+<I>
+date</I>
+ : <B>
+STRING</B>
+;<BR>
+<a NAME = "IDF_V2.board_header.board_file_version">
+<I>
+board_file_version</I>
+ : <B>
+INTEGER</B>
+;<BR>
+<a NAME = "IDF_V2.board_header.board_name">
+<I>
+board_name</I>
+ : <B>
+STRING</B>
+;<BR>
+<a NAME = "IDF_V2.board_header.units_definition">
+<I>
+units_definition</I>
+ : <a href="IDF_V2_types.html#IDF_V2.units_definition_enumeration" target=display_frame>units_definition_enumeration</a>;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.library_header">
+<B>
+ENTITY</B>
+ <I>
+library_header</I>
+;<BR>
+<UL><a NAME = "IDF_V2.library_header.idf_version_number">
+<I>
+idf_version_number</I>
+ : <B>
+STRING</B>
+;<BR>
+<a NAME = "IDF_V2.library_header.source_system_identification">
+<I>
+source_system_identification</I>
+ : <B>
+STRING</B>
+;<BR>
+<a NAME = "IDF_V2.library_header.date">
+<I>
+date</I>
+ : <B>
+STRING</B>
+;<BR>
+<a NAME = "IDF_V2.library_header.library_file_version">
+<I>
+library_file_version</I>
+ : <B>
+INTEGER</B>
+;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.single_outline">
+<B>
+ENTITY</B>
+ <I>
+single_outline</I>
+;<BR>
+<UL><a NAME = "IDF_V2.single_outline.outline">
+<I>
+outline</I>
+ : <a href="IDF_V2_entities.html#IDF_V2.loop" target=display_frame>loop</a>;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.board_outline">
+<B>
+ENTITY</B>
+ <I>
+board_outline</I>
+;<BR>
+<UL><a NAME = "IDF_V2.board_outline.board_thickness">
+<I>
+board_thickness</I>
+ : <B>
+REAL</B>
+;<BR>
+<a NAME = "IDF_V2.board_outline.outline">
+<I>
+outline</I>
+ : <a href="IDF_V2_entities.html#IDF_V2.loop" target=display_frame>loop</a>;<BR>
+<a NAME = "IDF_V2.board_outline.cutouts">
+<I>
+cutouts</I>
+ : OPTIONAL <B>
+SET [1:?] OF</B>
+ <a href="IDF_V2_entities.html#IDF_V2.loop" target=display_frame>loop</a>;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.loop">
+<B>
+ENTITY</B>
+ <I>
+loop</I>
+;<BR>
+<UL><a NAME = "IDF_V2.loop.loop_label">
+<I>
+loop_label</I>
+ : <B>
+INTEGER</B>
+;<BR>
+<a NAME = "IDF_V2.loop.closed_curve">
+<I>
+closed_curve</I>
+ : <B>
+LIST [3:?] OF</B>
+ <a href="IDF_V2_entities.html#IDF_V2.arc" target=display_frame>arc</a>;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.arc">
+<B>
+ENTITY</B>
+ <I>
+arc</I>
+;<BR>
+<UL><a NAME = "IDF_V2.arc.x_coord">
+<I>
+x_coord</I>
+ : <B>
+REAL</B>
+;<BR>
+<a NAME = "IDF_V2.arc.y_coord">
+<I>
+y_coord</I>
+ : <B>
+REAL</B>
+;<BR>
+<a NAME = "IDF_V2.arc.included_angle">
+<I>
+included_angle</I>
+ : <B>
+REAL</B>
+;<BR>
+</UL><B>
+INVERSE</B>
+<BR>
+<UL><a NAME = "IDF_V2.arc.composed_loop">
+<I>
+composed_loop</I>
+ : <a href="IDF_V2_entities.html#IDF_V2.loop" target=display_frame>loop</a> <B>
+FOR</B>
+ <a href="IDF_V2_entities.html#IDF_V2.loop.closed_curve" target=display_frame>closed_curve</a>;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.other_outline">
+<B>
+ENTITY</B>
+ <I>
+other_outline</I>
+;<BR>
+<UL><a NAME = "IDF_V2.other_outline.outline_identifier">
+<I>
+outline_identifier</I>
+ : <B>
+STRING</B>
+;<BR>
+<a NAME = "IDF_V2.other_outline.extrude_thickness">
+<I>
+extrude_thickness</I>
+ : <B>
+REAL</B>
+;<BR>
+<a NAME = "IDF_V2.other_outline.outline">
+<I>
+outline</I>
+ : <a href="IDF_V2_entities.html#IDF_V2.loop" target=display_frame>loop</a>;<BR>
+<a NAME = "IDF_V2.other_outline.cutouts">
+<I>
+cutouts</I>
+ : OPTIONAL <B>
+SET [1:?] OF</B>
+ <a href="IDF_V2_entities.html#IDF_V2.loop" target=display_frame>loop</a>;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.route_outline">
+<B>
+ENTITY</B>
+ <I>
+route_outline</I>
+<BR>
+<B>
+SUBTYPE OF</B>
+ (<I>
+<a href="IDF_V2_entities.html#IDF_V2.single_outline" target=display_frame>single_outline</a></I>
+);<BR>
+<B>
+DERIVE</B>
+<BR>
+<UL><a NAME = "IDF_V2.route_outline.routing_layers">
+<I>
+routing_layers</I>
+ : <a href="IDF_V2_types.html#IDF_V2.inner_and_outer_layers_enumeration" target=display_frame>inner_and_outer_layers_enumeration</a> := <a href="IDF_V2_index.html#IDF_V2.ALL" target=display_frame>ALL</a>;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.place_outline">
+<B>
+ENTITY</B>
+ <I>
+place_outline</I>
+<BR>
+<B>
+SUBTYPE OF</B>
+ (<I>
+<a href="IDF_V2_entities.html#IDF_V2.single_outline" target=display_frame>single_outline</a></I>
+);<BR>
+<B>
+DERIVE</B>
+<BR>
+<UL><a NAME = "IDF_V2.place_outline.place_layers">
+<I>
+place_layers</I>
+ : <a href="IDF_V2_types.html#IDF_V2.outer_layers_enumeration" target=display_frame>outer_layers_enumeration</a> := <a href="IDF_V2_index.html#IDF_V2.BOTH" target=display_frame>BOTH</a>;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.route_keepout">
+<B>
+ENTITY</B>
+ <I>
+route_keepout</I>
+<BR>
+<B>
+SUBTYPE OF</B>
+ (<I>
+<a href="IDF_V2_entities.html#IDF_V2.single_outline" target=display_frame>single_outline</a></I>
+);<BR>
+<UL><a NAME = "IDF_V2.route_keepout.routing_layers">
+<I>
+routing_layers</I>
+ : <a href="IDF_V2_types.html#IDF_V2.inner_and_outer_layers_enumeration" target=display_frame>inner_and_outer_layers_enumeration</a>;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.via_keepout">
+<B>
+ENTITY</B>
+ <I>
+via_keepout</I>
+<BR>
+<B>
+SUBTYPE OF</B>
+ (<I>
+<a href="IDF_V2_entities.html#IDF_V2.single_outline" target=display_frame>single_outline</a></I>
+);<BR>
+<B>
+DERIVE</B>
+<BR>
+<UL><a NAME = "IDF_V2.via_keepout.keepout_layers">
+<I>
+keepout_layers</I>
+ : <a href="IDF_V2_types.html#IDF_V2.outer_layers_enumeration" target=display_frame>outer_layers_enumeration</a> := <a href="IDF_V2_index.html#IDF_V2.BOTH" target=display_frame>BOTH</a>;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.place_keepout">
+<B>
+ENTITY</B>
+ <I>
+place_keepout</I>
+<BR>
+<B>
+SUBTYPE OF</B>
+ (<I>
+<a href="IDF_V2_entities.html#IDF_V2.single_outline" target=display_frame>single_outline</a></I>
+);<BR>
+<UL><a NAME = "IDF_V2.place_keepout.board_side">
+<I>
+board_side</I>
+ : <a href="IDF_V2_types.html#IDF_V2.outer_layers_enumeration" target=display_frame>outer_layers_enumeration</a>;<BR>
+<a NAME = "IDF_V2.place_keepout.maximum_height">
+<I>
+maximum_height</I>
+ : <B>
+REAL</B>
+;<BR>
+<a NAME = "IDF_V2.place_keepout.minimum_height">
+<I>
+minimum_height</I>
+ : <B>
+REAL</B>
+;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.place_region">
+<B>
+ENTITY</B>
+ <I>
+place_region</I>
+<BR>
+<B>
+SUBTYPE OF</B>
+ (<I>
+<a href="IDF_V2_entities.html#IDF_V2.single_outline" target=display_frame>single_outline</a></I>
+);<BR>
+<UL><a NAME = "IDF_V2.place_region.board_side">
+<I>
+board_side</I>
+ : <a href="IDF_V2_types.html#IDF_V2.outer_layers_enumeration" target=display_frame>outer_layers_enumeration</a>;<BR>
+<a NAME = "IDF_V2.place_region.component_group_name">
+<I>
+component_group_name</I>
+ : <B>
+STRING</B>
+;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.drilled_holes">
+<B>
+ENTITY</B>
+ <I>
+drilled_holes</I>
+;<BR>
+<UL><a NAME = "IDF_V2.drilled_holes.hole_diameter">
+<I>
+hole_diameter</I>
+ : <B>
+REAL</B>
+;<BR>
+<a NAME = "IDF_V2.drilled_holes.x_coord">
+<I>
+x_coord</I>
+ : <B>
+REAL</B>
+;<BR>
+<a NAME = "IDF_V2.drilled_holes.y_coord">
+<I>
+y_coord</I>
+ : <B>
+REAL</B>
+;<BR>
+<a NAME = "IDF_V2.drilled_holes.hole_type">
+<I>
+hole_type</I>
+ : <a href="IDF_V2_types.html#IDF_V2.hole_type_enumeration" target=display_frame>hole_type_enumeration</a>;<BR>
+<a NAME = "IDF_V2.drilled_holes.associated_part_string">
+<I>
+associated_part_string</I>
+ : <B>
+STRING</B>
+;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.placement">
+<B>
+ENTITY</B>
+ <I>
+placement</I>
+;<BR>
+<UL><a NAME = "IDF_V2.placement.package_name">
+<I>
+package_name</I>
+ : <B>
+STRING</B>
+;<BR>
+<a NAME = "IDF_V2.placement.part_number">
+<I>
+part_number</I>
+ : <B>
+STRING</B>
+;<BR>
+<a NAME = "IDF_V2.placement.reference_designator">
+<I>
+reference_designator</I>
+ : <B>
+STRING</B>
+;<BR>
+<a NAME = "IDF_V2.placement.x_coord">
+<I>
+x_coord</I>
+ : <B>
+REAL</B>
+;<BR>
+<a NAME = "IDF_V2.placement.y_coord">
+<I>
+y_coord</I>
+ : <B>
+REAL</B>
+;<BR>
+<a NAME = "IDF_V2.placement.rotation_angle">
+<I>
+rotation_angle</I>
+ : <B>
+REAL</B>
+;<BR>
+<a NAME = "IDF_V2.placement.side_of_board">
+<I>
+side_of_board</I>
+ : <a href="IDF_V2_types.html#IDF_V2.top_or_bottom_enumeration" target=display_frame>top_or_bottom_enumeration</a>;<BR>
+<a NAME = "IDF_V2.placement.placement_status">
+<I>
+placement_status</I>
+ : <a href="IDF_V2_types.html#IDF_V2.placement_status_enumeration" target=display_frame>placement_status_enumeration</a>;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.electrical">
+<B>
+ENTITY</B>
+ <I>
+electrical</I>
+<BR>
+<B>
+SUBTYPE OF</B>
+ (<I>
+<a href="IDF_V2_entities.html#IDF_V2.single_outline" target=display_frame>single_outline</a></I>
+);<BR>
+<UL><a NAME = "IDF_V2.electrical.geometry_name">
+<I>
+geometry_name</I>
+ : <B>
+STRING</B>
+;<BR>
+<a NAME = "IDF_V2.electrical.part_number">
+<I>
+part_number</I>
+ : <B>
+STRING</B>
+;<BR>
+<a NAME = "IDF_V2.electrical.units_definition">
+<I>
+units_definition</I>
+ : <a href="IDF_V2_types.html#IDF_V2.units_definition_enumeration" target=display_frame>units_definition_enumeration</a>;<BR>
+<a NAME = "IDF_V2.electrical.component_height">
+<I>
+component_height</I>
+ : <B>
+REAL</B>
+;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+<BR>
+<BR>
+<a NAME = "IDF_V2.mechanical">
+<B>
+ENTITY</B>
+ <I>
+mechanical</I>
+<BR>
+<B>
+SUBTYPE OF</B>
+ (<I>
+<a href="IDF_V2_entities.html#IDF_V2.single_outline" target=display_frame>single_outline</a></I>
+);<BR>
+<UL><a NAME = "IDF_V2.mechanical.geometry_name">
+<I>
+geometry_name</I>
+ : <B>
+STRING</B>
+;<BR>
+<a NAME = "IDF_V2.mechanical.part_number">
+<I>
+part_number</I>
+ : <B>
+STRING</B>
+;<BR>
+<a NAME = "IDF_V2.mechanical.units_definition">
+<I>
+units_definition</I>
+ : <a href="IDF_V2_types.html#IDF_V2.units_definition_enumeration" target=display_frame>units_definition_enumeration</a>;<BR>
+<a NAME = "IDF_V2.mechanical.component_height">
+<I>
+component_height</I>
+ : <B>
+REAL</B>
+;<BR>
+</UL><B>
+END_ENTITY</B>
+;<BR>
+<BR>
+</CODE>
+</BODY>
+</HTML>

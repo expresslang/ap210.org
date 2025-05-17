@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Functional_unit</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.400 Functional_unit</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Functional_unit is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Functional_unit is an occurrence of a <A
+CLASS="INTERNALREF"
+HREF="e_401.htm"
+>Functional_unit_definition</A
+> in the 
+composition of a <A
+CLASS="INTERNALREF"
+HREF="e_402.htm"
+>Functional_unit_network_definition</A
+>.<DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>fu</SPAN
+> is a schematic of a network definition showing hierarchical relationships, as well as the usage view and network definition for a functional block.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>access_mechanisms</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>composed_network</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>definition</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>functional_property</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>reference_designation</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.400.1 access_mechanisms</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The access_mechanisms is an inverse relationship that specifies that the existence of the Functional_unit is dependent on the 
+existence of the <A
+CLASS="INTERNALREF"
+HREF="e_407.htm"
+>Functional_unit_terminal</A
+>
+ that specifies the Functional_unit as its accessed_functional_unit. There shall be one or more Functional_unit_terminal for a 
+Functional_unit.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.400.2 composed_network</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The composed_network specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_402.htm"
+>Functional_unit_network_definition</A
+> for the Functional_unit.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.400.3 definition</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The definition specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_401.htm"
+>Functional_unit_definition</A
+> for the Functional_unit.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.400.4 functional_property</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The functional_property specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_603.htm"
+>Parameter_assignment</A
+> for the 
+Functional_unit. There may be more than one Parameter_assignment for the Functional_unit. The functional_property need not be provided for a particular Functional_unit.  The functional_property shall be interpreted as overriding the properties supplied as Parameter_assignment for the Functional_unit_definition in the role of definition when the assigned_parameter are identical.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.400.5 reference_designation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The reference_designation specifies the name that identifies the Functional_unit, in the context of the <A
+CLASS="INTERNALREF"
+HREF="e_402.htm"
+>Functional_unit_network_definition</A
+>.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the reference_designation and the composed_network shall be unique within a 
+population of Functional_units.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>A network definition shall not define itself.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>Considering the functional_unit_definition entities as nodes in a structural graph, and the functional_unit 
+entity as the links of the graph, the graph thus composed shall be directed and acyclic.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: A node that is a Functional_unit_definition may be a Functional_unit_network_definition.</DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY functional_unit
+  SUBTYPE OF (managed_design_object);
+    definition            : functional_unit_definition;
+    reference_designation : ee_name;
+    composed_network      : functional_unit_network_definition;
+    functional_property   : OPTIONAL SET [1:?] OF parameter_assignment;
+  INVERSE
+    access_mechanisms : SET [1:?] OF functional_unit_terminal FOR 
+                        accessed_functional_unit;
+  UNIQUE
+    ur1 : reference_designation, composed_network;
+END_ENTITY; -- functional_unit
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

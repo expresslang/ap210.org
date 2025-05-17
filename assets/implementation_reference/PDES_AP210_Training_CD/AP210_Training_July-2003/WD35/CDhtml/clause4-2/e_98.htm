@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Characteristic</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.98 Characteristic</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Characteristic is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.
+A Characteristic may be one of a  <A
+CLASS="INTERNALREF"
+HREF="e_167.htm"
+>Compound_characteristic</A
+>,
+or a <A
+CLASS="INTERNALREF"
+HREF="e_566.htm"
+>Numeric_parameter</A
+>.
+A Characteristic is a property of an item.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: A Characteristic may describe either a physical item, like a realized part, or a description that is 
+unrealizable, such as a simulation model.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>property_value</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>reference_document</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>type_name</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.98.1 property_value</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The property_value specifies either a <A
+CLASS="INTERNALREF"
+HREF="e_211.htm"
+>Data_element</A
+>, an <A
+CLASS="INTERNALREF"
+HREF="e_367.htm"
+>External_definition</A
+>, or one of a boolean type, a LOGICAL, or a string type, for the Characteristic.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.98.2 reference_document</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The reference_document specifies the <A
+CLASS="INTERNALREF"
+HREF="e_316.htm"
+>Ee_document</A
+>
+or a string identifying this Characteristic.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: This part of ISO 10303 explicitly supports the unambiguous exchange of properties whose names are registered by a 
+registration authority and whose definitions are included in data dictionaries. This 
+part of ISO 10303 includes facilities to unambiguously exchange a wide variety of units including SI, user named, and derived.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.98.3 type_name</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The type_name specifies the string for this Characteristic.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The string representing the type_name shall not appear more than once in the reference_document in the role of "type name for Characteristic".</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY characteristic
+  SUPERTYPE OF (ONEOF(compound_characteristic,
+     numeric_parameter))
+  SUBTYPE OF (managed_design_object);
+    type_name          : STRING;
+    reference_document : ee_document;
+    property_value     : numeric_or_non_numeric_select;
+END_ENTITY; -- characteristic
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

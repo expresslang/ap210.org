@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Certification</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.94 Certification</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Certification is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Certification is a granting of approval for use of a <A
+CLASS="INTERNALREF"
+HREF="e_879.htm"
+>Supplied_product_version</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>certification_approval</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>certification_date</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>certification_number</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>certified_product_version</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.94.1 certification_approval</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The certification_approval specifies the <A
+CLASS="INTERNALREF"
+HREF="e_314.htm"
+>Ee_approval</A
+> of the 
+Certification.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.94.2 certification_date</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The certification_date specifies either the <A
+CLASS="INTERNALREF"
+HREF="e_212.htm"
+>Date</A
+> or the <A
+CLASS="INTERNALREF"
+HREF="e_213.htm"
+>Date_and_time</A
+>
+for the Certification.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.94.3 certification_number</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The certification_number specifies the <A
+CLASS="INTERNALREF"
+HREF="e_339.htm"
+>Ee_text</A
+> that identifies the 
+Certification.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.94.4 certified_product_version</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The certified_product_version specifies the <A
+CLASS="INTERNALREF"
+HREF="e_879.htm"
+>Supplied_product_version</A
+> for the subject of the Certification.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The certification_number shall be unique within a population of Certifications.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY certification
+  SUBTYPE OF (managed_design_object);
+    certification_approval    : ee_approval;
+    certification_number      : ee_text;
+    certified_product_version : supplied_product_version;
+    certification_date        : date_or_date_and_time;
+  UNIQUE
+    ur1 : certification_number;
+END_ENTITY; -- certification
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

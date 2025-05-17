@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Promissory_usage_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.756 Promissory_usage_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Promissory_usage_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.
+The Promissory_usage_relationship is the relationship of an item to a higher assembly 
+where the next higher assembly of the item has not been defined.  <DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: A designer is designing an MCM that will be used on a board that will be part 
+of a system.  The designer does not yet know the next higher assembly for the 
+MCM, since the board on which it will be placed has not yet been defined in 
+the product structure for the system.  The designer does, however, know the 
+system in which the MCM will be used.  Using the Promissory_usage_relationship, 
+the designer can specify that the MCM is promised to be used within the system, 
+without reference to the specific board on which it will reside.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>assembly</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>component</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>security_code</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.756.1 assembly</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The assembly specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_667.htm"
+>Physical_unit_design_view</A
+> for the Promissory_usage_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.756.2 component</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The component specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_664.htm"
+>Physical_unit</A
+> for the 
+Promissory_usage_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.756.3 security_code</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The security_code specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_804.htm"
+>Security_classification</A
+> for the Promissory_usage_relationship.  The security_code is optional and need not be supplied for a Promissory_usage_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the component and the assembly shall be unique within a population of 
+Promissory_usage_relationship.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY promissory_usage_relationship
+  SUBTYPE OF (managed_design_object);
+    component     : physical_unit;
+    security_code : OPTIONAL security_classification;
+    assembly      : physical_unit_design_view;
+  UNIQUE
+    ur1 : component, assembly;
+END_ENTITY; -- promissory_usage_relationship
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Profile_related_positional_boundary</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.750 Profile_related_positional_boundary</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Profile_related_positional_boundary is a type of <A
+CLASS="INTERNALREF"
+HREF="e_695.htm"
+>Positional_boundary</A
+> that is a theoretical boundary that is defined by a <A
+CLASS="INTERNALREF"
+HREF="e_76.htm"
+>Boundary_based_position_tolerance</A
+> in conjunction with a <A
+CLASS="INTERNALREF"
+HREF="e_747.htm"
+>Profile_of_any_surface_tolerance</A
+>. The Profile_of_any_surface_tolerance defines a <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> that is bounded by two <A
+CLASS="INTERNALREF"
+HREF="e_917.htm"
+>Tolerance_zone_boundary_member</A
+>. The Profile_related_positional_boundary is offset from one of these Tolerance_zone_boundary_member. The particular Tolerance_zone_boundary_member and the direction of offset are determined by the material conditions specified by the Boundary_based_position_tolerance. If the Boundary_based_position_tolerance is specified on a "maximum material principle" basis, then the Tolerance_zone_boundary_member from which the Profile_related_positional_boundary is offset is the one that is offset from the <A
+CLASS="INTERNALREF"
+HREF="e_934.htm"
+>True_profile</A
+>"away from material". Similarly, if the Boundary_based_position_tolerance is specified on a "least material requirement" basis, then the Tolerance_zone_boundary_member from which the Profile_related_positional_boundary is offset is the one that is offset from the True_profile "towards material". The Profile_related_positional_boundary is offset from the Tolerance_zone_boundary_member in the same direction that the Tolerance_zone_boundary_member is offset from the True_profile.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>associating_relationship</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.750.1 associating_relationship</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associating_relationship is an inverse relationship that specifies that the existence of the 
+Profile_related_positional_boundary is dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_696.htm"
+>Positional_boundary_and_profile_boundary_member_relationship</A
+> that specifies the 
+Profile_related_positional_boundary as its offset_positional_boundary.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The Positional_boundary_definition specified as the boundary_definition shall be a 
+Profile_related_positional_boundary_definition.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The attribute boundary_definition is declared in the Positional_boundary entity of which this entity 
+is a subtype.</DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY profile_related_positional_boundary
+  SUBTYPE OF (positional_boundary);
+  INVERSE
+    associating_relationship : 
+	positional_boundary_and_profile_boundary_member_relationship FOR 
+	offset_positional_boundary;
+END_ENTITY; -- profile_related_positional_boundary
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

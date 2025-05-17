@@ -1,0 +1,38 @@
+Lothar and Giedrius,
+
+I've been looking at the ap210_pcb1.stp file create at 2000-11-15T18:30:00 that I downloaded 
+from your web site on Nov. 18th. My intent is to be able to view the file
+in my AP210 viewer.  In it's present state the viewer would only display
+the outline and thickness of the interconnect_module.  Currently the
+viewer displays the outline with a thickness of zero for this file.
+The file generally looks good in the sections that I've look at.
+Below I've listed my findings.
+
+	1) Uses interconnect_definition rather than physical_unit for the
+	interconnect module. Since the IDF and ITI translators use
+	physical_unit a slight modification was required.
+
+	2) The ITI and IDF translators have implemented the interconnect_module_edge
+	ARM object and you have the implemented interconnect_module_edge_surface
+      ARM object.  I added code to find the interconnect_module_edge_surface data.
+	This is an interesting finding since all three implementations appear to
+	implement the interconnect_module_usage_view UoF but the ITI and IDF
+	implementation also implement the interconnect_module_edge UoF and use
+	it to specify the edge.
+
+	3) I use the located_interconnect_module_thickness_requirement ARM object
+	to specify the thickness of the interconnect module in the viewer.  You
+	don't specify this requirement which is part of the
+	interconnect_module_usage_view UoF.  You do appear to have some thickness
+	data that seems to be specifying the thickness of a dielectric
+	stratum (I really haven't looked at this in enough detail to be sure).
+
+	My viewer allows the user to modify this thickness requirement, if it is 
+	present.  I plan on adding the capability to add the thickness requirement
+      if it is not present.  I'm not sure if I will do this before I get the
+	next version of the viewer out.
+
+I've unsuccessfully tried to view the ap210_pcb1.stp and TutorCPU.stp files.
+I don't find this unexpected, so I'm not going to worry about it unless you do.
+
+Once again this file looks very good.  Let me know if you create another version.

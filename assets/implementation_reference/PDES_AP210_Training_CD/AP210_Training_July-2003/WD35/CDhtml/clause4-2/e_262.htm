@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Design_composition_path</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.262 Design_composition_path</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Design_composition_path is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.  A Design_composition_path is a collection of <A
+CLASS="INTERNALREF"
+HREF="e_400.htm"
+>Functional_unit</A
+> that together compose one path through the complete functional 
+definition that has the design_functional_unit as a reference to the <A
+CLASS="INTERNALREF"
+HREF="e_401.htm"
+>Functional_unit_definition</A
+> that is the leaf node.
+The functional definition has a root node that is a <A
+CLASS="INTERNALREF"
+HREF="e_402.htm"
+>Functional_unit_network_definition</A
+>.  The path is then established by starting at the leaf element and traversing the collection of path_element in the sequence in which they exist in the functional definition between the leaf element and the root element.  Each member of path_element establishes a link in the sequence.
+The Design_composition_path is a mapping source for a packaging application to use to map between a hierarchical description and a flattened description of a network.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: The types of node elements that are composing a directed acyclic graph must be consistent.  This part of ISO 10303 uses <A
+CLASS="INTERNALREF"
+HREF="e_401.htm"
+>Functional_unit_definition</A
+> as the node elements.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>design_functional_unit</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>path_element</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.262.1 design_functional_unit</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The design_functional_unit specifies the <A
+CLASS="INTERNALREF"
+HREF="e_400.htm"
+>Functional_unit</A
+>
+for the leaf element for the Design_composition_path.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.262.2 path_element</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The path_element specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_400.htm"
+>Functional_unit</A
+> for the 
+Design_composition_path. There shall be one or more Functional_unit for a Design_composition_path. </DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY design_composition_path
+  SUBTYPE OF (managed_design_object);
+    path_element           : SET [1:?] OF functional_unit;
+    design_functional_unit : functional_unit;
+END_ENTITY; -- design_composition_path
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

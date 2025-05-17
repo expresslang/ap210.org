@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Projected_zone_and_base_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.753 Projected_zone_and_base_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Projected_zone_and_base_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A 
+Projected_zone_and_base_relationship is a relationship that associates a <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> with the <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+> from which the Tolerance_zone is projected.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>base_physical_feature</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>projected_zone</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>size_characteristic</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.753.1 base_physical_feature</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The base_physical_feature specifies the <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+> from which the <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> that is specified as the projected_zone is projected.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.753.2 projected_zone</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The projected_zone specifies the <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> that is projected from the <A
+CLASS="INTERNALREF"
+HREF="e_658.htm"
+>Physical_feature_or_part_template</A
+> that is specified as the base_physical_feature.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.753.3 size_characteristic</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The size_characteristic is an inverse relationship that specifies that the existence of the Projected_zone_and_base_relationship is 
+dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_754.htm"
+>Projected_zone_height_characteristic</A
+> that specifies the Projected_zone_and_base_relationship as its defined_height_of.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="INFORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Informal constraints:</P
+><DIV
+CLASS="INFORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>IP1: </SPAN
+>The Physical_feature_or_part_template specified as the base_physical_feature shall be a feature from which it is sensible to project a Tolerance_zone.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY projected_zone_and_base_relationship
+  SUBTYPE OF (managed_design_object);
+    base_physical_feature : physical_feature_or_part_template;
+    projected_zone        : tolerance_zone;
+  INVERSE
+    size_characteristic : projected_zone_height_characteristic FOR 
+                          defined_height_of;
+END_ENTITY; -- projected_zone_and_base_relationship
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

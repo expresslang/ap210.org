@@ -1,0 +1,500 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>sequential_laminate_assembly_design</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><TABLE
+CLASS="UOFMAPPINGSUBTBL"
+BORDER="1"
+><CAPTION
+><A
+NAME="58384"
+></A
+>Table 91 - Mapping table for sequential_laminate_assembly_design UoF</CAPTION
+><THEAD
+CLASS="MAPPINGSUBTBLCOLUMNS"
+><TR
+><TH
+>Application element</TH
+><TH
+>AIM element</TH
+><TH
+>Source</TH
+><TH
+>Reference path</TH
+></TR
+></THEAD
+><TBODY
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="58393"
+></A
+>ASSEMBLY_MATERIAL_COMPOSITION_RELATIONSHIP</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>(next_assembly_usage_occurrence) ([next_assembly_usage_occurrence][quantified_assembly_component_usage]) </TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>44 44 44</TD
+><TD
+VALIGN="top"
+>(next_assembly_usage_occurrence<BR>{next_assembly_usage_occurrence &#60;=<BR>assembly_component_usage &#60;=<BR>product_definition_usage &#60;=<BR>product_definition_relationship<BR>product_definition_relationship.name = `assembly material composition'})<BR>([quantified_assembly_component_usage]<BR>[next_assembly_usage_occurrence<BR>{next_assembly_usage_occurrence &#60;=<BR>assembly_component_usage &#60;=<BR>product_definition_usage &#60;=<BR>product_definition_relationship<BR>product_definition_relationship.name = `assembly material composition'}])<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>as_required</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>41</TD
+><TD
+VALIGN="top"
+>quantified_assembly_component_usage<BR>quantified_assembly_component_usage.quantity -&#62;<BR>measure_with_unit<BR>measure_with_unit.value_component -&#62;<BR>measure_value<BR>measure_value = descriptive_measure<BR>{(descriptive_measure = `as required')<BR>(descriptive_measure = `quantity specified')}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>assembly_material_composition_relationship&nbsp;to<BR>data_element<BR>(as quantity)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>quantified_assembly_component_usage<BR>quantified_assembly_component_usage.quantity -&#62;<BR>measure_with_unit<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>assembly_material_composition_relationship&nbsp;to<BR>material_definition<BR>(as component_material)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>next_assembly_usage_occurrence &#60;=<BR>assembly_component_usage &#60;=<BR>product_definition_usage &#60;=<BR>product_definition_relationship<BR>product_definition_relationship.related_product_definition -&#62;<BR>{product_definition<BR>product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `material definition'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>assembly_material_composition_relationship&nbsp;to<BR>physical_unit_design_view<BR>(as assembly)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>next_assembly_usage_occurrence &#60;=<BR>assembly_component_usage &#60;=<BR>product_definition_usage &#60;=<BR>product_definition_relationship<BR>product_definition_relationship.relating_product_definition -&#62;<BR>product_definition<BR>product_definition =&#62;<BR>physical_unit<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>assembly_material_composition_relationship&nbsp;to<BR>security_classification<BR>(as security_code)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>next_assembly_usage_occurrence &#60;=<BR>assembly_component_usage<BR>security_classification_assigned_item = assembly_component_usage<BR>security_classification_assigned_item &#60;-<BR>applied_security_classification_assignment.items[i]<BR>applied_security_classification_assignment &#60;=<BR>security_classification_assignment<BR>security_classification_assignment.assigned_security_classification -&#62;<BR>security_classification<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="58472"
+></A
+>INTERCONNECT_MODULE</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>physical_unit</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>physical_unit &#60;=<BR>product_definition<BR>{product_definition<BR>[product_definition.name = `interconnect module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical design']}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>interconnect_module&nbsp;to<BR>assembly_module<BR>(as assembly_design_requirement)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>physical_unit &#60;=<BR>product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>{product_definition_relationship<BR>product_definition_relationship.name = `assembly design requirement'}<BR>product_definition_relationship.relating_product_definition -&#62;<BR>product_definition<BR>{product_definition<BR>[product_definition =&#62;<BR>physical_unit]<BR>[product_definition.name = `assembly module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical design']}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="58506"
+></A
+>INTERCONNECT_MODULE_COMPONENT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>component_definition</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition<BR>{product_definition<BR>[product_definition<BR>product_definition.description != `laminate component']<BR>[product_definition.name = `interconnect module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical occurrence']}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>interconnect_module_component&nbsp;to<BR>interconnect_module_usage_view<BR>(as usage_definition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>component_definition &#60;=<BR>product_definition &#60;-<BR>product_definition_relationship.related_product_definition<BR>{product_definition_relationship<BR>product_definition_relationship.name = `instantiated part'}<BR>product_definition_relationship<BR>product_definition_relationship.relating_product_definition -&#62;<BR>{product_definition<BR>[product_definition.name = `interconnect module']<BR>[product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical design usage']}<BR>product_definition =&#62;<BR>(physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit =&#62;<BR>library_defined_physical_unit)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="58548"
+></A
+>INTERCONNECT_MODULE_COMPONENT_STRATUM_BASED_TERMINAL</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>component_terminal</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>component_terminal &#60;=<BR>shape_aspect<BR>{shape_aspect<BR>shape_aspect.description = `interconnect module component stratum based terminal'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>interconnect_module_component_stratum_based_terminal&nbsp;to<BR>interconnect_module_stratum_based_terminal<BR>(as definition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>component_terminal &#60;=<BR>shape_aspect<BR>shape_aspect &#60;-<BR>shape_aspect_relationship.related_shape_aspect<BR>shape_aspect_relationship<BR>{shape_aspect_relationship.description = `interconnect module component stratum based terminal definition'}<BR>shape_aspect_relationship.relating_shape_aspect -&#62;<BR>shape_aspect<BR>shape_aspect =&#62;<BR>interconnect_module_stratum_based_terminal<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="58574"
+></A
+>INTERCONNECT_MODULE_COMPONENT_SURFACE_FEATURE</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>interconnect_module_component_surface_feature</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>interconnect_module_component_surface_feature &#60;=<BR>shape_aspect<BR>{shape_aspect.description = `interconnect module component surface feature'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>interconnect_module_component_surface_feature&nbsp;to<BR>interconnect_module_surface_feature<BR>(as definition)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>interconnect_module_component_surface_feature &#60;=<BR>shape_aspect &#60;-<BR>shape_aspect_relationship.related_shape_aspect<BR>{shape_aspect_relationship<BR>shape_aspect_relationship.name = `instantiated feature'}<BR>shape_aspect_relationship<BR>shape_aspect_relationship.relating_shape_aspect -&#62;<BR>shape_aspect<BR>{(shape_aspect.description = `interconnect module cavity surface')<BR>(shape_aspect.description = `interconnect module cutout surface')<BR>(shape_aspect.description = `interconnect module edge surface')<BR>(shape_aspect.description = `interconnect module edge segment surface')<BR>(shape_aspect.description = `interconnect module primary surface')<BR>(shape_aspect.description = `interconnect module secondary surface')<BR>(shape_aspect.description = `interconnect module surface feature')}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="58603"
+></A
+>INTERCONNECT_MODULE_PRODUCT_ASSEMBLY_VIEW_FABRICATION_JOINT</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>sequential_laminate_passage_based_fabrication_joint</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>sequential_laminate_passage_based_fabrication_joint &#60;=<BR>shape_aspect<BR>{shape_aspect.description = `interconnect module product assembly view fabrication joint'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>interconnect_module_product_assembly_view_fabrication_joint&nbsp;to<BR>interconnect_module_component_stratum_based_terminal<BR>(as joined_terminal)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>sequential_laminate_passage_based_fabrication_joint &#60;=<BR>shape_aspect &#60;-<BR>shape_aspect_relationship.relating_shape_aspect<BR>shape_aspect_relationship<BR>shape_aspect_relationship.related_shape_aspect -&#62;<BR>shape_aspect<BR>{shape_aspect.description = `interconnect module component stratum based terminal'}<BR>shape_aspect =&#62;<BR>component_terminal<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="58626"
+></A
+>INTERCONNECT_MODULE_STRATUM_BASED_TERMINAL</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>interconnect_module_stratum_based_terminal</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>interconnect_module_stratum_based_terminal &#60;=<BR>interconnect_module_terminal &#60;=<BR>shape_aspect<BR>{shape_aspect<BR>shape_aspect.of_shape -&#62;<BR>product_definition_shape &#60;=<BR>property_definition<BR>property_definition.definition -&#62;<BR>characterized_definition<BR>characterized_definition = characterized_product_definition<BR>characterized_product_definition<BR>characterized_product_definition = product_definition<BR>product_definition<BR>product_definition.name = `interconnect module'}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="58647"
+></A
+>NEXT_HIGHER_ASSEMBLY_RELATIONSHIP</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>(next_assembly_usage_occurrence) ([next_assembly_usage_occurrence][quantified_assembly_component_usage]) </TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>44 44 44</TD
+><TD
+VALIGN="top"
+>(next_assembly_usage_occurrence)<BR>([next_assembly_usage_occurrence &#60;= ]<BR>[quantified_assembly_component_usage &#60;=]<BR>assembly_component_usage)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>reference_designation</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>next_assembly_usage_occurrence &#60;=<BR>assembly_component_usage<BR>assembly_component_usage.reference_designator<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>next_higher_assembly_relationship&nbsp;to<BR>data_element<BR>(as quantity)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>next_assembly_usage_occurrence &#60;=<BR>assembly_component_usage =&#62;<BR>quantified_assembly_component_usage<BR>quantified_assembly_component_usage.quantity -&#62;<BR>measure_with_unit<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="58674"
+></A
+>PHYSICAL_COMPONENT_TERMINAL</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>(component_terminal) (component_interface_terminal) </TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210 210</TD
+><TD
+VALIGN="top"
+>(component_terminal &#60;=<BR>shape_aspect<BR>{shape_aspect<BR>})<BR>(component_interface_terminal &#60;=<BR>shape_aspect)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="58686"
+></A
+>PROMISSORY_USAGE_IN_PRODUCT_MODEL_RELATIONSHIP</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>applied_promissory_usage_in_product_model_assignment</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>210</TD
+><TD
+VALIGN="top"
+>{applied_promissory_usage_in_product_model_assignment &#60;=<BR>group_assignment<BR>group_assignment.assigned_group -&#62;<BR>group =&#62;<BR>promissory_usage_in_product_model}<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>promissory_usage_in_product_model_relationship&nbsp;to<BR>Ee_product_definition<BR>(as component)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>applied_promissory_usage_in_product_model_assignment<BR>applied_promissory_usage_in_product_model_assignment.items[i] -&#62;<BR>promissory_usage_in_product_model_assigned_item<BR>promissory_usage_in_product_model_assigned_item = product_definition<BR>(product_definition =&#62;<BR>product_definition_with_associated_documents)<BR>(product_definition)<BR>(product_definition =&#62;<BR>evaluation_product_definition)<BR>(product_definition =&#62;<BR>physical_unit)<BR>(product_definition =&#62;<BR>externally_defined_physical_unit)<BR>(product_definition =&#62;<BR>library_defined_physical_unit)<BR>(product_definition =&#62;<BR>analytical_model_definition)<BR>(product_definition =&#62;<BR>footprint_definition)<BR>(product_definition =&#62;<BR>padstack_definition)<BR>(product_definition =&#62;<BR>physical_unit_network_definition)<BR>(product_definition =&#62;<BR>requirement_definition)<BR>(product_definition =&#62;<BR>functional_unit)<BR>(product_definition =&#62;<BR>externally_defined_functional_unit)<BR>(product_definition =&#62;<BR>library_defined_functional_unit)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>promissory_usage_in_product_model_relationship&nbsp;to<BR>ee_product_model<BR>(as product_model)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>applied_promissory_usage_in_product_model_assignment<BR>applied_promissory_usage_in_product_model_assignment.items[i] -&#62;<BR>promissory_usage_in_product_model_assigned_item<BR>promissory_usage_in_product_model_assigned_item = product_concept<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>promissory_usage_in_product_model_relationship&nbsp;to<BR>security_classification<BR>(as security_code)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>applied_promissory_usage_in_product_model_assignment<BR>security_classification_assigned_item = applied_promissory_usage_in_product_model_assignment<BR>security_classification_assigned_item &#60;-<BR>applied_security_classification_assignment.items[i]<BR>applied_security_classification_assignment &#60;=<BR>security_classification_assignment<BR>security_classification_assignment.assigned_security_classification -&#62;<BR>security_classification<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+><A
+NAME="58752"
+></A
+>PROMISSORY_USAGE_RELATIONSHIP</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>promissory_usage_occurrence</TD
+><TD
+CLASS="SOURCECOLENTRY"
+VALIGN="top"
+>44</TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>promissory_usage_relationship&nbsp;to<BR>physical_unit<BR>(as component)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>promissory_usage_occurrence &#60;=<BR>assembly_component_usage &#60;=<BR>product_definition_usage &#60;=<BR>product_definition_relationship<BR>product_definition_relationship.related_product_definition -&#62;<BR>{product_definition<BR>product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>(application_context_element.name = `physical design')<BR>(application_context_element.name = `physical design usage')}<BR>product_definition =&#62;<BR>(physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit)<BR>(physical_unit =&#62;<BR>externally_defined_physical_unit =&#62;<BR>library_defined_physical_unit)<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>promissory_usage_relationship&nbsp;to<BR>physical_unit_design_view<BR>(as assembly)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>promissory_usage_occurrence &#60;=<BR>assembly_component_usage &#60;=<BR>product_definition_usage &#60;=<BR>product_definition_relationship<BR>product_definition_relationship.relating_product_definition -&#62;<BR>{product_definition<BR>product_definition.frame_of_reference -&#62;<BR>product_definition_context &#60;=<BR>application_context_element<BR>application_context_element.name = `physical design'}<BR>product_definition =&#62;<BR>physical_unit<BR></TD
+></TR
+><TR
+><TD
+VALIGN="top"
+>promissory_usage_relationship&nbsp;to<BR>security_classification<BR>(as security_code)</TD
+><TD
+CLASS="AIMELEMENTCOLENTRY"
+VALIGN="top"
+>PATH</TD
+><TD
+>&nbsp;</TD
+><TD
+VALIGN="top"
+>promissory_usage_occurrence &#60;=<BR>assembly_component_usage<BR>security_classification_assigned_item = assembly_component_usage<BR>security_classification_assigned_item &#60;-<BR>applied_security_classification_assignment.items[i]<BR>applied_security_classification_assignment &#60;=<BR>security_classification_assignment<BR>security_classification_assignment.assigned_security_classification -&#62;<BR>security_classification<BR></TD
+></TR
+></TBODY
+></TABLE
+></BODY
+></HTML
+>

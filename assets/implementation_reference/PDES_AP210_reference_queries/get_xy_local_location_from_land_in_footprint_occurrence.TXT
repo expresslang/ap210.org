@@ -1,0 +1,34 @@
+FUNCTION get_xy_local_location_from_land_in_footprint_occurrence(
+  input : land) : padstack_location_in_footprint_definition_transform;
+--input is specific land
+--output is the padstack_location_in_footprint_definition_transform that contains the (local to the footprint_definition)
+--land template placement.
+--don't forget that this return value has to be transformed additionally by the placement of the footprint_occurrence itself
+--in the design view.!!!!
+--
+--
+--example usage: get_xy_local_location_from_land_in_footprint_occurrence(#2200)
+
+--initialize variables
+    LOCAL
+    fosar : BAG OF footprint_occurrence_sub_assembly_relationship := input.footprint_occurrence_assembly;
+    ptl : BAG OF part_template_location_in_padstack_definition_transform := [];
+    END_LOCAL;
+
+--what to do if land is not related to a footprint
+    IF (SIZEOF(fosar) = 0)
+    THEN
+    RETURN(?);
+    END_IF;
+    
+--It turns out that there is also a transformation from the part template shape into the padstack definition shape.
+--That needs to be taken into account but the details are beyond the scope of this function
+--Apply the transformations sequentially : part template to padstack, padstack to footprint, and footprint to footprint_occurrence
+--
+    REPEAT i := 1 TO SIZEOF(fosar) BY 1;
+      ptl := ptl +  fosar[i].sub_assembly_reference_designation.transform;
+--the ptl never gets returned since the function can only return one thing but it is needed nevertheless      
+    END_REPEAT;
+      
+    RETURN(fosar[1].terminal_location.transform);
+END_FUNCTION; -- get_xy_local_location_from_land_in_footprint_occurrence

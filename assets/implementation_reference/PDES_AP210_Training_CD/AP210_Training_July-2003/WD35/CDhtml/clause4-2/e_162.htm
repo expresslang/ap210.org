@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Composite_signal_property</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.163 Composite_signal_property</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Composite_signal_property is a type of <A
+CLASS="INTERNALREF"
+HREF="e_824.htm"
+>Signal_property</A
+>
+that combines more than one signal property into its structure.  This part of ISO 10303 does not predefine the domain semantics of the structural relationship.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>signal_property_structure</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.163.1 signal_property_structure</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The signal_property_structure is an inverse relationship that specifies that the existence of the Composite_signal_property is 
+dependent on 
+the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_163.htm"
+>Composite_signal_property_relationship</A
+> that specifies the Composite_signal_property as its 
+composition. There shall be one or more Composite_signal_property_relationship for a 
+Composite_signal_property.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY composite_signal_property
+  SUBTYPE OF (signal_property);
+  INVERSE
+    signal_property_structure : SET [1:?] OF composite_signal_property_relationship FOR 
+                                composition;
+END_ENTITY; -- composite_signal_property
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

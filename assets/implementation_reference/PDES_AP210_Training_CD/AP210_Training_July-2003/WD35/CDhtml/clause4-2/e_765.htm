@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Reference_functional_unit_assignment_to_part</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.765 Reference_functional_unit_assignment_to_part</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Reference_functional_unit_assignment_to_part is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>.
+A Reference_functional_unit_assignment_to_part assigns one specific path in the function reference network graph to an implementation.
+A Reference_functional_unit_assignment_to_part provides support for exchange of information needed to determine swappability of functions assigned to devices.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>functional_design_definition_path</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>implementation</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>of_property</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>path_alias</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>swap_code</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.765.1 functional_design_definition_path</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The functional_design_definition_path specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_262.htm"
+>Design_composition_path</A
+> for the Reference_functional_unit_assignment_to_part.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.765.2 implementation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The implementation specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_672.htm"
+>Physical_unit_usage_view</A
+> for the Reference_functional_unit_assignment_to_part.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.765.3 of_property</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The of_property specifies the role of the Coordinated_characteristc for the Reference_functional_unit_assignment_to_part. There may be more than one of_property for a Reference_functional_unit_assignment_to_part. The of_property need not be  specified for a particular Reference_functional_unit_assignment_to_part.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.765.4 path_alias</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The path_alias specifies the string that is the identifier for the Reference_functional_unit_assignment_to_part.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.765.5 swap_code</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The swap_code specifies the string that is the type of exchange that is valid.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the implementation and the path_alias shall be unique within a population of Reference_functional_unit_assignment_to_part.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY reference_functional_unit_assignment_to_part
+  SUBTYPE OF (managed_design_object);
+    functional_design_definition_path : reference_composition_path;
+    implementation                    : physical_unit_or_part_template;
+    of_property                       : OPTIONAL SET [1:?] OF
+                                        coordinated_characteristic;
+    path_alias                        : ee_name;
+    swap_code                         : OPTIONAL STRING;
+  UNIQUE
+    ur1 : implementation, path_alias;
+END_ENTITY; -- reference_functional_unit_assignment_to_part
+
+--tt tc1 wd9 added
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

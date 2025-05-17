@@ -1,0 +1,2 @@
+java -Xms100M -Xmx500M -Djava.ext.dirs="C:\Program Files\LKSoft\MentorBoardStation-AP210Translator_v2_1\ext" jsdaix.ap210.converter.mentor.ParserFramework C:\Eclipse3.0Workspace\AP210NativeTestcases/Cable_DB/Cable_DBMGC/pcb C:\Eclipse3.0Workspace\AP210NativeTestcases/Cable_DB/Cable_DBMGC/pcb\ascii_geoms_file C:\Eclipse3.0Workspace\AP210NativeTestcases\Repository\Cable_DBNoPCBMGC.stp
+@pause

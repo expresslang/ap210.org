@@ -1,0 +1,55 @@
+//////////////////////////////////////////////////////////////////////////////
+//
+// $Id: drill_format.drillf,v 1.4 1996/07/26 20:16:10 thiesk Appr $
+//
+// $Log: drill_format.drillf,v $
+// Revision 1.4  1996/07/26  20:16:10  thiesk
+// SMR 960726-6. Add testpoint drill definition.
+//
+// Revision 1.3  1995/11/21  23:54:22  thiesk
+// Moved the "@present" line before the "@absent" line. SMR 951121-13
+//
+// Revision 1.2  1995/07/26  00:09:37  billa
+// (SMR 950725-5) Fixed drill format to leading suppressed and trailing present.
+//
+// Revision 1.1  1995/01/20  22:45:01  billa
+// (SMR 950120-4) Made changes to support common process
+//
+// Revision 1.0  1993/01/30  19:02:13  swdev
+// No changes - forcing version to 1.0
+//
+// Revision 0.0  1992/07/29  20:00:37  jima
+// Initial Revision.
+//
+//////////////////////////////////////////////////////////////////////////////
+
+// DRILL FORMAT 
+
+$$define_drill_end( '' , @Drill );
+$$define_drill_format(  2 ,   4 , @noDrill_Size_and_Qty ,  @XY_Duplicate ,  @Drill );
+$$define_drill_header( @h0 , '' , @Drill );
+$$define_drill_header( @h1 , '' , @Drill );
+$$define_drill_header( @h2 , '' , @Drill );
+$$define_drill_trailing( @present , @Drill );
+$$define_drill_leading( @absent , @Drill );
+$$define_drill_mode( @absolute , @Drill );
+$$define_drill_origin( 0.0        , [ 0.0        , 0.0        ] , @Drill ); 
+$$define_drill_units( @Inch ,  1.000 , @Drill );
+$$define_drill_block_end_char( '' , @Drill );
+$$define_drill_machine_stop_code( 'M30' , @Drill );
+
+// TEST FIXTURE FORMAT
+
+$$define_drill_end( '' , @Testpoint );
+$$define_drill_format(  2 ,   4 , @noDrill_Size_and_Qty ,  @XY_Duplicate ,  @Testpoint );
+$$define_drill_header( @h0 , '' , @Testpoint );
+$$define_drill_header( @h1 , '' , @Testpoint );
+$$define_drill_header( @h2 , '' , @Testpoint );
+$$define_drill_trailing( @present , @Testpoint );
+$$define_drill_leading( @absent , @Testpoint );
+$$define_drill_mode( @absolute , @Testpoint );
+$$define_drill_origin( 0.0        , [ 0.0        , 0.0        ] , @Testpoint ); 
+$$define_drill_units( @Inch ,  1.000 , @Testpoint );
+$$define_drill_block_end_char( '' , @Testpoint );
+$$define_drill_machine_stop_code( 'M30' , @Testpoint );
+

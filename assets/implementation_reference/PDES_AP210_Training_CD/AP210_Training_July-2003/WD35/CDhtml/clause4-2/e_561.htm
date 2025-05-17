@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Non_feature_shape_element</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.560 Non_feature_shape_element</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Non_feature_shape_element is a type of <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> that is not on the physical boundary of a <A
+CLASS="INTERNALREF"
+HREF="e_664.htm"
+>Physical_unit</A
+>. A Non_feature_shape_element may be
+one of a <A
+CLASS="INTERNALREF"
+HREF="e_235.htm"
+>Datum_reference_frame</A
+>,
+a <A
+CLASS="INTERNALREF"
+HREF="e_236.htm"
+>Datum_system</A
+>,
+a <A
+CLASS="INTERNALREF"
+HREF="e_260.htm"
+>Derived_shape_element</A
+>,
+a <A
+CLASS="INTERNALREF"
+HREF="e_303.htm"
+>Directed_axis</A
+>,
+a <A
+CLASS="INTERNALREF"
+HREF="e_695.htm"
+>Positional_boundary</A
+>,
+a <A
+CLASS="INTERNALREF"
+HREF="e_698.htm"
+>Positional_boundary_member</A
+>,
+a <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+>,
+a <A
+CLASS="INTERNALREF"
+HREF="e_915.htm"
+>Tolerance_zone_boundary</A
+>,
+a <A
+CLASS="INTERNALREF"
+HREF="e_917.htm"
+>Tolerance_zone_boundary_member</A
+>,
+an <A
+CLASS="INTERNALREF"
+HREF="e_439.htm"
+>Interconnect_module_constraint_region</A
+>,
+a <A
+CLASS="INTERNALREF"
+HREF="e_550.htm"
+>Mounting_restriction_area</A
+>,
+a <A
+CLASS="INTERNALREF"
+HREF="e_551.htm"
+>Mounting_restriction_volume</A
+>,
+or a <A
+CLASS="INTERNALREF"
+HREF="e_955.htm"
+>Viewing_plane</A
+>.
+Additionally, a Non_feature_shape_element may be
+a <A
+CLASS="INTERNALREF"
+HREF="e_214.htm"
+>Datum</A
+>.</DIV
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: The centre axis of a cylindrical hole is a Non_feature_shape_element.</DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>element_shape</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>scope</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.560.1 element_shape</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The element_shape may specify the role of a <A
+CLASS="INTERNALREF"
+HREF="Feature_shape_occurrence.htm"
+>Feature_shape_occurrence</A
+>,
+ for the Non_feature_shape_element.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.560.2 scope</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The scope may specify the role of a <A
+CLASS="INTERNALREF"
+HREF="e_388.htm"
+>Footprint_definition</A
+>,
+a <A
+CLASS="INTERNALREF"
+HREF="e_595.htm"
+>Padstack_definition</A
+>,
+a <A
+CLASS="INTERNALREF"
+HREF="e_664.htm"
+>Physical_unit</A
+>,
+a <A
+CLASS="INTERNALREF"
+HREF="e_845.htm"
+>Stratum</A
+>,
+or a <A
+CLASS="INTERNALREF"
+HREF="e_887.htm"
+>Template_definition</A
+>
+ for the Non_feature_shape_element.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of name inherited from Shape_element and scope shall be unique.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>If the Non_feature_shape_element is a Datum it shall not also be a
+Datum_reference_frame, a Datum_system, a Directed_axis, a
+Positional_boundary, a Positional_boundary_member, a Tolerance_zone, a
+Tolerance_zone_boundary, a Tolerance_zone_boundary_member, or a
+Viewing_plane.</DIV
+></DIV
+><DIV
+CLASS="INFORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Informal constraints:</P
+><DIV
+CLASS="INFORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>IP1: </SPAN
+>The Non_feature_shape_element shall not be on the boundary of a Physical_unit.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY non_feature_shape_element
+  SUPERTYPE OF (ONEOF (datum_reference_frame,datum_system,
+      derived_shape_element,directed_axis,positional_boundary,
+      positional_boundary_member,tolerance_zone,tolerance_zone_boundary,
+      tolerance_zone_boundary_member,viewing_plane,
+      seating_plane, template_material_cross_section_boundary,
+      interconnect_module_constraint_region,
+      mounting_restriction_area,
+      mounting_restriction_volume
+      ) ANDOR datum)
+  SUBTYPE OF (shape_element);
+    scope         : ee_product_definition_with_annotation_elements;
+INVERSE
+    element_shape : SET [0:?] OF non_feature_shape_definition for 
+                                                         associated_element;
+   associated_usage_concept : SET [0:?] OF usage_concept_usage_relationship FOR
+    associated_usage;
+UNIQUE
+ UR1: SELF\shape_element.name, scope;
+WHERE
+ WR1: (NOT (SIZEOF(associated_usage_concept) &#62; 0 ) ) OR 
+           (SIZEOF(element_shape) &#62; 0);
+(*
+physical_unit_design_view in 
+TYPEOF element_shape.associated_composition_relationship.
+             resultant_feature_shape\physical_unit_3d_shape.shape_characterized_physical_unit
+OR
+physical_unit_design_view in 
+TYPEOF element_shape.associated_composition_relationship.
+             resultant_feature_shape\physical_unit_planar_shape.shape_characterized_physical_unit
+*)
+(*
+ WR2: SIZEOF(QUERY(es &#60;* element_shape | NOT
+   (('AP210_ARM.PHYSICAL_UNIT_DESIGN_VIEW' IN TYPEOF(
+     es.associated_composition_relationship.
+     resultant_feature_shape\physical_unit_3d_shape.
+     shape_characterized_physical_unit)) OR
+  ('AP210_ARM.PHYSICAL_UNIT_DESIGN_VIEW' IN TYPEOF(
+     es.associated_composition_relationship.
+     resultant_feature_shape\physical_unit_planar_shape.
+     shape_characterized_physical_unit)))
+    )) = 0;
+*)
+END_ENTITY; -- non_feature_shape_element 
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

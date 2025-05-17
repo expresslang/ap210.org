@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Tolerance_zone_definition_with_specified_orientation</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.922 Tolerance_zone_definition_with_specified_orientation</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Tolerance_zone_definition_with_specified_orientation is a type of <A
+CLASS="INTERNALREF"
+HREF="e_920.htm"
+>Tolerance_zone_definition</A
+> in which 
+the orientation of the <A
+CLASS="INTERNALREF"
+HREF="e_913.htm"
+>Tolerance_zone</A
+> is specified.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>zone_orientation</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.922.1 zone_orientation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The zone_orientation specifies either a <A
+CLASS="INTERNALREF"
+HREF="e_956.htm"
+>Viewing_plane_based_orientation</A
+>, a <A
+CLASS="INTERNALREF"
+HREF="e_217.htm"
+>Datum_axis_related_orientation</A
+>, or a <A
+CLASS="INTERNALREF"
+HREF="e_220.htm"
+>Datum_based_vector_orientation</A
+> for the 
+Tolerance_zone_definition_with_specified_orientation.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>If a Datum_axis_related_orientation is specified as the zone_orientation, the Tolerance_zone 
+specified as the defined_tolerance_zone shall be the same instance of Tolerance_zone as specified as the 
+oriented_tolerance_zone by the Datum_axis_and_tolerance_zone_orienting_relationship that is specified as 
+the orienting_relationship by the Datum_axis_related_orientation that is specified as the zone_orientation.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>If a Viewing_plane_based_orientation is specified as the zone_orientation, the Tolerance_zone 
+specified as the defined_tolerance_zone shall be the same instance of Tolerance_zone as specified as the 
+oriented_tolerance_zone by the Tolerance_zone_and_viewing_plane_orienting_relationship that is 
+specified as the orienting_relationship by the Viewing_plane_based_orientation that is specified as the 
+zone_orientation.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR3: </SPAN
+>The Tolerance_zone_definition_with_specified_orientation shall not be specified as a 
+tolerance_zone_or_boundary_definition by either a Circular_runout_tolerance, a Circularity_tolerance, a Concentricity_and_coaxiality_tolerance, a Cylindricity_tolerance, a Flatness_tolerance, a Profile_of_any_surface_tolerance, a Symmetry_tolerance, or a Total_runout_tolerance.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY tolerance_zone_definition_with_specified_orientation
+  SUBTYPE OF (tolerance_zone_definition);
+    zone_orientation : orientation_select;
+END_ENTITY; -- tolerance_zone_definition_with_specified_orientation
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Interconnect_module_stratum_assembly_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.460 Interconnect_module_stratum_assembly_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+An Interconnect_module_stratum_assembly_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. An 
+Interconnect_module_stratum_assembly_relationship is the composition association between an <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+> and the <A
+CLASS="INTERNALREF"
+HREF="e_845.htm"
+>Stratum</A
+> helping to compose it.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>assembly</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>component</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>reference_designation</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>stratum_3d_position</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>stratum_planar_position</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.460.1 assembly</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The assembly specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_433.htm"
+>Interconnect_module</A
+> for 
+the Interconnect_module_stratum_assembly_relationship.  There shall be one or more 
+Interconnect_module for the Interconnect_module_stratum_assembly_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.460.2 component</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The component specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_845.htm"
+>Stratum</A
+> for the Interconnect_module_stratum_assembly_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.460.3 reference_designation</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The reference_designation specifies the string for the human-interpretable identifier for the Interconnect_module_stratum_assembly_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.460.4 stratum_3d_position</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The stratum_3d_position is an inverse relationship that specifies the <A
+CLASS="INTERNALREF"
+HREF="e_863.htm"
+>Stratum_interconnect_module_3d_position</A
+> that specifies the Interconnect_module_stratum_assembly_relationship as its 
+stratum_component. There shall be no more than one Stratum_interconnect_module_3d_position for an Interconnect_module_stratum_assembly_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.460.5 stratum_planar_position</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The stratum_planar_position is an inverse relationship that specifies the <A
+CLASS="INTERNALREF"
+HREF="e_864.htm"
+>Stratum_interconnect_module_planar_position</A
+> that specifies the Interconnect_module_stratum_assembly_relationship as 
+its stratum_component. There shall be no more than one Stratum_interconnect_module_planar_position for an 
+Interconnect_module_stratum_assembly_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the assembly and the reference_designation shall be unique within a population of Interconnect_module_stratum_assembly_relationship.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The members of assembly shall all be for the same product.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>Each member of assembly shall be for a separate product version.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY interconnect_module_stratum_assembly_relationship
+  SUBTYPE OF (managed_design_object);
+    assembly              : interconnect_module;
+    component             : stratum;
+    reference_designation : ee_name;
+  INVERSE
+    stratum_planar_position : SET [0:1] OF 
+                              stratum_interconnect_module_planar_position FOR 
+                              stratum_component;
+    stratum_3d_position     : SET [0:1] OF 
+                              stratum_interconnect_module_3d_position FOR 
+                              stratum_component;
+  UNIQUE
+    ur1 : assembly, reference_designation;
+END_ENTITY; -- interconnect_module_stratum_assembly_relationship
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

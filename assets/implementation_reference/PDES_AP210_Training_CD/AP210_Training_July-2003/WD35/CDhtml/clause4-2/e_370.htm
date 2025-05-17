@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Fabrication_thickness_requirement_occurrence</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.370 Fabrication_thickness_requirement_occurrence</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Fabrication_thickness_requirement_occurrence is a type of <A
+CLASS="INTERNALREF"
+HREF="e_430.htm"
+>Inspection_requirement_occurrence</A
+> that characterizes the interconnect thickness range over metallic material or dielectric material and assigns a tolerance to that range for fabrication purposes.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>characterized_class</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>characterized_class_range</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>tolerance</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.370.1 characterized_class</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The characterized_class specifies either "over_finished_conductor" or "over_finished_dielectric" for the 
+Fabrication_thickness_requirement_occurrence.  This is the class to which the range and tolerance is applied.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.370.2 characterized_class_range</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The characterized_class_range specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_760.htm"
+>Range_characteristic</A
+> for the 
+Fabrication_thickness_requirement_occurrence.  The characterized_class_range specifies the set of measurements to which the tolerance applies.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.370.3 tolerance</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The tolerance specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_911.htm"
+>Tolerance_characteristic</A
+> for the Fabrication_thickness_requirement_occurrence.  The tolerance is applicable over the range specified by the characterized_class_range.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY fabrication_thickness_requirement_occurrence
+  SUBTYPE OF (inspection_requirement_occurrence);
+    characterized_class        : metal_or_dielectric;
+    characterized_class_range  : range_characteristic;
+    tolerance                  : tolerance_characteristic;
+END_ENTITY; -- fabrication_thickness_requirement_occurrence
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,24 @@
+(*
+ $Id: arm.exp,v 1.20 2009/04/29 19:30:43 robbod Exp $
+ ISO TC184/SC4/WG12 N6051 - ISO/CD-TS 10303-1022 Part and version identification - EXPRESS ARM
+ Supersedes ISO TC184/SC4/WG12 N5437
+*) 
+
+
+SCHEMA Part_and_version_identification_arm;
+
+USE FROM Product_identification_arm;    -- ISO/WD 10303-1017
+
+USE FROM Product_version_arm;    -- ISO/TS 10303-1018
+
+
+ENTITY Part
+  SUBTYPE OF (Product);
+END_ENTITY;
+
+ENTITY Part_version
+  SUBTYPE OF (Product_version);
+  SELF\Product_version.of_product : Part;
+END_ENTITY;
+
+END_SCHEMA;  -- Part_and_version_identification_arm

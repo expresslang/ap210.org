@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Shape_element_constituent_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.813 Shape_element_constituent_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Shape_element_constituent_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_816.htm"
+>Shape_element_relationship</A
+> that associates a <A
+CLASS="INTERNALREF"
+HREF="e_810.htm"
+>Shape_element</A
+> with a second Shape_element to which the first Shape_element is a constituent. The Shape_element that is the constituent Shape_element is specified as the related_shape_element. The Shape_element to which the constituent Shape_element is a constituent is specified as the relating_shape_element. A Shape_element_constituent_relationship may be a <A
+CLASS="INTERNALREF"
+HREF="e_812.htm"
+>Shape_element_composing_relationship</A
+>.</DIV
+></DIV
+><DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>The attribute relating_shape_element is declared in the Shape_element_relationship entity of which this 
+entity is a subtype.</LI
+><LI
+CLASS="NOTEINGROUP"
+>The attribute related_shape_element is declared in the Shape_element_relationship entity of which this 
+entity is a subtype.</LI
+><LI
+CLASS="NOTEINGROUP"
+>The difference between a Shape_element_constituent_relationship and a 
+Shape_element_composing_relationship is that the Shape_element_constituent_relationship is used to 
+indicate that a Shape_element is part of another Shape_element. However, the 
+Shape_element_composing_relationship is used to completely specify the composition of a 
+Composite_shape_element.</LI
+></OL
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: A Shape_element_constituent_relationship might be used to indicate that a Datum_target is on the bottom surface of a printed circuit 
+board. In this case, the Shape_element that is the Datum_target would be specified as the related_shape_element, and the 
+Shape_element that is the bottom surface of the printed circuit board would be specified as the relating_shape_element.</DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the relating_shape_element inherited from Shape_element_relationship and related_shape_element inherited from Shape_element_relationship shall be unique within a population of 
+Shape_element_constituent_relationship. That is, any specific Shape_element shall not be a constituent of any one Shape_element 
+more than once.</DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>The Shape_element that is specified as the relating_shape_element shall not be a constituent of itself, either directly or indirectly.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY shape_element_constituent_relationship
+  SUPERTYPE OF (shape_element_composing_relationship)
+  SUBTYPE OF (shape_element_relationship);
+  UNIQUE
+    ur1 : related_shape_element, relating_shape_element;
+END_ENTITY; -- shape_element_constituent_relationship
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

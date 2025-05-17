@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Delete_design_object_management_relationship</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.257 Delete_design_object_management_relationship</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Delete_design_object_management_relationship is a type of <A
+CLASS="INTERNALREF"
+HREF="e_278.htm"
+>Design_object_management_relationship</A
+>.
+Together with Change_design_object_management_relationship and
+Add_design_object_management_relationship,
+Delete_design_object_management_relationship supports the
+exchange of changes to a design by the use of a data set
+containing only (1) the information necessary to identify the
+design (e.g., an Ee_product_definition or an Ee_product_version),
+which is assumed to be already known to the receiving system, and
+(2) the design objects that have been added, changed, or deleted.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Note that all the quality and structural requirements defined in
+this part of ISO 10303  also apply to the resultant new design
+iteration.</DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>previous_design_object</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.257.1 previous_design_object</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The previous_design_object specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+> for the 
+Delete_design_object_management_relationship.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the previous_design_object and the previous_design inherited from Design_object_management_relationship shall be unique within a 
+population of Delete_design_object_management_relationships.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY delete_design_object_management_relationship
+  SUBTYPE OF (design_object_management_relationship);
+    previous_design_object : managed_design_object;
+  UNIQUE
+    ur1 : previous_design_object, previous_design;
+END_ENTITY; -- delete_design_object_management_relationship
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

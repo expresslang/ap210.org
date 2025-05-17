@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Person_and_organization</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.647 Person_and_organization</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+>A Person_and_organization is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. A Person_and_organization is the aggregation of a <A
+CLASS="INTERNALREF"
+HREF="e_646.htm"
+>Person</A
+> and an <A
+CLASS="INTERNALREF"
+HREF="e_570.htm"
+>Organization</A
+>.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>assigned_organization</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>assigned_person</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>person_id_in_organization</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.647.1 assigned_organization</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The assigned_organization specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_570.htm"
+>Organization</A
+> for the 
+Person_and_organization.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.647.2 assigned_person</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The assigned_person specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_646.htm"
+>Person</A
+> for the 
+Person_and_organization.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.647.3 person_id_in_organization</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The person_id_in_organization specifies the identifier for the Person within the context of the Organization for the
+Person_and_organization.  The person_in_organization is optional and need not be supplied.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR1: </SPAN
+>The combination of the person_id_in_organization and the assigned_organization shall be unique within a population of Person_and_organizations.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>UR2: </SPAN
+>The combination of the assign_person and the assigned_organization shall be unique within a population of Person_and_organizations.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY person_and_organization
+  SUBTYPE OF (managed_design_object);
+    assigned_person       : person;
+    assigned_organization : organization;
+    person_id_in_organization : OPTIONAL ee_name;
+  UNIQUE
+    ur1 : assigned_person, assigned_organization;
+    ur2 : person_id_in_organization, assigned_organization;
+END_ENTITY; -- person_and_organization
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

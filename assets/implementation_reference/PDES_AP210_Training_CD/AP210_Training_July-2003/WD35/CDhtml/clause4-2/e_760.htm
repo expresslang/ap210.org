@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Range_characteristic</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.760 Range_characteristic</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Range_characteristic is a type of <A
+CLASS="INTERNALREF"
+HREF="e_197.htm"
+>Coordinated_characteristic</A
+> that specifies a range of values. 
+The range may be open or closed. The range may be single ended.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>component_characteristic</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>range_type</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.760.1 component_characteristic</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The component_characteristic specifies the value of the <A
+CLASS="INTERNALREF"
+HREF="e_566.htm"
+>Numeric_parameter</A
+> for the Range_characteristic. There shall be exactly two Numeric_parameter for the Range_characteristic.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.760.2 range_type</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The range_type specifies the classification of the Range_characteristic.  The Range_characteristic shall be open, closed, lower_open or upper_open.  Open shall be interpreted as not including the end point or points in the range.  Closed shall be interpreted ass including the end point or points in the range. </DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY range_characteristic
+  SUBTYPE OF (coordinated_characteristic);
+    SELF\coordinated_characteristic.component_characteristic : SET [2:2] OF 
+                                                               numeric_parameter;
+    range_type: range_class;
+END_ENTITY; -- range_characteristic
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Assembly_joint</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.41 Assembly_joint</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+An Assembly_joint is a type of <A
+CLASS="INTERNALREF"
+HREF="e_524.htm"
+>Managed_design_object</A
+>. An Assembly_joint may be either one of or both of an <A
+CLASS="INTERNALREF"
+HREF="e_30.htm"
+>Assembled_with_bonding</A
+> or an <A
+CLASS="INTERNALREF"
+HREF="e_31.htm"
+>Assembled_with_fasteners</A
+> or additionally may be a <A
+CLASS="INTERNALREF"
+HREF="e_186.htm"
+>Connection_zone_based_assembly_joint</A
+>. An Assembly_joint 
+is the result of the process that establishes physical connectivity between component features of two 
+components in an assembly. <DIV
+CLASS="EXAMPLE"
+><P
+></P
+>EXAMPLE: Figure  <SPAN
+CLASS="INTERNALREF"
+>aj</SPAN
+> illustrates the roles assigned to items in an assembly by a designer in constructing a member of Assembly_joint. </DIV
+><DIV
+CLASS="NOTEGROUP"
+><P
+>NOTES:</P
+><OL
+><LI
+CLASS="NOTEINGROUP"
+>Assembly_joint is a central concept in this part of ISO 10303 that provides information necessary to extract a network description of a design from the assembly model.  Once extracted, the description may be compared to the original requirements.</LI
+><LI
+CLASS="NOTEINGROUP"
+>Assembly_joint provides critical information necessary to evaluate the appropriateness of the two features related by Assembly_joint to their use in the assembly, given the process used for the joint.</LI
+><LI
+CLASS="NOTEINGROUP"
+>Assembly_joint provides critical information necessary to evaluate the appropriateness of the relative position of the two features related by Assembly_joint, given the process used for the joint, and the technology used for each of the associated components, including related tolerances.</LI
+><LI
+CLASS="NOTEINGROUP"
+>One of these components may be an <A
+CLASS="INTERNALREF"
+HREF="e_435.htm"
+>Interconnect_module_component</A
+>.</LI
+></OL
+></DIV
+></DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>assembly_features</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>description</LI
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>name</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.41.1 assembly_features</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The assembly_features specify exactly two members of any of the following: <A
+CLASS="INTERNALREF"
+HREF="e_45.htm"
+>Assembly_module_component_terminal</A
+>, <A
+CLASS="INTERNALREF"
+HREF="e_62.htm"
+>Bare_die_component_terminal</A
+>, <A
+CLASS="INTERNALREF"
+HREF="e_431.htm"
+>Interconnect_component_interface_terminal</A
+>, <A
+CLASS="INTERNALREF"
+HREF="e_432.htm"
+>Interconnect_component_join_terminal</A
+>, <A
+CLASS="INTERNALREF"
+HREF="e_438.htm"
+>Interconnect_module_component_terminal</A
+>, <A
+CLASS="INTERNALREF"
+HREF="e_593.htm"
+>Package_terminal_occurrence</A
+>, <A
+CLASS="INTERNALREF"
+HREF="e_575.htm"
+>Packaged_component_join_terminal</A
+>, or <A
+CLASS="INTERNALREF"
+HREF="e_578.htm"
+>Packaged_connector_component_interface_terminal</A
+>, for the Assembly_joint.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.41.2 associated_assembly</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The associated_assembly specifies the <A
+CLASS="INTERNALREF"
+HREF="e_43.htm"
+>Assembly_module</A
+> or the <A
+CLASS="INTERNALREF"
+HREF="e_40.htm"
+>Assembly_group_component</A
+> that contains the Assembly_joint.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.41.3 description</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The description specifies the text that in human-interpretable form describes the Assembly_joint. The description need not be specified for a particular Assembly_joint.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.41.4 name</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The name specifies the string of text that identifies the Assembly_joint.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="FORMALCONSTRAINTS"
+><P
+CLASS="CONSTRAINTSHEAD"
+>Formal constraints:</P
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR1: </SPAN
+>A feature shall not be assembled to itself either directly or indirectly.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR2: </SPAN
+>Assembly_features_1 shall be in the associated_assembly.</DIV
+><DIV
+CLASS="FORMALPROPOSITIONSRUL"
+><P
+></P
+><SPAN
+CLASS="RULELABEL"
+>WR3: </SPAN
+>Assembly_features_2 shall be in the associated_assembly.</DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY assembly_joint
+  SUPERTYPE OF (assembled_with_fasteners ANDOR assembled_with_bonding)
+  SUBTYPE OF (managed_design_object);
+    assembly_features_1 : assembled_feature_select;
+    assembly_features_2 : assembled_feature_select;
+    associated_assembly : assembly_module_or_assembly_group_component;
+    description       : OPTIONAL STRING;
+    name              : STRING;
+UNIQUE
+  UR1: name, associated_assembly;
+WHERE
+  WR1: assembly_features_1 :&#60;&#62;: assembly_features_2;
+  WR2: ('AP210_ARM.ASSEMBLED_WITH_FASTENERS' IN TYPEOF(SELF)) OR
+       (('AP210_ARM.COMPONENT_FEATURE' IN TYPEOF(assembly_features_1)) AND
+        (SIZEOF(QUERY( ay &#60;* 
+           assembly_features_1\component_feature.associated_component\
+            assembly_component.assembly | ay.assembly &#60;&#62;
+            associated_assembly)) = 0));
+  WR3: ('AP210_ARM.ASSEMBLED_WITH_FASTENERS' IN TYPEOF(SELF)) OR
+       (('AP210_ARM.COMPONENT_FEATURE' IN TYPEOF(assembly_features_2)) AND
+        (SIZEOF(QUERY( ay &#60;*
+           assembly_features_2\component_feature.associated_component\
+            assembly_component.assembly | ay.assembly &#60;&#62;
+            associated_assembly)) = 0));
+END_ENTITY; -- assembly_joint
+
+(*
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

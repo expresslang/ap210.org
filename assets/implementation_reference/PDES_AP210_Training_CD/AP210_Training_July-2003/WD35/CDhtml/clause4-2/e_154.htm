@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Composite_curve</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.155 Composite_curve</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+
+A Composite_curve is a type of <A
+CLASS="INTERNALREF"
+HREF="e_203.htm"
+>Curve</A
+> that combines more than one 
+Curve into its structure.  The Composite_curve shall be continuous.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>curve_segment</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.155.1 curve_segment</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The curve_segment specifies the role of the <A
+CLASS="INTERNALREF"
+HREF="e_155.htm"
+>Composite_curve_segment</A
+> for the Composite_curve.
+There shall be one or more Composite_curve_segment for a Composite_curve.
+No Composite_curve_segment shall be specified more than once as a curve_segment for a particular Composite_curve.</DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY composite_curve
+  SUBTYPE OF (curve);
+    curve_segment : LIST [1:?] OF UNIQUE composite_curve_segment;
+END_ENTITY; -- composite_curve
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>

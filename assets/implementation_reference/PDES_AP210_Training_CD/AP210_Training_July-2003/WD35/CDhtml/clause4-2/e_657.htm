@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN""http://www.w3.org/TR/REC-html40/strict.dtd">
+<HTML
+><HEAD
+><LINK
+TITLE="AP-PUB Style Sheet"
+HREF="../ap-pub.css"
+REL="stylesheet"
+TYPE="text/css"><TITLE
+>Physical_connectivity_structure_definition</TITLE
+><META
+NAME="generator"
+CONTENT="Jade 1.1/STEP AP to HTML 4.0"></HEAD
+><BODY
+><H2
+>4.2.657 Physical_connectivity_structure_definition</H2
+><DIV
+CLASS="APPOBJDEF"
+><DIV
+CLASS="DESCRIPTION"
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE:  The text description for this Application Object has not been fully updated to agree with the EXPRESS.</DIV
+>
+A Physical_connectivity_structure_definition is a type of <A
+CLASS="INTERNALREF"
+HREF="e_652.htm"
+>Physical_connectivity_definition</A
+> that has a structure.  Structure included supports assignment of path based properties to a Physical_connectivity_definition for routing or validation purposes.  The structure is a graph and may be a tree if there are no redundant arcs, but that is not a requirement.</DIV
+></DIV
+><P
+>The data associated with this application object are the following:</P
+><UL
+CLASS="APPOBJATTRLIST"
+><LI
+CLASS="APPOBJATTRLISTITEM"
+>structural_element</LI
+></UL
+><DIV
+CLASS="APPOBJATTRDEFCL4"
+><H3
+>4.2.657.1 structural_element</H3
+><DIV
+CLASS="APPOBJREGATTRDESC"
+><DIV
+CLASS="DESCRIPTION"
+>The structural_element is an inverse relationship that specifies that the existence of the Physical_connectivity_structure_definition is dependent on the existence of the <A
+CLASS="INTERNALREF"
+HREF="e_654.htm"
+>Physical_connectivity_element</A
+> that specifies the Physical_connectivity_structural_definition as its connectivity_context.
+There shall be one or more Physical_connectivity_element for a Physical_connectivity_structural_definition.<DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: Ordering is not explicitly represented in this Application Object.</DIV
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+>NOTE: <DIV
+CLASS="EXPRESSCODE"
+><PRE
+CLASS="EXPCODEBODY"
+>*)
+ENTITY physical_connectivity_structure_definition
+  SUBTYPE OF (physical_connectivity_definition);
+  INVERSE
+    structural_element : SET [1:?] OF physical_connectivity_element FOR 
+                         connectivity_context;
+END_ENTITY; -- physical_connectivity_structure_definition
+
+(*</PRE
+></DIV
+></DIV
+></BODY
+></HTML
+>
