@@ -8,7 +8,12 @@ has_children: true
 ## Research datasets
 
 Below is every dataset currently published on this site.
-Select the title for full details, or choose **Download** to grab the data package directly.
+Currently links to the published research papers are provided.
+More to follow including downloadable data!
+
+{% comment %}
+ Select the title for full details, or choose **Download** to grab the data package directly.
+{% endcomment %}
 
 {% comment %}
 A-Z sorted bulleted list of every page that lives in the `_research` collection.
