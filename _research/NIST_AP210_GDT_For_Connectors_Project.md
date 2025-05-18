@@ -8,6 +8,4 @@ dataset_dir: /assets/research/NIST_AP210_GDT_For_Connectors_Project/
 ---
 
 *Associated publication:* +
-link:https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=906349[Recommended practice extensions for
-GD&T in STEP-AP210 in the context of
-electronic connectors(NISTIR 7716)]
+[Recommended practice extensions for GD&T in STEP-AP210 in the context of electronic connectors (NISTIR 7716)](https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=906349)

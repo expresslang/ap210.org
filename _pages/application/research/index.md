@@ -17,5 +17,5 @@ As soon as you drop a new file into `_research/`, it appears here automatically�
 
 {% assign items = site.research | sort: "title" %}
 {% for item in items %}
-* [{{ item.title }}]({{ item.url | relative_url }}) – _{{ item.summary }}_{% if item.download %} • [Download (ZIP)]({{ item.dataset_dir }}{{ item.download }}){% endif %}
+* <a href="{{ item.url | relative_url }}">{{ item.title }}</a> – <em>{{ item.summary }}</em>
 {% endfor %}

@@ -8,4 +8,4 @@ dataset_dir: /assets/research/NIST_AP210_CFD_Project/
 ---
 
 *Associated publication:* +
-link:https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=903903[Representation of a Thermal Resistor Network Model of a Packaged Component in STEP AP210 Edition 2 (NISTIR 7648)]
+[Representation of a Thermal Resistor Network Model of a Packaged Component in STEP AP210 Edition 2 (NISTIR 7648)](https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=903903)
