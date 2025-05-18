@@ -8,5 +8,5 @@ dataset_dir: /assets/research/NIST_AP210_SPICE_Project/
 ---
 
 *Associated publication:* +
-link:https:https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=910094[Representation of functional networks in STEP AP210
+link:https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=910094[Representation of functional networks in STEP AP210
 with application to SPICE circuit simulation(NIST GCR 11-949)]
