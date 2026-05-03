@@ -1,0 +1,69 @@
+---
+title: Material Queries
+excerpt: Query patterns for extracting material and substance data from AP 210 datasets.
+---
+
+= Material Queries
+
+This lesson covers queries for extracting material property data from AP 210 datasets.
+
+== Query: Find All Materials in a Design
+
+**Goal:** List all materials used in the design with their properties.
+
+**Algorithm:**
+
+----
+FOR EACH md IN Material_Designation
+  material = md.definitions[1]
+  properties = FIND Property_Definition WHERE definition = material
+  FOR EACH pd IN properties
+    rep = NAVIGATE pd → pdr → representation
+    FOR EACH item IN rep.items
+      COLLECT {
+        material: md.name,
+        property: pd.name,
+        value: item.value,
+        unit: item.unit
+      }
+    END
+  END
+END
+----
+
+**Output:**
+
+....
+[
+  {material: "FR-4", property: "dielectric_constant", value: 4.5, unit: "dimensionless"},
+  {material: "FR-4", property: "loss_tangent", value: 0.02, unit: "dimensionless"},
+  {material: "Copper", property: "conductivity", value: 5.96e7, unit: "S/m"},
+  {material: "Solder Mask", property: "thickness", value: 0.025, unit: "mm"}
+]
+....
+
+== Material in Context
+
+Materials in AP 210 are associated with:
+
+* **Stratums** - Each PCB layer has a material
+* **Components** - Package bodies, terminals, die attach
+* **Interconnects** - Conductive traces, plating, solder
+
+== Related Properties
+
+Common material properties queried:
+
+* **Electrical**: Dielectric constant, loss tangent, conductivity
+* **Thermal**: Thermal conductivity, specific heat, CTE (coefficient of thermal expansion)
+* **Mechanical**: Young's modulus, Poisson's ratio, tensile strength
+* **Chemical**: RoHS compliance, flame retardancy rating
+
+== Practical Applications
+
+Material queries support:
+
+* **Signal integrity** - Dielectric constant affects impedance
+* **Thermal analysis** - Conductivity determines heat flow
+* **Compliance** - RoHS substance restrictions
+* **Manufacturing** - Material selection drives process parameters

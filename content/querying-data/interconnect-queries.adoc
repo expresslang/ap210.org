@@ -1,0 +1,105 @@
+---
+title: Interconnect Queries
+excerpt: Three query patterns for extracting connectivity and net information from AP 210 datasets.
+---
+
+= Interconnect Queries
+
+This lesson covers three queries for extracting connectivity information from AP 210 data.
+
+== Query 1: List All Nets
+
+**Goal:** Get all net names and the number of connection points on each.
+
+**Algorithm:**
+
+----
+FOR EACH pcd IN Physical_Connectivity_Definition
+  elements = FIND Physical_Connectivity_Element WHERE parent = pcd
+  COLLECT {net: pcd.name, pin_count: SIZEOF(elements)}
+END
+----
+
+**Starting point:** `PHYSICAL_CONNECTIVITY_DEFINITION`
+
+**Output:**
+
+....
+[
+  {net: "VCC", pin_count: 15},
+  {net: "GND", pin_count: 22},
+  {net: "SDA", pin_count: 2},
+  {net: "SCL", pin_count: 2}
+]
+....
+
+== Query 2: Find All Pins on a Net
+
+**Goal:** Given a net name, find all component pins connected to it.
+
+**Algorithm:**
+
+----
+FOR EACH pcd IN Physical_Connectivity_Definition
+  WHERE pcd.name = target_net_name
+  FOR EACH pce IN Physical_Connectivity_Element
+    WHERE pce.parent = pcd
+    component = NAVIGATE pce → component_definition → product → name
+    terminal = pce.terminal.name
+    COLLECT {component, terminal}
+  END
+END
+----
+
+**Starting point:** `PHYSICAL_CONNECTIVITY_DEFINITION` filtered by name
+
+**Navigation path:**
+....
+PCD → PCE → component terminal → component definition → product
+....
+
+**Output:**
+
+....
+[
+  {component: "U1", terminal: "VCC"},
+  {component: "R1", terminal: "2"},
+  {component: "C1", terminal: "1"}
+]
+....
+
+== Query 3: Find Connections Between Two Components
+
+**Goal:** Find all nets that connect two specific components.
+
+**Algorithm:**
+
+----
+FOR EACH pcd IN Physical_Connectivity_Definition
+  elements = FIND PCE WHERE parent = pcd
+  component_names = elements.map(e -> navigate_to_component_name(e))
+  IF target_component_1 IN component_names
+     AND target_component_2 IN component_names
+  THEN
+    COLLECT {net: pcd.name, pins: extract_pin_pairs(elements, target)}
+  END
+END
+----
+
+**Output:**
+
+....
+[
+  {net: "SPI_CLK", pins: [{component: "U1", terminal: "3"}, {component: "U2", terminal: "5"}]},
+  {net: "SPI_MOSI", pins: [{component: "U1", terminal: "4"}, {component: "U2", terminal: "6"}]}
+]
+....
+
+== Practical Applications
+
+Interconnect queries support:
+
+* **Signal integrity analysis** - Find all pins on high-speed nets
+* **Net connectivity checks** - Verify all pins on a net are properly connected
+* **Bus analysis** - Identify all nets in a bus (e.g., all SPI, I2C nets)
+* **Troubleshooting** - Find shorts between nets or open connections

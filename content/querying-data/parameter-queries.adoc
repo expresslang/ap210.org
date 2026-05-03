@@ -1,0 +1,108 @@
+---
+title: Parameter Queries
+excerpt: Five query patterns for extracting parametric data from AP 210 datasets.
+---
+
+= Parameter Queries
+
+This lesson covers five queries for extracting parameter and property data from AP 210 datasets.
+
+== Query 1: Find All Properties of a Component
+
+**Goal:** List all properties (electrical, thermal, mechanical) of a specific component.
+
+**Algorithm:**
+
+----
+FOR EACH pd IN Property_Definition
+  WHERE pd.definition = target_component_shape_aspect
+  pdr = FIND Property_Definition_Representation WHERE definition = pd
+  rep = pdr.used_representation
+  FOR EACH item IN rep.items
+    COLLECT {name: pd.name, value: item.value, unit: item.unit}
+  END
+END
+----
+
+**Output:**
+
+....
+[
+  {name: "resistance", value: 10000.0, unit: "ohm"},
+  {name: "tolerance", value: 1.0, unit: "percent"},
+  {name: "power_rating", value: 0.0625, unit: "watt"}
+]
+....
+
+== Query 2: Find Components by Parameter Value
+
+**Goal:** Find all components with a specific parameter value (e.g., all 10kΩ resistors).
+
+**Algorithm:**
+
+----
+FOR EACH mri IN Measure_Representation_Item
+  WHERE mri.name = "resistance" AND mri.value = 10000.0
+  rep = FIND Representation WHERE mri IN rep.items
+  pdr = FIND Property_Definition_Representation WHERE used_representation = rep
+  component = NAVIGATE pdr → property_definition → definition → product
+  COLLECT component
+END
+----
+
+== Query 3: Extract All Layer Thicknesses
+
+**Goal:** Get the thickness of each layer in the PCB stackup.
+
+**Algorithm:**
+
+----
+FOR EACH stratum IN Stratum
+  pd = FIND Property_Definition WHERE definition = stratum AND name = "thickness"
+  value = NAVIGATE pd → pdr → representation → measure_item
+  COLLECT {layer: stratum.name, thickness: value}
+END
+----
+
+**Output:**
+
+....
+[
+  {layer: "Top Copper", thickness: 0.035},
+  {layer: "Prepreg 1", thickness: 0.20},
+  {layer: "Inner 1 GND", thickness: 0.035},
+  {layer: "Core", thickness: 1.60},
+  {layer: "Inner 2 PWR", thickness: 0.035},
+  {layer: "Prepreg 2", thickness: 0.20},
+  {layer: "Bottom Copper", thickness: 0.035}
+]
+....
+
+== Query 4: Find Components by Package Type
+
+**Goal:** Find all components with a specific package type (e.g., all BGA packages).
+
+**Algorithm:**
+
+----
+FOR EACH p IN Product
+  category = NAVIGATE p → product_category
+  IF category.name CONTAINS "BGA"
+  THEN COLLECT p
+END
+----
+
+== Query 5: Compare Nominal vs. Actual Dimensions
+
+**Goal:** Find the difference between nominal and measured dimensions for tolerance analysis.
+
+**Algorithm:**
+
+----
+FOR EACH tolerance IN Tolerance
+  nominal = tolerance.basis_measure.value
+  lower = tolerance.lower_bound.value
+  upper = tolerance.upper_bound.value
+  COLLECT {dimension: tolerance.name, nominal, lower, upper, range: upper - lower}
+END
+----

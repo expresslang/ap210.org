@@ -1,0 +1,101 @@
+---
+title: Constrained Objects
+excerpt: How EXPRESS uses constraints and rules to enforce data integrity in information models.
+---
+
+= Constrained Objects
+
+EXPRESS uses constraints to ensure that data conforms to the intended semantics of the information model. This lesson covers the constraint mechanisms available in the language.
+
+== Local Constraints
+
+=== WHERE Rules
+
+WHERE rules constrain individual entity instances:
+
+[source,express]
+----
+ENTITY resistor;
+  resistance : REAL;
+WHERE
+  positive_resistance : resistance > 0;
+END_ENTITY;
+----
+
+=== UNIQUE Rules
+
+UNIQUE rules enforce uniqueness of attribute values:
+
+[source,express]
+----
+ENTITY component;
+  part_number : STRING;
+  package_type : STRING;
+UNIQUE
+  unique_part : part_number, package_type;
+END_ENTITY;
+----
+
+== Global Constraints
+
+Global rules can span multiple entities and reference multiple instances:
+
+[source,express]
+----
+RULE unique_product_ids FOR (product);
+  LOCAL
+    ids : SET OF STRING := [];
+  END_LOCAL;
+  REPEAT i := 1 TO SIZEOF(QUERY(p <* product | TRUE));
+    IF p[i].id IN ids THEN
+      RETURN(FALSE);
+    END_IF;
+    ids := ids + p[i].id;
+  END_REPEAT;
+  RETURN(TRUE);
+END_RULE;
+----
+
+== Derived Attributes
+
+Attributes can be computed from other attributes:
+
+[source,express]
+----
+ENTITY board;
+  width : REAL;
+  height : REAL;
+DERIVE
+  area : REAL := width * height;
+END_ENTITY;
+----
+
+== Inverse Attributes
+
+Inverse attributes constrain relationship cardinality:
+
+[source,express]
+----
+ENTITY assembly;
+  components : SET [1:?] OF component;
+END_ENTITY;
+
+ENTITY component;
+  parent : assembly;
+INVERSE
+  belongs_to : assembly FOR components;
+END_ENTITY;
+----
+
+== Functions and Procedures
+
+EXPRESS functions encapsulate reusable logic:
+
+[source,express]
+----
+FUNCTION positive_real(val : REAL) : BOOLEAN;
+  RETURN(val > 0);
+END_FUNCTION;
+----
+
+Functions can be called from WHERE rules, derived attributes, and other functions.

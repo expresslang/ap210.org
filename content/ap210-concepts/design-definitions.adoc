@@ -1,0 +1,54 @@
+---
+title: Design Definitions
+excerpt: Building design definitions that instantiate library components in specific assembly contexts.
+---
+
+= Design Definitions
+
+While library definitions capture generic component properties, design definitions capture how those components are used in specific assemblies.
+
+== From Library to Design
+
+The transition from library to design involves:
+
+1. **Select a library component** - Choose a component from the library
+2. **Instantiate in the assembly** - Place the component in the design
+3. **Assign connectivity** - Connect the component's terminals to nets
+4. **Apply constraints** - Add design-specific constraints (spacing, impedance, etc.)
+5. **Validate** - Check the design against rules
+
+== Design Definition Entities
+
+Key entities in a design definition:
+
+* **product_definition** - The specific design view
+* **shape_definition_representation** - The geometric data for this design
+* **design_context** - The context in which the design is created
+* **assembly_component_usage** - How components are used in the assembly
+
+== Design Data
+
+Design-specific data includes:
+
+* **Placement data** - Exact position and orientation of each component instance
+* **Routing data** - How traces connect between component pads
+* **Layer assignments** - Which layers each feature occupies
+* **Design rules** - Rules that apply to this specific design
+* **Requirements** - Specific requirements for this design instance
+
+== Example: Surface Mount Resistor on a PCB
+
+For a 10kΩ 0402 resistor placed on a PCB:
+
+* **Library definition** - 0402 package outline, two terminals, 10kΩ resistance
+* **Design definition** - Placed at (x=12.5, y=7.3, z=0.0) on top layer, rotated 90°
+* **Connectivity** - Terminal 1 connected to Net "VCC", Terminal 2 connected to Net "SIGNAL_1"
+* **Constraints** - Minimum 0.15mm clearance to adjacent components
+
+== Validation
+
+Design definitions can be validated against:
+
+* **Design rules** - Minimum trace width, clearance, etc.
+* **Manufacturing rules** - Minimum feature size, aspect ratio, etc.
+* **Functional requirements** - Impedance, delay, crosstalk budgets

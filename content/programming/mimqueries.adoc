@@ -1,0 +1,94 @@
+---
+title: MIMqueries Interface
+excerpt: Overview of the MIMqueries Java interface providing 80+ query methods for AP 210 data.
+---
+
+= MIMqueries Interface
+
+The MIMqueries interface provides a high-level query API for AP 210 data, wrapping common navigation patterns into reusable Java methods.
+
+== Overview
+
+MIMqueries offers 80+ pre-built query methods organized by category:
+
+* **Product queries** - Find products, definitions, and relationships
+* **Shape queries** - Access geometric data and shape aspects
+* **Location queries** - Extract component positions and orientations
+* **Connectivity queries** - Find nets, pins, and connections
+* **Property queries** - Read material, electrical, and thermal data
+* **Layer queries** - Access stratum and layer stack information
+
+== Using MIMqueries
+
+[source,java]
+----
+import com.sfm.ap210.jsdai.MIMqueries;
+
+// Initialize with an open model
+MIMqueries queries = new MIMqueries(model);
+
+// Find all products
+List<E_product> products = queries.getAllProducts();
+
+// Find components of an assembly
+List<E_product_definition> components = queries.getComponentDefinitions(assembly);
+
+// Get net information
+List<E_physical_connectivity_definition> nets = queries.getNets(assembly);
+
+// Get component locations
+Map<E_product, double[]> locations = queries.getComponentLocations(assembly);
+----
+
+== Query Method Categories
+
+=== Product Queries
+
+* `getAllProducts()` - All products in the model
+* `getProductById(String id)` - Find by identifier
+* `getProductCategory(E_product)` - Get classification
+* `getAssemblyDefinition(E_product)` - Get the design definition
+
+=== Component Queries
+
+* `getComponentDefinitions(E_product)` - All components in an assembly
+* `getComponentLocation(E_product)` - Position coordinates
+* `getComponentOrientation(E_product)` - Rotation angles
+* `getComponentTerminals(E_product)` - All terminals/pins
+
+=== Connectivity Queries
+
+* `getNets(E_product)` - All connectivity definitions
+* `getNetByName(String name)` - Find by net name
+* `getPinsOnNet(E_physical_connectivity_definition)` - Pins on a net
+* `getConnectedComponents(E_physical_connectivity_definition)` - Components sharing a net
+
+=== Property Queries
+
+* `getProperties(E_product)` - All properties
+* `getPropertyValue(E_product, String name)` - Specific property value
+* `getMaterialProperties(E_product)` - Material-specific properties
+* `getLayerThicknesses(E_product)` - PCB layer thickness data
+
+== Error Handling
+
+[source,java]
+----
+try {
+    E_product product = queries.getProductById("U1");
+    if (product == null) {
+        System.out.println("Product U1 not found");
+        return;
+    }
+    List<E_product_definition> components = queries.getComponentDefinitions(product);
+    System.out.println("U1 has " + components.size() + " components");
+} catch (SdaiException e) {
+    System.err.println("Query error: " + e.getMessage());
+}
+----
+
+== Performance Considerations
+
+* MIMqueries caches results - Repeated calls are fast
+* Use batch queries when possible - `getAllProducts()` is more efficient than individual lookups
+* Close queries when done - Releases cached data

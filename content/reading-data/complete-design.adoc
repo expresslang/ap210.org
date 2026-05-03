@@ -1,0 +1,67 @@
+---
+title: Complete Design
+excerpt: Walk-through of a complete AP 210 design — the Surface Mount Flasher example.
+---
+
+= Complete Design
+
+This lesson walks through a complete AP 210 design: a Surface Mount Flasher board. This example demonstrates how all the concepts from previous lessons come together in a real design.
+
+== The Surface Mount Flasher
+
+The Surface Mount Flasher is a small printed circuit assembly that includes:
+
+* A PCB (single or double-sided)
+* Several surface mount components (resistors, capacitors, LEDs, IC)
+* Connectivity between components
+* A specific board outline shape
+
+== File Structure Overview
+
+The STEP file follows the standard pattern:
+
+1. **Header** - File metadata, schema declaration
+2. **Application context** - Identifies this as AP 210 data
+3. **Product definitions** - The board and each component
+4. **Assembly structure** - How components are assembled on the board
+5. **Shape data** - Geometric representations of all parts
+6. **Connectivity** - Net list and trace routing
+7. **Properties** - Material, electrical, and thermal properties
+
+== Product Hierarchy
+
+....
+Surface Mount Flasher (product)
+  ├── PCB (product_definition)
+  ├── R1 - Resistor (product)
+  │     └── R1 instance on board (assembly usage)
+  ├── C1 - Capacitor (product)
+  │     └── C1 instance on board (assembly usage)
+  ├── U1 - LED (product)
+  │     └── U1 instance on board (assembly usage)
+  └── U2 - IC (product)
+        └── U2 instance on board (assembly usage)
+....
+
+== Key Entities to Trace
+
+When reading this file:
+
+1. **Start**: `APPLICATION_CONTEXT('electronic assembly...')`
+2. **Top product**: `PRODUCT('Surface Mount Flasher', ...)`
+3. **Components**: Multiple `PRODUCT` entities for each part
+4. **Assembly**: `NEXT_ASSEMBLY_USAGE_OCCURRENCE` linking components to board
+5. **Placement**: `ITEM_DEFINED_TRANSFORMATION` for each component position
+6. **Nets**: `PHYSICAL_CONNECTIVITY_DEFINITION` for each net
+7. **Traces**: `PATH` or `POLYLINE` geometry on each stratum
+
+== Reading Strategy
+
+For a complete design, focus on one aspect at a time:
+
+* **Structure** - Who are the components and how are they organized?
+* **Geometry** - What are the shapes and where are they placed?
+* **Connectivity** - What is connected to what?
+* **Properties** - What are the material and electrical values?
+
+Trying to read all aspects simultaneously is overwhelming. Each pass through the file builds understanding incrementally.

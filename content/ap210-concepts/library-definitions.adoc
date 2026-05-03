@@ -1,0 +1,56 @@
+---
+title: Library Definitions
+excerpt: Building library definitions for reusable electronic components in AP 210.
+---
+
+= Library Definitions
+
+AP 210 provides mechanisms for defining reusable component libraries. A library definition captures the generic properties of a component type, independent of any specific usage.
+
+== What is a Library Definition?
+
+A library definition defines:
+
+* **Geometric shape** - The physical outline and footprint of the component
+* **Electrical terminals** - The connection points (pins, pads, balls)
+* **Material properties** - Electrical, thermal, and mechanical properties
+* **Functional behavior** - Parametric models of the component's function
+* **Classification** - The category the component belongs to
+
+== Component Types
+
+AP 210 can model library definitions for:
+
+* **Passive components** - Resistors, capacitors, inductors
+* **Active components** - ICs, transistors, diodes
+* **Connectors** - Board-to-board, cable, FPC
+* **Packages** - IC packages (BGA, QFP, QFN, etc.)
+* **Interconnects** - Vias, traces, planes
+
+== Building a Library Definition
+
+The process involves:
+
+1. **Define the product** - Create a `product` entity with classification
+2. **Define the shape** - Create geometric representations for the component body and terminals
+3. **Define terminals** - Create `packaged_part_terminal` entities for each pin
+4. **Define properties** - Add material, electrical, and thermal properties
+5. **Define the footprint** - Create land pattern and solder paste definitions
+
+== Reusability
+
+Library definitions are designed for reuse:
+
+* A single library definition can be instantiated many times in different assemblies
+* Each instance references the library definition and adds placement-specific data
+* Changes to the library definition propagate to all instances
+
+== Package Modeling
+
+IC packages are a key library element. AP 210 models:
+
+* **Package body** - The physical outline
+* **Pins/balls** - The connection points
+* **Die cavity** - Where the die sits
+* **Wire bonds** - Internal connections
+* **Thermal characteristics** - Thermal resistance, power dissipation

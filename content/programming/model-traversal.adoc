@@ -1,0 +1,104 @@
+---
+title: Model Traversal
+excerpt: Tutorial on traversing the AP 210 entity graph using JSDAI, based on SampleModelTraversal.java.
+---
+
+= Model Traversal
+
+This lesson walks through the `SampleModelTraversal.java` tutorial, which demonstrates how to navigate the AP 210 entity graph programmatically.
+
+== The Sample Model Traversal
+
+The `SampleModelTraversal.java` class provides a practical example of how to:
+
+1. Open an AP 210 STEP file
+2. Find the top-level assembly
+3. Traverse the product structure
+4. Access component placement data
+5. Read shape and property information
+
+== Opening and Initializing
+
+[source,java]
+----
+public class SampleModelTraversal {
+    private Ap210_schema schema;
+    private SdaiModel model;
+
+    public void open(String filename) throws SdaiException {
+        SdaiRepository repo = SdaiSession.getSession().createRepository();
+        model = repo.openModel("ap210_data", filename);
+        schema = (Ap210_schema) model.getSchema();
+    }
+}
+----
+
+== Finding the Top-Level Product
+
+[source,java]
+----
+public E_product findTopLevelProduct() throws SdaiException {
+    A_product products = new A_product();
+    schema.getInstances(schema.product, products);
+
+    // Find the product that is not used as a component
+    // (i.e., has no NAUO referencing it as the related definition)
+    SdaiIterator it = products.createIterator();
+    while (it.next()) {
+        E_product product = products.getCurrentMember(it);
+        if (isTopLevel(product)) {
+            return product;
+        }
+    }
+    return null;
+}
+----
+
+== Traversing the Assembly
+
+[source,java]
+----
+public void traverseAssembly(E_product product, int depth) throws SdaiException {
+    String indent = "  ".repeat(depth);
+    System.out.println(indent + product.getId(null) + ": " + product.getName(null));
+
+    // Find all component usages
+    A_next_assembly_usage_occurrence naus = getComponentUsages(product);
+    SdaiIterator it = naus.createIterator();
+    while (it.next()) {
+        E_next_assembly_usage_occurrence nauo = naus.getCurrentMember(it);
+        E_product component = getComponentProduct(nauo);
+        traverseAssembly(component, depth + 1);
+    }
+}
+----
+
+== Accessing Placement Data
+
+[source,java]
+----
+public double[] getComponentLocation(E_next_assembly_usage_occurrence nauo)
+        throws SdaiException {
+    E_item_defined_transformation idt = getPlacement(nauo);
+    E_axis2_placement_3d placement = (E_axis2_placement_3d) idt Transform_item_2(null);
+    E_cartesian_point location = placement.getLocation(null);
+    return location.getCoordinates(null);
+}
+----
+
+== Key Traversal Patterns
+
+The traversal follows a consistent pattern:
+
+1. **Get instances of a type** - `schema.getInstances(schema.type, aggregate)`
+2. **Iterate** - `aggregate.createIterator()`
+3. **Access attributes** - `entity.getAttributeName(null)`
+4. **Navigate references** - Follow attribute values to related entities
+5. **Repeat recursively** - For hierarchical structures
+
+== Practical Tips
+
+* Always handle `SdaiException` - JSDAI throws on invalid data access
+* Use `null` parameter for `null` context - Most JSDAI methods take a context parameter
+* Close models when done - Call `model.close()` to free resources
+* Use the schema-specific constants - Access entity types through `schema.type_name`

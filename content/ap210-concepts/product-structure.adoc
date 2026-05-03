@@ -1,0 +1,64 @@
+---
+title: Product Structure
+excerpt: How AP 210 represents the hierarchical structure of electronic assemblies.
+---
+
+= Product Structure
+
+AP 210 represents the physical and functional hierarchy of electronic products using a structured product model.
+
+== Assembly Hierarchy
+
+Electronic products are hierarchical:
+
+....
+System
+  └── Board Assembly (PCA)
+        ├── Printed Circuit Board (PCB)
+        ├── Component 1 (IC Package)
+        │     ├── Die
+        │     ├── Substrate
+        │     └── Leadframe
+        ├── Component 2 (Resistor)
+        └── Component 3 (Connector)
+....
+
+== Core Entities
+
+AP 210 uses the following STEP entities to model product structure:
+
+* **product** - The top-level product definition
+* **product_definition_formation** - A specific version of a product
+* **product_definition** - A specific view of a product version
+* **product_definition_relationship** - Relationships between product definitions
+* **next_assembly_usage_occurrence** - An occurrence of a component in an assembly
+
+== Physical vs. Functional Structure
+
+AP 210 distinguishes between:
+
+=== Physical Structure
+
+The physical hierarchy describes how components are physically assembled:
+
+* Where each component is placed on the board
+* How layers stack up in the PCB
+* The physical connectivity between components
+
+=== Functional Structure
+
+The functional hierarchy describes what the product does:
+
+* Functional decomposition into sub-functions
+* Signal flow between functional units
+* Logical connectivity independent of physical implementation
+
+== Navigation Patterns
+
+To traverse an AP 210 product structure:
+
+1. Start from a `product_definition` with context "design"
+2. Find `next_assembly_usage_occurrence` relationships
+3. For each occurrence, navigate to the component's `product_definition`
+4. Repeat recursively for sub-assemblies
+5. Access shape, material, and property data at each level

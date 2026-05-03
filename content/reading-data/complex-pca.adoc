@@ -1,0 +1,60 @@
+---
+title: Complex Multi-layer PCA
+excerpt: Analysis of the PDES-181 complex multi-layer PCA test case with BGA analysis.
+---
+
+= Complex Multi-layer PCA
+
+This lesson examines the PDES-181 test case — a complex multi-layer printed circuit assembly that represents a realistic, production-quality electronic design.
+
+== PDES-181 Overview
+
+The PDES-181 test case is one of the most comprehensive AP 210 test cases. It features:
+
+* **Multi-layer PCB** - 6+ layer stackup
+* **BGA components** - Ball Grid Array packages with fine pitch
+* **High-density routing** - Fine trace/space design rules
+* **Multiple component types** - ICs, passives, connectors, test points
+* **Complete connectivity** - Full net list with impedance-controlled nets
+* **Design rules** - Manufacturing constraints and design rule specifications
+
+== Complexity Indicators
+
+What makes PDES-181 complex:
+
+* **Entity count** - Thousands of entity instances
+* **Reference depth** - Deep chains of entity references
+* **Multiple representations** - Different geometric representations for different purposes
+* **Cross-references** - Many entities reference many others
+
+== BGA Analysis
+
+BGA components are particularly interesting because they have:
+
+* **High pin counts** - Hundreds of balls
+* **Fine pitch** - Balls as close as 0.5mm apart
+* **Escape routing** - Complex trace routing to break out all BGA signals
+* **Via-in-pad** - Vias placed directly under BGA balls
+* **Thermal considerations** - Power dissipation and thermal vias
+
+== Reading Strategy for Complex Files
+
+For large files, use targeted queries instead of reading everything:
+
+1. **Identify the component of interest** - Find the BGA's `PRODUCT` entity
+2. **Find its definition** - Navigate to the `PRODUCT_DEFINITION`
+3. **Extract its shape** - Get the geometric representation
+4. **Find its connections** - Query `PHYSICAL_CONNECTIVITY_DEFINITION` for nets touching the BGA
+5. **Check its placement** - Find the `ITEM_DEFINED_TRANSFORMATION`
+
+This targeted approach is essential for navigating real-world AP 210 datasets efficiently.
+
+== Practical Tips
+
+When working with complex AP 210 data:
+
+* **Use tools** - Don't try to read large files by hand; use query tools (covered in link:/learn/querying-data[Module 4])
+* **Start simple** - Understand the simple examples first
+* **Follow one path** - Trace one entity chain at a time
+* **Use the schema** - Keep the AP 210 EXPRESS schema open as a reference
+* **Test incrementally** - Build understanding one concept at a time

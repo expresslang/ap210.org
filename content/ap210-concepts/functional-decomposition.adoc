@@ -1,0 +1,67 @@
+---
+title: Functional Decomposition
+excerpt: Decomposing electronic products into functional units, using the Wheatstone Bridge as an example.
+---
+
+= Functional Decomposition
+
+Functional decomposition breaks down an electronic product into its constituent functional units. AP 210 captures both the functional structure and its relationship to the physical implementation.
+
+== The Wheatstone Bridge Example
+
+The Wheatstone Bridge is used throughout AP 210 training as a canonical example. It demonstrates how a simple circuit can be decomposed functionally and then mapped to physical components.
+
+=== Functional View
+
+A Wheatstone Bridge consists of:
+
+* Four resistors in a diamond arrangement
+* A voltage source across one diagonal
+* A measurement point (galvanometer) across the other diagonal
+
+=== Functional Decomposition
+
+....
+Wheatstone Bridge
+  ├── Voltage Source
+  ├── Resistor R1 (known)
+  ├── Resistor R2 (known)
+  ├── Resistor R3 (variable)
+  ├── Resistor Rx (unknown)
+  └── Galvanometer
+....
+
+== Modeling in AP 210
+
+Functional decomposition in AP 210 uses:
+
+* **functional_unit** - A logical functional block
+* **functional_unit_terminal** - A connection point on a functional unit
+* **functional_unit_usage** - An instance of a functional unit in a decomposition
+* **connectivity** - How functional units connect to each other
+
+== Mapping Function to Physics
+
+The key insight is that functional units map to physical components:
+
+[cols="1,1"]
+|===
+|Functional Unit |Physical Component
+
+|Resistor R1
+|Surface mount resistor, 0402 package
+
+|Resistor R2
+|Surface mount resistor, 0402 package
+
+|Resistor R3
+|Potentiometer, through-hole
+
+|Resistor Rx
+|Device under test
+
+|Galvanometer
+|Measurement instrument
+|===
+
+This mapping is captured in AP 210 through `design_functional_unit_allocation` entities that link functional units to their physical implementations.

@@ -1,0 +1,63 @@
+---
+title: Physical Design
+excerpt: How AP 210 represents the physical design of electronic assemblies, including layout and shape.
+---
+
+= Physical Design
+
+Physical design representation is one of AP 210's core capabilities. It captures the geometric and spatial information needed to define how electronic assemblies are laid out.
+
+== Physical Design Elements
+
+AP 210's physical design model includes:
+
+* **Component placement** - Position and orientation of each component
+* **Interconnect traces** - Conductive paths on each layer
+* **Vias and pads** - Connections between layers and to components
+* **Board outline** - The shape of the printed circuit board
+* **Keepout zones** - Areas where components or traces cannot be placed
+* **Layer stackup** - The arrangement of conductive and dielectric layers
+
+== Shape Representation
+
+AP 210 uses STEP's shape representation resources:
+
+* **Advanced B-rep** - Boundary representation for 3D solids
+* **Geometrically bounded surface** - Surface models for complex shapes
+* **Planar extent** - 2D bounds for footprint outlines
+* **Axis placement** - Coordinate systems for positioning
+
+== Component Placement
+
+Each component placement is defined by:
+
+* A reference to the component definition
+* A location (x, y, z coordinates)
+* An orientation (rotation matrix or Euler angles)
+* The assembly in which it is placed
+
+In the STEP file, this appears as:
+
+[source]
+----
+#100 = NEXT_ASSEMBLY_USAGE_OCCURRENCE('R1', 'R1', '', #50, #60, $);
+#101 = ITEM_DEFINED_TRANSFORMATION('R1 placement', '', #80, #90);
+----
+
+== Layer Stackup
+
+A multi-layer PCB is modeled as a stack of stratums:
+
+* Each stratum has a material, thickness, and purpose (signal, power, ground)
+* Stratum technology distinguishes conductive, dielectric, and resistive layers
+* Layer ordering is explicit in the model
+* Design rules can reference specific layers or layer pairs
+
+== Interconnect Geometry
+
+Conductive traces on each layer are represented as:
+
+* **Manhattan geometry** - Horizontal and vertical segments
+* **Diagonal geometry** - Non-orthogonal segments
+* **Arcs and curves** - Curved trace segments
+* **Width specifications** - Trace width along the path
