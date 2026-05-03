@@ -42,7 +42,7 @@ export default defineConfig({
         '/resources/implementation', '/resources/express-schema', '/resources/discussions',
         '/resources/training-materials',
         '/blog', ...posts.map((p) => `/blog/${basename(p, '.json')}`),
-        '/privacy', '/tos',
+        '/privacy', '/tos', '/404',
       ]
     },
   },

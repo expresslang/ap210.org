@@ -2,6 +2,74 @@
 title: Terms and Glossary
 ---
 
-= Terms and Definitions Used in AP 210
+= Terms and Glossary
 
-Content coming soon.
+Key terms and definitions used in the AP 210 domain.
+
+== Standards and Organizations
+
+AP (Application Protocol):: A STEP (ISO 10303) part that specifies how to represent and exchange product data for a particular application domain. AP 210 is the application protocol for electronic assembly and interconnect design.
+
+EXPRESS (ISO 10303-11):: The formal data modeling language used to define information models in the STEP family of standards. EXPRESS defines entities, types, rules, and constraints.
+
+STEP (ISO 10303):: Standard for the Exchange of Product Model Data — a comprehensive set of ISO standards for representing and exchanging product data throughout its lifecycle.
+
+ISO TC 184/SC 4:: ISO Technical Committee 184, Subcommittee 4 — the body responsible for developing and maintaining STEP (ISO 10303) and related industrial data standards.
+
+NIST:: National Institute of Standards and Technology — a U.S. federal agency that has contributed significantly to STEP development and AP 210 research.
+
+PDES Inc.:: An industry-government consortium that advances the development and implementation of STEP standards, including AP 210.
+
+== Information Model Terms
+
+ARM (Application Resource Model):: The abstract definition of information requirements for an application protocol, expressed in EXPRESS. Defines what data needs to be represented.
+
+MIM (Mapping Integration Model):: The concrete implementation model that maps ARM requirements to the STEP integrated resources. Defines how data is actually structured in a STEP file.
+
+Entity:: A fundamental data structure in EXPRESS, analogous to a class in object-oriented programming. Entities have attributes, may have constraints, and can participate in inheritance hierarchies.
+
+Schema:: A collection of ENTITY, TYPE, FUNCTION, and RULE definitions in EXPRESS. The AP 210 schema defines all entities used for electronic design data.
+
+Longform:: A version of the EXPRESS schema that includes all referenced entities inline, rather than referencing external schemas. The ARM extended longform is the primary AP 210 schema file.
+
+== Electronic Design Terms
+
+PCA (Printed Circuit Assembly):: A complete assembly consisting of a printed circuit board with components mounted on it. The primary artifact described by AP 210.
+
+PCB (Printed Circuit Board):: The interconnect substrate — a board with conductive traces that electrically connect components. AP 210 models the PCB as an interconnect substrate with layers.
+
+Footprint (Land Pattern):: The set of pads on a PCB that correspond to the leads of a component. Defines how a component is physically attached to the board.
+
+Land:: An individual pad in a footprint where a component lead is soldered.
+
+Via:: A plated-through hole that connects traces on different layers of a PCB. Types include through-hole, blind, and buried vias.
+
+Stratum:: A single conductive or non-conductive layer in a PCB stackup. AP 210 uses stratum technology to model multi-layer substrates.
+
+BGA (Ball Grid Array):: A component package type where connections are made through an array of solder balls on the bottom of the package.
+
+QFP (Quad Flat Package):: A component package with leads extending from all four sides.
+
+CSP (Chip Scale Package):: A package type approximately the same size as the integrated circuit die it contains.
+
+== STEP File Terms
+
+Part 21 (ISO 10303-21):: The STEP standard defining the text-based file format for exchanging STEP data. AP 210 data is exchanged using Part 21 files.
+
+Instance:: A specific occurrence of an entity in a STEP file, identified by a numeric reference (e.g., `#42`).
+
+Reference:: The numeric identifier for an entity instance in a STEP Part 21 file (e.g., `#42 = PRODUCT(...)`).
+
+== AP 210 Specific Terms
+
+Interconnect Substrate:: The physical medium that provides electrical connections between components. In practice, a PCB.
+
+Product Structure:: The hierarchical organization of a product into assemblies, sub-assemblies, and components. AP 210 supports both physical and functional decomposition.
+
+Connectivity:: The logical and physical representation of how components are electrically connected, including nets, interconnections, and interfacial connections.
+
+Design Rules:: Constraints on the design that encode manufacturing capabilities, electrical requirements, or physical limitations.
+
+Functional Decomposition:: Breaking down a product by its functional purpose rather than physical structure (e.g., a Wheatstone Bridge circuit viewed as a measurement function rather than as four resistors).
+
+JSDAI:: Java STEP Data Access Interface — a Java framework for working with STEP data, used in the NIST AP 210 reference implementation.

@@ -1,38 +1,27 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRoute } from 'vue-router'
 import type { NavItem } from '@/data/navigation'
 
 const props = defineProps<{
   items: NavItem[]
-  currentSlug: string
-  baseUrl: string
+  basePath?: string
 }>()
 
+const route = useRoute()
 const mobileOpen = ref(false)
 
-function flatten(items: NavItem[]): NavItem[] {
-  return items.flatMap((item) => {
-    if (item.children) return flatten(item.children)
-    return item.slug ? [item] : []
-  })
+function resolveUrl(item: NavItem): string {
+  if (item.path) return item.path
+  if (item.slug && props.basePath) {
+    return item.slug === 'index' ? props.basePath : `${props.basePath}/${item.slug}`
+  }
+  return '#'
 }
 
-function getPrev(items: NavItem[], slug: string): NavItem | null {
-  const flat = flatten(items)
-  const idx = flat.findIndex((i) => i.slug === slug)
-  return idx > 0 ? flat[idx - 1] : null
+function isActive(item: NavItem): boolean {
+  return route.path === resolveUrl(item)
 }
-
-function getNext(items: NavItem[], slug: string): NavItem | null {
-  const flat = flatten(items)
-  const idx = flat.findIndex((i) => i.slug === slug)
-  return idx < flat.length - 1 ? flat[idx + 1] : null
-}
-
-const prev = getPrev(props.items, props.currentSlug)
-const next = getNext(props.items, props.currentSlug)
-
-defineExpose({ prev, next, baseUrl: props.baseUrl })
 
 function closeMobile() {
   mobileOpen.value = false
@@ -44,13 +33,13 @@ function closeMobile() {
   <aside class="hidden lg:block w-52 shrink-0" aria-label="Section navigation">
     <div class="sticky top-24 pr-6">
       <nav class="space-y-0.5">
-        <template v-for="item in items" :key="item.slug ?? item.title">
+        <template v-for="item in items" :key="item.slug ?? item.path ?? item.title">
           <RouterLink
-            v-if="item.slug"
-            :to="`${baseUrl}/${item.slug}`"
+            v-if="item.slug || item.path"
+            :to="resolveUrl(item)"
             class="block px-3 py-1.5 text-[0.8rem] rounded-md transition-colors duration-150 border-l-2"
             :class="[
-              item.slug === currentSlug
+              isActive(item)
                 ? 'text-elf-blue dark:text-elf-blue font-semibold bg-elf-blue/5 dark:bg-elf-blue/5 border-elf-blue dark:border-elf-blue'
                 : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-navy-light border-transparent',
             ]"
@@ -64,11 +53,11 @@ function closeMobile() {
             <div class="space-y-0.5">
               <RouterLink
                 v-for="child in item.children"
-                :key="child.slug"
-                :to="`${baseUrl}/${child.slug}`"
+                :key="child.slug ?? child.path"
+                :to="resolveUrl(child)"
                 class="block px-3 py-1.5 pl-5 text-[0.8rem] rounded-md transition-colors duration-150 border-l-2"
                 :class="[
-                  child.slug === currentSlug
+                  isActive(child)
                     ? 'text-elf-blue dark:text-elf-blue font-semibold bg-elf-blue/5 dark:bg-elf-blue/5 border-elf-blue dark:border-elf-blue'
                     : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-50 dark:hover:bg-navy-light border-transparent',
                 ]"
@@ -114,13 +103,13 @@ function closeMobile() {
             </button>
           </div>
           <nav class="p-4 space-y-0.5" aria-label="Section navigation">
-            <template v-for="item in items" :key="item.slug ?? item.title">
+            <template v-for="item in items" :key="item.slug ?? item.path ?? item.title">
               <RouterLink
-                v-if="item.slug"
-                :to="`${baseUrl}/${item.slug}`"
+                v-if="item.slug || item.path"
+                :to="resolveUrl(item)"
                 class="block px-3 py-2.5 text-sm rounded-md transition-colors min-h-[44px] flex items-center border-l-2"
                 :class="[
-                  item.slug === currentSlug
+                  isActive(item)
                     ? 'text-elf-blue dark:text-elf-blue font-semibold bg-elf-blue/5 dark:bg-elf-blue/5 border-elf-blue dark:border-elf-blue'
                     : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-navy-light border-transparent',
                 ]"
@@ -133,11 +122,11 @@ function closeMobile() {
                 <div class="space-y-0.5">
                   <RouterLink
                     v-for="child in item.children"
-                    :key="child.slug"
-                    :to="`${baseUrl}/${child.slug}`"
+                    :key="child.slug ?? child.path"
+                    :to="resolveUrl(child)"
                     class="block px-3 py-2.5 pl-5 text-sm rounded-md transition-colors min-h-[44px] flex items-center border-l-2"
                     :class="[
-                      child.slug === currentSlug
+                      isActive(child)
                         ? 'text-elf-blue dark:text-elf-blue font-semibold bg-elf-blue/5 dark:bg-elf-blue/5 border-elf-blue dark:border-elf-blue'
                         : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-navy-light border-transparent',
                     ]"

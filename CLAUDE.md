@@ -39,17 +39,22 @@ npm run preview                  # Preview production build locally
 - `querying-data/` — Learn Module 4 (7 lessons)
 - `programming/` — Learn Module 5 (9 lessons)
 
-**Routing:** Manual routes in `src/router.ts` (not file-based). Each route maps to a page component in `src/pages/`.
+**Route-driven page rendering:** Most routes use two shared components driven by `route.meta`:
+- `SectionPage.vue` — content + sidebar + optional lesson nav. Meta keys: `contentSection`, `contentSlug?`, `navKey`, `basePath`, `showLessonNav?`
+- `SimplePage.vue` — content only, no sidebar. Meta key: `contentSlug` (loads from 'pages' section)
 
-**Navigation:** Defined in `src/data/navigation.ts` — `mainNavigation` (top nav), plus sidebar navigation arrays per section (`applicationNavigation`, `standardsNavigation`, `researchNavigation`, etc.).
+Custom pages (homepage, blog, learn catalog, 404) have their own components in `src/pages/`.
+
+**Navigation:** Defined in `src/data/navigation.ts` — `mainNavigation` (top nav), per-section sidebar arrays, and `navigationMap` (keyed lookup used by SectionPage). NavItem supports both `path` (absolute) and `slug` (relative to basePath).
 
 **Site config:** `src/data/site.ts` — title, URL, description, legal info.
 
 **Key components:**
 - `TheHeader.vue` / `TheFooter.vue` — Layout chrome (AP210-branded)
-- `TheSidebar.vue` — Left sidebar for section navigation
-- `AsciiDocContent.vue` — Renders HTML from content pipeline output
-- `BlogPostCard.vue` — Blog post preview cards
+- `TheSidebar.vue` — Left sidebar with route-driven active state, supports both path-based and slug-based items
+- `AsciiDocContent.vue` — Renders HTML with optional title/date/authors header
+- `SectionPage.vue` / `SimplePage.vue` — Meta-driven page layouts
+- `LessonNav.vue` — Prev/next navigation for learn modules
 
 **Styles:** `src/styles/main.css` (Tailwind 4 with custom theme: `elf-blue`, `elf-salmon`, `navy`), `src/styles/asciidoc.css` (AsciiDoc HTML rendering).
 
@@ -57,13 +62,13 @@ npm run preview                  # Preview production build locally
 
 1. Create `.adoc` file in the appropriate `content/` subdirectory
 2. Add YAML frontmatter with `title` (and `date`, `excerpt` for blog posts)
-3. If it's a new slug in an existing section, it auto-generates a route
-4. If it needs a new page component, create it in `src/pages/` and add route to `src/router.ts`
-5. If it needs sidebar navigation, add entry to the appropriate nav array in `src/data/navigation.ts`
-6. Run `npm run build` to verify
+3. If it's a new slug in an existing section, add route to `src/router.ts` with appropriate meta
+4. If it needs sidebar navigation, add entry to the nav array in `src/data/navigation.ts`
+5. Run `npm run build` to verify
 
 ## Deployment
 
-- Branch: `vue-migration` (being merged to `main`)
-- GitHub Actions deploys to GitHub Pages
+- GitHub Actions deploys to GitHub Pages on push to `main`
+- `.github/workflows/deploy.yml` — Node.js + ViteSSG build pipeline
+- `.github/workflows/build.yml` — PR build verification
 - Static assets in `public/` (images, Javadoc, ARM/MIM reference, test cases)
