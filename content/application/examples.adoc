@@ -1,9 +1,73 @@
 ---
-title: Examples
+title: STEP File Examples
 ---
 
 = STEP File Examples
 
-Content coming soon.
+AP 210 data is exchanged using STEP Part 21 files (ISO 10303-21) — text-based files with a well-defined structure. This page introduces common AP 210 data patterns found in real STEP files.
 
-See the link:/resources/test-cases[Test Case Gallery] for complete AP210 STEP file examples.
+== STEP Part 21 Structure
+
+Every AP 210 STEP file follows this structure:
+
+----
+ISO-10303-21;
+HEADER;
+  FILE_DESCRIPTION(...);
+  FILE_NAME(...);
+  FILE_SCHEMA(('AP210_ELECTRONIC_ASSEMBLY_INTERCONNECT_AND_PACKAGING_DESIGN'));
+ENDSEC;
+
+DATA;
+  /* Entities here */
+ENDSEC;
+
+END-ISO-10303-21;
+----
+
+The `DATA` section contains AP 210 entity instances, each identified by a numeric reference (e.g., `#1`, `#42`).
+
+== Common Entity Patterns
+
+=== Product Definition
+
+Every AP 210 file starts with product and product definition entities:
+
+----
+#1 = PRODUCT('RC0805JR-07100KL', 'Resistor 100K', $, (#2));
+#2 = PRODUCT_RELATED_PRODUCT_CATEGORY('component', $, (#1));
+#3 = PRODUCT_DEFINITION_FORMATION('1', $, #1);
+#4 = PRODUCT_DEFINITION('design', 'resistor', #3, #5);
+----
+
+=== Component Placement
+
+Components are placed on a substrate using location and orientation entities. A transformation matrix encodes position and rotation:
+
+----
+#100 = NEXT_ASSEMBLY_USAGE_OCCURRENCE('R1', 'R1', $, #substrate_def, #resistor_def, $);
+#101 = COMPONENT_DEFINITION($, $, #100, #102);
+#102 = (LENGTH_MEASURE(0.0), LENGTH_MEASURE(5.0), LENGTH_MEASURE(3.0));
+----
+
+=== Connectivity
+
+Nets and interconnections link component terminals:
+
+----
+#200 = NET('NET_1', $);
+#201 = INTERCONNECT_USAGE_OCCURRENCE('J1-1_to_R1-1', $, $, #200, #terminal_1, #terminal_2);
+----
+
+== Full Examples
+
+The <<{/resources/test-cases#,Test Case Gallery>> contains 35 complete STEP files demonstrating every aspect of the AP 210 information model:
+
+* *1_ResistanceModule* — simplest case: single resistor with parameters
+* *Atx* — ATX motherboard with physical requirements and envelope constraints
+* *SurfaceMountFlasherLRU* — complete surface-mount design with connectivity
+* *Orientation* — transformation matrices for component orientation
+
+== Further Reading
+
+For guided walk-throughs of specific test cases, see the <<{/learn/reading-data#,Reading AP210 Data>> course module.

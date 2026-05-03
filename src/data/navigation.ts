@@ -128,3 +128,25 @@ export const programmingNavigation: NavItem[] = [
   { title: 'Parameters', slug: 'parameters' },
   { title: 'Custom Applications', slug: 'custom-applications' },
 ]
+
+export const resourcesNavigation: NavItem[] = [
+  { title: 'Overview', slug: 'index' },
+  { title: 'Test Case Gallery', slug: 'test-cases' },
+  { title: 'Implementation', slug: 'implementation' },
+  { title: 'EXPRESS Schema', slug: 'express-schema' },
+  { title: 'Discussions', slug: 'discussions' },
+  { title: 'Training Materials', slug: 'training-materials' },
+]
+
+export const navigationMap: Record<string, NavItem[]> = {
+  about: aboutNavigation,
+  application: applicationNavigation,
+  standards: standardsNavigation,
+  research: researchNavigation,
+  foundations: foundationsNavigation,
+  'ap210-concepts': ap210ConceptsNavigation,
+  'reading-data': readingDataNavigation,
+  'querying-data': queryingDataNavigation,
+  programming: programmingNavigation,
+  resources: resourcesNavigation,
+}

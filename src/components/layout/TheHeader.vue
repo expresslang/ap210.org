@@ -56,10 +56,11 @@ onMounted(() => {
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
         <RouterLink to="/" class="flex items-center gap-2.5 shrink-0 group" @click="closeMobile">
-          <div class="flex items-center justify-center w-8 h-8 rounded-lg bg-elf-blue text-white font-[Montserrat,sans-serif] font-bold text-sm shrink-0">AP</div>
+          <img src="/logos/logo-icon-white.svg" alt="" class="h-8 shrink-0 dark:hidden" />
+            <img src="/logos/logo-icon-blue.svg" alt="" class="h-8 shrink-0 hidden dark:block" />
           <div class="flex flex-col leading-none">
-            <span class="font-[Montserrat,sans-serif] font-bold text-[0.9rem] tracking-[0.06em] text-elf-blue dark:text-white">AP 210</span>
-            <span class="font-[Montserrat,sans-serif] font-medium text-[0.58rem] tracking-[0.1em] text-elf-blue/70 dark:text-gray-400 mt-[3px]">ISO 10303-210</span>
+            <span class="font-logo font-bold text-[0.9rem] tracking-[0.06em] text-elf-blue dark:text-white">AP 210</span>
+            <span class="font-logo font-medium text-[0.58rem] tracking-[0.1em] text-elf-blue/70 dark:text-gray-400 mt-[3px]">ISO 10303-210</span>
           </div>
         </RouterLink>
 

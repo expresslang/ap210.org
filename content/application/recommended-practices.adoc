@@ -4,8 +4,54 @@ title: Recommended Practices
 
 = Recommended Practices
 
-Content coming soon.
+Guidance for implementing AP 210 data exchange based on NIST research and industry experience.
+
+== Implementation Approach
+
+The recommended approach to AP 210 implementation follows three phases:
+
+=== Phase 1: Data Validation
+
+Before implementing exchange, validate that your data can be represented in AP 210:
+
+1. Identify the product types in your data (components, assemblies, substrates)
+2. Map your data elements to AP 210 entities (see <<{/about/scope#,Scope>>)
+3. Use the <<{/resources/test-cases#,test cases>> as reference for valid entity combinations
+4. Validate your STEP files against the <<{/resources/express-schema#,EXPRESS schema>>
+
+=== Phase 2: Incremental Exchange
+
+Start with the subset of AP 210 you need:
+
+1. Begin with product structure and classification
+2. Add physical design (footprints, placement)
+3. Add connectivity (nets, interconnections)
+4. Add parameters and constraints as needed
+
+Not every implementation needs the full scope of AP 210. The modular nature of the standard allows incremental adoption.
+
+=== Phase 3: Interoperability Testing
+
+Validate that your data exchanges correctly with trading partners:
+
+1. Exchange test files with your partners
+2. Compare round-trip results (export, import, compare)
+3. Use the 14 <<{/resources/implementation#,reference queries>> to verify data integrity
+4. Validate against known-good test cases
+
+== Key Recommendations
+
+*Use the ARM Extended Longform Schema*:: The `ap210_arm_extended_longform.exp` is the authoritative schema. Always validate against it.
+
+*Follow naming conventions*:: Use consistent, meaningful entity names. AP 210 does not enforce naming, but clear names improve interoperability.
+
+*Preserve unit consistency*:: AP 210 uses SI units by default. Ensure your export/import chain maintains unit fidelity.
+
+*Test with real data*:: Synthetic test cases are useful for validation, but real-world data exposes edge cases. Use the PDES test cases as a baseline, then add your own.
+
+*Document your subset*:: If you implement a subset of AP 210, document which entities and attributes you support. This helps partners understand exchange capabilities.
 
 == Reference
 
-* https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=920843[NIST GCR 15-991 - Recommended Practices for AP210 Implementation]
+* https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=920843[NIST GCR 15-991 — Recommended Practices for AP210 Implementation^]
+* https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=905123[NISTIR 7677 — AP210 Edition 2 Concept of Operations^]

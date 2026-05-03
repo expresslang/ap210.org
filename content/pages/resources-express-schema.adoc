@@ -2,6 +2,48 @@
 title: EXPRESS Schema
 ---
 
-= EXPRESS Schema
+= AP 210 EXPRESS Schema
 
-Content coming soon.
+The authoritative definition of the AP 210 information model, expressed in the EXPRESS data modeling language (ISO 10303-11).
+
+== ARM Extended Longform
+
+The primary schema file is `ap210_arm_extended_longform.exp` — the Application Resource Model (ARM) extended longform schema. This file defines all entities, types, rules, and constraints that constitute the AP 210 information model.
+
+The ARM extended longform includes:
+
+* **Entity definitions** — core data structures (products, components, assemblies, interconnects)
+* **TYPE definitions** — constrained types for parameters, categories, and enumerations
+* **RULE definitions** — validation rules that constrain valid AP 210 datasets
+* **FUNCTION definitions** — helper functions used in rule evaluation
+* **Schema interfaces** — references to shared STEP integrated resource schemas
+
+== Related Schema Files
+
+The repository also includes the full set of ISO 10303 integrated resource schemas used by AP 210, located in the Javadoc project directory under `jsdai_queries/wg3n2602_10303_210_ed2_IS/iso10303_210/express/`.
+
+Key referenced schemas include:
+
+* `geometric_model_schema.exp` — geometric representation
+* `geometry_schema.exp` — foundational geometry types
+* `approval_schema.exp` — approval and status tracking
+* `qualifications_schema.exp` — qualification definitions
+
+== Access
+
+The schema files are located at:
+
+```
+assets/implementation_reference/NIST_AP210_Javadoc_Project/ap210_arm_extended_longform.exp
+```
+
+== Using the Schema
+
+To work with the EXPRESS schema:
+
+1. **Read** the schema to understand entity definitions and relationships
+2. **Validate** AP 210 STEP files against the schema using an EXPRESS compiler
+3. **Generate** code bindings using tools like JSDAI or the ECCO compiler
+4. **Query** the schema to find entities for specific data extraction tasks
+
+See the <<{/learn/querying-data#,Querying AP210 Data>> module for practical examples of using the schema to construct data extraction queries.

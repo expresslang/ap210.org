@@ -2,7 +2,7 @@ import { readdirSync, statSync, writeFileSync } from 'node:fs'
 import { join, relative } from 'node:path'
 
 const DIST_DIR = new URL('../dist', import.meta.url).pathname
-const BASE_URL = 'https://www.expresslang.org'
+const BASE_URL = 'https://www.ap210.org'
 
 function findHtmlFiles(dir: string): string[] {
   const files: string[] = []

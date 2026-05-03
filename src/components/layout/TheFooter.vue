@@ -9,10 +9,11 @@ import { siteData } from '@/data/site'
         <!-- Branding -->
         <div class="sm:col-span-2 lg:col-span-1">
           <RouterLink to="/" class="flex items-center gap-2.5 mb-4 group">
-            <div class="flex items-center justify-center w-7 h-7 rounded-lg bg-elf-blue text-white font-[Montserrat,sans-serif] font-bold text-xs shrink-0">AP</div>
+            <img src="/logos/logo-icon-white.svg" alt="AP 210" class="h-7 shrink-0 dark:hidden" />
+            <img src="/logos/logo-icon-blue.svg" alt="AP 210" class="h-7 shrink-0 hidden dark:block" />
             <div class="flex flex-col leading-none">
-              <span class="font-[Montserrat,sans-serif] font-bold text-[0.8rem] tracking-[0.06em] text-elf-blue dark:text-white">AP 210</span>
-              <span class="font-[Montserrat,sans-serif] font-medium text-[0.5rem] tracking-[0.1em] text-elf-blue/70 dark:text-gray-400 mt-[2px]">ISO 10303-210</span>
+              <span class="font-logo font-bold text-[0.8rem] tracking-[0.06em] text-elf-blue dark:text-white">AP 210</span>
+              <span class="font-logo font-medium text-[0.5rem] tracking-[0.1em] text-elf-blue/70 dark:text-gray-400 mt-[2px]">ISO 10303-210</span>
             </div>
           </RouterLink>
           <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-xs">
