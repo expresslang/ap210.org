@@ -1,0 +1,82 @@
+---
+title: Wheatstone Bridge
+excerpt: Walk-through of the Wheatstone Bridge example — a network of resistors with connectivity.
+---
+
+= Wheatstone Bridge
+
+The Wheatstone Bridge example extends the single resistor to a network of four resistors with connectivity. This introduces how AP 210 models circuits and connections.
+
+== The Circuit
+
+A Wheatstone Bridge consists of:
+
+* Four resistors (R1, R2, R3, Rx) in a diamond arrangement
+* A voltage source across one diagonal
+* A galvanometer across the other diagonal
+
+== Product Structure
+
+In the STEP file, this appears as:
+
+[source]
+----
+#1 = PRODUCT('Wheatstone Bridge', '', '', (#2));
+...
+#100 = NEXT_ASSEMBLY_USAGE_OCCURRENCE('R1', 'R1', '', #1_form, #R1_def, $);
+#101 = NEXT_ASSEMBLY_USAGE_OCCURRENCE('R2', 'R2', '', #1_form, #R2_def, $);
+#102 = NEXT_ASSEMBLY_USAGE_OCCURRENCE('R3', 'R3', '', #1_form, #R3_def, $);
+#103 = NEXT_ASSEMBLY_USAGE_OCCURRENCE('Rx', 'Rx', '', #1_form, #Rx_def, $);
+----
+
+== Connectivity
+
+The bridge's connections are defined as nets:
+
+[source]
+----
+// Net A: R1.1 - R3.1 - V+
+#200 = PHYSICAL_CONNECTIVITY_DEFINITION('Net A', '', #1_design);
+#201 = PHYSICAL_CONNECTIVITY_ELEMENT('R1.T1', '', #200, #R1_T1);
+#202 = PHYSICAL_CONNECTIVITY_ELEMENT('R3.T1', '', #200, #R3_T1);
+
+// Net B: R1.2 - R2.1 - Galvo+
+#210 = PHYSICAL_CONNECTIVITY_DEFINITION('Net B', '', #1_design);
+...
+----
+
+== Functional Decomposition
+
+The functional view separates logical function from physical implementation:
+
+[source]
+----
+#300 = FUNCTIONAL_UNIT('Wheatstone Bridge', '', #1_design);
+#301 = FUNCTIONAL_UNIT_USAGE('R1 function', '', #300, #R1_func);
+#302 = FUNCTIONAL_UNIT_USAGE('R2 function', '', #300, #R2_func);
+...
+
+// Connect functional units
+#400 = CONNECTIVITY('R1-R2', '', #300, #R1_func_T2, #R2_func_T1);
+----
+
+== Mapping Function to Physical
+
+The mapping links functional terminals to physical terminals:
+
+[source]
+----
+#500 = DESIGN_FUNCTIONAL_UNIT_ASSIGNMENT('R1 mapping', '', #301, #100);
+----
+
+This tells us that the "R1 function" usage is implemented by the physical occurrence of R1 in the assembly.
+
+== Reading the File
+
+When reading the Wheatstone Bridge file:
+
+1. Identify the four resistor products and their definitions
+2. Find the assembly relationships (NEXT_ASSEMBLY_USAGE_OCCURRENCE)
+3. Trace the connectivity definitions (PHYSICAL_CONNECTIVITY_DEFINITION)
+4. Map the functional units to physical occurrences
+5. Verify the network topology matches the expected diamond arrangement

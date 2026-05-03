@@ -1,0 +1,81 @@
+---
+title: Resistance Module
+excerpt: Walk-through of a simple AP 210 STEP file modeling a single resistor.
+---
+
+= Resistance Module
+
+This lesson walks through one of the simplest AP 210 examples: a single resistor. Despite its simplicity, this file demonstrates the fundamental patterns found in all AP 210 data.
+
+== The Simplest Component
+
+A resistance module in AP 210 includes:
+
+* A product definition for the resistor
+* A geometric representation (the physical shape)
+* Terminal definitions (two connection points)
+* Property definitions (resistance value)
+
+== Product Definition
+
+The product hierarchy:
+
+[source]
+----
+#1 = PRODUCT('R1', 'Resistor 10k', 'Surface mount resistor', (#2));
+#2 = PRODUCT_CATEGORY_RELATIONSHIP('cat', $, #3, #4);
+#3 = PRODUCT_CATEGORY('electronic component', $);
+----
+
+This defines:
+
+* A product named "R1"
+* With description "Resistor 10k"
+* Classified as an "electronic component"
+
+== Shape Representation
+
+The resistor's physical shape:
+
+[source]
+----
+#10 = SHAPE_DEFINITION_REPRESENTATION(#11, #20);
+#11 = PRODUCT_DEFINITION_SHAPE('R1 shape', '', #12);
+#20 = ADVANCED_BREP_SHAPE_REPRESENTATION('R1 body', (#21, #22), #30);
+#21 = MANIFOLD_SOLID_BREP('R1 solid', ...);
+----
+
+== Terminal Definitions
+
+Each terminal is modeled as a shape_aspect:
+
+[source]
+----
+#40 = SHAPE_ASPECT('Terminal 1', 'Pad', #11, $);
+#41 = SHAPE_ASPECT('Terminal 2', 'Pad', #11, $);
+----
+
+== Property Definition
+
+The resistance value:
+
+[source]
+----
+#50 = PROPERTY_DEFINITION('resistance', '', #11);
+#51 = PROPERTY_DEFINITION_REPRESENTATION(#50, #52);
+#52 = REPRESENTATION('resistance', (#53), #54);
+#53 = MEASURE_REPRESENTATION_ITEM('resistance', #55, 10000.0);
+#55 = ( MEASURE_WITH_UNIT() MEASUREMENT_UNITE() );
+----
+
+== Key Takeaway
+
+Even the simplest component requires a chain of entities:
+
+1. Product classification
+2. Product definition and formation
+3. Shape definition and representation
+4. Terminal (shape aspect) definitions
+5. Property definitions and representations
+
+This pattern repeats for every component in an AP 210 dataset. Understanding it at this scale makes it easier to navigate larger, more complex files.

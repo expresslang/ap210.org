@@ -1,0 +1,76 @@
+---
+title: Layer Stack Modeling
+excerpt: How AP 210 models the layer stackup of multi-layer printed circuit boards.
+---
+
+= Layer Stack Modeling
+
+Multi-layer PCBs are modeled in AP 210 as stacks of stratums, each with specific material, thickness, and purpose properties.
+
+== Layer Stackup Concepts
+
+A multi-layer PCB consists of alternating conductive and dielectric layers:
+
+....
+┌──────────────────────────┐
+│ Solder Mask (Top)         │  Dielectric
+├──────────────────────────┤
+│ Layer 1: Signal           │  Conductive (Top Copper)
+├──────────────────────────┤
+│ Prepreg                   │  Dielectric
+├──────────────────────────┤
+│ Layer 2: Ground           │  Conductive (Inner 1)
+├──────────────────────────┤
+│ Core                      │  Dielectric
+├──────────────────────────┤
+│ Layer 3: Power            │  Conductive (Inner 2)
+├──────────────────────────┤
+│ Prepreg                   │  Dielectric
+├──────────────────────────┤
+│ Layer 4: Signal           │  Conductive (Bottom Copper)
+├──────────────────────────┤
+│ Solder Mask (Bottom)      │  Dielectric
+└──────────────────────────┘
+....
+
+== Stratum Entities
+
+AP 210 uses the following entities for layer modeling:
+
+* **stratum** - A single layer (conductive, dielectric, or resistive)
+* **stratum_technology** - The type of layer (signal, power, ground, dielectric)
+* **stratum_feature** - A feature on a specific stratum (trace, pad, via)
+* **inter_stratum_feature** - A feature spanning multiple layers (via)
+
+== Layer Properties
+
+Each stratum carries properties:
+
+* **Material** - Copper, FR-4, solder mask, etc.
+* **Thickness** - Physical thickness of the layer
+* **Purpose** - Signal, power, ground, dielectric
+* **Copper weight** - For conductive layers (e.g., 1 oz = 35µm)
+
+== Via Modeling
+
+Vias connect layers vertically:
+
+* **Through-hole via** - Spans all layers
+* **Blind via** - Connects an outer layer to an inner layer
+* **Buried via** - Connects two inner layers
+
+[source]
+----
+#100 = INTER_STRATUM_FEATURE('via 1', '', #board_shape);
+#101 = FEATURE_IN_PANEL('via 1', '', #100, #top_stratum, #bottom_stratum);
+----
+
+== Reading Layer Data
+
+To understand the layer stack in an AP 210 file:
+
+1. Find all `stratum` entities
+2. Identify their `stratum_technology` (purpose)
+3. Order them by position in the stack
+4. Extract material and thickness properties
+5. Map traces and features to their respective layers

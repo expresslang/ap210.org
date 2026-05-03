@@ -1,0 +1,98 @@
+---
+title: STEP File Anatomy
+excerpt: Understanding the structure of a STEP Part 21 file — headers, data sections, and entity references.
+---
+
+= STEP File Anatomy
+
+AP 210 data is exchanged using ISO 10303-21 (Part 21) files. This lesson covers the anatomy of these files.
+
+== File Structure
+
+Every STEP file has two main sections:
+
+[source]
+----
+ISO-10303-21;
+HEADER;
+  FILE_DESCRIPTION(('...'), '2;1');
+  FILE_NAME('example.stp', '2024-01-01T00:00:00',
+    ('Author'), ('Organization'), 'preprocessor', 'processor', 'AP210');
+  FILE_SCHEMA(('AUTOMOTIVE_DESIGN'));
+ENDSEC;
+
+DATA;
+  ...
+ENDSEC;
+
+END-ISO-10303-21;
+----
+
+== Header Section
+
+The HEADER section contains metadata:
+
+* **FILE_DESCRIPTION** - Description and implementation level
+* **FILE_NAME** - Filename, timestamp, author, organization, preprocessor, processor
+* **FILE_SCHEMA** - The EXPRESS schema(s) used in the data section
+
+== Data Section
+
+The DATA section contains the actual product data as entity instances.
+
+Each instance has:
+
+* A numeric identifier (e.g., `#100`)
+* An entity type name (e.g., `PRODUCT`)
+* Attribute values in parentheses
+
+Example:
+
+[source]
+----
+#1 = PRODUCT('PCA-001', 'Main Board', 'Printed circuit assembly', (#2));
+#2 = PRODUCT_CONTEXT('electrical design', #3, 'mechanical');
+#3 = APPLICATION_CONTEXT(
+  'electronic assembly, interconnect and packaging design');
+----
+
+== Entity References
+
+Entities reference each other by their numeric identifiers:
+
+* `#1` references `#2` in its context attribute
+* `#2` references `#3` in its frame_of_reference attribute
+* This creates a directed graph of entities
+
+== Common Entity Patterns
+
+=== Product Definition Chain
+
+....
+product → product_definition_formation → product_definition → ...
+  → shape_definition_representation → representation
+----
+
+=== Assembly Structure
+
+....
+product → product_definition_relationship → next_assembly_usage_occurrence
+  → item_defined_transformation (placement)
+----
+
+=== Shape Representation
+
+....
+representation → representation_item → geometric_representation_item
+  → (point, direction, curve, surface, solid)
+....
+
+== Reading Strategy
+
+When reading a STEP file:
+
+1. **Start with the APPLICATION_CONTEXT** - Usually the first entity
+2. **Find the top-level PRODUCT** - The main assembly
+3. **Follow the product definition chain** - To get to the shape and structure
+4. **Trace relationships** - Follow references to build understanding
+5. **Focus on what you need** - Don't try to read everything at once

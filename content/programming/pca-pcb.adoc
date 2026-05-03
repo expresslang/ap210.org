@@ -1,0 +1,111 @@
+---
+title: PCA and PCB
+excerpt: Using JSDAI to query printed circuit assembly and bare board data.
+---
+
+= PCA and PCB
+
+This lesson covers queries specific to printed circuit assemblies (PCAs) and bare printed circuit boards (PCBs).
+
+== Distinguishing PCA from PCB
+
+In AP 210 data:
+
+* **PCB (bare board)** - The laminated substrate with copper layers, no components
+* **PCA (populated board)** - The PCB with all components assembled
+
+[source,java]
+----
+public boolean isBareBoard(E_product product) throws SdaiException {
+    String category = getProductCategory(product);
+    return category.contains("bare board") || category.contains("pcb");
+}
+
+public boolean isAssembly(E_product product) throws SdaiException {
+    String category = getProductCategory(product);
+    return category.contains("assembly") || category.contains("pca");
+}
+----
+
+== Board Dimensions
+
+[source,java]
+----
+public double[] getBoardDimensions(E_product board) throws SdaiException {
+    E_shape_definition_representation sdr = getShapeRepresentation(board);
+    E_advanced_brep_shape_representation shape =
+        (E_advanced_brep_shape_representation) sdr.getUsed_representation(null);
+
+    // Find the bounding box
+    double[] bounds = calculateBoundingBox(shape);
+    // Returns [min_x, min_y, min_z, max_x, max_y, max_z]
+    return bounds;
+}
+
+public double getBoardArea(E_product board) throws SdaiException {
+    double[] dims = getBoardDimensions(board);
+    double width = dims[3] - dims[0];
+    double height = dims[4] - dims[1];
+    return width * height;
+}
+----
+
+== Component Summary
+
+[source,java]
+----
+public Map<String, Integer> getComponentSummary(E_product assembly)
+        throws SdaiException {
+    Map<String, Integer> summary = new LinkedHashMap<>();
+    List<E_product> components = getComponentProducts(assembly);
+
+    for (E_product component : components) {
+        String type = getComponentType(component);
+        summary.merge(type, 1, Integer::sum);
+    }
+    return summary;
+}
+----
+
+Output:
+
+....
+{resistor: 12, capacitor: 8, IC: 3, connector: 2, LED: 4}
+....
+
+== Net Statistics
+
+[source,java]
+----
+public NetStatistics getNetStatistics(E_product assembly)
+        throws SdaiException {
+    List<E_physical_connectivity_definition> nets = getNets(assembly);
+    NetStatistics stats = new NetStatistics();
+    stats.totalNets = nets.size();
+    stats.powerNets = 0;
+    stats.signalNets = 0;
+
+    for (E_physical_connectivity_definition net : nets) {
+        int pinCount = getPinCount(net);
+        if (isPowerNet(net)) {
+            stats.powerNets++;
+            stats.maxPowerPins = Math.max(stats.maxPowerPins, pinCount);
+        } else {
+            stats.signalNets++;
+            stats.maxSignalPins = Math.max(stats.maxSignalPins, pinCount);
+        }
+    }
+    return stats;
+}
+----
+
+== Board Density Analysis
+
+[source,java]
+----
+public double getComponentDensity(E_product assembly) throws SdaiException {
+    double boardArea = getBoardArea(getBareBoard(assembly));
+    int componentCount = getComponentProducts(assembly).size();
+    return componentCount / boardArea; // components per mm²
+}
+----

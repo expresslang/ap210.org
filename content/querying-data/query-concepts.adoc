@@ -1,0 +1,90 @@
+---
+title: Query Concepts
+excerpt: Core concepts for navigating and querying AP 210 entity graphs.
+---
+
+= Query Concepts
+
+Before writing specific queries, it's important to understand the conceptual model for navigating AP 210 data.
+
+== The Entity Graph
+
+An AP 210 dataset is a directed graph of entity instances:
+
+* Each entity instance has a unique numeric ID (e.g., `#100`)
+* Entities reference other entities via attribute values
+* Following these references traces paths through the graph
+* Queries follow these paths to find specific data
+
+== Navigation Patterns
+
+There are several common navigation patterns:
+
+=== Forward Navigation
+
+Follow an attribute reference from entity A to entity B:
+
+....
+#A → attribute → #B
+....
+
+=== Reverse Navigation
+
+Find all entities that reference entity A:
+
+....
+#B1 → attribute → #A
+#B2 → attribute → #A
+#B3 → attribute → #A
+....
+
+=== Type-Based Navigation
+
+Find all entities of a given type:
+
+....
+Find all PRODUCT entities
+Find all SHAPE_ASPECT entities
+....
+
+=== Relationship Navigation
+
+Follow relationship entities to connected entities:
+
+....
+PRODUCT → product_definition_relationship → related PRODUCT
+SHAPE_ASPECT → property_definition → REPRESENTATION
+....
+
+== Query Building Blocks
+
+A typical query consists of:
+
+1. **Filter** - Select entities matching criteria (type, attribute value)
+2. **Navigate** - Follow references to related entities
+3. **Collect** - Gather the desired attribute values
+4. **Transform** - Convert to the desired output format
+
+== Common Starting Points
+
+Most AP 210 queries start from one of these entities:
+
+* **APPLICATION_CONTEXT** - The root context
+* **PRODUCT** - A specific product
+* **PRODUCT_DEFINITION** - A specific view of a product
+* **SHAPE_DEFINITION_REPRESENTATION** - Shape data
+* **PHYSICAL_CONNECTIVITY_DEFINITION** - A net
+
+== Algorithm Notation
+
+In subsequent lessons, we use a pseudo-code notation:
+
+----
+FOR EACH entity OF type IN dataset
+  WHERE entity.attribute = value
+  FOLLOW entity.reference -> target
+  COLLECT target.desired_attribute
+END
+----
+
+This notation can be translated to EXPRESS queries, SQL, or Java code (covered in link:/learn/programming[Module 5]).

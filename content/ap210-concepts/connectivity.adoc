@@ -1,0 +1,66 @@
+---
+title: Connectivity Modeling
+excerpt: Three types of connectivity in AP 210: physical, layout, and interfacial.
+---
+
+= Connectivity Modeling
+
+AP 210 models three distinct types of connectivity, each serving a different purpose in the design process.
+
+== Physical Connectivity
+
+Physical connectivity defines the actual electrical connections between components:
+
+* Which pins of which components are connected together
+* The net list that defines the complete circuit
+* How signals flow through the physical assembly
+
+Physical connectivity entities:
+
+* **physical_connectivity_definition** - A net (set of connected points)
+* **physical_connectivity_element** - A connection point in the net
+* **join_relationship** - How elements are joined
+
+== Layout Connectivity
+
+Layout connectivity defines how connections are physically implemented on the PCB:
+
+* Trace routing between pads
+* Via connections between layers
+* Copper pours and planes
+
+Layout connectivity maps the physical (logical) connectivity to the actual geometric implementation on the board.
+
+== Interfacial Connectivity
+
+Interfacial connectivity defines connections at the interface between assemblies:
+
+* Board-to-board connectors
+* Cable-to-board connections
+* Test point access
+
+This is particularly important for:
+
+* System-level integration
+* Test fixture design
+* Modular assembly design
+
+== Connectivity Hierarchy
+
+The three connectivity types form a hierarchy:
+
+....
+Functional Connectivity (what should be connected)
+  └── Physical Connectivity (what is connected logically)
+        ├── Layout Connectivity (how it's routed on the board)
+        └── Interfacial Connectivity (how assemblies connect)
+....
+
+== Navigation Example
+
+To find all pins connected to a given net:
+
+1. Start with the `physical_connectivity_definition` (the net)
+2. Find all `physical_connectivity_elements` belonging to the net
+3. For each element, find the associated component terminal
+4. Map the terminal to the physical pad on the component

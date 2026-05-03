@@ -1,0 +1,76 @@
+---
+title: Physical Requirements
+excerpt: How AP 210 captures physical design requirements using the ATX envelope example.
+---
+
+= Physical Requirements
+
+This lesson covers how AP 210 represents physical design requirements. We use the ATX motherboard envelope as an example.
+
+== The ATX Envelope Example
+
+The ATX form factor defines:
+
+* Maximum board dimensions: 305mm x 244mm (full ATX)
+* Mounting hole positions and sizes
+* I/O shield opening dimensions
+* Component height restrictions by zone
+* Keepout areas around the CPU socket
+
+== Requirement Entities
+
+AP 210 captures requirements using:
+
+* **product_definition_relationship** - Links requirements to the design
+* **shape_aspect** - Identifies the specific feature being constrained
+* **measure_with_unit** - The numerical requirement value
+* **tolerance** - Acceptable variation from the nominal value
+
+== Dimensional Requirements
+
+A maximum board length requirement:
+
+[source]
+----
+#100 = SHAPE_ASPECT('board length', 'overall dimension', #board_shape, $);
+#101 = DIMENSIONAL_SIZE('length', #100);
+#102 = MEASURE_WITH_UNIT(LENGTH_MEASURE(305.0), #mm_unit);
+#103 = TOLERANCE((#104, #105), #102, 'maximum');
+#104 = PLUS_MINUS_TOLERANCE(0.0, $);
+#105 = PLUS_MINUS_TOLERANCE(-5.0, $);
+----
+
+This specifies: maximum length = 305mm, tolerance range: 300mm to 305mm.
+
+== Keepout Zones
+
+A keepout zone defines where features cannot be placed:
+
+[source]
+----
+#200 = SHAPE_ASPECT('CPU keepout', '', #board_shape, $);
+#201 = GEOMETRIC_ITEM_SPECIFIC_USAGE('keepout zone', '', #200, #board_shape);
+#202 = ADVANCED_FACE('keepout boundary', ...);
+----
+
+== Component Height Restrictions
+
+Height restrictions by zone:
+
+[source]
+----
+#300 = PROPERTY_DEFINITION('max component height', '', #zone_shape);
+#301 = PROPERTY_DEFINITION_REPRESENTATION(#300, #302);
+#302 = REPRESENTATION('height limit', (#303), #length_context);
+#303 = MEASURE_REPRESENTATION_ITEM('height', #mm_unit, 25.0);
+----
+
+== Validation
+
+To validate a design against requirements:
+
+1. Extract all requirement entities
+2. Identify the features they apply to
+3. Measure the actual values in the design
+4. Compare against requirement bounds
+5. Flag any violations

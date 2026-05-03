@@ -1,0 +1,65 @@
+---
+title: Design-Usage Mapping
+excerpt: Mapping between the design view and usage view of electronic components in AP 210.
+---
+
+= Design-Usage Mapping
+
+AP 210 maintains separate models for the design view and usage view of components. The mapping between these views is a critical concept for understanding how AP 210 data is structured.
+
+== Design View vs. Usage View
+
+=== Design View
+
+The design view describes the component as it is designed:
+
+* Full geometric detail (3D shape, pin locations, package outline)
+* Complete property set (electrical, thermal, mechanical)
+* Library-level definition (generic, reusable)
+
+=== Usage View
+
+The usage view describes the component as it is used in a specific assembly:
+
+* Placement-specific geometry (position, orientation)
+* Connected nets (which pins connect where)
+* Assembly-specific properties (local thermal environment)
+* Instance-level definition (specific to this usage)
+
+== Why Two Views?
+
+Separating design and usage views provides:
+
+* **Library reusability** - One design definition serves many usages
+* **Level of detail control** - Different views for different purposes
+* **Consistency** - All usages of the same component share the same base definition
+* **Efficiency** - Avoid duplicating common data
+
+== Mapping Mechanism
+
+AP 210 maps between views using:
+
+* **product_definition_relationship** - Links design and usage definitions
+* **representation_relationship** - Links geometric representations
+* **mapped_item** - Maps design geometry into usage (assembly) coordinates
+* **shape_representation_relationship** - Connects representations
+
+== Example: Resistor in an Assembly
+
+=== Design View
+
+* 0402 chip resistor outline (1.0mm x 0.5mm)
+* Two terminals at opposite ends
+* Resistance: 10kΩ
+
+=== Usage View
+
+* Placed at position (12.5mm, 7.3mm) on top layer
+* Rotated 90° (vertical orientation)
+* Terminal 1 connected to "VCC" net
+* Terminal 2 connected to "RST" net
+* Operating at 3.3V, 0.1mA
+
+=== Mapping
+
+The `mapped_item` entity transforms the design view geometry into the usage view coordinate system using a transformation matrix.

@@ -1,0 +1,103 @@
+---
+title: Location and Shape
+excerpt: Using JSDAI to query component locations and geometric shape data.
+---
+
+= Location and Shape
+
+This lesson covers how to extract location and shape data from AP 210 using JSDAI.
+
+== Extracting Component Locations
+
+=== Basic Location
+
+[source,java]
+----
+public double[] getLocation(E_next_assembly_usage_occurrence nauo)
+        throws SdaiException {
+    E_item_defined_transformation idt = getTransformation(nauo);
+    E_axis2_placement_3d axis = (E_axis2_placement_3d) idt.getTransform_item_2(null);
+    E_cartesian_point point = axis.getLocation(null);
+    return point.getCoordinates(null);
+}
+----
+
+=== Full Transformation Matrix
+
+[source,java]
+----
+public double[][] getTransformationMatrix(E_next_assembly_usage_occurrence nauo)
+        throws SdaiException {
+    E_item_defined_transformation idt = getTransformation(nauo);
+    E_axis2_placement_3d axis = (E_axis2_placement_3d) idt.getTransform_item_2(null);
+
+    double[] location = axis.getLocation(null).getCoordinates(null);
+    double[] zAxis = axis.getAxis(null).getDirection_ratios(null);
+    double[] xAxis = axis.getRef_direction(null).getDirection_ratios(null);
+    double[] yAxis = crossProduct(zAxis, xAxis);
+
+    return new double[][] {
+        {xAxis[0], yAxis[0], zAxis[0], location[0]},
+        {xAxis[1], yAxis[1], zAxis[1], location[1]},
+        {xAxis[2], yAxis[2], zAxis[2], location[2]},
+        {0, 0, 0, 1}
+    };
+}
+----
+
+== Accessing Shape Data
+
+=== Component Outline
+
+[source,java]
+----
+public E_advanced_brep_shape_representation getComponentShape(E_product component)
+        throws SdaiException {
+    E_product_definition pd = getDesignDefinition(component);
+    E_shape_definition_representation sdr = getShapeRepresentation(pd);
+    return (E_advanced_brep_shape_representation) sdr.getUsed_representation(null);
+}
+----
+
+=== Board Outline
+
+[source,java]
+----
+public List<E_cartesian_point> getBoardOutline(E_product board)
+        throws SdaiException {
+    E_advanced_brep_shape_representation shape = getComponentShape(board);
+    // Extract the outer boundary curve
+    List<E_cartesian_point> points = new ArrayList<>();
+    // Navigate through brep structure to find boundary edges
+    // ...
+    return points;
+}
+----
+
+=== Terminal Locations
+
+[source,java]
+----
+public Map<String, double[]> getTerminalLocations(E_product component)
+        throws SdaiException {
+    Map<String, double[]> terminals = new HashMap<>();
+    List<E_shape_aspect> aspects = getShapeAspects(component);
+    for (E_shape_aspect aspect : aspects) {
+        if (aspect.getDescription(null).equals("Pad") ||
+            aspect.getDescription(null).equals("Terminal")) {
+            double[] location = getAspectLocation(aspect);
+            terminals.put(aspect.getName(null), location);
+        }
+    }
+    return terminals;
+}
+----
+
+== Practical Applications
+
+Location and shape queries support:
+
+* **Pick-and-place programming** - Generate placement coordinates
+* **Collision checking** - Verify component clearances
+* **3D visualization** - Render the assembly
+* **Measurement** - Calculate distances between features

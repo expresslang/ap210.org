@@ -1,0 +1,86 @@
+---
+title: Component Placement
+excerpt: How AP 210 represents component placement using transformation matrices.
+---
+
+= Component Placement
+
+When components are placed on a board, AP 210 uses transformation matrices to define their position and orientation.
+
+== Placement Representation
+
+Each component placement is defined by:
+
+* A **location** (position in 3D space)
+* An **orientation** (rotation around axes)
+* A **reference coordinate system** (the assembly's coordinate system)
+
+== Transformation Matrices
+
+AP 210 uses 4x4 homogeneous transformation matrices:
+
+....
+| Rxx  Rxy  Rxz  Tx |
+| Ryx  Ryy  Ryz  Ty |
+| Rzx  Rzy  Rzz  Tz |
+|  0    0    0   1  |
+....
+
+Where:
+
+* **R** = 3x3 rotation matrix (orientation)
+* **T** = translation vector (position)
+
+== Axis Placements
+
+In STEP files, placement is defined using `AXIS2_PLACEMENT_3D`:
+
+[source]
+----
+#100 = AXIS2_PLACEMENT_3D('placement', #101, #102, #103);
+#101 = CARTESIAN_POINT('location', (12.5, 7.3, 0.0));
+#102 = DIRECTION('axis', (0.0, 0.0, 1.0));
+#103 = DIRECTION('ref_direction', (1.0, 0.0, 0.0));
+----
+
+This defines:
+
+* Location at (12.5, 7.3, 0.0)
+* Z-axis pointing up (normal to board)
+* X-axis pointing right (reference direction)
+
+== Rotation Example
+
+A 90-degree rotation is represented as:
+
+[source]
+----
+#100 = AXIS2_PLACEMENT_3D('R1 placement', #101, #102, #103);
+#101 = CARTESIAN_POINT('location', (12.5, 7.3, 0.0));
+#102 = DIRECTION('axis', (0.0, 0.0, 1.0));
+#103 = DIRECTION('ref_direction', (0.0, 1.0, 0.0));
+----
+
+The reference direction (0, 1, 0) instead of (1, 0, 0) indicates a 90° rotation about the Z axis.
+
+== Item Defined Transformation
+
+In an assembly, placement is captured as:
+
+[source]
+----
+#200 = ITEM_DEFINED_TRANSFORMATION('R1 placement', '',
+  #board_origin, #component_origin);
+----
+
+This maps from the board's coordinate system to the component's coordinate system.
+
+== Reading Placements
+
+To extract component locations from a STEP file:
+
+1. Find `NEXT_ASSEMBLY_USAGE_OCCURRENCE` entities
+2. Find the associated `ITEM_DEFINED_TRANSFORMATION`
+3. Extract the `AXIS2_PLACEMENT_3D` for the component
+4. Read the `CARTESIAN_POINT` for position
+5. Read the `DIRECTION` entities for orientation

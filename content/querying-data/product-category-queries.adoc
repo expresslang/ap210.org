@@ -1,0 +1,88 @@
+---
+title: Product Category Queries
+excerpt: Three query patterns for extracting product classification data from AP 210 datasets.
+---
+
+= Product Category Queries
+
+This lesson presents three queries for extracting product classification information from AP 210 data.
+
+== Query 1: List All Product Categories
+
+**Goal:** Get a list of all product categories in the dataset.
+
+**Algorithm:**
+
+----
+FOR EACH pcr IN Product_Category_Relationship
+  COLLECT pcr.category.name
+END
+----
+
+**Starting point:** `PRODUCT_CATEGORY_RELATIONSHIP`
+
+**Output:** A list of category names, e.g.:
+
+....
+["printed circuit assembly", "electronic component", "integrated circuit"]
+....
+
+== Query 2: Find Products in a Category
+
+**Goal:** Find all products belonging to a specific category.
+
+**Algorithm:**
+
+----
+FOR EACH p IN Product
+  WHERE p.category.name = target_category
+  COLLECT {id: p.id, name: p.name, description: p.description}
+END
+----
+
+**Starting point:** `PRODUCT` → `PRODUCT_RELATED_PRODUCT_CATEGORY`
+
+**Output:** A list of products in the category.
+
+== Query 3: Get Product Category Hierarchy
+
+**Goal:** Build the category hierarchy tree.
+
+**Algorithm:**
+
+----
+FOR EACH pcr IN Product_Category_Relationship
+  parent = pcr.category
+  child = pcr.sub_category
+  ADD child TO parent.children
+END
+BUILD tree FROM root categories
+----
+
+**Starting point:** `PRODUCT_CATEGORY_RELATIONSHIP`
+
+**Output:** A tree of categories:
+
+....
+electronic assembly
+  ├── printed circuit assembly
+  │     ├── bare board
+  │     └── populated board
+  └── electromechanical assembly
+electronic component
+  ├── passive component
+  │     ├── resistor
+  │     └── capacitor
+  └── active component
+        └── integrated circuit
+....
+
+== Query Patterns
+
+These queries demonstrate the filter-navigate-collect pattern:
+
+1. **Filter** on category name or type
+2. **Navigate** from category to product or sub-category
+3. **Collect** the desired attributes
+
+The same pattern is used for all AP 210 queries, just with different entity types and navigation paths.

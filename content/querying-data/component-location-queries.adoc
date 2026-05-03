@@ -1,0 +1,80 @@
+---
+title: Component Location Queries
+excerpt: Two query patterns for finding where components are placed in an AP 210 assembly.
+---
+
+= Component Location Queries
+
+This lesson covers two queries for extracting component placement information from AP 210 data.
+
+== Query 1: List All Component Placements
+
+**Goal:** Get the position and orientation of every component in an assembly.
+
+**Algorithm:**
+
+----
+FOR EACH nauo IN Next_Assembly_Usage_Occurrence
+  WHERE nauo.relating = assembly_definition
+  idt = FIND Item_Defined_Transformation FOR nauo
+  placement = idt.transform_item_2
+  point = placement.location.coordinates
+  COLLECT {
+    component: nauo.related.name,
+    x: point[1],
+    y: point[2],
+    z: point[3]
+  }
+END
+----
+
+**Starting point:** `NEXT_ASSEMBLY_USAGE_OCCURRENCE`
+
+**Navigation path:**
+....
+NAUO → ITEM_DEFINED_TRANSFORMATION → AXIS2_PLACEMENT_3D → CARTESIAN_POINT
+....
+
+**Output:** Component positions:
+
+....
+[
+  {component: "R1", x: 12.5, y: 7.3, z: 0.0},
+  {component: "C1", x: 15.0, y: 7.3, z: 0.0},
+  {component: "U1", x: 20.0, y: 10.0, z: 0.0}
+]
+....
+
+== Query 2: Find Components in a Region
+
+**Goal:** Find all components within a rectangular region on the board.
+
+**Algorithm:**
+
+----
+FOR EACH nauo IN Next_Assembly_Usage_Occurrence
+  location = GET placement coordinates (as above)
+  IF location.x >= min_x AND location.x <= max_x
+     AND location.y >= min_y AND location.y <= max_y
+  THEN
+    COLLECT nauo
+  END IF
+END
+----
+
+**Starting point:** `NEXT_ASSEMBLY_USAGE_OCCURRENCE` with spatial filtering
+
+**Output:** Components in the specified region, useful for:
+
+* Checking clearance between components
+* Identifying components in a thermal zone
+* Finding components for a specific sub-assembly area
+
+== Practical Applications
+
+Component location queries support:
+
+* **Collision detection** - Check if any components overlap
+* **Density analysis** - Calculate component density across the board
+* **Zone-based DRC** - Apply different rules to different board regions
+* **Thermal analysis** - Identify components in hot spots

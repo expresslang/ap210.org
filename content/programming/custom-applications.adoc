@@ -1,0 +1,156 @@
+---
+title: Custom Applications
+excerpt: Building custom applications on top of the JSDAI and MIMqueries frameworks.
+---
+
+= Custom Applications
+
+This lesson covers how to build complete applications that process AP 210 data using the JSDAI framework.
+
+== Application Architecture
+
+A typical AP 210 processing application:
+
+....
+┌──────────────────────────────────────────┐
+│         Application Layer                │
+│  (Business logic, reporting, export)     │
+├──────────────────────────────────────────┤
+│         Query Layer                      │
+│  (MIMqueries, custom queries)            │
+├──────────────────────────────────────────┤
+│         JSDAI Layer                      │
+│  (STEP data access, entity traversal)    │
+├──────────────────────────────────────────┤
+│         Data Layer                       │
+│  (STEP Part 21 files)                    │
+└──────────────────────────────────────────┘
+....
+
+== BOM Extraction Application
+
+[source,java]
+----
+public class BomExtractor {
+    private final MIMqueries queries;
+
+    public BomExtractor(SdaiModel model) throws SdaiException {
+        this.queries = new MIMqueries(model);
+    }
+
+    public List<BomEntry> extractBom() throws SdaiException {
+        List<BomEntry> bom = new ArrayList<>();
+        E_product assembly = queries.getTopLevelProduct();
+        List<E_product> components = queries.getComponentProducts(assembly);
+
+        for (E_product component : components) {
+            BomEntry entry = new BomEntry();
+            entry.partNumber = component.getId(null);
+            entry.name = component.getName(null);
+            entry.category = queries.getProductCategory(component);
+            entry.quantity = countOccurrences(assembly, component);
+            entry.properties = queries.getAllProperties(component);
+            bom.add(entry);
+        }
+        return bom;
+    }
+}
+----
+
+== Design Rule Checker
+
+[source,java]
+----
+public class DesignRuleChecker {
+    private final MIMqueries queries;
+    private final List<String> violations = new ArrayList<>();
+
+    public List<String> check(E_product assembly) throws SdaiException {
+        checkComponentClearance(assembly);
+        checkTraceWidths(assembly);
+        checkViaSizes(assembly);
+        return violations;
+    }
+
+    private void checkComponentClearance(E_product assembly)
+            throws SdaiException {
+        Map<E_product, double[]> locations =
+            queries.getComponentLocations(assembly);
+
+        // Check all pairs for clearance violations
+        List<E_product> components = new ArrayList<>(locations.keySet());
+        for (int i = 0; i < components.size(); i++) {
+            for (int j = i + 1; j < components.size(); j++) {
+                double[] loc1 = locations.get(components.get(i));
+                double[] loc2 = locations.get(components.get(j));
+                double distance = calculateDistance(loc1, loc2);
+                if (distance < MIN_CLEARANCE) {
+                    violations.add(String.format(
+                        "Clearance violation: %s and %s (%.3f mm)",
+                        components.get(i).getId(null),
+                        components.get(j).getId(null),
+                        distance));
+                }
+            }
+        }
+    }
+}
+----
+
+== Export Application
+
+[source,java]
+----
+public class CsvExporter {
+    public void exportBom(List<BomEntry> bom, String filename)
+            throws IOException {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
+            writer.println("Part Number,Name,Category,Quantity");
+            for (BomEntry entry : bom) {
+                writer.printf("%s,%s,%s,%d%n",
+                    entry.partNumber, entry.name,
+                    entry.category, entry.quantity);
+            }
+        }
+    }
+}
+----
+
+== Putting It All Together
+
+[source,java]
+----
+public class Main {
+    public static void main(String[] args) throws Exception {
+        // 1. Open the STEP file
+        SdaiModel model = openModel(args[0]);
+
+        try {
+            // 2. Extract BOM
+            BomExtractor extractor = new BomExtractor(model);
+            List<BomEntry> bom = extractor.extractBom();
+
+            // 3. Check design rules
+            DesignRuleChecker checker = new DesignRuleChecker(model);
+            List<String> violations = checker.check(getAssembly(model));
+
+            // 4. Export results
+            new CsvExporter().exportBom(bom, "bom.csv");
+
+            // 5. Report
+            System.out.println("BOM entries: " + bom.size());
+            System.out.println("Violations: " + violations.size());
+            violations.forEach(System.out::println);
+
+        } finally {
+            model.close();
+        }
+    }
+}
+----
+
+== Next Steps
+
+For complete API reference, see the link:/resources/javadoc[AP210 Java API (Javadoc)].
+
+For source code examples, see link:/resources/implementation[Implementation Source Code].

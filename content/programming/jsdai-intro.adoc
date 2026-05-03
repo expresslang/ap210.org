@@ -1,0 +1,98 @@
+---
+title: JSDAI Introduction
+excerpt: Introduction to the JSDAI Java framework for accessing STEP data.
+---
+
+= JSDAI Introduction
+
+JSDAI (Java STEP Data Access Interface) is a Java framework that provides a high-level API for reading, querying, and manipulating STEP data.
+
+== Overview
+
+JSDAI maps STEP EXPRESS entities to Java classes:
+
+* Each EXPRESS entity type becomes a Java interface
+* Each entity instance becomes a Java object
+* Attributes become Java methods (getters/setters)
+* The entity graph is traversed via method calls
+
+== Setup
+
+JSDAI requires:
+
+* Java runtime (JDK 8+)
+* JSDAI runtime library
+* AP 210 EXPRESS schema compiled for JSDAI
+* A STEP Part 21 file to work with
+
+== Opening a STEP File
+
+[source,java]
+----
+import jsdai.SAp210.*;
+import jsdai.lang.*;
+
+// Open the schema
+SdaiModel model = repository.openModel("my_design", "design.stp");
+
+// Access the AP210 schema
+Ap210_schema schema = (Ap210_schema) model.getSchema();
+----
+
+== Reading Entity Data
+
+[source,java]
+----
+// Find all products
+A_product products = new A_product();
+schema.getInstances(schema.product, products);
+
+SdaiIterator it = products.createIterator();
+while (it.next()) {
+    E_product product = products.getCurrentMember(it);
+    String id = product.getId(null);
+    String name = product.getName(null);
+    System.out.println(id + ": " + name);
+}
+----
+
+== Key Concepts
+
+* **SdaiModel** - Represents a STEP data file
+* **SdaiRepository** - A collection of models
+* **Schema instance** - The EXPRESS schema definition
+* **Entity instance** - A specific entity in the data file
+* **Aggregate** - A collection of entity instances (SET, LIST, etc.)
+
+== Data Types
+
+JSDAI maps EXPRESS data types to Java:
+
+|===
+|EXPRESS Type |Java Type
+
+|INTEGER
+|int / Integer
+
+|REAL
+|double / Double
+
+|STRING
+|String
+
+|BOOLEAN
+|boolean / Boolean
+
+|ENUMERATION
+|int (with constants)
+
+|ENTITY
+|E_entity subclass
+
+|AGGREGATE
+|A_* class
+|===
+
+== Next Steps
+
+The next lesson covers link:/learn/programming/model-traversal[model traversal] — how to navigate the entity graph using JSDAI.

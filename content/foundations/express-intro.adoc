@@ -1,0 +1,69 @@
+---
+title: The EXPRESS Language
+excerpt: The EXPRESS information modeling language used by STEP to define data structures and constraints.
+---
+
+= The EXPRESS Language
+
+EXPRESS is the formal information modeling language used throughout ISO 10303 to define the structure, constraints, and relationships of product data.
+
+== Language Overview
+
+EXPRESS is a schema-based language that defines:
+
+* **Entities** - Object types with attributes (like classes)
+* **Types** - Named data types (enumerations, selects, etc.)
+* **Rules** - Constraints that must hold for valid data
+* **Functions** - Reusable logic used in rules and derivations
+* **Constants** - Named constant values
+* **Schemas** - Namespaces that group related definitions
+
+== Entity Definitions
+
+An entity is the primary building block:
+
+[source,express]
+----
+ENTITY product;
+  id : STRING;
+  name : STRING;
+  description : OPTIONAL STRING;
+END_ENTITY;
+----
+
+Entities support inheritance (subtyping):
+
+[source,express]
+----
+ENTITY printed_circuit_assembly
+  SUBTYPE OF (product);
+  number_of_layers : INTEGER;
+END_ENTITY;
+----
+
+== Data Types
+
+EXPRESS provides several data types:
+
+* **Simple types**: `INTEGER`, `REAL`, `STRING`, `BOOLEAN`, `LOGICAL`, `BINARY`
+* **Aggregation types**: `ARRAY`, `LIST`, `SET`, `BAG`
+* **Enumeration types**: user-defined sets of named values
+* **Select types**: union of named types
+* **Named types**: references to defined entities or types
+
+== Constraints
+
+EXPRESS supports several constraint mechanisms:
+
+* **WHERE rules** - Local constraints on entity instances
+* **UNIQUE rules** - Uniqueness constraints on attribute combinations
+* **Global rules** - Constraints spanning multiple entity instances
+* **Inverse attributes** - Cardinality constraints on relationships
+
+== EXPRESS-G
+
+EXPRESS-G is the graphical notation for EXPRESS schemas, using boxes and lines to represent entities, types, and their relationships. It provides a visual overview of an information model.
+
+== Role in AP 210
+
+AP 210's information model is defined entirely in EXPRESS. Understanding the language is essential for reading the AP 210 schema, writing queries, and developing implementations.

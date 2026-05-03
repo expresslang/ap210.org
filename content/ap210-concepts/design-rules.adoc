@@ -1,0 +1,75 @@
+---
+title: Design Rules
+excerpt: How AP 210 captures and validates design rules and constraints.
+---
+
+= Design Rules
+
+Design rules encode the manufacturing and engineering constraints that an electronic design must satisfy. AP 210 provides a comprehensive framework for capturing and validating these rules.
+
+== Why Design Rules Matter
+
+Design rules prevent:
+
+* **Manufacturing failures** - Features too small to fabricate reliably
+* **Assembly defects** - Components too close together for pick-and-place
+* **Signal integrity issues** - Crosstalk, impedance mismatches, EMI
+* **Reliability problems** - Thermal stress, mechanical failure
+
+== Types of Design Rules
+
+=== Manufacturing Rules
+
+* Minimum trace width
+* Minimum trace spacing
+* Minimum drill size
+* Minimum annular ring
+* Board edge clearance
+
+=== Assembly Rules
+
+* Component spacing
+* Keepout zones
+* Orientation constraints
+* Solder paste specifications
+
+=== Signal Integrity Rules
+
+* Maximum trace length
+* Differential pair matching
+* Impedance targets
+* Crosstalk limits
+
+=== Thermal Rules
+
+* Maximum component power density
+* Thermal clearance around heat sources
+* Airflow path requirements
+
+== Rule Representation in AP 210
+
+AP 210 represents rules using:
+
+* **constraint_definition** - The rule itself
+* **shape_aspect** - The feature the rule applies to
+* **measure_representation** - The numerical value of the constraint
+* **rule_action** - What happens when the rule is violated
+
+== Rule Application
+
+Rules can be applied at different levels:
+
+* **Global** - Apply to the entire design (e.g., minimum trace width)
+* **Class-specific** - Apply to all components of a class (e.g., BGA pitch)
+* **Instance-specific** - Apply to a specific component (e.g., clearance around U1)
+* **Net-specific** - Apply to a specific net (e.g., impedance on high-speed nets)
+
+== Validation Process
+
+Design rule checking (DRC) in AP 210 involves:
+
+1. Retrieve all applicable rules
+2. Identify the features each rule applies to
+3. Measure the actual values in the design
+4. Compare against the rule's limits
+5. Report any violations

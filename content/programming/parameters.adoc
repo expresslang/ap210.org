@@ -1,0 +1,142 @@
+---
+title: Parameters
+excerpt: Using JSDAI to extract parametric data from AP 210 entities.
+---
+
+= Parameters
+
+This lesson covers how to extract parameter and property values from AP 210 data using JSDAI.
+
+== Reading a Single Property
+
+[source,java]
+----
+public Object getPropertyValue(E_product product, String propertyName)
+        throws SdaiException {
+    E_product_definition pd = getDesignDefinition(product);
+    E_shape_aspect shapeAspect = getShapeAspectForProperty(pd, propertyName);
+
+    if (shapeAspect == null) return null;
+
+    E_property_definition propDef = getPropertyDefinition(shapeAspect);
+    E_property_definition_representation pdr =
+        getPropertyDefinitionRepresentation(propDef);
+    E_representation rep = pdr.getUsed_representation(null);
+
+    // Get the first representation item
+    A_representation_item items = rep.getItems(null);
+    E_representation_item item = items.getByIndex(1);
+
+    if (item instanceof E_measure_representation_item) {
+        E_measure_representation_item mri = (E_measure_representation_item) item;
+        return mri.getMeasure(null);
+    }
+    return null;
+}
+----
+
+== Reading All Properties
+
+[source,java]
+----
+public Map<String, Object> getAllProperties(E_product product)
+        throws SdaiException {
+    Map<String, Object> properties = new LinkedHashMap<>();
+    E_product_definition pd = getDesignDefinition(product);
+    List<E_property_definition> propDefs = getPropertyDefinitions(pd);
+
+    for (E_property_definition propDef : propDefs) {
+        String name = propDef.getName(null);
+        Object value = getPropertyValue(propDef);
+        if (value != null) {
+            properties.put(name, value);
+        }
+    }
+    return properties;
+}
+----
+
+== Typed Property Access
+
+[source,java]
+----
+public double getResistance(E_product resistor) throws SdaiException {
+    Object value = getPropertyValue(resistor, "resistance");
+    if (value instanceof Number) {
+        return ((Number) value).doubleValue();
+    }
+    throw new IllegalArgumentException("No resistance property found");
+}
+
+public double getCapacitance(E_product capacitor) throws SdaiException {
+    Object value = getPropertyValue(capacitor, "capacitance");
+    if (value instanceof Number) {
+        return ((Number) value).doubleValue();
+    }
+    throw new IllegalArgumentException("No capacitance property found");
+}
+----
+
+== Units
+
+[source,java]
+----
+public String getPropertyUnit(E_product product, String propertyName)
+        throws SdaiException {
+    // Navigate to the unit entity
+    E_representation rep = getPropertyRepresentation(product, propertyName);
+    E_representation_context context = rep.getContext_of_items(null);
+    // Extract unit information from context
+    return getUnitName(context);
+}
+----
+
+Common units in AP 210 data:
+
+|===
+|Property |Unit
+
+|Resistance
+|Ohm
+
+|Capacitance
+|Farad
+
+|Inductance
+|Henry
+
+|Length
+|Millimeter
+
+|Temperature
+|Degree Celsius
+
+|Voltage
+|Volt
+
+|Current
+|Ampere
+|===
+
+== Batch Parameter Extraction
+
+[source,java]
+----
+public List<ComponentParameter> extractAllParameters(E_product assembly)
+        throws SdaiException {
+    List<ComponentParameter> params = new ArrayList<>();
+    List<E_product> components = getComponentProducts(assembly);
+
+    for (E_product component : components) {
+        Map<String, Object> properties = getAllProperties(component);
+        for (Map.Entry<String, Object> entry : properties.entrySet()) {
+            params.add(new ComponentParameter(
+                component.getId(null),
+                entry.getKey(),
+                entry.getValue()
+            ));
+        }
+    }
+    return params;
+}
+----

@@ -1,0 +1,94 @@
+---
+title: Stratum and Layer
+excerpt: Using JSDAI to query stratum and layer information from multi-layer PCB designs.
+---
+
+= Stratum and Layer
+
+This lesson covers how to query layer stackup and stratum data from AP 210 using JSDAI.
+
+== Querying the Layer Stack
+
+[source,java]
+----
+public List<LayerInfo> getLayerStack(E_product board) throws SdaiException {
+    List<LayerInfo> layers = new ArrayList<>();
+    List<E_stratum> stratums = getStratums(board);
+
+    // Sort by position
+    stratums.sort(Comparator.comparingInt(this::getStratumPosition));
+
+    for (E_stratum stratum : stratums) {
+        LayerInfo info = new LayerInfo();
+        info.name = stratum.getName(null);
+        info.technology = getStratumTechnology(stratum);
+        info.thickness = getStratumThickness(stratum);
+        info.material = getStratumMaterial(stratum);
+        layers.add(info);
+    }
+    return layers;
+}
+----
+
+== LayerInfo Data Class
+
+[source,java]
+----
+public class LayerInfo {
+    String name;       // e.g., "Top Copper", "Prepreg 1"
+    String technology; // e.g., "signal", "ground", "power", "dielectric"
+    double thickness;  // in mm
+    String material;   // e.g., "Copper", "FR-4"
+}
+----
+
+== Via Queries
+
+[source,java]
+----
+public List<ViaInfo> getVias(E_product board) throws SdaiException {
+    List<ViaInfo> vias = new ArrayList<>();
+    List<E_inter_stratum_feature> features = getInterStratumFeatures(board);
+
+    for (E_inter_stratum_feature via : features) {
+        ViaInfo info = new ViaInfo();
+        info.name = via.getName(null);
+        info.startLayer = getStartLayer(via);
+        info.endLayer = getEndLayer(via);
+        info.location = getViaLocation(via);
+        info.padSize = getViaPadSize(via);
+        vias.add(info);
+    }
+    return vias;
+}
+----
+
+== Stratum Features
+
+Each stratum has associated features:
+
+[source,java]
+----
+public List<E_shape_aspect> getFeaturesOnLayer(E_product board, String layerName)
+        throws SdaiException {
+    E_stratum stratum = findStratum(board, layerName);
+    return getShapeAspectsForStratum(stratum);
+}
+----
+
+Feature types include:
+
+* **Traces** - Conductive paths
+* **Pads** - Component attachment points
+* **Vias** - Inter-layer connections
+* **Copper pours** - Planes and fills
+* **Keepouts** - Restricted areas
+
+== Practical Applications
+
+Stratum queries support:
+
+* **Impedance calculation** - Layer thickness and dielectric constant determine impedance
+* **Manufacturing DFM** - Check stackup against fabricator capabilities
+* **Thermal analysis** - Copper layers act as heat spreaders
+* **Signal integrity** - Layer assignment affects crosstalk and EMI

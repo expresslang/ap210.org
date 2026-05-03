@@ -1,0 +1,60 @@
+---
+title: Product Classification
+excerpt: How AP 210 classifies electronic products using structured categories and properties.
+---
+
+= Product Classification
+
+AP 210 uses a classification system to categorize electronic products and their components.
+
+== Why Classification Matters
+
+Product classification enables:
+
+* **Data validation** - Ensure the right data is captured for each product type
+* **Query support** - Find all products of a given type
+* **Library organization** - Structure component libraries by category
+* **Manufacturing planning** - Route products to appropriate processes
+
+== Classification Hierarchy
+
+AP 210 supports a hierarchical classification scheme:
+
+* **Top level** - Generic product categories (assembly, part, material)
+* **Mid level** - Domain-specific categories (PCB, IC package, connector, passive component)
+* **Detail level** - Specific types (BGA package, QFP package, 0402 resistor)
+
+== Key Classification Concepts
+
+=== Product Category
+
+A `product_category` assigns a classification to a product:
+
+* Has a name (e.g., "printed circuit assembly", "integrated circuit")
+* Can be organized in a hierarchy via `product_category_relationship`
+* Products can belong to multiple categories
+
+=== Product Context
+
+A `product_context` identifies the discipline or life-cycle stage:
+
+* "electrical design"
+* "mechanical design"
+* "manufacturing planning"
+
+=== Product Definition Context
+
+A `product_definition_context` specifies the view of the product:
+
+* "design view" - As designed
+* "manufacturing view" - As manufactured
+* "functional view" - Functional requirements
+
+== Using Classification in Queries
+
+Classification is often the starting point for navigating AP 210 data:
+
+1. Find the product category of interest
+2. Retrieve all products in that category
+3. Navigate to specific product definitions
+4. Access the geometric and non-geometric data for each definition
