@@ -43,8 +43,8 @@ const contributors: ContributorGroup[] = [
       },
       {
         name: 'Allison Barnard Feeney',
-        role: 'NIST Research Leader',
-        affiliation: 'National Institute of Standards and Technology',
+        role: 'General Manager, PDES Inc.',
+        affiliation: 'PDES Inc. / NIST',
         highlights: [
           'Led NIST research on product manufacturing information (PMI) in STEP',
           'Co-authored research on migrating PMI models to a common core',
@@ -57,10 +57,10 @@ const contributors: ContributorGroup[] = [
       },
       {
         name: 'Kevin Brady',
-        role: 'NIST Strategic Direction',
+        role: 'Research & Engineering',
         affiliation: 'National Institute of Standards and Technology',
         highlights: [
-          'Provided strategic direction for STEP standards at NIST',
+          'Research and engineering leadership for STEP standards at NIST',
           'Co-authored AP210 Ed2 Concept of Operations (NISTIR 7677)',
           'Co-authored thermal resistor network model research (GCR 15-990)',
           'Directed NIST programs supporting STEP implementation',
