@@ -38,10 +38,30 @@ const sections = [
 ]
 
 const editions = [
-  { n: 1, year: '2001', desc: 'First publication' },
-  { n: 2, year: '2006', desc: 'Expanded scope' },
-  { n: 3, year: '2014', desc: 'Major revision' },
-  { n: 4, year: '2021', desc: 'Current edition' },
+  {
+    n: 1, year: '2004', status: 'Withdrawn',
+    iso: 'ISO 10303-210:2004',
+    desc: 'Established the foundational information model for PCA design data exchange.',
+    features: ['Product structure & classification', 'Physical design representation', 'Basic connectivity', 'Component library definitions'],
+  },
+  {
+    n: 2, year: '2011', status: 'Withdrawn',
+    iso: 'ISO 10303-210:2011',
+    desc: 'Expanded scope for advanced packaging and interconnect modeling.',
+    features: ['Advanced packaging (BGA, CSP)', 'Layer stacks & via structures', 'Thermal & electrical properties', 'Design-to-usage view mapping'],
+  },
+  {
+    n: 3, year: '2016', status: 'Withdrawn',
+    iso: 'ISO 10303-210:2016',
+    desc: 'Major revision introducing design rules, constraints, and functional decomposition.',
+    features: ['Design rules & constraints', 'Layer stack with stratum technology', 'Physical requirements capture', 'Interfacial connectivity'],
+  },
+  {
+    n: 4, year: '2021', status: 'Current',
+    iso: 'ISO 10303-210:2021',
+    desc: 'The current edition — comprehensive coverage of electronic design data exchange.',
+    features: ['Full modular architecture', 'Design-through-manufacturing exchange', 'Material properties', 'Complex multi-layer PCA support'],
+  },
 ]
 
 const heroCode = `SCHEMA AP210_Electronic_Assembly;
@@ -153,7 +173,7 @@ END_SCHEMA;`
 
     <!-- Standards editions -->
     <section class="py-20 bg-gray-50 dark:bg-navy-light/30">
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div class="text-center mb-14">
             <p class="font-mono text-xs tracking-[0.2em] uppercase text-elf-blue dark:text-elf-blue mb-3">Evolution</p>
@@ -164,23 +184,25 @@ END_SCHEMA;`
           </div>
         </AnimatedSection>
 
-        <div class="relative">
-          <div class="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-elf-blue/30 via-elf-blue/10 to-transparent dark:from-elf-blue/30 dark:via-elf-blue/10" />
-          <div class="space-y-8">
-            <AnimatedSection v-for="(ed, i) in editions" :key="ed.n" :style="{ transitionDelay: `${i * 80}ms` }">
-              <RouterLink :to="`/standard/ed${ed.n}`" class="relative flex items-start gap-6 sm:gap-8 group">
-                <div class="relative z-10 shrink-0">
-                  <div class="w-8 sm:w-16 h-8 sm:h-16 rounded-full bg-white dark:bg-navy-light border-2 border-elf-blue/30 dark:border-elf-blue/30 flex items-center justify-center group-hover:border-elf-blue dark:group-hover:border-elf-blue transition-colors">
-                    <span class="font-mono text-xs sm:text-sm font-bold text-elf-blue dark:text-elf-blue">{{ ed.year }}</span>
-                  </div>
-                </div>
-                <div class="pt-1 sm:pt-4">
-                  <p class="font-serif font-bold text-gray-900 dark:text-white group-hover:text-elf-blue transition-colors">Edition {{ ed.n }}</p>
-                  <p class="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{{ ed.desc }}</p>
-                </div>
-              </RouterLink>
-            </AnimatedSection>
-          </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <AnimatedSection v-for="(ed, i) in editions" :key="ed.n" :style="{ transitionDelay: `${i * 80}ms` }">
+            <RouterLink :to="`/standard/ed${ed.n}`" class="block rounded-xl border border-gray-200/80 dark:border-gray-700/60 bg-white dark:bg-navy-light p-5 hover:border-elf-blue/30 dark:hover:border-elf-blue/30 hover:shadow-lg hover:shadow-elf-blue/5 dark:hover:shadow-elf-blue/5 hover:-translate-y-0.5 transition-all duration-200 group h-full">
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-mono text-xs font-bold px-2 py-0.5 rounded-full bg-elf-blue/10 dark:bg-elf-blue/15 text-elf-blue dark:text-elf-blue">{{ ed.year }}</span>
+                <span v-if="ed.status === 'Current'" class="text-[0.6rem] font-mono font-semibold tracking-wider uppercase px-2 py-0.5 rounded-full border border-emerald-400/40 text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20">Current</span>
+                <span v-else class="text-[0.6rem] font-mono tracking-wider uppercase px-2 py-0.5 rounded-full text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800/60">Withdrawn</span>
+              </div>
+              <h3 class="font-serif font-bold text-lg text-gray-900 dark:text-white group-hover:text-elf-blue transition-colors mb-1">Edition {{ ed.n }}</h3>
+              <p class="text-xs text-gray-400 dark:text-gray-500 font-mono mb-3">{{ ed.iso }}</p>
+              <p class="text-sm text-gray-600 dark:text-gray-300 leading-snug mb-4">{{ ed.desc }}</p>
+              <ul class="space-y-1.5">
+                <li v-for="f in ed.features" :key="f" class="text-xs text-gray-500 dark:text-gray-400 flex items-start gap-1.5">
+                  <span class="w-1 h-1 rounded-full bg-elf-blue/40 dark:bg-elf-blue/30 shrink-0 mt-1.5" />
+                  {{ f }}
+                </li>
+              </ul>
+            </RouterLink>
+          </AnimatedSection>
         </div>
       </div>
     </section>
