@@ -55,6 +55,12 @@ const contributors: ContributorGroup[] = [
           { label: 'NIST AMS 100-51', url: 'https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=935394' },
         ],
       },
+    ],
+  },
+  {
+    category: 'Research & Engineering',
+    description: 'Developed reference implementations, analytical models, and research foundations for AP 210.',
+    people: [
       {
         name: 'Kevin Brady',
         role: 'Research & Engineering',
@@ -70,12 +76,6 @@ const contributors: ContributorGroup[] = [
           { label: 'Thermal Resistor Network (GCR 15-990)', url: 'https://www.nist.gov/publications/representation-thermal-resistor-network-model-packaged-component-step-ap210-edition-2' },
         ],
       },
-    ],
-  },
-  {
-    category: 'Research & Engineering',
-    description: 'Developed reference implementations, analytical models, and research foundations for AP 210.',
-    people: [
       {
         name: 'Peter Denno',
         role: 'Computer Scientist',
