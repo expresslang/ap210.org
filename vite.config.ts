@@ -40,7 +40,7 @@ export default defineConfig({
         '/learn/programming', ...programming.map((p) => `/learn/programming/${basename(p, '.json')}`),
         '/resources', '/resources/test-cases', '/resources/javadoc', '/resources/arm-mim-reference',
         '/resources/implementation', '/resources/express-schema', '/resources/discussions',
-        '/resources/training-materials',
+        '/resources/training-materials', '/resources/publications',
         '/blog', ...posts.map((p) => `/blog/${basename(p, '.json')}`),
         '/privacy', '/tos', '/404',
       ]

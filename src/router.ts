@@ -65,6 +65,7 @@ export const routes: RouteRecordRaw[] = [
   { path: '/resources/express-schema', component: SectionPage, meta: { contentSection: 'pages', contentSlug: 'resources-express-schema', navKey: 'resources', basePath: '/resources', title: 'EXPRESS Schema', description: 'The complete AP210 ARM extended longform EXPRESS schema — the authoritative information model definition.' } },
   { path: '/resources/discussions', component: SectionPage, meta: { contentSection: 'pages', contentSlug: 'resources-discussions', navKey: 'resources', basePath: '/resources', title: 'Discussions', description: 'Primary source materials from the PDES AP210 Rules Model design process.' } },
   { path: '/resources/training-materials', component: SectionPage, meta: { contentSection: 'pages', contentSlug: 'resources-training-materials', navKey: 'resources', basePath: '/resources', title: 'Training Materials', description: 'Original PDES AP210 Training CD presentation slides from the July 2003 training program.' } },
+  { path: '/resources/publications', component: () => import('@/pages/resources/publications.vue'), meta: { navKey: 'resources', basePath: '/resources', title: 'Publications', description: 'Key NIST and INCOSE publications documenting AP 210 research and methodology.' } },
 
   // Legal
   { path: '/privacy', component: SimplePage, meta: { contentSlug: 'privacy', title: 'Privacy Policy', description: 'Privacy policy for ap210.org — operated by the EXPRESS Language Foundation.' } },

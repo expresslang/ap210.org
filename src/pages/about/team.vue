@@ -213,19 +213,6 @@ const organizations = [
     ],
   },
 ]
-
-const publications = [
-  { id: 'NIST AMS 100-51', title: 'On Migrating ISO 10303 PMI Models to a Common Core', authors: 'Feeney & Thurman', url: 'https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=935394' },
-  { id: 'NIST AMS 300-12', title: 'Research Results and Recommendations for Universally Unique Identifiers', authors: 'NIST', url: 'https://nvlpubs.nist.gov/nistpubs/ams/NIST.AMS.300-12.pdf' },
-  { id: 'NIST GCR 15-990', title: 'Representation of Thermal Resistor Network Model in STEP AP210 Ed2', authors: 'Stori, Brady & Thurman', url: 'https://www.nist.gov/publications/representation-thermal-resistor-network-model-packaged-component-step-ap210-edition-2' },
-  { id: 'NIST GCR 15-991', title: 'Extensions of Recommended Practices for GD&T in STEP-AP210', authors: 'NIST', url: 'https://www.nist.gov/publications/extensions-recommended-practices-gdt-step-ap210-context-packaged-electronic-components' },
-  { id: 'NIST IR 6991', title: 'Thermal Resistor Network Model for a Packaged Component for Use in STEP AP210', authors: 'NIST', url: 'https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=903903' },
-  { id: 'NIST IR 7648', title: 'NIST IR 7648', authors: 'NIST', url: 'https://doi.org/10.6028/NIST.IR.7648' },
-  { id: 'PLM Requirements', title: 'Requirements on Information Technology for Product Lifecycle Management', authors: 'Denno & Thurman', url: 'https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=822191' },
-  { id: 'INCOSE MBSE', title: 'On Enabling a Model-Based Systems Engineering Discipline', authors: 'Denno, Thurman, Mettenburg & Hardy', url: 'https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=824653' },
-  { id: 'NIST IR 7677', title: 'AP210 Edition 2 Concept of Operations', authors: 'Stori & Brady', url: 'https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=905123' },
-  { id: 'NIST IR 7717', title: 'Use Cases for Management and Maintenance of Multi-Domain AP210 Component Models', authors: 'NIST', url: 'https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=906355' },
-]
 </script>
 
 <template>
@@ -343,39 +330,10 @@ const publications = [
       </div>
     </section>
 
-    <!-- Reference Publications -->
+    <!-- Open Source -->
     <section class="mb-12">
       <AnimatedSection>
-        <div class="mb-8">
-          <h2 class="text-2xl font-serif font-bold text-gray-900 dark:text-white">Reference Publications</h2>
-          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Key NIST and INCOSE publications documenting AP 210 research and methodology.</p>
-        </div>
-      </AnimatedSection>
-
-      <AnimatedSection>
-        <div class="rounded-xl border border-gray-200/80 dark:border-gray-700/60 bg-white dark:bg-navy-light overflow-hidden">
-          <div class="divide-y divide-gray-100 dark:divide-gray-700/40">
-            <a
-              v-for="pub in publications"
-              :key="pub.id"
-              :href="pub.url"
-              target="_blank"
-              rel="noopener"
-              class="flex items-start gap-4 px-5 py-3.5 hover:bg-elf-blue/[0.03] dark:hover:bg-elf-blue/[0.05] transition-colors group"
-            >
-              <span class="shrink-0 mt-0.5 font-mono text-[0.65rem] tracking-wider text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800/60 px-2 py-1 rounded-md">{{ pub.id }}</span>
-              <div class="min-w-0 flex-1">
-                <p class="text-sm font-medium text-gray-900 dark:text-white group-hover:text-elf-blue transition-colors leading-snug">{{ pub.title }}</p>
-                <p class="text-xs text-gray-400 dark:text-gray-500 mt-0.5">{{ pub.authors }}</p>
-              </div>
-              <svg class="w-4 h-4 text-gray-300 dark:text-gray-600 group-hover:text-elf-blue shrink-0 mt-1 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            </a>
-          </div>
-        </div>
-      </AnimatedSection>
-
-      <AnimatedSection>
-        <div class="mt-10 pt-8 border-t border-gray-100 dark:border-gray-700/40">
+        <div class="pt-8 border-t border-gray-100 dark:border-gray-700/40">
           <h2 class="text-xl font-serif font-bold text-gray-900 dark:text-white mb-3">Open Source Maintenance</h2>
           <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
             The AP 210 online resources, including this website, the research data archive, and educational materials,

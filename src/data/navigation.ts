@@ -136,6 +136,7 @@ export const resourcesNavigation: NavItem[] = [
   { title: 'EXPRESS Schema', slug: 'express-schema' },
   { title: 'Discussions', slug: 'discussions' },
   { title: 'Training Materials', slug: 'training-materials' },
+  { title: 'Publications', slug: 'publications' },
 ]
 
 export const navigationMap: Record<string, NavItem[]> = {
