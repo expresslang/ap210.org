@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "build:content": "tsx scripts/build-content.ts",
-    "dev": "npm run build:content && vite",
+    "copy:assets": "tsx scripts/copy-static-assets.ts",
+    "dev": "npm run build:content && npm run copy:assets && vite",
     "dev:watch": "concurrently \"tsx watch scripts/build-content.ts\" \"vite\"",
-    "build": "npm run build:content && vite-ssg build && tsx scripts/generate-sitemap.ts",
+    "build": "npm run build:content && npm run copy:assets && vite-ssg build && tsx scripts/generate-sitemap.ts",
     "preview": "vite preview"
   },
   "dependencies": {
